@@ -1,0 +1,67 @@
+.f-Layout {
+  height: 100%;
+}
+
+.f-Layout.f-is-active {
+  overflow: hidden;
+}
+
+@media (--large-viewport) {
+  .f-Layout.f-is-active {
+    overflow: auto;
+  }
+}
+
+.f-Layout-body {
+  position: relative;
+  margin: 0;
+}
+
+.f-Layout.f-is-active .f-Layout-body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+@media (--large-viewport) {
+  .f-Layout.f-is-active .f-Layout-body {
+    overflow: auto;
+  }
+}
+
+.f-Layout-main {
+  position: relative;
+  z-index: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.f-Layout.f-is-active .f-Layout-main {
+  transform: translate(var(--Layout-nav-width), 0);
+}
+
+@media (--large-viewport) {
+  .f-Layout.f-is-active .f-Layout-main {
+    margin-left: var(--Layout-nav-width);
+    transform: translate(0, 0);
+  }
+}
+
+.f-Layout-nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  width: var(--Layout-nav-width);
+  height: 100%;
+  transform: translate(calc(var(--Layout-nav-width) * -1), 0);
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.f-Layout.f-is-active .f-Layout-nav {
+  transform: translate(0, 0);
+}

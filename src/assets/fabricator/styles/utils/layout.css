@@ -1,0 +1,24 @@
+
+/**
+ * Contain floats
+ *
+ * Make an element expand to contain floated children.
+ * Uses pseudo-elements (micro clearfix).
+ *
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of the
+ *    element.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.f-u-cf:before,
+.f-u-cf:after {
+  display: table; /* 2 */
+  content: " "; /* 1 */
+}
+
+.f-u-cf:after {
+  clear: both;
+}

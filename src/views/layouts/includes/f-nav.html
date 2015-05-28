@@ -1,0 +1,49 @@
+<div class="f-Layout-nav f-Nav">
+	<div class="f-Nav-header">
+		<svg>
+			<use xlink:href="#f-icon-cloudfour" />
+		</svg>
+	</div>
+	<ul class="f-Nav-menu">
+		<li>
+			<a href="index.html" class="f-Nav-item f-Nav-item--heading">Overview</a>
+		</li>
+		{{#each materials}}
+		<li>
+			<a href="{{@key}}.html" class="f-Nav-item f-Nav-item--heading">{{ displayName name}}</a>
+			<ul class="f-Nav-menu">
+				{{#each items}}
+				<li>
+					<a href="{{@../key}}.html#{{@key}}" class="f-Nav-item">{{ displayName name}}</a>
+				</li>
+				{{/each}}
+			</ul>
+		</li>
+		{{/each}}
+		{{#each views}}
+		<li>
+			<a href="{{@key}}.html" class="f-Nav-item f-Nav-item--heading">{{ displayName name}}</a>
+			<ul class="f-Nav-menu">
+				{{#each items}}
+				<li>
+					<a href="{{@../key}}/{{@key}}.html" class="f-Nav-item">{{ displayName name}}</a>
+				</li>
+				{{/each}}
+			</ul>
+		</li>
+		{{/each}}
+		<li>
+			<a href="docs.html" class="f-Nav-item f-Nav-item--heading">Docs</a>
+			<ul class="f-Nav-menu">
+				{{#each docs}}
+				<li>
+					<a href="docs.html#{{@key}}" class="f-Nav-item">{{ displayName name}}</a>
+				</li>
+				{{/each}}
+			</ul>
+		</li>
+	</ul>
+	<div class="f-Nav-footer">
+		{{ moment format="MMM D, YYYY"}} &#183; {{ moment format="h:mma"}}
+	</div>
+</div>

@@ -1,0 +1,13 @@
+---
+fabricator: true
+---
+
+<h1 data-f-toggle="labels">Sandbox</h1>
+
+<ul>
+	{{#each views.sandbox.items}}
+		<li>
+			<a href="sandbox/{{@key}}.html" class="f-item-heading">{{name}}</a>
+		</li>
+	{{/each}}
+</ul>

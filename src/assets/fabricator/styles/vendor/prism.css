@@ -1,0 +1,123 @@
+/**
+ * Github-like theme for Prism.js
+ * @author Luke Askew http://github.com/lukeaskew
+ */
+
+/* color vars */
+:root {
+	--color-code-blue: #183691;
+	--color-code-teal: #0086b3;
+	--color-code-black: #333;
+	--color-code-purple: #a71d5d;
+	--color-code-maroon: #a71d5d;
+	--color-code-green: #63a35c;
+	--color-code-light-gray: #f7f7f7;
+	--color-code-dark-gray: #969896;
+}
+
+/* base */
+code,
+code[class*='language-'],
+pre[class*='language-'] {
+	color: var(--color-code-black);
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	tab-size: 4;
+	hyphens: none;
+	font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+	line-height: 1.4;
+	direction: ltr;
+	cursor: text;
+}
+
+/* code blocks */
+pre[class*='language-'] {
+	overflow: auto;
+	margin: 1em 0;
+	padding: 1.2em;
+	border-radius: 3px;
+	font-size: 85%;
+}
+
+p code,
+li code,
+table code {
+	margin: 0;
+	border-radius: 3px;
+	padding: 0.2em 0;
+	font-size: 85%;
+}
+
+p code:before,
+p code:after,
+li code:before,
+li code:after,
+table code:before,
+table code:after {
+	letter-spacing: -0.2em;
+	content: '\00a0';
+}
+
+code,
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+	background: var(--color-code-light-gray);
+}
+
+/* inline code */
+:not(pre) > code[class*='language-'] {
+	padding: 0.1em;
+	border-radius: 0.3em;
+}
+
+
+/* token colors */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: var(--color-code-dark-gray);
+}
+
+.token.punctuation,
+.token.string,
+.token.atrule,
+.token.attr-value {
+	color: var(--color-code-blue);
+}
+
+.token.property,
+.token.tag {
+	color: var(--color-code-green);
+}
+
+.token.boolean,
+.token.number {
+	color: var(--color-code-teal);
+}
+
+.token.selector,
+.token.attr-name,
+.token.attr-value .punctuation:first-child,
+.token.keyword,
+.token.regex,
+.token.important {
+	color: var(--color-code-maroon);
+}
+
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css &.string {
+	color: var(--color-code-purple);
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.namespace {
+	opacity: 0.7;
+}

@@ -1,0 +1,81 @@
+.f-Item {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--Item-border);
+}
+
+.f-Item:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.f-Item ~ .f-Item {
+  margin-top: 0;
+}
+
+.f-Item > .f-Item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0;
+}
+
+.f-Item > .f-Item:first-of-type {
+  margin-top: 0;
+}
+
+.f-Item > .f-Item:last-child {
+  padding-bottom: 0;
+}
+
+.f-Item-header {
+  margin-bottom: 2rem;
+}
+
+.f-Item-heading,
+.f-Item-labels {
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.f-Item-heading {
+  margin-right: 1rem;
+  line-height: 1;
+}
+
+.f-Item-labels > li {
+  position: relative;
+  top: -0.2rem;
+  margin-top: 0.5rem;
+}
+
+.f-Item-notes {
+  font-size: 0.875rem;
+}
+
+.f-Item-controls {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.f-Item-control {
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  line-height: 1;
+  vertical-align: baseline;
+  text-decoration: none;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.f-Item-control svg {
+  position: relative;
+  margin-top: -0.375em;
+  width: 1.5em;
+  height: 1em;
+  vertical-align: middle;
+
+  fill: currentColor;
+}

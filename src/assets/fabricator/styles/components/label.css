@@ -1,0 +1,24 @@
+.f-Label {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.f-Label--deprecated,
+.f-Label--approved {
+  color: #fff;
+}
+
+.f-Label--inprogress {
+  background-color: var(--Label-inprogress);
+}
+
+.f-Label--deprecated {
+  background-color: var(--Label-deprecated);
+}
+
+.f-Label--approved {
+  background-color: var(--Label-approved);
+}

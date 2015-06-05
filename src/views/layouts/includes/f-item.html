@@ -1,21 +1,20 @@
 <div class="f-Item" id="{{@key}}">
 
-	<div class="f-Item-header">
-		<h2 class="f-Item-heading" data-f-toggle="labels">{{displayName name}}</h2>
-		{{> f-item-header-content this}}
-	</div>
-	{{#if items}}
-		{{#each items}}
-			<div class="f-Item" id="{{@key}}">
-				<div class="f-Item-header">
-					<h3 class="f-Item-heading" data-f-toggle="labels">{{displayName name}}</h3>
-					{{> f-item-header-content this}}
-				</div>
-				{{> f-item-content this}}
-			</div>
-		{{/each}}
-	{{else}}
-		{{> f-item-content this}}
-	{{/if}}
+    <div class="f-Item-header">
+        <h2 class="f-Item-heading" data-f-toggle="labels">{{displayName name}}</h2>
+        {{> f-item-header-content this}}
+    </div>
+    {{#if items}}
+        {{#each items}}
+            <div class="f-Item" id="{{@key}}">
+                <div class="f-Item-header">
+                    <h3 class="f-Item-heading" data-f-toggle="labels">{{displayName name}}</h3>
+                    {{> f-item-header-content this}}
+                </div>{{> f-item-content this}}
+            </div>
+        {{/each}}
+    {{else}}
+{{> f-item-content this}}
+    {{/if}}
 
 </div>

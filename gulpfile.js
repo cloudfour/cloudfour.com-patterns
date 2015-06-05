@@ -105,9 +105,9 @@ gulp.task('assemble', function (done) {
     // apply additional helpers
     helpers: requireDir('./build/helpers'),
     beautifier: {
-      "indent_size": 2,
-      "indent_char": " ",
-      "indent_with_tabs": false
+      'indent_size': 2,
+      'indent_char': ' ',
+      'indent_with_tabs': false
     }
   });
   done();

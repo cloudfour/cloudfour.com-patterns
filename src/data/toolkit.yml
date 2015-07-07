@@ -1,8 +1,9 @@
 colors:
   primary:
-    Dark: "rgb(30, 30, 30)"
-    Light: "rgb(242, 242, 242)"
+    Dark Blue: "rgb(15, 28, 63)"
+    Deep Blue: "rgb(69, 107, 217)"
+    Gray: "rgb(219, 229, 234)"
   secondary:
-    Red: "rgb(201, 55, 6)"
-    Yellow: "rgb(252, 207, 80)"
-    Blue: "rgb(39, 102, 143)"
+    Orange: "rgb(242, 105, 65)"
+    Green: "rgb(53, 201, 141)"
+    Pink: "rgb(241, 76, 163)"

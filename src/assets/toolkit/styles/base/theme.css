@@ -48,7 +48,7 @@
 
 :root {
   --font-size: 16px;
-  --font-family: sans-serif;
+  --font-family: "Source Sans Pro", sans-serif;
   --line-height: var(--ratio);
 }
 

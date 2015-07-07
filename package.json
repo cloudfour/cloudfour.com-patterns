@@ -48,6 +48,7 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",
     "script-loader": "^0.6.1",
+    "suitcss-base": "^0.8.0",
     "webpack": "^1.8.3"
   },
   "dependencies": {}

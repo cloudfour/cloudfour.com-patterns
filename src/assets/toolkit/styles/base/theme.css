@@ -1,0 +1,58 @@
+/**
+ * Theme definition
+ *
+ * This defines the theme in fundamental terms, but not how it is applied to
+ * the components. That is done in `theme-map.css`.
+ */
+
+/**
+ * Breakpoints
+ */
+
+@custom-media --sm-viewport (width >= 30em);
+@custom-media --md-viewport (width >= 48em);
+@custom-media --lg-viewport (width >= 64em);
+
+/**
+ * Misc
+ */
+
+:root {
+  --ratio: 1.5;
+}
+
+/**
+ * Colors
+ */
+
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+}
+
+/**
+ * Typography
+ */
+
+:root {
+  --font-size: 16px;
+  --font-family: sans-serif;
+  --line-height: var(--ratio);
+}
+
+/**
+ * Spacing
+ */
+
+:root {
+  --space-small: 1rem;
+  --space-medium: calc(var(--space-small) * var(--ratio));
+  --space-large: calc(var(--space-medium) * var(--ratio));
+}
+
+/**
+ * Custom selectors
+ */
+
+@custom-selector :--headings h1, h2, h3, h4, h5, h6;
+@custom-selector :--lists ul, ol, dl;

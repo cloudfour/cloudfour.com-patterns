@@ -1,7 +1,1 @@
-/**
- * Toolkit CSS
- */
-
-body {
-  font-family: sans-serif;
-}
+@import "./base/index.css";

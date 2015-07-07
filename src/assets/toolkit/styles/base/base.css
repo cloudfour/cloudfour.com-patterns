@@ -1,10 +1,1 @@
 @import "suitcss-base";
-
-/**
- * Apply vertical margin to all siblings by default
- * http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
- */
-
-* + * {
-  margin-top: var(--margin-base);
-}

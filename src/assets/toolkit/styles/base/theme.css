@@ -28,6 +28,18 @@
 :root {
   --color-black: #000;
   --color-white: #fff;
+
+  /* Primary blues */
+  --color-dark-blue: #0f1c3f;
+  --color-deep-blue: #456bd9;
+
+  /* Primary grays */
+  --color-gray: #dbe5ea;
+
+  /* Secondary colors */
+  --color-orange: #f26941;
+  --color-green: #35c98d;
+  --color-pink: #f14ca3;
 }
 
 /**

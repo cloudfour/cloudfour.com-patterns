@@ -5,3 +5,7 @@
 :--headings {
   font-weight: bold;
 }
+
+body {
+  font: var(--font-base);
+}

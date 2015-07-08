@@ -39,7 +39,7 @@
   box-shadow: inset 0 0 0 var(--Thumbnail-shadow-width) color(var(--Thumbnail-shadow-color) a(50%));
 }
 
-.Thumbnail img {
+.Thumbnail > img {
   position: relative;
   z-index: -1;
   border-radius: inherit;

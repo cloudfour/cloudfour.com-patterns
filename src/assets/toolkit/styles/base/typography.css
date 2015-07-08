@@ -1,11 +1,70 @@
 /**
- * Weights
+ * Global type styles
+ *
+ * 1. Root font size for rem basis
+ * 2. Base font style for everything
+ */
+
+html {
+  font-size: var(--font-size-px); /* 1 */
+}
+
+body {
+  font: var(--font-base); /* 2 */
+}
+
+/**
+ * Headings
  */
 
 :--headings {
   font-weight: bold;
 }
 
-body {
-  font: var(--font-base);
+h1,
+h2,
+h3 {
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+}
+
+h4 {
+  font-size: var(--font-size-sm);
+}
+
+h5 {
+  text-transform: uppercase;
+}
+
+h5,
+h6 {
+  font-size: var(--font-size-xs);
+}
+
+/**
+ * Body copy
+ */
+
+p + p {
+  margin-top: var(--margin-base);
+}
+
+/**
+ * Inline text elements
+ */
+
+small {
+  font-size: var(--font-size-xs);
 }

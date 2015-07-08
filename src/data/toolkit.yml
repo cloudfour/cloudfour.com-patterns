@@ -7,3 +7,10 @@ colors:
     Orange: "rgb(242, 105, 65)"
     Green: "rgb(53, 201, 141)"
     Pink: "rgb(241, 76, 163)"
+
+# See: http://weiweihuanghuang.github.io/Work-Sans for specimen examples
+specimens:
+  alphabet: "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+  digits: "0123456789"
+  heading: "This is a Heading of Words"
+  sentence: "The article is something you would not expect to find in an encyclopedia"

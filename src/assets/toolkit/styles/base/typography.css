@@ -74,3 +74,13 @@ p + p {
 small {
   font-size: var(--font-size-xs);
 }
+
+/**
+ * Small caps
+ * http://typeplate.com/#small-caps
+ */
+
+abbr {
+  font-variant: small-caps;
+  text-transform: lowercase;
+}

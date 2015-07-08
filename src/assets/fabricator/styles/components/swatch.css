@@ -9,6 +9,7 @@
 }
 
 .f-Swatch {
+  margin-top: 0;
   margin-bottom: 2em;
   box-sizing: border-box;
   padding: 1em;
@@ -23,6 +24,11 @@
   .f-Swatch {
     flex-basis: 13em;
   }
+}
+
+.f-Swatch-name,
+.f-Swatch-color {
+  margin: 0;
 }
 
 .f-Swatch-name {

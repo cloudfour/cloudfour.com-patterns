@@ -1,1 +1,5 @@
 @import "suitcss-base";
+
+* + * {
+  margin-top: var(--margin-base);
+}

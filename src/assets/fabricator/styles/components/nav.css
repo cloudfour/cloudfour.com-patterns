@@ -26,6 +26,10 @@
   list-style: none;
 }
 
+.f-Nav-menu > li {
+  margin: 0;
+}
+
 .f-Nav-item {
   display: block;
   padding: 0.5rem 1rem;

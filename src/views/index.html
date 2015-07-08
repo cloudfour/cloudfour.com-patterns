@@ -58,3 +58,26 @@ fabricator: true
 <h4>{{toolkit.specimens.heading}}</h4>
 <h5>{{toolkit.specimens.heading}}</h5>
 <h6>{{toolkit.specimens.heading}}</h6>
+
+{{!-- Lists --}}
+
+<ul>
+	{{#each toolkit.languages}}
+		<li>{{@key}}</li>
+	{{/each}}
+</ul>
+
+<ol>
+	{{#each toolkit.languages}}
+		<li>{{@key}}</li>
+	{{/each}}
+</ol>
+
+<dl>
+	{{#each toolkit.languages}}
+		<dt>
+			<b>{{@key}}</b>
+		</dt>
+		<dd>{{.}}</dd>
+	{{/each}}
+</dl>

@@ -3,6 +3,8 @@
  *
  * 1. Root font size for rem basis
  * 2. Base font style for everything
+ * 3. Allow long words (links) to broken at arbitrary points
+ * 4. Auto-hyphens by default (assuming removal for specific elements)
  */
 
 html {
@@ -11,6 +13,8 @@ html {
 
 body {
   font: var(--font-base); /* 2 */
+  word-wrap: break-word; /* 3 */
+  hyphens: auto; /* 4 */
 }
 
 /**

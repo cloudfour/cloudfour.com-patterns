@@ -54,16 +54,6 @@ h6 {
 }
 
 /**
- * Paragraphs
- *
- * 1. Ensure margins between siblings
- */
-
-p + p {
-  margin-top: var(--margin-base); /* 1 */
-}
-
-/**
  * Small text
  */
 

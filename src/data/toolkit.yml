@@ -14,3 +14,12 @@ specimens:
   digits: "0123456789"
   heading: "This is a Heading of Words"
   sentence: "The article is something you would not expect to find in an encyclopedia"
+
+languages:
+  HTML: "HyperText Markup Language"
+  CSS: "Cascading Style Sheets"
+  JavaScript: "What everything is written in"
+  MySQL: "My Structured Query Language"
+  Clojure: "Something I have not used"
+  Python: "A programming language where whitespace matters"
+  Ruby: "An ugly syntax"

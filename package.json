@@ -48,7 +48,6 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",
     "script-loader": "^0.6.1",
-    "suitcss-base": "^0.8.0",
     "suitcss-components-grid": "^2.0.2",
     "suitcss-utils-size": "^0.7.2",
     "webpack": "^1.8.3"

@@ -5,6 +5,6 @@
 :root {
   --background-base: var(--color-white);
   --color-base: var(--color-black);
-  --font-base: var(--font-size)/var(--line-height) var(--font-family);
+  --font-base: var(--font-size-sm)/var(--line-height) var(--font-family);
   --margin-base: var(--space-medium);
 }

@@ -33,11 +33,51 @@ fabricator: true
 
 <h2>Typography</h2>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam enim sunt sapiente molestias, sed dicta inventore consectetur beatae asperiores, aliquid laboriosam animi, praesentium repudiandae et, quam saepe sint cupiditate reiciendis.</p>
+{{!-- Body copy --}}
 
-<h1>Heading Level 1</h1>
-<h2>Heading Level 2</h2>
-<h3>Heading Level 3</h3>
-<h4>Heading Level 4</h4>
-<h5>Heading Level 5</h5>
-<h6>Heading Level 6</h6>
+<p>
+	<strong>Though Lausanne is so near Geneva,</strong> its history, in historical
+	times, has been widely different from that of the neighbouring town. Geneva
+	enjoyed a modified independence from an early date, and became completely
+	independent early in the sixteenth century. Lausanne, until nearly 300 years
+	later, endured the domination, first of Savoy, and subsequently of Berne.
+</p>
+<p>
+	<em>The early history is obscure and full of vexed questions</em> as well as
+	unfamiliar names; but the central fact is that the Counts of Savoy—they were
+	not promoted to be Dukes of Savoy until later—took possession of the Canton of
+	Vaud, as well as of the Chablais and the lower Valais, after the death of the
+	last of the Zaeringen, at the beginning of the thirteenth century.
+</p>
+
+{{!-- Headings --}}
+
+<h1>{{toolkit.specimens.heading}}</h1>
+<h2>{{toolkit.specimens.heading}}</h2>
+<h3>{{toolkit.specimens.heading}}</h3>
+<h4>{{toolkit.specimens.heading}}</h4>
+<h5>{{toolkit.specimens.heading}}</h5>
+<h6>{{toolkit.specimens.heading}}</h6>
+
+{{!-- Lists --}}
+
+<ul>
+	{{#each toolkit.languages}}
+		<li>{{@key}}</li>
+	{{/each}}
+</ul>
+
+<ol>
+	{{#each toolkit.languages}}
+		<li>{{@key}}</li>
+	{{/each}}
+</ol>
+
+<dl>
+	{{#each toolkit.languages}}
+		<dt>
+			<b>{{@key}}</b>
+		</dt>
+		<dd>{{.}}</dd>
+	{{/each}}
+</dl>

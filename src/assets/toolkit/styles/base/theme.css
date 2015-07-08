@@ -47,9 +47,18 @@
  */
 
 :root {
-  --font-size: 16px;
+  --font-size-px: 18px;
+  --font-size-xs: calc(1em / var(--ratio));
+  --font-size-sm: 1em;
+  --font-size-md: calc(var(--font-size-sm) * var(--ratio));
+  --font-size-lg: calc(var(--font-size-md) * var(--ratio));
+  --font-size-xl: calc(var(--font-size-lg) * var(--ratio));
+
   --font-family: "Source Sans Pro", sans-serif;
   --line-height: var(--ratio);
+
+  --list-style-ordered: decimal;
+  --list-style-unordered: disc;
 }
 
 /**

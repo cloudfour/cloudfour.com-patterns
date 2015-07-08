@@ -99,3 +99,17 @@ samp,
 var {
   hyphens: none;
 }
+
+/**
+ * Control whitespace and wrapping on code blocks
+ */
+
+pre,
+code {
+  white-space: pre;
+}
+
+pre > code {
+  white-space: pre-wrap;
+  word-wrap: normal;
+}

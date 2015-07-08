@@ -58,7 +58,7 @@
   --line-height: var(--ratio);
 
   --list-style-ordered: decimal;
-  --list-style-unorderd: disc;
+  --list-style-unordered: disc;
 }
 
 /**

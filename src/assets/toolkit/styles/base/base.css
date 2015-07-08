@@ -6,6 +6,13 @@
   margin: 0;
 }
 
+/**
+ * All elements in the flow of the document that proceed other elements must
+ * receive a top margin of one line.
+ *
+ * http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+ */
+
 * + * {
   margin-top: var(--margin-base);
 }

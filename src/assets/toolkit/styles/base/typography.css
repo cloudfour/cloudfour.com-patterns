@@ -84,3 +84,18 @@ abbr {
   font-variant: small-caps;
   text-transform: lowercase;
 }
+
+/**
+ * Remove hyphenation from elements with significant formatting
+ */
+
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  hyphens: none;
+}

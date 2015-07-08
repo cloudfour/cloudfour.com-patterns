@@ -9,6 +9,7 @@
 :root {
   --Thumbnail-shadow-color: var(--color-dark-blue);
   --Thumbnail-shadow-width: 3px;
+  --Thumbnail-rounded-radius: 6px;
 }
 
 /**
@@ -49,7 +50,7 @@
  */
 
 .Thumbnail--rounded {
-  border-radius: 6px;
+  border-radius: var(--Thumbnail-rounded-radius);
 }
 
 .Thumbnail--circle {

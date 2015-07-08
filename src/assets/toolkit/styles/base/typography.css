@@ -58,15 +58,17 @@ h6 {
 }
 
 /**
- * Body copy
+ * Paragraphs
+ *
+ * 1. Ensure margins between siblings
  */
 
 p + p {
-  margin-top: var(--margin-base);
+  margin-top: var(--margin-base); /* 1 */
 }
 
 /**
- * Inline text elements
+ * Small text
  */
 
 small {

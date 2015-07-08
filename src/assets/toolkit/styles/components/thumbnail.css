@@ -15,11 +15,19 @@
  * Core component
  */
 
+/**
+ * 1. Mimic default display of img elements.
+ * 2. Removes extra space below img for certain vertical alignments. Preferable
+ *    to setting display: block on img because it respects vertical-align rules
+ *    on either this element or the img itself.
+ * 3. Inner shadow effect.
+ * 4. Transition rules for inner shadow.
+ */
 .Thumbnail {
-  display: inline-block;
-  line-height: 0;
-  box-shadow: inset 0 0 0 var(--Thumbnail-shadow-width) color(var(--Thumbnail-shadow-color) a(10%));
-  transition: box-shadow 300ms ease;
+  display: inline-block; /* 1 */
+  line-height: 0; /* 2 */
+  box-shadow: inset 0 0 0 var(--Thumbnail-shadow-width) color(var(--Thumbnail-shadow-color) a(10%)); /* 3 */
+  transition: box-shadow 300ms ease; /* 4 */
 }
 
 .Thumbnail:matches(:focus, :hover) {

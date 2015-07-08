@@ -125,3 +125,8 @@ ul {
 ol {
   list-style-type: var(--list-style-ordered);
 }
+
+li,
+dd {
+  margin-top: 0;
+}

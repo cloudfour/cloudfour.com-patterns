@@ -56,6 +56,9 @@
 
   --font-family: "Source Sans Pro", sans-serif;
   --line-height: var(--ratio);
+
+  --list-style-ordered: decimal;
+  --list-style-unorderd: disc;
 }
 
 /**

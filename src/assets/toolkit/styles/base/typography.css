@@ -119,9 +119,9 @@ pre > code {
 }
 
 ul {
-  list-style-type: disc;
+  list-style-type: var(--list-style-unordered);
 }
 
 ol {
-  list-style-type: decimal;
+  list-style-type: var(--list-style-ordered);
 }

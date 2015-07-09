@@ -19,18 +19,20 @@
 }
 
 /**
- * 1. Corrects inability to style clickable `input` types in iOS.
+ * 1. Normalize `box-sizing` across all elements that this component could be
+ *    applied to.
  * 2. Inherit font styles from ancestor.
  * 3. Set font weight to semibold.
  * 4. Normalize `line-height`. For `input`, it can't be changed from `normal` in
  *    Firefox 4+.
  * 5. Make sure `input` will wrap text across multiple lines.
  * 6. Prevent button text from being selectable.
+ * 7. Corrects inability to style clickable `input` types in iOS.
  */
 .Button {
-  -webkit-appearance: none; /* 1 */
-  display: inline-block;
   margin: 0;
+  display: inline-block;
+  box-sizing: border-box; /* 1 */
   padding: var(--Button-padding);
   font: inherit; /* 2 */
   font-weight: var(--Button-font-weight); /* 3 */
@@ -43,9 +45,11 @@
   border-color: var(--Button-border-color);
   border-radius: var(--Button-border-radius);
   background: transparent;
+  transition: all var(--Button-transition-duration) var(--Button-transition-timing-function);
   cursor: pointer;
   user-select: none; /* 6 */
-  transition: all var(--Button-transition-duration) var(--Button-transition-timing-function);
+
+  -webkit-appearance: none; /* 7 */
 }
 
 /**
@@ -53,8 +57,8 @@
  */
 
 .Button::-moz-focus-inner {
-  border: 0;
   padding: 0;
+  border: 0;
 }
 
 /**
@@ -76,8 +80,8 @@
 }
 
 .Button:matches(:disabled, .is-disabled) {
-  cursor: default;
   opacity: var(--Button-disabled-opacity);
+  cursor: default;
 }
 
 /**
@@ -99,14 +103,14 @@
 }
 
 .Button--default {
-  background-color: var(--Button-default-background-color);
-  border-color: color(var(--Button-default-background-color) shade(10%));
   color: var(--Button-default-color);
+  border-color: color(var(--Button-default-background-color) shade(10%));
+  background-color: var(--Button-default-background-color);
 }
 
 .Button--default:matches(:focus, :hover) {
-  background-color: color(var(--Button-default-background-color) l(+5%));
   border-color: color(var(--Button-default-background-color) shade(5%));
+  background-color: color(var(--Button-default-background-color) l(+5%));
 }
 
 .Button--default:active {
@@ -123,14 +127,14 @@
 }
 
 .Button--primary {
-  background-color: var(--Button-primary-background-color);
-  border-color: color(var(--Button-primary-background-color) shade(10%));
   color: var(--Button-primary-color);
+  border-color: color(var(--Button-primary-background-color) shade(10%));
+  background-color: var(--Button-primary-background-color);
 }
 
 .Button--primary:matches(:focus, :hover) {
-  background-color: color(var(--Button-primary-background-color) l(+5%));
   border-color: color(var(--Button-primary-background-color) shade(5%));
+  background-color: color(var(--Button-primary-background-color) l(+5%));
 }
 
 .Button--primary:active {
@@ -147,8 +151,8 @@
 }
 
 .Button--secondary {
-  background-color: var(--Button-secondary-background-color);
   color: var(--Button-secondary-color);
+  background-color: var(--Button-secondary-background-color);
 }
 
 .Button--secondary:matches(:focus, :hover) {

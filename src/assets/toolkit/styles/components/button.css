@@ -1,0 +1,135 @@
+/**
+ * Button
+ *
+ * Based on SUIT CSS button component, but with visual deviations so that the
+ * defaults are more useful for cloudfour.com.
+ *
+ * See: https://github.com/suitcss/components-button
+ */
+
+:root {
+  --Button-border-color: transparent;
+  --Button-border-radius: 6px;
+  --Button-border-width: 3px;
+  --Button-disabled-opacity: 0.5;
+  --Button-font-weight: 600;
+  --Button-padding: 0.5em 1em;
+}
+
+/**
+ * 1. Corrects inability to style clickable `input` types in iOS.
+ * 2. Inherit font styles from ancestor.
+ * 3. Set font weight to semibold.
+ * 4. Normalize `line-height`. For `input`, it can't be changed from `normal` in
+ *    Firefox 4+.
+ * 5. Make sure `input` will wrap text across multiple lines.
+ * 6. Prevent button text from being selectable.
+ */
+.Button {
+  -webkit-appearance: none; /* 1 */
+  display: inline-block;
+  padding: var(--Button-padding);
+  font: inherit; /* 2 */
+  font-weight: var(--Button-font-weight); /* 3 */
+  line-height: normal; /* 4 */
+  white-space: normal; /* 5 */
+  text-align: center;
+  text-decoration: none;
+  border-width: var(--Button-border-width);
+  border-style: solid;
+  border-color: var(--Button-border-color);
+  border-radius: var(--Button-border-radius);
+  background: transparent;
+  cursor: pointer;
+  user-select: none; /* 6 */
+  transition: all 300ms ease;
+}
+
+/**
+ * Remove excess padding and border in Firefox 4+
+ */
+
+.Button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+
+.Button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/**
+ * UI states
+ */
+
+.Button:hover,
+.Button:focus,
+.Button:active {
+  text-decoration: none;
+}
+
+.Button:matches(:disabled, .is-disabled) {
+  cursor: default;
+  opacity: var(--Button-disabled-opacity);
+}
+
+/**
+ * Default variation
+ */
+
+.Button--default {
+  background-color: var(--color-deep-blue);
+  border-color: color(var(--color-deep-blue) shade(10%));
+  color: var(--color-white);
+}
+
+.Button--default:matches(:focus, :hover) {
+  background-color: color(var(--color-deep-blue) l(+5%));
+  border-color: color(var(--color-deep-blue) shade(5%));
+}
+
+.Button--default:active {
+  background-color: color(var(--color-deep-blue) shade(10%));
+}
+
+/**
+ * Primary variation
+ */
+
+.Button--primary {
+  background-color: var(--color-orange);
+  border-color: color(var(--color-orange) shade(10%));
+  color: var(--color-white);
+}
+
+.Button--primary:matches(:focus, :hover) {
+  background-color: color(var(--color-orange) l(+5%));
+  border-color: color(var(--color-orange) shade(5%));
+}
+
+.Button--primary:active {
+  background-color: color(var(--color-orange) shade(10%));
+}
+
+/**
+ * Secondary variation
+ */
+
+.Button--secondary {
+  background-color: var(--color-gray);
+  color: inherit;
+}
+
+.Button--secondary:matches(:focus, :hover) {
+  background-color: color(var(--color-gray) l(+5%));
+}
+
+.Button--secondary:active {
+  background-color: color(var(--color-gray) shade(10%));
+}

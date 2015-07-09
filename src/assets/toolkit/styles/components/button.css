@@ -81,56 +81,80 @@
 }
 
 /**
- * Default variation
+ * Modifier: block buttons
  */
 
+.Button--block {
+  display: block;
+  width: 100%;
+}
+
+/**
+ * Modifier: default buttons
+ */
+
+:root {
+  --Button-default-background-color: var(--color-deep-blue);
+  --Button-default-color: var(--color-white);
+}
+
 .Button--default {
-  background-color: var(--color-deep-blue);
-  border-color: color(var(--color-deep-blue) shade(10%));
-  color: var(--color-white);
+  background-color: var(--Button-default-background-color);
+  border-color: color(var(--Button-default-background-color) shade(10%));
+  color: var(--Button-default-color);
 }
 
 .Button--default:matches(:focus, :hover) {
-  background-color: color(var(--color-deep-blue) l(+5%));
-  border-color: color(var(--color-deep-blue) shade(5%));
+  background-color: color(var(--Button-default-background-color) l(+5%));
+  border-color: color(var(--Button-default-background-color) shade(5%));
 }
 
 .Button--default:active {
-  background-color: color(var(--color-deep-blue) shade(10%));
+  background-color: color(var(--Button-default-background-color) shade(10%));
 }
 
 /**
- * Primary variation
+ * Modifier: primary buttons
  */
 
+:root {
+  --Button-primary-background-color: var(--color-orange);
+  --Button-primary-color: var(--color-white);
+}
+
 .Button--primary {
-  background-color: var(--color-orange);
-  border-color: color(var(--color-orange) shade(10%));
-  color: var(--color-white);
+  background-color: var(--Button-primary-background-color);
+  border-color: color(var(--Button-primary-background-color) shade(10%));
+  color: var(--Button-primary-color);
 }
 
 .Button--primary:matches(:focus, :hover) {
-  background-color: color(var(--color-orange) l(+5%));
-  border-color: color(var(--color-orange) shade(5%));
+  background-color: color(var(--Button-primary-background-color) l(+5%));
+  border-color: color(var(--Button-primary-background-color) shade(5%));
 }
 
 .Button--primary:active {
-  background-color: color(var(--color-orange) shade(10%));
+  background-color: color(var(--Button-primary-background-color) shade(10%));
 }
 
 /**
- * Secondary variation
+ * Modifier: secondary buttons
  */
 
+:root {
+  --Button-secondary-background-color: var(--color-gray);
+  --Button-secondary-color: inherit;
+}
+
 .Button--secondary {
-  background-color: var(--color-gray);
-  color: inherit;
+  background-color: var(--Button-secondary-background-color);
+  color: var(--Button-secondary-color);
 }
 
 .Button--secondary:matches(:focus, :hover) {
-  background-color: color(var(--color-gray) l(+5%));
+  background-color: color(var(--Button-secondary-background-color) l(+5%));
 }
 
 .Button--secondary:active {
-  background-color: color(var(--color-gray) shade(10%));
+  background-color: color(var(--Button-secondary-background-color) shade(10%));
 }

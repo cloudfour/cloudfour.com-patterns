@@ -28,6 +28,7 @@
 .Button {
   -webkit-appearance: none; /* 1 */
   display: inline-block;
+  margin: 0;
   padding: var(--Button-padding);
   font: inherit; /* 2 */
   font-weight: var(--Button-font-weight); /* 3 */

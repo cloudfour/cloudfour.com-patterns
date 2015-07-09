@@ -69,9 +69,7 @@
  * UI states
  */
 
-.Button:hover,
-.Button:focus,
-.Button:active {
+.Button:matches(:hover, :focus, :active) {
   text-decoration: none;
 }
 

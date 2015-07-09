@@ -1,0 +1,33 @@
+---
+notes: |
+  Useful for making `<a>`, `<button>` or `<input type="submit">` elements appear
+  actionable. Basic state is very plain so this element can be really flexible
+  when it comes to modifiers and inheriting link styles.
+---
+<div>
+  <a href="#" class="Button">Link</a>
+  <button type="button" class="Button">Button</button>
+  <input type="submit" class="Button" value="Input">
+  <button type="button" class="Button" disabled>Disabled</button>
+</div>
+<div>
+  <a href="#" class="Button Button--default">Link</a>
+  <button type="button" class="Button Button--default">Button</button>
+  <input type="submit" class="Button Button--default" value="Input">
+  <button type="button" class="Button Button--default" disabled>Disabled</button>
+</div>
+<div>
+  <a href="#" class="Button Button--primary">Link</a>
+  <button type="button" class="Button Button--primary">Button</button>
+  <input type="submit" class="Button Button--primary" value="Input">
+  <button type="button" class="Button Button--primary" disabled>Disabled</button>
+</div>
+<div>
+  <a href="#" class="Button Button--secondary">Link</a>
+  <button type="button" class="Button Button--secondary">Button</button>
+  <input type="submit" class="Button Button--secondary" value="Input">
+  <button type="button" class="Button Button--secondary" disabled>Disabled</button>
+</div>
+<div>
+  <button type="button" class="Button Button--default Button--block">Block Button</button>
+</div>

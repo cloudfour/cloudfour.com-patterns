@@ -1,0 +1,164 @@
+/**
+ * Button
+ *
+ * Based on SUIT CSS button component, but with visual deviations so that the
+ * defaults are more useful for cloudfour.com.
+ *
+ * See: https://github.com/suitcss/components-button
+ */
+
+:root {
+  --Button-border-color: transparent;
+  --Button-border-radius: 6px;
+  --Button-border-width: 3px;
+  --Button-disabled-opacity: 0.5;
+  --Button-font-weight: 600;
+  --Button-padding: 0.5em 1em;
+  --Button-transition-duration: 300ms;
+  --Button-transition-timing-function: ease;
+}
+
+/**
+ * 1. Normalize `box-sizing` across all elements that this component could be
+ *    applied to.
+ * 2. Inherit font styles from ancestor.
+ * 3. Set font weight to semibold.
+ * 4. Normalize `line-height`. For `input`, it can't be changed from `normal` in
+ *    Firefox 4+.
+ * 5. Make sure `input` will wrap text across multiple lines.
+ * 6. Prevent button text from being selectable.
+ * 7. Corrects inability to style clickable `input` types in iOS.
+ */
+.Button {
+  margin: 0;
+  display: inline-block;
+  box-sizing: border-box; /* 1 */
+  padding: var(--Button-padding);
+  font: inherit; /* 2 */
+  font-weight: var(--Button-font-weight); /* 3 */
+  line-height: normal; /* 4 */
+  white-space: normal; /* 5 */
+  text-align: center;
+  text-decoration: none;
+  border-width: var(--Button-border-width);
+  border-style: solid;
+  border-color: var(--Button-border-color);
+  border-radius: var(--Button-border-radius);
+  background: transparent;
+  transition: all var(--Button-transition-duration) var(--Button-transition-timing-function);
+  cursor: pointer;
+  user-select: none; /* 6 */
+
+  -webkit-appearance: none; /* 7 */
+}
+
+/**
+ * Remove excess padding and border in Firefox 4+
+ */
+
+.Button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+
+.Button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/**
+ * UI states
+ */
+
+.Button:matches(:hover, :focus, :active) {
+  text-decoration: none;
+}
+
+.Button:matches(:disabled, .is-disabled) {
+  opacity: var(--Button-disabled-opacity);
+  cursor: default;
+}
+
+/**
+ * Modifier: block buttons
+ */
+
+.Button--block {
+  display: block;
+  width: 100%;
+}
+
+/**
+ * Modifier: default buttons
+ */
+
+:root {
+  --Button-default-background-color: var(--color-deep-blue);
+  --Button-default-color: var(--color-white);
+}
+
+.Button--default {
+  color: var(--Button-default-color);
+  border-color: color(var(--Button-default-background-color) shade(10%));
+  background-color: var(--Button-default-background-color);
+}
+
+.Button--default:matches(:focus, :hover) {
+  border-color: color(var(--Button-default-background-color) shade(5%));
+  background-color: color(var(--Button-default-background-color) l(+5%));
+}
+
+.Button--default:active {
+  background-color: color(var(--Button-default-background-color) shade(10%));
+}
+
+/**
+ * Modifier: primary buttons
+ */
+
+:root {
+  --Button-primary-background-color: var(--color-orange);
+  --Button-primary-color: var(--color-white);
+}
+
+.Button--primary {
+  color: var(--Button-primary-color);
+  border-color: color(var(--Button-primary-background-color) shade(10%));
+  background-color: var(--Button-primary-background-color);
+}
+
+.Button--primary:matches(:focus, :hover) {
+  border-color: color(var(--Button-primary-background-color) shade(5%));
+  background-color: color(var(--Button-primary-background-color) l(+5%));
+}
+
+.Button--primary:active {
+  background-color: color(var(--Button-primary-background-color) shade(10%));
+}
+
+/**
+ * Modifier: secondary buttons
+ */
+
+:root {
+  --Button-secondary-background-color: var(--color-gray);
+  --Button-secondary-color: inherit;
+}
+
+.Button--secondary {
+  color: var(--Button-secondary-color);
+  background-color: var(--Button-secondary-background-color);
+}
+
+.Button--secondary:matches(:focus, :hover) {
+  background-color: color(var(--Button-secondary-background-color) l(+5%));
+}
+
+.Button--secondary:active {
+  background-color: color(var(--Button-secondary-background-color) shade(10%));
+}

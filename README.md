@@ -81,4 +81,6 @@ labels:
 
 * We've opted for `post-css` instead of the default Sass that ships with Fabricator.
 * We've removed `csso` (optimization).
-# cloudfour-redesign
+* We've added a new Gulp task: `styles:test`
+  - This analyzes CSS files using [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)
+  - Any issues found are output as console warnings with [postcss-reporter](https://github.com/postcss/postcss-reporter)

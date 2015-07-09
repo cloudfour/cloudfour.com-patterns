@@ -2,6 +2,7 @@
 
 // modules
 var assemble = require('fabricator-assemble');
+var bemLinter = require('postcss-bem-linter');
 var browserSync = require('browser-sync');
 var cssnext = require('cssnext');
 var del = require('del');
@@ -12,6 +13,7 @@ var imagemin = require('gulp-imagemin');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
 var reload = browserSync.reload;
+var reporter = require('postcss-reporter');
 var requireDir = require('require-dir');
 var runSequence = require('run-sequence');
 var webpack = require('webpack');
@@ -56,6 +58,33 @@ gulp.task('styles:fabricator', function () {
     .pipe(rename('f.css'))
     .pipe(gulp.dest(config.dest + '/assets/fabricator/styles'))
     .pipe(gulpif(config.dev, reload({stream:true})));
+});
+
+/**
+ * Run each CSS file that defines itself as a component or utility against the
+ * postcss-bem-linter to check for valid selectors and custom property names
+ *
+ * https://github.com/postcss/postcss-bem-linter
+ * https://github.com/postcss/postcss-reporter
+ */
+gulp.task('styles:test', function () {
+  var linterOptions = {
+    componentSelectors: function (componentName) {
+      return new RegExp('^\\.' + componentName + '(?:-{1,2}[a-z]+)?$');
+    },
+    utilitySelectors: /^\.u-[a-z]+$/
+  };
+
+  var reporterOptions = {
+    clearMessages: true,
+    plugins: ['postcss-bem-linter']
+  };
+
+  return gulp.src('src/assets/toolkit/styles/**/*.css')
+    .pipe(postcss([
+      bemLinter(linterOptions),
+      reporter(reporterOptions)
+    ]));
 });
 
 gulp.task('styles:toolkit', function () {

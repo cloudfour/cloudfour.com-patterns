@@ -14,6 +14,8 @@
   --Button-disabled-opacity: 0.5;
   --Button-font-weight: 600;
   --Button-padding: 0.5em 1em;
+  --Button-transition-duration: 300ms;
+  --Button-transition-timing-function: ease;
 }
 
 /**
@@ -43,7 +45,7 @@
   background: transparent;
   cursor: pointer;
   user-select: none; /* 6 */
-  transition: all 300ms ease;
+  transition: all var(--Button-transition-duration) var(--Button-transition-timing-function);
 }
 
 /**

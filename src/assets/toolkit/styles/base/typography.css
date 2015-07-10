@@ -120,3 +120,14 @@ li,
 dd {
   margin-top: 0;
 }
+
+/**
+ * Horizontal rule
+ */
+
+hr {
+  height: var(--hr-height);
+  min-height: var(--hr-min-height);
+  border-style: none;
+  background: var(--hr-background);
+}

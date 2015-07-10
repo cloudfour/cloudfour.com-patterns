@@ -131,3 +131,36 @@ hr {
   border-style: none;
   background: var(--hr-background);
 }
+
+/**
+ * Blockquote
+ *
+ * Assumes markup to be:
+ *
+ * <blockquote>
+ *   <p>The movie was awesome</p>
+ *   <footer>
+ *     <cite>Some Person</cite>
+ *   </footer>
+ * </blockquote>
+ *
+ * http://html5doctor.com/cite-and-blockquote-reloaded/
+ */
+
+blockquote {
+  padding-left: var(--blockquote-padding);
+  font-style: italic;
+}
+
+blockquote :matches(p, footer) {
+  display: inline;
+}
+
+blockquote cite {
+  font-style: normal;
+  white-space: nowrap;
+}
+
+blockquote cite::before {
+  content: var(--cite-prefix);
+}

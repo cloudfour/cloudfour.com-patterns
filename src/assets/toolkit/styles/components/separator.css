@@ -1,0 +1,35 @@
+/** @define Separator */
+
+:root {
+  --Separator-background: var(--hr-background);
+  --Separator-height: var(--hr-height);
+  --Separator-height-sm: var(--hr-min-height);
+  --Separator-height-lg: calc(var(--Separator-height) * var(--ratio));
+}
+
+/**
+ * A horizontal rule with additional styles
+ *
+ * This is intended to be applied only to <hr> elements
+ */
+
+.Separator {
+  height: var(--Separator-height);
+  background: var(--Separator-background);
+}
+
+/**
+ * Modifier: thinner rule
+ */
+
+.Separator--small {
+  height: var(--Separator-height-sm);
+}
+
+/**
+ * Modifier: thicker rule
+ */
+
+.Separator--large {
+  height: var(--Separator-height-lg);
+}

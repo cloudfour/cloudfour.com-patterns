@@ -1,0 +1,53 @@
+/**
+ * Input
+ */
+
+:root {
+  --Input-background-color: var(--color-white);
+  --Input-border-color: var(--color-gray);
+  --Input-border-color-focus: var(--color-deep-blue);
+  --Input-border-radius: 6px;
+  --Input-border-width: 3px;
+  --Input-color: var(--color-base);
+  --Input-disabled-opacity: 0.5;
+  --Input-padding: 0.5em 0.75em;
+  --Input-transition-duration: 300ms;
+  --Input-transition-timing-function: ease;
+}
+
+/**
+ * 1. Most occurrences of this benefit from occupying the full width.
+ * 2. We aren't using a slightly more polished technique like text-indent due to
+ *    cross-browser edge cases where the rule would be ignored or would conflict
+ *    with platform-specific input type controls (search decorations, etc.).
+ * 3. Same `line-height` as `.Button` for easy alignment.
+ */
+.Input {
+  margin: 0;
+  display: block; /* 1 */
+  box-sizing: border-box;
+  width: 100%; /* 1 */
+  padding: var(--Input-padding);
+  font: inherit; /* 2 */
+  line-height: normal; /* 3 */
+  color: var(--Input-color);
+  border: var(--Input-border-width) solid var(--Input-border-color);
+  border-radius: var(--Input-border-radius);
+  background: var(--Input-background-color);
+  transition: all var(--Input-transition-duration) var(--Input-transition-timing-function);
+}
+
+.Input:matches(:active, :hover) {
+  border-color: color(var(--Input-border-color) l(-15%));
+}
+
+.Input:matches(:disabled, .is-disabled) {
+  color: color(var(--Input-color) a(50%));
+  border-color: color(var(--Input-border-color));
+  background-color: color(var(--Input-border-color) l(+5%));
+}
+
+.Input:focus {
+  border-color: var(--Input-border-color-focus);
+  outline: none;
+}

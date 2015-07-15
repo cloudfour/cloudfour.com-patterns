@@ -1,0 +1,83 @@
+/**
+ * InputGroup
+ *
+ * TODO:
+ * - [ ] Qualify styles with Modernizr flexbox support selector
+ * - [ ] Default/fallback style (simple, maybe just inline-block elements)
+ */
+
+:root {
+  --InputGroup-border-radius: 6px;
+  --InputGroup-space: -3px;
+}
+
+/**
+ * 1. Lay out items left to right, taking up all available space.
+ * 2. Stretch elements along the y-axis (everything will line up nicely).
+ */
+.InputGroup {
+  display: flex; /* 1 */
+  align-items: stretch; /* 2 */
+}
+
+/**
+ * 1. Override inherited margins within `.InputGroup` and overlap elements.
+ * 2. Reset any `border-radius` so corners also line up.
+ */
+.InputGroup > * {
+  margin: 0 var(--InputGroup-space); /* 1 */
+  border-radius: 0; /* 2 */
+}
+
+/**
+ * Apply border-radius to one side of first and last children.
+ */
+
+.InputGroup > *:first-child {
+  border-top-left-radius: var(--InputGroup-border-radius);
+  border-bottom-left-radius: var(--InputGroup-border-radius);
+}
+
+.InputGroup > *:last-child {
+  border-top-right-radius: var(--InputGroup-border-radius);
+  border-bottom-right-radius: var(--InputGroup-border-radius);
+}
+
+/**
+ * 1. Reset the width so it doesn't conflict with our `flex-grow` value. For
+ *    example, a `width: 100%` value might cause text to break awkwardly in
+ *    adjacent elements unless we set `flex-shrink` to `0` on all of them.
+ * 2. Allow the input to take up all available space. Using the shorthand
+ *    instead of `flex-grow` is recommended so that browsers can choose the most
+ *    sensible accompanying `flex-shrink` and `flex-basis` values.
+ *    See: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ */
+.InputGroup > input {
+  width: auto; /* 1 */
+  flex: 2; /* 2 */
+}
+
+/**
+ * Extra or add-on elements (labels, notes, etc.)
+ */
+
+:root {
+  --InputGroup-extra-background-color: var(--color-gray);
+  --InputGroup-extra-border-color: transparent;
+  --InputGroup-extra-border-width: 3px;
+  --InputGroup-extra-padding: 0.5em 0.75em;
+}
+
+/**
+ * 1. Same `line-height` as `.Button` and `.Input` components for better
+ *    alignment, though `align-items: stretch` on `.InputGroup` should resolve
+ *    any remaining inconsistencies.
+ * 2. Border is applied for the same reason (consistency with most common
+ *    adjacent patterns), even if transparent.
+ */
+.InputGroup-extra {
+  padding: var(--InputGroup-extra-padding);
+  line-height: normal; /* 1 */
+  border: var(--InputGroup-extra-border-width) solid var(--InputGroup-extra-border-color); /* 2 */
+  background-color: var(--InputGroup-extra-background-color);
+}

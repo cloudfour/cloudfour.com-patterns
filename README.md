@@ -84,3 +84,4 @@ labels:
 * We've added a new Gulp task: `styles:test`
   - This analyzes CSS files using [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)
   - Any issues found are output as console warnings with [postcss-reporter](https://github.com/postcss/postcss-reporter)
+* There's also a new `modernizr` task. Any [Modernizr v3](http://v3.modernizr.com/) tests referenced via CSS or JS files will be automatically included thanks to [gulp-modernizr](https://github.com/doctyper/gulp-modernizr).

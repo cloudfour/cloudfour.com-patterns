@@ -39,6 +39,7 @@
     "gulp": "^3.8.11",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
+    "gulp-modernizr": "^1.0.0-alpha",
     "gulp-postcss": "^5.1.9",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.4",

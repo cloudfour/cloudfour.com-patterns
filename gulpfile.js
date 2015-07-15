@@ -10,6 +10,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin');
+var modernizr = require('gulp-modernizr');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
 var reload = browserSync.reload;
@@ -116,6 +117,19 @@ gulp.task('scripts', function (done) {
 });
 
 
+// modernizr
+gulp.task('modernizr', function () {
+  return gulp.src('./src/assets/toolkit/**/*.{js,css}')
+    .pipe(modernizr({
+      options: [
+        'setClasses',
+        'html5shiv'
+      ]
+    }))
+    .pipe(gulp.dest(config.dest + '/assets/toolkit/scripts'));
+});
+
+
 // images
 gulp.task('images', ['favicon'], function () {
   return gulp.src(config.src.images)
@@ -203,6 +217,7 @@ gulp.task('default', ['clean'], function () {
   var tasks = [
     'styles',
     'scripts',
+    'modernizr',
     'images',
     'assemble'
   ];

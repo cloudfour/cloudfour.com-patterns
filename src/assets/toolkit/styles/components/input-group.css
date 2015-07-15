@@ -1,0 +1,64 @@
+/**
+ * InputGroup
+ *
+ * TODO:
+ * - [ ] Qualify styles with Modernizr flexbox support selector
+ * - [ ] Default/fallback style (simple, maybe just inline-block elements)
+ */
+
+:root {
+  --InputGroup-space: -3px;
+}
+
+/**
+ * 1. Lay out items left to right, taking up all available space.
+ * 2. Stretch elements along the y-axis (everything will line up nicely).
+ */
+.InputGroup {
+  display: flex; /* 1 */
+  align-items: stretch; /* 2 */
+}
+
+/**
+ * Prevent non-input elements from shrinking below their natural size. Less
+ * invasive than `white-space: nowrap` would be.
+ */
+
+.InputGroup > *:not(input) {
+  flex-shrink: 0;
+}
+
+/**
+ * Make elements line up nicely together.
+ */
+
+.InputGroup > *:not(:first-child) {
+  margin-left: var(--InputGroup-space);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.InputGroup > *:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/**
+ * Extra or add-on elements (labels, notes, etc.)
+ */
+
+:root {
+  --InputGroup-extra-background-color: var(--color-gray);
+  --InputGroup-extra-border-color: transparent;
+  --InputGroup-extra-border-radius: 6px;
+  --InputGroup-extra-border-width: 3px;
+  --InputGroup-extra-padding: 0.5em 0.75em;
+}
+
+.InputGroup-extra {
+  padding: var(--InputGroup-extra-padding);
+  line-height: normal;
+  border: var(--InputGroup-extra-border-width) solid var(--InputGroup-extra-border-color);
+  border-radius: var(--InputGroup-extra-border-radius);
+  background-color: var(--InputGroup-extra-background-color);
+}

@@ -1,9 +1,5 @@
 /**
  * InputGroup
- *
- * TODO:
- * - [ ] Qualify styles with Modernizr flexbox support selector
- * - [ ] Default/fallback style (simple, maybe just inline-block elements)
  */
 
 :root {
@@ -14,19 +10,28 @@
 /**
  * 1. Lay out items left to right, taking up all available space.
  * 2. Stretch elements along the y-axis (everything will line up nicely).
+ * 3. Keeps elements inline in browsers that don't support flexbox.
+ * 4. Without this, `white-space` (3) will not be respected in IE when
+ *    `word-wrap` is set to `break-word`: http://stackoverflow.com/a/18129006
  */
 .InputGroup {
   display: flex; /* 1 */
   align-items: stretch; /* 2 */
+  white-space: nowrap; /* 3 */
+  word-wrap: normal; /* 4 */
 }
 
 /**
  * 1. Override inherited margins within `.InputGroup` and overlap elements.
- * 2. Reset any `border-radius` so corners also line up.
+ * 2. Keeps elements inline if flexbox isn't supported.
+ * 3. Reset `white-space` to avoid cascading that to complex elements.
+ * 4. Reset any `border-radius` so corners also line up.
  */
 .InputGroup > * {
   margin: 0 var(--InputGroup-space); /* 1 */
-  border-radius: 0; /* 2 */
+  display: inline-block; /* 2 */
+  white-space: normal; /* 3 */
+  border-radius: 0; /* 4 */
 }
 
 /**

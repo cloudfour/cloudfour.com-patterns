@@ -21,6 +21,8 @@
  *    cross-browser edge cases where the rule would be ignored or would conflict
  *    with platform-specific input type controls (search decorations, etc.).
  * 3. Same `line-height` as `.Button` for easy alignment.
+ * 4. Unfortunately, Webkit won't play nice with our styles on some input types
+ *    unless we override its appearance.
  */
 .Input {
   margin: 0;
@@ -35,6 +37,7 @@
   border-radius: var(--Input-border-radius);
   background: var(--Input-background-color);
   transition: all var(--Input-transition-duration) var(--Input-transition-timing-function);
+  -webkit-appearance: none; /* 4 */
 }
 
 .Input:matches(:active, :hover) {

@@ -7,6 +7,7 @@
  */
 
 :root {
+  --InputGroup-border-radius: 6px;
   --InputGroup-space: -3px;
 }
 
@@ -20,27 +21,40 @@
 }
 
 /**
- * Prevent non-input elements from shrinking below their natural size. Less
- * invasive than `white-space: nowrap` would be.
+ * 1. Override inherited margins within `.InputGroup` and overlap elements.
+ * 2. Reset any `border-radius` so corners also line up.
  */
-
-.InputGroup > *:not(input) {
-  flex-shrink: 0;
+.InputGroup > * {
+  margin: 0 var(--InputGroup-space); /* 1 */
+  border-radius: 0; /* 2 */
 }
 
 /**
- * Make elements line up nicely together.
+ * Apply border-radius to one side of first and last children.
  */
 
-.InputGroup > *:not(:first-child) {
-  margin-left: var(--InputGroup-space);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+.InputGroup > *:first-child {
+  border-top-left-radius: var(--InputGroup-border-radius);
+  border-bottom-left-radius: var(--InputGroup-border-radius);
 }
 
-.InputGroup > *:not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.InputGroup > *:last-child {
+  border-top-right-radius: var(--InputGroup-border-radius);
+  border-bottom-right-radius: var(--InputGroup-border-radius);
+}
+
+/**
+ * 1. Reset the width so it doesn't conflict with our `flex-grow` value. For
+ *    example, a `width: 100%` value might cause text to break awkwardly in
+ *    adjacent elements unless we set `flex-shrink` to `0` on all of them.
+ * 2. Allow the input to take up all available space. Using the shorthand
+ *    instead of `flex-grow` is recommended so that browsers can choose the most
+ *    sensible accompanying `flex-shrink` and `flex-basis` values.
+ *    See: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ */
+.InputGroup > input {
+  width: auto; /* 1 */
+  flex: 2; /* 2 */
 }
 
 /**
@@ -50,15 +64,20 @@
 :root {
   --InputGroup-extra-background-color: var(--color-gray);
   --InputGroup-extra-border-color: transparent;
-  --InputGroup-extra-border-radius: 6px;
   --InputGroup-extra-border-width: 3px;
   --InputGroup-extra-padding: 0.5em 0.75em;
 }
 
+/**
+ * 1. Same `line-height` as `.Button` and `.Input` components for better
+ *    alignment, though `align-items: stretch` on `.InputGroup` should resolve
+ *    any remaining inconsistencies.
+ * 2. Border is applied for the same reason (consistency with most common
+ *    adjacent patterns), even if transparent.
+ */
 .InputGroup-extra {
   padding: var(--InputGroup-extra-padding);
-  line-height: normal;
-  border: var(--InputGroup-extra-border-width) solid var(--InputGroup-extra-border-color);
-  border-radius: var(--InputGroup-extra-border-radius);
+  line-height: normal; /* 1 */
+  border: var(--InputGroup-extra-border-width) solid var(--InputGroup-extra-border-color); /* 2 */
   background-color: var(--InputGroup-extra-background-color);
 }

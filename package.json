@@ -42,6 +42,7 @@
     "gulp-modernizr": "^1.0.0-alpha",
     "gulp-postcss": "^5.1.9",
     "gulp-rename": "^1.2.2",
+    "gulp-svg-sprite": "^1.2.5",
     "gulp-util": "^3.0.4",
     "imports-loader": "^0.6.3",
     "keyboard-shortcut": "^1.2.0",

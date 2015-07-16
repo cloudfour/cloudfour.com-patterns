@@ -1,0 +1,62 @@
+/**
+ * Icon
+ *
+ * Inline SVG icon component. Use currentColor in SVGs themselves to control
+ * which elements inherit color.
+ */
+
+:root {
+  --Icon-size-sm: 1em;
+  --Icon-size-md: calc(var(--Icon-size-sm) * var(--ratio));
+  --Icon-size-lg: calc(var(--Icon-size-md) * var(--ratio));
+  --Icon-size-xl: calc(var(--Icon-size-lg) * var(--ratio));
+
+  /**
+   * Attempts thus far to figure out some sort of proportional ratio for this
+   * have failed. So here's a bunch of mysterious math that looks right!
+   */
+  --Icon-vertical-align-sm: -0.125em;
+  --Icon-vertical-align-lg: calc(var(--Icon-vertical-align-md) * 2);
+  --Icon-vertical-align-md: calc(var(--Icon-vertical-align-sm) * 3);
+  --Icon-vertical-align-xl: calc(var(--Icon-vertical-align-lg) * 1.75);
+}
+
+/**
+ * 1. Reset any inherited margin.
+ * 2. Flow with inline content.
+ * 3. Assume square proportions for container.
+ * 4. Reset `line-height` to avoid throwing off `vertical-align` (5).
+ * 5. Adjust `vertical-align` for best visual appearance with text. Using this
+ *    instead of the more common negative `top` value because it does not
+ *    impact the dimensions of its parent as quickly.
+ */
+.Icon {
+  margin: 0; /* 1 */
+  display: inline-block; /* 2 */
+  width: var(--Icon-size-sm); /* 3 */
+  height: var(--Icon-size-sm); /* 3 */
+  line-height: 1; /* 4 */
+  vertical-align: var(--Icon-vertical-align-sm); /* 5 */
+}
+
+/**
+ * Modifiers: size
+ */
+
+.Icon--md {
+  width: var(--Icon-size-md);
+  height: var(--Icon-size-md);
+  vertical-align: var(--Icon-vertical-align-md);
+}
+
+.Icon--lg {
+  width: var(--Icon-size-lg);
+  height: var(--Icon-size-lg);
+  vertical-align: var(--Icon-vertical-align-lg);
+}
+
+.Icon--xl {
+  width: var(--Icon-size-xl);
+  height: var(--Icon-size-xl);
+  vertical-align: var(--Icon-vertical-align-xl);
+}

@@ -13,6 +13,7 @@ var imagemin = require('gulp-imagemin');
 var modernizr = require('gulp-modernizr');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
+var svgSprite = require('gulp-svg-sprite');
 var reload = browserSync.reload;
 var reporter = require('postcss-reporter');
 var requireDir = require('require-dir');
@@ -33,6 +34,7 @@ var config = {
       toolkit: 'src/assets/toolkit/styles/toolkit.css'
     },
     images: 'src/assets/toolkit/images/**/*',
+    icons: 'src/assets/toolkit/icons/*.svg',
     views: 'src/toolkit/views/*.html'
   },
   dest: 'dist'
@@ -131,7 +133,7 @@ gulp.task('modernizr', function () {
 
 
 // images
-gulp.task('images', ['favicon'], function () {
+gulp.task('images', ['favicon', 'icons'], function () {
   return gulp.src(config.src.images)
     .pipe(imagemin())
     .pipe(gulp.dest(config.dest + '/assets/toolkit/images'));
@@ -140,6 +142,20 @@ gulp.task('images', ['favicon'], function () {
 gulp.task('favicon', function () {
   return gulp.src('./src/favicon.ico')
     .pipe(gulp.dest(config.dest));
+});
+
+gulp.task('icons', function () {
+  return gulp.src(config.src.icons)
+    .pipe(imagemin())
+    .pipe(svgSprite({
+      mode: {
+        symbol: {
+          dest: '',
+          sprite: 'icons.svg'
+        },
+      }
+    }))
+    .pipe(gulp.dest(config.dest + '/assets/toolkit/images'));
 });
 
 // assemble
@@ -205,7 +221,7 @@ gulp.task('serve', function () {
   gulp.watch('src/assets/{fabricator,toolkit}/scripts/**/*.js', ['scripts:watch']).on('change', webpackCache);
 
   gulp.task('images:watch', ['images'], reload);
-  gulp.watch(config.src.images, ['images:watch']);
+  gulp.watch([config.src.images, config.src.icons], ['images:watch']);
 
 });
 

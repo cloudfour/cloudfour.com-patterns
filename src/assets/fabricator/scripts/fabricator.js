@@ -2,13 +2,6 @@
 
 require('./prism');
 
-import bindKeys from './lib/KeyController';
-
-const LABELS_SHORTCUT = 'ctrl a';
-const CODE_SHORTCUT = 'ctrl s';
-const NOTES_SHORTCUT = 'ctrl d';
-const MENU_SHORTCUT = 'ctrl /';
-
 /**
  * Global `fabricator` object
  * @namespace
@@ -211,16 +204,6 @@ fabricator.setToggleOption = function (toggleType, state) {
 	fabricator.saveOptions(options);
 };
 
-fabricator.initToggleOptions = function (toggleType) {
-	let options = fabricator.getOptions().toggles;
-
-	this.toggleLabels(options.labels);
-	this.toggleCode(options.code);
-	this.toggleNotes(options.notes);
-
-	return this;
-};
-
 fabricator.toggleClass = function (element, className, state) {
 	let classList = element.classList;
 	switch (state) {
@@ -241,22 +224,6 @@ fabricator.toggleClassAll = function (elements, className, state) {
 		fabricator.toggleClass(el, className, state);
 	});
 };
-
-fabricator.toggleLabels = function (state) {
-	fabricator.setToggleOption('labels', state);
-	fabricator.toggleClassAll(fabricator.dom.labels, 'f-u-hidden', state);
-};
-
-fabricator.toggleCode = function (state) {
-	fabricator.setToggleOption('code', state);
-	fabricator.toggleClassAll(fabricator.dom.code, 'f-u-hidden', state);
-};
-
-fabricator.toggleNotes = function (state) {
-	fabricator.setToggleOption('notes', state);
-	fabricator.toggleClassAll(fabricator.dom.notes, 'f-u-hidden', state);
-};
-
 
 /**
  * Handler for single item code toggling
@@ -348,19 +315,5 @@ fabricator.setInitialMenuState = function () {
 		.menuToggle()
 		.singleItemToggle()
 		.setActiveItem()
-		.bindCodeAutoSelect()
-		.initToggleOptions();
-
-	bindKeys(LABELS_SHORTCUT, () => {
-		fabricator.toggleLabels()
-	});
-
-	bindKeys(CODE_SHORTCUT, () => {
-		fabricator.toggleCode();
-	});
-	
-	bindKeys(NOTES_SHORTCUT, () => {
-		fabricator.toggleNotes();
-	});
-
+		.bindCodeAutoSelect();
 }());

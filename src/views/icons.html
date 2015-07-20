@@ -1,0 +1,54 @@
+---
+title: Icons | Fabricator
+fabricator: true
+---
+
+<h1>Icons</h1>
+
+<p>This toolkit includes a custom library of icons to accompany content where appropriate. These icons will inherit the parent element's text color where specified by the icon designer.</p>
+
+<ul class="f-Icons">
+	{{#each toolkit.icons}}
+		<li class="f-Icon">
+		  <svg class="Icon">
+		    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#{{this}}" />
+		  </svg>
+			<span class="f-Icon-label">{{this}}</span>
+		</li>
+	{{/each}}
+</ul>
+
+<h2 id="usage">How to use</h2>
+
+<p>Reference the <code>icons.svg</code> file with the hash of the icon you wish to use (e.g. <code>#arrow</code>) in a standard SVG element:</p>
+
+<pre class="language-markup"><code class="language-markup">&lt;svg class=&quot;Icon&quot;&gt;
+  &lt;use xlink:href=&quot;assets/toolkit/images/icons.svg#foobar&quot; /&gt;
+&lt;/svg&gt;</code></pre>
+
+<p>The <code>.Icon</code> component class is included for consistent styles. This can be combined with modifiers to adjust the icon's size relative to the current <code>font-size</code>:</p>
+
+<div>
+  <svg class="Icon">
+    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
+  </svg>
+	<code>.Icon</code>
+</div>
+<div>
+  <svg class="Icon Icon--md">
+    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
+  </svg>
+	<code>.Icon.Icon--md</code>
+</div>
+<div>
+  <svg class="Icon Icon--lg">
+    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
+  </svg>
+	<code>.Icon.Icon--lg</code>
+</div>
+<div>
+  <svg class="Icon Icon--xl">
+    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
+  </svg>
+	<code>.Icon.Icon--xl</code>
+</div>

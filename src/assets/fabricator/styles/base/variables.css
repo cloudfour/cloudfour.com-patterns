@@ -10,6 +10,9 @@
 	--Label-inprogress: #ffd739;
 	--Label-deprecated: #ff4136;
 	--Label-approved: #19b72b;
+
+	--Icon-background: #f7f7f7;
+	--Icon-hover-background: #444;
 }
 
 @custom-media --large-viewport (min-width: 60em);

@@ -6,6 +6,7 @@
 
 @import 'base/variables';
 
+@import 'components/icon';
 @import 'components/item';
 @import 'components/label';
 @import 'components/layout';

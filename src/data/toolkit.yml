@@ -23,3 +23,9 @@ languages:
   Clojure: "Something I have not used"
   Python: "A programming language where whitespace matters"
   Ruby: "An ugly syntax"
+
+icons:
+  - arrow
+  - envelope
+  - reply
+  - search

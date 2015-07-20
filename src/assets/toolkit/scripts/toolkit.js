@@ -75,9 +75,7 @@
   };
 
   FloatLabel.prototype.init = function() {
-    this.element.addEventListener(this.options.eventName, function() {
-      this.run();
-    }.bind(this));
+    this.element.addEventListener(this.options.eventName, this.run.bind(this));
     this.run();
   };
 

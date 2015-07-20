@@ -15,6 +15,8 @@
 
   /**
    * Utilities
+   *
+   * http://youmightnotneedjquery.com/
    */
 
   var addClass = function(el, className) {

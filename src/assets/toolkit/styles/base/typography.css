@@ -95,9 +95,12 @@ code {
   white-space: pre;
 }
 
+code {
+  word-wrap: normal;
+}
+
 pre > code {
   white-space: pre-wrap;
-  word-wrap: normal;
 }
 
 /**

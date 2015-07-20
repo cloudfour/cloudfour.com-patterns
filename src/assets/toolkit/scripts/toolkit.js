@@ -71,7 +71,7 @@
   FloatLabel.DEFAULTS = {
     input: 'input',
     className: 'is-empty',
-    eventName: 'keyup'
+    eventName: Modernizr.oninput ? 'input' : 'keyup'
   };
 
   FloatLabel.prototype.init = function() {

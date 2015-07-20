@@ -61,7 +61,7 @@
     this.element = element;
     this.options = extend({}, FloatLabel.DEFAULTS, options);
     if (typeof this.options.input === 'string') {
-      this.input = this.element.querySelectorAll(this.options.input)[0];
+      this.input = this.element.querySelector(this.options.input);
     } else {
       this.input = this.options.input;
     }

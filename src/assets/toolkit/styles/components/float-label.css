@@ -1,0 +1,47 @@
+/**
+ * FloatLabel
+ */
+
+:root {
+  --FloatLabel-background-color: var(--color-white);
+  --FloatLabel-color: var(--color-deep-blue);
+  --FloatLabel-color-empty: color(var(--color-base) a(50%));
+  --FloatLabel-font-size: 0.777777778em;
+  --FloatLabel-font-weight: 600;
+  --FloatLabel-offset: 3px;
+  --FloatLabel-space-x: 0.75rem;
+  --FloatLabel-space-y: 0.5rem;
+  --FloatLabel-transition-duration: 100ms;
+  --FloatLabel-transition-timing-function: ease;
+}
+
+.FloatLabel {
+  position: relative;
+  display: block;
+}
+
+.FloatLabel-label {
+  position: absolute;
+  top: -0.5em;
+  left: var(--FloatLabel-space-x);
+  margin: 0;
+  padding: 0 var(--FloatLabel-offset);
+  font-size: var(--FloatLabel-font-size);
+  font-weight: var(--FloatLabel-font-weight);
+  line-height: 1;
+  color: var(--FloatLabel-color);
+  background: var(--FloatLabel-background-color);
+  transition: all var(--FloatLabel-transition-duration) var(--FloatLabel-transition-timing-function);
+  user-select: none;
+}
+
+.FloatLabel.is-empty .FloatLabel-label {
+  top: var(--FloatLabel-offset);
+  left: var(--FloatLabel-offset);
+  padding: var(--FloatLabel-space-y) var(--FloatLabel-space-x);
+  font: inherit;
+  line-height: normal;
+  color: var(--FloatLabel-color-empty);
+  background: transparent;
+  cursor: text;
+}

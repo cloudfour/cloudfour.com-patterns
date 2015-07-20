@@ -8,14 +8,14 @@ fabricator: true
 <p>This toolkit includes a custom library of icons to accompany content where appropriate. These icons will inherit the parent element's text color where specified by the icon designer.</p>
 
 <ul class="f-Icons">
-	{{#each toolkit.icons}}
-		<li class="f-Icon">
-		  <svg class="Icon">
-		    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#{{this}}" />
-		  </svg>
-			<span class="f-Icon-label">{{this}}</span>
-		</li>
-	{{/each}}
+  {{#each toolkit.icons}}
+    <li class="f-Icon">
+      <svg class="Icon">
+        <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#{{this}}" />
+      </svg>
+      <span class="f-Icon-label">{{this}}</span>
+    </li>
+  {{/each}}
 </ul>
 
 <h2 id="usage">How to use</h2>
@@ -32,23 +32,50 @@ fabricator: true
   <svg class="Icon">
     <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
   </svg>
-	<code>.Icon</code>
+  <code>.Icon</code>
 </div>
 <div>
   <svg class="Icon Icon--md">
     <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
   </svg>
-	<code>.Icon.Icon--md</code>
+  <code>.Icon.Icon--md</code>
 </div>
 <div>
   <svg class="Icon Icon--lg">
     <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
   </svg>
-	<code>.Icon.Icon--lg</code>
+  <code>.Icon.Icon--lg</code>
 </div>
 <div>
   <svg class="Icon Icon--xl">
     <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
   </svg>
-	<code>.Icon.Icon--xl</code>
+  <code>.Icon.Icon--xl</code>
+</div>
+
+<p>Use <code>.u-turnXofY</code> utility classes to change an icon's direction:</p>
+
+<div>
+  <svg class="Icon">
+    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow" />
+  </svg>
+  <code>.Icon</code>
+</div>
+<div>
+  <svg class="Icon u-turn1of4">
+    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow" />
+  </svg>
+  <code>.Icon.u-turn1of4</code>
+</div>
+<div>
+  <svg class="Icon u-turn1of2">
+    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow" />
+  </svg>
+  <code>.Icon.u-turn1of2</code>
+</div>
+<div>
+  <svg class="Icon u-turn3of4">
+    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow" />
+  </svg>
+  <code>.Icon.u-turn3of4</code>
 </div>

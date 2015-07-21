@@ -6,57 +6,67 @@
  */
 
 :root {
+  --Icon-line-height-offset: calc((var(--line-height) - 1) / -2em);
   --Icon-size-sm: 1em;
   --Icon-size-md: calc(var(--Icon-size-sm) * var(--ratio));
   --Icon-size-lg: calc(var(--Icon-size-md) * var(--ratio));
   --Icon-size-xl: calc(var(--Icon-size-lg) * var(--ratio));
-
-  /**
-   * Attempts thus far to figure out some sort of proportional ratio for this
-   * have failed. So here's a bunch of mysterious math that looks right!
-   */
-  --Icon-vertical-align-sm: -0.125em;
-  --Icon-vertical-align-lg: calc(var(--Icon-vertical-align-md) * 2);
-  --Icon-vertical-align-md: calc(var(--Icon-vertical-align-sm) * 3);
-  --Icon-vertical-align-xl: calc(var(--Icon-vertical-align-lg) * 1.75);
 }
 
 /**
- * 1. Reset any inherited margin.
- * 2. Flow with inline content.
- * 3. Assume square proportions for container.
- * 4. Reset `line-height` to avoid throwing off `vertical-align` (5).
- * 5. Adjust `vertical-align` for best visual appearance with text. Using this
- *    instead of the more common negative `top` value because it does not
- *    impact the dimensions of its parent as quickly.
+ * 1. Because vertical alignment is funny, icons always appear about a pixel too
+ *    low when they're the same height as the current `font-size`. Using `top`
+ *    frees up `margin-top` for adjustments we'll be applying to modifiers.
+ * 2. Base dimensions on the current `font-size` for leaner adjustments.
  */
 .Icon {
-  margin: 0; /* 1 */
-  display: inline-block; /* 2 */
-  width: var(--Icon-size-sm); /* 3 */
-  height: var(--Icon-size-sm); /* 3 */
-  line-height: 1; /* 4 */
-  vertical-align: var(--Icon-vertical-align-sm); /* 5 */
+  position: relative;
+  top: -1px; /* 1 */
+  margin: 0;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: var(--Icon-size-sm); /* 2 */
+  vertical-align: middle;
 }
 
 /**
- * Modifiers: size
+ * Modifiers should avoid disrupting their container where possible. Setting
+ * negative values for both vertical margins makes sure this won't happen unless
+ * the icon is actually too tall for the container rather than the container's
+ * `line-height`.
+ */
+
+.Icon--md,
+.Icon--lg,
+.Icon--xl {
+  margin-top: var(--Icon-line-height-offset);
+  margin-bottom: var(--Icon-line-height-offset);
+}
+
+/**
+ * Above a certain size, modifiers no longer need the top offset because the
+ * dominant visual relationship at this point will be with the container rather
+ * than the baseline.
+ */
+
+.Icon--lg,
+.Icon--xl {
+  top: 0;
+}
+
+/**
+ * At this point, modifiers are defined with simple `font-size` adjustments.
  */
 
 .Icon--md {
-  width: var(--Icon-size-md);
-  height: var(--Icon-size-md);
-  vertical-align: var(--Icon-vertical-align-md);
+  font-size: var(--Icon-size-md);
 }
 
 .Icon--lg {
-  width: var(--Icon-size-lg);
-  height: var(--Icon-size-lg);
-  vertical-align: var(--Icon-vertical-align-lg);
+  font-size: var(--Icon-size-lg);
 }
 
 .Icon--xl {
-  width: var(--Icon-size-xl);
-  height: var(--Icon-size-xl);
-  vertical-align: var(--Icon-vertical-align-xl);
+  font-size: var(--Icon-size-xl);
 }

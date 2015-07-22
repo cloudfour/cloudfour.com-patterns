@@ -158,7 +158,6 @@ blockquote :matches(p, footer) {
 
 blockquote cite {
   font-style: normal;
-  white-space: nowrap;
 }
 
 blockquote cite::before {

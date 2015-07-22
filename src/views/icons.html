@@ -5,7 +5,11 @@ fabricator: true
 
 <h1>Icons</h1>
 
-<p>This toolkit includes a custom library of icons to accompany content where appropriate. These icons will inherit the parent element's text color where specified by the icon designer.</p>
+<p>
+  This toolkit includes a custom library of icons to accompany content where
+  appropriate. These icons will inherit the parent element's text color where
+  specified by the icon designer.
+</p>
 
 <ul class="f-Icons">
   {{#each toolkit.icons}}
@@ -20,13 +24,21 @@ fabricator: true
 
 <h2 id="usage">How to use</h2>
 
-<p>Reference the <code>icons.svg</code> file with the hash of the icon you wish to use (e.g. <code>#arrow</code>) in a standard SVG element:</p>
+<p>
+  Reference the <code>icons.svg</code> file with the hash of the icon you wish
+  to use (e.g. <code>#arrow</code>) in a standard SVG element:
+</p>
 
 <pre class="language-markup"><code class="language-markup">&lt;svg class=&quot;Icon&quot;&gt;
   &lt;use xlink:href=&quot;assets/toolkit/images/icons.svg#foobar&quot; /&gt;
 &lt;/svg&gt;</code></pre>
 
-<p>The <code>.Icon</code> component class is included for consistent styles. This can be combined with modifiers to adjust the icon's size relative to the current <code>font-size</code>:</p>
+<p>
+  The <code>.Icon</code> component class is included for consistent styles.
+  Include the <code>.Icon--large</code> modifier to increase the icon's size
+  relative to the containing element's <code>font-size</code>:
+</p>
+
 
 <div>
   <svg class="Icon">
@@ -35,25 +47,15 @@ fabricator: true
   <code>.Icon</code>
 </div>
 <div>
-  <svg class="Icon Icon--md">
+  <svg class="Icon Icon--large">
     <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
   </svg>
-  <code>.Icon.Icon--md</code>
-</div>
-<div>
-  <svg class="Icon Icon--lg">
-    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
-  </svg>
-  <code>.Icon.Icon--lg</code>
-</div>
-<div>
-  <svg class="Icon Icon--xl">
-    <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
-  </svg>
-  <code>.Icon.Icon--xl</code>
+  <code>.Icon.Icon--large</code>
 </div>
 
-<p>Use <code>.u-turnXofY</code> utility classes to change an icon's direction:</p>
+<p>
+  Use <code>.u-turnXofY</code> utility classes to change an icon's direction:
+</p>
 
 <div>
   <svg class="Icon">

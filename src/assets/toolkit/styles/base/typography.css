@@ -152,7 +152,11 @@ blockquote {
   font-style: italic;
 }
 
-blockquote :matches(p, footer) {
+blockquote p {
+  margin-bottom: var(--margin-base);
+}
+
+blockquote :matches(p:last-of-type, footer) {
   display: inline;
 }
 

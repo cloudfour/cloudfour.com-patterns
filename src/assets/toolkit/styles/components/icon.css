@@ -7,10 +7,8 @@
 
 :root {
   --Icon-line-height-offset: calc((var(--line-height) - 1) / -2em);
-  --Icon-size-sm: 1em;
-  --Icon-size-md: calc(var(--Icon-size-sm) * var(--ratio));
-  --Icon-size-lg: calc(var(--Icon-size-md) * var(--ratio));
-  --Icon-size-xl: calc(var(--Icon-size-lg) * var(--ratio));
+  --Icon-size: 1em;
+  --Icon-size-lg: calc(var(--Icon-size) * var(--ratio));
 }
 
 /**
@@ -26,47 +24,18 @@
   display: inline-block;
   width: 1em;
   height: 1em;
-  font-size: var(--Icon-size-sm); /* 2 */
+  font-size: var(--Icon-size); /* 2 */
   vertical-align: middle;
 }
 
 /**
- * Modifiers should avoid disrupting their container where possible. Setting
- * negative values for both vertical margins makes sure this won't happen unless
- * the icon is actually too tall for the container rather than the container's
- * `line-height`.
+ * 1. Negative vertical margins prevent the icon from disrupting the surrounding
+ *    content's `line-height`.
+ * 2. Actual size adjustment occurs via `font-size`.
  */
 
-.Icon--md,
-.Icon--lg,
-.Icon--xl {
-  margin-top: var(--Icon-line-height-offset);
-  margin-bottom: var(--Icon-line-height-offset);
-}
-
-/**
- * Above a certain size, modifiers no longer need the top offset because the
- * dominant visual relationship at this point will be with the container rather
- * than the baseline.
- */
-
-.Icon--lg,
-.Icon--xl {
-  top: 0;
-}
-
-/**
- * At this point, modifiers are defined with simple `font-size` adjustments.
- */
-
-.Icon--md {
-  font-size: var(--Icon-size-md);
-}
-
-.Icon--lg {
-  font-size: var(--Icon-size-lg);
-}
-
-.Icon--xl {
-  font-size: var(--Icon-size-xl);
+.Icon--large {
+  margin-top: var(--Icon-line-height-offset); /* 1 */
+  margin-bottom: var(--Icon-line-height-offset); /* 1 */
+  font-size: var(--Icon-size-lg); /* 2 */
 }

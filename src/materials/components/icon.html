@@ -2,15 +2,10 @@
 notes: |
   Consistently styles inline SVG icons. Icons that use `currentColor` will
   inherit the parent element's text color.
-
-  Size can be adjusted by including a modifier class in the format of
-  `Icon--{size}`. Current sizes include `md`, `lg` or `xl`.
-labels:
-  - inprogress
 ---
 <div>
   <button class="Button Button--primary">
-    <svg class="Icon Icon--md">
+    <svg class="Icon Icon--large">
       <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#envelope" />
     </svg>
     Drop us a line!
@@ -19,7 +14,7 @@ labels:
 <div>
   <a href="#">
     View live demo
-    <svg class="Icon Icon--md">
+    <svg class="Icon Icon--large">
       <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow" />
     </svg>
   </a>

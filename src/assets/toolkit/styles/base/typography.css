@@ -123,3 +123,50 @@ li,
 dd {
   margin-top: 0;
 }
+
+/**
+ * Horizontal rule
+ */
+
+hr {
+  height: var(--hr-height);
+  min-height: var(--hr-min-height);
+  border-style: none;
+  background: var(--hr-background);
+}
+
+/**
+ * Blockquote
+ *
+ * Assumes markup to be:
+ *
+ * <blockquote>
+ *   <p>The movie was awesome</p>
+ *   <footer>
+ *     <cite>Some Person</cite>
+ *   </footer>
+ * </blockquote>
+ *
+ * http://html5doctor.com/cite-and-blockquote-reloaded/
+ */
+
+blockquote {
+  padding-left: var(--blockquote-padding);
+  font-style: italic;
+}
+
+blockquote p {
+  margin-bottom: var(--margin-base);
+}
+
+blockquote :matches(p:last-of-type, footer) {
+  display: inline;
+}
+
+blockquote cite {
+  font-style: normal;
+}
+
+blockquote cite::before {
+  content: var(--cite-prefix);
+}

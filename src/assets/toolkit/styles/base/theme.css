@@ -59,6 +59,13 @@
 
   --list-style-ordered: decimal;
   --list-style-unordered: disc;
+
+  --hr-height: 0.125em;
+  --hr-min-height: 1px;
+  --hr-background: currentColor;
+
+  --blockquote-padding: 2em;
+  --cite-prefix: "—";
 }
 
 /**

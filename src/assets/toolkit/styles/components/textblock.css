@@ -1,0 +1,37 @@
+/** @define TextBlock */
+
+:root {
+  --TextBlock-font-size: var(--font-size-md);
+  --TextBlock-font-size-lg: var(--font-size-lg);
+  --TextBlock-line-height-sm: calc(1 + 1 - (var(--line-height) - (1 / var(--line-height))));
+}
+
+/**
+ * This component is indented for portions of text that need to visually
+ * stand out from surrounding body copy.
+ *
+ * 1. Ensure block display if used on inline elements
+ * 2. Enable kerning (falls back to `font-feature-settings` via Autoprefixer)
+ */
+
+.TextBlock {
+  display: block; /* 1 */
+  font-size: var(--TextBlock-font-size);
+  font-kerning: normal; /* 2 */
+}
+
+/**
+ * Modifier: make font size relatively larger
+ */
+
+.TextBlock--large {
+  font-size: var(--TextBlock-font-size-lg);
+}
+
+/**
+ * Modifier: make line height relatively smaller
+ */
+
+.TextBlock--compact {
+  line-height: var(--TextBlock-line-height-sm);
+}

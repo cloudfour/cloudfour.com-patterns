@@ -36,6 +36,6 @@
  * Modifier: zebra-striped rows
  */
 
-.Table--striped tbody tr:nth-of-type(odd) {
+.Table--striped tbody tr:nth-child(odd) {
   background-color: var(--Table-background-color-striped);
 }

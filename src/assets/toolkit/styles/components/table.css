@@ -1,0 +1,41 @@
+/** @define Table */
+
+:root {
+  --Table-border-color: var(--color-gray);
+  --Table-border-width: 1px;
+  --Table-border-width-large: 3px;
+  --Table-background-color-striped: color(var(--Table-border-color) l(+5%));
+  --Table-padding: 0.5rem;
+}
+
+.Table {
+  width: 100%;
+}
+
+.Table :matches(th, td) {
+  padding: var(--Table-padding);
+}
+
+.Table thead {
+  border-bottom: var(--Table-border-width-large) solid var(--Table-border-color);
+}
+
+.Table thead th {
+  vertical-align: bottom;
+}
+
+/**
+ * Modifier: horizontal separators between rows
+ */
+
+.Table--ruled tbody tr {
+  border-bottom: var(--Table-border-width) solid var(--Table-border-color);
+}
+
+/**
+ * Modifier: zebra-striped rows
+ */
+
+.Table--striped tbody tr:nth-child(odd) {
+  background-color: var(--Table-background-color-striped);
+}

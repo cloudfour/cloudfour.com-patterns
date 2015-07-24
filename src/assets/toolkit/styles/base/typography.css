@@ -1,20 +1,55 @@
 /**
- * Global type styles
+ * Root font size
  *
- * 1. Root font size for rem basis
- * 2. Base font style for everything
- * 3. Allow long words (links) to brake at arbitrary points
- * 4. Auto-hyphens by default (assuming removal for specific elements)
+ * This is the basis for all rem and em unit calculations.
  */
 
 html {
-  font-size: var(--font-size-px); /* 1 */
+  font-size: var(--font-size-px);
 }
 
+/**
+ * Increase root font-size for medium screens.
+ */
+
+@media (--md-viewport) {
+  html {
+    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 1);
+  }
+}
+
+/**
+ * Increase root font-size a little more for large screens.
+ */
+
+@media (--lg-viewport) {
+  html {
+    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 2);
+  }
+}
+
+/**
+ * Increase root font-size even a little more for extra-large screens.
+ */
+
+@media (--xl-viewport) {
+  html {
+    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 3);
+  }
+}
+
+/**
+ * Body type styles
+ *
+ * 1. Base font style for everything
+ * 2. Allow long words (links) to brake at arbitrary points
+ * 3. Auto-hyphens by default (assuming removal for specific elements)
+ */
+
 body {
-  font: var(--font-base); /* 2 */
-  word-wrap: break-word; /* 3 */
-  hyphens: auto; /* 4 */
+  font: var(--font-base); /* 1 */
+  word-wrap: break-word; /* 2 */
+  hyphens: auto; /* 3 */
 }
 
 /**
@@ -22,35 +57,51 @@ body {
  */
 
 :--headings {
-  font-weight: bold;
+  font: var(--heading-font);
 }
 
-h1,
-h2,
-h3 {
-  line-height: 1;
-  text-rendering: optimizeLegibility;
-}
+/**
+ * Largest and smallest default heading sizes
+ */
 
 h1 {
-  font-size: var(--font-size-xl);
-}
-
-h2 {
-  font-size: var(--font-size-lg);
-}
-
-h3 {
   font-size: var(--font-size-md);
-}
-
-h4 {
-  font-size: var(--font-size-sm);
+  line-height: 1;
 }
 
 h5,
 h6 {
   font-size: var(--font-size-xs);
+}
+
+/**
+ * Responsive heading size increases
+ */
+
+@media (--md-viewport) {
+  h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  h2 {
+    font-size: var(--font-size-md);
+    line-height: 1;
+  }
+}
+
+@media (--lg-viewport) {
+  h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  h3 {
+    font-size: var(--font-size-md);
+    line-height: 1;
+  }
 }
 
 /**

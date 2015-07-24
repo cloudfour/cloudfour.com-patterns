@@ -12,6 +12,7 @@
 @custom-media --sm-viewport (width >= 30em);
 @custom-media --md-viewport (width >= 48em);
 @custom-media --lg-viewport (width >= 64em);
+@custom-media --xl-viewport (width >= 80em);
 
 /**
  * Misc
@@ -44,10 +45,15 @@
 
 /**
  * Typography
+ *
+ * 1. The root font-size that is applied to <html>.
+ * 2. The amount by which the root font-size is increased per breakpoint.
  */
 
 :root {
-  --font-size-px: 18px;
+  --font-size-px: 16px; /* 1 */
+  --font-size-increment: 1px; /* 2 */
+
   --font-size-xs: calc(1em / var(--ratio));
   --font-size-sm: 1em;
   --font-size-md: calc(var(--font-size-sm) * var(--ratio));
@@ -55,6 +61,8 @@
   --font-size-xl: calc(var(--font-size-lg) * var(--ratio));
 
   --font-family: "Source Sans Pro", sans-serif;
+  --font-weight: 400;
+  --font-weight-bold: 700;
   --line-height: var(--ratio);
 
   --list-style-ordered: decimal;

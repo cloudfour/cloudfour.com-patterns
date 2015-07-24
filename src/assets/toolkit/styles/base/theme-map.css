@@ -8,3 +8,11 @@
   --font-base: var(--font-size-sm)/var(--line-height) var(--font-family);
   --margin-base: var(--space-medium);
 }
+
+/**
+ * heading
+ */
+
+:root {
+  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family);
+}

@@ -45,11 +45,15 @@
 
 /**
  * Typography
+ *
+ * 1. The root font-size that is applied to <html>.
+ * 2. The amount by which the root font-size is increased per breakpoint.
  */
 
 :root {
-  --font-size-px: 16px;
-  --font-size-increment: 1px;
+  --font-size-px: 16px; /* 1 */
+  --font-size-increment: 1px; /* 2 */
+
   --font-size-xs: calc(1em / var(--ratio));
   --font-size-sm: 1em;
   --font-size-md: calc(var(--font-size-sm) * var(--ratio));

@@ -12,6 +12,7 @@
 @custom-media --sm-viewport (width >= 30em);
 @custom-media --md-viewport (width >= 48em);
 @custom-media --lg-viewport (width >= 64em);
+@custom-media --xl-viewport (width >= 80em);
 
 /**
  * Misc
@@ -48,6 +49,7 @@
 
 :root {
   --font-size-px: 18px;
+  --font-size-increment: 1px;
   --font-size-xs: calc(1em / var(--ratio));
   --font-size-sm: 1em;
   --font-size-md: calc(var(--font-size-sm) * var(--ratio));
@@ -55,6 +57,8 @@
   --font-size-xl: calc(var(--font-size-lg) * var(--ratio));
 
   --font-family: "Source Sans Pro", sans-serif;
+  --font-weight: 400;
+  --font-weight-bold: 700;
   --line-height: var(--ratio);
 
   --list-style-ordered: decimal;

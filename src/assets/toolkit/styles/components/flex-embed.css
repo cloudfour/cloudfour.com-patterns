@@ -1,0 +1,9 @@
+@import "suitcss-components-flex-embed";
+
+/**
+ * Override the global margin-top for this element.
+ */
+
+.FlexEmbed-content {
+  margin: 0;
+}

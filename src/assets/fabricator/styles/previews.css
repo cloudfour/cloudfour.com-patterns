@@ -8,6 +8,6 @@
 }
 
 
-.f-Item-preview > .TextBlock {
+.f-Item-preview > :matches(.TextBlock, .FlexEmbed) {
   max-width: 30em;
 }

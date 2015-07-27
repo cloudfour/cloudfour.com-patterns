@@ -2,8 +2,8 @@
 
 :root {
   --Table-border-color: var(--color-gray);
-  --Table-border-width: 1px;
-  --Table-border-width-large: 3px;
+  --Table-border-width: var(--component-line);
+  --Table-border-width-large: var(--component-stroke);
   --Table-background-color-striped: color(var(--Table-border-color) l(+5%));
   --Table-padding: 0.5rem;
 }

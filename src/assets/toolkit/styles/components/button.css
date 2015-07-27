@@ -8,14 +8,14 @@
  */
 
 :root {
-  --Button-border-color: transparent;
-  --Button-border-radius: 6px;
-  --Button-border-width: 3px;
-  --Button-disabled-opacity: 0.5;
-  --Button-font-weight: 600;
+  --Button-border-color: var(--component-border-color);
+  --Button-border-radius: var(--component-radius);
+  --Button-border-width: var(--component-stroke);
+  --Button-disabled-opacity: var(--component-disabled-opacity);
+  --Button-font-weight: var(--font-weight-semibold);
   --Button-padding: 0.5em 1em;
-  --Button-transition-duration: 300ms;
-  --Button-transition-timing-function: ease;
+  --Button-transition-duration: var(--motion-duration-lg);
+  --Button-transition-timing-function: var(--motion-timing-function-default);
 }
 
 /**

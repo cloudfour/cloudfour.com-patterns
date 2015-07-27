@@ -5,7 +5,7 @@
  */
 
 html {
-  font-size: var(--font-size-px);
+  font-size: var(--font-size-default);
 }
 
 /**
@@ -14,7 +14,7 @@ html {
 
 @media (--md-viewport) {
   html {
-    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 1);
+    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 1);
   }
 }
 
@@ -24,7 +24,7 @@ html {
 
 @media (--lg-viewport) {
   html {
-    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 2);
+    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 2);
   }
 }
 
@@ -34,7 +34,7 @@ html {
 
 @media (--xl-viewport) {
   html {
-    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 3);
+    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 3);
   }
 }
 

@@ -42,7 +42,7 @@
  */
 
 :root {
-  --font-size-px: 16px; /* 1 */
+  --font-size-default: 16px; /* 1 */
   --font-size-increment: 1px; /* 2 */
 
   --font-size-xs: calc(1em / var(--ratio));

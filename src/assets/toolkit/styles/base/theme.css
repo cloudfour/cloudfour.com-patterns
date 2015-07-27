@@ -81,9 +81,9 @@
  */
 
 :root {
-  --space-small: 1rem;
-  --space-medium: calc(var(--space-small) * var(--ratio));
-  --space-large: calc(var(--space-medium) * var(--ratio));
+  --space: calc(1rem * var(--ratio));
+  --space-sm: calc(var(--space) / var(--ratio));
+  --space-lg: calc(var(--space) * var(--ratio));
 }
 
 /**

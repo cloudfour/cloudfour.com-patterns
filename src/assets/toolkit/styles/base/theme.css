@@ -105,6 +105,15 @@
 }
 
 /**
+ * Background
+ */
+
+:root {
+  --background-color-default: transparent;
+  --background-color-alt: currentColor;
+}
+
+/**
  * Selectors
  */
 

@@ -51,9 +51,10 @@
   --font-size-lg: calc(var(--font-size-md) * var(--ratio));
   --font-size-xl: calc(var(--font-size-lg) * var(--ratio));
 
-  --font-weight: 400;
   --font-family-default: "Source Sans Pro", sans-serif;
   --font-family-alt: var(--font-family-default);
+
+  --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --line-height: var(--ratio);

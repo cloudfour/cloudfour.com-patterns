@@ -79,6 +79,16 @@
 }
 
 /**
+ * Motion
+ */
+
+:root {
+  --duration: 180ms;
+  --duration-slow: 300ms;
+  --duration-fast: 100ms;
+  --timing-function: ease;
+}
+
  * Selectors
  */
 

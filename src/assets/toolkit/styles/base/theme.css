@@ -58,19 +58,27 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  --list-style-ordered: decimal;
-  --list-style-unordered: disc;
   --line-height-xs: 1;
   --line-height-sm: calc(2 - (var(--ratio) - (1 / var(--ratio))));
   --line-height-md: var(--ratio);
   --line-height-lg: calc(var(--line-height-md) * var(--ratio));
+}
 
-  --hr-height: 0.125em;
-  --hr-min-height: 1px;
-  --hr-background: currentColor;
+/**
+ * Content
+ */
 
-  --blockquote-padding: 2em;
-  --cite-prefix: "—";
+:root {
+  --content-em-dash: "—";
+}
+
+/**
+ * Element
+ */
+
+:root {
+  --list-style-default: decimal;
+  --list-style-alt: disc;
 }
 
 /**

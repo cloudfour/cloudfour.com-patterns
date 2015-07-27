@@ -53,6 +53,7 @@
 
   --font-family: "Source Sans Pro", sans-serif;
   --font-weight: 400;
+  --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --line-height: var(--ratio);
 

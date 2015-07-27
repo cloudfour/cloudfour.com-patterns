@@ -5,7 +5,7 @@
 :root {
   --Input-background-color: var(--color-white);
   --Input-border-color: var(--color-gray);
-  --Input-border-color-focus: var(--color-deep-blue);
+  --Input-border-color-focus: var(--color-blue);
   --Input-border-radius: 6px;
   --Input-border-width: 3px;
   --Input-color: var(--color-base);

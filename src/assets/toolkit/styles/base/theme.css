@@ -6,15 +6,6 @@
  */
 
 /**
- * Breakpoints
- */
-
-@custom-media --sm-viewport (width >= 30em);
-@custom-media --md-viewport (width >= 48em);
-@custom-media --lg-viewport (width >= 64em);
-@custom-media --xl-viewport (width >= 80em);
-
-/**
  * Misc
  */
 
@@ -87,8 +78,17 @@
 }
 
 /**
- * Custom selectors
+ * Selectors
  */
 
 @custom-selector :--headings h1, h2, h3, h4, h5, h6;
 @custom-selector :--lists ul, ol, dl;
+
+/**
+ * Breakpoints
+ */
+
+@custom-media --sm-viewport (width >= 30em);
+@custom-media --md-viewport (width >= 48em);
+@custom-media --lg-viewport (width >= 64em);
+@custom-media --xl-viewport (width >= 80em);

@@ -57,7 +57,7 @@ body {
  */
 
 :--headings {
-  font: var(--heading-font);
+  font: var(--font-heading);
 }
 
 /**

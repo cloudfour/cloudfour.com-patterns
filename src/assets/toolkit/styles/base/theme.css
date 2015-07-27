@@ -57,10 +57,13 @@
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --line-height: var(--ratio);
 
   --list-style-ordered: decimal;
   --list-style-unordered: disc;
+  --line-height-xs: 1;
+  --line-height-sm: calc(2 - (var(--ratio) - (1 / var(--ratio))));
+  --line-height-md: var(--ratio);
+  --line-height-lg: calc(var(--line-height-md) * var(--ratio));
 
   --hr-height: 0.125em;
   --hr-min-height: 1px;

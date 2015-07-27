@@ -8,7 +8,7 @@
   --Input-border-color-focus: var(--color-deep-blue);
   --Input-border-radius: 6px;
   --Input-border-width: 3px;
-  --Input-color: var(--color-base);
+  --Input-color: var(--base-color);
   --Input-disabled-opacity: 0.5;
   --Input-padding: 0.5em 0.75em;
   --Input-transition-duration: 300ms;

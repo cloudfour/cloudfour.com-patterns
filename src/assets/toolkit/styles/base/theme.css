@@ -69,7 +69,11 @@
  */
 
 :root {
-  --content-em-dash: "—";
+  --content-dash-em: "—";
+  --content-single-quote-open: "‘";
+  --content-single-quote-close: "’";
+  --content-double-quote-open: "“";
+  --content-double-quote-close: "”";
 }
 
 /**
@@ -110,6 +114,8 @@
   --border-width-sm: 1px;
   --border-width-md: 3px;
   --border-radius-md: 6px;
+  --border-color-default: transparent;
+  --border-color-alt: currentColor;
 }
 
 /**

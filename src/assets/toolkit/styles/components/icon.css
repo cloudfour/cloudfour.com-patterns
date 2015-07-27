@@ -6,7 +6,7 @@
  */
 
 :root {
-  --Icon-line-height-offset: calc((var(--line-height) - 1) / -2em);
+  --Icon-line-height-offset: calc((var(--line-height-md) - 1) / -2em);
   --Icon-size: 1em;
   --Icon-size-lg: calc(var(--Icon-size) * var(--ratio));
 }

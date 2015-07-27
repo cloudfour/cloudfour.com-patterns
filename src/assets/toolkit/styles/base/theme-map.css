@@ -3,16 +3,30 @@
  */
 
 :root {
-  --background-base: var(--color-white);
-  --color-base: var(--color-black);
-  --font-base: var(--font-size-sm)/var(--line-height) var(--font-family-default);
-  --margin-base: var(--space);
+  --base-background: var(--color-white);
+  --base-color: var(--color-black);
+  --base-font: var(--font-size-sm)/var(--line-height-md) var(--font-family-default);
+  --base-margin: var(--space-md);
 }
 
 /**
- * Heading
+ * Heading elements
  */
 
 :root {
-  --font-heading: var(--font-weight-bold) var(--font-size-sm) var(--font-family-alt);
+  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-alt);
+}
+
+/**
+ * Component
+ */
+
+:root {
+  --component-stroke: var(--border-width-md);
+  --component-line: var(--border-width-sm);
+  --component-radius: var(--border-radius-md);
+  --component-color: var(--base-color);
+  --component-background-color: var(--background-color-default);
+  --component-border-color: var(--border-color-default);
+  --component-disabled-opacity: 0.5;
 }

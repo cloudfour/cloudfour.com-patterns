@@ -3,7 +3,7 @@
 :root {
   --TextBlock-font-size: var(--font-size-md);
   --TextBlock-font-size-lg: var(--font-size-lg);
-  --TextBlock-line-height-sm: calc(1 + 1 - (var(--line-height) - (1 / var(--line-height))));
+  --TextBlock-line-height-sm: var(--line-height-sm);
 }
 
 /**

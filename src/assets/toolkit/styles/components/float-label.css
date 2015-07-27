@@ -5,7 +5,7 @@
 :root {
   --FloatLabel-background-color: var(--color-white);
   --FloatLabel-color: var(--color-deep-blue);
-  --FloatLabel-color-empty: color(var(--color-base) a(50%));
+  --FloatLabel-color-empty: color(var(--base-color) a(50%));
   --FloatLabel-font-size: 0.777777778em;
   --FloatLabel-font-weight: 600;
   --FloatLabel-offset: 3px;

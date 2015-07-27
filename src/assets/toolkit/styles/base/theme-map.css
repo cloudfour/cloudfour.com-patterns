@@ -5,7 +5,7 @@
 :root {
   --background-base: var(--color-white);
   --color-base: var(--color-black);
-  --font-base: var(--font-size-sm)/var(--line-height) var(--font-family);
+  --font-base: var(--font-size-sm)/var(--line-height) var(--font-family-default);
   --margin-base: var(--space);
 }
 
@@ -14,5 +14,5 @@
  */
 
 :root {
-  --font-heading: var(--font-weight-bold) var(--font-size-sm) var(--font-family);
+  --font-heading: var(--font-weight-bold) var(--font-size-sm) var(--font-family-alt);
 }

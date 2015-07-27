@@ -89,6 +89,17 @@
   --timing-function: ease;
 }
 
+/**
+ * Shape
+ */
+
+:root {
+  --stroke: 3px;
+  --stroke-sm: 1px;
+  --radius: 6px;
+}
+
+/**
  * Selectors
  */
 

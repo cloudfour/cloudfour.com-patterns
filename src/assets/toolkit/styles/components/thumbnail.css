@@ -6,8 +6,8 @@
 
 :root {
   --Thumbnail-shadow-color: var(--color-dark-blue);
-  --Thumbnail-shadow-width: 3px;
-  --Thumbnail-rounded-radius: 6px;
+  --Thumbnail-shadow-width: var(--component-stroke);
+  --Thumbnail-rounded-radius: var(--component-radius);
 }
 
 /**

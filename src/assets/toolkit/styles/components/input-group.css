@@ -3,8 +3,8 @@
  */
 
 :root {
-  --InputGroup-border-radius: 6px;
-  --InputGroup-space: -3px;
+  --InputGroup-border-radius: var(--component-radius);
+  --InputGroup-space: calc(var(--component-stroke) * -1);
 }
 
 /**

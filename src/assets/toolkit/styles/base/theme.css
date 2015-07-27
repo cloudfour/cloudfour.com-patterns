@@ -95,13 +95,13 @@
 }
 
 /**
- * Shape
+ * Border
  */
 
 :root {
-  --stroke: 3px;
-  --stroke-sm: 1px;
-  --radius: 6px;
+  --border-width-sm: 1px;
+  --border-width-md: 3px;
+  --border-radius-md: 6px;
 }
 
 /**

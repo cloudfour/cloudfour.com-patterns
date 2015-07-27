@@ -65,6 +65,11 @@ body {
  */
 
 h1 {
+  font-size: var(--font-size-lg);
+  line-height: 1;
+}
+
+h2 {
   font-size: var(--font-size-md);
   line-height: 1;
 }
@@ -79,17 +84,6 @@ h6 {
  */
 
 @media (--md-viewport) {
-  h1 {
-    font-size: var(--font-size-lg);
-  }
-
-  h2 {
-    font-size: var(--font-size-md);
-    line-height: 1;
-  }
-}
-
-@media (--lg-viewport) {
   h1 {
     font-size: var(--font-size-xl);
   }

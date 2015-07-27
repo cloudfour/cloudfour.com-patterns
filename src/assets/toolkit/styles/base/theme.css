@@ -88,10 +88,10 @@
  */
 
 :root {
-  --duration: 180ms;
-  --duration-slow: 300ms;
-  --duration-fast: 100ms;
-  --timing-function: ease;
+  --motion-duration-sm: 100ms;
+  --motion-duration-md: 180ms;
+  --motion-duration-lg: 300ms;
+  --motion-timing-function-default: ease;
 }
 
 /**

@@ -156,6 +156,11 @@ pre > code {
   list-style-position: outside;
 }
 
+ol,
+ul {
+  padding: 0 0 0 var(--list-marker-padding);
+}
+
 ul {
   list-style-type: var(--list-style-default);
 }

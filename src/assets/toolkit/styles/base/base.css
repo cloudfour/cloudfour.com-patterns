@@ -36,12 +36,6 @@ iframe {
   border-style: none;
 }
 
-ol,
-ul {
-  padding: 0;
-  list-style: none;
-}
-
 table {
   border-collapse: collapse;
   border-spacing: 0;

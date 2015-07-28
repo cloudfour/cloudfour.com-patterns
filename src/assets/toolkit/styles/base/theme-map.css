@@ -28,5 +28,5 @@
   --control-color: var(--base-color);
   --control-background-color: var(--color-null);
   --control-border-color: var(--color-relative);
-  --control-disabled-opacity: 0.5;
+  --control-disabled-opacity: var(--opacity-mid);
 }

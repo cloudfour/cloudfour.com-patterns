@@ -7,7 +7,7 @@ export class FloatLabel {
 
   constructor (element, options) {
     /** ES6 doesn't seem to have static class properties yet */
-    var DEFAULTS = {
+    const DEFAULTS = {
       input: 'input',
       className: 'is-empty',
       eventName: window.Modernizr.oninput ? 'input' : 'keyup'

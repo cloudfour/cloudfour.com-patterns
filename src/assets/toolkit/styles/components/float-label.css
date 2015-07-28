@@ -8,7 +8,7 @@
   --FloatLabel-color: var(--color-blue);
   --FloatLabel-font-size: 0.777777778em;
   --FloatLabel-font-weight: var(--font-weight-semibold);
-  --FloatLabel-offset: var(--component-stroke);
+  --FloatLabel-offset: var(--control-stroke);
   --FloatLabel-space-x: 0.75rem;
   --FloatLabel-space-y: 0.5rem;
   --FloatLabel-transition-duration: var(--motion-duration-sm);

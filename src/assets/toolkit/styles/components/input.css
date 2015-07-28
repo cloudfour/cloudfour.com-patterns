@@ -6,10 +6,10 @@
   --Input-background-color: var(--base-background);
   --Input-border-color: var(--color-gray);
   --Input-border-color-focus: var(--color-blue);
-  --Input-border-radius: var(--component-radius);
-  --Input-border-width: var(--component-stroke);
+  --Input-border-radius: var(--control-radius);
+  --Input-border-width: var(--control-stroke);
   --Input-color: var(--base-color);
-  --Input-disabled-opacity: var(--component-disabled-opacity);
+  --Input-disabled-opacity: var(--control-disabled-opacity);
   --Input-padding: 0.5em 0.75em;
   --Input-transition-duration: var(--motion-duration-lg);
   --Input-transition-timing-function: var(--motion-timing-function-default);

@@ -8,10 +8,10 @@
  */
 
 :root {
-  --Button-border-color: var(--component-border-color);
-  --Button-border-radius: var(--component-radius);
-  --Button-border-width: var(--component-stroke);
-  --Button-disabled-opacity: var(--component-disabled-opacity);
+  --Button-border-color: var(--control-border-color);
+  --Button-border-radius: var(--control-radius);
+  --Button-border-width: var(--control-stroke);
+  --Button-disabled-opacity: var(--control-disabled-opacity);
   --Button-font-weight: var(--font-weight-semibold);
   --Button-padding: 0.5em 1em;
   --Button-transition-duration: var(--motion-duration-lg);

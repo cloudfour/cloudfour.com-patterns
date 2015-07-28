@@ -2,8 +2,8 @@
 
 :root {
   --Separator-background: var(--color-relative);
-  --Separator-height: var(--component-stroke);
-  --Separator-height-sm: var(--component-line);
+  --Separator-height: var(--control-stroke);
+  --Separator-height-sm: var(--control-line);
   --Separator-height-lg: calc(var(--Separator-height) * var(--ratio));
 }
 

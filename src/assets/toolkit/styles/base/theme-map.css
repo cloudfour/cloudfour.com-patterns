@@ -22,11 +22,11 @@
  */
 
 :root {
-  --component-stroke: var(--border-width-md);
-  --component-line: var(--border-width-sm);
-  --component-radius: var(--border-radius-md);
-  --component-color: var(--base-color);
-  --component-background-color: var(--color-null);
-  --component-border-color: var(--color-relative);
-  --component-disabled-opacity: 0.5;
+  --control-stroke: var(--border-width-md);
+  --control-line: var(--border-width-sm);
+  --control-radius: var(--border-radius-md);
+  --control-color: var(--base-color);
+  --control-background-color: var(--color-null);
+  --control-border-color: var(--color-relative);
+  --control-disabled-opacity: 0.5;
 }

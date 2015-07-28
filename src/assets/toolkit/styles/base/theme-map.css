@@ -1,18 +1,32 @@
 /**
- * base
+ * Base
  */
 
 :root {
-  --background-base: var(--color-white);
-  --color-base: var(--color-black);
-  --font-base: var(--font-size-sm)/var(--line-height) var(--font-family);
-  --margin-base: var(--space-medium);
+  --base-background: var(--color-white);
+  --base-color: var(--color-black);
+  --base-font: var(--font-size-sm)/var(--line-height-md) var(--font-family-default);
+  --base-margin: var(--space-md);
 }
 
 /**
- * heading
+ * Heading elements
  */
 
 :root {
-  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family);
+  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-default);
+}
+
+/**
+ * Component
+ */
+
+:root {
+  --control-stroke: var(--border-width-md);
+  --control-line: var(--border-width-sm);
+  --control-radius: var(--border-radius-md);
+  --control-color: var(--base-color);
+  --control-background-color: var(--color-null);
+  --control-border-color: var(--color-relative);
+  --control-disabled-opacity: var(--opacity-mid);
 }

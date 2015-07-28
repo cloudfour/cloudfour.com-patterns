@@ -5,7 +5,7 @@
  */
 
 html {
-  font-size: var(--font-size-px);
+  font-size: var(--font-size-default);
 }
 
 /**
@@ -14,7 +14,7 @@ html {
 
 @media (--md-viewport) {
   html {
-    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 1);
+    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 1);
   }
 }
 
@@ -24,7 +24,7 @@ html {
 
 @media (--lg-viewport) {
   html {
-    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 2);
+    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 2);
   }
 }
 
@@ -34,7 +34,7 @@ html {
 
 @media (--xl-viewport) {
   html {
-    font-size: calc(var(--font-size-px) + var(--font-size-increment) * 3);
+    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 3);
   }
 }
 
@@ -47,7 +47,7 @@ html {
  */
 
 body {
-  font: var(--font-base); /* 1 */
+  font: var(--base-font); /* 1 */
   word-wrap: break-word; /* 2 */
   hyphens: auto; /* 3 */
 }
@@ -157,11 +157,11 @@ pre > code {
 }
 
 ul {
-  list-style-type: var(--list-style-unordered);
+  list-style-type: var(--list-style-default);
 }
 
 ol {
-  list-style-type: var(--list-style-ordered);
+  list-style-type: var(--list-style-numeric);
 }
 
 li,
@@ -174,10 +174,10 @@ dd {
  */
 
 hr {
-  height: var(--hr-height);
-  min-height: var(--hr-min-height);
+  height: var(--border-width-md);
+  min-height: var(--border-width-sm);
   border-style: none;
-  background: var(--hr-background);
+  background-color: var(--color-relative);
 }
 
 /**
@@ -196,12 +196,12 @@ hr {
  */
 
 blockquote {
-  padding-left: var(--blockquote-padding);
+  padding-left: var(--space-md);
   font-style: italic;
 }
 
 blockquote p {
-  margin-bottom: var(--margin-base);
+  margin-bottom: var(--base-margin);
 }
 
 blockquote :matches(p:last-of-type, footer) {
@@ -213,5 +213,5 @@ blockquote cite {
 }
 
 blockquote cite::before {
-  content: var(--cite-prefix);
+  content: var(--content-dash-em);
 }

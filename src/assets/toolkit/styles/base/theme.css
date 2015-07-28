@@ -6,15 +6,6 @@
  */
 
 /**
- * Breakpoints
- */
-
-@custom-media --sm-viewport (width >= 30em);
-@custom-media --md-viewport (width >= 48em);
-@custom-media --lg-viewport (width >= 64em);
-@custom-media --xl-viewport (width >= 80em);
-
-/**
  * Misc
  */
 
@@ -50,6 +41,20 @@
 }
 
 /**
+ * Color Placeholders
+ *
+ * These are used as defaults in place of actual colors.
+ *
+ * 1. Represents an "absense" of color
+ * 2. Represents a current or inherited color
+ */
+
+:root {
+  --color-null: transparent; /* 1 */
+  --color-relative: currentColor; /* 2 */
+}
+
+/**
  * Typography
  *
  * 1. The root font-size that is applied to <html>.
@@ -57,7 +62,7 @@
  */
 
 :root {
-  --font-size-px: 16px; /* 1 */
+  --font-size-default: 16px; /* 1 */
   --font-size-increment: 1px; /* 2 */
 
   --font-size-xs: calc(1em / var(--ratio));
@@ -66,20 +71,38 @@
   --font-size-lg: calc(var(--font-size-md) * var(--ratio));
   --font-size-xl: calc(var(--font-size-lg) * var(--ratio));
 
-  --font-family: "Source Sans Pro", sans-serif;
-  --font-weight: 400;
+  --font-family-default: "Source Sans Pro", sans-serif;
+  --font-family-mono: "Source Code Pro", monospace;
+
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --line-height: var(--ratio);
 
-  --list-style-ordered: decimal;
-  --list-style-unordered: disc;
+  --line-height-xs: 1;
+  --line-height-sm: calc(2 - (var(--ratio) - (1 / var(--ratio))));
+  --line-height-md: var(--ratio);
+  --line-height-lg: calc(var(--line-height-md) * var(--ratio));
+}
 
-  --hr-height: 0.125em;
-  --hr-min-height: 1px;
-  --hr-background: currentColor;
+/**
+ * Content
+ */
 
-  --blockquote-padding: 2em;
-  --cite-prefix: "—";
+:root {
+  --content-dash-em: "—";
+  --content-single-quote-open: "‘";
+  --content-single-quote-close: "’";
+  --content-double-quote-open: "“";
+  --content-double-quote-close: "”";
+}
+
+/**
+ * Element
+ */
+
+:root {
+  --list-style-default: disc;
+  --list-style-numeric: decimal;
 }
 
 /**
@@ -87,14 +110,54 @@
  */
 
 :root {
-  --space-small: 1rem;
-  --space-medium: calc(var(--space-small) * var(--ratio));
-  --space-large: calc(var(--space-medium) * var(--ratio));
+  --space-sm: calc(1rem / var(--ratio));
+  --space-md: calc(1rem * var(--ratio));
+  --space-lg: calc(var(--space-md) * var(--ratio));
 }
 
 /**
- * Custom selectors
+ * Motion
+ */
+
+:root {
+  --motion-duration-sm: 100ms;
+  --motion-duration-md: 180ms;
+  --motion-duration-lg: 300ms;
+  --motion-timing-function-default: ease;
+}
+
+/**
+ * Border
+ */
+
+:root {
+  --border-width-sm: 1px;
+  --border-width-md: 3px;
+  --border-radius-md: 6px;
+}
+
+/**
+ * Opacity
+ */
+
+:root {
+  --opacity-low: 0.25;
+  --opacity-mid: 0.5;
+  --opacity-high: 0.75;
+}
+
+/**
+ * Selectors
  */
 
 @custom-selector :--headings h1, h2, h3, h4, h5, h6;
 @custom-selector :--lists ul, ol, dl;
+
+/**
+ * Breakpoints
+ */
+
+@custom-media --sm-viewport (width >= 30em);
+@custom-media --md-viewport (width >= 48em);
+@custom-media --lg-viewport (width >= 64em);
+@custom-media --xl-viewport (width >= 80em);

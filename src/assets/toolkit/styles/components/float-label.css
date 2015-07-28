@@ -3,16 +3,16 @@
  */
 
 :root {
-  --FloatLabel-background-color: var(--color-white);
+  --FloatLabel-background-color: var(--base-background);
+  --FloatLabel-color-empty: color(var(--base-color) a(50%));
   --FloatLabel-color: var(--color-blue);
-  --FloatLabel-color-empty: color(var(--color-base) a(50%));
   --FloatLabel-font-size: 0.777777778em;
-  --FloatLabel-font-weight: 600;
-  --FloatLabel-offset: 3px;
+  --FloatLabel-font-weight: var(--font-weight-semibold);
+  --FloatLabel-offset: var(--control-stroke);
   --FloatLabel-space-x: 0.75rem;
   --FloatLabel-space-y: 0.5rem;
-  --FloatLabel-transition-duration: 100ms;
-  --FloatLabel-transition-timing-function: ease;
+  --FloatLabel-transition-duration: var(--motion-duration-sm);
+  --FloatLabel-transition-timing-function: var(--motion-timing-function-default);
 }
 
 .FloatLabel {

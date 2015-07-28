@@ -87,8 +87,8 @@
  */
 
 :root {
-  --list-style-default: decimal;
-  --list-style-alt: disc;
+  --list-style-default: disc;
+  --list-style-numeric: decimal;
 }
 
 /**

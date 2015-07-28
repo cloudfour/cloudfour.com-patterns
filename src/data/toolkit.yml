@@ -1,7 +1,7 @@
 colors:
   primary:
-    Dark Blue: "rgb(15, 28, 63)"
-    Deep Blue: "rgb(69, 107, 217)"
+    Navy: "rgb(15, 28, 63)"
+    Blue: "rgb(69, 107, 217)"
     Gray: "rgb(219, 229, 234)"
   secondary:
     Orange: "rgb(242, 105, 65)"

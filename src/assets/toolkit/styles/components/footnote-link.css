@@ -1,7 +1,7 @@
 /** @define FootnoteLink */
 
 :root {
-  --FootnoteLink-size: 1.5em;
+  --FootnoteLink-size: calc(var(--ratio) * 1em);
   --FootnoteLink-border-width: calc(2 / 16 * 1em);
   --FootnoteLink-padding: 0 0.25em;
   --FootnoteLink-border-color: var(--color-gray);
@@ -10,6 +10,10 @@
   --FootnoteLink-hover-border-color: var(--color-relative);
 }
 
+/**
+ * 1. Subtract total vertical `border-width` value from `line-height` to retain
+ *    "perfect" circle for single-digit values.
+ */
 .FootnoteLink {
   margin: 0;
   display: inline-block;
@@ -17,7 +21,7 @@
   min-width: var(--FootnoteLink-size);
   padding: var(--FootnoteLink-padding);
   font-weight: var(--font-weight-semibold);
-  line-height: calc(var(--FootnoteLink-size) - var(--FootnoteLink-border-width) * 2);
+  line-height: calc(var(--FootnoteLink-size) - var(--FootnoteLink-border-width) * 2); /* 1 */
   text-align: center;
   text-decoration: none;
   border: var(--FootnoteLink-border-width) solid var(--FootnoteLink-border-color);

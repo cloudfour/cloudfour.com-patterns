@@ -98,7 +98,7 @@
  */
 
 :root {
-  --Button-default-background-color: var(--color-deep-blue);
+  --Button-default-background-color: var(--color-blue);
   --Button-default-color: var(--color-white);
 }
 

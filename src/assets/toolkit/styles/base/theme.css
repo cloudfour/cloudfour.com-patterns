@@ -24,23 +24,29 @@
 
 /**
  * Colors
+ *
+ * Where possible, color names should map to standard webcolors.
+ * See: https://zaim.github.io/webcolors/
+ *
+ * Define variables for color usage (i.e., `--color-link`) in theme-map.
+ *
+ * For adjustments to existing colors (lightening, darkening) use the
+ * `color` function: https://github.com/postcss/postcss-color-function
  */
 
 :root {
   --color-black: #000;
   --color-white: #fff;
 
-  /* Primary blues */
-  --color-dark-blue: #0f1c3f;
-  --color-deep-blue: #456bd9;
-
-  /* Primary grays */
+  /* Primary colors */
+  --color-navy: #0f1c3f;
+  --color-blue: #456bd9;
   --color-gray: #dbe5ea;
 
   /* Secondary colors */
   --color-orange: #f26941;
   --color-green: #35c98d;
-  --color-pink: #f14ca3;
+  --color-fuchsia: #f14ca3;
 }
 
 /**

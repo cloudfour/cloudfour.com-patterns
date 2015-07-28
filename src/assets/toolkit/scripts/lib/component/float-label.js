@@ -6,10 +6,13 @@ import * as classList from '../dom/classlist';
 export class FloatLabel {
 
   constructor (element, options) {
-    /** ES6 doesn't seem to have static class properties yet */
+    // ES6 doesn't seem to have static class properties yet
     const DEFAULTS = {
+      // A descendant selector for, or reference to the <input> within
       input: 'input',
+      // The state class that is added/removed
       className: 'is-empty',
+      // The keyboard event that triggers the logic to apply `className`
       eventName: window.Modernizr.oninput ? 'input' : 'keyup'
     };
 

@@ -14,7 +14,7 @@
  */
 
 :root {
-  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-alt);
+  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-default);
 }
 
 /**

@@ -18,6 +18,14 @@
 }
 
 /**
+ * List
+ */
+
+:root {
+  --list-marker-padding: var(--space-md);
+}
+
+/**
  * Link
  */
 

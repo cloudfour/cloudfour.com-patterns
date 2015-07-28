@@ -18,6 +18,15 @@
 }
 
 /**
+ * Link
+ */
+
+:root {
+  --link-color: var(--color-blue);
+  --link-hover-color: color(var(--link-color) l(+10%));
+}
+
+/**
  * Component
  */
 

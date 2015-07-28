@@ -8,7 +8,7 @@
  */
 
 :root {
-  --Button-border-color: var(--control-border-color);
+  --Button-border-color: transparent;
   --Button-border-radius: var(--control-radius);
   --Button-border-width: var(--control-stroke);
   --Button-disabled-opacity: var(--control-disabled-opacity);

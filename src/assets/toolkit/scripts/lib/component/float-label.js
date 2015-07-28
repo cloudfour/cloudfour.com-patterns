@@ -18,12 +18,8 @@ export class FloatLabel {
 
     this.element = element;
     this.options = extend({}, DEFAULTS, options);
-
-    if (typeof this.options.input === 'string') {
-      this.input = this.element.querySelector(this.options.input);
-    } else {
-      this.input = this.options.input;
-    }
+    this.input = typeof this.options.input === 'string' ?
+      this.element.querySelector(this.options.input) : this.options.input;
 
     this.init();
   }

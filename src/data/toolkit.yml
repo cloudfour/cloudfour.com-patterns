@@ -14,6 +14,7 @@ specimens:
   digits: "0123456789"
   heading: "This is a Heading of Words"
   sentence: "The article is something you would not expect to find in an encyclopedia"
+  paragraph: "Though Lausanne is so near Geneva, its history, in historical times, has been widely different from that of the neighbouring town. Geneva enjoyed a modified independence from an early date, and became completely independent early in the sixteenth century. Lausanne, until nearly 300 years later, endured the domination, first of Savoy, and subsequently of Berne."
 
 languages:
   HTML: "HyperText Markup Language"

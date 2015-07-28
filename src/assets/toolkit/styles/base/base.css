@@ -54,3 +54,16 @@ th {
 [tabindex="-1"]:focus {
   outline: none !important;
 }
+
+/**
+ * Links
+ */
+
+a {
+  text-decoration: underline;
+  color: var(--link-color);
+}
+
+a:matches(:active, :focus, :hover) {
+  color: var(--link-hover-color);
+}

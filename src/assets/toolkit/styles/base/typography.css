@@ -177,7 +177,7 @@ hr {
   height: var(--border-width-md);
   min-height: var(--border-width-sm);
   border-style: none;
-  background: var(--background-color-alt);
+  background-color: var(--color-relative);
 }
 
 /**

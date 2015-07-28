@@ -1,7 +1,7 @@
 /** @define Separator */
 
 :root {
-  --Separator-background: var(--background-color-alt);
+  --Separator-background: var(--color-relative);
   --Separator-height: var(--component-stroke);
   --Separator-height-sm: var(--component-line);
   --Separator-height-lg: calc(var(--Separator-height) * var(--ratio));

@@ -41,6 +41,20 @@
 }
 
 /**
+ * Color Placeholders
+ *
+ * These are used as defaults in place of actual colors.
+ *
+ * 1. Represents an "absense" of color
+ * 2. Represents a current or inherited color
+ */
+
+:root {
+  --color-null: transparent; /* 1 */
+  --color-relative: currentColor; /* 2 */
+}
+
+/**
  * Typography
  *
  * 1. The root font-size that is applied to <html>.
@@ -119,17 +133,6 @@
   --border-width-sm: 1px;
   --border-width-md: 3px;
   --border-radius-md: 6px;
-  --border-color-default: transparent;
-  --border-color-alt: currentColor;
-}
-
-/**
- * Background
- */
-
-:root {
-  --background-color-default: transparent;
-  --background-color-alt: currentColor;
 }
 
 /**

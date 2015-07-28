@@ -26,7 +26,7 @@
   --component-line: var(--border-width-sm);
   --component-radius: var(--border-radius-md);
   --component-color: var(--base-color);
-  --component-background-color: var(--background-color-default);
-  --component-border-color: var(--border-color-default);
+  --component-background-color: var(--color-null);
+  --component-border-color: var(--color-relative);
   --component-disabled-opacity: 0.5;
 }

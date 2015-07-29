@@ -102,7 +102,8 @@
   --Button-default-color: var(--color-white);
 }
 
-.Button--default {
+.Button--default,
+.Button--default:matches(:focus, :hover, :active) {
   color: var(--Button-default-color);
   border-color: color(var(--Button-default-background-color) shade(10%));
   background-color: var(--Button-default-background-color);
@@ -126,7 +127,8 @@
   --Button-primary-color: var(--color-white);
 }
 
-.Button--primary {
+.Button--primary,
+.Button--primary:matches(:focus, :hover, :active) {
   color: var(--Button-primary-color);
   border-color: color(var(--Button-primary-background-color) shade(10%));
   background-color: var(--Button-primary-background-color);
@@ -150,7 +152,8 @@
   --Button-secondary-color: inherit;
 }
 
-.Button--secondary {
+.Button--secondary,
+.Button--secondary:matches(:focus, :hover, :active) {
   color: var(--Button-secondary-color);
   background-color: var(--Button-secondary-background-color);
 }

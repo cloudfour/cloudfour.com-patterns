@@ -44,12 +44,14 @@ html {
  * 1. Base font style for everything
  * 2. Allow long words (links) to brake at arbitrary points
  * 3. Auto-hyphens by default (assuming removal for specific elements)
+ * 4. Prevent automatic size adjustments on orientation change
  */
 
 body {
   font: var(--base-font); /* 1 */
   word-wrap: break-word; /* 2 */
   hyphens: auto; /* 3 */
+  text-size-adjust: none; /* 4 */
 }
 
 /**

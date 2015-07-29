@@ -3,7 +3,8 @@
   background-color: var(--Nav-background);
 }
 
-.f-Nav a {
+.f-Nav a,
+.f-Nav a:matches(:focus, :hover, :active) {
   text-decoration: none;
   color: inherit;
 }

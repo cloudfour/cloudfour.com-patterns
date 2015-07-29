@@ -11,18 +11,30 @@
 		<li>
 			<a href="icons.html" class="f-Nav-item f-Nav-item--heading">Icons</a>
 		</li>
-		{{#each materials}}
 		<li>
-			<a href="{{@key}}.html" class="f-Nav-item f-Nav-item--heading">{{ displayName name}}</a>
+			<a href="typography.html" class="f-Nav-item f-Nav-item--heading">Typography</a>
 			<ul class="f-Nav-menu">
-				{{#each items}}
-				<li>
-					<a href="{{@../key}}.html#{{@key}}" class="f-Nav-item">{{ displayName name}}</a>
-				</li>
+				{{#each materials.typography.items}}
+					<li>
+						<a href="typography.html#{{@key}}" class="f-Nav-item">
+							{{ displayName name}}
+						</a>
+					</li>
 				{{/each}}
 			</ul>
 		</li>
-		{{/each}}
+		<li>
+			<a href="components.html" class="f-Nav-item f-Nav-item--heading">Components</a>
+			<ul class="f-Nav-menu">
+				{{#each materials.components.items}}
+					<li>
+						<a href="components.html#{{@key}}" class="f-Nav-item">
+							{{ displayName name}}
+						</a>
+					</li>
+				{{/each}}
+			</ul>
+		</li>
 		{{#each views}}
 		<li>
 			<a href="{{@key}}.html" class="f-Nav-item f-Nav-item--heading">{{ displayName name}}</a>

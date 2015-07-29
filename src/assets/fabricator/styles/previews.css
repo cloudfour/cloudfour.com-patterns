@@ -16,15 +16,21 @@
  * Special tag identifiers applied to any element with data-tag="*"
  */
 
-.f-Layout-main [data-tag] {
+.f-Layout-main [data-f-tag] {
   position: relative;
 }
 
-.f-Layout-main [data-tag]::before {
+.f-Layout-main [data-f-tag]::after {
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
+  margin-top: -0.5em;
+  padding: 0.5em 0.25em;
   font-family: monospace;
-  font-size: 10px;
-  content: "<" attr(data-tag) ">";
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 0;
+  content: attr(data-f-tag);
+  border-radius: 1em;
+  background-color: white;
 }

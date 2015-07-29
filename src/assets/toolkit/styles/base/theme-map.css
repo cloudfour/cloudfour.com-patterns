@@ -18,6 +18,14 @@
 }
 
 /**
+ * Code-like elements
+ */
+
+:root {
+  --code-font: var(--font-size-sm) var(--font-family-mono);
+}
+
+/**
  * List
  */
 

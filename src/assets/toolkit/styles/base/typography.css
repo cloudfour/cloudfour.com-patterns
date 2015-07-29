@@ -132,6 +132,14 @@ var {
 }
 
 /**
+ * Use custom monospace font on all code-like elements
+ */
+
+:--monospaced {
+  font: var(--code-font);
+}
+
+/**
  * Control whitespace and wrapping on code blocks
  */
 

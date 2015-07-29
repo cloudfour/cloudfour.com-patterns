@@ -13,7 +13,7 @@ export class FloatLabel {
       // The state class that is added/removed
       className: 'is-empty',
       // The keyboard event that triggers the logic to apply `className`
-      eventName: window.Modernizr.oninput ? 'input' : 'keyup'
+      eventName: 'input'
     };
 
     this.element = element;

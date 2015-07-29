@@ -12,7 +12,9 @@ import {FloatLabel} from './lib/component/float-label';
   var elements = document.querySelectorAll('.js-FloatLabel');
 
   elementList.forEach(elements, element => {
-    new FloatLabel(element);
+    new FloatLabel(element, {
+      event: window.Modernizr.oninput ? 'input' : 'keyup'
+    });
   });
 
 }());

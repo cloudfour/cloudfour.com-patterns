@@ -4,6 +4,7 @@
 
 'use strict';
 
+import Modernizr from 'modernizr';
 import * as elementList from './lib/dom/elementlist';
 import {FloatLabel} from './lib/component/float-label';
 
@@ -13,7 +14,7 @@ import {FloatLabel} from './lib/component/float-label';
 
   elementList.forEach(elements, element => {
     new FloatLabel(element, {
-      event: window.Modernizr.oninput ? 'input' : 'keyup'
+      event: Modernizr.oninput ? 'input' : 'keyup'
     });
   });
 

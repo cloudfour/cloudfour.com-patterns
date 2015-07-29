@@ -14,6 +14,9 @@ module.exports = function(fabricatorConfig) {
 			path: path.resolve(__dirname, fabricatorConfig.dest, 'assets'),
 			filename: '[name].js'
 		},
+		externals: {
+			'modernizr': 'Modernizr'
+		},
 		module: {
 			loaders: [
 				{
@@ -32,7 +35,7 @@ module.exports = function(fabricatorConfig) {
 			new webpack.optimize.UglifyJsPlugin()
 		);
 	}
-	
+
 	return config;
 
 };

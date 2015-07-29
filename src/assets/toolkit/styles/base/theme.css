@@ -152,6 +152,7 @@
 
 @custom-selector :--headings h1, h2, h3, h4, h5, h6;
 @custom-selector :--lists ul, ol, dl;
+@custom-selector :--monospaced pre, code, kbd, samp, var;
 
 /**
  * Breakpoints

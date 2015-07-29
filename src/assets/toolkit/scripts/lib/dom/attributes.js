@@ -1,6 +1,6 @@
 'use strict';
 
-export function add (el, className) {
+export function addClass (el, className) {
   if (el.classList) {
     el.classList.add(className);
   } else {
@@ -8,7 +8,7 @@ export function add (el, className) {
   }
 }
 
-export function remove (el, className) {
+export function removeClass (el, className) {
   if (el.classList) {
     el.classList.remove(className);
   } else {

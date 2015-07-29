@@ -4,10 +4,33 @@
 
 .f-Item-preview .Grid-cell {
   min-height: 4em;
-  box-shadow: inset 0 0 1px rgba(0,0,0,.2);
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.2);
 }
 
 
 .f-Item-preview > :matches(.TextBlock, .FlexEmbed) {
   max-width: 30em;
+}
+
+/**
+ * Special tag identifiers applied to any element with data-tag="*"
+ */
+
+.f-Layout-main [data-f-tag] {
+  position: relative;
+}
+
+.f-Layout-main [data-f-tag]::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -0.5em;
+  padding: 0.5em 0.25em;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 0;
+  content: attr(data-f-tag);
+  border-radius: 1em;
+  background-color: white;
 }

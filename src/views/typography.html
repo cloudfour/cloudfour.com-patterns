@@ -1,0 +1,14 @@
+---
+title: Typography | Fabricator
+fabricator: true
+---
+
+{{#each materials.typography.items}}
+  <div id="{{@key}}">
+    <h2>{{name}}</h2>
+    {{{material @key @root}}}
+    {{#unless @last}}
+      <hr>
+    {{/unless}}
+  </div>
+{{/each}}

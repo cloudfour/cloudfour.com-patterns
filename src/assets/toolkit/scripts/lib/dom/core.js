@@ -1,5 +1,5 @@
 'use strict';
 
-export function forEach (elementList, callback) {
+export function each (elementList, callback) {
   Array.prototype.forEach.call(elementList, callback);
 }

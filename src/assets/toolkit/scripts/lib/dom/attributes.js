@@ -1,41 +1,41 @@
 'use strict';
 
-export function addClass (el, className) {
-  if (el.classList) {
-    el.classList.add(className);
+export function addClass (element, className) {
+  if (element.classList) {
+    element.classList.add(className);
   } else {
-    el.className += ' ' + className;
+    element.className += ' ' + className;
   }
 }
 
-export function removeClass (el, className) {
-  if (el.classList) {
-    el.classList.remove(className);
+export function removeClass (element, className) {
+  if (element.classList) {
+    element.classList.remove(className);
   } else {
-    let classNameItems = el.className.split(' ');
+    let classNameItems = element.className.split(' ');
     let classNameIndex = classNameItems.indexOf(className);
-    el.className = classNameItems.slice(classNameIndex).join(' ');
+    element.className = classNameItems.slice(classNameIndex).join(' ');
   }
 }
 
-export function hasClass (el, className) {
-  if (el.classList) {
-    return el.classList.contains(className);
+export function hasClass (element, className) {
+  if (element.classList) {
+    return element.classList.contains(className);
   }
-  return new RegExp(`(^| )${className}( |$)`, 'gi').test(el.className);
+  return new RegExp(`(^| )${className}( |$)`, 'gi').test(element.className);
 }
 
-export function toggleClass (el, className, force) {
-  if (el.classList) {
-    return el.classList.toggle(className, force);
+export function toggleClass (element, className, state) {
+  if (element.classList) {
+    return element.classList.toggle(className, state);
   }
-  if (typeof force === 'undefined') {
-    force = ! hasClass(el, className);
+  if (typeof state === 'undefined') {
+    state = ! hasClass(element, className);
   }
-  if (force) {
-    addClass(el, className);
+  if (state) {
+    addClass(element, className);
   } else {
-    removeClass(el, className);
+    removeClass(element, className);
   }
-  return force;
+  return state;
 }

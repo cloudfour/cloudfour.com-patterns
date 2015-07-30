@@ -14,7 +14,7 @@ import {FloatLabel} from './lib/component/float-label';
 
   each(elements, element => {
     new FloatLabel(element, {
-      event: Modernizr.oninput ? 'input' : 'keyup'
+      eventName: Modernizr.oninput ? 'input' : 'keyup'
     });
   });
 

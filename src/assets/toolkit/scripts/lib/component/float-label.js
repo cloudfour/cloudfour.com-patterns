@@ -1,7 +1,7 @@
 'use strict';
 
 import {extend} from '../util/object';
-import {addClass, removeClass} from '../dom/attributes';
+import {toggleClass} from '../dom/attributes';
 
 export class FloatLabel {
 
@@ -37,10 +37,6 @@ export class FloatLabel {
   }
 
   run () {
-    if (this.isEmpty()) {
-      addClass(this.element, this.options.className);
-    } else {
-      removeClass(this.element, this.options.className);
-    }
+    toggleClass(this.element, this.options.className, this.isEmpty());
   }
 }

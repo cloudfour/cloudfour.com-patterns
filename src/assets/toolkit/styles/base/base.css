@@ -17,6 +17,10 @@
   margin-top: var(--base-margin);
 }
 
+body {
+  margin-top: 0;
+}
+
 /**
  * Squash additional UA styles
  */
@@ -62,6 +66,7 @@ th {
 a {
   text-decoration: underline;
   color: var(--link-color);
+  transition: color var(--motion-duration-md);
 }
 
 a:matches(:active, :focus, :hover) {

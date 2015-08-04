@@ -1,4 +1,5 @@
-@import "../toolkit.css";
+@import "./base/theme.css";
+@import "./base/theme-map.css";
 
 .Header {
   display: flex;

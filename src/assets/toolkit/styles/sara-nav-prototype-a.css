@@ -12,6 +12,10 @@
   background-color: color(var(--color-blue) lightness(+0%));
 }
 
+.Header a {
+  transition: color var(--motion-duration-md);
+}
+
 .Logo {
   padding: 0 var(--space-sm);
 }
@@ -37,13 +41,22 @@
 }
 
 .MainNav-link {
+  display: block;
   padding: 0 var(--space-sm);
   text-decoration: none;
   color: white;
 }
 
+.MainNav li:last-child .MainNav-link {
+  display: none;
+}
+
 @media (--md-viewport) {
   .MainNav-link {
     padding: 0 var(--space-md);
+  }
+
+  .MainNav li:last-child .MainNav-link {
+    display: block;
   }
 }

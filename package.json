@@ -53,7 +53,6 @@
     "script-loader": "^0.6.1",
     "suitcss-components-flex-embed": "^2.0.2",
     "suitcss-components-grid": "^2.0.2",
-    "suitcss-utils-display": "^0.4.2",
     "suitcss-utils-size": "^0.7.2",
     "webpack": "^1.8.3"
   },

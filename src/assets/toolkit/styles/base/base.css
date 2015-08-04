@@ -62,7 +62,6 @@ th {
 a {
   text-decoration: underline;
   color: var(--link-color);
-  transition: color var(--motion-duration-md);
 }
 
 a:matches(:active, :focus, :hover) {

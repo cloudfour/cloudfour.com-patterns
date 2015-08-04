@@ -17,10 +17,6 @@
   margin-top: var(--base-margin);
 }
 
-body {
-  margin-top: 0;
-}
-
 /**
  * Squash additional UA styles
  */

@@ -1,0 +1,6 @@
+@import "./base/theme.css";
+@import "./base/theme-map.css";
+
+body {
+  color: var(--color-blue);
+}

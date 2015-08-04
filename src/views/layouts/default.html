@@ -14,6 +14,10 @@
 	<link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/toolkit.css">
 	<!-- /toolkit styles -->
 
+	{{#each stylesheets}}
+		<link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/{{.}}.css">
+	{{/each}}
+
 	<script src="{{baseurl}}/assets/toolkit/scripts/modernizr.js"></script>
 
 </head>

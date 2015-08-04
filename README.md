@@ -77,6 +77,23 @@ labels:
 ---
 ```
 
+`stylesheets`: This is an array. Values of this array will be included in the page `<head>` of the view when using the `default` layout.
+
+Example:
+
+```yaml
+---
+stylesheets:
+  - example
+---
+```
+
+Result:
+
+```html
+<link rel="stylesheet" href="/assets/toolkit/styles/example.css">
+```
+
 ### Workflow Changes
 
 * We've opted for `post-css` instead of the default Sass that ships with Fabricator.

@@ -1,0 +1,48 @@
+@import "../toolkit.css";
+
+.Header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+
+  margin-top: 0; /* Override lobotomized owl */
+  padding: var(--space-sm);
+  background-color: color(var(--color-blue) lightness(+0%));
+}
+
+.Logo {
+  padding: 0 var(--space-sm);
+}
+
+.Logo-link {
+  font-size: var(--font-size-md);
+  color: white;
+}
+
+.MainNav {
+  margin-top: 0; /*Override lobotomized owl */
+}
+
+.MainNav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 0; /* Override default list styles */
+  list-style: none; /* Override default list styles */
+  text-transform: uppercase;
+  letter-spacing: .125em;
+  font-weight: var(--font-weight-bold);
+}
+
+.MainNav-link {
+  padding: 0 var(--space-sm);
+  text-decoration: none;
+  color: white;
+}
+
+@media (--md-viewport) {
+  .MainNav-link {
+    padding: 0 var(--space-md);
+  }
+}

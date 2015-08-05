@@ -18,6 +18,15 @@
 }
 
 /**
+ * Override top margin for elements that should never have it.
+ */
+
+body,
+script {
+  margin-top: 0;
+}
+
+/**
  * Squash additional UA styles
  */
 

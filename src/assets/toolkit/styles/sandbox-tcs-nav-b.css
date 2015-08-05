@@ -1,10 +1,6 @@
 @import "./base/theme.css";
 @import "./base/theme-map.css";
 
-body {
-  margin-top: 0;
-}
-
 .Masthead {
   margin: 0;
   display: flex;

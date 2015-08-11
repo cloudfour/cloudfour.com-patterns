@@ -48,6 +48,7 @@
     "imports-loader": "^0.6.3",
     "moment": "^2.10.2",
     "postcss-bem-linter": "^0.4.0",
+    "postcss-discard-comments": "^1.2.0",
     "postcss-easings": "^0.2.0",
     "postcss-reporter": "^0.1.0",
     "require-dir": "^0.3.0",

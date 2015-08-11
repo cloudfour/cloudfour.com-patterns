@@ -29,12 +29,10 @@
   --color-black: #000;
   --color-white: #fff;
 
-  /* Primary colors */
   --color-navy: #0f1c3f;
   --color-blue: #456bd9;
   --color-gray: #dbe5ea;
 
-  /* Secondary colors */
   --color-orange: #f26941;
   --color-green: #35c98d;
   --color-fuchsia: #f14ca3;
@@ -45,25 +43,26 @@
  *
  * These are used as defaults in place of actual colors.
  *
- * 1. Represents an "absense" of color
- * 2. Represents a current or inherited color
+ * color-null: Represents an "absense" of color
+ * color-relative: Represents a current or inherited color
  */
 
 :root {
-  --color-null: transparent; /* 1 */
-  --color-relative: currentColor; /* 2 */
+  --color-null: transparent;
+  --color-relative: currentColor;
 }
 
 /**
  * Typography
  *
- * 1. The root font-size that is applied to <html>.
- * 2. The amount by which the root font-size is increased per breakpoint.
+ * font-size-default: The root font-size that is applied to <html>.
+ * font-size-increment: The amount by which the root font-size is
+ *  increased per breakpoint.
  */
 
 :root {
-  --font-size-default: 16px; /* 1 */
-  --font-size-increment: 1px; /* 2 */
+  --font-size-default: 16px;
+  --font-size-increment: 1px;
 
   --font-size-xs: calc(1em / var(--ratio));
   --font-size-sm: 1em;

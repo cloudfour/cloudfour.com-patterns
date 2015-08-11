@@ -6,6 +6,8 @@ var bemLinter = require('postcss-bem-linter');
 var browserSync = require('browser-sync');
 var cssnext = require('cssnext');
 var del = require('del');
+var discardComments = require('postcss-discard-comments');
+var discardEmpty = require('postcss-discard-empty');
 var easings = require('postcss-easings');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -95,7 +97,9 @@ gulp.task('styles:toolkit', function () {
   return gulp.src(config.src.styles.toolkit)
     .pipe(postcss([
       cssnext(),
-      easings()
+      easings(),
+      discardComments(),
+      discardEmpty()
     ]))
     .pipe(gulp.dest(config.dest + '/assets/toolkit/styles'))
     .pipe(gulpif(config.dev, reload({stream:true})));

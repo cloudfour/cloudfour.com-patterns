@@ -1,18 +1,18 @@
 :root {
-	--Layout-nav-width: 14rem;
+  --Layout-nav-width: 14rem;
 
-	--Item-border: #ccc;
+  --Item-border: #ccc;
 
-	--Nav-background: #444;
-	--Nav-hover-background: #333;
-	--Nav-color: #fff;
+  --Nav-background: #444;
+  --Nav-hover-background: #333;
+  --Nav-color: #fff;
 
-	--Label-inprogress: #ffd739;
-	--Label-deprecated: #ff4136;
-	--Label-approved: #19b72b;
+  --Label-inprogress: #ffd739;
+  --Label-deprecated: #ff4136;
+  --Label-approved: #19b72b;
 
-	--Icon-background: #f7f7f7;
-	--Icon-hover-background: #444;
+  --Icon-background: #f7f7f7;
+  --Icon-hover-background: #444;
 }
 
 @custom-media --large-viewport (min-width: 60em);

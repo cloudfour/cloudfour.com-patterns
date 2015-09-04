@@ -1,12 +1,12 @@
 {{#if data.labels}}
-	<ul class="f-Item-labels f-u-listInline">
-		{{#each data.labels}}
-			<li><span class="f-Label f-Label--{{this}}">{{this}}</span></li>
-		{{/each}}
-	</ul>
+  <ul class="f-Item-labels f-u-listInline">
+    {{#each data.labels}}
+      <li><span class="f-Label f-Label--{{this}}">{{this}}</span></li>
+    {{/each}}
+  </ul>
 {{/if}}
 {{#if notes}}
-	<div class="f-Item-notes" data-f-toggle="notes">
-		{{{notes}}}
-	</div>
+  <div class="f-Item-notes" data-f-toggle="notes">
+    {{{notes}}}
+  </div>
 {{/if}}

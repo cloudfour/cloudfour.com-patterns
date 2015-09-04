@@ -21,12 +21,12 @@ fabricator: true
 <h2>Color</h2>
 
 {{#each toolkit.colors}}
-	<ul class="f-Swatches">
-		{{#each this}}
-			<li class="f-Swatch" style="border-top-color:{{this}}">
-				<div class="f-Swatch-name">{{@key}}</div>
-				<div class="f-Swatch-color">{{this}}</div>
-			</li>
-		{{/each}}
-	</ul>
+  <ul class="f-Swatches">
+    {{#each this}}
+      <li class="f-Swatch" style="border-top-color:{{this}}">
+        <div class="f-Swatch-name">{{@key}}</div>
+        <div class="f-Swatch-color">{{this}}</div>
+      </li>
+    {{/each}}
+  </ul>
 {{/each}}

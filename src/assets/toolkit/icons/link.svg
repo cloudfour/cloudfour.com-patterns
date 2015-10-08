@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>link</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="link" sketch:type="MSArtboardGroup" stroke-linecap="round" stroke="currentColor" stroke-width="3">
+            <g id="link-rotate" sketch:type="MSLayerGroup" transform="translate(11.146447, 11.853553) rotate(-45.000000) translate(-11.146447, -11.853553) translate(-0.853553, 5.353553)">
+                <g id="link-segment" transform="translate(1.000000, 2.000000)" sketch:type="MSShapeGroup">
+                    <path d="M14,5 L14,4.00019251 C14,1.79094719 12.2126701,1.95399252e-14 10.0068977,1.95399252e-14 L3.99310226,1.95399252e-14 C1.78777278,1.95399252e-14 1.92640702e-14,1.7877996 1.92640702e-14,4.009763 L1.92640702e-14,5.990237 C1.92640702e-14,8.20476795 1.80019784,10 4.00208688,10 L6,10" id="Path-12"></path>
+                </g>
+                <g id="link-segment" transform="translate(16.500000, 6.500000) rotate(-180.000000) translate(-16.500000, -6.500000) translate(9.000000, 1.000000)" sketch:type="MSShapeGroup">
+                    <path d="M14,5 L14,4.00019251 C14,1.79094719 12.2126701,4.08562073e-14 10.0068977,4.08562073e-14 L3.99310226,4.08562073e-14 C1.78777278,4.08562073e-14 -2.7585502e-16,1.7877996 -2.7585502e-16,4.009763 L-2.7585502e-16,5.990237 C-2.7585502e-16,8.20476795 1.80019784,10 4.00208688,10 L6,10" id="Path-12"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

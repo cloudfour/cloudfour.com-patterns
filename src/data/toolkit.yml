@@ -26,7 +26,10 @@ languages:
   Ruby: "An ugly syntax"
 
 icons:
-  - arrow
+  - arrow-right
+  - arrow-left
+  - arrow-down
+  - arrow-up
   - cloud-four
   - envelope
   - github

@@ -16,6 +16,8 @@
  *    low when they're the same height as the current `font-size`. Using `top`
  *    frees up `margin-top` for adjustments we'll be applying to modifiers.
  * 2. Base dimensions on the current `font-size` for leaner adjustments.
+ * 3. Fill with the current text color by default. May be overridden by icon
+ *    asset SVG attributes.
  */
 .Icon {
   position: relative;
@@ -26,6 +28,7 @@
   height: 1em;
   font-size: var(--Icon-size); /* 2 */
   vertical-align: middle;
+  fill: currentColor; /* 3 */
 }
 
 /**

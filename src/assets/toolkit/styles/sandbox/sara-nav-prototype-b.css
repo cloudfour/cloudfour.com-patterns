@@ -1,5 +1,5 @@
-@import "./base/theme.css";
-@import "./base/theme-map.css";
+@import "../base/theme.css";
+@import "../base/theme-map.css";
 
 .Header {
   display: flex;
@@ -33,7 +33,7 @@
 }
 
 .MainNav {
-  margin-top: 0; /*Override lobotomized owl */  
+  margin-top: 0; /*Override lobotomized owl */
 }
 
 .MainNav-list {
@@ -41,7 +41,7 @@
   flex-wrap: wrap;
   justify-content: center;
   padding-left: 0; /* Override default list styles */
-  list-style: none; /* Override default list styles */  
+  list-style: none; /* Override default list styles */
 }
 
 .MainNav-list span {

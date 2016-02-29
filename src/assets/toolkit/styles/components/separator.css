@@ -4,7 +4,7 @@
   --Separator-background: var(--color-relative);
   --Separator-height: var(--control-stroke);
   --Separator-height-sm: var(--control-line);
-  --Separator-height-lg: calc(var(--Separator-height) * var(--ratio));
+  --Separator-height-lg: calc(var(--Separator-height) * var(--ms-ratio));
 }
 
 /**

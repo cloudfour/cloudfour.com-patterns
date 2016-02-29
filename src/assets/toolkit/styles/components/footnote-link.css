@@ -1,7 +1,7 @@
 /** @define FootnoteLink */
 
 /**
- * 1. Base size on ratio.
+ * 1. Base size on ratio. TODO: can we use `--font-size-md`?
  * 2. If we used `50%`, wider elements would look like ovals. Using a value
  *    based on the size (1) will maintain more of a pill shape.
  * 3. Base offset on `line-height` (since this will be used to avoid unnecessary
@@ -9,7 +9,7 @@
  */
 
 :root {
-  --FootnoteLink-size: calc(var(--ratio) * 1em); /* 1 */
+  --FootnoteLink-size: calc(var(--ms-ratio) * 1em); /* 1 */
   --FootnoteLink-border-radius: calc(var(--FootnoteLink-size) / 2); /* 2 */
   --FootnoteLink-line-height-offset: calc((var(--line-height-md) - 1) / -2em); /* 3 */
 

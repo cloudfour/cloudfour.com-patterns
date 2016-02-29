@@ -34,7 +34,7 @@ var config = {
     },
     styles: {
       fabricator: 'src/assets/fabricator/styles/fabricator.css',
-      toolkit: 'src/assets/toolkit/styles/*.css'
+      toolkit: 'src/assets/toolkit/{styles,styles/sandbox}/*.css'
     },
     images: 'src/assets/toolkit/images/**/*',
     icons: 'src/assets/toolkit/icons/*.svg',

@@ -6,5 +6,5 @@
  */
 
 .u-spaceChildren > * + * {
-  margin-top: var(--base-margin);
+  margin-top: var(--base-margin) !important;
 }

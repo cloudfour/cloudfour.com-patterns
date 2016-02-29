@@ -1,49 +1,8 @@
-/**
- * Resets
- */
-
-* {
-  margin: 0;
-}
-
-/**
- * All elements in the flow of the document that proceed other elements must
- * receive a top margin of one line.
- *
- * http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
- */
-
-* + * {
-  margin-top: var(--base-margin);
-}
-
-/**
- * Override top margin for elements that should never have it.
- */
-
-body,
-script {
-  margin-top: 0;
-}
+@import "suitcss-base";
 
 /**
  * Squash additional UA styles
  */
-
-button {
-  padding: 0;
-  border-style: none;
-  background-color: transparent;
-}
-
-fieldset {
-  padding: 0;
-  border-style: none;
-}
-
-iframe {
-  border-style: none;
-}
 
 table {
   border-collapse: collapse;
@@ -52,16 +11,6 @@ table {
 
 th {
   text-align: left;
-}
-
-/**
- * Suppress the focus outline on links that cannot be accessed via keyboard.
- * This prevents an unwanted focus outline from appearing around elements that
- * might still respond to pointer events.
- */
-
-[tabindex="-1"]:focus {
-  outline: none !important;
 }
 
 /**

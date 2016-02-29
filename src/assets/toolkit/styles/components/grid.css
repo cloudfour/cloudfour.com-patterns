@@ -1,1 +1,11 @@
 @import "suitcss-components-grid";
+
+/**
+ * Override the global margin-top for adjacent grid cells.
+ *
+ * TODO: Get rid of the axiomatic owl selector and all these problems go away!
+ */
+
+.Grid-cell + .Grid-cell {
+  margin: 0;
+}

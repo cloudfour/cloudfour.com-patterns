@@ -55,6 +55,7 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.2",
     "script-loader": "^0.6.1",
+    "suitcss-base": "^1.0.2",
     "suitcss-components-flex-embed": "^2.0.4",
     "suitcss-components-grid": "^3.0.2",
     "suitcss-utils-size": "^1.0.2",

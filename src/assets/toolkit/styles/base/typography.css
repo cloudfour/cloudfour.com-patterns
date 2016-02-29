@@ -179,11 +179,6 @@ ol {
   list-style-type: var(--list-style-numeric);
 }
 
-li,
-dd {
-  margin-top: 0;
-}
-
 /**
  * Horizontal rule
  */

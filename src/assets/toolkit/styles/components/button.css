@@ -85,15 +85,6 @@
 }
 
 /**
- * Modifier: block buttons
- */
-
-.Button--block {
-  display: block;
-  width: 100%;
-}
-
-/**
  * Modifier: default buttons
  */
 

@@ -4,8 +4,8 @@
 
 'use strict';
 
-import svgxuse from 'svgxuse';
 import Modernizr from 'modernizr';
+import svgxuse from 'svgxuse';
 import {each} from './lib/dom/core';
 import {FloatLabel} from './lib/component/float-label';
 

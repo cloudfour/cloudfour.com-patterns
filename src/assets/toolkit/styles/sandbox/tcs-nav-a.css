@@ -81,7 +81,7 @@
 }
 
 .Masthead-link-description {
-  margin-top: calc(var(--space-sm) / var(--ratio));
+  margin-top: calc(var(--space-sm) / var(--ms-ratio));
   color: color(var(--color-white) a(80%));
 }
 

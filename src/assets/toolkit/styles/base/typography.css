@@ -1,30 +1,10 @@
 /**
- * Root font size
- *
- * This is the basis for all rem and em unit calculations.
- */
-
-html {
-  font-size: var(--font-size-default);
-}
-
-/**
- * Increase root font-size for medium screens.
- */
-
-@media (--md-viewport) {
-  html {
-    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 1);
-  }
-}
-
-/**
  * Increase root font-size a little more for large screens.
  */
 
 @media (--lg-viewport) {
   html {
-    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 2);
+    font-size: calc(var(--ms1) * 1rem);
   }
 }
 
@@ -34,7 +14,7 @@ html {
 
 @media (--xl-viewport) {
   html {
-    font-size: calc(var(--font-size-default) + var(--font-size-increment) * 3);
+    font-size: calc(var(--ms2) * 1rem);
   }
 }
 
@@ -68,12 +48,12 @@ body {
 
 h1 {
   font-size: var(--font-size-lg);
-  line-height: 1;
+  line-height: var(--line-height-sm);
 }
 
 h2 {
   font-size: var(--font-size-md);
-  line-height: 1;
+  line-height: var(--line-height-sm);
 }
 
 h5,
@@ -96,7 +76,7 @@ h6 {
 
   h3 {
     font-size: var(--font-size-md);
-    line-height: 1;
+    line-height: var(--line-height-sm);
   }
 }
 
@@ -177,11 +157,6 @@ ul {
 
 ol {
   list-style-type: var(--list-style-numeric);
-}
-
-li,
-dd {
-  margin-top: 0;
 }
 
 /**

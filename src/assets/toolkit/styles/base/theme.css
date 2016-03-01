@@ -5,12 +5,16 @@
  * the components. That is done in `theme-map.css`.
  */
 
+@import "css-modularscale";
+
 /**
  * Misc
  */
 
 :root {
-  --ratio: 1.5;
+  /* http://www.modularscale.com/?1&em&1.25&web&text */
+  --ms-ratio: var(--major-third);
+  --ms-base: 1;
 }
 
 /**
@@ -56,20 +60,14 @@
 
 /**
  * Typography
- *
- * 1. The root font-size that is applied to <html>.
- * 2. The amount by which the root font-size is increased per breakpoint.
  */
 
 :root {
-  --font-size-default: 16px; /* 1 */
-  --font-size-increment: 1px; /* 2 */
-
-  --font-size-xs: calc(1em / var(--ratio));
-  --font-size-sm: 1em;
-  --font-size-md: calc(var(--font-size-sm) * var(--ratio));
-  --font-size-lg: calc(var(--font-size-md) * var(--ratio));
-  --font-size-xl: calc(var(--font-size-lg) * var(--ratio));
+  --font-size-xs: calc(var(--ms-1) * 1em);
+  --font-size-sm: calc(var(--ms0) * 1em);
+  --font-size-md: calc(var(--ms1) * 1em);
+  --font-size-lg: calc(var(--ms2) * 1em);
+  --font-size-xl: calc(var(--ms3) * 1em);
 
   --font-family-default: "Source Sans Pro", sans-serif;
   --font-family-mono: "Source Code Pro", monospace;
@@ -78,10 +76,10 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  --line-height-xs: 1;
-  --line-height-sm: calc(2 - (var(--ratio) - (1 / var(--ratio))));
-  --line-height-md: var(--ratio);
-  --line-height-lg: calc(var(--line-height-md) * var(--ratio));
+  --line-height-xs: var(--ms0);
+  --line-height-sm: var(--ms1);
+  --line-height-md: var(--ms2);
+  --line-height-lg: var(--ms3);
 }
 
 /**
@@ -110,9 +108,9 @@
  */
 
 :root {
-  --space-sm: calc(1rem / var(--ratio));
-  --space-md: calc(1rem * var(--ratio));
-  --space-lg: calc(var(--space-md) * var(--ratio));
+  --space-sm: calc(var(--ms0) * 1rem);
+  --space-md: calc(var(--ms1) * 1rem);
+  --space-lg: calc(var(--ms2) * 1rem);
 }
 
 /**

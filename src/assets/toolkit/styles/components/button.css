@@ -30,7 +30,6 @@
  * 7. Corrects inability to style clickable `input` types in iOS.
  */
 .Button {
-  margin: 0;
   display: inline-block;
   box-sizing: border-box; /* 1 */
   padding: var(--Button-padding);

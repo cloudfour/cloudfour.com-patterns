@@ -25,7 +25,6 @@
  *    unless we override its appearance.
  */
 .Input {
-  margin: 0;
   display: block; /* 1 */
   box-sizing: border-box;
   width: 100%; /* 1 */

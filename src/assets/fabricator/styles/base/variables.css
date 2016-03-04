@@ -26,4 +26,5 @@
   --Timeline-fuzzy-item-opacity: 0.8;
 }
 
+@custom-media --medium-viewport (min-width: 40em);
 @custom-media --large-viewport (min-width: 60em);

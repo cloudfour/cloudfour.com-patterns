@@ -23,6 +23,7 @@
   --Timeline-marker-fill: #fff;
   --Timeline-marker-size: 1em;
   --Timeline-marker-position: calc(var(--Timeline-space) * 1.5 + var(--Timeline-border-width) * 2);
+  --Timeline-fuzzy-item-opacity: 0.8;
 }
 
 @custom-media --large-viewport (min-width: 60em);

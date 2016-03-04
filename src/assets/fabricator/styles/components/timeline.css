@@ -1,3 +1,7 @@
+/**
+ * Timeline
+ */
+
 .f-Timeline {
   display: flex;
   align-items: flex-start;
@@ -99,4 +103,33 @@
   border: var(--Timeline-border-width) solid var(--Timeline-border-color);
   border-radius: var(--Timeline-tile-border-radius);
   padding: var(--Timeline-space);
+}
+
+/**
+ * Modifier: Fuzzy
+ */
+
+.f-Timeline--fuzzy::before {
+  border-style: dashed;
+}
+
+.f-Timeline--fuzzy .f-Timeline-item {
+  opacity: var(--Timeline-fuzzy-item-opacity);
+}
+
+.f-Timeline--fuzzy .f-Timeline-item::before,
+.f-Timeline--fuzzy .f-Timeline-item::after {
+  display: none;
+}
+
+@media (--large-viewport) {
+  .f-Timeline--fuzzy .f-Timeline-item:only-child {
+    margin-left: auto;
+    padding-left: var(--Timeline-space);
+    padding-right: 0;
+  }
+}
+
+.f-Timeline--fuzzy .f-Timeline-tile {
+  border-color: transparent;
 }

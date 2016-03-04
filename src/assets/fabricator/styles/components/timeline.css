@@ -25,8 +25,7 @@
  */
 
 .f-Timeline::before {
-  border: solid var(--Timeline-border-color); /* 1 */
-  border-width: 0 0 0 var(--Timeline-border-width);
+  border-left: var(--Timeline-border-width) solid var(--Timeline-border-color); /* 1 */
   content: "";
   height: 100%;
   left: 0; /* 2 */

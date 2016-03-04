@@ -18,10 +18,8 @@
  * 1. Set up border style and color with shorthand. We're using border styles
  *    over background so that we can mess with the style (solid, dashed, dotted)
  *    via modifiers if we so choose.
- * 2. Position it to the very left.
- * 3. Bump it over 50% of its width. This makes alignment with markers a bit
- *    easier while also simplifying the bump to middle alignment at larger
- *    breakpoints.
+ * 2. Position it to the very left, centering it horizontally to make alignment
+ *    a bit easier later.
  */
 
 .f-Timeline::before {
@@ -29,9 +27,10 @@
   content: "";
   height: 100%;
   left: 0; /* 2 */
+  margin-left: calc(var(--Timeline-border-width) / -2); /* 2 */
   position: absolute;
+  right: 0; /* 2 */
   top: 0;
-  transform: translateX(-50%); /* 3 */
   width: 0;
 }
 
@@ -41,7 +40,7 @@
 
 @media (--medium-viewport) {
   .f-Timeline::before {
-    left: 50%;
+    margin: auto;
   }
 }
 
@@ -177,7 +176,7 @@
  */
 
 .f-Timeline--fuzzy::before {
-  border-style: dashed;
+  border-left-style: dashed;
 }
 
 .f-Timeline--fuzzy .f-Timeline-item {

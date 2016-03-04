@@ -1,0 +1,56 @@
+.f-Timeline {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.f-Timeline::before {
+  border: solid var(--Timeline-border-color);
+  border-width: 0 0 0 var(--Timeline-border-width);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 0;
+}
+
+.f-Timeline-item {
+  margin: calc(var(--Timeline-space) / 2) 0;
+  padding-left: var(--Timeline-space);
+  position: relative;
+  width: 100%;
+}
+
+.f-Timeline-item::before,
+.f-Timeline-item::after {
+  border: solid var(--Timeline-marker-stroke);
+  content: "";
+  left: 0;
+  position: absolute;
+  top: var(--Timeline-marker-position);
+}
+
+.f-Timeline-item::before {
+  border-width: calc(var(--Timeline-border-width) * 2 / 3) 0 0;
+  transform: translateY(-50%);
+  width: var(--Timeline-space);
+}
+
+.f-Timeline-item::after {
+  background: var(--Timeline-marker-fill);
+  border-width: var(--Timeline-border-width);
+  border-radius: 50%;
+  height: var(--Timeline-marker-size);
+  transform: translate(-50%, -50%);
+  width: var(--Timeline-marker-size);
+}
+
+.f-Timeline-tile {
+  background: var(--Timeline-tile-background);
+  border: var(--Timeline-border-width) solid var(--Timeline-border-color);
+  border-radius: var(--Timeline-tile-border-radius);
+  padding: var(--Timeline-space);
+}

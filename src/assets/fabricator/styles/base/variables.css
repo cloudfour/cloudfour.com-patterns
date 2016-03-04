@@ -13,6 +13,16 @@
 
   --Icon-background: #f7f7f7;
   --Icon-hover-background: #444;
+
+  --Timeline-space: 1em;
+  --Timeline-border-color: var(--Item-border);
+  --Timeline-border-width: 0.1875em;
+  --Timeline-tile-background: #fff;
+  --Timeline-tile-border-radius: 0.5em;
+  --Timeline-marker-stroke: currentColor;
+  --Timeline-marker-fill: #fff;
+  --Timeline-marker-size: 1em;
+  --Timeline-marker-position: calc(var(--Timeline-space) * 1.5 + var(--Timeline-border-width) * 2);
 }
 
 @custom-media --large-viewport (min-width: 60em);

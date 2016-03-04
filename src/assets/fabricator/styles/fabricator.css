@@ -13,6 +13,7 @@
 @import 'components/masthead';
 @import 'components/nav';
 @import 'components/swatch';
+@import 'components/timeline';
 
 @import 'utils/display';
 @import 'utils/layout';

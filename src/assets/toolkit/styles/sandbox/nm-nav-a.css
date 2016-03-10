@@ -3,25 +3,17 @@
 
 .Masthead {
   margin: 0;
-  padding-bottom: 1.5em;
+  /*padding-bottom: 1.5em;*/
   color: var(--color-white);
-  background-color: var(--color-blue);
-  background-image: url("/assets/toolkit/images/sandbox/clouds.svg");
-  background-repeat: repeat-x;
-  background-position: bottom;
-  background-size: 38em;
-}
-
-@media (--md-viewport) {
-  .Masthead {
-    padding-bottom: 80px;
-    background-size: auto;
-  }
 }
 
 .Masthead a {
   text-decoration: none;
   color: inherit;
+}
+
+.Masthead-nav {
+  background: var(--color-blue);
 }
 
 .js .Masthead-nav {
@@ -42,6 +34,7 @@
   padding: 0;
   list-style: none;
   text-align: center;
+  text-transform: uppercase;
   background-image: linear-gradient(to bottom, color(var(--color-navy) a(60%)), color(var(--color-navy) a(0)));
 }
 
@@ -49,7 +42,7 @@
   position: relative;
 }
 
-.Masthead-links > li::before {
+/*.Masthead-links > li::before {
   position: absolute;
   top: 0;
   left: 50%;
@@ -59,7 +52,7 @@
   height: var(--border-width-sm);
   content: "";
   background: color(var(--color-white) a(40%));
-}
+}*/
 
 .Masthead-links > li:first-child::before {
   display: none;
@@ -89,6 +82,7 @@
   position: relative;
   margin: 0;
   text-align: center;
+  background: #253c7e;
 }
 
 .Masthead-logo {
@@ -106,15 +100,53 @@
   top: 50%;
   right: var(--space-sm);
   margin: 0;
-  padding: 0.5em 0.75em;
   line-height: var(--line-height-xs);
-  border: var(--border-width-sm) solid color(var(--color-white) a(40%));
-  border-radius: var(--border-radius-md);
+  text-transform: uppercase;
   transform: translateY(-50%);
   transition: all 300ms ease;
 }
 
-.Masthead-control:matches(:focus, :hover) {
+/*.Masthead-control:matches(:focus, :hover) {
   color: var(--color-blue);
   background-color: var(--color-white);
+}*/
+
+.Hero {
+  background-color: var(--color-blue);
+  background-image: url("/assets/toolkit/images/sandbox/clouds.svg");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 38em;
+}
+
+.Hero-header {
+  text-align: center;
+  color: var(--color-white);
+  padding: var(--space-lg) 0;
+}
+
+@media (--lg-viewport) {
+  .Masthead {
+    padding-bottom: 0;
+    background: #253c7e;
+    justify-content: center;
+  }
+  .Masthead-nav {
+    overflow: visible !important;
+    align-items: flex-start !important;
+  }
+  .Masthead, .Masthead-links {
+    display: flex;
+    background-image: none;
+  }
+  .Masthead-links {
+    margin-top: var(--space-md);
+    margin-left: var(--space-md);
+  }
+  .Masthead-link {
+    display: inline;
+  }
+  .Masthead-link-heading {
+    padding: 0 var(--space-sm);
+  }
 }

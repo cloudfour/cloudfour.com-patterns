@@ -6,69 +6,62 @@ stylesheets:
 {{! TODO: Skip to main content link }}
 
 <header class="Masthead" role="banner">
-  <nav class="Masthead-nav" id="nav">
-    <ul class="Masthead-links">
-      <li>
-        <a class="Masthead-link" href="#">
-          <h3 class="Masthead-link-heading">
-            What we do {{@index}}
-          </h3>
-        </a>
-      </li>
-      <li>
-        <a class="Masthead-link" href="#">
-          <h3 class="Masthead-link-heading">
-            What sets us apart {{@index}}
-          </h3>
-        </a>
-      </li>
-      <li>
-        <a class="Masthead-link" href="#">
-          <h3 class="Masthead-link-heading">
-            Articles {{@index}}
-          </h3>
-        </a>
-      </li>
-      <li>
-        <a class="Masthead-link" href="#">
-          <h3 class="Masthead-link-heading">
-            Talks {{@index}}
-          </h3>
-        </a>
-      </li>
-      <li>
-        <a class="Masthead-link" href="#">
-          <h3 class="Masthead-link-heading">
-            Speaking {{@index}}
-          </h3>
-        </a>
-      </li>
-      <li>
-        <a class="Masthead-link" href="#">
-          <h3 class="Masthead-link-heading">
-            Labs {{@index}}
-          </h3>
-        </a>
-      </li>
-      <li>
-        <a class="Masthead-link" href="#">
-          <h3 class="Masthead-link-heading">
-            About {{@index}}
-          </h3>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <div class="Masthead-main">
-    <a class="Masthead-home" href="/" title="Home">
-      <svg class="Masthead-logo">
-        <title>Cloud Four</title>
-        <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor" />
-      </svg>
-    </a>
-    <a class="Masthead-control" href="#nav">Menu</a>
-  </div>
+  
+    <div class="Masthead-main">
+      <a class="Masthead-home" href="/" title="Home">
+        <svg class="Masthead-logo">
+          <title>Cloud Four</title>
+          <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor" />
+        </svg>
+      </a>
+      <a class="Masthead-control Button Button--primary u-lg-hidden" href="#nav">Menu</a>
+    </div>
+    <nav class="Masthead-nav" id="nav">
+      <ul class="Masthead-links">
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Our Process {{@index}}
+            </h3>
+          </a>
+        </li>
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Our Work {{@index}}
+            </h3>
+          </a>
+        </li>
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Articles {{@index}}
+            </h3>
+          </a>
+        </li>
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Speaking {{@index}}
+            </h3>
+          </a>
+        </li>
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Code {{@index}}
+            </h3>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  
 </header>
+
+<div class="Hero">
+  <h1 class="Hero-header">We heart responsive!</h1>
+  <img class="u-size9of12" src="/assets/toolkit/images/sandbox/device-illustration.svg" />
+</div>
 
 <div style="text-align: center; padding: 6em 0; opacity: 0.5;">
   (page content)

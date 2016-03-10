@@ -1,1 +1,78 @@
 @import "suitcss-utils-display";
+@import "suitcss-utils-display";
+
+/**
+ * Responsive display utilities
+ */
+
+@media (--sm-viewport) {
+  .u-sm-hidden {
+    display: none !important;
+  }
+
+  .u-sm-block {
+    display: block !important;
+  }
+
+  .u-sm-inlineBlock {
+    display: inline-block !important;
+  }
+
+  .u-sm-inline {
+    display: inline !important;
+  }
+}
+
+@media (--md-viewport) {
+  .u-md-hidden {
+    display: none !important;
+  }
+
+  .u-md-block {
+    display: block !important;
+  }
+
+  .u-md-inlineBlock {
+    display: inline-block !important;
+  }
+
+  .u-md-inline {
+    display: inline !important;
+  }
+}
+
+@media (--lg-viewport) {
+  .u-lg-hidden {
+    display: none !important;
+  }
+
+  .u-lg-block {
+    display: block !important;
+  }
+
+  .u-lg-inlineBlock {
+    display: inline-block !important;
+  }
+
+  .u-lg-inline {
+    display: inline !important;
+  }
+}
+
+@media (--xl-viewport) {
+  .u-xl-hidden {
+    display: none !important;
+  }
+
+  .u-xl-block {
+    display: block !important;
+  }
+
+  .u-xl-inlineBlock {
+    display: inline-block !important;
+  }
+
+  .u-xl-inline {
+    display: inline !important;
+  }
+}

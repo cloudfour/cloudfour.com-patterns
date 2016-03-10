@@ -1,0 +1,87 @@
+---
+stylesheets:
+  - sandbox/nm-nav-a
+---
+
+{{! TODO: Skip to main content link }}
+
+<header class="Masthead" role="banner">
+  <nav class="Masthead-nav" id="nav">
+    <ul class="Masthead-links">
+      <li>
+        <a class="Masthead-link" href="#">
+          <h3 class="Masthead-link-heading">
+            What we do {{@index}}
+          </h3>
+        </a>
+      </li>
+      <li>
+        <a class="Masthead-link" href="#">
+          <h3 class="Masthead-link-heading">
+            What sets us apart {{@index}}
+          </h3>
+        </a>
+      </li>
+      <li>
+        <a class="Masthead-link" href="#">
+          <h3 class="Masthead-link-heading">
+            Articles {{@index}}
+          </h3>
+        </a>
+      </li>
+      <li>
+        <a class="Masthead-link" href="#">
+          <h3 class="Masthead-link-heading">
+            Talks {{@index}}
+          </h3>
+        </a>
+      </li>
+      <li>
+        <a class="Masthead-link" href="#">
+          <h3 class="Masthead-link-heading">
+            Speaking {{@index}}
+          </h3>
+        </a>
+      </li>
+      <li>
+        <a class="Masthead-link" href="#">
+          <h3 class="Masthead-link-heading">
+            Labs {{@index}}
+          </h3>
+        </a>
+      </li>
+      <li>
+        <a class="Masthead-link" href="#">
+          <h3 class="Masthead-link-heading">
+            About {{@index}}
+          </h3>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="Masthead-main">
+    <a class="Masthead-home" href="/" title="Home">
+      <svg class="Masthead-logo">
+        <title>Cloud Four</title>
+        <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor" />
+      </svg>
+    </a>
+    <a class="Masthead-control" href="#nav">Menu</a>
+  </div>
+</header>
+
+<div style="text-align: center; padding: 6em 0; opacity: 0.5;">
+  (page content)
+</div>
+
+<script>
+
+var nav = document.getElementById('nav');
+var toggle = document.querySelector('[href="#nav"]');
+
+toggle.addEventListener('click', function(event) {
+  event.preventDefault();
+  nav.classList.toggle('is-open');
+});
+
+</script>

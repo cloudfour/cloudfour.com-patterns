@@ -22,3 +22,8 @@
   left: auto !important;
   right: 0 !important;
 }
+
+.u-posCenter {
+  left: auto;
+  right: auto;
+}

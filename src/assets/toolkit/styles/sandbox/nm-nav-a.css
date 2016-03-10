@@ -117,12 +117,19 @@
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 38em;
+  text-align: center;
+  color: var(--color-white);
+  padding-bottom: 3rem;
 }
 
 .Hero-header {
-  text-align: center;
-  color: var(--color-white);
   padding: var(--space-lg) 0;
+}
+
+@media (--sm-viewport) {
+  .Hero-icon {
+    width: 1.6rem;
+  }
 }
 
 @media (--lg-viewport) {

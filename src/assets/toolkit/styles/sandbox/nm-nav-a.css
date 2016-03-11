@@ -126,10 +126,8 @@
   padding: var(--space-lg) 0;
 }
 
-@media (--sm-viewport) {
-  .Hero-icon {
-    width: 1.6rem;
-  }
+.Hero-icon {
+  max-width: 1.6rem;
 }
 
 .Footer {
@@ -140,6 +138,38 @@
   font-size: var(--font-size-lg);
   margin-bottom: var(--space-sm);
 }
+
+/*This class name sucks*/
+.Footer-lower {
+  text-align: left;
+  background-color: var(--color-gray);
+  min-height: 100vh;
+}
+
+.Footer-address {
+  max-width: 24rem;
+  margin: auto;
+  padding-left: 1rem;
+}
+
+@media (--sm-viewport) {
+  .Footer-address {
+    padding-left: 0;
+  }
+}
+
+.Footer-logo {
+  fill: var(--color-blue);
+  width: 4rem;
+  height: 4rem;
+  float: right;
+}
+
+/*@media (--sm-viewport) {
+  .Footer-logo {
+    float: right;
+  } 
+}*/
 
 @media (--lg-viewport) {
   .Masthead {

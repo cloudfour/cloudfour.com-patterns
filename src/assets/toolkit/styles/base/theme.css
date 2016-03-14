@@ -108,7 +108,7 @@
  */
 
 :root {
-  --space-xs: calc(var(--ms1) / 2rem);
+  --space-xs: calc(var(--ms-1) / 1rem);
   --space-sm: calc(var(--ms0) * 1rem);
   --space-md: calc(var(--ms1) * 1rem);
   --space-lg: calc(var(--ms2) * 1rem);

@@ -190,3 +190,15 @@ stylesheets:
   </p>
 
 </footer>
+
+<script>
+
+var toggle = document.querySelector('a[href="#menu"]');
+var menu = document.getElementById('menu');
+
+toggle.addEventListener('click', function (event) {
+  event.preventDefault();
+  menu.classList.toggle('is-open');
+});
+
+</script>

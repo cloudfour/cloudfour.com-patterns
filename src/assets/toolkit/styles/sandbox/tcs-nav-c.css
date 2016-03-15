@@ -37,28 +37,27 @@
 }
 
 .Header-menu {
-  /*border-bottom: 3px solid color(var(--color-white) a(0%));
-  margin-bottom: -3px;*/
   max-height: 0;
   order: -1;
   overflow: hidden;
-  transition: all 500ms easeInOutQuad;
+  /*transition: all 500ms easeInOutQuad;*/
   width: 100%;
 
   display: flex;
   align-items: flex-end;
 }
 
+.Header-menu.use-css {
+  transition: all 500ms easeInOutQuad;
+}
+
 .Header-menu:target,
 .Header-menu.is-open {
-  /*border-bottom-color: color(var(--color-white) a(20%));*/
   max-height: 13em;
 }
 
 .Header-menu ul {
   background-image: linear-gradient(to bottom, color(var(--color-navy) a(60%)), color(var(--color-navy) a(0)));
-  /*display: flex;
-  flex-wrap: wrap;*/
   columns: 2;
   list-style: none;
   padding: var(--space-xs) 0;

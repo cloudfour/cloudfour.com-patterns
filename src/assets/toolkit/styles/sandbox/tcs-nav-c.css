@@ -56,6 +56,11 @@
   max-height: 13em;
 }
 
+.Header-menu.will-open {
+  position: absolute;
+  transform: translateY(-100%);
+}
+
 .Header-menu ul {
   background-image: linear-gradient(to bottom, color(var(--color-navy) a(60%)), color(var(--color-navy) a(0)));
   columns: 2;

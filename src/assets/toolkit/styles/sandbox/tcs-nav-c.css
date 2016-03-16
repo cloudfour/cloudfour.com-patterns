@@ -53,7 +53,12 @@
 
 .Header-menu:target,
 .Header-menu.is-open {
-  max-height: 13em;
+  max-height: 24em;
+}
+
+.Header-menu.columned:target,
+.Header-menu.columned.is-open {
+  max-height: 12em;
 }
 
 .Header-menu.will-open {
@@ -62,19 +67,55 @@
 }
 
 .Header-menu ul {
-  background-image: linear-gradient(to bottom, color(var(--color-navy) a(60%)), color(var(--color-navy) a(0)));
-  columns: 2;
+  /*background-image: linear-gradient(to bottom, color(var(--color-navy) a(60%)), color(var(--color-navy) a(0)));*/
+  /*columns: 2;*/
+  /*column-gap: 0;*/
   list-style: none;
-  padding: var(--space-xs) 0;
+  /*padding: var(--space-xs) 0;*/
+  padding: 0;
   width: 100%;
+}
+
+.Header-menu.columned ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Header-menu.columned li {
+  width: 50%;
 }
 
 .Header-menu a {
   display: block;
   font-size: var(--font-size-md);
-  padding: var(--space-xs) var(--space-md);
+  line-height: 1;
+  padding: var(--space-md) 0 calc(var(--space-md) * 1.1);
   text-align: center;
   text-decoration: none;
+}
+
+.Header-menu li:nth-child(1) a {
+  background-color: color(var(--color-navy) a(72%));
+}
+
+.Header-menu li:nth-child(2) a {
+  background-color: color(var(--color-navy) a(60%));
+}
+
+.Header-menu li:nth-child(3) a {
+  background-color: color(var(--color-navy) a(48%));
+}
+
+.Header-menu li:nth-child(4) a {
+  background-color: color(var(--color-navy) a(36%));
+}
+
+.Header-menu li:nth-child(5) a {
+  background-color: color(var(--color-navy) a(24%));
+}
+
+.Header-menu li:nth-child(6) a {
+  background-color: color(var(--color-navy) a(12%));
 }
 
 .Sky-content {

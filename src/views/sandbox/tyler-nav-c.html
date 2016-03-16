@@ -73,6 +73,10 @@ stylesheets:
 
 <div class="u-spaceChildren" style="margin:1.25rem">
   <label class="u-block">
+    <input type="checkbox" id="columned">
+    Two columns
+  </label>
+  <label class="u-block">
     <input type="radio" name="menuTechnique" value="none" checked>
     No animation
   </label>
@@ -214,6 +218,7 @@ stylesheets:
 var body = document.body;
 var toggle = document.querySelector('a[href="#menu"]');
 var menu = document.getElementById('menu');
+var columnCheckbox = document.getElementById('columned');
 var duration = 500;
 var easing = [0.455, 0.03, 0.515, 0.955];
 var start = toggle.offsetTop;
@@ -272,6 +277,14 @@ toggle.addEventListener('click', function (event) {
     default:
       menu.classList.toggle('is-open');
       break;
+  }
+});
+
+columnCheckbox.addEventListener('change', function () {
+  if (columnCheckbox.checked) {
+    menu.classList.add('columned');
+  } else {
+    menu.classList.remove('columned');
   }
 });
 

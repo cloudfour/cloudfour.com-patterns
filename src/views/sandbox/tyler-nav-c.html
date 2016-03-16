@@ -84,10 +84,6 @@ stylesheets:
     <input type="radio" name="menuTechnique" value="page">
     Animate page via transform
   </label>
-  <label class="u-block">
-    <input type="radio" name="menuTechnique" value="scroll">
-    Animate page scroll
-  </label>
 </div>
 
 <p style="margin:1.25rem">
@@ -215,10 +211,10 @@ stylesheets:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 <script>
 
-var html = document.querySelector('html');
 var body = document.body;
 var toggle = document.querySelector('a[href="#menu"]');
 var menu = document.getElementById('menu');
+var duration = 500;
 var easing = [0.455, 0.03, 0.515, 0.955];
 var start = toggle.offsetTop;
 
@@ -228,41 +224,48 @@ toggle.addEventListener('click', function (event) {
 
   var technique = document.querySelector('input[name="menuTechnique"]:checked').value;
   var isOpen = menu.classList.contains('is-open');
-  var startTop = toggle.offsetTop;
-  var change;
+  var height;
 
   switch (technique) {
     case 'page':
-      menu.classList.toggle('is-open');
-      change = toggle.offsetTop - startTop;
-      Velocity(body, {
-        translateY: change * -1
-      }, {
-        duration: 0,
-        complete: function () {
-          Velocity(body, {
-            translateY: 0
-          }, {
-            duration: 500,
-            easing: easing
-          });
-        }
-      });
-      break;
-    case 'scroll':
-      menu.classList.toggle('is-open');
-      change = toggle.offsetTop - startTop;
-      Velocity(html, 'scroll', {
-        offset: change,
-        duration: 0,
-        complete: function () {
-          Velocity(html, 'scroll', {
-            offset: 0,
-            duration: 500,
-            easing: easing
-          });
-        }
-      });
+      if (isOpen) {
+        height = menu.offsetHeight;
+        Velocity(body, {
+          translateY: height * -1
+        }, {
+          duration: duration,
+          easing: easing,
+          complete: function () {
+            Velocity(body, {
+              translateY: 0
+            }, {
+              duration: 0,
+              complete: function () {
+                menu.classList.remove('is-open');
+              }
+            });
+          }
+        });
+      } else {
+        menu.classList.add('will-open', 'is-open');
+        height = menu.offsetHeight;
+        Velocity(body, {
+          translateY: height * -1
+        }, {
+          duration: 0,
+          complete: function () {
+            Velocity(body, {
+              translateY: 0
+            }, {
+              duration: duration,
+              easing: easing,
+              begin: function () {
+                menu.classList.remove('will-open');
+              }
+            });
+          }
+        });
+      }
       break;
     case 'css':
       menu.classList.add('use-css');

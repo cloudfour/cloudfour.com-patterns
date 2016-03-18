@@ -1,0 +1,96 @@
+---
+title: "Accessible Nav Prototype"
+labels:
+  - inprogress
+stylesheets:
+  - sandbox/tcs-nav-d
+---
+
+<div class="Sky">
+  <header class="Sky-nav" role="banner">
+    <ul class="Sky-nav-controls">
+      <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
+      <li><a class="Sky-nav-controls-skipToMenu Button Button--sheer" href="#menu" aria-label="Skip to navigation">Menu</a></li>
+    </ul>
+    <a class="Sky-nav-logo" href="/">
+      <svg class="Sky-nav-logo-img" width="80" height="80" role="img" aria-labelledby="logo-title">
+        <title id="logo-title">Cloud Four</title>
+        <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor"/>
+      </svg>
+    </a>
+    <nav class="Sky-nav-menu" role="navigation" id="menu">
+      <ul class="Sky-nav-menu-items">
+        <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Section Title</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<main role="main" id="main">
+  <h1>Page title</h1>
+  <p>Some sort of descriptive text.</p>
+  <p>More content.</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script>
+
+var effectOptions = {
+  duration: 500,
+  easing: [0.455, 0.03, 0.515, 0.955] // easeInOutQuad
+};
+
+var snapOptions = {
+  duration: 0
+};
+
+var body = document.body;
+var menuId = 'menu';
+var toggle = document.querySelector('a[href="#' + menuId + '"]');
+var menu = document.getElementById(menuId);
+var testClass = 'u-testBlock';
+var openClass = 'is-open';
+
+function getHeight (element) {
+  var height = element.offsetHeight;
+
+  if (!height) {
+    element.classList.add(testClass);
+    height = element.offsetHeight;
+    element.classList.remove(testClass);
+  }
+
+  return height;
+}
+
+toggle.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  var isOpen = menu.classList.contains(openClass);
+  var menuHeight = getHeight(menu);
+  var startOptions = isOpen ? effectOptions : snapOptions;
+  var endOptions = isOpen ? snapOptions : effectOptions;
+
+  if (isOpen) {
+    endOptions.complete = function () {
+      menu.classList.remove(openClass);
+    };
+  } else {
+    endOptions.begin = function () {
+      menu.classList.add(openClass);
+    }
+  }
+
+  startOptions.complete = function () {
+    Velocity(body, { translateY: 0 }, endOptions);
+  };
+
+  Velocity(body, { translateY: menuHeight * -1 }, startOptions);
+});
+
+</script>

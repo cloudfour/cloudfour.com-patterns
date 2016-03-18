@@ -1,0 +1,215 @@
+@import "../base/theme.css";
+@import "../base/theme-map.css";
+
+/* variables and such */
+
+@custom-media --nav-visible-viewport (--sm-viewport);
+
+/* existing component modifiers */
+
+.Button {
+  transition-property: background-color, border-color, color;
+}
+
+.Button--inverse {
+  background-color: var(--color-white);
+  border-color: var(--color-gray);
+}
+
+.Button--inverse,
+.Button--inverse:matches(:focus, :hover) {
+  color: var(--link-color);
+}
+
+.Button--inverse:matches(:focus, :hover) {
+  border-color: var(--color-white);
+}
+
+.Button--inverse:active {
+  background-color: var(--color-gray);
+  border-color: var(--color-gray);
+}
+
+.Button--sheer {
+  background-color: color(var(--color-navy) a(0));
+  border-color: color(var(--color-white) a(20%));
+}
+
+.Button--sheer,
+.Button--sheer:matches(:focus, :hover) {
+  color: var(--color-white);
+}
+
+.Button--sheer:matches(:focus, :hover) {
+  border-color: color(var(--color-white) a(50%));
+}
+
+.Button--sheer:active {
+  background-color: color(var(--color-navy) a(25%));
+}
+
+/* new sky component */
+
+.Sky {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.Sky-nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav {
+    flex-wrap: nowrap;
+  }
+}
+
+.Sky-nav-controls {
+  list-style: none;
+  margin-left: auto;
+  order: 1;
+  padding: var(--space-xs) var(--space-md);
+  position: relative;
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-controls {
+    padding: 0;
+    position: static;
+  }
+}
+
+.Sky-nav-controls-skipToMain {
+  position: absolute;
+  right: var(--space-md);
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-controls-skipToMain {
+    right: 50%;
+    top: var(--space-xs);
+    transform: translateX(50%);
+  }
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-controls-skipToMenu {
+    display: none;
+  }
+}
+
+.Sky-nav-logo {
+  color: var(--color-white) !important;
+  padding: var(--space-xs) var(--space-md);
+}
+
+.Sky-nav-logo-img {
+  display: block;
+  height: auto;
+  width: 5em;
+}
+
+.Sky-nav-menu {
+  display: none;
+  flex: 100%;
+  order: -1;
+  padding-bottom: var(--space-md);
+}
+
+.Sky-nav-menu:target,
+.Sky-nav-menu.is-open {
+  display: block;
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-menu {
+    display: block;
+    order: 0;
+    padding-bottom: 0;
+  }
+}
+
+.Sky-nav-menu-items {
+  list-style: none;
+  padding: 0;
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: var(--space-sm);
+  }
+}
+
+.Sky-nav-menu-item {
+  background-color: var(--color-navy);
+  color: var(--color-white) !important;
+  display: block;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-xs);
+  padding: var(--space-sm);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.Sky-nav-menu-items > *:nth-last-child(7) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(84%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(6) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(72%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(5) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(60%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(4) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(48%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(3) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(36%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(2) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(24%));
+}
+
+.Sky-nav-menu-items > *:last-child > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(12%));
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-menu-item {
+    background-color: transparent !important;
+  }
+}
+
+/* new utilities */
+
+.u-textNoWrap {
+  white-space: nowrap !important;
+}
+
+.u-hiddenTillFocus:not(:focus) {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+.u-testBlock {
+  display: block;
+  position: fixed;
+  transform: translate(-100%, -100%);
+}

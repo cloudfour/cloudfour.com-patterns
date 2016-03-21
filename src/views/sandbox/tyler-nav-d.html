@@ -21,21 +21,63 @@ stylesheets:
     <nav class="Sky-nav-menu" role="navigation" id="menu">
       <ul class="Sky-nav-menu-items">
         <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Section Title</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
+        {{#iterate 5}}
+          <li><a class="Sky-nav-menu-item" href="/">Section</a></li>
+        {{/iterate}}
       </ul>
     </nav>
   </header>
 </div>
 
 <main role="main" id="main">
-  <h1>Page title</h1>
-  <p>Some sort of descriptive text.</p>
-  <p>More content.</p>
+  <div class="Sky u-paddingMd">
+    <h1>Page title</h1>
+    <p>Some sort of descriptive text.</p>
+  </div>
+  <div class="Page u-paddingMd">
+    <p>Bulk of page content.</p>
+  </div>
 </main>
+
+<footer class="u-paddingMd" role="contentinfo">
+  <div class="Grid Grid--withGutter">
+    <div class="Grid-cell u-sm-size1of2 u-spaceChildren">
+      <p>
+        <a href="/"><strong>Cloud Four, Inc.</strong></a><br>
+        208 SW 1st Ave, Suite 240<br>
+        Portland, Oregon 97204 USA
+      </p>
+      <ul class="u-listUnstyled">
+        <li><a href="mailto:info@cloudfour.com">info@cloudfour.com</a></li>
+        <li><a href="tel:15032901090">+1 503.290.1090</a></li>
+      </ul>
+      <ul class="u-listInline">
+        {{#each toolkit.social}}
+          <li>
+            <a class="u-textLarger" href="{{url}}" title="{{text}}">
+              <svg class="Icon Icon--large" role="img">
+                <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
+              </svg>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    <nav class="Grid-cell u-sm-size1of2">
+      <hr class="u-marginEndsMd u-sm-hidden">
+      <ul class="u-listUnstyled">
+        <li><a href="/">Section Title</a></li>
+        {{#iterate 5}}
+          <li><a href="/">Section</a></li>
+        {{/iterate}}
+        <li><a href="/">Patterns</a></li>
+        <li><a href="/">Device Lab</a></li>
+      </ul>
+    </nav>
+  </div>
+  <hr class="u-marginEndsMd">
+  <p><small>&copy; 2007 - 2016 Cloud Four, Inc.</small></p>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 <script>

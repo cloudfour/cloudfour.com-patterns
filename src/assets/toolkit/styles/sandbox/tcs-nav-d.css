@@ -5,6 +5,16 @@
 
 @custom-media --nav-visible-viewport (--sm-viewport);
 
+/* base styles */
+
+body {
+  background-color: var(--color-gray);
+}
+
+hr {
+  opacity: 0.1;
+}
+
 /* existing component modifiers */
 
 .Button {
@@ -192,6 +202,12 @@
   }
 }
 
+/* new page component */
+
+.Page {
+  background-color: var(--color-white);
+}
+
 /* new utilities */
 
 .u-textNoWrap {
@@ -212,4 +228,41 @@
   display: block;
   position: fixed;
   transform: translate(-100%, -100%);
+}
+
+.u-listUnstyled,
+.u-listInline {
+  list-style: none;
+  padding-left: 0;
+}
+
+.u-listInline {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--space-md) / -2);
+  margin-right: calc(var(--space-md) / -2);
+}
+
+.u-listInline > li {
+  margin-left: calc(var(--space-md) / 2);
+  margin-right: calc(var(--space-md) / 2);
+}
+
+.u-textLarger {
+  font-size: calc(var(--ms1) * 1em);
+}
+
+.u-paddingMd {
+  padding: var(--space-md);
+}
+
+.u-marginEndsMd {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+@media (--sm-viewport) {
+  .u-sm-hidden {
+    display: none;
+  }
 }

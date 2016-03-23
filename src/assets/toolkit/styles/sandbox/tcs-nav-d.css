@@ -65,6 +65,14 @@ hr {
   color: var(--color-white);
 }
 
+.Sky--clouds {
+  background-image: url(/assets/toolkit/images/sandbox/clouds-alt.svg);
+  background-position: -100% bottom;
+  background-repeat: repeat-x;
+  background-size: calc(420 / 16em);
+  padding-bottom: 2.25em !important;
+}
+
 .Sky-nav {
   align-items: center;
   display: flex;

@@ -10,7 +10,7 @@ stylesheets:
   <header class="Sky-nav" role="banner">
     <ul class="Sky-nav-controls">
       <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
-      <li><a class="Sky-nav-controls-skipToMenu Button Button--sheer" href="#menu" aria-label="Skip to navigation">Menu</a></li>
+      <li><a style="z-index:2;position: relative;" class="Sky-nav-controls-skipToMenu Button Button--sheer" href="#menu" aria-label="Skip to navigation">Menu</a></li>
     </ul>
     <a class="Sky-nav-logo" href="/">
       <svg class="Sky-nav-logo-img" width="80" height="80" role="img" aria-labelledby="logo-title">
@@ -30,10 +30,20 @@ stylesheets:
 </div>
 
 <main role="main" id="main">
-  <div class="Sky u-paddingMd">
+  <div class="Sky Sky--clouds">
+    <div class="u-paddingMd">
+      <h1>Page title</h1>
+      <p>Some sort of descriptive text.</p>
+    </div>
+  </div>
+  {{!-- <div class="Sky u-paddingMd" style="position: relative;">
     <h1>Page title</h1>
     <p>Some sort of descriptive text.</p>
-  </div>
+    <svg width="100" height="50" viewBox="0 0 100 50" style="position: absolute; bottom: 0; right: 0; width: 100%; height: auto;">
+      <circle cx="100" cy="45" r="10" fill="#fff"/>
+      <circle cx="90" cy="55" r="10" fill="#fff"/>
+    </svg>
+  </div> --}}
   <div class="Page u-paddingMd">
     <p>Bulk of page content.</p>
   </div>

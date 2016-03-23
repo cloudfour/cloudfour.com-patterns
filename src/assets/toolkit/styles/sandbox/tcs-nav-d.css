@@ -208,112 +208,6 @@ hr {
   background-color: var(--color-white);
 }
 
-/* likely throwaway footer component */
-
-.Footer {
-  position: relative;
-}
-
-.Footer-contact,
-.Footer-social {
-  margin-top: var(--space-md);
-}
-
-.Footer-nav {
-  display: flex;
-}
-
-.Footer-nav-list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: calc(1em * var(--line-height-md) * 4);
-}
-
-.Footer-nav-list > li {
-  margin-right: var(--space-md);
-}
-
-@media (--sm-viewport) {
-  .Footer {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .Footer hr {
-    flex: 100%;
-  }
-
-  .Footer-company {
-    flex: 100%;
-    order: -3;
-  }
-
-  .Footer-card {
-    order: -2;
-  }
-
-  .Footer-contact {
-    margin-top: 0;
-  }
-
-  .Footer-nav {
-    margin-left: calc(var(--space-md) * 3);
-    order: -1;
-  }
-
-  .Footer-social {
-    flex: 100%;
-  }
-}
-
-@media (--md-viewport) {
-
-  .Footer-social {
-    flex: 0 1 auto;
-    margin-top: 0;
-    margin-left: auto !important;
-  }
-
-  .Footer-byline {
-    position: absolute;
-    bottom: var(--space-md);
-    right: var(--space-md);
-  }
-}
-
-/*.Footer {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.Footer hr,
-.Footer-company,
-.Footer-address,
-.Footer-contact,
-.Footer-social {
-  flex: 100%;
-}
-
-.Footer-nav-list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: calc(1em * var(--line-height-md) * 4);
-}
-
-.Footer-nav-list > li {
-  margin-right: var(--space-md);
-}
-
-@media (--sm-viewport) {
-  .Footer-address,
-  .Footer-contact {
-    flex: 0 1 auto;
-    margin-right: var(--space-md);
-  }
-}*/
-
 /* new utilities */
 
 .u-textNoWrap {
@@ -372,14 +266,37 @@ hr {
   margin-bottom: var(--space-md);
 }
 
+.u-marginBottom0 {
+  margin-bottom: 0;
+}
+
+.u-columns2 {
+  columns: 2;
+  column-gap: var(--space-md);
+}
+
 @media (--sm-viewport) {
   .u-sm-hidden {
     display: none;
+  }
+
+  .u-sm-marginTop0 {
+    margin-top: 0;
   }
 }
 
 @media (--md-viewport) {
   .u-md-hidden {
     display: none;
+  }
+
+  .u-md-posAbsoluteTopRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .u-md-marginTop0 {
+    margin-top: 0;
   }
 }

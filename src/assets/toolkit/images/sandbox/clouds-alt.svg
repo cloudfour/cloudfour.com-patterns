@@ -1,9 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg"
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 420 36"
   width="420"
   height="36"
   preserveAspectRatio="none">
-  <g fill="white">
+  <defs>
+    <filter id="outline">
+      <feMorphology in="SourceAlpha" result="morphed" operator="dilate" radius="2" />
+      <feColorMatrix in="morphed" result="recolored" type="matrix"
+        values=" 0  0  0  0  0,
+                 0  0  0  0  0,
+                 0  0  0  0  0,
+                 0  0  0  1  0"/>
+      <feMerge>
+        <feMergeNode in="recolored"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="drybrush">
+      <feTurbulence result="roughen" baseFrequency=".04"/>
+      <feDisplacementMap operator="in" in="SourceGraphic" in2="roughen" scale="8"/>
+    </filter>
+    <g id="canopy">
+      <circle cx="0" cy="45" r="36"/>
+      <circle cx="41" cy="38" r="25"/>
+      <circle cx="86" cy="46" r="36"/>
+      <circle cx="125" cy="31" r="25"/>
+      <circle cx="158" cy="42" r="25"/>
+      <circle cx="200" cy="46" r="36"/>
+      <circle cx="244" cy="28" r="25"/>
+      <circle cx="280" cy="45" r="36"/>
+      <circle cx="330" cy="48" r="36"/>
+      <circle cx="372" cy="42" r="25"/>
+      <circle cx="420" cy="45" r="36"/>
+    </g>
+  </defs>
+  <!-- <use xlink:href="#canopy" filter="url(#outline)" fill="#000" opacity="0.2"/> -->
+  <rect x="-50%" y="4" width="200%" height="100%" fill="#000" opacity="0.2" filter="url(#drybrush)"/>
+  <use xlink:href="#canopy" fill="#fff" style="transform: translateY(12px)"/>
+  <!-- <g filter="url(#outline)" fill="#456bd9">
     <circle cx="0" cy="45" r="36"/>
     <circle cx="41" cy="38" r="25"/>
     <circle cx="86" cy="46" r="36"/>
@@ -15,5 +49,5 @@
     <circle cx="330" cy="48" r="36"/>
     <circle cx="372" cy="42" r="25"/>
     <circle cx="420" cy="45" r="36"/>
-  </g>
+  </g> -->
 </svg>

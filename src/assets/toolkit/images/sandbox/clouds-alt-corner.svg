@@ -5,7 +5,7 @@
   preserveAspectRatio="none">
   <defs>
     <filter id="outline">
-      <feMorphology in="SourceAlpha" result="morphed" operator="dilate" radius="2" />
+      <feMorphology in="SourceAlpha" result="morphed" operator="dilate" radius="3" />
       <feColorMatrix in="morphed" result="recolored" type="matrix"
         values="-1  0  0  1  0,
                  0 -1  0  1  0,
@@ -17,7 +17,7 @@
       </feMerge>
     </filter>
   </defs>
-  <g filter="url(#outline)" fill="#456bd9">
+  <g filter="url(#outline)" fill="#456bd9" opacity="0.2">
     <circle cx="128" cy="64" r="32"/>
     <circle cx="88" cy="70" r="16"/>
   </g>

@@ -7,9 +7,9 @@
     <filter id="outline">
       <feMorphology in="SourceAlpha" result="morphed" operator="dilate" radius="2" />
       <feColorMatrix in="morphed" result="recolored" type="matrix"
-        values=" 0  0  0  0  0,
-                 0  0  0  0  0,
-                 0  0  0  0  0,
+        values="-1  0  0  1  0,
+                 0 -1  0  1  0,
+                 0  0 -1  1  0,
                  0  0  0  1  0"/>
       <feMerge>
         <feMergeNode in="recolored"/>
@@ -34,9 +34,46 @@
       <circle cx="420" cy="45" r="36"/>
     </g>
   </defs>
-  <!-- <use xlink:href="#canopy" filter="url(#outline)" fill="#000" opacity="0.2"/> -->
-  <rect x="-50%" y="4" width="200%" height="100%" fill="#000" opacity="0.2" filter="url(#drybrush)"/>
-  <use xlink:href="#canopy" fill="#fff" style="transform: translateY(12px)"/>
+  <!-- <g fill="#fff" opacity="0.2">
+    <circle cx="-20" cy="36" r="36"/>
+    <circle cx="24" cy="42" r="36"/>
+    <circle cx="80" cy="50" r="48"/>
+    <circle cx="160" cy="40" r="36"/>
+    <circle cx="210" cy="55" r="48"/>
+    <circle cx="270" cy="45" r="36"/>
+    <circle cx="330" cy="52" r="48"/>
+    <circle cx="400" cy="36" r="36"/>
+  </g>
+  <g fill="#fff" style="transform: translateY(6px);">
+    <circle cx="0" cy="45" r="36"/>
+    <circle cx="41" cy="38" r="25"/>
+    <circle cx="86" cy="46" r="36"/>
+    <circle cx="125" cy="31" r="25"/>
+    <circle cx="158" cy="42" r="25"/>
+    <circle cx="200" cy="46" r="36"/>
+    <circle cx="244" cy="28" r="25"/>
+    <circle cx="280" cy="45" r="36"/>
+    <circle cx="330" cy="48" r="36"/>
+    <circle cx="372" cy="42" r="25"/>
+    <circle cx="420" cy="45" r="36"/>
+  </g> -->
+  <!-- <use xlink:href="#canopy" filter="url(#outline)" fill="#fff" opacity="0.2"/> -->
+  <!-- <rect x="-50%" y="4" width="200%" height="100%" fill="#000" opacity="0.2" filter="url(#drybrush)"/> -->
+  <!-- <use xlink:href="#canopy" fill="#fff" style="transform: translateY(12px)"/> -->
+  <!-- <use xlink:href="#canopy" fill="#fff"/> -->
+  <g fill="#fff">
+    <circle cx="0" cy="45" r="36"/>
+    <circle cx="41" cy="38" r="25"/>
+    <circle cx="86" cy="46" r="36"/>
+    <circle cx="125" cy="31" r="25"/>
+    <circle cx="158" cy="42" r="25"/>
+    <circle cx="200" cy="46" r="36"/>
+    <circle cx="244" cy="28" r="25"/>
+    <circle cx="280" cy="45" r="36"/>
+    <circle cx="330" cy="48" r="36"/>
+    <circle cx="372" cy="42" r="25"/>
+    <circle cx="420" cy="45" r="36"/>
+  </g>
   <!-- <g filter="url(#outline)" fill="#456bd9">
     <circle cx="0" cy="45" r="36"/>
     <circle cx="41" cy="38" r="25"/>

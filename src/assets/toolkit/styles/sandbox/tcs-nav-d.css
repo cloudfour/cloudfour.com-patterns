@@ -65,14 +65,19 @@ hr {
   color: var(--color-white);
 }
 
+.Sky + .Sky {
+  margin-top: -1px;
+}
+
 .Sky--clouds {
   /*background-image: url(/assets/toolkit/images/sandbox/clouds-alt-corner.svg);
   background-position: right bottom;
   background-repeat: no-repeat;*/
   background-image: url(/assets/toolkit/images/sandbox/clouds-alt.svg);
   background-position: -100% bottom;
+  background-position: left bottom;
   background-repeat: repeat-x;
-  background-size: calc(420 / 16em);
+  background-size: calc(630 / 16em);
   padding-bottom: 2.25em !important;
 }
 

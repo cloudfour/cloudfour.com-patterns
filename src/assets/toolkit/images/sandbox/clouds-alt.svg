@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 420 24"
+  width="420"
+  height="24"
+  preserveAspectRatio="none">
+  <g fill="#fff">
+    <circle cx="0" cy="45" r="36"/>
+    <circle cx="41" cy="38" r="25"/>
+    <circle cx="86" cy="46" r="36"/>
+    <circle cx="125" cy="31" r="25"/>
+    <circle cx="158" cy="42" r="25"/>
+    <circle cx="200" cy="46" r="36"/>
+    <circle cx="244" cy="28" r="25"/>
+    <circle cx="280" cy="45" r="36"/>
+    <circle cx="330" cy="48" r="36"/>
+    <circle cx="372" cy="42" r="25"/>
+    <circle cx="420" cy="45" r="36"/>
+  </g>
+</svg>

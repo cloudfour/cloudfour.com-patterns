@@ -220,6 +220,38 @@ hr {
   background-color: var(--color-white);
 }
 
+/* possibly throwaway Portland component */
+
+.Portland {
+  padding-right: calc(140 / 16rem);
+  position: relative;
+}
+
+.Portland::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-image: url("/assets/toolkit/images/sandbox/portland-alt.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(70 / 16rem);
+  width: calc(140 / 16rem);
+}
+
+@media (--sm-viewport) {
+  .Portland::before {
+    right: var(--space-md);
+  }
+}
+
+@media (--md-viewport) {
+  .Portland::before {
+    height: calc(70 / 16rem * 1.6667);
+    width: calc(140 / 16rem * 1.6667);
+  }
+}
+
 /* new utilities */
 
 .u-textNoWrap {
@@ -266,6 +298,27 @@ hr {
 
 .u-paddingMd {
   padding: var(--space-md);
+}
+
+.u-paddingTopXs {
+  padding-top: var(--space-xs);
+}
+
+.u-marginMd {
+  margin: var(--space-md);
+}
+
+.u-marginEndsXs {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.u-marginRightXs {
+  margin-right: var(--space-xs);
+}
+
+.u-marginRightSm {
+  margin-right: var(--space-sm);
 }
 
 .u-marginEndsMd,

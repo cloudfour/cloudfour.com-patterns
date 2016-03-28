@@ -1,0 +1,387 @@
+@import "../base/theme.css";
+@import "../base/theme-map.css";
+
+/* variables and such */
+
+@custom-media --nav-visible-viewport (--sm-viewport);
+@custom-media --nav-single-row-viewport (--lg-viewport);
+
+/* base styles */
+
+body {
+  background-color: var(--color-gray);
+}
+
+hr {
+  opacity: 0.1;
+}
+
+/* existing component modifiers */
+
+.Button {
+  transition-property: background-color, border-color, color;
+}
+
+.Button--inverse {
+  background-color: var(--color-white);
+  border-color: var(--color-gray);
+}
+
+.Button--inverse,
+.Button--inverse:matches(:focus, :hover) {
+  color: var(--link-color);
+}
+
+.Button--inverse:matches(:focus, :hover) {
+  border-color: var(--color-white);
+}
+
+.Button--inverse:active {
+  background-color: var(--color-gray);
+  border-color: var(--color-gray);
+}
+
+.Button--sheer {
+  background-color: color(var(--color-navy) a(0));
+  border-color: color(var(--color-white) a(20%));
+}
+
+.Button--sheer,
+.Button--sheer:matches(:focus, :hover) {
+  color: var(--color-white);
+}
+
+.Button--sheer:matches(:focus, :hover) {
+  border-color: color(var(--color-white) a(50%));
+}
+
+.Button--sheer:active {
+  background-color: color(var(--color-navy) a(25%));
+}
+
+/* new sky component */
+
+.Sky {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.Sky + .Sky {
+  margin-top: -1px;
+}
+
+.Sky--clouds {
+  background-image: url("/assets/toolkit/images/sandbox/clouds-alt.svg");
+  background-position: -60% bottom;
+  background-repeat: repeat-x;
+  background-size: calc(420 / 16em * 1.25);
+  padding-bottom: calc(24 / 16em * 1.25);
+}
+
+.Sky-nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav {
+    flex-wrap: nowrap;
+  }
+}
+
+.Sky-nav-controls {
+  list-style: none;
+  margin-left: auto;
+  order: 1;
+  padding: var(--space-xs) var(--space-md);
+  position: relative;
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-controls {
+    padding: 0;
+    position: static;
+  }
+}
+
+.Sky-nav-controls-skipToMain {
+  position: absolute;
+  right: var(--space-md);
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-controls-skipToMain {
+    right: 50%;
+    top: var(--space-xs);
+    transform: translateX(50%);
+  }
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-controls-skipToMenu {
+    display: none;
+  }
+}
+
+.Sky-nav-logo {
+  color: var(--color-white) !important;
+  padding: var(--space-xs) var(--space-md);
+}
+
+.Sky-nav-logo-img {
+  display: block;
+  height: 5em;
+  width: 5em;
+}
+
+.Sky-nav-menu {
+  display: none;
+  flex: 100%;
+  order: -1;
+  padding-bottom: var(--space-md);
+
+  /*background-image:
+    linear-gradient(to bottom, #2b3a7d, color(#2b3a7d a(0%))),
+    url("/assets/toolkit/images/sandbox/stars.svg");*/
+
+  background:
+    url("/assets/toolkit/images/sandbox/stars.svg"),
+    linear-gradient(to bottom, #2b3a7d, color(#2b3a7d a(0%)));
+  background-size: cover;
+}
+
+.Sky-nav-menu:target,
+.Sky-nav-menu.is-open {
+  display: block;
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-menu {
+    background: transparent;
+    display: block;
+    order: 0;
+    padding-bottom: 0;
+  }
+}
+
+.Sky-nav-menu-items {
+  list-style: none;
+  padding: 0;
+}
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: var(--space-sm);
+  }
+}
+
+@media (--nav-single-row-viewport) {
+  .Sky-nav-menu-items {
+    justify-content: space-between;
+  }
+}
+
+.Sky-nav-menu-item {
+  /*background-color: var(--color-navy);*/
+  color: var(--color-white) !important;
+  display: block;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-xs);
+  padding: var(--space-sm);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  border-bottom: 3px solid color(var(--color-black) a(10%));
+}
+
+/*.Sky-nav-menu-items > *:nth-last-child(7) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(84%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(6) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(72%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(5) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(60%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(4) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(48%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(3) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(36%));
+}
+
+.Sky-nav-menu-items > *:nth-last-child(2) > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(24%));
+}
+
+.Sky-nav-menu-items > *:last-child > .Sky-nav-menu-item {
+  background-color: color(var(--color-navy) a(12%));
+}*/
+
+@media (--nav-visible-viewport) {
+  .Sky-nav-menu-item {
+    background-color: transparent !important;
+    border-bottom: 0;
+  }
+}
+
+/* new page component */
+
+.Page {
+  background-color: var(--color-white);
+}
+
+/* possibly throwaway Portland component */
+
+.Portland {
+  padding-right: calc(140 / 16rem);
+  position: relative;
+}
+
+.Portland::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-image: url("/assets/toolkit/images/sandbox/portland-alt.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(70 / 16rem);
+  width: calc(140 / 16rem);
+}
+
+@media (--sm-viewport) {
+  .Portland::before {
+    right: var(--space-md);
+  }
+}
+
+@media (--md-viewport) {
+  .Portland::before {
+    height: calc(70 / 16rem * 1.6667);
+    width: calc(140 / 16rem * 1.6667);
+  }
+}
+
+/* new utilities */
+
+.u-textNoWrap {
+  white-space: nowrap !important;
+}
+
+.u-hiddenTillFocus:not(:focus) {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+.u-testBlock {
+  display: block;
+  position: fixed;
+  transform: translate(-100%, -100%);
+}
+
+.u-listUnstyled,
+.u-listInline {
+  list-style: none;
+  padding-left: 0;
+}
+
+.u-listInline {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--space-md) / -2);
+  margin-right: calc(var(--space-md) / -2);
+}
+
+.u-listInline > li {
+  margin-left: calc(var(--space-md) / 2);
+  margin-right: calc(var(--space-md) / 2);
+}
+
+.u-textLarger {
+  font-size: calc(var(--ms1) * 1em);
+}
+
+.u-paddingMd {
+  padding: var(--space-md);
+}
+
+.u-paddingTopXs {
+  padding-top: var(--space-xs);
+}
+
+.u-marginMd {
+  margin: var(--space-md);
+}
+
+.u-marginEndsXs {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.u-marginRightXs {
+  margin-right: var(--space-xs);
+}
+
+.u-marginRightSm {
+  margin-right: var(--space-sm);
+}
+
+.u-marginEndsMd,
+.u-marginTopMd {
+  margin-top: var(--space-md);
+}
+
+.u-marginEndsMd,
+.u-marginBottomMd {
+  margin-bottom: var(--space-md);
+}
+
+.u-marginBottom0 {
+  margin-bottom: 0;
+}
+
+.u-columns2 {
+  columns: 2;
+  column-gap: var(--space-md);
+}
+
+@media (--sm-viewport) {
+  .u-sm-hidden {
+    display: none;
+  }
+
+  .u-sm-marginTop0 {
+    margin-top: 0;
+  }
+}
+
+@media (--md-viewport) {
+  .u-md-hidden {
+    display: none;
+  }
+
+  .u-md-posAbsoluteTopRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .u-md-marginTop0 {
+    margin-top: 0;
+  }
+}

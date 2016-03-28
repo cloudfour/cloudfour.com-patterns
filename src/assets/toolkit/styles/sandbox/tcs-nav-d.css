@@ -4,6 +4,7 @@
 /* variables and such */
 
 @custom-media --nav-visible-viewport (--sm-viewport);
+@custom-media --nav-single-row-viewport (--lg-viewport);
 
 /* base styles */
 
@@ -165,6 +166,12 @@ hr {
     flex-wrap: wrap;
     justify-content: flex-end;
     padding: var(--space-sm);
+  }
+}
+
+@media (--nav-single-row-viewport) {
+  .Sky-nav-menu-items {
+    justify-content: space-between;
   }
 }
 

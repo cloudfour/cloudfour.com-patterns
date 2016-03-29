@@ -1,0 +1,52 @@
+@import "../base/theme.css";
+@import "../base/theme-map.css";
+
+.blog-section, .blog-header, .blog-footer {
+  max-width: 650px;
+  margin: auto;
+}
+
+@media (--lg-viewport) {
+  .blog-section, .blog-header, .blog-footer {
+    max-width: 700px;
+  }
+}
+
+@media (--xl-viewport) {
+  .blog-section, .blog-header, .blog-footer {
+    max-width: 800px;
+  }
+}
+
+.blog-header {
+  padding: var(--font-size-md);
+  padding-bottom: 0;
+}
+
+.blog-intro {
+  font-size: var(--font-size-md);
+}
+
+.author-image {
+  margin-right: var(--space-md);
+}
+
+.full-width {
+  background: #f4eee9;
+  text-align: center;
+}
+
+.full-width-image {
+  width: 100%;
+}
+
+@media (--md-viewport) {
+  .full-width-image {
+    width: 40%;
+  }
+}
+
+.blog-footer {
+  padding: var(--font-size-md);
+  padding-top: 0;
+}

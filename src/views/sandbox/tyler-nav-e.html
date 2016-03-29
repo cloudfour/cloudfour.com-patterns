@@ -40,6 +40,10 @@ stylesheets:
   </div>
   <div class="Page">
     <div class="u-paddingMd u-spaceChildren">
+      <label>
+        <input type="checkbox" name="starz">
+        Include stars in sky &star;
+      </label>
       <h1>In-Page Heading</h1>
       <p>Bulk of content would likely start here.</p>
       <p>But, maybe not, y'know? The world's a crazy place.</p>
@@ -165,6 +169,17 @@ toggle.addEventListener('click', function (event) {
   };
 
   Velocity(body, { translateY: menuHeight * -1 }, startOptions);
+});
+
+// Stars prototype test
+// TODO: Remove this when we make up our minds
+var starCheckbox = document.querySelector('[name="starz"]');
+starCheckbox.addEventListener('change', function (event) {
+  if (starCheckbox.checked) {
+    menu.classList.add('with-stars');
+  } else {
+    menu.classList.remove('with-stars');
+  }
 });
 
 </script>

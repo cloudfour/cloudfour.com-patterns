@@ -141,14 +141,44 @@ hr {
   order: -1;
   padding-bottom: var(--space-md);
 
-  /*background-image:
-    linear-gradient(to bottom, #2b3a7d, color(#2b3a7d a(0%))),
-    url("/assets/toolkit/images/sandbox/stars.svg");*/
-
-  background:
+  /*background:
     url("/assets/toolkit/images/sandbox/stars.svg"),
     linear-gradient(to bottom, #2b3a7d, color(#2b3a7d a(0%)));
-  background-size: cover;
+  background-size: cover;*/
+
+  /*background:
+    url("/assets/toolkit/images/sandbox/stars-left.png"),
+    url("/assets/toolkit/images/sandbox/stars-right.png"),
+    linear-gradient(to bottom, #2b3a7d, var(--color-blue));
+
+  background-repeat: no-repeat;
+
+  background-position: left top, right top, center;
+
+  background-size: 150px auto, 150px auto, auto;*/
+
+  /*background:
+    url("/assets/toolkit/images/sandbox/stars-left.svg"),
+    linear-gradient(to bottom, #2b3a7d, color(#2b3a7d a(0%)));
+
+  background-repeat: no-repeat;
+
+  background-position: left top, center;*/
+
+  background: linear-gradient(to bottom, #2b3a7d, var(--color-blue));
+}
+
+.Sky-nav-menu.with-stars {
+  background:
+    url("/assets/toolkit/images/sandbox/stars-left.png"),
+    url("/assets/toolkit/images/sandbox/stars-right.png"),
+    linear-gradient(to bottom, #2b3a7d, var(--color-blue));
+
+  background-repeat: no-repeat;
+
+  background-position: left top, right top, center;
+
+  background-size: 150px auto, 150px auto, auto;
 }
 
 .Sky-nav-menu:target,
@@ -196,7 +226,7 @@ hr {
   text-decoration: none;
   white-space: nowrap;
 
-  border-bottom: 3px solid color(var(--color-black) a(10%));
+  border-bottom: var(--control-stroke) solid color(var(--color-black) a(10%));
 }
 
 /*.Sky-nav-menu-items > *:nth-last-child(7) > .Sky-nav-menu-item {

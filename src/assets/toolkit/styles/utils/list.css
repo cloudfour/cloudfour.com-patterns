@@ -1,0 +1,34 @@
+/**
+ * 1. Turn off list decorations (bullets, numbers)
+ * 2. Override default padding
+ */
+
+.u-listUnstyled,
+.u-listInline {
+  list-style: none; /* 1 */
+  padding-left: 0; /* 2 */
+}
+
+/**
+ * 1. Make elements align in a row.
+ * 2. Make elements wrap when they can't fit on a single line.
+ * 3. Compensate for left/right padding between list items. Without this, we'd
+ *    either have gaps on either side of the container, or gaps to the left
+ *    of list items that wrapped.
+ */
+
+.u-listInline {
+  display: flex; /* 1 */
+  flex-wrap: wrap; /* 2 */
+  margin-left: calc(var(--space-md) / -2); /* 3 */
+  margin-right: calc(var(--space-md) / -2); /* 3 */
+}
+
+/**
+ * Add a consistent gap between list items.
+ */
+
+.u-listInline > li {
+  margin-left: calc(var(--space-md) / 2);
+  margin-right: calc(var(--space-md) / 2);
+}

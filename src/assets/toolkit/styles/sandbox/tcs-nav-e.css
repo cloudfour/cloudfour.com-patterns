@@ -320,24 +320,6 @@ hr {
   transform: translate(-100%, -100%);
 }
 
-.u-listUnstyled,
-.u-listInline {
-  list-style: none;
-  padding-left: 0;
-}
-
-.u-listInline {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: calc(var(--space-md) / -2);
-  margin-right: calc(var(--space-md) / -2);
-}
-
-.u-listInline > li {
-  margin-left: calc(var(--space-md) / 2);
-  margin-right: calc(var(--space-md) / 2);
-}
-
 .u-textLarger {
   font-size: calc(var(--ms1) * 1em);
 }

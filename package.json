@@ -52,6 +52,8 @@
     "postcss-discard-comments": "^1.2.0",
     "postcss-discard-empty": "^1.1.1",
     "postcss-easings": "^0.2.0",
+    "postcss-import": "^6.1.1",
+    "postcss-mixins": "^0.4.0",
     "postcss-reporter": "^0.1.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.2",

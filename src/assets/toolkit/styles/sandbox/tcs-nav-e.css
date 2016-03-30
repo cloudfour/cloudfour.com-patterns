@@ -6,45 +6,6 @@
 @custom-media --nav-visible-viewport (--sm-viewport);
 @custom-media --nav-single-row-viewport (--lg-viewport);
 
-/* existing component modifiers */
-
-.Button--inverse {
-  background-color: var(--color-white);
-  border-color: var(--color-gray);
-}
-
-.Button--inverse,
-.Button--inverse:matches(:focus, :hover) {
-  color: var(--link-color);
-}
-
-.Button--inverse:matches(:focus, :hover) {
-  border-color: var(--color-white);
-}
-
-.Button--inverse:active {
-  background-color: var(--color-gray);
-  border-color: var(--color-gray);
-}
-
-.Button--sheer {
-  background-color: color(var(--color-navy) a(0));
-  border-color: color(var(--color-white) a(20%));
-}
-
-.Button--sheer,
-.Button--sheer:matches(:focus, :hover) {
-  color: var(--color-white);
-}
-
-.Button--sheer:matches(:focus, :hover) {
-  border-color: color(var(--color-white) a(50%));
-}
-
-.Button--sheer:active {
-  background-color: color(var(--color-navy) a(25%));
-}
-
 /* new sky component */
 
 .Sky {

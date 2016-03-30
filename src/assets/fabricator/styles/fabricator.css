@@ -22,3 +22,7 @@
 
 @import 'vendor/prism';
 @import 'previews';
+
+body {
+  background: #fff !important;
+}

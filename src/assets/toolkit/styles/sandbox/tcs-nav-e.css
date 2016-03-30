@@ -8,10 +8,6 @@
 
 /* base styles */
 
-body {
-  background-color: var(--color-gray);
-}
-
 hr {
   opacity: 0.1;
 }

@@ -1,6 +1,10 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
+body {
+  background: var(--color-white);
+}
+
 .Sky {
   background-color: var(--color-blue);
   background-image: url("/assets/toolkit/images/sandbox/clouds.svg");

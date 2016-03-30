@@ -1,6 +1,10 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
+body {
+  background: var(--color-white);
+}
+
 .Masthead {
   margin: 0;
   /*padding-bottom: 1.5em;*/

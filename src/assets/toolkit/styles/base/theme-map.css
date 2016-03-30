@@ -3,7 +3,7 @@
  */
 
 :root {
-  --base-background: var(--color-white);
+  --base-background: var(--color-gray);
   --base-color: var(--color-black);
   --base-font: var(--font-size-sm)/var(--line-height-md) var(--font-family-default);
   --base-margin: var(--space-md);

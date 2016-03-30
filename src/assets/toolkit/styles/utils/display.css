@@ -1,1 +1,23 @@
 @import "suitcss-utils-display";
+
+/**
+ * Responsive variations of some SUIT CSS display utilities.
+ */
+
+@media (--sm-viewport) {
+  .u-sm-hidden {
+    display: none !important;
+  }
+}
+
+@media (--md-viewport) {
+  .u-md-hidden {
+    display: none !important;
+  }
+}
+
+@media (--lg-viewport) {
+  .u-lg-hidden {
+    display: none !important;
+  }
+}

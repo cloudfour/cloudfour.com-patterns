@@ -329,17 +329,7 @@ hr {
   column-gap: var(--space-md);
 }
 
-@media (--sm-viewport) {
-  .u-sm-hidden {
-    display: none;
-  }
-}
-
 @media (--md-viewport) {
-  .u-md-hidden {
-    display: none;
-  }
-
   .u-md-posAbsoluteTopRight {
     position: absolute;
     top: 0;

@@ -1,1 +1,15 @@
 @import "suitcss-utils-text";
+
+/**
+ * Incremental text size utilities
+ *
+ * See: http://blog.cloudfour.com/responsive-guide-to-type-sizing/
+ */
+
+.u-textLarger {
+  font-size: calc(1em * var(--ms1));
+}
+
+.u-textSmaller {
+  font-size: calc(1em / var(--ms1));
+}

@@ -301,11 +301,3 @@ hr {
     width: calc(140 / 16rem * 1.6667);
   }
 }
-
-/* new utilities */
-
-.u-testBlock {
-  display: block;
-  position: fixed;
-  transform: translate(-100%, -100%);
-}

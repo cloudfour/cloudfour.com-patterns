@@ -6,12 +6,6 @@
 @custom-media --nav-visible-viewport (--sm-viewport);
 @custom-media --nav-single-row-viewport (--lg-viewport);
 
-/* base styles */
-
-hr {
-  opacity: 0.1;
-}
-
 /* existing component modifiers */
 
 .Button {

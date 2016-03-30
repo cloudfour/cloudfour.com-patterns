@@ -310,10 +310,6 @@ hr {
   transform: translate(-100%, -100%);
 }
 
-.u-textLarger {
-  font-size: calc(var(--ms1) * 1em);
-}
-
 .u-columns2 {
   columns: 2;
   column-gap: var(--space-md);

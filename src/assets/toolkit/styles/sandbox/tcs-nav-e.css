@@ -8,10 +8,6 @@
 
 /* existing component modifiers */
 
-.Button {
-  transition-property: background-color, border-color, color;
-}
-
 .Button--inverse {
   background-color: var(--color-white);
   border-color: var(--color-gray);

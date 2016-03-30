@@ -15,6 +15,7 @@
   --Button-font-weight: var(--font-weight-semibold);
   --Button-padding: 0.5em 1em;
   --Button-transition-duration: var(--motion-duration-lg);
+  --Button-transition-property: background-color, border-color, color;
   --Button-transition-timing-function: var(--motion-timing-function-default);
 }
 
@@ -44,7 +45,9 @@
   border-color: var(--Button-border-color);
   border-radius: var(--Button-border-radius);
   background: transparent;
-  transition: all var(--Button-transition-duration) var(--Button-transition-timing-function);
+  transition-duration: var(--Button-transition-duration);
+  transition-property: var(--Button-transition-property);
+  transition-timing-function: var(--Button-transition-timing-function);
   cursor: pointer;
   user-select: none; /* 6 */
 

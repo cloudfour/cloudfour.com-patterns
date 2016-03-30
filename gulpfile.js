@@ -13,6 +13,8 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin');
+var importer = require('postcss-import');
+var mixins = require('postcss-mixins');
 var modernizr = require('gulp-modernizr');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
@@ -96,6 +98,8 @@ gulp.task('styles:test', function () {
 gulp.task('styles:toolkit', function () {
   return gulp.src(config.src.styles.toolkit)
     .pipe(postcss([
+      importer(),
+      mixins(),
       cssnext(),
       easings(),
       discardComments(),

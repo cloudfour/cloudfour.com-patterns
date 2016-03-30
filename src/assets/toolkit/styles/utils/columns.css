@@ -1,0 +1,8 @@
+/**
+ * Flow element content into columns
+ */
+
+.u-columns2 {
+  columns: 2 !important;
+  column-gap: var(--space-md) !important;
+}

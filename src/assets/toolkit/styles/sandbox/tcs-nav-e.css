@@ -309,8 +309,3 @@ hr {
   position: fixed;
   transform: translate(-100%, -100%);
 }
-
-.u-columns2 {
-  columns: 2;
-  column-gap: var(--space-md);
-}

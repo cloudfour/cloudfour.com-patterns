@@ -318,11 +318,3 @@ hr {
   columns: 2;
   column-gap: var(--space-md);
 }
-
-@media (--md-viewport) {
-  .u-md-posAbsoluteTopRight {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-}

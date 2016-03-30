@@ -6,21 +6,7 @@
 @custom-media --nav-visible-viewport (--sm-viewport);
 @custom-media --nav-single-row-viewport (--lg-viewport);
 
-/* base styles */
-
-body {
-  background-color: var(--color-gray);
-}
-
-hr {
-  opacity: 0.1;
-}
-
 /* existing component modifiers */
-
-.Button {
-  transition-property: background-color, border-color, color;
-}
 
 .Button--inverse {
   background-color: var(--color-white);

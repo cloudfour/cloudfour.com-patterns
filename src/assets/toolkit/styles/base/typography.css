@@ -168,6 +168,7 @@ hr {
   min-height: var(--border-width-sm);
   border-style: none;
   background-color: var(--color-relative);
+  opacity: var(--opacity-lower);
 }
 
 /**

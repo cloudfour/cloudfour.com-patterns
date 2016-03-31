@@ -29,25 +29,60 @@
 @custom-media --Sky-nav-expanded-viewport (--sm-viewport);
 @custom-media --Sky-nav-full-viewport (--lg-viewport);
 
+/**
+ * 1. Keep absolute-positioned elements from leaving this container.
+ */
+
 .Sky {
-  position: relative;
+  position: relative; /* 1 */
   color: var(--Sky-color);
   background-color: var(--Sky-background-color);
 }
 
+/**
+ * Modifier: clouds ☁️
+ *
+ * 1. Add bottom padding equal to the cloud height to keep content from
+ *    overlapping our whimsical dreamscape.
+ * 2. Non-zero horizontal position adds visual interest for nerds like us who
+ *    resize their browser. It also makes the compositions feel a little more
+ *    organic (though YMMV).
+ * 3. Though not a requirement, setting the `background-size` to a proportional
+ *    unit will make the clouds grow and shrink with the base `font-size`.
+ */
+
 .Sky--clouds {
-  padding-bottom: var(--Sky-clouds-image-height);
+  padding-bottom: var(--Sky-clouds-image-height); /* 1 */
   background-image: var(--Sky-clouds-image);
   background-repeat: repeat-x;
-  background-position: var(--Sky-clouds-x-offset) bottom;
-  background-size: var(--Sky-clouds-image-width);
+  background-position: var(--Sky-clouds-x-offset) bottom; /* 2 */
+  background-size: var(--Sky-clouds-image-width); /* 3*/
 }
+
+/**
+ * Sky nav
+ *
+ * This optional child element would totally be its own separate component if
+ * the design of the menu on small screens wasn't so tied to the sky
+ * aesthetic. A close call for sure, though!
+ */
+
+/**
+ * 1. Align items vertically.
+ * 2. We let items wrap initially because we want the menu to be above the
+ *    other elements on narrow screens.
+ */
 
 .Sky-nav {
   display: flex;
-  align-items: center;
+  align-items: center; /* 1 */
   flex-wrap: wrap;
 }
+
+/**
+ * On larger screens, we turn off the wrapping so that the nav items will
+ * fit on the same row as the logo.
+ */
 
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav {
@@ -55,24 +90,46 @@
   }
 }
 
+/**
+ * 1. Move this item all the way to the right. Thanks, Flexbox! 👍
+ * 2. Override default list styles.
+ * 3. Bump this to the end of the visual order. We want it to still be first in
+ *    the source so users of assistive devices won't need to wait to skip to
+ *    content or navigation.
+ */
+
 .Sky-nav-controls {
-  margin-left: auto;
+  margin-left: auto; /* 1 */
   padding: var(--Sky-nav-controls-space-y) var(--Sky-nav-controls-space-x);
-  list-style: none;
-  order: 1;
+  list-style: none; /* 2 */
+  order: 1; /* 3 */
 }
+
+/**
+ * When the nav is expanded, no controls will be visible until keyboard focus.
+ * We omit the padding to minimize layout impact of the containing element.
+ */
 
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav-controls {
-    position: static;
     padding: 0;
   }
 }
+
+/**
+ * "Skip to main content" link is only visible on keyboard focus, so we have
+ * it cover the "menu" button at small sizes when visible.
+ */
 
 .Sky-nav-controls-skipToMain {
   position: absolute;
   right: var(--Sky-nav-controls-space-x);
 }
+
+/**
+ * At larger sizes, position the "skip to main content" link top-center and
+ * hide the "menu" toggle entirely.
+ */
 
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav-controls-skipToMain {
@@ -86,77 +143,144 @@
   }
 }
 
+/**
+ * 1. Logo is probably a link, so override any inherited link colors/states.
+ */
+
 .Sky-nav-logo,
 .Sky-nav-logo:matches(:hover, :focus, :active) {
-  color: var(--Sky-nav-logo-color);
+  color: var(--Sky-nav-logo-color); /* 1 */
 }
 
 .Sky-nav-logo {
   padding: var(--Sky-nav-logo-padding);
 }
 
+/**
+ * 1. Most embeds are `inline-block` by default, which results in an unsightly
+ *    bottom space. Yuck.
+ * 2. We set the size in proportionate units so it will grow and shrink with
+ *    the base `font-size`.
+ * 3. Most browsers will accept `height: auto` for this, but Safari doesn't
+ *    for some reason. ¯\_(ツ)_/¯
+ */
+
 .Sky-nav-logo-object {
-  display: block;
-  width: 5em;
-  height: 5em;
+  display: block; /* 1 */
+  width: var(--Sky-nav-logo-width); /* 2 */
+  height: var(--Sky-nav-logo-width); /* 3 */
 }
 
+/**
+ * 1. Hidden by default.
+ * 2. Add a bit of space between this the last nav item and the logo and menu
+ *    toggle on large screens.
+ * 3. Presumably a nice gradient to give the impression of the night sky. For
+ *    best performance while animating, avoid transparency!
+ * 4. Occupy the full container width by default.
+ * 5. Act like this element is the first child in the source order. Magic!
+ */
+
 .Sky-nav-menu {
-  display: none;
-  padding-bottom: var(--Sky-nav-menu-space);
-  background-image: var(--Sky-nav-menu-background-image);
-  flex: 100%;
-  order: -1;
+  display: none; /* 1 */
+  padding-bottom: var(--Sky-nav-menu-space); /* 2 */
+  background-image: var(--Sky-nav-menu-background-image); /* 3 */
+  flex: 100%; /* 4 */
+  order: -1; /* 5 */
 }
+
+/**
+ * When this element's ID matches the current window hash, or if it has the
+ * `.is-open` class, make it visible.
+ */
 
 .Sky-nav-menu:matches(:target, .is-open) {
   display: block;
 }
 
+/**
+ * 1. At large enough screens, make the menu _always_ visible.
+ * 2. Remove the bump (since it won't be above anything at this point).
+ * 3. Reset the background.
+ * 4. Reset the order.
+ */
+
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav-menu {
-    display: block;
-    padding-bottom: 0;
-    background: transparent;
-    order: 0;
+    display: block; /* 1 */
+    padding-bottom: 0; /* 2 */
+    background: transparent; /* 3 */
+    order: 0; /* 4 */
   }
 }
+
+/**
+ * Override default list styles
+ */
 
 .Sky-nav-menu-items {
   padding: 0;
   list-style: none;
 }
 
+/**
+ * 1. At large sizes, display elements in a row.
+ * 2. Add some extra whitespace all around.
+ * 3. Let items wrap if they overflow.
+ * 4. Align items to the right end of the container.
+ */
+
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav-menu-items {
-    display: flex;
-    padding: var(--Sky-nav-menu-space);
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    display: flex; /* 1 */
+    padding: var(--Sky-nav-menu-space); /* 2 */
+    flex-wrap: wrap; /* 3 */
+    justify-content: flex-end; /* 4 */
   }
 }
 
+/**
+ * 1. At this size, stop allowing items to break onto multiple rows.
+ * 2. Spread items out evenly within the container.
+ */
+
 @media (--Sky-nav-full-viewport) {
   .Sky-nav-menu-items {
-    justify-content: space-between;
+    flex-wrap: nowrap; /* 1 */
+    justify-content: space-between; /* 2 */
   }
 }
+
+/**
+ * Menu items are likely links, so set their color for all states.
+ */
 
 .Sky-nav-menu-item,
 .Sky-nav-menu-item:matches(:hover, :focus, :active) {
   color: var(--Sky-nav-menu-item-color);
 }
 
+/**
+ * 1. Occupy all of the container and obey the padding (2).
+ * 2. See?  Padding. What'd I tell ya?
+ * 3. Don't let menu labels wrap because they look ugly.
+ * 4. Add dividers between items.
+ */
+
 .Sky-nav-menu-item {
-  display: block;
-  padding: var(--Sky-nav-menu-space);
+  display: block; /* 1 */
+  padding: var(--Sky-nav-menu-space); /* 2 */
   font-size: var(--Sky-nav-menu-item-font-size);
   line-height: var(--Sky-nav-menu-item-line-height);
-  white-space: nowrap;
+  white-space: nowrap; /* 3 */
   text-align: center;
   text-decoration: none;
-  border-bottom: var(--Sky-nav-menu-item-border-width) solid var(--Sky-nav-menu-item-border-color);
+  border-bottom: var(--Sky-nav-menu-item-border-width) solid var(--Sky-nav-menu-item-border-color); /* 4 */
 }
+
+/**
+ * When the nav is horizontal, ditch those dividers.
+ */
 
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav-menu-item {

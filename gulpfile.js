@@ -12,8 +12,10 @@ var easings = require('postcss-easings');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
+var Handlebars = require('handlebars');
 var imagemin = require('gulp-imagemin');
 var importer = require('postcss-import');
+var layoutHelpers = require('handlebars-layouts');
 var mixins = require('postcss-mixins');
 var modernizr = require('gulp-modernizr');
 var postcss = require('gulp-postcss');
@@ -45,6 +47,8 @@ var config = {
   dest: 'dist'
 };
 
+// Handlebars
+layoutHelpers.register(Handlebars);
 
 // webpack
 var webpackConfig = require('./webpack.config')(config);
@@ -171,6 +175,8 @@ gulp.task('icons', function () {
 // assemble
 gulp.task('assemble', function (done) {
   assemble({
+    // Supply own Handlebars instance
+    handlebars: Handlebars,
     // apply additional helpers
     helpers: requireDir('./build/helpers'),
     beautifier: {

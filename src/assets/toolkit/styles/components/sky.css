@@ -35,10 +35,6 @@
   background-color: var(--Sky-background-color);
 }
 
-.Sky + .Sky {
-  margin-top: -1px;
-}
-
 .Sky--clouds {
   padding-bottom: var(--Sky-clouds-image-height);
   background-image: var(--Sky-clouds-image);

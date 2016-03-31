@@ -1,6 +1,15 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
+/* Background colors in Tyler's style sheet obscured thumbnail images */
+body {
+  background-color: transparent !important;
+}
+
+footer.Global {
+  background-color: var(--color-gray);
+}
+
 .blog-section, .blog-header, .blog-footer {
   max-width: 650px;
   margin: auto;
@@ -28,20 +37,45 @@
 /*  background-color: var(--color-gray);
   padding: var(--space-sm);*/
 }
+  
+/*.blog-footer {
+    display: flex;
+  }*/
 
 .author-image {
-  margin-right: var(--space-md);
-  width: 5em;
+  height: 85px;
+  float: left;
+  shape-outside: circle(60%);
 }
 
 .author-bio {
-  text-align: right;
+ text-align: right;
+ margin-left: var(--space-sm);
+}
+
+.author-social {
+  display: inline-flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.author-social li {
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
 }
 
 @media (--sm-viewport) {
-  .author-bio {
-    text-align: left;
-  }
+ .blog-footer {
+  display: flex;
+ }
+
+ .author-image {
+  float: none;
+ }
+
+ .author-bio {
+  text-align: left;
+ } 
 }
 
 .full-width {
@@ -69,6 +103,17 @@ pre {
   color: var(--color-fuchsia);
   background-color: var(--color-navy: #0f1c3f);
   padding: 1em;
+  width: 100%;
+  word-wrap: normal;
+}
+
+pre.codeBlock-blue {
+  color: #637fe2;
+}
+
+pre.codeBlock-gray {
+  background: color(var(--color-gray) a(50%));
+  color: #d40087;
 }
 
 code, pre {
@@ -79,4 +124,8 @@ code, pre {
 .blog-footer {
   padding: var(--font-size-md);
   padding-top: 0;
+}
+
+.u-nowrap {
+  white-space: nowrap;
 }

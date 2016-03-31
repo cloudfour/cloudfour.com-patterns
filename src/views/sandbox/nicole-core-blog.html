@@ -34,15 +34,17 @@ stylesheets:
 
 <main role="main" id="main">
   <div class="Sky Sky--clouds">
-    <div class="u-paddingMd">
+<!--     <div class="u-paddingMd">
       <h1>Articles</h1>
       <p>Technical Notes, war stories and anecdotes.</p>
-    </div>
+    </div> -->
   </div>
-  <div class="Page">
+
+  <div>
     <article>
       <header class="blog-header">
         <h1>The Year of the Ugly Unicorn</h1>
+        <h2>Here is an h2 for comparison</h2>
         Written by <a href="#">Nicole Mors</a>
         <time>on March 8, 2016</time>
       </header>
@@ -87,6 +89,28 @@ stylesheets:
   padding-bottom: calc(24 / 16em * 1.25);
 }</pre>
 
+<pre class="codeBlock-blue">
+&lt;p&gt;Code Block&lt;/p&gt;
+
+.Sky--clouds {
+  background-image: url("/assets/toolkit/images/sandbox/clouds-alt.svg");
+  background-position: -60% bottom;
+  background-repeat: repeat-x;
+  background-size: calc(420 / 16em * 1.25);
+  padding-bottom: calc(24 / 16em * 1.25);
+}</pre>
+
+<pre class="codeBlock-gray">
+&lt;p&gt;Code Block&lt;/p&gt;
+
+.Sky--clouds {
+  background-image: url("/assets/toolkit/images/sandbox/clouds-alt.svg");
+  background-position: -60% bottom;
+  background-repeat: repeat-x;
+  background-size: calc(420 / 16em * 1.25);
+  padding-bottom: calc(24 / 16em * 1.25);
+}</pre>
+
         <p>As someone who knows a little code (aka: super smug person who considers themselves a unicorn), it’s easy to be like, “Hey, just learn to code”. However, stepping out of your knowledge base and comfort zone can be a scary place. It can even be daunting just knowing where to begin. Some designers I have talked to are straight up hostile when the idea of having to learn to code is mentioned. One designer friend of mine was appalled at the idea that now after having invested so much time, energy and money into her design education she would additionally have to learn to code. What I wanted to say to my friend, and also what I should remind myself of at times is that, <em>it’s going to be okay. You don’t have to become a developer.</em></p>
 
         <p>It’s not about being an expert at both design and development. You will always have a strong leaning towards one or the other. I will always be a designer first. I will never look at something and not want to make it beautiful. Also, there are developers out there that not only can see and appreciate design, but can put together <a href="#">typographic systems</a> and pick amazing color palettes, however, at their core they are developers. People have their natural strengths, but that doesn’t preclude them from having other talents and appreciations.</p>
@@ -106,13 +130,25 @@ stylesheets:
         <p>You don’t have to become a developer, it’s about getting your idea out. Be okay with feeling like you kinda suck, or feeling uncomfortable. Embrace being an ugly unicorn. Even though it feels weird and messy stepping out of your pixel-pushing comfort zone, you will ultimately be embracing the responsive web.</p>
       </section>
 
-      <footer class="blog-footer u-flex u-flexJustifyCenter">
-        <a href="#">
-          <img class="author-image" src="/assets/toolkit/images/sandbox/orange-avatar.svg" alt="avatar">
+      <footer class="blog-footer">
+        <a href="#" class="Thumbnail Thumbnail--circle author-image">
+          <img width="85" height="85" src="/assets/toolkit/images/sandbox/orange-avatar.svg" alt="orange avitar">
         </a>
-        <div>
-          <p class="author-bio"><b><a href="#">Nicole Mors</a></b> is a highly caffeinated designer with a serious weakness for all things cute, including but not limited to: babies, baby animals and Grumpy Cat. She writes online at <a href="#">nicolemors.com</a> and tweets as <a href="#">@nicolemors</a>.</p>
+        <div class="author-bio">
+          <p style="margin-left:0.625rem"><b><a href="#">Nicole Mors</a></b> is a highly caffeinated designer with a serious weakness for all things cute, including but not limited to: babies, baby animals and Grumpy Cat.</p>
+          <ul class="author-social u-marginTopSm u-md-marginTopNone">
+            {{#each toolkit.social}}
+              <li>
+                <a class="u-textLarger" href="{{url}}" title="{{text}}">
+                  <svg class="Icon Icon--large" role="img">
+                    <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
+                  </svg>
+                </a>
+              </li>
+            {{/each}}
+          </ul>
         </div>
+        
       </footer>
     </article>
     <hr class="u-marginMd u-marginBottom0">
@@ -132,7 +168,7 @@ stylesheets:
   </div>
 </main>
 
-<footer class="u-paddingMd" role="contentinfo">
+<footer class="Global u-paddingMd" role="contentinfo">
   <p>
     <a href="/"><strong>Cloud Four, Inc.</strong></a>
   </p>

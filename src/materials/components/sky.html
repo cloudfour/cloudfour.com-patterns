@@ -1,6 +1,11 @@
 ---
 notes: |
-  Woo-hoo!
+  Container for topmost page content.
+
+  By default includes `.Sky-nav`, responsive navigation designed specifically
+  for this containing element.
+
+  Add clouds with the `.Sky--clouds` modifier.
 labels:
   - inprogress
 ---
@@ -8,6 +13,7 @@ labels:
   {{#block "top"}}
     <header class="Sky-nav" role="banner">
       <ul class="Sky-nav-controls">
+        {{! TODO: Allow these href destinations to be customized }}
         <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
         <li><a class="Sky-nav-controls-skipToMenu Button Button--defaultLight" href="#menu" aria-label="Skip to navigation">Menu</a></li>
       </ul>
@@ -17,6 +23,7 @@ labels:
           <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor"/>
         </svg>
       </a>
+      {{! TODO: Allow this ID to be customized (see above href todo as well) }}
       <nav class="Sky-nav-menu" role="navigation" id="menu">
         <ul class="Sky-nav-menu-items">
           <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Our Process</a></li>

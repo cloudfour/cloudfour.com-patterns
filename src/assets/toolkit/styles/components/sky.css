@@ -1,0 +1,169 @@
+/** @define Sky */
+
+:root {
+  --Sky-background-color: var(--color-blue);
+  --Sky-background-color-dark: color(var(--color-navy) h(+5) s(-12) l(+18));
+  --Sky-color: var(--color-white);
+
+  --Sky-clouds-image: url("/assets/toolkit/images/sandbox/clouds-alt.svg");
+  --Sky-clouds-image-height: calc(30 / 16 * 1rem);
+  --Sky-clouds-image-width: calc(525 / 16 * 1rem);
+  --Sky-clouds-x-offset: -60%;
+
+  --Sky-nav-controls-space-x: var(--space-md);
+  --Sky-nav-controls-space-y: var(--space-xs);
+  --Sky-nav-logo-color: var(--Sky-color);
+  --Sky-nav-logo-height: 5em;
+  --Sky-nav-logo-width: var(--Sky-nav-logo-height);
+  --Sky-nav-logo-padding: var(--Sky-nav-controls-space-y) var(--Sky-nav-controls-space-x);
+
+  --Sky-nav-menu-background-image: linear-gradient(to bottom, var(--Sky-background-color-dark), var(--Sky-background-color));
+  --Sky-nav-menu-item-border-color: color(var(--color-black) a(10%));
+  --Sky-nav-menu-item-border-width: var(--control-stroke);
+  --Sky-nav-menu-item-color: var(--Sky-color);
+  --Sky-nav-menu-item-font-size: var(--font-size-md);
+  --Sky-nav-menu-item-line-height: var(--line-height-xs);
+  --Sky-nav-menu-space: var(--space-sm);
+}
+
+@custom-media --Sky-nav-expanded-viewport (--sm-viewport);
+@custom-media --Sky-nav-full-viewport (--lg-viewport);
+
+.Sky {
+  position: relative;
+  color: var(--Sky-color);
+  background-color: var(--Sky-background-color);
+}
+
+.Sky + .Sky {
+  margin-top: -1px;
+}
+
+.Sky--clouds {
+  padding-bottom: var(--Sky-clouds-image-height);
+  background-image: var(--Sky-clouds-image);
+  background-repeat: repeat-x;
+  background-position: var(--Sky-clouds-x-offset) bottom;
+  background-size: var(--Sky-clouds-image-width);
+}
+
+.Sky-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (--Sky-nav-expanded-viewport) {
+  .Sky-nav {
+    flex-wrap: nowrap;
+  }
+}
+
+.Sky-nav-controls {
+  margin-left: auto;
+  padding: var(--Sky-nav-controls-space-y) var(--Sky-nav-controls-space-x);
+  list-style: none;
+  order: 1;
+}
+
+@media (--Sky-nav-expanded-viewport) {
+  .Sky-nav-controls {
+    position: static;
+    padding: 0;
+  }
+}
+
+.Sky-nav-controls-skipToMain {
+  position: absolute;
+  right: var(--Sky-nav-controls-space-x);
+}
+
+@media (--Sky-nav-expanded-viewport) {
+  .Sky-nav-controls-skipToMain {
+    top: var(--space-xs);
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .Sky-nav-controls-skipToMenu {
+    display: none;
+  }
+}
+
+.Sky-nav-logo,
+.Sky-nav-logo:matches(:hover, :focus, :active) {
+  color: var(--Sky-nav-logo-color);
+}
+
+.Sky-nav-logo {
+  padding: var(--Sky-nav-logo-padding);
+}
+
+.Sky-nav-logo-object {
+  display: block;
+  width: 5em;
+  height: 5em;
+}
+
+.Sky-nav-menu {
+  display: none;
+  padding-bottom: var(--Sky-nav-menu-space);
+  background-image: var(--Sky-nav-menu-background-image);
+  flex: 100%;
+  order: -1;
+}
+
+.Sky-nav-menu:matches(:target, .is-open) {
+  display: block;
+}
+
+@media (--Sky-nav-expanded-viewport) {
+  .Sky-nav-menu {
+    display: block;
+    padding-bottom: 0;
+    background: transparent;
+    order: 0;
+  }
+}
+
+.Sky-nav-menu-items {
+  padding: 0;
+  list-style: none;
+}
+
+@media (--Sky-nav-expanded-viewport) {
+  .Sky-nav-menu-items {
+    display: flex;
+    padding: var(--Sky-nav-menu-space);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (--Sky-nav-full-viewport) {
+  .Sky-nav-menu-items {
+    justify-content: space-between;
+  }
+}
+
+.Sky-nav-menu-item,
+.Sky-nav-menu-item:matches(:hover, :focus, :active) {
+  color: var(--Sky-nav-menu-item-color);
+}
+
+.Sky-nav-menu-item {
+  display: block;
+  padding: var(--Sky-nav-menu-space);
+  font-size: var(--Sky-nav-menu-item-font-size);
+  line-height: var(--Sky-nav-menu-item-line-height);
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: var(--Sky-nav-menu-item-border-width) solid var(--Sky-nav-menu-item-border-color);
+}
+
+@media (--Sky-nav-expanded-viewport) {
+  .Sky-nav-menu-item {
+    border-bottom: 0;
+  }
+}

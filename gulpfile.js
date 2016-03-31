@@ -4,7 +4,7 @@
 var assemble = require('fabricator-assemble');
 var bemLinter = require('postcss-bem-linter');
 var browserSync = require('browser-sync');
-var cssnext = require('cssnext');
+var cssnext = require('postcss-cssnext');
 var del = require('del');
 var discardComments = require('postcss-discard-comments');
 var discardEmpty = require('postcss-discard-empty');
@@ -14,7 +14,7 @@ var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var Handlebars = require('handlebars');
 var imagemin = require('gulp-imagemin');
-var importer = require('postcss-import');
+var importer = require('postcss-easy-import');
 var layoutHelpers = require('handlebars-layouts');
 var mixins = require('postcss-mixins');
 var modernizr = require('gulp-modernizr');
@@ -65,6 +65,7 @@ gulp.task('clean', function () {
 gulp.task('styles:fabricator', function () {
   return gulp.src(config.src.styles.fabricator)
     .pipe(postcss([
+      importer(),
       cssnext()
     ]))
     .pipe(rename('f.css'))

@@ -36,7 +36,7 @@
     "css-modularscale": "^1.0.0",
     "cssnext": "^1.8.4",
     "del": "^2.0.1",
-    "fabricator-assemble": "^1.1.9",
+    "fabricator-assemble": "github:cloudfour/fabricator-assemble",
     "gulp": "^3.8.11",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.3.0",

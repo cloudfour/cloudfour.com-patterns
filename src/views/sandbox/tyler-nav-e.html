@@ -9,14 +9,14 @@ stylesheets:
 {{> sky }}
 
 <main role="main" id="main">
-  {{#extend "sky" clouds=true}}
+  {{#embed "sky" class="Sky--clouds"}}
     {{#content "top"}}
       <div class="u-paddingMd">
         <h1>Section Heading</h1>
         <p>Perhaps with a helpful yet succinct description.</p>
       </div>
     {{/content}}
-  {{/extend}}
+  {{/embed}}
   <div class="Page">
     <div class="u-paddingMd u-spaceChildren">
       <h1>In-Page Heading</h1>

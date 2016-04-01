@@ -46,6 +46,7 @@ footer.Global {
   height: 85px;
   float: left;
   shape-outside: circle(60%);
+  margin-right: 1rem;
 }
 
 .author-bio {
@@ -60,8 +61,8 @@ footer.Global {
 }
 
 .author-social li {
-  margin-left: 0.625rem;
-  margin-right: 0.625rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
 }
 
 @media (--sm-viewport) {
@@ -71,6 +72,7 @@ footer.Global {
 
  .author-image {
   float: none;
+  margin-right: 0;
  }
 
  .author-bio {
@@ -128,4 +130,37 @@ code, pre {
 
 .u-nowrap {
   white-space: nowrap;
+}
+
+.permalink-hash:before, .permalink-link:before {
+  position: absolute;
+  margin-left: -1rem;
+  color: var(--color-gray);
+}
+
+.permalink-hash:before {
+  content: "#";
+}
+
+.permalink-link:before {
+  content: url(/assets/toolkit/images/sandbox/link.svg);
+  width: 25px;
+  width: 30px;
+  margin-left: -1.6rem;
+}
+
+@media (--md-viewport) {
+  .permalink-link:before {
+    width: 40px;
+    margin-left: -2.2rem;
+  }
+  .permalink-hash:before {
+    margin-left: -1.2rem
+  }  
+}
+
+@media (--xl-viewport) {
+  .permalink-link:before {
+    width: 50px;
+  }  
 }

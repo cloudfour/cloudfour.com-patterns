@@ -140,6 +140,7 @@
  */
 
 :root {
+  --opacity-lower: 0.125;
   --opacity-low: 0.25;
   --opacity-mid: 0.5;
   --opacity-high: 0.75;

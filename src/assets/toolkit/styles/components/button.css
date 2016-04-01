@@ -15,6 +15,7 @@
   --Button-font-weight: var(--font-weight-semibold);
   --Button-padding: 0.5em 1em;
   --Button-transition-duration: var(--motion-duration-lg);
+  --Button-transition-property: background-color, border-color, color;
   --Button-transition-timing-function: var(--motion-timing-function-default);
 }
 
@@ -44,7 +45,9 @@
   border-color: var(--Button-border-color);
   border-radius: var(--Button-border-radius);
   background: transparent;
-  transition: all var(--Button-transition-duration) var(--Button-transition-timing-function);
+  transition-duration: var(--Button-transition-duration);
+  transition-property: var(--Button-transition-property);
+  transition-timing-function: var(--Button-transition-timing-function);
   cursor: pointer;
   user-select: none; /* 6 */
 
@@ -93,18 +96,31 @@
 }
 
 .Button--default,
-.Button--default:matches(:focus, :hover, :active) {
+.Button--default:matches(:focus, :hover, :active),
+.Button--defaultLight,
+.Button--defaultLight:matches(:focus, :hover, :active) {
   color: var(--Button-default-color);
   border-color: color(var(--Button-default-background-color) shade(10%));
   background-color: var(--Button-default-background-color);
 }
 
-.Button--default:matches(:focus, :hover) {
+.Button--defaultLight,
+.Button--defaultLight:matches(:focus, :hover, :active) {
+  border-color: color(var(--Button-default-background-color) l(+10%));
+}
+
+.Button--default:matches(:focus, :hover),
+.Button--defaultLight:matches(:focus, :hover) {
   border-color: color(var(--Button-default-background-color) shade(5%));
   background-color: color(var(--Button-default-background-color) l(+5%));
 }
 
-.Button--default:active {
+.Button--defaultLight:matches(:focus, :hover) {
+  border-color: color(var(--Button-default-background-color) l(+20%));
+}
+
+.Button--default:active,
+.Button--defaultLight:active {
   background-color: color(var(--Button-default-background-color) shade(10%));
 }
 
@@ -154,4 +170,30 @@
 
 .Button--secondary:active {
   background-color: color(var(--Button-secondary-background-color) shade(10%));
+}
+
+/**
+ * Modifier: inverse buttons
+ */
+
+:root {
+  --Button-inverse-background-color: var(--color-white);
+  --Button-inverse-border-color: var(--color-gray);
+  --Button-inverse-color: var(--color-blue);
+}
+
+.Button--inverse,
+.Button--inverse:matches(:focus, :hover, :active) {
+  color: var(--Button-inverse-color);
+  background-color: var(--Button-inverse-background-color);
+  border-color: var(--Button-inverse-border-color);
+}
+
+.Button--inverse:matches(:focus, :hover) {
+  border-color: var(--color-white);
+}
+
+.Button--inverse:active {
+  background-color: var(--Button-inverse-border-color);
+  border-color: var(--Button-inverse-border-color);
 }

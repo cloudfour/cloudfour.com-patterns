@@ -1,6 +1,10 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
+body {
+  background: var(--color-white);
+}
+
 .Header {
   display: flex;
   flex-wrap: wrap;

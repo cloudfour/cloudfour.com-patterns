@@ -2,43 +2,20 @@
 title: "Accessible Nav Prototype (New Sky)"
 labels:
   - inprogress
-stylesheets:
-  - sandbox/tcs-nav-e
 ---
 
-<div class="Sky">
-  <header class="Sky-nav" role="banner">
-    <ul class="Sky-nav-controls">
-      <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
-      <li><a class="Sky-nav-controls-skipToMenu Button Button--sheer" href="#menu" aria-label="Skip to navigation">Menu</a></li>
-    </ul>
-    <a class="Sky-nav-logo" href="/">
-      <svg class="Sky-nav-logo-img" width="80" height="80" role="img" aria-labelledby="logo-title">
-        <title id="logo-title">Cloud Four</title>
-        <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor"/>
-      </svg>
-    </a>
-    <nav class="Sky-nav-menu" role="navigation" id="menu">
-      <ul class="Sky-nav-menu-items">
-        <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Our Process</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Our Work</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Articles</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Speaking</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">Code</a></li>
-        <li><a class="Sky-nav-menu-item" href="/">The Team</a></li>
-      </ul>
-    </nav>
-  </header>
-</div>
+{{> sky }}
 
 <main role="main" id="main">
-  <div class="Sky Sky--clouds">
-    <div class="u-paddingMd">
-      <h1>Section Heading</h1>
-      <p>Perhaps with a helpful yet succinct description.</p>
-    </div>
-  </div>
-  <div class="Page">
+  {{#embed "sky" class="Sky--clouds"}}
+    {{#content "top"}}
+      <div class="u-paddingMd">
+        <h1>Section Heading</h1>
+        <p>Perhaps with a helpful yet succinct description.</p>
+      </div>
+    {{/content}}
+  {{/embed}}
+  <div class="u-bgWhite">
     <div class="u-paddingMd u-spaceChildren">
       <h1>In-Page Heading</h1>
       <p>Bulk of content would likely start here.</p>
@@ -49,9 +26,9 @@ stylesheets:
       </blockquote>
     </div>
     <hr class="u-marginMd u-marginBottomNone">
-    <div class="Portland">
-      <p class="u-paddingMd u-posRelative">
-        <span class="u-inlineBlock u-textNoWrap u-textLarger u-marginRightSm">
+    <div class="u-posRelative">
+      <p class="u-paddingMd u-size2of3">
+        <span class="u-inlineBlock u-textLarger u-marginRightSm u-textNoWrap">
           Need help clouding your fours?
         </span>
         <a class="Button Button--primary u-marginEndsXs u-textNoWrap" href="mailto:info@cloudfour.com">
@@ -61,6 +38,8 @@ stylesheets:
           Squiddly-doo
         </a>
       </p>
+      <img class="u-posAbsoluteBottomRight u-size2of5 u-sm-size1of3 u-sm-marginRightMd u-md-size1of4"
+        src="/assets/toolkit/images/portland.svg" alt="">
     </div>
   </div>
 </main>

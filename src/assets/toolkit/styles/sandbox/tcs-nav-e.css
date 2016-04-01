@@ -1,12 +1,6 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
-/* new page component */
-
-.Page {
-  background-color: var(--color-white);
-}
-
 /* possibly throwaway Portland component */
 
 .Portland {

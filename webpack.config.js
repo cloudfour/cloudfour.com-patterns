@@ -9,19 +9,21 @@ module.exports = function(fabricatorConfig) {
 		entry: {
 			'fabricator/scripts/f': fabricatorConfig.src.scripts.fabricator,
 			'toolkit/scripts/toolkit': fabricatorConfig.src.scripts.toolkit,
+			'toolkit/scripts/vendor/bliss': fabricatorConfig.src.scripts.bliss
 		},
 		output: {
 			path: path.resolve(__dirname, fabricatorConfig.dest, 'assets'),
 			filename: '[name].js'
 		},
 		externals: {
-			'modernizr': 'Modernizr'
+			'modernizr': 'Modernizr',
+			'bliss': 'Bliss'
 		},
 		module: {
 			loaders: [
 				{
 					test: /\.js$/,
-					exclude: /node_modules/,
+					exclude: [/node_modules/, /\.min\.js$/],
 					loaders: ['babel-loader']
 				}
 			]

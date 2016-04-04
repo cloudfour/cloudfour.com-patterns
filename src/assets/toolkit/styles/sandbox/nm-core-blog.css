@@ -30,11 +30,6 @@
   padding: var(--space-sm);
 }
 
-.author-image {
-  height: 85px;
-  margin-right: 1rem;
-}
-
 .author-social {
   display: inline-flex;
   list-style: none;

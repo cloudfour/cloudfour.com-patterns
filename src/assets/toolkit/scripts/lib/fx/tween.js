@@ -1,7 +1,6 @@
 'use strict';
 
 import BezierEasing from 'bezier-easing';
-import {noop} from '../util/function';
 
 /**
  * Tweens a number from `startValue` to `endValue` over the `duration` time period,

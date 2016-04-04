@@ -1,6 +1,15 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
+/* Background colors in Tyler's style sheet obscured thumbnail images */
+body {
+  background-color: transparent !important;
+}
+
+footer.Global {
+  background-color: var(--color-gray);
+}
+
 .blog-section, .blog-header, .blog-footer {
   max-width: 650px;
   margin: auto;
@@ -25,23 +34,46 @@
 
 .blog-intro {
   font-size: var(--font-size-md);
-/*  background-color: var(--color-gray);
-  padding: var(--space-sm);*/
+  background-color: var(--color-gray);
+  padding: var(--space-sm);
 }
 
 .author-image {
-  margin-right: var(--space-md);
-  width: 5em;
+  height: 85px;
+  float: left;
+  shape-outside: circle(60%);
+  margin-right: 1rem;
 }
 
 .author-bio {
-  text-align: right;
+ text-align: right;
+ margin-left: var(--space-sm);
+}
+
+.author-social {
+  display: inline-flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.author-social li {
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
 }
 
 @media (--sm-viewport) {
-  .author-bio {
-    text-align: left;
-  }
+ .blog-footer {
+  display: flex;
+ }
+
+ .author-image {
+  float: none;
+  margin-right: 0;
+ }
+
+ .author-bio {
+  text-align: left;
+ } 
 }
 
 .full-width {
@@ -69,6 +101,17 @@ pre {
   color: var(--color-fuchsia);
   background-color: var(--color-navy: #0f1c3f);
   padding: 1em;
+  width: 100%;
+  word-wrap: normal;
+}
+
+pre.codeBlock-blue {
+  color: #637fe2;
+}
+
+pre.codeBlock-gray {
+  background: color(var(--color-gray) a(50%));
+  color: #d40087;
 }
 
 code, pre {
@@ -79,4 +122,51 @@ code, pre {
 .blog-footer {
   padding: var(--font-size-md);
   padding-top: 0;
+}
+
+.u-nowrap {
+  white-space: nowrap;
+}
+
+.permalink-hash:before {
+  position: absolute;
+  margin-left: -1rem;
+  color: var(--color-gray);
+}
+
+.permalink-hash:before {
+  content: "#";
+}
+
+.permalink-hash:hover:before, .permalink-link:hover {
+  color: color(var(--color-black) a(50%));
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+@media (--md-viewport) {
+  .permalink-hash:before {
+    margin-left: -1.2rem
+  }
+}
+
+.permalink-link { 
+  position: relative;
+  left: -19px;
+  top: 25px;
+  color: var(--color-gray);
+}
+
+@media (--lg-viewport) {
+  .permalink-link {
+    left: -23px;
+    top: 33px;
+  }
+}
+
+@media (--xl-viewport) {
+  .permalink-link {
+    left: -30px;
+    top: 40px;
+  }
 }

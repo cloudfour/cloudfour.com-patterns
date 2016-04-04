@@ -89,3 +89,61 @@ labels:
     </p>
   </div>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script>
+
+var effectOptions = {
+  duration: 500,
+  easing: [0.455, 0.03, 0.515, 0.955] // easeInOutQuad
+};
+
+var snapOptions = {
+  duration: 0
+};
+
+var body = document.body;
+var menuId = 'menu';
+var toggle = document.querySelector('a[href="#' + menuId + '"]');
+var menu = document.getElementById(menuId);
+var testClass = 'u-testBlock';
+var openClass = 'is-open';
+
+function getHeight (element) {
+  var height = element.offsetHeight;
+
+  if (!height) {
+    element.classList.add(testClass);
+    height = element.offsetHeight;
+    element.classList.remove(testClass);
+  }
+
+  return height;
+}
+
+toggle.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  var isOpen = menu.classList.contains(openClass);
+  var menuHeight = getHeight(menu);
+  var startOptions = isOpen ? effectOptions : snapOptions;
+  var endOptions = isOpen ? snapOptions : effectOptions;
+
+  if (isOpen) {
+    endOptions.complete = function () {
+      menu.classList.remove(openClass);
+    };
+  } else {
+    endOptions.begin = function () {
+      menu.classList.add(openClass);
+    }
+  }
+
+  startOptions.complete = function () {
+    Velocity(body, { translateY: 0 }, endOptions);
+  };
+
+  Velocity(body, { translateY: menuHeight * -1 }, startOptions);
+});
+
+</script>

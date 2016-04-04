@@ -34,13 +34,9 @@ footer.Global {
 
 .blog-intro {
   font-size: var(--font-size-md);
-/*  background-color: var(--color-gray);
-  padding: var(--space-sm);*/
+  background-color: var(--color-gray);
+  padding: var(--space-sm);
 }
-  
-/*.blog-footer {
-    display: flex;
-  }*/
 
 .author-image {
   height: 85px;

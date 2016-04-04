@@ -1,14 +1,6 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
-/* Background colors in Tyler's style sheet obscured thumbnail images */
-body {
-  background-color: transparent !important;
-}
-
-footer.Global {
-  background-color: var(--color-gray);
-}
 
 .blog-section, .blog-header, .blog-footer {
   max-width: 650px;
@@ -40,14 +32,7 @@ footer.Global {
 
 .author-image {
   height: 85px;
-  float: left;
-  shape-outside: circle(60%);
   margin-right: 1rem;
-}
-
-.author-bio {
- text-align: right;
- margin-left: var(--space-sm);
 }
 
 .author-social {
@@ -59,21 +44,6 @@ footer.Global {
 .author-social li {
   margin-left: 0.4rem;
   margin-right: 0.4rem;
-}
-
-@media (--sm-viewport) {
- .blog-footer {
-  display: flex;
- }
-
- .author-image {
-  float: none;
-  margin-right: 0;
- }
-
- .author-bio {
-  text-align: left;
- } 
 }
 
 .full-width {
@@ -99,7 +69,7 @@ code {
 
 pre {
   color: var(--color-fuchsia);
-  background-color: var(--color-navy: #0f1c3f);
+  background-color: #0f1c3f;
   padding: 1em;
   width: 100%;
   word-wrap: normal;
@@ -114,6 +84,10 @@ pre.codeBlock-gray {
   color: #d40087;
 }
 
+pre.codeBlock-white {
+  color: var(--color-white);
+}
+
 code, pre {
   border-radius: var(--border-width-md);
   margin: 0 .2em;
@@ -126,47 +100,21 @@ code, pre {
 
 .u-nowrap {
   white-space: nowrap;
+  display: inline-block;
 }
 
-.permalink-hash:before {
-  position: absolute;
-  margin-left: -1rem;
+.permalink { 
   color: var(--color-gray);
 }
 
-.permalink-hash:before {
-  content: "#";
+.permalink-hash {
+  text-decoration: none;
+  font-size: var(--font-size-md);
 }
 
-.permalink-hash:hover:before, .permalink-link:hover {
-  color: color(var(--color-black) a(50%));
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-@media (--md-viewport) {
-  .permalink-hash:before {
-    margin-left: -1.2rem
-  }
-}
-
-.permalink-link { 
-  position: relative;
-  left: -19px;
-  top: 25px;
-  color: var(--color-gray);
-}
-
-@media (--lg-viewport) {
-  .permalink-link {
-    left: -23px;
-    top: 33px;
-  }
-}
-
-@media (--xl-viewport) {
-  .permalink-link {
-    left: -30px;
-    top: 40px;
-  }
+h2:target {
+  color: var(--color-blue);
+  border-bottom: solid 3px color(var(--color-gray) a(50%));
+  padding-bottom: var(--space-sm);
+  width: 100%;
 }

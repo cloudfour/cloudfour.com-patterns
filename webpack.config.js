@@ -15,8 +15,7 @@ module.exports = function(fabricatorConfig) {
 			filename: '[name].js'
 		},
 		externals: {
-			'modernizr': 'Modernizr',
-			'bliss': 'Bliss'
+			'modernizr': 'Modernizr'
 		},
 		module: {
 			loaders: [

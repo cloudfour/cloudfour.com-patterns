@@ -194,7 +194,7 @@
  * `.is-open` class, make it visible.
  */
 
-.Sky-nav-menu:matches(:target, .is-open) {
+.Sky-nav-menu:matches(:target:not(.is-active), .is-open) {
   display: block;
 }
 

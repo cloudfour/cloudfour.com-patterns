@@ -3,41 +3,42 @@
 import BezierEasing from 'bezier-easing';
 import {noop} from '../util/function';
 
+/**
+ * Tweens a number from `startValue` to `endValue` over the `duration` time period,
+ * calling `onAnimationFrame` on each animation frame.
+ */
 export function tweenNumber (
-  startValue,
+  onPaint,
   endValue,
-  {
-    duration = 300,
-    stepFn = noop,
-    curve = [0, 0, 1, 1]
-  } = {}
+  startValue = 0,
+  duration = 500,
+  bezier = [0, 0, 1, 1]
 ) {
-  const easing = BezierEasing(...curve);
-  const diff = (a, b, x) => a + (b - a) * x;
-  let start = null;
+  const easing = BezierEasing(...bezier);
+  var start;
+  var elapsed;
+  var progress;
+  var stepValue;
 
   function iterate (timestamp) {
-    let elapsed;
-    let progress;
-    let stepValue;
-
     start = start || timestamp;
-    elapsed = timestamp - start;
-    duration = Math.max(0, duration);
-    progress = (elapsed / (duration - elapsed));
-    stepValue = diff(startValue, endValue, easing(progress));
-    stepFn(stepValue);
+    elapsed = Math.ceil(timestamp - start);
+    progress = elapsed / Math.max(elapsed, duration);
+    stepValue = startValue + (endValue - startValue) * easing(progress);
+
+    onPaint(stepValue, progress);
 
     if (progress < 1) {
       window.requestAnimationFrame(iterate);
-    } else {
-      start = null;
-      return;
     }
   }
 
+  // Force positive duration of at least 1ms
+  duration = Math.max(duration, 0);
+
+  // Skip animation if there's no duration
   if (!duration) {
-    stepFn(endValue);
+    onPaint(endValue, 1);
     return;
   }
   window.requestAnimationFrame(iterate);

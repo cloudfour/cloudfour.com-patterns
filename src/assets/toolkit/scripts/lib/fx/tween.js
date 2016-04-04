@@ -64,15 +64,10 @@ export function tweenNumber (
     }
   }
 
-  // Force positive duration of at least 1ms
-  duration = Math.max(duration, 0);
-
-  // Skip animation if there's no duration
-  if (!duration) {
+  // Start the transition, or skip it if there's no positive duration
+  if (duration > 0) {
+    window.requestAnimationFrame(iterate);
+  } else {
     onPaint(endValue, 1);
-    return;
   }
-
-  // Start the transition
-  window.requestAnimationFrame(iterate);
 };

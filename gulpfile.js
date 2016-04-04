@@ -34,8 +34,7 @@ var config = {
   src: {
     scripts: {
       fabricator: './src/assets/fabricator/scripts/fabricator.js',
-      toolkit: './src/assets/toolkit/scripts/toolkit.js',
-      bliss: './src/assets/toolkit/scripts/vendor/bliss.shy.min.js'
+      toolkit: './src/assets/toolkit/scripts/toolkit.js'
     },
     styles: {
       fabricator: 'src/assets/fabricator/styles/fabricator.css',

@@ -6,7 +6,16 @@ const TRANS_DURATION = 500;
 const EASING_CURVE = [0.455, 0.03, 0.515, 0.955];
 const TEST_CLASS = 'u-testBlock';
 const OPEN_CLASS = 'is-open';
+const TRANSLATE_VALUE_PATTERN = /^translateY\((-?\d+)(?:px)?\)/;
 
+/**
+ * Shortcut for getting the height of an element.
+ *
+ * TODO: This seems kind of hacky, esp w/ the test class. Move?
+ *
+ * @param {Element} element - The element to get the height of.
+ * @returns {Number} The height of `element`.
+ */
 function getHeight (element) {
   var height = element.offsetHeight;
   if (!height) {
@@ -17,14 +26,30 @@ function getHeight (element) {
   return height;
 }
 
-function setTranslateStyle (element, val) {
-  element.style.transform = `translateY(${val}px)`;
+/**
+ * Shortcut for setting `element.style.transform = translateY()`.
+ *
+ * @param {Element} element - The element to mutate styles on.
+ * @param {Number} translateY - The desired value (in px) of `translateY`.
+ */
+function setTranslateStyle (element, translateY) {
+  element.style.transform = `translateY(${translateY}px)`;
 }
 
+/**
+ * Tween the `style.transform` property of `element`.
+ *
+ * @param {Element} element - The element to translate.
+ * @param {Number} endValue - The desired end value of `translateY`.
+ * @param {Number} duration - The duration of the tween.
+ * @returns {Promise} A promise resolving with `element` when the tween is done.
+ */
 function translateY (element, endValue, duration = 0) {
+  // Dig the current transform/translate value out of `element.style`
   const transform = element.style.transform;
-  const valuePattern = /^translateY\((-?\d+)(?:px)?\)/;
-  const [,currentValue] = valuePattern.exec(transform) || [];
+  const [,currentValue] = TRANSLATE_VALUE_PATTERN.exec(transform) || [];
+
+  // Use the existing translate value, or default to 0
   const startValue = parseInt(currentValue || 0, 10);
 
   return new Promise(resolve => {
@@ -43,7 +68,18 @@ function translateY (element, endValue, duration = 0) {
   });
 }
 
+/**
+ * Class representing the "Sky" navigation CSS component.
+ */
 export class Sky {
+  /**
+   * Assign members; set initial CSS; attach event handlers.
+   *
+   * @param {Object} options - The options object defining each inner-element.
+   * @param {Element} options.root - The root component element.
+   * @param {Element} options.menu - The menu element (within `root`).
+   * @param {Element} options.toggle - The menu toggle element (within `root`).
+   */
   constructor ({ root, menu, toggle }) {
     Object.assign(this, {
       root,
@@ -65,6 +101,9 @@ export class Sky {
     });
   }
 
+  /**
+   * Slide the menu in and out of view.
+   */
   toggleMenu () {
     const menuHeight = getHeight(this.menu);
     const slideContainer = (val) => {

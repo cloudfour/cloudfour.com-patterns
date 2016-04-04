@@ -132,7 +132,7 @@ code, pre {
   white-space: nowrap;
 }
 
-.permalink-hash:before, .permalink-link:before {
+.permalink-hash:before {
   position: absolute;
   margin-left: -1rem;
   color: var(--color-gray);
@@ -142,25 +142,35 @@ code, pre {
   content: "#";
 }
 
-.permalink-link:before {
-  content: url(/assets/toolkit/images/sandbox/link.svg);
-  width: 25px;
-  width: 30px;
-  margin-left: -1.6rem;
+.permalink-hash:hover:before, .permalink-link:hover {
+  color: color(var(--color-black) a(50%));
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 @media (--md-viewport) {
-  .permalink-link:before {
-    width: 40px;
-    margin-left: -2.2rem;
-  }
   .permalink-hash:before {
     margin-left: -1.2rem
-  }  
+  }
+}
+
+.permalink-link { 
+  position: relative;
+  left: -19px;
+  top: 25px;
+  color: var(--color-gray);
+}
+
+@media (--lg-viewport) {
+  .permalink-link {
+    left: -23px;
+    top: 33px;
+  }
 }
 
 @media (--xl-viewport) {
-  .permalink-link:before {
-    width: 50px;
-  }  
+  .permalink-link {
+    left: -30px;
+    top: 40px;
+  }
 }

@@ -38,6 +38,7 @@
     "browser-sync": "^2.9.1",
     "css-modularscale": "^1.0.0",
     "del": "^2.0.1",
+    "eases": "^1.0.8",
     "fabricator-assemble": "github:cloudfour/fabricator-assemble",
     "gulp": "^3.8.11",
     "gulp-if": "^1.2.5",

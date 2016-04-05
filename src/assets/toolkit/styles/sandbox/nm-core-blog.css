@@ -93,6 +93,12 @@ code, pre {
   padding-top: 0;
 }
 
+.author-image {
+  float: right;
+  shape-outside: circle(50%);
+  margin-left: 1rem;
+}
+
 .u-nowrap {
   white-space: nowrap;
   display: inline-block;

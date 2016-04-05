@@ -1,12 +1,12 @@
 'use strict';
 
-import {tweenNumber} from '../fx/tween';
+import {Easer} from '../fx/easing';
+import {setTween} from '../fx/tween';
 
 const TRANS_DURATION = 500;
-const EASING_CURVE = [0.455, 0.03, 0.515, 0.955];
 const TEST_CLASS = 'u-testBlock';
 const OPEN_CLASS = 'is-open';
-const TRANSLATE_VALUE_PATTERN = /^translateY\((-?\d+)(?:px)?\)/;
+const easer = new Easer('quadInOut');
 
 /**
  * Shortcut for getting the height of an element.
@@ -37,6 +37,20 @@ function setTranslateStyle (element, translateY) {
 }
 
 /**
+ * Get the current `translateY` transform value of an element.
+ *
+ * @param {Element} element - The element to read.
+ * @returns {Number} The element's translateY value (in px).
+ * @example getTranslateY(element); // 300
+ */
+function getTranslateY (element) {
+  const pattern = /^translateY\((-?\d+)(?:px)?\)/;
+  const transform = element.style.transform;
+  const [,currentValue] = pattern.exec(transform) || [];
+  return parseInt(currentValue || 0, 10);
+}
+
+/**
  * Tween the `style.transform` property of `element`.
  *
  * @param {Element} element - The element to translate.
@@ -45,26 +59,20 @@ function setTranslateStyle (element, translateY) {
  * @returns {Promise} A promise resolving with `element` when the tween is done.
  */
 function translateY (element, endValue, duration = 0) {
-  // Dig the current transform/translate value out of `element.style`
-  const transform = element.style.transform;
-  const [,currentValue] = TRANSLATE_VALUE_PATTERN.exec(transform) || [];
-
-  // Use the existing translate value, or default to 0
-  const startValue = parseInt(currentValue || 0, 10);
+  const startValue = getTranslateY(element);
 
   return new Promise(resolve => {
-    const update = step => {
+    function update (progress) {
+      // Update the element translateY based on progress.
+      const step = easer(startValue, endValue, progress);
       setTranslateStyle(element, step);
-      if (step === endValue) resolve(element);
+      // Resolve when progress is complete.
+      if (progress === 1) {
+        resolve(element);
+      }
     };
 
-    tweenNumber(
-      update,
-      endValue,
-      startValue,
-      duration,
-      EASING_CURVE
-    );
+    setTween(update, duration);
   });
 }
 

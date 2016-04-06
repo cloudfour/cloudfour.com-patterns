@@ -5,8 +5,8 @@
  */
 
 :root {
-  --Thumbnail-shadow-color: var(--color-navy);
-  --Thumbnail-shadow-width: var(--control-stroke);
+  --Thumbnail-border-color: var(--color-navy);
+  --Thumbnail-border-width: var(--control-stroke);
   --Thumbnail-rounded-radius: var(--control-radius);
 }
 
@@ -19,28 +19,21 @@
  * 2. Removes extra space below img for certain vertical alignments. Preferable
  *    to setting display: block on img because it respects vertical-align rules
  *    on either this element or the img itself.
- * 3. Inner shadow effect.
- * 4. Transition rules for inner shadow.
+ * 3. Transition rules for border.
  */
 .Thumbnail {
   display: inline-block; /* 1 */
   line-height: 0; /* 2 */
-  box-shadow: inset 0 0 0 var(--Thumbnail-shadow-width) color(var(--Thumbnail-shadow-color) a(10%)); /* 3 */
-  transition: box-shadow 300ms ease; /* 4 */
+  border: solid var(--Thumbnail-border-width) color(var(--Thumbnail-border-color) a(10%));
+  transition: border 300ms ease; /* 3 */
 }
 
 .Thumbnail:matches(:focus, :hover) {
-  box-shadow: inset 0 0 0 var(--Thumbnail-shadow-width) color(var(--Thumbnail-shadow-color) a(25%));
+  border: solid var(--Thumbnail-border-width) color(var(--Thumbnail-border-color) a(25%));
 }
 
 .Thumbnail:active {
-  box-shadow: inset 0 0 0 var(--Thumbnail-shadow-width) color(var(--Thumbnail-shadow-color) a(50%));
-}
-
-.Thumbnail > img {
-  position: relative;
-  z-index: -1;
-  border-radius: inherit;
+  border: solid var(--Thumbnail-border-width) color(var(--Thumbnail-border-color) a(50%));
 }
 
 /**

@@ -91,7 +91,10 @@ code, pre {
 .blog-footer {
   padding: var(--font-size-md);
   padding-top: 0;
-  border-top: solid 3px color(var(--color-gray) a(50%));
+}
+
+.author {
+  background: color(var(--color-gray) a(30%));
 }
 
 .author-image {
@@ -106,12 +109,14 @@ code, pre {
 }
 
 .permalink { 
-  color: var(--color-gray);
+  /*color: var(--color-gray);*/
+  color: var(--color-blue);
+  font-size: var(--font-size-xs);
 }
 
 .permalink-hash {
   text-decoration: none;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-xs);
 }
 
 h2:target {
@@ -119,6 +124,10 @@ h2:target {
   border-bottom: solid 3px color(var(--color-gray) a(50%));
   padding-bottom: var(--space-sm);
   width: 100%;
+}
+
+.footnotes {
+  border-top: solid 1px var(--color-black);
 }
 
  /**
@@ -189,4 +198,38 @@ footer :target {
   clip: rect(0 0 0 0);
   visibility: hidden;
   opacity: 0;
+}
+
+.more-articles-header {
+  border-bottom: solid 1px var(--color-black);
+}
+
+.more-article-header a {
+  text-decoration: none;
+  font-size: var(--font-size-md);
+}
+
+.more-date {
+  display: block;
+  color: var(--color-blue);
+}
+
+.recent-article {
+  border-bottom: solid 2px var(--color-gray);
+}
+
+figure {
+  display: table;
+}
+
+figure img {
+  width: 100%;
+}
+
+figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  font-style: italic;
+  color: color(var(--color-black) a(70%));
+  font-size: var(--font-size-xs);
 }

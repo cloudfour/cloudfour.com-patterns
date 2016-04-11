@@ -27,7 +27,14 @@
 .blog-intro {
   font-size: var(--font-size-md);
   background-color: var(--color-gray);
-  padding: var(--space-sm);
+  padding: 1.3rem;
+  margin: 0 -1.3rem;
+}
+
+@media (--sm-viewport) {
+  .blog-intro {
+    margin: 0;
+  }
 }
 
 .author-social {
@@ -66,8 +73,14 @@ pre {
   color: var(--color-fuchsia);
   background-color: #0f1c3f;
   padding: 1em;
-  width: 100%;
   word-wrap: normal;
+  margin: 0 -1.3rem;
+}
+
+@media (--sm-viewport) {
+  pre {
+    margin: 0;
+  }
 }
 
 pre.codeBlock-blue {
@@ -85,7 +98,6 @@ pre.codeBlock-white {
 
 code, pre {
   border-radius: var(--border-width-md);
-  margin: 0 .2em;
 }
 
 .blog-footer {

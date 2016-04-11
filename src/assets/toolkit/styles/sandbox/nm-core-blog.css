@@ -124,6 +124,7 @@ code, pre {
   /*color: var(--color-gray);*/
   color: var(--color-blue);
   font-size: var(--font-size-xs);
+  vertical-align: .14rem;
 }
 
 .permalink-hash {

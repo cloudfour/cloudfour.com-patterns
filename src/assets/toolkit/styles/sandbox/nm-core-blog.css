@@ -28,13 +28,10 @@
   font-size: var(--font-size-md);
   background-color: var(--color-gray);
   padding: 1.3rem;
-  margin: 0 -1.3rem;
 }
 
-@media (--sm-viewport) {
-  .blog-intro {
-    margin: 0;
-  }
+.blog-intro, .author {
+  margin: 0 -1.3rem;
 }
 
 .author-social {

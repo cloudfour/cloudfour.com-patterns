@@ -150,7 +150,7 @@ gulp.task('modernizr', function () {
 // images
 gulp.task('images', ['favicon', 'icons'], function () {
   return gulp.src(config.src.images)
-    .pipe(imagemin())
+    // .pipe(imagemin()) // TODO: Assess why this is taking so darn long!!
     .pipe(gulp.dest(config.dest + '/assets/toolkit/images'));
 });
 
@@ -161,7 +161,6 @@ gulp.task('favicon', function () {
 
 gulp.task('icons', function () {
   return gulp.src(config.src.icons)
-    .pipe(imagemin())
     .pipe(svgSprite({
       mode: {
         symbol: {

@@ -6,12 +6,41 @@ labels:
   - inprogress
 ---
 
-{{> sky }}
+{{#embed "sky"}}
+  {{#content "top"}}
+    <div class="u-bigOlContainer">
+      <header class="Sky-nav" role="banner">
+        <ul class="Sky-nav-controls">
+          {{! TODO: Allow these href destinations to be customized }}
+          <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
+          <li><a class="Sky-nav-controls-skipToMenu Button Button--defaultLight" href="#menu" aria-label="Skip to navigation">Menu</a></li>
+        </ul>
+        <a class="Sky-nav-logo" href="/">
+          <svg class="Sky-nav-logo-object" width="80" height="80" role="img" aria-labelledby="logo-title">
+            <title id="logo-title">Cloud Four</title>
+            <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor"/>
+          </svg>
+        </a>
+        {{! TODO: Allow this ID to be customized (see above href todo as well) }}
+        <nav class="Sky-nav-menu" role="navigation" id="menu">
+          <ul class="Sky-nav-menu-items">
+            <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Our Process</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Our Work</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Articles</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Speaking</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Code</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">The Team</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  {{/content}}
+{{/embed}}
 
 <main role="main" id="main">
   {{#embed "sky" class="Sky--clouds"}}
     {{#content "top"}}
-      <div class="u-paddingMd u-md-flex u-flexAlignItemsBaseline">
+      <div class="u-bigOlContainer u-paddingMd u-md-flex u-flexAlignItemsBaseline">
         <h1 class="BigOlMasthead u-marginRightMd">Speaking</h1>
         <p class="u-textLarger" style="opacity: 0.8;">
           Saying what we mean, meaning what we say
@@ -21,7 +50,7 @@ labels:
   {{/embed}}
   <div class="u-bgWhite">
 
-    <div class="u-paddingMd">
+    <div class="u-bigOlContainer u-paddingMd">
       <h1 class="u-marginEndsXs">Future Events</h1>
       <div class="Grid Grid--withGutter">
         {{#each toolkit.events}}
@@ -70,8 +99,10 @@ labels:
       </div>
     </div>
 
-    <hr class="u-marginSidesMd u-marginEndsNone">
-    <div class="u-posRelative">
+    <div class="u-bigOlContainer">
+      <hr class="u-marginSidesMd u-marginEndsNone">
+    </div>
+    <div class="u-bigOlContainer u-posRelative">
       <p class="u-paddingMd u-size2of3">
         <span class="u-inlineBlock u-textLarger u-marginRightSm u-textNoWrap">
           Need help clouding your fours?
@@ -89,7 +120,7 @@ labels:
   </div>
 </main>
 
-<footer class="u-paddingMd" role="contentinfo">
+<footer class="u-bigOlContainer u-paddingMd" role="contentinfo">
   <p>
     <a href="/"><strong>Cloud Four, Inc.</strong></a>
   </p>

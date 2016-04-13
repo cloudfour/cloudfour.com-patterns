@@ -11,19 +11,6 @@
   }
 }
 
-@media (--md-viewport) {
-  .BigOlMasthead {
-    font-size: calc(1em * var(--ms7));
-  }
-}
-
-@media (--lg-viewport) {
-  .BigOlMasthead {
-    font-size: calc(1em * var(--ms8));
-    letter-spacing: -0.0375em;
-  }
-}
-
 .HotDate {
   background: #fff;
   border: 3px solid currentColor;
@@ -62,6 +49,10 @@
 
 .SecretLink-beanSpiller {
   color: var(--color-blue);
+}
+
+.SecretLink:matches(:active, :focus, :hover) .SecretLink-beanSpiller {
+  color: var(--link-hover-color);
 }
 
 .u-decorationNone {

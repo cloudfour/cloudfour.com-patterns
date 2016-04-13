@@ -13,7 +13,7 @@ labels:
     {{#content "top"}}
       <div class="u-paddingMd u-md-flex u-flexAlignItemsBaseline">
         <h1 class="BigOlMasthead u-marginRightMd">Speaking</h1>
-        <p class="u-textLarger">
+        <p class="u-textLarger" style="opacity: 0.8;">
           Saying what we mean, meaning what we say
         </p>
       </div>
@@ -24,45 +24,47 @@ labels:
     <div class="u-paddingMd">
       <h1 class="u-marginEndsXs">Future Events</h1>
       <div class="Grid Grid--withGutter">
-        {{#iterate 5}}
-          <article class="Grid-cell u-marginEndsXs u-sm-size1of2 u-md-size1of3">
-            <a href="#" class="SecretLink u-flex u-flexAlignItemsCenter">
-              <time class="HotDate" datetime="2016-04-12T18:30">
-                <span class="HotDate-header">Sup</span>
-                <span class="HotDate-body">13</span>
+        {{#each toolkit.events}}
+          <article class="Grid-cell u-flex u-marginEndsXs u-sm-size1of2 u-md-size1of3">
+            <a href="{{url}}" class="SecretLink u-flex u-flexAlignItemsCenter">
+              <time class="HotDate {{#if range}}HotDate--range{{/if}}" datetime="2016-04-12T18:30">
+                <span class="HotDate-header">{{month}}</span>
+                <span class="HotDate-body">{{day}}</span>
               </time>
               <div class="u-marginLeftSm">
-                <h3 class="u-textLarger SecretLink-beanSpiller">One Egret Adrift</h3>
-                <p><b>Gotham City, NJ</b></p>
-                <p>Speakers: Jason</p>
+                <h3 class="u-textLarger SecretLink-beanSpiller">{{name}}</h3>
+                <p class="u-textNoWrap"><b>{{location}}</b></p>
+                <p>
+                  Speaker:
+                  {{#each speakers}}{{#if @index}}, {{/if}}{{.}}{{/each}}
+                </p>
               </div>
             </a>
           </article>
-        {{/iterate}}
+        {{/each}}
       </div>
       <hr class="u-marginEndsMd">
       <h1 class="u-marginEndsXs">Our Talks</h1>
       <div class="Grid Grid--withGutter">
         {{#iterate 8}}
           <article class="Grid-cell u-marginEndsXs u-sm-size1of2 u-md-size1of3">
-            <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
-              <img class="u-sizeFull" src="http://placeimg.com/320/180/tech" alt="">
-            </div>
-            <h2 class="u-marginTopXs">
-              <a class="u-decorationNone" href="#">
+            <a href="#" class="SecretLink u-block">
+              <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
+                <img class="u-sizeFull" src="http://placeimg.com/320/180/tech" alt="">
+              </div>
+              <h2 class="SecretLink-beanSpiller u-marginTopXs">
                 Responsive: What Even?
-              </a>
-            </h2>
-            <p><b>By Tyroy Stiltman</b></p>
-            <p>
-              Presented at
-              One Egret Adrift,
-              Tanned Flesh PDX,
-              Dashing Confluence
-              <a class="u-decorationNone u-textNoWrap" href="#">
-                + 7 more
-              </a>
-            </p>
+              </h2>
+              <p><b>By Tyroy Stiltman</b></p>
+              <p class="u-sm-paddingRightSm">
+                Presented at
+                One Egret Adrift,
+                Dashing Confluence
+                <span class="SecretLink-beanSpiller u-textNoWrap">
+                  + 7 more
+                </span>
+              </p>
+            </a>
           </article>
         {{/iterate}}
       </div>
@@ -91,44 +93,50 @@ labels:
   <p>
     <a href="/"><strong>Cloud Four, Inc.</strong></a>
   </p>
-  <div class="Grid u-posRelative">
-    <div class="Grid-cell u-sm-size1of2 u-md-size1of3">
-      <p>
-        208 SW 1st Ave, Suite 240<br>
-        Portland, Oregon 97204 USA
+  <div class="u-posRelative">
+    <div class="Grid Grid--withGutter">
+      <div class="Grid-cell u-sm-size1of2 u-md-size1of3">
+        <p>
+          208 SW 1st Ave, Suite 240<br>
+          Portland, Oregon 97204 USA
+        </p>
+        <ul class="u-listUnstyled">
+          <li><a href="mailto:info@cloudfour.com">info@cloudfour.com</a></li>
+          <li><a href="tel:15032901090">+1 503.290.1090</a></li>
+        </ul>
+        <ul class="u-listInline u-marginTopMd u-md-marginTopNone u-md-posAbsoluteTopRight">
+          {{#each toolkit.social}}
+            <li>
+              <a class="u-textLarger" href="{{url}}" title="{{text}}">
+                <svg class="Icon Icon--large" role="img">
+                  <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
+                </svg>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="Grid-cell u-sm-hidden">
+        <hr class="u-marginTopMd u-marginBottomNone"/>
+      </div>
+      <nav class="Grid-cell u-marginTopMd u-sm-marginTopNone u-sm-size1of2 u-md-size1of3">
+        <ul class="u-listUnstyled u-columns2">
+          <li><a href="/">Our Process</a></li>
+          <li><a href="/">Our Work</a></li>
+          <li><a href="/">Articles</a></li>
+          <li><a href="/">Speaking</a></li>
+          <li><a href="/">Code</a></li>
+          <li><a href="/">The Team</a></li>
+          <li><a href="/">Patterns</a></li>
+          <li><a href="/">Device Lab</a></li>
+        </ul>
+      </nav>
+      <div class="Grid-cell u-md-hidden">
+        <hr class="u-marginTopMd u-marginBottomNone"/>
+      </div>
+      <p class="Grid-cell u-marginTopMd u-md-sizeFit u-md-flexAlignSelfEnd u-md-flexExpandLeft">
+        <small>&copy; 2007 - 2016 Cloud Four, Inc.</small>
       </p>
-      <ul class="u-listUnstyled">
-        <li><a href="mailto:info@cloudfour.com">info@cloudfour.com</a></li>
-        <li><a href="tel:15032901090">+1 503.290.1090</a></li>
-      </ul>
-      <ul class="u-listInline u-marginTopMd u-md-marginTopNone u-md-posAbsoluteTopRight">
-        {{#each toolkit.social}}
-          <li>
-            <a class="u-textLarger" href="{{url}}" title="{{text}}">
-              <svg class="Icon Icon--large" role="img">
-                <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
-              </svg>
-            </a>
-          </li>
-        {{/each}}
-      </ul>
     </div>
-    <hr class="Grid-cell u-sm-hidden u-marginTopMd u-marginBottomNone"/>
-    <nav class="Grid-cell u-marginTopMd u-sm-marginTopNone u-sm-size1of2 u-md-size1of3">
-      <ul class="u-listUnstyled u-columns2">
-        <li><a href="/">Our Process</a></li>
-        <li><a href="/">Our Work</a></li>
-        <li><a href="/">Articles</a></li>
-        <li><a href="/">Speaking</a></li>
-        <li><a href="/">Code</a></li>
-        <li><a href="/">The Team</a></li>
-        <li><a href="/">Patterns</a></li>
-        <li><a href="/">Device Lab</a></li>
-      </ul>
-    </nav>
-    <hr class="Grid-cell u-md-hidden u-marginTopMd u-marginBottomNone"/>
-    <p class="Grid-cell u-marginTopMd u-md-sizeFit u-md-flexAlignSelfEnd u-md-flexExpandLeft">
-      <small>&copy; 2007 - 2016 Cloud Four, Inc.</small>
-    </p>
   </div>
 </footer>

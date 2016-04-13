@@ -1,1 +1,5 @@
 @import "suitcss-components-grid";
+
+:root {
+  --Grid-gutter-size: var(--space-md);
+}

@@ -58,3 +58,44 @@ social:
   linkedin:
     text: Follow Cloud Four on LinkedIn
     url: https://www.linkedin.com/company/cloud-four
+
+events:
+  - month: Mar
+    day: 14-16
+    range: true
+    name: An Event Apart
+    location: Nashville, TN
+    url: "#"
+    speakers:
+      - Jason
+  - month: Apr
+    day: 4-6
+    range: true
+    name: An Event Apart
+    location: Seattle, WA
+    url: "#"
+    speakers:
+      - Jason
+  - month: Apr
+    day: 12
+    name: Front End PDX
+    location: Portland, OR
+    url: "#"
+    speakers:
+      - Tyler
+  - month: Jun
+    day: 14-15
+    range: true
+    name: Smashing Conference
+    location: New York, NY
+    url: "#"
+    speakers:
+      - Jason
+  - month: Sep
+    day: 12-13
+    range: true
+    name: Smashing Conference
+    location: Freiburg, Germany
+    url: "#"
+    speakers:
+      - Lyza

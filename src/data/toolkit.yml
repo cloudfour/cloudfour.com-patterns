@@ -103,7 +103,7 @@ events:
 talks:
   - title: "SVG: So Very Good"
     speaker: Tyler Sticka
-    thumbnail: /assets/toolkit/images/sandbox/event-thumb-svg.gif
+    thumbnail: /assets/toolkit/images/sandbox/event-thumb-svg2.png
     url: "#"
     events:
       - Front End PDX

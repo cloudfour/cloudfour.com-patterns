@@ -75,27 +75,28 @@ labels:
       <hr class="u-marginEndsMd">
       <h1 class="u-marginEndsXs">Our Talks</h1>
       <div class="Grid Grid--withGutter">
-        {{#iterate 8}}
+        {{#each toolkit.talks}}
           <article class="Grid-cell u-marginEndsXs u-sm-size1of2 u-md-size1of3">
             <a href="#" class="SecretLink u-block">
               <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
-                <img class="u-sizeFull" src="http://placeimg.com/320/180/tech" alt="">
+                <img class="u-sizeFull" src="{{thumbnail}}" alt="">
               </div>
               <h2 class="SecretLink-beanSpiller u-marginTopXs">
-                Responsive: What Even?
+                {{title}}
               </h2>
-              <p><b>By Tyroy Stiltman</b></p>
+              <p><b>By {{speaker}}</b></p>
               <p class="u-sm-paddingRightSm">
                 Presented at
-                One Egret Adrift,
-                Dashing Confluence
-                <span class="SecretLink-beanSpiller u-textNoWrap">
-                  + 7 more
-                </span>
+                {{#each events}}{{#if @index}}, {{/if}}{{.}}{{/each}}
+                {{#if moreEvents}}
+                  <span class="SecretLink-beanSpiller u-textNoWrap">
+                    + {{moreEvents}} more
+                  </span>
+                {{/if}}
               </p>
             </a>
           </article>
-        {{/iterate}}
+        {{/each}}
       </div>
     </div>
 

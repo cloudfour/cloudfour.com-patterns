@@ -13,6 +13,12 @@
   margin-right: auto;
 }
 
+.u-bebehContainer {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .BigOlMasthead {
   font-size: calc(1em * var(--ms5));
 }
@@ -79,3 +85,27 @@
     border-radius: var(--control-radius);
   }
 }
+
+.dividerAfter {
+  display: flex;
+  align-items: center;
+}
+
+.dividerAfter::after {
+  content: "";
+  border-top: var(--border-width-md) dashed var(--color-relative);
+  margin-left: var(--space-xs);
+  /*height: var(--border-width-md);
+  min-height: var(--border-width-sm);
+  background-color: var(--color-relative);*/
+  opacity: var(--opacity-lower);
+  width: 100%;
+}
+
+/*hr {
+  height: var(--border-width-md);
+  min-height: var(--border-width-sm);
+  border-style: none;
+  background-color: var(--color-relative);
+  opacity: var(--opacity-lower);
+}*/

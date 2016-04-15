@@ -27,34 +27,28 @@
   background: #fff;
   border: 3px solid currentColor;
   border-radius: 0.25em;
-  color: var(--color-navy);
   display: inline-flex;
   flex-direction: column;
   font-weight: 600;
+  line-height: var(--line-height-sm);
   min-height: 4.5em;
   min-width: 4.5em;
   text-align: center;
 }
 
 .HotDate-header {
-  background: var(--color-navy);
+  background: var(--color-fuchsia);
   border-bottom: 3px solid transparent;
   color: var(--color-white);
-  line-height: var(--line-height-sm);
 }
 
 .HotDate-body {
   font-size: calc(1em * var(--ms3));
-  line-height: var(--line-height-xs);
   margin: auto 0;
 }
 
 .HotDate--range .HotDate-body {
   font-size: calc(1em * var(--ms1));
-}
-
-.HotDate--alt .HotDate-header {
-  background-color: #e90d4e;
 }
 
 .SecretLink,

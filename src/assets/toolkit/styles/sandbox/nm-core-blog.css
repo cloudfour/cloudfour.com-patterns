@@ -28,13 +28,10 @@
   font-size: var(--font-size-md);
   background-color: var(--color-gray);
   padding: 1.3rem;
-  margin: 0 -1.3rem;
 }
 
-@media (--sm-viewport) {
-  .blog-intro {
-    margin: 0;
-  }
+.blog-intro, .author {
+  margin: 0 -1.3rem;
 }
 
 .author-social {
@@ -193,6 +190,10 @@ h2:target {
   border-top: solid 2px var(--color-gray);
 }
 
+.footnotes li {
+  padding: var(--space-xs);
+}
+
  /**
  * Initialiazing a `footnotes` counter on the wrapper
  */
@@ -249,7 +250,10 @@ article {
 /**
  * Highlight target note
  */
-footer :target {
+ .footnotes li {
+  transition: background 300ms cubic-bezier(0, 0, 0.8, -0.24);
+ }
+.footnotes li:target {
   background: var(--color-gray);
 }
 
@@ -280,4 +284,61 @@ footer :target {
 
 .recent-article {
   border-bottom: solid 2px var(--color-gray);
+}
+
+/**
+ * Comments and shizzzz
+ */
+
+.comment-form-expanded {
+  display: none;
+}
+
+.comment-form-expanded.is-expanded {
+  display: block;
+}
+
+.Input-checkbox {
+  border: 3px solid #dbe5ea;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+}
+
+.checkbox-control {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.checkbox-text {
+  display: block;
+  display: flex;
+  cursor: pointer;
+}
+
+.checkbox-text:before {
+  content: '';
+  display: inline-block;
+  margin-right: var(--space-sm);
+  margin-top: var(--space-sm);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.comment-reply {
+  text-align: right;
+  text-decoration: none;
+  color: color(var(--color-black) a(20%));
+}
+
+.reply-comment {
+  margin-left: var(--space-md);
+ /* padding-left: var(--space-sm);
+  border-left: solid 3px var(--color-gray);*/
 }

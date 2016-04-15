@@ -27,7 +27,7 @@
   background: #fff;
   border: 3px solid currentColor;
   border-radius: 0.25em;
-  color: var(--color-blue);
+  color: var(--color-navy);
   display: inline-flex;
   flex-direction: column;
   font-weight: 600;
@@ -37,7 +37,7 @@
 }
 
 .HotDate-header {
-  background: var(--color-blue);
+  background: var(--color-navy);
   border-bottom: 3px solid transparent;
   color: var(--color-white);
   line-height: var(--line-height-sm);
@@ -51,6 +51,10 @@
 
 .HotDate--range .HotDate-body {
   font-size: calc(1em * var(--ms1));
+}
+
+.HotDate--alt .HotDate-header {
+  background-color: #e90d4e;
 }
 
 .SecretLink,

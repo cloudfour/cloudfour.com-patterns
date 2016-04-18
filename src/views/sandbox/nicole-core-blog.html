@@ -201,13 +201,13 @@ padding-bottom: calc(24 / 16em * 1.25);
         {{#each toolkit.comments}}
           <div class="comment u-paddingTopMd">
             <p>{{comment}}</p>
-            <div class="u-flex u-flexJustifyBetween u-flexAlignItemsCenter">
-              <div style="line-height: 1.2; margin-top:.4rem;">
+            <div class="u-flex u-marginTopMd u-flexJustifyBetween u-flexAlignItemsBaseline">
+              <div>
                 <a href="#" class="u-marginRightSm" style="text-decoration:none; font-weight:bold">{{author}}</a>
                 <span class="u-textSmaller">{{date}}</span>
               </div>
               <div>
-                <a class="u-marginTopSm u-marginRightSm u-block comment-reply" href="#">
+                <a class="u-marginRightSm u-block comment-reply" href="#">
                 <svg class="Icon u-textSmaller u-marginTopNone" role="img">
                   <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
                 </svg>
@@ -220,15 +220,13 @@ padding-bottom: calc(24 / 16em * 1.25);
                 {{#each reply}}  
                   <div class="reply-comment u-paddingTopMd u-paddingBottomMd">
                     <p>{{comment}}</p>
-                    <div class="u-flex u-flexJustifyBetween u-flexAlignItemsCenter">
-                      <div class="u-flex u-marginTopMd">
-                      <div style="line-height: 1.2; margin-top:.4rem;">
+                    <div class="u-flex u-marginTopSm u-flexJustifyBetween u-flexAlignItemsCenter">
+                      <div>
                         <a href="#" class="u-paddingRightSm" style="text-decoration:none; font-weight:bold">{{author}}</a>
                         <span class="u-textSmaller">{{date}}</span>
                       </div>
-                      </div>
                       <div>
-                        <a class="u-marginTopSm u-marginRightSm u-block comment-reply" href="#">
+                        <a class="u-marginRightSm u-block comment-reply" href="#">
                         <svg class="Icon u-textSmaller u-marginTopNone" role="img">
                           <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
                         </svg>

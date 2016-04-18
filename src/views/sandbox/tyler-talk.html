@@ -56,21 +56,20 @@ labels:
           </div>
         </div>
       </div>
-      {{!-- <hr class="u-marginEndsLg"> --}}
       <div class="u-spaceChildren u-marginTopLg">
         {{!-- <h2>Slides</h2> --}}
         <script async class="speakerdeck-embed" data-id="f83311d5319044dfa5cd5ecf0451281d" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
-        <ul class="Grid Grid--withGutter u-listUnstyled">
-          <li class="Grid-cell u-size1of2">
+        <ul class="u-listUnstyled Grid Grid--fit Grid--withGutter">
+          <li class="Grid-cell">
             <a href="#" class="Button Button--default u-block">
-              <svg class="Icon Icon--large" role="img">
+              <svg class="Icon" role="img">
                 <use xlink:href="/assets/toolkit/images/icons.svg#arrow-down"/>
               </svg>
               PDF
             </a>
           </li>
-          <li class="Grid-cell u-size1of2">
-            <a href="#" class="Button Button--secondary u-block">
+          <li class="Grid-cell">
+            <a href="#" class="Button Button--default u-block">
               <svg class="Icon Icon--large" role="img">
                 <use xlink:href="/assets/toolkit/images/icons.svg#github"/>
               </svg>
@@ -78,80 +77,54 @@ labels:
             </a>
           </li>
         </ul>
-        {{!-- <p>
-          <a href="#" class="Button Button--default">
-            Download PDF
-          </a>
-        </p> --}}
       </div>
       <hr class="u-marginEndsLg">
       <div class="u-spaceChildren">
-        {{!-- <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
-          <h2 class="u-marginRightXs">History</h2>
-          <p>With audio and/or video where available</p>
-        </div> --}}
-        <h2>Presented at&hellip;</h2>
-        <article class="Grid Grid--withGutter Grid--alignMiddle">
-          <div class="Grid-cell u-sm-size1of2 u-flex u-flexAlignItemsCenter">
-            <time class="HotDate u-textSmaller" datetime="2016-04-12T18:30">
-              <span class="HotDate-header">Sup</span>
-              <span class="HotDate-body">32</span>
-            </time>
-            <div class="u-marginLeftSm">
-              <h3><a href="{{url}}" class="u-decorationNone">One Fine Day</a></h3>
-              <p class="u-textNoWrap">Gotham City, NJ</p>
-            </div>
-          </div>
-          <div class="Grid-cell u-sm-size1of2 u-marginTopMd u-sm-marginTopNone">
-            <ul class="Grid Grid--withGutter u-listUnstyled">
-              <li class="Grid-cell u-size1of2">
-                <a class="Button Button--default u-block" href="#">
-                  Video
-                </a>
-              </li>
-              <li class="Grid-cell u-size1of2">
-                <a class="Button Button--default u-block" href="#">
-                  Audio
-                </a>
-              </li>
-            </ul>
-          </div>
-        </article>
-        <h3 class="dividerAfter">2015</h3>
-        {{#each toolkit.events}}
-          <article>
-            <div class="u-flex u-flexAlignItemsCenter">
-              <time class="HotDate {{#if range}}HotDate--range{{/if}} u-textSmaller" datetime="2016-04-12T18:30">
-                <span class="HotDate-header">{{month}}</span>
-                <span class="HotDate-body">{{day}}</span>
-              </time>
-              <div class="u-marginLeftSm">
-                <h3><a href="{{url}}" class="u-decorationNone">{{name}}</a></h3>
-                <p class="u-textNoWrap">{{location}}</p>
-              </div>
-            </div>
-          </article>
-        {{/each}}
+        <div class="u-flex u-flexAlignItemsBaseline u-flexWrap">
+          <h2 class="u-marginRightXs">Watch</h2>
+          <p>Dashing Confluence (Dec 12, 2015)</p>
+        </div>
+        <div class="FlexEmbed">
+          <div class="FlexEmbed-ratio FlexEmbed-ratio--16by9"></div>
+          <iframe class="FlexEmbed-content" width="320" height="180" src="https://www.youtube-nocookie.com/embed/HEZdnuJCoGo?rel=0" allowfullscreen></iframe>
+        </div>
       </div>
-    </div>
-
-    <div class="u-bigOlContainer u-marginTopLg">
-      <hr class="u-marginSidesMd u-marginEndsNone">
-    </div>
-    <div class="u-bigOlContainer u-posRelative">
-      <p class="u-paddingMd u-size2of3">
-        <span class="u-inlineBlock u-textLarger u-marginRightSm u-textNoWrap">
-          Need help clouding your fours?
-        </span>
-        <a class="Button Button--primary u-marginEndsXs u-textNoWrap" href="mailto:info@cloudfour.com">
-          <svg class="Icon Icon--large" role="img">
-            <use xlink:href="/assets/toolkit/images/icons.svg#envelope"/>
+      <hr class="u-marginEndsLg">
+      <div class="u-spaceChildren">
+        <h2>Presented at&hellip;</h2>
+        <div class="ODoyleRules">
+          {{#each toolkit.talkHistory}}
+            <article>
+              <div class="Grid Grid--withGutter">
+                <p class="Grid-cell u-size1of3 u-sm-size1of4 u-md-size1of5 u-textNoWrap">{{date}}</p>
+                <div class="Grid-cell u-size2of3 u-sm-size3of4 u-md-size4of5 u-sm-flex u-flexWrap">
+                  <p class="u-marginRightXs">
+                    <a href="{{url}}"><b>{{name}}</b></a>
+                  </p>
+                  <p>
+                    {{location}}
+                  </p>
+                  {{#if media}}
+                    <ul class="u-listInline u-sm-flexExpandLeft">
+                      {{#each media}}
+                        <li><a href="{{.}}">{{@key}}</a></li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
+                </div>
+              </div>
+            </article>
+          {{/each}}
+        </div>
+      </div>
+      <p class="u-marginEndsLg u-paddingTopLg">
+        <a class="Button Button--tertiary u-block" href="#">
+          More talks&nbsp;
+          <svg class="Icon" role="img">
+            <use xlink:href="/assets/toolkit/images/icons.svg#arrow-right"/>
           </svg>
-          Squiddly-doo
         </a>
       </p>
-      <img class="u-posAbsoluteBottomRight u-size2of5 u-sm-size1of3 u-sm-marginRightMd u-md-size1of4"
-        src="/assets/toolkit/images/portland.svg" alt="">
     </div>
   </div>
 </main>

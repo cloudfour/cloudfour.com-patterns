@@ -109,3 +109,13 @@
   background-color: var(--color-relative);
   opacity: var(--opacity-lower);
 }*/
+
+.ODoyleRules > * + * {
+  border-top: 1px solid color(var(--color-black) a(10%));
+  margin-top: var(--space-xs);
+  padding-top: var(--space-xs);
+}
+
+.Button--tertiary {
+  border-color: currentColor;
+}

@@ -143,3 +143,29 @@ talks:
     events:
       - Refresh PDX
       - WebVisions
+
+talkHistory:
+  - date: Mar 6, 2016
+    name: One Egret Adrift
+    url: "#"
+    location: Gotham City, NJ
+  - date: Dec 12, 2015
+    name: Dashing Confluence
+    url: "#"
+    location: Metropolis, NY
+    video: "#"
+    media:
+      Video: "#"
+  - date: Jun 7, 2014
+    name: Rehash PDQ
+    url: "#"
+    location: Keystone City
+    video: "#"
+    audio: "#"
+    media:
+      Video: "#"
+      Audio: "#"
+  - date: Mar 3, 2014
+    name: HeadPigeons
+    url: "#"
+    location: Apokolips

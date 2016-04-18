@@ -51,12 +51,6 @@ labels:
   <div class="u-bgWhite">
 
     <div class="u-bigOlContainer u-paddingMd">
-      <div>
-        <label>
-          <input id="hotdatefoo" type="checkbox">
-          Alternate calendars
-        </label>
-      </div>
       <h1 class="u-marginEndsXs">Future Events</h1>
       <div class="Grid Grid--withGutter">
         {{#each toolkit.events}}
@@ -79,10 +73,10 @@ labels:
         {{/each}}
       </div>
       <hr class="u-marginEndsMd">
-      <h1 class="u-marginTopXs u-marginBottomNone">Our Talks</h1>
+      <h1 class="u-marginEndsXs">Our Talks</h1>
       <div class="Grid Grid--withGutter">
         {{#each toolkit.talks}}
-          <article class="Grid-cell u-marginTopMd u-marginBottomXs u-sm-size1of2 u-md-size1of3">
+          <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
             <a href="#" class="SecretLink u-block">
               <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
                 <img class="u-sizeFull" src="{{thumbnail}}" alt="">
@@ -127,7 +121,7 @@ labels:
   </div>
 </main>
 
-<footer class="u-bigOlContainer u-paddingMd" role="contentinfo">
+<footer class="u-bigOlContainer u-paddingMd u-marginBottomSm" role="contentinfo">
   <p>
     <a href="/"><strong>Cloud Four, Inc.</strong></a>
   </p>
@@ -178,20 +172,3 @@ labels:
     </div>
   </div>
 </footer>
-
-<script>
-
-var calendars = Array.from(document.querySelectorAll('.HotDate'));
-var checkbox = document.getElementById('hotdatefoo');
-
-checkbox.addEventListener('change', function () {
-  calendars.forEach(function (calendar) {
-    if (checkbox.checked) {
-      calendar.classList.add('HotDate--alt');
-    } else {
-      calendar.classList.remove('HotDate--alt');
-    }
-  });
-});
-
-</script>

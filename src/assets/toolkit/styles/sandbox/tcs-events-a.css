@@ -13,6 +13,12 @@
   margin-right: auto;
 }
 
+.u-bebehContainer {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .BigOlMasthead {
   font-size: calc(1em * var(--ms5));
 }
@@ -27,34 +33,28 @@
   background: #fff;
   border: 3px solid currentColor;
   border-radius: 0.25em;
-  color: var(--color-navy);
   display: inline-flex;
   flex-direction: column;
   font-weight: 600;
+  line-height: var(--line-height-sm);
   min-height: 4.5em;
   min-width: 4.5em;
   text-align: center;
 }
 
 .HotDate-header {
-  background: var(--color-navy);
+  background: var(--color-fuchsia);
   border-bottom: 3px solid transparent;
   color: var(--color-white);
-  line-height: var(--line-height-sm);
 }
 
 .HotDate-body {
   font-size: calc(1em * var(--ms3));
-  line-height: var(--line-height-xs);
   margin: auto 0;
 }
 
 .HotDate--range .HotDate-body {
   font-size: calc(1em * var(--ms1));
-}
-
-.HotDate--alt .HotDate-header {
-  background-color: #e90d4e;
 }
 
 .SecretLink,
@@ -84,4 +84,61 @@
   .Thumbnail--rounded\@sm {
     border-radius: var(--control-radius);
   }
+}
+
+.dividerAfter {
+  display: flex;
+  align-items: center;
+}
+
+.dividerAfter::after {
+  content: "";
+  border-top: var(--border-width-md) dashed var(--color-relative);
+  margin-left: var(--space-xs);
+  /*height: var(--border-width-md);
+  min-height: var(--border-width-sm);
+  background-color: var(--color-relative);*/
+  opacity: var(--opacity-lower);
+  width: 100%;
+}
+
+/*hr {
+  height: var(--border-width-md);
+  min-height: var(--border-width-sm);
+  border-style: none;
+  background-color: var(--color-relative);
+  opacity: var(--opacity-lower);
+}*/
+
+.ODoyleRules {
+  margin-top: calc(var(--space-xs) * 2);
+  margin-bottom: calc(var(--space-xs) * 2);
+}
+
+.ODoyleRules > * + * {
+  border-top: 1px solid color(var(--color-black) a(10%));
+  margin-top: var(--space-xs);
+  padding-top: var(--space-xs);
+}
+
+.Button--tertiary {
+  border-color: currentColor;
+}
+
+.PresenterInfo {
+  background: color(var(--color-gray) a(50%));
+  margin-left: calc(var(--space-md) * -1);
+  margin-right: calc(var(--space-md) * -1);
+  padding: var(--space-md);
+  shape-outside: circle(50%);
+
+}
+
+.PresenterInfo .Thumbnail {
+  float: right;
+}
+
+.u-marginEndsXl {
+  margin-top: calc(var(--space-lg) * 2);
+  margin-bottom: calc(var(--space-lg) * 2);
 }

@@ -178,3 +178,29 @@ comments:
     date: March 10, 2016
     thumbnail: https://randomuser.me/api/portraits/men/62.jpg
     comment: Poutine cred blue bottle selvage, everyday carry tote bag trust fund aesthetic portland dreamcatcher flexitarian mumblecore church-key selfies. Readymade everyday carry etsy next level, fashion axe DIY neutra farm-to-table gluten-free offal kinfolk.
+
+talkHistory:
+  - date: Mar 6, 2016
+    name: One Egret Adrift
+    url: "#"
+    location: Gotham City, NJ
+  - date: Dec 12, 2015
+    name: Dashing Confluence
+    url: "#"
+    location: Metropolis, NY
+    video: "#"
+    media:
+      Video: "#"
+  - date: Jun 7, 2014
+    name: Rehash PDQ
+    url: "#"
+    location: Keystone City
+    video: "#"
+    audio: "#"
+    media:
+      Video: "#"
+      Audio: "#"
+  - date: Mar 3, 2014
+    name: HeadPigeons
+    url: "#"
+    location: Apokolips

@@ -14,6 +14,22 @@ module.exports = {
     name: 'css:drizzle'
   },
 
+  // TODO: This might be handled by the core assets task?
+  favicon: {
+    src: './src/favicon.ico',
+    dest: './dist'
+  },
+
+  icons: {
+    src: 'src/assets/toolkit/icons/*.svg',
+    dest: './dist/assets/toolkit/images'
+  },
+
+  images: {
+    src: './src/assets/toolkit/images/**/*',
+    dest: './dist/assets/toolkit/images'
+  },
+
   js: {
     plugins: {
       webpack: {
@@ -44,6 +60,11 @@ module.exports = {
     }
   },
 
+  modernizr: {
+    src: './src/assets/toolkit/**/*.{js,css}',
+    dest: './dist/assets/toolkit/scripts'
+  },
+
   serve: {
     plugins: {
       browserSync: {
@@ -68,6 +89,10 @@ module.exports = {
       {
         match: ['./src/assets/**/*.js'],
         tasks: ['js']
+      },
+      {
+        match: ['./src/assets/toolkit/{images,icons}/**/*'],
+        tasks: ['images', 'icons']
       },
       {
         match: [

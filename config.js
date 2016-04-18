@@ -37,7 +37,9 @@ module.exports = {
             }
           ]
         },
-        externals: {}
+        externals: {
+          'modernizr': 'Modernizr'
+        }
       }
     }
   },
@@ -45,9 +47,13 @@ module.exports = {
   serve: {
     plugins: {
       browserSync: {
-        open: false,
-        notify: false,
         files: ['./dist/**/*'],
+        ghostMode: false,
+        logPrefix: 'Drizzle',
+        minify: false,
+        notify: false,
+        online: false,
+        open: false,
         server: {baseDir: './dist'}
       }
     }

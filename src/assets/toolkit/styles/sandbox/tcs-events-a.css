@@ -110,6 +110,11 @@
   opacity: var(--opacity-lower);
 }*/
 
+.ODoyleRules {
+  margin-top: calc(var(--space-xs) * 2);
+  margin-bottom: calc(var(--space-xs) * 2);
+}
+
 .ODoyleRules > * + * {
   border-top: 1px solid color(var(--color-black) a(10%));
   margin-top: var(--space-xs);
@@ -118,4 +123,22 @@
 
 .Button--tertiary {
   border-color: currentColor;
+}
+
+.PresenterInfo {
+  background: color(var(--color-gray) a(50%));
+  margin-left: calc(var(--space-md) * -1);
+  margin-right: calc(var(--space-md) * -1);
+  padding: var(--space-md);
+  shape-outside: circle(50%);
+
+}
+
+.PresenterInfo .Thumbnail {
+  float: right;
+}
+
+.u-marginEndsXl {
+  margin-top: calc(var(--space-lg) * 2);
+  margin-bottom: calc(var(--space-lg) * 2);
 }

@@ -1,0 +1,20 @@
+{{#if heading}}
+  <h3 class="
+   drizzle-u-inlineBlock
+   drizzle-u-alignMiddle
+   drizzle-u-textNoWrap
+   drizzle-u-padRight">
+    {{heading}}
+  </h3>
+{{/if}}
+{{#if labels}}
+  <ul class="
+   drizzle-u-inlineBlock
+   drizzle-u-alignMiddle">
+    {{#each labels as |label|}}
+      <li class="drizzle-Label drizzle-Label--{{label}}">
+        {{label}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

@@ -6,23 +6,9 @@ const env = require('gulp-util').env;
 const gulp = require('gulp');
 const helpers = require('core-hbs-helpers');
 const modernizr = require('gulp-modernizr');
-const requireDir = require('require-dir');
+// const requireDir = require('require-dir');
 const svgSprite = require('gulp-svg-sprite');
 const tasks = require('core-gulp-tasks');
-
-// gulp.task('styles:toolkit', function () {
-//   return gulp.src(config.src.styles.toolkit)
-//     .pipe(postcss([
-//       importer(),
-//       mixins(),
-//       cssnext(),
-//       easings(),
-//       discardComments(),
-//       discardEmpty()
-//     ]))
-//     .pipe(gulp.dest(config.dest + '/assets/toolkit/styles'))
-//     .pipe(gulpif(config.dev, reload({stream:true})));
-// });
 
 // Append config
 Object.assign(config.drizzle, {helpers});
@@ -72,7 +58,7 @@ gulp.task('icons', () => {
         symbol: {
           dest: '',
           sprite: 'icons.svg'
-        },
+        }
       }
     }))
     .pipe(gulp.dest(config.icons.dest));

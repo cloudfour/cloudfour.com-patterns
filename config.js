@@ -2,7 +2,7 @@
 
 module.exports = {
   'css:toolkit': {
-    src: './src/assets/toolkit/styles/*.css',
+    src: './src/assets/toolkit/{styles,styles/sandbox}/*.css',
     dest: './dist/assets/toolkit/styles',
     name: 'css:toolkit'
   },
@@ -54,7 +54,7 @@ module.exports = {
           ]
         },
         externals: {
-          'modernizr': 'Modernizr'
+          modernizr: 'Modernizr'
         }
       }
     }

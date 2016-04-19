@@ -144,6 +144,41 @@ talks:
       - Refresh PDX
       - WebVisions
 
+comments:
+  - author: Craig Little
+    date: March 3, 2016
+    thumbnail: https://randomuser.me/api/portraits/men/59.jpg
+    comment: Keytar McSweeney's Williamsburg, readymade leggings try hard 90's street art letterpress hoodie occupy Wes Anderson Banksy. Asymmetrical viral letterpress, McSweeney's seitan 3 wolf moon drinking vinegar sartorial pour-over messenger bag photo booth umami next level craft beer.
+    reply:     
+      - author: Alexander Hudson
+        date: March 3, 2016
+        thumbnail: /assets/toolkit/images/sandbox/orange-avatar.svg
+        comment: Tofu photo booth American Apparel, cliche brunch swag freegan lomo retro cray Vice gastropub post-ironic +1 pickled.
+      - author: Margaret Welch
+        date: March 4, 2016
+        thumbnail: https://randomuser.me/api/portraits/women/59.jpg
+        comment: Marfa Tonx next level, Banksy lo-fi vegan pop-up chia small batch DIY seitan asymmetrical viral. Disrupt salvia bespoke craft beer master cleanse. Butcher cornhole gentrify pop-up, raw denim viral literally.
+  - author: Jack Reyes
+    date: March 4, 2016
+    thumbnail: /assets/toolkit/images/sandbox/orange-avatar.svg
+    comment: Fixie tote bag ethnic keytar. Neutra vinyl American Apparel kale chips tofu art party, cardigan raw denim quinoa. Cray paleo tattooed, Truffaut skateboard street art PBR jean shorts Shoreditch farm-to-table Austin lo-fi Odd Future occupy.
+  - author: Sandra Delgado
+    date: March 4, 2016
+    thumbnail: https://randomuser.me/api/portraits/women/60.jpg
+    comment: Dreamcatcher locavore iPhone chillwave, occupy trust fund slow-carb distillery art party narwhal.
+  - author: Patricia Schultz
+    date: March 5, 2016
+    thumbnail: https://randomuser.me/api/portraits/women/69.jpg
+    comment:  Ennui shabby chic Brooklyn, fanny pack direct trade Tumblr tattooed retro polaroid deep v chia vinyl Austin Tonx food truck. Literally ugh umami, pickled jean shorts Wes Anderson letterpress. Banjo Tonx beard biodiese.
+  - author: Donald Adams
+    date: March 7, 2016
+    thumbnail: /assets/toolkit/images/sandbox/orange-avatar.svg
+    comment: Chambray mustache cray migas, man bun meggings affogato synth pitchfork gastropub ethical fixie pabst food truck.
+  - author: Jack Reed
+    date: March 10, 2016
+    thumbnail: https://randomuser.me/api/portraits/men/62.jpg
+    comment: Poutine cred blue bottle selvage, everyday carry tote bag trust fund aesthetic portland dreamcatcher flexitarian mumblecore church-key selfies. Readymade everyday carry etsy next level, fashion axe DIY neutra farm-to-table gluten-free offal kinfolk.
+
 talkHistory:
   - date: Mar 6, 2016
     name: One Egret Adrift

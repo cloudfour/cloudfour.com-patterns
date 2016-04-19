@@ -8,3 +8,5 @@
 
 @import "suitcss-utils";
 @import "./utils/index.css";
+
+@import "./previews.css";

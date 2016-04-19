@@ -1,13 +1,15 @@
 <div class="drizzle-Item drizzle-u-rhythm">
   {{!-- Header, labels --}}
   <div class="drizzle-u-marginEnds">
-    <h3 class="
-     drizzle-u-inlineBlock
-     drizzle-u-alignMiddle
-     drizzle-u-textNoWrap
-     drizzle-u-padRight">
-      {{data.name}}
-    </h3>
+    {{#if data.name}}
+      <h3 class="
+       drizzle-u-inlineBlock
+       drizzle-u-alignMiddle
+       drizzle-u-textNoWrap
+       drizzle-u-padRight">
+        {{data.name}}
+      </h3>
+    {{/if}}
     {{#if data.labels}}
       <ul class="
        drizzle-u-inlineBlock

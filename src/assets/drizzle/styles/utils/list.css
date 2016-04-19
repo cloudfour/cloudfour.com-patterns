@@ -1,9 +1,4 @@
-.f-u-listUnstyled {
-  padding-left: 0;
-  list-style: none;
-}
-
-.f-u-listInline {
+.u-listInline {
   position: relative;
   margin-right: -0.5em;
   margin-left: -0.5em;
@@ -11,7 +6,7 @@
   list-style: none;
 }
 
-.f-u-listInline > li {
+.u-listInline > li {
   display: inline-block;
   padding-right: 0.5em;
   padding-left: 0.5em;

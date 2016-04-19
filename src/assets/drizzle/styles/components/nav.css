@@ -1,63 +1,103 @@
-.f-Nav {
-  color: var(--Nav-color);
-  background-color: var(--Nav-background);
+:root {
+  --Nav-background: var(--color-white);
+  --Nav-border: 1px solid var(--color-silver);
+  --Nav-active-color: inherit;
+  --Nav-active-border: var(--color-blue);
 }
 
-.f-Nav a,
-.f-Nav a:matches(:focus, :hover, :active) {
+.Nav {
+  background: var(--Nav-background);
+  border: var(--Nav-border);
+  border-width: 0 0 1px;
+
+  @media (--lg-viewport) {
+    border-width: 0 1px 0;
+  }
+}
+
+.Nav a,
+.Nav a:--enter {
   text-decoration: none;
-  color: inherit;
 }
 
-.f-Nav-header {
-  margin: 0.5rem 1rem;
+.Nav-header {
+  padding: 1rem;
+  position: relative;
 }
 
-.f-Nav-header svg {
-  width: 2rem;
-  height: 2rem;
+.Nav-header-logo {
+  font-weight: bold;
 
-  fill: currentColor;
+  & > img {
+    vertical-align: bottom;
+  }
 }
 
-.f-Nav-menu {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
+.Nav-header-toggle {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  font: inherit;
+  margin: -1.5em 0 0;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  @media (--lg-viewport) {
+    display: none;
+  }
+
+  & svg {
+    display: block;
+    fill: currentColor;
+    height: 1em;
+    opacity: 0.5;
+    width: 1em;
+  }
+
+  @nest .Nav.is-active & {
+    transform: rotate(180deg);
+  }
+}
+
+.Nav-main {
+  display: none;
+
+  @media (--lg-viewport) {
+    display: block;
+  }
+
+  @nest .Nav.is-active & {
+    display: block;
+  }
+}
+
+.Nav-menu {
+  margin: 0 0 1rem;
+  padding: 0;
   list-style: none;
+
+  & .Nav-menu {
+    margin-bottom: 0;
+  }
 }
 
-.f-Nav-menu > li {
-  margin: 0;
-}
-
-.f-Nav-item {
+.Nav-item {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 0 0 0.25rem;
   display: block;
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-}
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
 
-.f-Nav-menu .f-Nav-menu .f-Nav-item {
-  padding-left: 2rem;
-}
+  @nest .Nav-menu .Nav-menu & {
+    font-size: 0.875em;
+    padding-left: 1.875rem;
+  }
 
-.f-Nav-item.f-is-active {
-  box-shadow: 3px 0 0 var(--Nav-color) inset;
-}
-
-.f-Nav-item:hover,
-.f-Nav-item:focus {
-  background-color: var(--Nav-hover-background);
-}
-
-.f-Nav-item--heading {
-  margin-top: 0.75rem;
-  font-size: 1rem;
-  font-weight: 300;
-}
-
-.f-Nav-footer {
-  margin: 2rem 1rem 1rem;
-  font-size: 0.75rem;
-  opacity: 0.5;
+  &.is-active {
+    border-color: var(--Nav-active-border);
+    color: var(--Nav-active-color);
+  }
 }

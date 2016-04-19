@@ -1,28 +1,10 @@
-/**
- * Fabricator styles
- * @author Luke Askew
- * Class selectors are namespaced with "f-"
- */
+@import "suitcss-components-arrange";
+@import "suitcss-components-grid";
 
-@import 'base/variables';
+@import "./base/index.css";
+@import "./components/index.css";
 
-@import 'components/icon';
-@import 'components/item';
-@import 'components/label';
-@import 'components/layout';
-@import 'components/masthead';
-@import 'components/nav';
-@import 'components/swatch';
-@import 'components/timeline';
+@import "./vendor/prism.css";
 
-@import 'utils/display';
-@import 'utils/layout';
-@import 'utils/list';
-@import 'utils/space';
-
-@import 'vendor/prism';
-@import 'previews';
-
-body {
-  background: #fff !important;
-}
+@import "suitcss-utils";
+@import "./utils/index.css";

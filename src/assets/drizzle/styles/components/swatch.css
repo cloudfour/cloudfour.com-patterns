@@ -1,14 +1,13 @@
-.f-Swatches {
+.Swatches {
   margin-top: 0;
   margin-bottom: 0;
   display: flex;
   padding-left: 0;
   list-style: none;
-
   flex-wrap: wrap;
 }
 
-.f-Swatch {
+.Swatch {
   margin-top: 0;
   margin-bottom: 2em;
   box-sizing: border-box;
@@ -16,21 +15,13 @@
   font-size: 0.75em;
   border-top-width: 8em;
   border-top-style: solid;
-
   flex: 1 0 100%;
-}
 
-@media (--large-viewport) {
-  .f-Swatch {
+  @media (--lg-viewport) {
     flex-basis: 13em;
   }
 }
 
-.f-Swatch-name,
-.f-Swatch-color {
-  margin: 0;
-}
-
-.f-Swatch-name {
+.Swatch-name {
   font-weight: 700;
 }

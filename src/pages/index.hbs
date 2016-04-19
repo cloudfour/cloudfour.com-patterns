@@ -1,0 +1,29 @@
+---
+title: Overview
+---
+
+<h1>{{title}}</h1>
+
+<p>
+  This UI toolkit is a highly-modular design system for rapid web page
+  development. It contains different materials that can be assembled into more
+  complex page layouts.
+</p>
+
+<p>
+  This guide contains real working examples, code snippets, documentation, and
+  style guidelines.
+</p>
+
+<h2>Color</h2>
+
+{{#each drizzle.data.toolkit.contents.colors}}
+  <ul class="drizzle-Swatches">
+    {{#each this}}
+      <li class="drizzle-Swatch" style="border-top-color:{{this}}">
+        <div class="drizzle-Swatch-name">{{@key}}</div>
+        <div class="drizzle-Swatch-color">{{this}}</div>
+      </li>
+    {{/each}}
+  </ul>
+{{/each}}

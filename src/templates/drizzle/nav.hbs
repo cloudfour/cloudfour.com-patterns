@@ -9,8 +9,8 @@
       </svg>
     </a>
   </div>
-  <div class="drizzle-Nav-main">
-    <ul class="drizzle-Nav-menu" id="nav-menu">
+  <div class="drizzle-Nav-main" id="nav-menu">
+    <ul class="drizzle-Nav-menu">
       {{!-- Top-level pages --}}
       <li>
         <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/">
@@ -38,6 +38,9 @@
           </li>
         {{/if}}
       {{/each}}
+    </ul>
+    <h5 class="drizzle-Nav-item">Components</h5>
+    <ul class="drizzle-Nav-menu">
       {{!-- Component patterns --}}
       {{#each drizzle.patterns.components}}
         <li>

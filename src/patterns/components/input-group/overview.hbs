@@ -1,0 +1,17 @@
+---
+notes: |
+  Layout component for text-like `<input>` elements and accompanying elements
+  like `<label>`, `<button>`, etc.
+---
+<div class="InputGroup">
+  <label class="InputGroup-extra" for="demo-inputgroup-input">Search:</label>
+  <input class="Input" type="text" id="demo-inputgroup-input" placeholder="Keywords...">
+  {{#embed "patterns.components.button.base" class="Button--default"}}
+    {{#content "content"}}
+      {{#embed "patterns.components.icon.base"
+       class="Icon--large"
+       iconid="search"}}
+      {{/embed}}
+    {{/content}}
+  {{/embed}}
+</div>

@@ -12,15 +12,21 @@
   <div class="drizzle-Nav-main">
     <ul class="drizzle-Nav-menu" id="nav-menu">
       {{!-- Top-level pages --}}
-      {{#each drizzle.pages}}
-        {{#if contents}}
-          <li>
-            <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/{{@key}}.html">
-              {{data.title}}
-            </a>
-          </li>
-        {{/if}}
-      {{/each}}
+      <li>
+        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/">
+          Overview
+        </a>
+      </li>
+      <li>
+        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/timeline.html">
+          Timeline
+        </a>
+      </li>
+      <li>
+        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/icons.html">
+          Icons
+        </a>
+      </li>
       {{!-- Top-level patterns --}}
       {{#each drizzle.patterns}}
         {{#if collection}}

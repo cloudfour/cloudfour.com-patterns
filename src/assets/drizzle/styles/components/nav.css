@@ -101,3 +101,9 @@
     color: var(--Nav-active-color);
   }
 }
+
+.Nav-footer {
+  margin: 2rem 1rem 1rem;
+  font-size: 0.75rem;
+  opacity: 0.5;
+}

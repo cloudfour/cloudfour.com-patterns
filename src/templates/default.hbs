@@ -1,8 +1,5 @@
 {{#extend "blank" htmlclass="drizzle-Layout"}}
   {{#content "stylesheets" mode="append"}}
-    {{#each stylesheets}}
-      <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/{{this}}.css">
-    {{/each}}
     <link rel="stylesheet" href="{{baseurl}}/assets/drizzle/styles/drizzle.css">
   {{/content}}
   {{#content "wrapper"}}
@@ -18,9 +15,6 @@
     </body>
   {{/content}}
   {{#content "scripts" mode="append"}}
-    {{#each scripts}}
-      <script src="{{baseurl}}/assets/toolkit/scripts/{{this}}.js"></script>
-    {{/each}}
     <script src="{{baseurl}}/assets/drizzle/scripts/drizzle.js"></script>
   {{/content}}
 {{/extend}}

@@ -36,7 +36,3 @@
     width: 1.5em;
   }
 }
-
-.Item-preview {
-  padding: calc(var(--space) * 2);
-}

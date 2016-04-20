@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html class="{{htmlclass}}">
   <head>
-    {{#block "head"}}
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    {{#block "stylesheets"}}
       <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/toolkit.css">
-      {{#each stylesheets}}
-        <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/{{this}}.css">
-      {{/each}}
     {{/block}}
+    <script src="{{baseurl}}/assets/toolkit/scripts/modernizr.js"></script>
   </head>
   {{#block "wrapper"}}
     <body>
@@ -17,5 +15,8 @@
 
       {{/block}}
     </body>
+  {{/block}}
+  {{#block "scripts"}}
+    <script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
   {{/block}}
 </html>

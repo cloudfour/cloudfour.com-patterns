@@ -8,7 +8,6 @@ class DrizzleDom {
       event.preventDefault();
       this.toggleNav();
     });
-    this.setActiveNavItem(window.location.pathname);
   }
 
   get nav () {
@@ -41,3 +40,4 @@ class DrizzleDom {
 }
 
 const drizzleDom = new DrizzleDom();
+drizzleDom.setActiveNavItem(window.location.pathname);

@@ -54,7 +54,7 @@ labels:
     <div class="u-bigOlContainer u-paddingMd">
       <h1 class="u-marginEndsXs">Future Events</h1>
       <div class="Grid Grid--withGutter">
-        {{#each toolkit.events}}
+        {{#each drizzle.data.toolkit.contents.events}}
           <article class="Grid-cell u-flex u-marginEndsXs u-sm-size1of2 u-md-size1of3">
             <a href="{{url}}" class="SecretLink u-flex u-flexAlignItemsCenter">
               <time class="HotDate {{#if range}}HotDate--range{{/if}}" datetime="2016-04-12T18:30">
@@ -76,7 +76,7 @@ labels:
       <hr class="u-marginEndsMd">
       <h1 class="u-marginEndsXs">Our Talks</h1>
       <div class="Grid Grid--withGutter">
-        {{#each toolkit.talks}}
+        {{#each drizzle.data.toolkit.contents.talks}}
           <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
             <a href="#" class="SecretLink u-block">
               <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
@@ -138,7 +138,7 @@ labels:
           <li><a href="tel:15032901090">+1 503.290.1090</a></li>
         </ul>
         <ul class="u-listInline u-marginTopMd u-md-marginTopNone u-md-posAbsoluteTopRight">
-          {{#each toolkit.social}}
+          {{#each drizzle.data.toolkit.contents.social}}
             <li>
               <a class="u-textLarger" href="{{url}}" title="{{text}}">
                 <svg class="Icon Icon--large" role="img">

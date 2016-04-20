@@ -34,3 +34,11 @@ a {
 a:matches(:active, :focus, :hover) {
   color: var(--link-hover-color);
 }
+
+/**
+ * Code
+ */
+
+pre {
+  overflow: auto;
+}

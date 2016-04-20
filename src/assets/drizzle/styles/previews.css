@@ -1,0 +1,8 @@
+/**
+ * Special styles for preview purposes only
+ */
+
+.Item-preview :--demo-box {
+  min-height: 4em;
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,28 @@
+---
+name: Lists
+sourceless: true
+---
+
+{{#with drizzle.data.toolkit.contents}}
+  <h3>Unordered</h3>
+  <ul>
+    {{#each languages as |term|}}
+      <li>{{term}}</li>
+    {{/each}}
+  </ul>
+  <h3>Ordered</h3>
+  <ol>
+    {{#each languages as |term|}}
+      <li>{{term}}</li>
+    {{/each}}
+  </ol>
+  <h3>Definition</h3>
+  <dl>
+    {{#each languages as |term def|}}
+      <dt>
+        <b>{{term}}</b>
+      </dt>
+      <dd>{{def}}</dd>
+    {{/each}}
+  </dl>
+{{/with}}

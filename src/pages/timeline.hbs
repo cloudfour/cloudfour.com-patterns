@@ -1,0 +1,24 @@
+---
+title: Timeline
+---
+
+<h1>{{title}}</h1>
+
+{{#with drizzle.data.timeline.contents}}
+  {{#each groups}}
+    <div class="drizzle-Timeline{{#if type}} drizzle-Timeline--{{type}}{{/if}}">
+      {{#each items}}
+        <article class="drizzle-Timeline-item">
+          <div class="drizzle-Timeline-tile">
+            <h3>{{heading}}</h3>
+            <ul class="drizzle-u-listUnstyled">
+              {{#each details}}
+                <li>{{{.}}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </article>
+      {{/each}}
+    </div>
+  {{/each}}
+{{/with}}

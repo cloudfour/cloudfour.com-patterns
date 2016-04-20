@@ -1,0 +1,29 @@
+{{#extend "default"}}
+  {{#content "body"}}
+    {{!-- Header, labels --}}
+    <div class="drizzle-u-marginTop">
+      <h2 class="
+       drizzle-u-inlineBlock
+       drizzle-u-alignMiddle
+       drizzle-u-textNoWrap
+       drizzle-u-padRight">
+        {{name}}
+      </h2>
+      {{#if labels}}
+        <ul class="
+         drizzle-u-inlineBlock
+         drizzle-u-alignMiddle">
+          {{#each labels}}
+            <li class="drizzle-Label drizzle-Label--{{this}}">
+              {{this}}
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </div>
+
+    {{#each patterns}}
+      {{> drizzle.item}}
+    {{/each}}
+  {{/content}}
+{{/extend}}

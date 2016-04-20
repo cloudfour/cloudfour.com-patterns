@@ -1,0 +1,64 @@
+<div class="drizzle-Layout-nav drizzle-Nav" id="nav">
+  <div class="drizzle-Nav-header">
+    <a class="drizzle-Nav-header-logo" href="/">
+      {{> drizzle.logo}}
+    </a>
+    <a class="drizzle-Nav-header-toggle" href="#nav">
+      <svg viewBox="0 0 9.71 5.56">
+        <polygon points="4.85 5.56 0 0.71 0.71 0 4.85 4.15 9 0 9.71 0.71 4.85 5.56"/>
+      </svg>
+    </a>
+  </div>
+  <div class="drizzle-Nav-main" id="nav-menu">
+    <ul class="drizzle-Nav-menu">
+      {{!-- Top-level pages --}}
+      <li>
+        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/">
+          Overview
+        </a>
+      </li>
+      <li>
+        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/timeline.html">
+          Timeline
+        </a>
+      </li>
+      <li>
+        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/icons.html">
+          Icons
+        </a>
+      </li>
+      {{!-- Top-level patterns --}}
+      {{#each drizzle.patterns}}
+        {{#if collection}}
+          <li>
+            <a class="drizzle-Nav-item drizzle-Nav-item--heading"
+             href="/patterns/{{@key}}.html">
+              {{collection.name}}
+            </a>
+          </li>
+        {{/if}}
+      {{/each}}
+      {{!-- Sandbox page --}}
+      <li>
+        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/sandbox">
+          Sandbox
+        </a>
+      </li>
+    </ul>
+    <h5 class="drizzle-Nav-item">Components</h5>
+    <ul class="drizzle-Nav-menu">
+      {{!-- Component patterns --}}
+      {{#each drizzle.patterns.components}}
+        <li>
+          <a class="drizzle-Nav-item drizzle-Nav-item--heading"
+           href="/patterns/components/{{@key}}.html">
+            {{collection.name}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+    <div class="drizzle-Nav-footer">
+      {{timestamp format="MMM D, YYYY"}} &#183; {{timestamp format="h:mma"}}
+    </div>
+  </div>
+</div>

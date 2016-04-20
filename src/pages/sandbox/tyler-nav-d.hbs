@@ -1,0 +1,171 @@
+---
+title: "Accessible Nav Prototype"
+layout: blank
+labels:
+  - inprogress
+stylesheets:
+  - sandbox/tcs-nav-e
+---
+
+<div class="Sky">
+  <header class="Sky-nav" role="banner">
+    <ul class="Sky-nav-controls">
+      <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
+      <li><a class="Sky-nav-controls-skipToMenu Button Button--sheer" href="#menu" aria-label="Skip to navigation">Menu</a></li>
+    </ul>
+    <a class="Sky-nav-logo" href="/">
+      <svg class="Sky-nav-logo-img" width="80" height="80" role="img" aria-labelledby="logo-title">
+        <title id="logo-title">Cloud Four</title>
+        <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor"/>
+      </svg>
+    </a>
+    <nav class="Sky-nav-menu" role="navigation" id="menu">
+      <ul class="Sky-nav-menu-items">
+        <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Our Process</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Our Work</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Articles</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Speaking</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">Code</a></li>
+        <li><a class="Sky-nav-menu-item" href="/">The Team</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<main role="main" id="main">
+  <div class="Sky Sky--clouds">
+    <div class="u-paddingMd">
+      <h1>Section Heading</h1>
+      <p>Perhaps with a helpful yet succinct description.</p>
+    </div>
+  </div>
+  <div class="Page">
+    <div class="u-paddingMd u-spaceChildren">
+      <h1>In-Page Heading</h1>
+      <p>Bulk of content would likely start here.</p>
+      <p>But, maybe not, y'know? The world's a crazy place.</p>
+      <p>Some <a href="http://www.buseyipsum.com/">Busey Ipsum</a>:</p>
+      <blockquote>
+        <p>It depends on your ability to take a risk on eating something when you dont know what it is. Thats why I enjoy eating in the dark. When you get lost in your imaginatory vagueness, your foresight will become a nimble vagrant.</p>
+      </blockquote>
+    </div>
+    <hr class="u-marginMd u-marginBottom0">
+    <div class="Portland">
+      <p class="u-paddingMd u-posRelative">
+        <span class="u-inlineBlock u-textNoWrap u-textLarger u-marginRightSm">
+          Need help clouding your fours?
+        </span>
+        <a class="Button Button--primary u-marginEndsXs u-textNoWrap" href="mailto:info@cloudfour.com">
+          <svg class="Icon Icon--large" role="img">
+            <use xlink:href="/assets/toolkit/images/icons.svg#envelope"/>
+          </svg>
+          Squiddly-doo
+        </a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="u-paddingMd" role="contentinfo">
+  <p>
+    <a href="/"><strong>Cloud Four, Inc.</strong></a>
+  </p>
+  <div class="Grid u-posRelative">
+    <div class="Grid-cell u-sm-size1of2 u-md-size1of3">
+      <p>
+        208 SW 1st Ave, Suite 240<br>
+        Portland, Oregon 97204 USA
+      </p>
+      <ul class="u-listUnstyled">
+        <li><a href="mailto:info@cloudfour.com">info@cloudfour.com</a></li>
+        <li><a href="tel:15032901090">+1 503.290.1090</a></li>
+      </ul>
+      <ul class="u-listInline u-marginTopMd u-md-marginTop0 u-md-posAbsoluteTopRight">
+        {{#each drizzle.data.toolkit.contents.social}}
+          <li>
+            <a class="u-textLarger" href="{{url}}" title="{{text}}">
+              <svg class="Icon Icon--large" role="img">
+                <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
+              </svg>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    <hr class="Grid-cell u-sm-hidden u-marginTopMd u-marginBottom0"/>
+    <nav class="Grid-cell u-marginTopMd u-sm-marginTop0 u-sm-size1of2 u-md-size1of3">
+      <ul class="u-listUnstyled u-columns2">
+        <li><a href="/">Our Process</a></li>
+        <li><a href="/">Our Work</a></li>
+        <li><a href="/">Articles</a></li>
+        <li><a href="/">Speaking</a></li>
+        <li><a href="/">Code</a></li>
+        <li><a href="/">The Team</a></li>
+        <li><a href="/">Patterns</a></li>
+        <li><a href="/">Device Lab</a></li>
+      </ul>
+    </nav>
+    <hr class="Grid-cell u-md-hidden u-marginTopMd u-marginBottom0"/>
+    <p class="Grid-cell u-marginTopMd u-md-sizeFit u-md-flexAlignSelfEnd u-md-flexExpandLeft">
+      <small>&copy; 2007 - 2016 Cloud Four, Inc.</small>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script>
+
+var effectOptions = {
+  duration: 500,
+  easing: [0.455, 0.03, 0.515, 0.955] // easeInOutQuad
+};
+
+var snapOptions = {
+  duration: 0
+};
+
+var body = document.body;
+var menuId = 'menu';
+var toggle = document.querySelector('a[href="#' + menuId + '"]');
+var menu = document.getElementById(menuId);
+var testClass = 'u-testBlock';
+var openClass = 'is-open';
+
+function getHeight (element) {
+  var height = element.offsetHeight;
+
+  if (!height) {
+    element.classList.add(testClass);
+    height = element.offsetHeight;
+    element.classList.remove(testClass);
+  }
+
+  return height;
+}
+
+toggle.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  var isOpen = menu.classList.contains(openClass);
+  var menuHeight = getHeight(menu);
+  var startOptions = isOpen ? effectOptions : snapOptions;
+  var endOptions = isOpen ? snapOptions : effectOptions;
+
+  if (isOpen) {
+    endOptions.complete = function () {
+      menu.classList.remove(openClass);
+    };
+  } else {
+    endOptions.begin = function () {
+      menu.classList.add(openClass);
+    }
+  }
+
+  startOptions.complete = function () {
+    Velocity(body, { translateY: 0 }, endOptions);
+  };
+
+  Velocity(body, { translateY: menuHeight * -1 }, startOptions);
+});
+
+</script>

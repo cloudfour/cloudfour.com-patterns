@@ -1,0 +1,92 @@
+---
+title: "Accessible Nav Prototype (New Sky w/ different JS)"
+layout: blank
+labels:
+  - inprogress
+---
+
+{{> patterns.components.sky.base }}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      <div class="u-paddingMd">
+        <h1>Section Heading</h1>
+        <p>Perhaps with a helpful yet succinct description.</p>
+      </div>
+    {{/content}}
+  {{/embed}}
+  <div class="u-bgWhite">
+    <div class="u-paddingMd u-spaceChildren">
+      <h1>In-Page Heading</h1>
+      <p>Bulk of content would likely start here.</p>
+      <p>But, maybe not, y'know? The world's a crazy place.</p>
+      <p>Some <a href="http://www.buseyipsum.com/">Busey Ipsum</a>:</p>
+      <blockquote>
+        <p>It depends on your ability to take a risk on eating something when you dont know what it is. Thats why I enjoy eating in the dark. When you get lost in your imaginatory vagueness, your foresight will become a nimble vagrant.</p>
+      </blockquote>
+    </div>
+    <hr class="u-marginMd u-marginBottomNone">
+    <div class="u-posRelative">
+      <p class="u-paddingMd u-size2of3">
+        <span class="u-inlineBlock u-textLarger u-marginRightSm u-textNoWrap">
+          Need help clouding your fours?
+        </span>
+        <a class="Button Button--primary u-marginEndsXs u-textNoWrap" href="mailto:info@cloudfour.com">
+          <svg class="Icon Icon--large" role="img">
+            <use xlink:href="/assets/toolkit/images/icons.svg#envelope"/>
+          </svg>
+          Squiddly-doo
+        </a>
+      </p>
+      <img class="u-posAbsoluteBottomRight u-size2of5 u-sm-size1of3 u-sm-marginRightMd u-md-size1of4"
+        src="/assets/toolkit/images/portland.svg" alt="">
+    </div>
+  </div>
+</main>
+
+<footer class="u-paddingMd" role="contentinfo">
+  <p>
+    <a href="/"><strong>Cloud Four, Inc.</strong></a>
+  </p>
+  <div class="Grid u-posRelative">
+    <div class="Grid-cell u-sm-size1of2 u-md-size1of3">
+      <p>
+        208 SW 1st Ave, Suite 240<br>
+        Portland, Oregon 97204 USA
+      </p>
+      <ul class="u-listUnstyled">
+        <li><a href="mailto:info@cloudfour.com">info@cloudfour.com</a></li>
+        <li><a href="tel:15032901090">+1 503.290.1090</a></li>
+      </ul>
+      <ul class="u-listInline u-marginTopMd u-md-marginTopNone u-md-posAbsoluteTopRight">
+        {{#each toolkit.social}}
+          <li>
+            <a class="u-textLarger" href="{{url}}" title="{{text}}">
+              <svg class="Icon Icon--large" role="img">
+                <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
+              </svg>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    <hr class="Grid-cell u-sm-hidden u-marginTopMd u-marginBottomNone"/>
+    <nav class="Grid-cell u-marginTopMd u-sm-marginTopNone u-sm-size1of2 u-md-size1of3">
+      <ul class="u-listUnstyled u-columns2">
+        <li><a href="/">Our Process</a></li>
+        <li><a href="/">Our Work</a></li>
+        <li><a href="/">Articles</a></li>
+        <li><a href="/">Speaking</a></li>
+        <li><a href="/">Code</a></li>
+        <li><a href="/">The Team</a></li>
+        <li><a href="/">Patterns</a></li>
+        <li><a href="/">Device Lab</a></li>
+      </ul>
+    </nav>
+    <hr class="Grid-cell u-md-hidden u-marginTopMd u-marginBottomNone"/>
+    <p class="Grid-cell u-marginTopMd u-md-sizeFit u-md-flexAlignSelfEnd u-md-flexExpandLeft">
+      <small>&copy; 2007 - 2016 Cloud Four, Inc.</small>
+    </p>
+  </div>
+</footer>

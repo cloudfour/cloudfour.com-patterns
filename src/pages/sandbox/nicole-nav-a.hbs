@@ -1,0 +1,112 @@
+---
+layout: blank
+stylesheets:
+  - sandbox/nm-nav-a
+---
+
+{{! TODO: Skip to main content link }}
+
+<header class="Masthead" role="banner">
+
+    <div class="Masthead-main">
+      <a class="Masthead-home" href="/" title="Home">
+        <svg class="Masthead-logo">
+          <title>Cloud Four</title>
+          <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor" />
+        </svg>
+      </a>
+      <a class="Masthead-control Button Button--primary u-lg-hidden" href="#nav">Menu</a>
+    </div>
+    <nav class="Masthead-nav" id="nav">
+      <ul class="Masthead-links">
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Our Process {{@index}}
+            </h3>
+          </a>
+        </li>
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Our Work {{@index}}
+            </h3>
+          </a>
+        </li>
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Articles {{@index}}
+            </h3>
+          </a>
+        </li>
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Speaking {{@index}}
+            </h3>
+          </a>
+        </li>
+        <li>
+          <a class="Masthead-link" href="#">
+            <h3 class="Masthead-link-heading">
+              Code {{@index}}
+            </h3>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+</header>
+
+<div class="Hero">
+  <h1 class="Hero-header">We <img class="Hero-icon" src="/assets/toolkit/images/sandbox/heart.svg" /> responsive!</h1>
+  <img class="u-size9of12 u-posCenter" src="/assets/toolkit/images/sandbox/device-illustration.svg" />
+</div>
+
+<main style="text-align: center; padding: 6em 0; opacity: 0.5;">
+  (page content)
+</main>
+
+<footer class="Footer">
+  <h4 class="Footer-cta-headline">Want to work together?</h4>
+  <button class="Button Button--primary">
+    <svg class="Icon Icon--large">
+      <use xlink:href="/assets/toolkit/images/icons.svg#envelope" />
+    </svg>
+    Get in touch!
+  </button>
+  <img class="u-block u-posCenter u-paddingTopSm" src="/assets/toolkit/images/sandbox/portland.svg" />
+  <div class="Footer-lower">
+    <div class="Footer-address u-paddingTopMd">
+      <div class="Grid Grid--withGutter u-flex u-flexAlignItemsCenter">
+        <div class="Grid-cell u-size1of3">
+          <svg class="Footer-logo">
+            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#cloud-four" />
+          </svg>
+        </div>
+        <div class="Grid-cell u-size2of3">
+          <address>
+            208 SW 1st Ave, Ste. 240 
+            <span class="u-block">Portland, OR  97204</span>
+            <a href="tel:+1  503.290.1090">+1  503.290.1090</a>
+          </address>
+        </div>
+      </div>
+    </div>
+    <img class="u-block u-posCenter u-paddingTopSm" src="/assets/toolkit/images/sandbox/social.svg" />
+  </div>
+
+</footer>
+
+<script>
+
+var nav = document.getElementById('nav');
+var toggle = document.querySelector('[href="#nav"]');
+
+toggle.addEventListener('click', function(event) {
+  event.preventDefault();
+  nav.classList.toggle('is-open');
+});
+
+</script>

@@ -6,7 +6,6 @@ const env = require('gulp-util').env;
 const gulp = require('gulp');
 const helpers = require('core-hbs-helpers');
 const modernizr = require('gulp-modernizr');
-// const requireDir = require('require-dir');
 const svgSprite = require('gulp-svg-sprite');
 const tasks = require('core-gulp-tasks');
 

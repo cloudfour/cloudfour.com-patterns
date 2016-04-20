@@ -95,10 +95,7 @@ module.exports = {
         tasks: ['images', 'icons']
       },
       {
-        match: [
-          './src/**/*.hbs',
-          './src/data/**/*'
-        ],
+        match: ['./src/{data,pages,patterns,templates}/**/*'],
         tasks: ['drizzle']
       }
     ]

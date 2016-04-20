@@ -198,149 +198,48 @@ padding-bottom: calc(24 / 16em * 1.25);
 
       <div class="comments u-marginTopMd">
         <h2>Comments</h2>
-        <div class="comment u-flex u-marginTopMd">
-          <div>
-            <a href="#" class="Thumbnail Thumbnail--circle u-marginRightXs">
-              <img width="55" src="/assets/toolkit/images/sandbox/erik-jung.jpg" alt="Erik">
-            </a>
-          </div>
-          <div style="line-height: 1.2; margin-top:.4rem;">
-            <a href="#" style="text-decoration:none; display:block;font-weight:bold">Erik Jung</a>
-            <span class="u-textSmaller">March 3, 2015</span>
-          </div>
-        </div>
-        <p>Waistcoat forage fingerstache brunch semiotics, mlkshk biodiesel cred health goth normcore 90's whatever. Tattooed selfies chia, gochujang four loko kitsch keytar shabby chic semiotics mustache 3 wolf moon iPhone migas echo park. Humblebrag cred leggings microdosing echo park.</p>
-        <a class="u-marginTopSm u-marginRightSm u-block comment-reply" href="#"><b>Reply</b>
-          <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-            <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-          </svg>
-        </a>
-
-        <div class="reply-comment">
-          <div class="comment u-flex">
-            <div>
-              <a href="#" class="Thumbnail Thumbnail--circle u-marginRightXs">
-                <img width="55" src="/assets/toolkit/images/sandbox/erik-jung.jpg" alt="Erik">
-              </a>
+        {{#each toolkit.comments}}
+          <div class="comment u-paddingTopMd">
+            <p>{{comment}}</p>
+            <div class="u-flex u-marginTopMd u-flexJustifyBetween u-flexAlignItemsBaseline">
+              <div>
+                <a href="#" class="u-marginRightSm" style="text-decoration:none; font-weight:bold">{{author}}</a>
+                <span class="u-textSmaller">{{date}}</span>
+              </div>
+              <div>
+                <a class="u-marginRightSm u-block comment-reply" href="#">
+                <svg class="Icon u-textSmaller u-marginTopNone" role="img">
+                  <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
+                </svg>
+                <b>Reply</b>
+                </a>
+              </div>
             </div>
-            <div style="line-height: 1.2; margin-top:.4rem;">
-              <a href="#" style="text-decoration:none; display:block;font-weight:bold">Erik Jung</a>
-              <span class="u-textSmaller">March 3, 2015</span>
+            <div class="u-marginTopSm">
+              {{#if reply}}
+                {{#each reply}}  
+                  <div class="reply-comment u-paddingTopMd u-paddingBottomMd">
+                    <p>{{comment}}</p>
+                    <div class="u-flex u-marginTopSm u-flexJustifyBetween u-flexAlignItemsCenter">
+                      <div>
+                        <a href="#" class="u-paddingRightSm" style="text-decoration:none; font-weight:bold">{{author}}</a>
+                        <span class="u-textSmaller">{{date}}</span>
+                      </div>
+                      <div>
+                        <a class="u-marginRightSm u-block comment-reply" href="#">
+                        <svg class="Icon u-textSmaller u-marginTopNone" role="img">
+                          <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
+                        </svg>
+                        <b>Reply</b>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              {{/if}}
             </div>
-          </div>
-          <p>Trust fund neutra vegan microdosing, cardigan gochujang irony quinoa fashion axe freegan taxidermy ugh health goth everyday carry DIY.</p>
-          <a class="u-marginTopSm u-marginRightSm u-block comment-reply" href="#"><b>Reply</b>
-            <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-              <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-            </svg>
-          </a>
-        
-        <div class="comment u-flex">
-            <div>
-              <a href="#" class="Thumbnail Thumbnail--circle u-marginRightXs">
-                <img width="55" src="/assets/toolkit/images/sandbox/erik-jung.jpg" alt="Erik">
-              </a>
-            </div>
-            <div style="line-height: 1.2; margin-top:.4rem;">
-              <a href="#" style="text-decoration:none; display:block;font-weight:bold">Erik Jung</a>
-              <span class="u-textSmaller">March 3, 2015</span>
-            </div>
-          </div>
-          <p>Drinking vinegar selvage semiotics everyday carry pinterest, iPhone sustainable sartorial flannel readymade letterpress mlkshk lomo.</p>
-          <a class="u-marginTopSm u-marginRightSm u-block comment-reply" href="#"><b>Reply</b>
-            <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-              <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-            </svg>
-          </a>
-        </div>
-
-        </div>
-
-        <hr class="Separator">
-
-        <div class="comment u-flex u-marginTopMd">
-          <div>
-            <a href="#" class="Thumbnail Thumbnail--circle u-marginRightXs">
-              <img width="55" src="/assets/toolkit/images/sandbox/erik-jung.jpg" alt="Erik">
-            </a>
-          </div>
-          <div style="line-height: 1.2; margin-top:.4rem;">
-            <a href="#" style="text-decoration:none; display:block;font-weight:bold">Erik Jung</a>
-            <span class="u-textSmaller">March 3, 2015</span>
-          </div>
-        </div>
-        <p>Waistcoat forage fingerstache brunch semiotics, mlkshk biodiesel cred health goth normcore 90's whatever. Tattooed selfies chia, gochujang four loko kitsch keytar shabby chic semiotics mustache 3 wolf moon iPhone migas echo park. Humblebrag cred leggings microdosing echo park.</p>
-        <a class="u-marginTopSm u-marginRightSm u-block comment-reply" href="#"><b>Reply</b>
-          <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-            <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-          </svg>
-        </a>
-
-        <hr class="Separator">
-
-      </div> <!--end of comments-->
-
-      <div class="comments u-marginTopMd">
-        <h2 class="u-paddingBottomLg">Comments</h2>
-        <p>Waistcoat forage fingerstache brunch semiotics, mlkshk biodiesel cred health goth normcore 90's whatever. Tattooed selfies chia, gochujang four loko kitsch keytar shabby chic semiotics mustache 3 wolf moon iPhone migas echo park. Humblebrag cred leggings microdosing echo park.</p>
-        
-        <div class="u-flex u-flexJustifyEnd">
-          <p><a href="#">Erik Jung</a>
-          <span class="u-paddingLeftMd u-paddingRightMd">March 3, 2016
-          </p>
-          <a class="u-marginRightSm u-block comment-reply" href="#"><b>Reply</b>
-            <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-              <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-            </svg>
-          </a>
-        </div>
-      </div> 
-      <div class="reply-comment u-marginTopMd">
-        <p>Trust fund neutra vegan microdosing, cardigan gochujang irony quinoa fashion axe freegan taxidermy ugh health goth everyday carry DIY.</p>
-        <div class="u-flex u-flexJustifyEnd">
-          <p><a href="#">Erik Jung</a>
-          <span class="u-paddingLeftMd u-paddingRightMd">March 3, 2016
-          </p>
-          <a class="u-marginRightSm u-block comment-reply" href="#"><b>Reply</b>
-            <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-              <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="reply-comment u-marginTopMd u-marginBottomMd">
-        <p>Trust fund neutra vegan microdosing, cardigan gochujang irony quinoa fashion axe freegan taxidermy ugh health goth everyday carry DIY.</p>
-        <div class="u-flex u-flexJustifyEnd">
-          <p><a href="#">Erik Jung</a>
-          <span class="u-paddingLeftMd u-paddingRightMd">March 3, 2016
-          </p>
-          <a class="u-marginRightSm u-block comment-reply" href="#"><b>Reply</b>
-            <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-              <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-       
-      <hr class="Separator">
-        
-      <div class="comment u-marginTopMd u-marginBottomMd">  
-        <p>Drinking vinegar selvage semiotics everyday carry pinterest, iPhone sustainable sartorial flannel readymade letterpress mlkshk lomo.</p>
-        <div class="u-flex u-flexJustifyEnd">
-          <p><a href="#">Erik Jung</a>
-          <span class="u-paddingLeftMd u-paddingRightMd">March 3, 2016
-          </p>
-          <a class="u-marginRightSm u-block comment-reply" href="#"><b>Reply</b>
-            <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-              <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      
-      <hr class="Separator">
-
+          </div> <!--end of comment-->
+        {{/each}}
       </div> 
 
 <!--       <div class="recent-articles u-marginTopMd">

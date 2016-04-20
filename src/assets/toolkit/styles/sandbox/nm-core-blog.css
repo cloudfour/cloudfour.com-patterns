@@ -334,11 +334,15 @@ article {
 .comment-reply {
   text-align: right;
   text-decoration: none;
-  color: color(var(--color-black) a(20%));
 }
 
 .reply-comment {
-  margin-left: var(--space-md);
+  margin-left: var(--space-lg);
+  border-top: solid color(var(--color-gray) a(50%));
  /* padding-left: var(--space-sm);
   border-left: solid 3px var(--color-gray);*/
+}
+
+.comment {
+  border-bottom: solid color(var(--color-gray) a(50%));
 }

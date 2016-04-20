@@ -38,6 +38,12 @@
           </li>
         {{/if}}
       {{/each}}
+      {{!-- Sandbox page --}}
+      <li>
+        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/sandbox">
+          Sandbox
+        </a>
+      </li>
     </ul>
     <h5 class="drizzle-Nav-item">Components</h5>
     <ul class="drizzle-Nav-menu">
@@ -50,44 +56,6 @@
           </a>
         </li>
       {{/each}}
-      {{!-- Demo pages --}}
-      {{#with drizzle.pages.demos}}
-        <li>
-          <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/demos/index.html">
-            {{index.data.title}}
-          </a>
-          <ul class="drizzle-Nav-menu">
-            {{#each this}}
-              {{#compare @key "!==" "index"}}
-                <li>
-                  <a class="drizzle-Nav-item" href="/demos/{{@key}}.html">
-                    {{data.title}}
-                  </a>
-                </li>
-              {{/compare}}
-            {{/each}}
-          </ul>
-        </li>
-      {{/with}}
-      {{!-- Docs pages --}}
-      {{#with drizzle.pages.docs}}
-        <li>
-          <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/docs/index.html">
-            {{index.data.title}}
-          </a>
-          <ul class="drizzle-Nav-menu">
-            {{#each this}}
-              {{#compare @key "!==" "index"}}
-                <li>
-                  <a class="drizzle-Nav-item" href="/docs/{{@key}}.html">
-                    {{data.title}}
-                  </a>
-                </li>
-              {{/compare}}
-            {{/each}}
-          </ul>
-        </li>
-      {{/with}}
     </ul>
     <div class="drizzle-Nav-footer">
       {{timestamp format="MMM D, YYYY"}} &#183; {{timestamp format="h:mma"}}

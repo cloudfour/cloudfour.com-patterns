@@ -1,9 +1,3 @@
-@use postcss-mixins;
-@use postcss-cssnext;
-@use postcss-easings;
-@use postcss-discard-comments;
-@use postcss-discard-empty;
-
 :root {
   /* Common properties */
   --color-aqua: #7fdbff;

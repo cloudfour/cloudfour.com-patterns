@@ -3,11 +3,13 @@ name: Headings
 sourceless: true
 ---
 
-{{#with drizzle.data.toolkit.contents.specimens}}
-  <h1>{{heading}}</h1>
-  <h2>{{heading}}</h2>
-  <h3>{{heading}}</h3>
-  <h4>{{heading}}</h4>
-  <h5>{{heading}}</h5>
-  <h6>{{heading}}</h6>
-{{/with}}
+<div class="u-spaceChildren">
+  {{#with drizzle.data.toolkit.contents.specimens}}
+    <h1>{{heading}}</h1>
+    <h2>{{heading}}</h2>
+    <h3>{{heading}}</h3>
+    <h4>{{heading}}</h4>
+    <h5>{{heading}}</h5>
+    <h6>{{heading}}</h6>
+  {{/with}}
+</div>

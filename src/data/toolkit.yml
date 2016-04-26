@@ -151,8 +151,9 @@ comments:
     date: March 3, 2016
     thumbnail: https://randomuser.me/api/portraits/men/59.jpg
     comment: Keytar McSweeney's Williamsburg, readymade leggings try hard 90's street art letterpress hoodie occupy Wes Anderson Banksy. Asymmetrical viral letterpress, McSweeney's seitan 3 wolf moon drinking vinegar sartorial pour-over messenger bag photo booth umami next level craft beer.
-    reply:     
-      - author: Alexander Hudson
+    reply:
+      - author: Nicole Mors
+        cloudfour: true
         date: March 3, 2016
         thumbnail: /assets/toolkit/images/sandbox/orange-avatar.svg
         comment: Tofu photo booth American Apparel, cliche brunch swag freegan lomo retro cray Vice gastropub post-ironic +1 pickled.

@@ -7,7 +7,9 @@
        drizzle-u-alignMiddle
        drizzle-u-textNoWrap
        drizzle-u-padRight">
-        {{data.name}}
+        <a class="drizzle-u-linkHidden" href="#{{toSlug data.name}}">
+          {{data.name}}
+        </a>
       </h2>
     {{/if}}
     {{#if data.labels}}

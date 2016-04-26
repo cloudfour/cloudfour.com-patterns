@@ -1,11 +1,11 @@
 <div class="drizzle-Layout-nav drizzle-Nav" id="nav">
   <div class="drizzle-Nav-header">
-    <a class="drizzle-Nav-header-logo" href="/">
+    <a href="/">
       {{> drizzle.logo}}
     </a>
     <a class="drizzle-Nav-header-toggle" href="#nav">
-      <svg viewBox="0 0 9.71 5.56">
-        <polygon points="4.85 5.56 0 0.71 0.71 0 4.85 4.15 9 0 9.71 0.71 4.85 5.56"/>
+      <svg viewBox="-1 -1 12 7" width="16" height="16">
+        <polyline fill="none" stroke="currentColor" stroke-width="2" points="0 0 5 5 10 0"/>
       </svg>
     </a>
   </div>
@@ -13,17 +13,17 @@
     <ul class="drizzle-Nav-menu">
       {{!-- Top-level pages --}}
       <li>
-        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/">
+        <a class="drizzle-Nav-item" href="/">
           Overview
         </a>
       </li>
       <li>
-        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/timeline.html">
+        <a class="drizzle-Nav-item" href="/timeline.html">
           Timeline
         </a>
       </li>
       <li>
-        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/icons.html">
+        <a class="drizzle-Nav-item" href="/icons.html">
           Icons
         </a>
       </li>
@@ -31,7 +31,7 @@
       {{#each drizzle.patterns}}
         {{#if collection}}
           <li>
-            <a class="drizzle-Nav-item drizzle-Nav-item--heading"
+            <a class="drizzle-Nav-item"
              href="/patterns/{{@key}}.html">
               {{collection.name}}
             </a>
@@ -40,7 +40,7 @@
       {{/each}}
       {{!-- Sandbox page --}}
       <li>
-        <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/sandbox">
+        <a class="drizzle-Nav-item" href="/sandbox">
           Sandbox
         </a>
       </li>
@@ -50,7 +50,7 @@
       {{!-- Component patterns --}}
       {{#each drizzle.patterns.components}}
         <li>
-          <a class="drizzle-Nav-item drizzle-Nav-item--heading"
+          <a class="drizzle-Nav-item"
            href="/patterns/components/{{@key}}.html">
             {{collection.name}}
           </a>

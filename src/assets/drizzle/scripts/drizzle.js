@@ -4,10 +4,17 @@ import 'prismjs';
 
 class DrizzleDom {
   constructor () {
+    // Nav toggle
     this.navToggle.addEventListener('click', event => {
       event.preventDefault();
       this.toggleNav();
     });
+  }
+
+  get frameContainers () {
+    return Array.from(
+      document.querySelectorAll('[data-drizzle-append-iframe]')
+    );
   }
 
   get nav () {
@@ -23,7 +30,9 @@ class DrizzleDom {
   }
 
   get navLinks () {
-    return this.navMenu.querySelectorAll('a');
+    return Array.from(
+      this.navMenu.querySelectorAll('a')
+    );
   }
 
   toggleNav () {
@@ -33,7 +42,7 @@ class DrizzleDom {
   setActiveNavItem (pathname) {
     const noIndex = str => str.replace(/\/(index\.html)?$/, '');
     const isMatch = a => noIndex(a.pathname) === noIndex(pathname);
-    const item = Array.from(this.navLinks).find(isMatch);
+    const item = this.navLinks.find(isMatch);
     if (item) {
       item.classList.add('is-active');
     }
@@ -41,4 +50,21 @@ class DrizzleDom {
 }
 
 const drizzleDom = new DrizzleDom();
+
+// Mark the active menu item
 drizzleDom.setActiveNavItem(window.location.pathname);
+
+// Initialize the iframe previews
+if (drizzleDom.frameContainers.length) {
+  window.addEventListener('load', () => {
+    drizzleDom.frameContainers.forEach(container => {
+      const src = container.getAttribute('data-drizzle-append-iframe');
+      const iframe = document.createElement('iframe');
+      iframe.addEventListener('load', () => {
+        container.classList.add('is-loaded');
+      });
+      iframe.setAttribute('src', src);
+      container.appendChild(iframe);
+    });
+  });
+}

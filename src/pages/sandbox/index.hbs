@@ -4,19 +4,8 @@ title: Sandbox
 
 <h1>{{title}}</h1>
 
-<ul class="drizzle-u-listUnstyled drizzle-u-marginTop drizzle-u-rhythm">
-  {{#each drizzle.pages.sandbox}}
-    {{#compare @key "!==" "index"}}
-      <li>
-        <a class="drizzle-u-linkComplex" href="/sandbox/{{@key}}.html">
-          {{>
-            drizzle.labelheader
-            heading=(defaultTo data.title (toTitle @key))
-            labels=data.labels
-          }}
-        </a>
-        {{{data.notes}}}
-      </li>
-    {{/compare}}
-  {{/each}}
-</ul>
+{{#each drizzle.pages.sandbox}}
+  {{#compare @key "!==" "index"}}
+    {{> drizzle.page-item }}
+  {{/compare}}
+{{/each}}

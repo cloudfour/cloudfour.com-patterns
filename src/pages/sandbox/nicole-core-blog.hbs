@@ -196,17 +196,35 @@ padding-bottom: calc(24 / 16em * 1.25);
 
           </div> -->
         </div>
-        <button type="button" class="Button Button--default u-sizeFull u-block comment-form-btn">Leave a comment</button>
+        {{!-- <button type="button" class="Button Button--default u-sizeFull u-block comment-form-btn">Leave a comment</button> --}}
       </div>
 
-      <div class="comments u-marginTopMd">
-        <h2>Comments</h2>
+      <div class="comments u-marginTopLg u-paddingTopLg">
+        <h2 class="u-flex u-flexAlignItemsBaseline">
+          Comments
+          <span class="u-flexExpandLeft u-marginRightSm">
+            <a href="#" class="u-textSmaller" style="text-decoration: none;">
+              {{!-- <svg class="Icon" viewBox="0 0 16 16">
+                <path d="M8,1C2.48,1,0,3.69,0,7a5.48,5.48,0,0,0,3.81,5.31A11,11,0,0,1,2.32,16a10,10,0,0,0,5.12-3L8,13c5.52,0,8-2.69,8-6S13.52,1,8,1Z"/>
+              </svg> --}}
+              <b>+ Add a comment</b>
+            </a>
+          </span>
+        </h2>
+        {{!-- <div class="u-flex u-flexAlignItemsBaseline">
+          <h2>Comments</h2>
+          <span class="u-flexExpandLeft u-marginRightSm">
+            <a href="#" class="u-textLarger" style="text-decoration: none;">
+              <b>+ Add Yours</b>
+            </a>
+          </span>
+        </div> --}}
         {{#each drizzle.data.toolkit.contents.comments}}
           <div class="comment u-paddingTopMd">
             <p>{{comment}}</p>
             <div class="u-flex u-marginTopMd u-flexJustifyBetween u-flexAlignItemsBaseline">
               <div>
-                <a href="#" class="u-marginRightSm" style="text-decoration:none; font-weight:bold">{{author}}</a>
+                <span class="u-marginRightSm" style="text-decoration:none; font-weight:bold">{{author}}</span>
                 <span class="u-textSmaller">{{date}}</span>
               </div>
               <div>
@@ -225,7 +243,7 @@ padding-bottom: calc(24 / 16em * 1.25);
                     <p>{{comment}}</p>
                     <div class="u-flex u-marginTopSm u-flexJustifyBetween u-flexAlignItemsCenter">
                       <div>
-                        <a href="#" class="u-paddingRightSm" style="text-decoration:none; font-weight:bold">{{author}}</a>
+                        <span class="u-marginRightSm" style="text-decoration:none; font-weight:bold">{{author}}</span>
                         <span class="u-textSmaller">{{date}}</span>
                       </div>
                       <div>
@@ -244,6 +262,35 @@ padding-bottom: calc(24 / 16em * 1.25);
           </div> <!--end of comment-->
         {{/each}}
       </div>
+
+      <form class="u-marginTopLg u-spaceChildren">
+        <h2>Leave a Comment</h2>
+        <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference/">Markdown</a> in your comments. All fields are required.</p>
+        {{#embed "patterns.components.float-label.base"
+          type="textarea"
+          label="Message"
+          inputid="commentform-message"}}{{/embed}}
+        <div class="Grid Grid--withGutter">
+          <div class="Grid-cell u-sm-size1of2">
+            {{#embed "patterns.components.float-label.base"
+              label="Name"
+              inputid="commentform-name"}}{{/embed}}
+          </div>
+          <div class="Grid-cell u-marginTopMd u-sm-marginTopNone u-sm-size1of2">
+            {{#embed "patterns.components.float-label.base"
+              label="Email"
+              type="email"
+              inputid="commentform-email"}}{{/embed}}
+          </div>
+          <div class="Grid-cell u-marginTopMd">
+            {{#embed "patterns.components.button.base" class="Button--default u-block u-sizeFull"}}
+              {{#content "content"}}
+                Submit Comment
+              {{/content}}
+            {{/embed}}
+          </div>
+        </div>
+      </form>
 
 <!--       <div class="recent-articles u-marginTopMd">
         <h5 class="more-articles-header u-marginBottomXs">Recent Articles</h5>
@@ -279,13 +326,31 @@ padding-bottom: calc(24 / 16em * 1.25);
   </article>
 
 <script>
-  var i;
-  var toggles;
+  var messageField = document.getElementById('commentform-message');
+  var rows = messageField.getAttribute('rows') || 2;
+  var minRows = rows;
+  var content = messageField.innerHTML;
 
-  toggles = document.querySelectorAll('.comment-form-btn');
-  for (i = 0; i < toggles.length; i++) {
-    toggles[i].addEventListener('click', function(){
-      document.querySelector('.comment-form-expanded').classList.toggle('is-expanded');
-    });
+  function growField () {
+    while (messageField.scrollHeight > messageField.clientHeight) {
+      rows += 1;
+      messageField.setAttribute('rows', rows);
+    }
   }
+
+  function shrinkField () {
+    rows = minRows;
+    messageField.setAttribute('rows', rows);
+    growField();
+  }
+
+  messageField.addEventListener('input', function (event) {
+    if (messageField.innerHTML.length > content.length) {
+      growField();
+    } else {
+      shrinkField();
+    }
+
+    content = messageField.innerHTML;
+  });
 </script>

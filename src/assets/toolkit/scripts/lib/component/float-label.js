@@ -5,7 +5,7 @@ import {toggleClass} from '../dom/attributes';
 export class FloatLabel {
   constructor(element, {
     // Reference to input within element
-    inputElement = element.querySelector('input'),
+    inputElement = element.querySelector('input, textarea'),
     // Event that will trigger updates
     eventName = 'input',
     // Class applied to `element` when `inputElement` is empty

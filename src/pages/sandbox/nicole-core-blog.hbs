@@ -1,12 +1,12 @@
 ---
-title: "Blog Core Page"
+title: Single Blog Post
 layout: blank
 labels:
-  - inprogress
+  - latest
 stylesheets:
   - sandbox/nm-core-blog
 notes: |
-  **Notes** can exist too.
+  Single blog post prototype with comments.
 ---
 
 <main class="u-bgWhite" role="main" id="main">
@@ -216,7 +216,7 @@ padding-bottom: calc(24 / 16em * 1.25);
             <p>{{comment}}</p>
             <div class="u-flex u-marginTopMd u-flexJustifyBetween u-flexAlignItemsBaseline">
               <div>
-                <span class="u-marginRightSm" style="text-decoration:none; font-weight:bold">{{author}}</span>
+                <b class="u-marginRightSm">{{author}}</b>
                 <span class="u-textSmaller">{{date}}</span>
               </div>
               <div>
@@ -235,7 +235,16 @@ padding-bottom: calc(24 / 16em * 1.25);
                     <p>{{comment}}</p>
                     <div class="u-flex u-marginTopSm u-flexJustifyBetween u-flexAlignItemsCenter">
                       <div>
-                        <span class="u-marginRightSm" style="text-decoration:none; font-weight:bold">{{author}}</span>
+                        {{#if cloudfour}}
+                          <span class="u-marginRightSm" style="text-decoration:none; font-weight:bold">
+                            <svg class="Icon Icon--large" role="img" style="fill: #456bd9">
+                              <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four"/>
+                            </svg>
+                            {{author}}
+                          </span>
+                        {{else}}
+                          <b class="u-marginRightSm">{{author}}</b>
+                        {{/if}}
                         <span class="u-textSmaller u-textNoWrap">{{date}}</span>
                       </div>
                       <div>

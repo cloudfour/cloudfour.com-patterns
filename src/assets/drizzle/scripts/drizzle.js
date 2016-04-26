@@ -31,7 +31,8 @@ class DrizzleDom {
   }
 
   setActiveNavItem (pathname) {
-    const isMatch = a => a.pathname === pathname;
+    const noIndex = str => str.replace(/\/(index\.html)?$/, '');
+    const isMatch = a => noIndex(a.pathname) === noIndex(pathname);
     const item = Array.from(this.navLinks).find(isMatch);
     if (item) {
       item.classList.add('is-active');

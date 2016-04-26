@@ -1,4 +1,4 @@
-/*@import "./icon.css"; TODO: Do we really need this? */
+@import "./frame-thumb.css";
 @import "./item.css";
 @import "./label.css";
 @import "./layout.css";

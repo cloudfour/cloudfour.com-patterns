@@ -199,26 +199,18 @@ padding-bottom: calc(24 / 16em * 1.25);
         {{!-- <button type="button" class="Button Button--default u-sizeFull u-block comment-form-btn">Leave a comment</button> --}}
       </div>
 
-      <div class="comments u-marginTopLg u-paddingTopLg">
+      <div class="comments u-marginTopLg">
         <h2 class="u-flex u-flexAlignItemsBaseline">
           Comments
-          <span class="u-flexExpandLeft u-marginRightSm">
-            <a href="#" class="u-textSmaller" style="text-decoration: none;">
-              {{!-- <svg class="Icon" viewBox="0 0 16 16">
-                <path d="M8,1C2.48,1,0,3.69,0,7a5.48,5.48,0,0,0,3.81,5.31A11,11,0,0,1,2.32,16a10,10,0,0,0,5.12-3L8,13c5.52,0,8-2.69,8-6S13.52,1,8,1Z"/>
-              </svg> --}}
-              <b>+ Add a comment</b>
+          <span class="u-flexExpandLeft">
+            <a href="#commentform" class="u-textSmaller" style="text-decoration: none;">
+              <svg class="Icon u-textSmaller" role="img">
+                <use xlink:href="/assets/toolkit/images/icons.svg#plus"/>
+              </svg>
+              <b>Add a comment</b>
             </a>
           </span>
         </h2>
-        {{!-- <div class="u-flex u-flexAlignItemsBaseline">
-          <h2>Comments</h2>
-          <span class="u-flexExpandLeft u-marginRightSm">
-            <a href="#" class="u-textLarger" style="text-decoration: none;">
-              <b>+ Add Yours</b>
-            </a>
-          </span>
-        </div> --}}
         {{#each drizzle.data.toolkit.contents.comments}}
           <div class="comment u-paddingTopMd">
             <p>{{comment}}</p>
@@ -228,11 +220,11 @@ padding-bottom: calc(24 / 16em * 1.25);
                 <span class="u-textSmaller">{{date}}</span>
               </div>
               <div>
-                <a class="u-marginRightSm u-block comment-reply" href="#">
-                <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-                  <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-                </svg>
-                <b>Reply</b>
+                <a class="u-block comment-reply" href="#">
+                  <svg class="Icon u-textSmaller u-marginTopNone" role="img">
+                    <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
+                  </svg>
+                  <b>Reply</b>
                 </a>
               </div>
             </div>
@@ -244,14 +236,14 @@ padding-bottom: calc(24 / 16em * 1.25);
                     <div class="u-flex u-marginTopSm u-flexJustifyBetween u-flexAlignItemsCenter">
                       <div>
                         <span class="u-marginRightSm" style="text-decoration:none; font-weight:bold">{{author}}</span>
-                        <span class="u-textSmaller">{{date}}</span>
+                        <span class="u-textSmaller u-textNoWrap">{{date}}</span>
                       </div>
                       <div>
-                        <a class="u-marginRightSm u-block comment-reply" href="#">
-                        <svg class="Icon u-textSmaller u-marginTopNone" role="img">
-                          <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
-                        </svg>
-                        <b>Reply</b>
+                        <a class="u-block comment-reply u-textNoWrap" href="#">
+                          <svg class="Icon u-textSmaller u-marginTopNone" role="img">
+                            <use xlink:href="/assets/toolkit/images/icons.svg#reply"/>
+                          </svg>
+                          <b>Reply</b>
                         </a>
                       </div>
                     </div>
@@ -263,7 +255,7 @@ padding-bottom: calc(24 / 16em * 1.25);
         {{/each}}
       </div>
 
-      <form class="u-marginTopLg u-spaceChildren">
+      <form class="u-marginTopLg u-spaceChildren" id="commentform">
         <h2>Leave a Comment</h2>
         <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference/">Markdown</a> in your comments. All fields are required.</p>
         {{#embed "patterns.components.float-label.base"

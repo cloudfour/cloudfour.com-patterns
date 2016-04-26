@@ -28,6 +28,10 @@
   padding-top: var(--space) !important;
 }
 
+.u-padNone {
+  padding: 0 !important;
+}
+
 .u-margin {
   margin: var(--space) !important;
 }

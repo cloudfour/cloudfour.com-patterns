@@ -10,7 +10,7 @@
   border-radius: 0.25rem;
   display: inline-block;
   font-size: 0.75rem;
-  padding: calc(var(--space) / 8) calc(var(--space) / 2);
+  padding: calc(var(--space) / 4) calc(var(--space) / 2);
   line-height: 1;
   vertical-align: inherit;
 }
@@ -25,6 +25,7 @@
   color: var(--color-white);
 }
 
+.Label--latest,
 .Label--approved {
   background-color: var(--Label-approved);
   color: var(--color-white);

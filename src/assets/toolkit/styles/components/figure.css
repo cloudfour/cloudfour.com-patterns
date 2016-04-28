@@ -1,0 +1,24 @@
+:root {
+  --Figure-caption-color: color(
+    var(--color-gray)
+    blend(var(--color-black) 50%)
+  );
+}
+
+.Figure {
+  display: block;
+
+  & > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+}
+
+.Figure-caption {
+  color: var(--Figure-caption-color);
+  font-style: italic;
+  padding-top: var(--space-sm);
+  text-align: center;
+}

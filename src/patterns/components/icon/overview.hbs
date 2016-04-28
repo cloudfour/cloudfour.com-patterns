@@ -1,0 +1,25 @@
+---
+order: 1
+sourceless: true
+notes: |
+  This toolkit includes a custom library of icons to accompany content where
+  appropriate. These icons will inherit the parent element's text color where
+  specified by the icon designer.
+---
+
+<ul class="drizzle-Grid drizzle-u-listUnstyled">
+  {{#each drizzle.data.toolkit.contents.icons as |icon|}}
+    <li class="
+     drizzle-Grid-cell
+     drizzle-u-size1of3
+     drizzle-u-md-size1of4
+     drizzle-u-textCenter
+     drizzle-u-pad">
+      {{#embed "patterns.components.icon.base"
+        iconid=icon
+        class="u-textLarger"}}
+      {{/embed}}
+      <div class="u-textSmaller">{{icon}}</div>
+    </li>
+  {{/each}}
+</ul>

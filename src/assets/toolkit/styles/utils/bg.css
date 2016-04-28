@@ -1,3 +1,7 @@
 .u-bgWhite {
   background-color: var(--color-white);
 }
+
+.u-bgGray {
+  background-color: var(--color-gray);
+}

@@ -1,0 +1,27 @@
+---
+name: Post Byline
+order: 3
+notes: |
+  This is an author bio summary intended to live at the end of blog posts.
+
+default:
+  author:
+    name: Author Name
+    url: /authors/foo
+    avatar: /assets/toolkit/images/sandbox/orange-avatar.svg
+    bio: |
+      <p>
+        <a href="">Author Name</a> has an author bio. HTML elements can be within it.
+        It should be relatively short. It should contain some links, possibly pointing
+        to a <a href="">@twitter</a> profile or maybe a <a href="">website</a>.
+      </p>
+---
+
+{{#with (defaultTo author default.author)}}
+  <div class="u-paddingMd u-cf u-bgGray">
+    <a class="Thumbnail Thumbnail--circle u-floatRight u-marginLeftSm" href="{{url}}">
+      <img src="{{avatar}}" width="75" height="75" alt="{{name}}">
+    </a>
+    {{{bio}}}
+  </div>
+{{/with}}

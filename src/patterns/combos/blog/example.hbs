@@ -1,0 +1,45 @@
+---
+name: Example
+sourceless: true
+---
+
+{{{
+  embed "patterns.combos.blog.post-header"
+  post = drizzle.data.posts.contents.[0]
+  author = drizzle.data.authors.contents.[0]
+}}}
+
+<p>
+  When I look at a problem, it will always be from the perspective of a
+  designer. I like to solve the big problem, piecing the code together to get my
+  idea out as quickly as possible. Then I worry about making the code better
+  later. The main point is getting the design, or the experience out of my head
+  and into the browser, where I can squish my screen, or pull it up on my phone.
+  I don’t have to be an amazing developer, or a decent developer or even
+  developer at all. I just need the tools necessary to realize my vision for the
+  design problem I am trying to solve.
+</p>
+
+{{#embed "patterns.combos.blog.post-figure"}}
+  {{#content "figure"}}
+    <img src="{{dummyImgSrc 300 200 bg="green"}}">
+  {{/content}}
+  {{#content "caption"}}
+    This is a green image. Not sure why.
+  {{/content}}
+{{/embed}}
+
+<p>
+  I like to look at having technical skills the same way I would look at having
+  presentation skills. Or project management, writing, and concepting skills. We
+  are not just pixel pushers, we are designers. We are complex thinkers, makers
+  and problem solvers. That goes way beyond just the presentation layer of a
+  design. It’s about a breadth of knowledge that informs your creative process.
+  Code informing visual design. And vice versa, visual design informing the
+  code.
+</p>
+
+{{{
+  embed "patterns.combos.blog.post-byline"
+  author = drizzle.data.authors.contents.[0]
+}}}

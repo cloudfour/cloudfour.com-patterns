@@ -3,5 +3,8 @@
 }
 
 .u-bgGray {
-  background-color: var(--color-gray);
+  background-color: color(
+    var(--color-gray)
+    blend(var(--color-white) 50%)
+  );
 }

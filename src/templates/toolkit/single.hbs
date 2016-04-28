@@ -1,0 +1,17 @@
+{{#extend "toolkit.default"}}
+  {{#content "wrapper"}}
+    {{> toolkit.global-header}}
+
+    <main role="main" id="main">
+      <div class="u-bgWhite">
+        <div class="u-paddingMd u-spaceChildren" style="max-width: 30em; margin: auto">
+          {{#block "body"}}
+            {{!-- PAGE CONTENT GOES HERE --}}
+          {{/block}}
+        </div>
+      </div>
+    </main>
+
+    {{> toolkit.global-footer}}
+  {{/content}}
+{{/extend}}

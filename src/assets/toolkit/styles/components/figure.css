@@ -19,6 +19,6 @@
 .Figure-caption {
   color: var(--Figure-caption-color);
   font-style: italic;
-  padding-top: var(--space-sm);
+  padding-top: var(--space-xs);
   text-align: center;
 }

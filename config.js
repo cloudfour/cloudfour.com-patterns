@@ -118,6 +118,10 @@ module.exports = {
     },
     fieldParsers: {
       notes: 'markdown'
+    },
+    layouts: {
+      page: 'drizzle.default',
+      collection: 'drizzle.collection'
     }
   }
 };

@@ -1,0 +1,36 @@
+{{#extend "default"}}
+  {{#content "wrapper"}}
+    {{!-- Global header --}}
+    {{!-- TODO: There must be a simpler way to do this if/else --}}
+    {{#if section}}
+      {{{embed "toolkit.global-header" clouds=false}}}
+    {{else}}
+      {{{embed "toolkit.global-header" clouds=true}}}
+    {{/if}}
+
+    <main role="main" id="main">
+      {{!-- Section header --}}
+      {{#if section}}
+        {{{embed "toolkit.page-section-header" section}}}
+      {{/if}}
+      {{!-- Main page content --}}
+      <div class="u-bgWhite">
+        <div class="
+         u-paddingMd
+         u-spaceChildren
+         u-flexExpand
+         {{defaultTo containerClass "u-md-size8of10"}}">
+          {{#block "body"}}
+            {{!-- PAGE CONTENT GOES HERE --}}
+          {{/block}}
+        </div>
+        {{!-- After-page content --}}
+        <hr class="u-marginMd u-marginBottomNone">
+        {{{embed "toolkit.page-segue"}}}
+      </div>
+    </main>
+
+    {{!-- Global footer --}}
+    {{{embed "toolkit.global-footer"}}}
+  {{/content}}
+{{/extend}}

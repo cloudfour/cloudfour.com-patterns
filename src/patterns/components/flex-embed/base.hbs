@@ -2,7 +2,7 @@
 hidden: true
 ---
 <div class="FlexEmbed">
-  <div class="FlexEmbed-ratio FlexEmbed-ratio--{{ratio}}"></div>
+  <div class="FlexEmbed-ratio{{#if ratio}} FlexEmbed-ratio--{{ratio}}{{/if}}"></div>
   {{#block "content"}}
     <div class="FlexEmbed-content"></div>
   {{/block}}

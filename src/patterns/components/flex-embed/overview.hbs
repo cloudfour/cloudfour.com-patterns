@@ -1,4 +1,5 @@
 ---
+order: 1
 notes: |
   For use with media embeds (videos, slideshows, etc.) that need to retain a
   specific aspect ratio while adapting to the width of their containing element.
@@ -11,23 +12,7 @@ links:
   SUITCSS FlexEmbed Component: https://github.com/suitcss/components-flex-embed
   Creating Intrinsic Ratios for Video: http://alistapart.com/article/creating-intrinsic-ratios-for-video
 ---
-
-<h3>4:3 Ratio</h3>
-
-{{#embed "patterns.components.flex-embed.base" ratio="4by3"}}
-  {{#content "content"}}
-    <iframe class="FlexEmbed-content"
-      width="420"
-      height="315"
-      src="https://www.youtube.com/embed/Nx64_N4AA04"
-      frameborder="0"
-      allowfullscreen></iframe>
-  {{/content}}
-{{/embed}}
-
-<h3>16:9 Ratio</h3>
-
-{{#embed "patterns.components.flex-embed.base" ratio="16by9"}}
+{{#embed "patterns.components.flex-embed.base"}}
   {{#content "content"}}
     <iframe class="FlexEmbed-content"
       width="420"

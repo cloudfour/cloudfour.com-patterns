@@ -4,7 +4,8 @@ order: 99
 sourceless: true
 previewClass: drizzle-u-rhythm drizzle-u-lg-size9of12 drizzle-u-flexExpand
 notes: |
-  Here are how these patterns can be combined to form a blog post.
+  Here are how these patterns can be combined with the `.Figure` and `.List`
+  components to form a blog post.
 ---
 
 {{{
@@ -39,10 +40,13 @@ notes: |
   code.
 </p>
 
-{{#embed "patterns.combos.blog.post-figure"}}
-  {{#content "figure"}}
-    <img src="{{dummyImgSrc 1024 768 bg="#000"}}">
-  {{/content}}
+{{#embed "patterns.components.figure.base"}}
+  {{~#content "figure"}}
+    <img src="{{dummyImgSrc 1024 768 bg="#000" text=""}}">
+  {{~/content}}
+  {{~#content "caption"}}
+    A big centered image.
+  {{~/content}}
 {{/embed}}
 
 <p>
@@ -55,14 +59,17 @@ notes: |
   code.
 </p>
 
-{{#embed "patterns.combos.blog.post-figure" class="
+{{#embed "patterns.components.figure.base" class="
  u-lg-size6of12
  u-lg-beforeN2of12
  u-floatLeft
  u-marginRightSm"}}
-  {{#content "figure"}}
-    <img src="{{dummyImgSrc 1024 768 bg="#000"}}">
-  {{/content}}
+  {{~#content "figure"}}
+    <img src="{{dummyImgSrc 768 1024 bg="#000" text=""}}" style="height: 12.5em">
+  {{~/content}}
+  {{~#content "caption"}}
+    An image floating to the left, and overhanging the container at large screen sizes.
+  {{~/content}}
 {{/embed}}
 
 <p class="u-cf">
@@ -75,14 +82,17 @@ notes: |
   code.
 </p>
 
-{{#embed "patterns.combos.blog.post-figure" class="
+{{#embed "patterns.components.figure.base" class="
  u-lg-size6of12
  u-lg-afterN2of12
  u-floatRight
  u-marginLeftSm"}}
-  {{#content "figure"}}
-    <img src="{{dummyImgSrc 1024 768 bg="#000"}}">
-  {{/content}}
+  {{~#content "figure"}}
+    <img src="{{dummyImgSrc 1024 768 bg="#000" text=""}}" style="height: 6.25em">
+  {{~/content}}
+  {{~#content "caption"}}
+    An image floating to the right, and overhanging the container at large screen sizes.
+  {{~/content}}
 {{/embed}}
 
 <p class="u-cf">

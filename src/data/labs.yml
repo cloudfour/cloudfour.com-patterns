@@ -1,0 +1,87 @@
+projects:
+  - name: Drizzle
+    color: '#004966'
+    url: "#"
+    notes: |
+      Our pattern library, style guide and prototyping environment.
+    links:
+      - label: Homepage
+        url: "#"
+      - label: Source
+        url: "#"
+  - name: Leveller
+    color: '#444'
+    url: "#"
+    notes: |
+      A jQuery plugin for equalizing element heights when Flexbox just isn't an
+      option.
+    links:
+      - label: Demo
+        url: "#"
+      - label: Article
+        url: "#"
+      - label: Source
+        url: "#"
+  - name: Image Resizing Services
+    color: '#1BB162'
+    url: "#"
+    notes: |
+      Comparison spreadsheet of available options, features and prices.
+    links:
+      - label: View
+        url: "#"
+      - label: Article
+        url: "#"
+  - name: hideShowPassword
+    url: "#"
+    notes: |
+      Customizable touch-friendly password visibility toggles with jQuery.
+    links:
+      - label: Demo
+        url: "#"
+      - label: Article
+        url: "#"
+      - label: Source
+        url: "#"
+  - name: Common Patterns
+    color: '#1BB162'
+    url: "#"
+    notes: |
+      Spreadsheet of recurring UI elements in frameworks, boilerplates and
+      pattern libraries.
+    links:
+      - label: View
+        url: "#"
+      - label: Article
+        url: "#"
+  - name: SimpleSlideView
+    url: "#"
+    notes: |
+      jQuery plugin for prototyping simple in-page content transitions.
+    links:
+      - label: Demo
+        url: "#"
+      - label: Article
+        url: "#"
+      - label: Source
+        url: "#"
+
+pens:
+  - title: Profile Header
+    creator: Tyler Sticka
+    url: http://codepen.io/tylersticka/pen/mewaqW
+  - title: A Pen by Erik Jung
+    creator: Erik Jung
+    url: http://codepen.io/erikjung/pen/XdWEKE
+  - title: Responsive Type Sizing
+    creator: Erik Jung
+    url: http://codepen.io/erikjung/pen/XmOdEo
+  - title: "Flexible image experiment (div + filter)"
+    creator: Tyler Sticka
+    url: http://codepen.io/erikjung/pen/yOqKQV
+  - title: Responsive tiles with column-spanning flyouts
+    creator: Tyler Sticka
+    url: http://codepen.io/erikjung/pen/eNLEVE
+  - title: Responsive SVG Logo Composition
+    creator: Tyler Sticka
+    url: http://codepen.io/erikjung/pen/yOjNpY

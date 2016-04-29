@@ -7,6 +7,7 @@ default:
   title: Adaptive Input
   speaker: Jason Grigsby
   thumbnail: /assets/toolkit/images/sandbox/event-thumb-input.jpg
+  alt: Adaptive Input
   url: "http://cloudfour.com"
   events:
     - Refresh PDX
@@ -14,11 +15,12 @@ default:
     - Smashing Conference
   moreEvents: 3
   ---
-<a href="{{defaultTo url default.url}}" class="SecretLink u-block">
+<a href="{{defaultTo url default.url}}" class="u-block u-linkComplex u-textInheritColor">
   <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
-    <img class="u-sizeFull" src="{{defaultTo thumbnail default.thumbnail}}" alt="">
+    <img class="u-sizeFull" src="{{defaultTo thumbnail default.thumbnail}}" alt="{{defaultTo alt default.alt}}">
   </div>
-  <h2 class="SecretLink-beanSpiller u-marginTopXs">
+  {{!-- TODO: Figure out how to inherit color on :hover --}}
+  <h2 class="u-marginTopXs u-linkComplexTarget">
     {{defaultTo title default.title}}
   </h2>
   <p><b>By {{defaultTo speaker default.speaker}}</b></p>
@@ -26,7 +28,8 @@ default:
     Presented at
     {{#each default.events}}{{#if @index}}, {{/if}}{{.}}{{/each}}
     {{#if (defaultTo moreEvents default.moreEvents)}}
-      <span class="SecretLink-beanSpiller u-textNoWrap">
+      {{!-- TODO: Figure out how to inherit color on :hover --}}
+      <span class="u-textNoWrap u-linkComplexTarget">
         + {{moreEvents}} more
       </span>
     {{/if}}

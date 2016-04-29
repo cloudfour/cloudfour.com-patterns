@@ -15,12 +15,12 @@ default:
     - Smashing Conference
   moreEvents: 3
   ---
-<a href="{{defaultTo url default.url}}" class="u-block u-linkComplex u-textInheritColor">
+<a href="{{defaultTo url default.url}}" class="u-block u-linkClean u-textInheritColor">
   <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
     <img class="u-sizeFull" src="{{defaultTo thumbnail default.thumbnail}}" alt="{{defaultTo alt default.alt}}">
   </div>
   {{!-- TODO: Figure out how to inherit color on :hover --}}
-  <h2 class="u-marginTopXs u-linkComplexTarget">
+  <h2 class="u-marginTopXs u-linkCleanTarget">
     {{defaultTo title default.title}}
   </h2>
   <p><b>By {{defaultTo speaker default.speaker}}</b></p>
@@ -29,7 +29,7 @@ default:
     {{#each default.events}}{{#if @index}}, {{/if}}{{.}}{{/each}}
     {{#if (defaultTo moreEvents default.moreEvents)}}
       {{!-- TODO: Figure out how to inherit color on :hover --}}
-      <span class="u-textNoWrap u-linkComplexTarget">
+      <span class="u-textNoWrap u-linkCleanTarget">
         + {{moreEvents}} more
       </span>
     {{/if}}

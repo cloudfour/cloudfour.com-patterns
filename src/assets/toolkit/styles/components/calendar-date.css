@@ -1,0 +1,27 @@
+.CalendarDate {
+  background: #fff;
+  border: 3px solid currentColor;
+  border-radius: 0.25em;
+  display: inline-flex;
+  flex-direction: column;
+  font-weight: 600;
+  line-height: var(--line-height-sm);
+  min-height: 4.5em;
+  min-width: 4.5em;
+  text-align: center;
+}
+
+.CalendarDate-header {
+  background: var(--color-fuchsia);
+  border-bottom: 3px solid transparent;
+  color: var(--color-white);
+}
+
+.CalendarDate-body {
+  font-size: calc(1em * var(--ms3));
+  margin: auto 0;
+}
+
+.CalendarDate--range .CalendarDate-body {
+  font-size: calc(1em * var(--ms1));
+}

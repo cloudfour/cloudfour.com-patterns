@@ -1,0 +1,34 @@
+---
+name: Presentation Talk
+notes: |
+  This is a presentation talk used in the "Our Talks" section of the "Speaking" page.
+
+default:
+  title: Adaptive Input
+  speaker: Jason Grigsby
+  thumbnail: /assets/toolkit/images/sandbox/event-thumb-input.jpg
+  url: "http://cloudfour.com"
+  events:
+    - Refresh PDX
+    - An Event Apart
+    - Smashing Conference
+  moreEvents: 3
+  ---
+<a href="{{defaultTo url default.url}}" class="SecretLink u-block">
+  <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
+    <img class="u-sizeFull" src="{{defaultTo thumbnail default.thumbnail}}" alt="">
+  </div>
+  <h2 class="SecretLink-beanSpiller u-marginTopXs">
+    {{defaultTo title default.title}}
+  </h2>
+  <p><b>By {{defaultTo speaker default.speaker}}</b></p>
+  <p class="u-sm-paddingRightSm">
+    Presented at
+    {{#each default.events}}{{#if @index}}, {{/if}}{{.}}{{/each}}
+    {{#if (defaultTo moreEvents default.moreEvents)}}
+      <span class="SecretLink-beanSpiller u-textNoWrap">
+        + {{moreEvents}} more
+      </span>
+    {{/if}}
+  </p>
+</a>

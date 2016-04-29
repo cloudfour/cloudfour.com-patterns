@@ -1,0 +1,33 @@
+---
+name: Future Event
+notes: |
+  This is a future event date intended to live in the "Future Events" section of the "Speaking" page.
+
+default:
+  month: Nov
+  day: 22
+  datetime: 2016-11-22T18:45
+  url: http://cloudfour.com
+  event: The Bestest Future Event
+  location: Reno, NV
+  speakers:
+    - Jason
+    - Tyler
+---
+<a href="{{defaultTo url default.url}}" class="u-linkComplex u-textInheritColor u-flex u-flexAlignItemsCenter">
+  {{#embed "patterns.components.calendar-date.base"
+    month=default.month
+    day=default.day
+    datetime=default.datetime}}
+  {{/embed}}
+  <div class="u-marginLeftSm">
+    {{!-- TODO: Figure out how to inherit color on :hover --}}
+    <h3 class="u-textLarger u-linkComplexTarget">{{defaultTo event default.event}}</h3>
+    <p class="u-textNoWrap"><b>{{defaultTo location default.location}}</b></p>
+    <p>
+      {{!-- TODO: Figure out how to use defaultTo with #each --}}
+      Speaker:
+      {{#each default.speakers}}{{#if @index}}, {{/if}}{{.}}{{/each}}
+    </p>
+  </div>
+</a>

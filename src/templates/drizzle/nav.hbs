@@ -52,6 +52,19 @@
         </li>
       {{/each}}
     </ul>
+
+    <h5 class="drizzle-Nav-item">Combos</h5>
+    <ul class="drizzle-Nav-menu">
+      {{!-- Component patterns --}}
+      {{#each drizzle.patterns.combos}}
+        <li>
+          <a class="drizzle-Nav-item"
+           href="/patterns/combos/{{@key}}.html">
+            {{collection.name}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
     <div class="drizzle-Nav-footer">
       {{timestamp format="MMM D, YYYY"}} &#183; {{timestamp format="h:mma"}}
     </div>

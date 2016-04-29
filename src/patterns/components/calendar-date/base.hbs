@@ -1,7 +1,15 @@
 ---
-hidden: true
+notes: |
+  A calendar date.
+links:
+  MDN HTML <time> element: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
+
+default:
+  month: Dec
+  day: 9
+  datetime: 2016-04-12T18:30
 ---
-<time class="CalendarDate{{#if range}} CalendarDate--range{{/if}}" datetime="{{defaultTo datetime "2016-04-12T18:30"}}">
-  <span class="CalendarDate-header">{{defaultTo month "Dec"}}</span>
-  <span class="CalendarDate-body">{{defaultTo day "9"}}</span>
+<time class="CalendarDate{{#if class}} {{class}}{{/if}}" datetime="{{defaultTo datetime default.datetime}}">
+  <span class="CalendarDate-header">{{defaultTo month default.month}}</span>
+  <span class="CalendarDate-body">{{defaultTo day default.day}}</span>
 </time>

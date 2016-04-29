@@ -1,7 +1,7 @@
 ---
 name: Example
 sourceless: true
-previewClass: drizzle-u-rhythm drizzle-lg-size5of8
+previewClass: drizzle-u-rhythm drizzle-u-lg-size8of12 drizzle-u-flexExpand
 notes: |
   Here are how these patterns can be combined to form a blog post.
 ---
@@ -39,7 +39,11 @@ notes: |
   code.
 </p>
 
-{{#embed "patterns.combos.blog.post-figure" class="u-size2of4 u-lg-size1of4 u-floatLeft u-marginRightSm"}}
+{{#embed "patterns.combos.blog.post-figure" class="
+ u-lg-size5of12
+ u-lg-beforeN2of12
+ u-floatLeft
+ u-marginRightSm"}}
   {{#content "figure"}}
     <img src="{{dummyImgSrc 1024 768 bg="#000"}}">
   {{/content}}
@@ -55,7 +59,11 @@ notes: |
   code.
 </p>
 
-{{#embed "patterns.combos.blog.post-figure" class="u-size2of4 u-lg-size1of4 u-floatRight u-marginLeftSm"}}
+{{#embed "patterns.combos.blog.post-figure" class="
+ u-lg-size5of12
+ u-lg-afterN2of12
+ u-floatRight
+ u-marginLeftSm"}}
   {{#content "figure"}}
     <img src="{{dummyImgSrc 1024 768 bg="#000"}}">
   {{/content}}

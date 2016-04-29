@@ -21,13 +21,11 @@ default:
     datetime=default.datetime}}
   {{/embed}}
   <div class="u-marginLeftSm">
-    {{!-- TODO: Figure out how to inherit color on :hover --}}
     <h3 class="u-textLarger u-linkCleanTarget">{{defaultTo event default.event}}</h3>
     <p class="u-textNoWrap"><b>{{defaultTo location default.location}}</b></p>
     <p>
-      {{!-- TODO: Figure out how to use defaultTo with #each --}}
       Speaker:
-      {{#each default.speakers}}{{#if @index}}, {{/if}}{{.}}{{/each}}
+      {{#each (defaultTo speakers default.speakers)}}{{#if @index}}, {{/if}}{{.}}{{/each}}
     </p>
   </div>
 </a>

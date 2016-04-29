@@ -64,6 +64,7 @@ social:
 events:
   - month: Mar
     day: 14-16
+    datetime: 2016-04-12T18:30
     range: true
     name: An Event Apart
     location: Nashville, TN
@@ -72,6 +73,7 @@ events:
       - Jason
   - month: Apr
     day: 4-6
+    datetime: 2016-04-12T17:30
     range: true
     name: An Event Apart
     location: Seattle, WA
@@ -80,6 +82,7 @@ events:
       - Jason
   - month: Apr
     day: 12
+    datetime: 2016-04-12T16:30
     name: Front End PDX
     location: Portland, OR
     url: "#"
@@ -87,6 +90,7 @@ events:
       - Tyler
   - month: Jun
     day: 14-15
+    datetime: 2016-04-12T15:30
     range: true
     name: Smashing Conference
     location: New York, NY
@@ -95,6 +99,7 @@ events:
       - Jason
   - month: Sep
     day: 12-13
+    datetime: 2016-04-12T14:30
     range: true
     name: Smashing Conference
     location: Freiburg, Germany

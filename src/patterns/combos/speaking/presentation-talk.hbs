@@ -25,7 +25,6 @@ default:
   <p><b>By {{defaultTo speaker default.speaker}}</b></p>
   <p class="u-sm-paddingRightSm">
     Presented at
-    {{!-- TODO: Figure out how to use defaultTo with #each --}}
     {{#each (defaultTo events default.events)}}{{#if @index}}, {{/if}}{{.}}{{/each}}
     {{#if (defaultTo moreEvents default.moreEvents)}}
       <span class="u-textNoWrap u-linkCleanTarget">

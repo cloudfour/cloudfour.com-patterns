@@ -1,0 +1,55 @@
+/** TODO: Should this component absorb the `u-list*` utilities? */
+
+:root {
+  --List-ruled-border: var(--control-stroke) solid var(--color-gray);
+}
+
+/**
+ * 1. Remove native `<ul>` and `<ol>` styles.
+ */
+
+.List {
+  display: block;
+  list-style: none; /* 1 */
+  padding: 0; /* 1 */
+}
+
+/**
+ * Place a top border on each item.
+ */
+
+.List--topRuled > li {
+  border-top: var(--List-ruled-border);
+}
+
+/**
+ * Place a bottom border on each item.
+ */
+
+.List--bottomRuled > li {
+  border-bottom: var(--List-ruled-border);
+}
+
+/**
+ * Remove the top border from the first item.
+ */
+
+.List--cleanStart > li:first-child {
+  border-top: none;
+}
+
+/**
+ * Remove the bottom border from the last item.
+ */
+
+.List--cleanEnd > li:last-child {
+  border-bottom: none;
+}
+
+/**
+ * Indent nested lists.
+ */
+
+.List--parent > li > .List {
+  margin-left: var(--space-lg);
+}

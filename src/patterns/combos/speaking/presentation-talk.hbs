@@ -28,7 +28,7 @@ default:
     {{#each (defaultTo events default.events)}}{{#if @index}}, {{/if}}{{.}}{{/each}}
     {{#if (defaultTo moreEvents default.moreEvents)}}
       <span class="u-textNoWrap u-linkCleanTarget">
-        + {{moreEvents}} more
+        + {{defaultTo moreEvents default.moreEvents}} more
       </span>
     {{/if}}
   </p>

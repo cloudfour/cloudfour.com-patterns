@@ -1,7 +1,7 @@
 ---
 name: Presentation Talk
 notes: |
-  This is a presentation talk used in the "Our Talks" section of the "Speaking" page.
+  This is a presentation talk intended to be used in the "Our Talks" section of the "Speaking" page.
 
 default:
   title: Adaptive Input
@@ -19,16 +19,15 @@ default:
   <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
     <img class="u-sizeFull" src="{{defaultTo thumbnail default.thumbnail}}" alt="{{defaultTo alt default.alt}}">
   </div>
-  {{!-- TODO: Figure out how to inherit color on :hover --}}
   <h2 class="u-marginTopXs u-linkCleanTarget">
     {{defaultTo title default.title}}
   </h2>
   <p><b>By {{defaultTo speaker default.speaker}}</b></p>
   <p class="u-sm-paddingRightSm">
     Presented at
-    {{#each default.events}}{{#if @index}}, {{/if}}{{.}}{{/each}}
+    {{!-- TODO: Figure out how to use defaultTo with #each --}}
+    {{#each (defaultTo events default.events)}}{{#if @index}}, {{/if}}{{.}}{{/each}}
     {{#if (defaultTo moreEvents default.moreEvents)}}
-      {{!-- TODO: Figure out how to inherit color on :hover --}}
       <span class="u-textNoWrap u-linkCleanTarget">
         + {{moreEvents}} more
       </span>

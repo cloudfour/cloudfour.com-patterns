@@ -9,8 +9,8 @@ notes: |
 
 {{{
   embed "patterns.combos.blog.post-header"
-  post = drizzle.data.posts.contents.[0]
-  author = drizzle.data.authors.contents.[0]
+  post=drizzle.data.posts.contents.[0]
+  author=drizzle.data.authors.contents.[0]
 }}}
 
 <p>
@@ -26,7 +26,7 @@ notes: |
 
 {{{
   embed "patterns.combos.blog.post-pullquote"
-  class="u-lg-beforeN1of12 u-lg-afterN1of12"
+  class="u-lg-extendSidesMd"
 }}}
 
 <p>
@@ -39,7 +39,7 @@ notes: |
   code.
 </p>
 
-{{#embed "patterns.combos.blog.post-figure" class="u-lg-beforeN1of12 u-lg-afterN1of12"}}
+{{#embed "patterns.combos.blog.post-figure"}}
   {{#content "figure"}}
     <img src="{{dummyImgSrc 1024 768 bg="#000"}}">
   {{/content}}
@@ -98,5 +98,6 @@ notes: |
 
 {{{
   embed "patterns.combos.blog.post-byline"
-  author = drizzle.data.authors.contents.[0]
+  author=drizzle.data.authors.contents.[0]
+  class="u-lg-extendSidesMd"
 }}}

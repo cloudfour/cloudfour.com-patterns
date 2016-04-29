@@ -65,6 +65,7 @@
     "suitcss-utils-display": "^1.0.2",
     "suitcss-utils-flex": "^1.1.1",
     "suitcss-utils-layout": "^1.0.1",
+    "suitcss-utils-offset": "^1.0.0",
     "suitcss-utils-position": "^1.0.1",
     "suitcss-utils-size": "^1.0.2",
     "suitcss-utils-text": "^1.0.0",

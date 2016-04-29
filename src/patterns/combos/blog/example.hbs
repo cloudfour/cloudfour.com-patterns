@@ -101,3 +101,28 @@ notes: |
   author=drizzle.data.authors.contents.[0]
   class="u-lg-extendSidesMd"
 }}}
+
+<h2>Comments</h2>
+
+<ol class="u-listUnstyled">
+  <li>
+    {{{
+      embed "patterns.combos.blog.comment"
+      comment=drizzle.data.toolkit.contents.comments.[0]
+    }}}
+    <ol class="u-listUnstyled u-lg-indentChildren">
+      <li>
+        {{{
+          embed "patterns.combos.blog.comment"
+          comment=drizzle.data.toolkit.contents.comments.[1]
+        }}}
+      </li>
+    </ol>
+  </li>
+  <li>
+    {{{
+      embed "patterns.combos.blog.comment"
+      comment=drizzle.data.toolkit.contents.comments.[2]
+    }}}
+  </li>
+</ol>

@@ -18,10 +18,10 @@
 }
 
 .CalendarDate-body {
-  font-size: calc(1em * var(--ms3));
+  font-size: var(--font-size-xl);
   margin: auto 0;
 }
 
 .CalendarDate--range .CalendarDate-body {
-  font-size: calc(1em * var(--ms1));
+  font-size: var(--font-size-md);
 }

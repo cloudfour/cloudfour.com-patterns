@@ -1,10 +1,10 @@
 @import "./bg.css";
 @import "./columns.css";
 @import "./display.css";
+@import "./flex.css";
+@import "./link.css";
 @import "./list.css";
 @import "./size.css";
 @import "./space.css";
 @import "./position.css";
 @import "./text.css";
-@import "./flex.css";
-@import "./link.css";

@@ -13,3 +13,11 @@
 .u-textSmaller {
   font-size: calc(1em / var(--ms1));
 }
+
+/**
+ * Font weight control
+ */
+
+.u-textBold {
+  font-weight: bold !important;
+}

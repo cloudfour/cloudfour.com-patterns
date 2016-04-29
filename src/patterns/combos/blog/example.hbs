@@ -1,5 +1,6 @@
 ---
 name: Example
+order: 99
 sourceless: true
 previewClass: drizzle-u-rhythm drizzle-u-lg-size9of12 drizzle-u-flexExpand
 notes: |
@@ -23,7 +24,22 @@ notes: |
   design problem I am trying to solve.
 </p>
 
-{{#embed "patterns.combos.blog.post-figure"}}
+{{{
+  embed "patterns.combos.blog.post-pullquote"
+  class="u-lg-beforeN1of12 u-lg-afterN1of12"
+}}}
+
+<p>
+  I like to look at having technical skills the same way I would look at having
+  presentation skills. Or project management, writing, and concepting skills. We
+  are not just pixel pushers, we are designers. We are complex thinkers, makers
+  and problem solvers. That goes way beyond just the presentation layer of a
+  design. It’s about a breadth of knowledge that informs your creative process.
+  Code informing visual design. And vice versa, visual design informing the
+  code.
+</p>
+
+{{#embed "patterns.combos.blog.post-figure" class="u-lg-beforeN1of12 u-lg-afterN1of12"}}
   {{#content "figure"}}
     <img src="{{dummyImgSrc 1024 768 bg="#000"}}">
   {{/content}}

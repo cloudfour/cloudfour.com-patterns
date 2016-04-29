@@ -67,6 +67,12 @@
   border-radius: var(--Thumbnail-rounded-radius);
 }
 
+@media (--sm-viewport) {
+  .Thumbnail--rounded\@sm {
+    border-radius: var(--control-radius);
+  }
+}
+
 .Thumbnail--circle {
   border-radius: 50%;
 }

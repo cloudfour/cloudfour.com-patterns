@@ -1,13 +1,17 @@
 ---
-name: Pullquote
+name: Post Pullquote
 order: 3
+notes: |
+  This is intended to contain a quote pulled from a blog post.
 ---
 
-<blockquote class="u-bgGray u-paddingMd u-textLarger {{class}}">
-  <p>
-    {{#block "content"}}
-      I have always considered myself a “designer who codes”. I enjoy that aspect of
-      the web, even while in a purely visual design role.
-    {{/block}}
-  </p>
-</blockquote>
+<aside class="u-bgGray u-paddingMd u-textLarger{{#if class}} {{class}}{{/if}}">
+  <blockquote class="u-paddingNone">
+    <p>
+      {{#block "content"}}
+        I have always considered myself a “designer who codes”. I enjoy that aspect of
+        the web, even while in a purely visual design role.
+      {{/block}}
+    </p>
+  </blockquote>
+</aside>

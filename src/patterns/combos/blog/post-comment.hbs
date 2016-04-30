@@ -12,25 +12,23 @@ default:
 
 ---
 
-<div class="u-paddingEndsSm u-spaceChildren {{class}}">
+<article class="u-paddingEndsSm u-spaceChildren{{#if class}} {{class}}{{/if}}">
   {{#with (defaultTo comment default.comment)}}
     <p>
       {{!-- TODO: This should be HTML and not <p> content. --}}
-      {{comment}}
+      {{~{comment}~}}
     </p>
-    <div class="Arrange Arrange--withGutter Arrange--baseline u-textNoWrap">
-      <div class="Arrange-sizeFit u-textBold">
+    <div class="u-flex u-flexAlignItemsBaseline u-textNoWrap">
+      <span class="u-textBold">
         {{author}}
-      </div>
-      <div class="Arrange-sizeFill">
-        <time class="u-textSmaller">{{date}}</time>
-      </div>
-      <div class="Arrange-sizeFit">
-        <a class="u-textBold" href="#">
-          {{{embed "patterns.components.icon.base" iconid="reply"}}}
-          Reply
-        </a>
-      </div>
+      </span>
+      <time class="u-textSmaller u-marginSidesSm" datetime="{{timestamp date}}">
+        {{date}}
+      </time>
+      <a class="u-flexExpandLeft u-textBold" href="#">
+        {{~# embed "patterns.components.icon.base" iconid="reply"}}{{/embed~}}
+        Reply
+      </a>
     </div>
   {{/with}}
-</div>
+</article>

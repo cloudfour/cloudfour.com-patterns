@@ -7,7 +7,6 @@ notes: |
 default:
   post:
     title: This is a post title
-    subtitle: This is a post subtitle
     date: 2017-05-23
   author:
     name: Author Name
@@ -17,13 +16,14 @@ default:
 <header>
   {{#with (defaultTo post default.post)}}
     <h1>{{title}}</h1>
-    <h2>{{subtitle}}</h2>
   {{/with}}
-  Written by
-  {{#with (defaultTo author default.author)}}
-    <a href="{{url}}">{{name}}</a>
-  {{/with}}
-  {{#with (defaultTo post default.post)}}
-    on <time datetime="{{date}}">{{timestamp date format="MMM D, YYYY"}}</time>
-  {{/with}}
+  <p>
+    Written by
+    {{#with (defaultTo author default.author)}}
+      <a href="{{url}}">{{name}}</a>
+    {{/with}}
+    {{#with (defaultTo post default.post)}}
+      on <time datetime="{{date}}">{{timestamp date format="MMM D, YYYY"}}</time>
+    {{/with}}
+  </p>
 </header>

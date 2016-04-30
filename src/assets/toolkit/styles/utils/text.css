@@ -19,5 +19,5 @@
  */
 
 .u-textBold {
-  font-weight: bold !important;
+  font-weight: var(--font-weight-bold) !important;
 }

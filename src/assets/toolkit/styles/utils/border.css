@@ -1,0 +1,5 @@
+@media (--sm-viewport) {
+  .u-borderRadiusSm {
+    border-radius: var(--control-radius);
+  }
+}

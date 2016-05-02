@@ -4,7 +4,7 @@
 :root {
   --CalendarDate-background: var(--color-white);
   --CalendarDate-border-radius: var(--control-radius);
-  --CalendarDate-border-width: var(--border-width-md);
+  --CalendarDate-border-width: var(--control-stroke);
   --CalendarDate-font-weight: var(--font-weight-semibold);
   --CalendarDate-line-height: var(--line-height-sm);
   --CalendarDate-min-height: 4.5em;

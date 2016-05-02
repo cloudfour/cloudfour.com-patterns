@@ -4,22 +4,22 @@ sourceless: true
 ---
 
 <div class="u-spaceChildren">
-  {{#with drizzle.data.toolkit.contents}}
+  {{#with drizzle.data.specimens.contents}}
     <h3>Unordered</h3>
     <ul>
-      {{#each languages as |term|}}
+      {{#each definitions as |term|}}
         <li>{{term}}</li>
       {{/each}}
     </ul>
     <h3>Ordered</h3>
     <ol>
-      {{#each languages as |term|}}
+      {{#each definitions as |term|}}
         <li>{{term}}</li>
       {{/each}}
     </ol>
     <h3>Definition</h3>
     <dl>
-      {{#each languages as |term def|}}
+      {{#each definitions as |term def|}}
         <dt>
           <b>{{term}}</b>
         </dt>

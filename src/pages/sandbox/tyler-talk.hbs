@@ -96,7 +96,7 @@ notes: |
       <div class="u-spaceChildren">
         <h2>Presented at&hellip;</h2>
         <div class="ODoyleRules">
-          {{#each drizzle.data.toolkit.contents.talkHistory}}
+          {{#each drizzle.data.events.contents.past}}
             <article>
               <div class="Grid Grid--withGutter">
                 <p class="Grid-cell u-size1of3 u-sm-size1of4 u-md-size1of5 u-textNoWrap">{{date}}</p>
@@ -156,7 +156,7 @@ notes: |
           <li><a href="tel:15032901090">+1 503.290.1090</a></li>
         </ul>
         <ul class="u-listInline u-marginTopMd u-md-marginTopNone u-md-posAbsoluteTopRight">
-          {{#each drizzle.data.toolkit.contents.social}}
+          {{#each drizzle.data.social.contents.links}}
             <li>
               <a class="u-textLarger" href="{{url}}" title="{{text}}">
                 <svg class="Icon Icon--large" role="img">

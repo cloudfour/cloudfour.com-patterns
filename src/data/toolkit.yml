@@ -7,25 +7,6 @@ languages:
   Python: "A programming language where whitespace matters"
   Ruby: "An ugly syntax"
 
-icons:
-  - arrow-right
-  - arrow-left
-  - arrow-down
-  - arrow-up
-  - attachment
-  - cloud-four
-  - envelope
-  - facebook
-  - github
-  - instagram
-  - link
-  - linkedin
-  - plus
-  - reply
-  - return
-  - search
-  - twitter
-
 social:
   twitter:
     text: Follow @cloudfour on Twitter

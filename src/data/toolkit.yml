@@ -1,12 +1,3 @@
-languages:
-  HTML: "HyperText Markup Language"
-  CSS: "Cascading Style Sheets"
-  JavaScript: "What everything is written in"
-  MySQL: "My Structured Query Language"
-  Clojure: "Something I have not used"
-  Python: "A programming language where whitespace matters"
-  Ruby: "An ugly syntax"
-
 events:
   - month: Mar
     day: 14-16

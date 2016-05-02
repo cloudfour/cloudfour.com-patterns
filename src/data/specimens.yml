@@ -14,3 +14,11 @@ paragraph: |
   independence from an early date, and became completely independent early in
   the sixteenth century. Lausanne, until nearly 300 years later, endured the
   domination, first of Savoy, and subsequently of Berne.
+definitions:
+  HTML: "HyperText Markup Language"
+  CSS: "Cascading Style Sheets"
+  JavaScript: "What everything is written in"
+  MySQL: "My Structured Query Language"
+  Clojure: "Something I have not used"
+  Python: "A programming language where whitespace matters"
+  Ruby: "An ugly syntax"

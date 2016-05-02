@@ -81,3 +81,12 @@
 
 @mixin makeBorderWidthUtils var(--rule-width-sm), Sm;
 @mixin makeBorderWidthUtils var(--rule-width-md), Md;
+
+/**
+ * Apply `border-radius` at the small viewport size.
+ */
+@media (--sm-viewport) {
+  .u-sm-borderRadius {
+    border-radius: var(--control-radius);
+  }
+}

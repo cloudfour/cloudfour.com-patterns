@@ -58,20 +58,7 @@ notes: |
       <div class="Grid Grid--withGutter">
         {{#each drizzle.data.toolkit.contents.events}}
           <article class="Grid-cell u-flex u-marginEndsXs u-sm-size1of2 u-md-size1of3">
-            <a href="{{url}}" class="SecretLink u-flex u-flexAlignItemsCenter">
-              <time class="HotDate {{#if range}}HotDate--range{{/if}}" datetime="2016-04-12T18:30">
-                <span class="HotDate-header">{{month}}</span>
-                <span class="HotDate-body">{{day}}</span>
-              </time>
-              <div class="u-marginLeftSm">
-                <h3 class="u-textLarger SecretLink-beanSpiller">{{name}}</h3>
-                <p class="u-textNoWrap"><b>{{location}}</b></p>
-                <p>
-                  Speaker:
-                  {{#each speakers}}{{#if @index}}, {{/if}}{{.}}{{/each}}
-                </p>
-              </div>
-            </a>
+            {{#embed "patterns.combos.speaking.future-event" event=this}}{{/embed}}
           </article>
         {{/each}}
       </div>
@@ -80,24 +67,7 @@ notes: |
       <div class="Grid Grid--withGutter">
         {{#each drizzle.data.toolkit.contents.talks}}
           <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
-            <a href="#" class="SecretLink u-block">
-              <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
-                <img class="u-sizeFull" src="{{thumbnail}}" alt="">
-              </div>
-              <h2 class="SecretLink-beanSpiller u-marginTopXs">
-                {{title}}
-              </h2>
-              <p><b>By {{speaker}}</b></p>
-              <p class="u-sm-paddingRightSm">
-                Presented at
-                {{#each events}}{{#if @index}}, {{/if}}{{.}}{{/each}}
-                {{#if moreEvents}}
-                  <span class="SecretLink-beanSpiller u-textNoWrap">
-                    + {{moreEvents}} more
-                  </span>
-                {{/if}}
-              </p>
-            </a>
+            {{#embed "patterns.combos.speaking.talk-preview" talk=this}}{{/embed}}
           </article>
         {{/each}}
       </div>

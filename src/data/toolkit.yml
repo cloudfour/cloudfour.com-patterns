@@ -1,7 +1,8 @@
 events:
   - month: Mar
     day: 14-16
-    range: true
+    datetime: 2016-04-12T18:30
+    class: CalendarDate--range
     name: An Event Apart
     location: Nashville, TN
     url: "#"
@@ -9,7 +10,8 @@ events:
       - Jason
   - month: Apr
     day: 4-6
-    range: true
+    datetime: 2016-04-12T17:30
+    class: CalendarDate--range
     name: An Event Apart
     location: Seattle, WA
     url: "#"
@@ -17,6 +19,7 @@ events:
       - Jason
   - month: Apr
     day: 12
+    datetime: 2016-04-12T16:30
     name: Front End PDX
     location: Portland, OR
     url: "#"
@@ -24,7 +27,8 @@ events:
       - Tyler
   - month: Jun
     day: 14-15
-    range: true
+    datetime: 2016-04-12T15:30
+    class: CalendarDate--range
     name: Smashing Conference
     location: New York, NY
     url: "#"
@@ -32,7 +36,8 @@ events:
       - Jason
   - month: Sep
     day: 12-13
-    range: true
+    datetime: 2016-04-12T14:30
+    class: CalendarDate--range
     name: Smashing Conference
     location: Freiburg, Germany
     url: "#"

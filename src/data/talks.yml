@@ -1,0 +1,42 @@
+- title: "SVG: So Very Good"
+  speaker: Tyler Sticka
+  thumbnail: /assets/toolkit/images/sandbox/event-thumb-svg2.png
+  url: "#"
+  events:
+    - Front End PDX
+- title: "Adaptive Input"
+  speaker: Jason Grigsby
+  thumbnail: /assets/toolkit/images/sandbox/event-thumb-input.jpg
+  url: "#"
+  events:
+    - Refresh PDX
+    - An Event Apart
+    - Smashing Conference
+  moreEvents: 3
+- title: "Death of the Design Comp"
+  speaker: Nicole Mors
+  thumbnail: /assets/toolkit/images/sandbox/event-thumb-death.jpg
+  url: "#"
+  events:
+    - Portland Design Week
+    - PDX Web & Design Meetup
+- title: "Being Responsive"
+  speaker: Jason Grigsby
+  thumbnail: /assets/toolkit/images/sandbox/event-thumb-being.png
+  url: "#"
+  events:
+    - Nike
+    - Intersystems Global Summit
+- title: "Clouds, Code & Crying Squirrels"
+  speaker: Nicole Mors
+  thumbnail: /assets/toolkit/images/sandbox/event-thumb-squirrels.png
+  url: "#"
+  events:
+    - Portland Design Week
+- title: "Side Projects That Ship"
+  speaker: Tyler Sticka
+  thumbnail: /assets/toolkit/images/sandbox/event-thumb-side.png
+  url: "#"
+  events:
+    - Refresh PDX
+    - WebVisions

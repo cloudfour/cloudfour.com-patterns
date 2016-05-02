@@ -20,7 +20,7 @@ default:
     {{#embed "patterns.components.calendar-date.base" event=this}}{{/embed}}
     <div class="u-marginLeftSm">
       <h3 class="u-textLarger u-linkCleanTarget">{{name}}</h3>
-      <p class="u-textNoWrap"><b>{{location}}</b></p>
+      <p class="u-textNoWrap u-textBold">{{location}}</p>
       <p>
         Speaker:
         {{#each speakers}}{{#if @index}}, {{/if}}{{.}}{{/each}}

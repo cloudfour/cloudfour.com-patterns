@@ -1,0 +1,40 @@
+---
+name: Project
+notes: |
+  This is the combo for a project intended to be used in the "Tools &amp; Resources" section of the "Labs" page.
+
+default:
+  project:
+    name: Project Name
+    text: ICON
+    color: '#dbe5ea'
+    url: "#"
+    notes: |
+      A short description about the project can be added to help describe the project.
+    links:
+      - label: Demo
+        url: "#"
+      - label: Article
+        url: "#"
+      - label: Source
+        url: "#"
+
+---
+{{#with (defaultTo project default.project)}}
+<div class="u-flex">
+  <div>
+    <div class="Thumbnail Thumbnail--circle">
+      <img src="{{dummyImgSrc 128 128 text=text bg=color}}" alt="" style="width: 4em; height: auto;">
+    </div>
+  </div>
+  <div class="u-marginLeftSm">
+    <h3 class="u-textLarger">{{name}}</h3>
+    <p class="u-md-paddingRightSm">{{{notes}}}</p>
+    <ul class="u-listInline u-paddingTopXs u-flexExpandTop">
+      {{#each links}}
+        <li><a href="{{url}}">{{label}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+{{/with}}

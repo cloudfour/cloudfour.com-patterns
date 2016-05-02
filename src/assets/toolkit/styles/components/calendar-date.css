@@ -1,27 +1,47 @@
+/**
+ * Calendar Date
+ */
+:root {
+  --CalendarDate-background: var(--color-white);
+  --CalendarDate-border-radius: 0.25em;
+  --CalendarDate-border-width: var(--border-width-md);
+  --CalendarDate-font-weight: var(--font-weight-semibold);
+  --CalendarDate-line-height: var(--line-height-sm);
+  --CalendarDate-min-height: 4.5em;
+  --CalendarDate-min-width: 4.5em;
+
+  --CalendarDate-header-background: var(--color-fuchsia);
+  --CalendarDate-header-border-bottom-width: var(--border-width-md);
+  --CalendarDate-header-color: var(--color-white);
+  
+  --CalendarDate-body-font-size: var(--font-size-xl);
+  --CalendarDate-body-range-font-size: var(--font-size-md);
+}
+
 .CalendarDate {
-  background: #fff;
-  border: 3px solid currentColor;
-  border-radius: 0.25em;
+  background: var(--CalendarDate-background);
+  border: var(--CalendarDate-border-width) solid currentColor;
+  border-radius: var(--CalendarDate-border-radius);
   display: inline-flex;
   flex-direction: column;
-  font-weight: 600;
-  line-height: var(--line-height-sm);
-  min-height: 4.5em;
-  min-width: 4.5em;
+  font-weight: var(--CalendarDate-font-weight);
+  line-height: var(--CalendarDate-line-height);
+  min-height: var(--CalendarDate-min-height);
+  min-width: var(--CalendarDate-min-width);
   text-align: center;
 }
 
 .CalendarDate-header {
-  background: var(--color-fuchsia);
-  border-bottom: 3px solid transparent;
-  color: var(--color-white);
+  background: var(--CalendarDate-header-background);
+  border-bottom: var(--CalendarDate-header-border-bottom-width) solid transparent;
+  color: var(--CalendarDate-header-color);
 }
 
 .CalendarDate-body {
-  font-size: var(--font-size-xl);
+  font-size: var(--CalendarDate-body-font-size);
   margin: auto 0;
 }
 
 .CalendarDate--range .CalendarDate-body {
-  font-size: var(--font-size-md);
+  font-size: var(--CalendarDate-body-range-font-size);
 }

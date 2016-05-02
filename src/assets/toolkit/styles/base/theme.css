@@ -155,6 +155,17 @@
 }
 
 /**
+ * Shades
+ */
+
+:root {
+  --shade-lower: color(var(--color-black) alpha(0.125));
+  --shade-low: color(var(--color-black) alpha(0.25));
+  --shade-mid: color(var(--color-black) alpha(0.5));
+  --shade-high: color(var(--color-black) alpha(0.75));
+}
+
+/**
  * Selectors
  */
 

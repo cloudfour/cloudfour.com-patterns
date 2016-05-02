@@ -3,7 +3,7 @@
  */
 :root {
   --CalendarDate-background: var(--color-white);
-  --CalendarDate-border-radius: 0.25em;
+  --CalendarDate-border-radius: var(--control-radius);
   --CalendarDate-border-width: var(--border-width-md);
   --CalendarDate-font-weight: var(--font-weight-semibold);
   --CalendarDate-line-height: var(--line-height-sm);
@@ -13,7 +13,7 @@
   --CalendarDate-header-background: var(--color-fuchsia);
   --CalendarDate-header-border-bottom-width: var(--border-width-md);
   --CalendarDate-header-color: var(--color-white);
-  
+
   --CalendarDate-body-font-size: var(--font-size-xl);
   --CalendarDate-body-range-font-size: var(--font-size-md);
 }

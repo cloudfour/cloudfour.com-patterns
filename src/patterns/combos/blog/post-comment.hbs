@@ -1,0 +1,34 @@
+---
+name: Post Comment
+order: 4
+default:
+  comment:
+    author: Craig Little
+    date: Mar 3, 2016
+    thumbnail: https://randomuser.me/api/portraits/men/59.jpg
+    comment: |
+      Keytar McSweeney's Williamsburg, readymade leggings try hard 90's street
+      art letterpress hoodie occupy Wes Anderson Banksy.
+
+---
+
+<article class="u-paddingEndsSm u-spaceChildren{{#if class}} {{class}}{{/if}}">
+  {{#with (defaultTo comment default.comment)}}
+    <p>
+      {{!-- TODO: This should be HTML and not <p> content. --}}
+      {{~{comment}~}}
+    </p>
+    <div class="u-flex u-flexAlignItemsBaseline u-textNoWrap">
+      <span class="u-textBold">
+        {{author}}
+      </span>
+      <time class="u-textSmaller u-marginSidesSm" datetime="{{timestamp date}}">
+        {{date}}
+      </time>
+      <a class="u-flexExpandLeft u-textBold" href="#">
+        {{~# embed "patterns.components.icon.base" iconid="reply"}}{{/embed~}}
+        Reply
+      </a>
+    </div>
+  {{/with}}
+</article>

@@ -67,6 +67,17 @@
   }
 }
 
+/**
+ * Apply negative side margins to extend out of gutters.
+ */
+
+@define-mixin extend-sides $value, $suffix, $prefix {
+  .u-$(prefix)extendSides$(suffix) {
+    margin-left: calc(-1 * $(value)) !important;
+    margin-right: calc(-1 * $(value)) !important;
+  }
+}
+
 @mixin makeMarginUtils var(--space-xs), Xs;
 @mixin makeMarginUtils var(--space-sm), Sm;
 @mixin makeMarginUtils var(--space-md), Md;
@@ -123,4 +134,30 @@
   @mixin makePaddingUtils var(--space-md), Md, lg-;
   @mixin makePaddingUtils var(--space-lg), Lg, lg-;
   @mixin makePaddingUtils 0, None, lg-;
+}
+
+@mixin extend-sides var(--space-xs), Xs;
+@mixin extend-sides var(--space-sm), Sm;
+@mixin extend-sides var(--space-md), Md;
+@mixin extend-sides var(--space-lg), Lg;
+
+@media (--sm-viewport) {
+  @mixin extend-sides var(--space-xs), Xs, sm-;
+  @mixin extend-sides var(--space-sm), Sm, sm-;
+  @mixin extend-sides var(--space-md), Md, sm-;
+  @mixin extend-sides var(--space-lg), Lg, sm-;
+}
+
+@media (--md-viewport) {
+  @mixin extend-sides var(--space-xs), Xs, md-;
+  @mixin extend-sides var(--space-sm), Sm, md-;
+  @mixin extend-sides var(--space-md), Md, md-;
+  @mixin extend-sides var(--space-lg), Lg, md-;
+}
+
+@media (--lg-viewport) {
+  @mixin extend-sides var(--space-xs), Xs, lg-;
+  @mixin extend-sides var(--space-sm), Sm, lg-;
+  @mixin extend-sides var(--space-md), Md, lg-;
+  @mixin extend-sides var(--space-lg), Lg, lg-;
 }

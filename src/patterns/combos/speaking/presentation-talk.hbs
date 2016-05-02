@@ -4,32 +4,35 @@ notes: |
   This is a presentation talk intended to be used in the "Our Talks" section of the "Speaking" page.
 
 default:
-  title: Adaptive Input
-  speaker: Jason Grigsby
-  thumbnail: /assets/toolkit/images/sandbox/event-thumb-input.jpg
-  alt: Adaptive Input
-  url: "http://cloudfour.com"
-  events:
-    - Refresh PDX
-    - An Event Apart
-    - Smashing Conference
-  moreEvents: 3
-  ---
-<a href="{{defaultTo url default.url}}" class="u-block u-linkClean u-textInheritColor">
-  <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
-    <img class="u-sizeFull" src="{{defaultTo thumbnail default.thumbnail}}" alt="{{defaultTo alt default.alt}}">
-  </div>
-  <h2 class="u-marginTopXs u-linkCleanTarget">
-    {{defaultTo title default.title}}
-  </h2>
-  <p><b>By {{defaultTo speaker default.speaker}}</b></p>
-  <p class="u-sm-paddingRightSm">
-    Presented at
-    {{#each (defaultTo events default.events)}}{{#if @index}}, {{/if}}{{.}}{{/each}}
-    {{#if (defaultTo moreEvents default.moreEvents)}}
-      <span class="u-textNoWrap u-linkCleanTarget">
-        + {{defaultTo moreEvents default.moreEvents}} more
-      </span>
-    {{/if}}
-  </p>
-</a>
+  talk:
+    title: Adaptive Input
+    speaker: Jason Grigsby
+    thumbnail: /assets/toolkit/images/sandbox/event-thumb-input.jpg
+    alt: Adaptive Input
+    url: "http://cloudfour.com"
+    events:
+      - Refresh PDX
+      - An Event Apart
+      - Smashing Conference
+    moreEvents: 3
+---
+{{#with (defaultTo talk default.talk)}}
+  <a href="{{url}}" class="u-block u-linkClean u-textInheritColor">
+    <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
+      <img class="u-sizeFull" src="{{thumbnail}}" alt="{{alt}}">
+    </div>
+    <h2 class="u-marginTopXs u-linkCleanTarget">
+      {{title}}
+    </h2>
+    <p><b>By {{speaker}}</b></p>
+    <p class="u-sm-paddingRightSm">
+      Presented at
+      {{#each events}}{{#if @index}}, {{/if}}{{.}}{{/each}}
+      {{#if moreEvents}}
+        <span class="u-textNoWrap u-linkCleanTarget">
+          + {{moreEvents}} more
+        </span>
+      {{/if}}
+    </p>
+  </a>
+{{/with}}

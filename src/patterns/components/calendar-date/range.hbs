@@ -2,10 +2,14 @@
 name: Date Range Modifier
 notes: |
   Use the `CalendarDate--range` modifier class for date ranges.
+
+default:
+  event:
+    month: Oct
+    day: 10-12
+    datetime: 2016-10-10T12:30
+    class: CalendarDate--range
 ---
-{{#embed "patterns.components.calendar-date.base" class="CalendarDate--range"
-  month="Oct"
-  day="10-12"
-  range=true
-  datetime="2016-10-10T12:30"}}
-{{/embed}}
+{{#with (defaultTo event default.event)}}
+  {{#embed "patterns.components.calendar-date.base" event=this}}{{/embed}}
+{{/with}}

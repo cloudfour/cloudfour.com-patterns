@@ -58,16 +58,7 @@ notes: |
       <div class="Grid Grid--withGutter">
         {{#each drizzle.data.toolkit.contents.events}}
           <article class="Grid-cell u-flex u-marginEndsXs u-sm-size1of2 u-md-size1of3">
-            {{#embed "patterns.combos.speaking.future-event"
-              url=url
-              range=range
-              datetime=datetime
-              month=month
-              day=day
-              event=name
-              location=location
-              speakers=speakers}}
-            {{/embed}}
+            {{#embed "patterns.combos.speaking.future-event" event=this}}{{/embed}}
           </article>
         {{/each}}
       </div>
@@ -76,13 +67,7 @@ notes: |
       <div class="Grid Grid--withGutter">
         {{#each drizzle.data.toolkit.contents.talks}}
           <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
-            {{#embed "patterns.combos.speaking.presentation-talk"
-              thumbnail=thumbnail
-              title=title
-              speaker=speaker
-              events=events
-              moreEvents=moreEvents}}
-            {{/embed}}
+            {{#embed "patterns.combos.speaking.presentation-talk" talk=this}}{{/embed}}
           </article>
         {{/each}}
       </div>

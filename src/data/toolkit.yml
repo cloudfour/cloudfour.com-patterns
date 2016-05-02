@@ -65,7 +65,7 @@ events:
   - month: Mar
     day: 14-16
     datetime: 2016-04-12T18:30
-    range: true
+    class: CalendarDate--range
     name: An Event Apart
     location: Nashville, TN
     url: "#"
@@ -74,7 +74,7 @@ events:
   - month: Apr
     day: 4-6
     datetime: 2016-04-12T17:30
-    range: true
+    class: CalendarDate--range
     name: An Event Apart
     location: Seattle, WA
     url: "#"
@@ -91,7 +91,7 @@ events:
   - month: Jun
     day: 14-15
     datetime: 2016-04-12T15:30
-    range: true
+    class: CalendarDate--range
     name: Smashing Conference
     location: New York, NY
     url: "#"
@@ -100,7 +100,7 @@ events:
   - month: Sep
     day: 12-13
     datetime: 2016-04-12T14:30
-    range: true
+    class: CalendarDate--range
     name: Smashing Conference
     location: Freiburg, Germany
     url: "#"

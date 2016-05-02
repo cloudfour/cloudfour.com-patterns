@@ -11,7 +11,7 @@ default:
     datetime: 2016-04-12T18:30
 ---
 {{#with (defaultTo event default.event)}}
-  <time class="CalendarDate{{#if class}} {{class}}{{/if}}" datetime="{{datetime}}">
+  <time class="CalendarDate {{class}}" datetime="{{datetime}}">
     <span class="CalendarDate-header">{{month}}</span>
     <span class="CalendarDate-body">{{day}}</span>
   </time>

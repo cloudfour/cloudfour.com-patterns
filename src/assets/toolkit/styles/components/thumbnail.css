@@ -8,7 +8,6 @@
   --Thumbnail-border-color: var(--color-navy);
   --Thumbnail-border-width: var(--control-stroke);
   --Thumbnail-rounded-radius: var(--control-radius);
-  --Thumbnail-circle-img-width: 4em;
 }
 
 /**
@@ -70,9 +69,4 @@
 
 .Thumbnail--circle {
   border-radius: 50%;
-}
-
-.Thumbnail--circle > img {
-  width: var(--Thumbnail-circle-img-width);
-  height: auto;
 }

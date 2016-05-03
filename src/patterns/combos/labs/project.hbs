@@ -24,10 +24,10 @@ default:
 <div class="u-flex">
   <div>
     <div class="Thumbnail Thumbnail--circle">
-      <img src="{{dummyImgSrc 128 128 text=text bg=color}}" alt="" style="width: 4em; height: auto;">
+      <img src="{{dummyImgSrc 128 128 text=text bg=(defaultTo color default.project.color)}}" alt="" style="width: 4em; height: auto;">
     </div>
   </div>
-  <div class="u-marginLeftSm">
+  <div class="u-marginLeftSm u-flex u-flexCol">
     <h3 class="u-textLarger">{{name}}</h3>
     <p class="u-md-paddingRightSm">{{{notes}}}</p>
     <ul class="u-listInline u-paddingTopXs u-flexExpandTop">

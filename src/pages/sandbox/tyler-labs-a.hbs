@@ -81,17 +81,7 @@ notes: |
       <div class="Grid Grid--withGutter">
         {{#each drizzle.data.labs.contents.pens}}
           <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
-            <a href="{{url}}" class="SecretLink u-block">
-              <div class="Thumbnail Thumbnail--rounded@sm u-block u-marginSidesMinusMd u-sm-marginSidesNone">
-                <img class="u-sizeFull" src="{{url}}/image/small.png" alt="">
-              </div>
-              <h4 class="SecretLink-beanSpiller u-marginTopXs u-sm-paddingRightSm">
-                {{title}}
-              </h4>
-              <p>
-                <span class="u-textSmaller">By {{creator}}</span>
-              </p>
-            </a>
+            {{#embed "patterns.combos.labs.experiment" experiment=this}}{{/embed}}
           </article>
         {{/each}}
       </div>

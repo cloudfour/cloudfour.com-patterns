@@ -1,5 +1,6 @@
 projects:
   - name: Drizzle
+    text: ICON
     color: '#004966'
     url: "#"
     notes: |
@@ -10,6 +11,7 @@ projects:
       - label: Source
         url: "#"
   - name: Leveller
+    text: ICON
     color: '#444'
     url: "#"
     notes: |
@@ -23,6 +25,7 @@ projects:
       - label: Source
         url: "#"
   - name: Image Resizing Services
+    text: ICON
     color: '#1BB162'
     url: "#"
     notes: |
@@ -33,6 +36,8 @@ projects:
       - label: Article
         url: "#"
   - name: hideShowPassword
+    text: ICON
+    color: '#dbe5ea'
     url: "#"
     notes: |
       Customizable touch-friendly password visibility toggles with jQuery.
@@ -44,6 +49,7 @@ projects:
       - label: Source
         url: "#"
   - name: Common Patterns
+    text: ICON
     color: '#1BB162'
     url: "#"
     notes: |
@@ -55,6 +61,8 @@ projects:
       - label: Article
         url: "#"
   - name: SimpleSlideView
+    text: ICON
+    color: '#dbe5ea'
     url: "#"
     notes: |
       jQuery plugin for prototyping simple in-page content transitions.

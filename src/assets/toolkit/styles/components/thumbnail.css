@@ -70,3 +70,8 @@
 .Thumbnail--circle {
   border-radius: 50%;
 }
+
+.Thumbnail--circle > img {
+  width: 4em;
+  height: auto;
+}

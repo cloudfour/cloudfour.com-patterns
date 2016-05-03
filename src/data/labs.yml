@@ -1,7 +1,6 @@
 projects:
   - name: Drizzle
     color: '#004966'
-    text: ICON
     url: "#"
     notes: |
       Our pattern library, style guide and prototyping environment.
@@ -12,7 +11,6 @@ projects:
         url: "#"
   - name: Leveller
     color: '#444'
-    text: ICON
     url: "#"
     notes: |
       A jQuery plugin for equalizing element heights when Flexbox just isn't an
@@ -26,7 +24,6 @@ projects:
         url: "#"
   - name: Image Resizing Services
     color: '#1BB162'
-    text: ICON
     url: "#"
     notes: |
       Comparison spreadsheet of available options, features and prices.
@@ -48,7 +45,6 @@ projects:
         url: "#"
   - name: Common Patterns
     color: '#1BB162'
-    text: ICON
     url: "#"
     notes: |
       Spreadsheet of recurring UI elements in frameworks, boilerplates and

@@ -1,0 +1,24 @@
+---
+name: CodePen Preview
+notes: |
+  This is the combo for a Code Pen preview intended to be used in the "Experiments" section of the "Labs" page.
+
+default:
+  pen:
+    title: Profile Header
+    creator: Tyler Sticka
+    url: http://codepen.io/tylersticka/pen/mewaqW
+---
+{{#with (defaultTo pen default.pen)}}
+<a href="{{url}}" class="u-linkBlock u-textInheritColor">
+  <div class="Thumbnail u-block u-marginSidesMinusMd u-sm-marginSidesNone u-sm-borderRadius">
+    <img class="u-sizeFull" src="{{url}}/image/small.png" alt="">
+  </div>
+  <h4 class="u-linkBlockTarget u-marginTopXs u-sm-paddingRightSm">
+    {{title}}
+  </h4>
+  <p>
+    <span class="u-textSmaller">By {{creator}}</span>
+  </p>
+</a>
+{{/with}}

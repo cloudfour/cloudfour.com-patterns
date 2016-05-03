@@ -17,11 +17,11 @@ default:
     moreEvents: 3
 ---
 {{#with (defaultTo talk default.talk)}}
-  <a href="{{url}}" class="u-block u-linkClean u-textInheritColor">
+  <a href="{{url}}" class="u-linkBlock u-textInheritColor">
     <div class="Thumbnail u-block u-marginSidesMinusMd u-sm-marginSidesNone u-sm-borderRadius">
       <img class="u-sizeFull" src="{{thumbnail}}" alt="{{alt}}">
     </div>
-    <h2 class="u-marginTopXs u-linkCleanTarget">
+    <h2 class="u-marginTopXs u-linkBlockTarget">
       {{title}}
     </h2>
     <p class="u-textBold">By {{speaker}}</p>

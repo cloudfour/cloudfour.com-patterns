@@ -23,12 +23,10 @@ default:
 ---
 {{#with (defaultTo project default.project)}}
 <div class="u-flex">
-  <div>
-    <div class="Thumbnail Thumbnail--circle">
-      <img src="{{dummyImgSrc 64 64}}" alt="">
-    </div>
+  <div class="Thumbnail Thumbnail--circle u-flexAlignSelfStart">
+    <img src="{{dummyImgSrc 64 64}}" alt="">
   </div>
-  <div class="u-marginLeftSm u-flex u-flexCol">
+  <div class="u-marginLeftSm u-flex u-flexCol u-flexGrow1">
     <h3 class="u-textLarger">{{name}}</h3>
     <p class="u-md-paddingRightSm">{{{notes}}}</p>
     <ul class="u-listInline u-paddingTopXs u-flexExpandTop">

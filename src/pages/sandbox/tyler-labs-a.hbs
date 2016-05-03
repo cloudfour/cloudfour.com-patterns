@@ -59,20 +59,7 @@ notes: |
       <div class="Grid Grid--withGutter">
         {{#each drizzle.data.labs.contents.projects}}
           <article class="Grid-cell u-flex u-marginEndsLg u-md-size1of2 u-lg-size1of3">
-            <div>
-              <div class="Thumbnail Thumbnail--circle">
-                <img src="{{dummyImgSrc 128 128 text='ICON' bg=(defaultTo color '#dbe5ea')}}" alt="" style="width: 4em; height: auto;">
-              </div>
-            </div>
-            <div class="u-marginLeftSm u-flex u-flexCol">
-              <h3 class="u-textLarger">{{name}}</h3>
-              <p class="u-md-paddingRightSm">{{{notes}}}</p>
-              <ul class="u-listInline u-paddingTopXs u-flexExpandTop">
-                {{#each links}}
-                  <li><a href="{{url}}">{{label}}</a></li>
-                {{/each}}
-              </ul>
-            </div>
+            {{#embed "patterns.combos.labs.project" project=this}}{{/embed}}
           </article>
         {{/each}}
       </div>

@@ -1,18 +1,18 @@
 ---
 name: Experiment
 notes: |
-  This is the combo for an experiment (Code Pens, etc.) intended to be used in the "Experiments" section of the "Labs" page.
+  This is the combo for a Code Pen preview intended to be used in the "Experiments" section of the "Labs" page.
 
 default:
-  experiment:
+  pen:
     title: Profile Header
     creator: Tyler Sticka
     url: http://codepen.io/tylersticka/pen/mewaqW
 ---
-{{#with (defaultTo project default.experiment)}}
+{{#with (defaultTo pen default.pen)}}
 <a href="{{url}}" class="u-block u-linkClean u-textInheritColor">
   <div class="Thumbnail u-block u-marginSidesMinusMd u-sm-marginSidesNone u-sm-borderRadius">
-    <img class="u-sizeFull" src="{{url}}/image/small.png" alt="{{title}}">
+    <img class="u-sizeFull" src="{{url}}/image/small.png" alt="">
   </div>
   <h4 class="u-linkCleanTarget u-marginTopXs u-sm-paddingRightSm">
     {{title}}

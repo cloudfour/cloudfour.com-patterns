@@ -1,7 +1,50 @@
-- date: 2016-04-28
-  title: The Year of the Ugly Unicorn
-  subtitle: This is a subheading
+- date: "2016-04-20"
+  title: "Responsive Logo Composition With SVG"
+  author: "Tyler Sticka"
+  avatar: "http://0.gravatar.com/avatar/0326d10d4bb16cdc74dd244068e2ef81?s=96&d=mm&r=g"
+  image: "/assets/toolkit/images/sandbox/post-image-exampleco.png"
+  excerpt: |
+    What if we want to re-arrange our logo elements depending on the aspect ratio of the asset, perhaps to account for the amount of vertical real estate available to us?
 
-- date: 2016-04-24
-  title: Responsive Logo Composition With SVG
-  subtitle: This is a subheading
+- date: "2016-04-11"
+  title: "One amazing video that shows the potential of the physical web"
+  author: "Jason Grigsby"
+  avatar: "http://1.gravatar.com/avatar/dac45089aeda3bca56193072601a49d4?s=96&d=mm&r=g"
+  excerpt: |
+    I keep revisiting the video because it shows how the physical web can provide a substantially better experience than the native app install process.
+
+- date: "2016-03-30"
+  title: "Service Workers at Scale, Part I: CDNs and Multiple Origins"
+  author: "Erik Jung"
+  avatar: "http://0.gravatar.com/avatar/f888e07e6d6ec65e446b8f2b73a81abc?s=96&d=mm&r=g"
+  excerpt: |
+    We recently got the opportunity to develop a service worker for use on Smashing Magazine, which we’ll write about in more detail soon. This is the first of a multi-part article that will examine some of the solutions we arrived at and lessons we learned.
+
+- date: "2016-03-08"
+  title: "The Year of the Ugly Unicorn"
+  author: "Nicole Mors"
+  avatar: "http://1.gravatar.com/avatar/71a2629d473c5793fd3b318ace3fc474?s=96&d=mm&r=g"
+  image: "/assets/toolkit/images/sandbox/post-image-unicorn.png"
+  excerpt: |
+    I have always considered myself a “designer who codes”. I enjoy that aspect of the web, even while in a purely visual design role.
+
+- date: "2016-03-03"
+  title: "Element Collages… are FUN!"
+  author: "Nicole Mors"
+  avatar: "http://1.gravatar.com/avatar/71a2629d473c5793fd3b318ace3fc474?s=96&d=mm&r=g"
+  excerpt: |
+    After documenting our collective inspiration in the form of Mood Boards, our next design exercise for the redesign of cloudfour.com was Element Collages.
+
+- date: "2016-03-01"
+  title: "Cloudfour.com Redesign: This is how we do it"
+  author: "Megan Notarte"
+  avatar: "http://1.gravatar.com/avatar/4c958f3e833cd282149a7372b85d57ff?s=96&d=mm&r=g"
+  excerpt: |
+    We pride ourselves on being adaptive to the project’s needs – we don’t have a one size fits all process. This is part of our DNA (and part of our differentiation as a company.) Here’s how we are adapting to fit our own project’s needs.
+
+- date: "2016-02-26"
+  title: "So, about that logo…"
+  author: "Aileen Jeffries"
+  avatar: "http://1.gravatar.com/avatar/16d933e77a72cc5a87d30b9307c0ccad?s=96&d=mm&r=g"
+  excerpt: |
+    Our new logo was born out of necessity, quietly appearing first as a favicon, then migrating to our Twitter account and beyond.

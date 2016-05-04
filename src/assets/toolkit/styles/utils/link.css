@@ -1,9 +1,10 @@
 @import "suitcss-utils-link";
 
-.u-linkBlockTarget {
+.u-linkTarget {
   color: var(--color-blue);
 }
 
-.u-linkBlock:matches(:active, :focus, :hover) .u-linkBlockTarget {
+.u-linkBlock:matches(:active, :focus, :hover) .u-linkTarget,
+.u-linkClean:matches(:active, :focus, :hover) .u-linkTarget {
   color: var(--link-hover-color);
 }

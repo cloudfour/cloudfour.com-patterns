@@ -1,3 +1,11 @@
+- date: "2016-03-08"
+  title: "The Year of the Ugly Unicorn"
+  author: "Nicole Mors"
+  avatar: "http://1.gravatar.com/avatar/71a2629d473c5793fd3b318ace3fc474?s=96&d=mm&r=g"
+  image: "/assets/toolkit/images/sandbox/post-image-unicorn.png"
+  excerpt: |
+    I have always considered myself a “designer who codes”. I enjoy that aspect of the web, even while in a purely visual design role.
+
 - date: "2016-04-20"
   title: "Responsive Logo Composition With SVG"
   author: "Tyler Sticka"
@@ -19,14 +27,6 @@
   avatar: "http://0.gravatar.com/avatar/f888e07e6d6ec65e446b8f2b73a81abc?s=96&d=mm&r=g"
   excerpt: |
     We recently got the opportunity to develop a service worker for use on Smashing Magazine, which we'll write about in more detail soon. This is the first of a multi-part article that will examine some of the solutions we arrived at and lessons we learned.
-
-- date: "2016-03-08"
-  title: "The Year of the Ugly Unicorn"
-  author: "Nicole Mors"
-  avatar: "http://1.gravatar.com/avatar/71a2629d473c5793fd3b318ace3fc474?s=96&d=mm&r=g"
-  image: "/assets/toolkit/images/sandbox/post-image-unicorn.png"
-  excerpt: |
-    I have always considered myself a “designer who codes”. I enjoy that aspect of the web, even while in a purely visual design role.
 
 - date: "2016-03-03"
   title: "Element Collages… are FUN!"

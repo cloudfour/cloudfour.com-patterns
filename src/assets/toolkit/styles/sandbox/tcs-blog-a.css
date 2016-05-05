@@ -82,6 +82,14 @@ img {
   margin-right: calc(var(--space-md) * -1);
 }
 
+.u-marginTopXl {
+  margin-top: calc(var(--space-lg) * 2);
+}
+
 .u-borderRadius {
   border-radius: var(--control-radius);
+}
+
+.u-textGray {
+  color: color(var(--color-gray) l(-25%) s(-15%));
 }

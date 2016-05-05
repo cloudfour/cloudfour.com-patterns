@@ -1,12 +1,13 @@
 ---
-title: Core Blog Page A
+title: Core Blog Page B
 layout: toolkit.blank
 stylesheets:
   - sandbox/tcs-blog-a
 labels:
+  - latest
   - inprogress
 notes: |
-  Chronological posts plus sidebar linkage.
+  One featured post, then tiled chronological posts.
 ---
 
 {{#embed "patterns.components.sky.base"}}
@@ -75,21 +76,53 @@ notes: |
 
     <div class="u-bigOlContainer u-paddingMd">
 
-      <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-md-size2of3 u-rhythmXl u-marginEndsLg">
-          {{#each drizzle.data.posts.contents}}
-            <article class="u-rhythmXs">
-              <header>
+      <div class="Grid Grid--withGutter u-marginEndsLg u-rhythmXl">
+        {{#each drizzle.data.posts.contents}}
+          {{#if @first}}
+            <article class="Grid-cell">
+              <div class="Grid Grid--withGutter u-spaceChildren">
+                <div class="Grid-cell u-lg-size2of3">
+                  <img class="u-sizeFull" src="{{image}}" alt="">
+                </div>
+                <div class="Grid-cell u-lg-size1of3 u-rhythmXs">
+                  <header>
+                    <h2>
+                      <a class="u-linkClean" href="#">{{title}}</a>
+                    </h2>
+                  </header>
+                  <p>
+                    {{excerpt}}
+                    <a class="u-linkClean u-textNoWrap u-textSmaller u-textGray" href="#">
+                      Read more
+                      {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+                      {{/embed}}
+                    </a>
+                  </p>
+                  <footer class="u-flex u-flexAlignItemsCenter">
+                    <div class="Thumbnail Thumbnail--circle">
+                      <img src="{{avatar}}" alt="" width="48">
+                    </div>
+                    <div class="u-marginLeftXs">
+                      <p class="u-textBold">{{author}}</p>
+                      <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                    </div>
+                  </footer>
+                </div>
+              </div>
+            </article>
+          {{/if}}
+        {{/each}}
+        {{#each drizzle.data.posts.contents}}
+          {{#unless @first}}
+            <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-rhythmXs">
+              <header class="u-md-paddingRightXs">
                 <h2>
                   <a class="u-linkClean" href="#">{{title}}</a>
                 </h2>
               </header>
-              {{#if image}}
-                <img src="{{image}}" alt="">
-              {{/if}}
-              <p>
+              <p class="u-md-paddingRightXs">
                 {{excerpt}}
-                <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                <a class="u-linkClean u-textNoWrap u-textSmaller u-textGray" href="#">
                   Read more
                   {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
                   {{/embed}}
@@ -105,58 +138,8 @@ notes: |
                 </div>
               </footer>
             </article>
-          {{/each}}
-          <p>
-            <a class="Button Button--tertiary" href="#">
-              <svg class="Icon" role="img">
-                <use xlink:href="/assets/toolkit/images/icons.svg#arrow-left"/>
-              </svg>
-              &nbsp;Older Articles
-            </a>
-          </p>
-        </div>
-        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceChildren u-marginEndsXs">
-
-          <div class="u-marginTopXs">
-            <h2><span class="u-textSmaller">Essentials</span></h2>
-            <p class="u-textSmaller">Frequently-cited posts we&rsquo;re particularly proud of.</p>
-            <ul class="u-listUnstyled">
-              {{#each drizzle.data.posts.contents}}
-                <li class="u-textSmaller {{#unless @first}}u-borderTopMd{{/unless}}">
-                  <a class="u-paddingEndsXs u-linkBlock" href="#">
-                    {{title}}
-                  </a>
-                </li>
-              {{/each}}
-            </ul>
-          </div>
-
-          <div class="u-rhythmXs">
-            <h2><span class="u-textSmaller">Topics</span></h2>
-            <ul class="u-listUnstyled">
-              {{#each drizzle.data.topics.contents}}
-                <li class="{{#unless @first}}u-borderTopMd{{/unless}}">
-                  <a class="u-paddingEndsXs u-linkClean u-flex" href="#">
-                    {{@key}}
-                    <span class="u-flexExpandLeft" style="color: #909699;">
-                      <span class="u-hiddenVisually">(</span>{{.}}<span class="u-hiddenVisually">)</span>
-                    </span>
-                  </a>
-                </li>
-              {{/each}}
-              <li class="u-borderTopMd">
-                <a class="u-paddingEndsXs u-linkClean u-flex u-flexAlignItemsCenter" href="#">
-                  All topics
-                  <span class="u-flexExpandLeft">
-                    {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
-                    {{/embed}}
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
+          {{/unless}}
+        {{/each}}
       </div>
 
     </div>

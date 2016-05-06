@@ -79,11 +79,11 @@ notes: |
         {{#each drizzle.data.posts.contents}}
           {{#if @first}}
             <article class="Grid-cell">
-              <div class="Grid Grid--withGutter u-spaceChildren">
-                <div class="Grid-cell u-lg-size2of3">
+              <div class="Grid Grid--withGutter Grid--alignMiddle">
+                <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-marginBottomMd u-md-marginBottomNone">
                   <img class="u-sizeFull" src="{{image}}" alt="">
                 </div>
-                <div class="Grid-cell u-lg-size1of3 u-rhythmXs">
+                <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-rhythmXs">
                   <header>
                     <h2>
                       <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -139,6 +139,30 @@ notes: |
             </article>
           {{/unless}}
         {{/each}}
+      </div>
+      <p class="u-marginTopXl u-marginBottomLg">
+        <a class="Button Button--tertiary" href="#">
+          <svg class="Icon" role="img">
+            <use xlink:href="/assets/toolkit/images/icons.svg#arrow-left"/>
+          </svg>
+          &nbsp;Older Articles
+        </a>
+      </p>
+      <hr class="u-marginEndsLg">
+      <div class="u-marginEndsLg u-marginBottomNone u-rhythmSm">
+        <h3>Browse by Topic</h3>
+        <ul class="u-listInline">
+          {{#each drizzle.data.topics.contents}}
+            <li class="u-marginBottomSm">
+              <a href="#" class="Button Button--tertiary">
+                {{@key}}
+                <span class="u-textGray">
+                  {{.}}
+                </span>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
       </div>
 
     </div>

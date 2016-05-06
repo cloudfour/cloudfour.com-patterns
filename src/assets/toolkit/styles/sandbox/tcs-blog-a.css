@@ -82,8 +82,13 @@ img {
   margin-right: calc(var(--space-md) * -1);
 }
 
+.u-marginEndsXl {
+  margin-top: var(--space-xl) !important;
+  margin-bottom: var(--space-xl) !important;
+}
+
 .u-marginTopXl {
-  margin-top: calc(var(--space-lg) * 2);
+  margin-top: var(--space-xl) !important;
 }
 
 .u-borderRadius {
@@ -92,4 +97,10 @@ img {
 
 .u-textGray {
   color: color(var(--color-gray) l(-25%) s(-15%));
+}
+
+@media (--md-viewport) {
+  .u-md-textSmaller {
+    font-size: calc(1em / var(--ms1));
+  }
 }

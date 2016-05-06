@@ -81,17 +81,16 @@ notes: |
             <article class="u-rhythmXs">
               <header>
                 <h2>
-                  <a class="u-linkClean" href="#">{{title}}</a>
+                  <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
                 </h2>
               </header>
               {{#if image}}
                 <img src="{{image}}" alt="">
               {{/if}}
               <p>
-                {{excerpt}}
+                {{excerpt}}&nbsp;
                 <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
-                  Read more
-                  {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+                  Read more&nbsp;{{#embed "patterns.components.icon.base" iconid="arrow-right"}}
                   {{/embed}}
                 </a>
               </p>
@@ -118,11 +117,11 @@ notes: |
         <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceChildren u-marginEndsXs">
 
           <div class="u-marginTopXs">
-            <h2><span class="u-textSmaller">Essentials</span></h2>
-            <p class="u-textSmaller">Frequently-cited posts we&rsquo;re particularly proud of.</p>
+            <h2><span class="u-md-textSmaller">Essentials</span></h2>
+            <p class="u-md-textSmaller">Frequently-cited posts we&rsquo;re particularly proud of.</p>
             <ul class="u-listUnstyled">
               {{#each drizzle.data.posts.contents}}
-                <li class="u-textSmaller {{#unless @first}}u-borderTopMd{{/unless}}">
+                <li class="u-md-textSmaller {{#unless @first}}u-borderTopMd{{/unless}}">
                   <a class="u-paddingEndsXs u-linkBlock" href="#">
                     {{title}}
                   </a>
@@ -132,7 +131,7 @@ notes: |
           </div>
 
           <div class="u-rhythmXs">
-            <h2><span class="u-textSmaller">Topics</span></h2>
+            <h2><span class="u-md-textSmaller">Topics</span></h2>
             <ul class="u-listUnstyled">
               {{#each drizzle.data.topics.contents}}
                 <li class="{{#unless @first}}u-borderTopMd{{/unless}}">

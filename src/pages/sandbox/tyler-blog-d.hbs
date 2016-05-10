@@ -1,0 +1,257 @@
+---
+title: Core Blog Page D
+layout: toolkit.blank
+stylesheets:
+  - sandbox/tcs-blog-a
+labels:
+  - inprogress
+notes: |
+  Another stab at a tile-based design approach.
+---
+
+{{#embed "patterns.components.sky.base"}}
+  {{#content "top"}}
+    <div class="u-bigOlContainer">
+      <header class="Sky-nav" role="banner">
+        <ul class="Sky-nav-controls">
+          {{! TODO: Allow these href destinations to be customized }}
+          <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
+          <li><a class="Sky-nav-controls-skipToMenu Button Button--defaultLight" href="#menu" aria-label="Skip to navigation">Menu</a></li>
+        </ul>
+        <a class="Sky-nav-logo" href="/">
+          <svg class="Sky-nav-logo-object" width="80" height="80" role="img" aria-labelledby="logo-title">
+            <title id="logo-title">Cloud Four</title>
+            <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor"/>
+          </svg>
+        </a>
+        {{! TODO: Allow this ID to be customized (see above href todo as well) }}
+        <nav class="Sky-nav-menu" role="navigation" id="menu">
+          <ul class="Sky-nav-menu-items">
+            <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Our Process</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Our Work</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Articles</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Speaking</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Code</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">The Team</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  {{/content}}
+{{/embed}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      <div class="u-bigOlContainer u-paddingMd">
+        <div class="Grid Grid--withGutter Grid--alignMiddle">
+          <div class="Grid-cell u-md-size5of12 u-lg-size1of2">
+            <h1 class="BigOlMasthead u-marginRightMd">Articles</h1>
+            <p class="u-textLarger" style="opacity: 0.8;">
+              Tales from the edge of the web
+            </p>
+          </div>
+          <div class="Grid-cell u-md-size7of12 u-lg-size1of2 u-marginTopMd">
+            <form class="Grid Grid--withGutter">
+              <div class="Grid-cell u-sm-sizeFill">
+                {{#embed "patterns.components.input.float-label.base"
+                 label="Your Email Address"
+                 type="email"
+                 inputid="blog-digest-email"}}
+                {{/embed}}
+              </div>
+              <div class="Grid-cell u-marginTopXs u-sm-sizeFit u-sm-marginTopNone">
+                <button class="Button Button--heyNameMe u-sizeFull">
+                  Get Weekly Digests
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    {{/content}}
+  {{/embed}}
+  <div class="u-bgWhite">
+
+    <div class="u-bigOlContainer u-paddingMd">
+
+      <div class="u-marginEndsLg u-rhythmLg">
+
+        {{#with drizzle.data.posts.contents.recent.[0]}}
+          <article class="Grid Grid--withGutter Grid--alignMiddle">
+            <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-marginBottomMd u-md-marginBottomNone">
+              <img class="u-sizeFull" src="{{image}}" alt="">
+            </div>
+            <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textLarger u-rhythmXs">
+              <header>
+                <h2>
+                  <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
+                </h2>
+              </header>
+              <p>
+                {{excerpt}}&nbsp;
+                <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                  Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
+                  {{/embed}}
+                </a>
+              </p>
+              <footer class="u-flex u-flexAlignItemsCenter">
+                <div class="Thumbnail Thumbnail--circle  u-marginRightXs">
+                  <img src="{{avatar}}" alt="" style="width: 2em;">
+                </div>
+                <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                  <p class="u-textBold u-marginRightXs">{{author}}</p>
+                  <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                </div>
+              </footer>
+            </div>
+          </article>
+        {{/with}}
+
+        <hr>
+
+        <h2>More Recent Articles</h2>
+
+        <div class="Grid Grid--withGutter">
+          {{#each drizzle.data.posts.contents.recent}}{{#unless @first}}
+            <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-marginBottomLg u-marginTopXs">
+              <div class="u-rhythmXs u-md-paddingRightXs">
+                <header>
+                  <h3>
+                    <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
+                  </h3>
+                </header>
+                <p>
+                  {{excerpt}}&nbsp;
+                  <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                    Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
+                    {{/embed}}
+                  </a>
+                </p>
+                <footer class="u-flex u-flexAlignItemsCenter">
+                  <div class="Thumbnail Thumbnail--circle  u-marginRightXs">
+                    <img src="{{avatar}}" alt="" style="width: 2em;">
+                  </div>
+                  <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                    <p class="u-textBold u-marginRightXs">{{author}}</p>
+                    <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                  </div>
+                </footer>
+              </div>
+            </article>
+          {{/unless}}{{/each}}
+        </div>
+
+        <hr>
+
+        <div class="u-flex u-flexAlignItemsBaseline u-flexWrap">
+          <h2 class="u-marginRightXs">Cloud Four Curriculum</h2>
+          <p>Our most well-regarded, frequently-cited posts.</p>
+        </div>
+
+        <div class="Grid Grid--withGutter">
+          {{#each drizzle.data.posts.contents.essential}}
+            <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-marginBottomLg u-marginTopXs">
+              <div class="u-rhythmXs u-md-paddingRightXs">
+                <header>
+                  <h3>
+                    <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
+                  </h3>
+                </header>
+                <p>
+                  {{random "paragraph" sentences=2}}&nbsp;
+                  <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                    Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
+                    {{/embed}}
+                  </a>
+                </p>
+                <footer class="u-flex u-flexAlignItemsCenter">
+                  <div class="Thumbnail Thumbnail--circle  u-marginRightXs">
+                    <img src="{{avatar}}" alt="" style="width: 2em;">
+                  </div>
+                  <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                    <p class="u-textBold u-marginRightXs">{{author}}</p>
+                    <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                  </div>
+                </footer>
+              </div>
+            </article>
+          {{/each}}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="u-bigOlContainer">
+      <hr class="u-marginSidesMd u-marginEndsNone">
+    </div>
+    <div class="u-bigOlContainer u-posRelative">
+      <p class="u-paddingMd u-size2of3">
+        <span class="u-inlineBlock u-textLarger u-marginRightSm u-textNoWrap">
+          Need help clouding your fours?
+        </span>
+        <a class="Button Button--primary u-marginEndsXs u-textNoWrap" href="mailto:info@cloudfour.com">
+          <svg class="Icon Icon--large" role="img">
+            <use xlink:href="/assets/toolkit/images/icons.svg#envelope"/>
+          </svg>
+          Squiddly-doo
+        </a>
+      </p>
+      <img class="u-posAbsoluteBottomRight u-size2of5 u-sm-size1of3 u-sm-marginRightMd u-md-size1of4"
+        src="/assets/toolkit/images/portland.svg" alt="">
+    </div>
+  </div>
+</main>
+
+<footer class="u-bigOlContainer u-paddingMd u-marginBottomSm" role="contentinfo">
+  <p>
+    <a href="/"><strong>Cloud Four, Inc.</strong></a>
+  </p>
+  <div class="u-posRelative">
+    <div class="Grid Grid--withGutter">
+      <div class="Grid-cell u-sm-size1of2 u-md-size1of3">
+        <p>
+          208 SW 1st Ave, Suite 240<br>
+          Portland, Oregon 97204 USA
+        </p>
+        <ul class="u-listUnstyled">
+          <li><a href="mailto:info@cloudfour.com">info@cloudfour.com</a></li>
+          <li><a href="tel:15032901090">+1 503.290.1090</a></li>
+        </ul>
+        <ul class="u-listInline u-marginTopMd u-md-marginTopNone u-md-posAbsoluteTopRight">
+          {{#each drizzle.data.social.contents.links}}
+            <li>
+              <a class="u-textLarger" href="{{url}}" title="{{text}}">
+                <svg class="Icon Icon--large" role="img">
+                  <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
+                </svg>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="Grid-cell u-sm-hidden">
+        <hr class="u-marginTopMd u-marginBottomNone"/>
+      </div>
+      <nav class="Grid-cell u-marginTopMd u-sm-marginTopNone u-sm-size1of2 u-md-size1of3">
+        <ul class="u-listUnstyled u-columns2">
+          <li><a href="/">Our Process</a></li>
+          <li><a href="/">Our Work</a></li>
+          <li><a href="/">Articles</a></li>
+          <li><a href="/">Speaking</a></li>
+          <li><a href="/">Code</a></li>
+          <li><a href="/">The Team</a></li>
+          <li><a href="/">Patterns</a></li>
+          <li><a href="/">Device Lab</a></li>
+        </ul>
+      </nav>
+      <div class="Grid-cell u-md-hidden">
+        <hr class="u-marginTopMd u-marginBottomNone"/>
+      </div>
+      <p class="Grid-cell u-marginTopMd u-md-sizeFit u-md-flexAlignSelfEnd u-md-flexExpandLeft">
+        <small>&copy; 2007 - 2016 Cloud Four, Inc.</small>
+      </p>
+    </div>
+  </div>
+</footer>

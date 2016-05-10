@@ -76,7 +76,7 @@ notes: |
     <div class="u-bigOlContainer u-paddingMd">
 
       <div class="Grid Grid--withGutter u-marginEndsLg u-rhythmXl">
-        {{#each drizzle.data.posts.contents}}
+        {{#each drizzle.data.posts.contents.recent}}
           {{#if @first}}
             <article class="Grid-cell">
               <div class="Grid Grid--withGutter Grid--alignMiddle">
@@ -111,7 +111,7 @@ notes: |
             </article>
           {{/if}}
         {{/each}}
-        {{#each drizzle.data.posts.contents}}
+        {{#each drizzle.data.posts.contents.recent}}
           {{#unless @first}}
             <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-rhythmXs">
               <header class="u-md-paddingRightXs">

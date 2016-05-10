@@ -1,12 +1,12 @@
 ---
-title: Core Blog Page A
+title: Core Blog Page D
 layout: toolkit.blank
 stylesheets:
   - sandbox/tcs-blog-a
 labels:
   - inprogress
 notes: |
-  Chronological posts plus sidebar linkage.
+  Another stab at a tile-based design approach.
 ---
 
 {{#embed "patterns.components.sky.base"}}
@@ -75,121 +75,110 @@ notes: |
 
     <div class="u-bigOlContainer u-paddingMd">
 
-      <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-md-size2of3 u-rhythmXl u-marginEndsLg">
-          {{#each drizzle.data.posts.contents.recent}}
-            <article class="u-rhythmXs">
+      <div class="u-marginEndsLg u-rhythmLg">
+
+        {{#with drizzle.data.posts.contents.recent.[0]}}
+          <article class="Grid Grid--withGutter Grid--alignMiddle">
+            <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-marginBottomMd u-md-marginBottomNone">
+              <img class="u-sizeFull" src="{{image}}" alt="">
+            </div>
+            <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textLarger u-rhythmXs">
               <header>
                 <h2>
-                  <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
+                  <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
                 </h2>
               </header>
-              {{#if image}}
-                <img src="{{image}}" alt="">
-              {{/if}}
               <p>
-                {{excerpt}}
+                {{excerpt}}&nbsp;
+                <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                  Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
+                  {{/embed}}
+                </a>
               </p>
-              <div class="u-flex u-flexAlignItemsCenter">
-                <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
-                  <div class="u-marginRightXs">
-                    <div class="Thumbnail Thumbnail--circle u-block">
-                      <img src="{{avatar}}" alt="" style="width: 2em;">
-                    </div>
-                  </div>
-                  <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
-                    <p class="u-marginRightXs u-textNoWrap u-textBold">
-                      {{author}}
-                    </p>
-                    <p class="u-marginRightXs u-textNoWrap u-textSmaller">
-                      {{timestamp date format="MMM D, YYYY"}}
-                    </p>
-                  </div>
-                </footer>
-                <p class="u-flexExpandLeft">
-                  <a class="u-textNoWrap u-textBold u-linkClean" href="#">
-                    Read <span class="u-hidden u-sm-inline">more</span>
-                    {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+              <footer class="u-flex u-flexAlignItemsCenter">
+                <div class="Thumbnail Thumbnail--circle  u-marginRightXs">
+                  <img src="{{avatar}}" alt="" style="width: 2em;">
+                </div>
+                <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                  <p class="u-textBold u-marginRightXs">{{author}}</p>
+                  <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                </div>
+              </footer>
+            </div>
+          </article>
+        {{/with}}
+
+        <hr>
+
+        <h2>More Recent Articles</h2>
+
+        <div class="Grid Grid--withGutter">
+          {{#each drizzle.data.posts.contents.recent}}{{#unless @first}}
+            <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-marginBottomLg u-marginTopXs">
+              <div class="u-rhythmXs u-md-paddingRightXs">
+                <header>
+                  <h3>
+                    <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
+                  </h3>
+                </header>
+                <p>
+                  {{excerpt}}&nbsp;
+                  <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                    Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
                     {{/embed}}
                   </a>
                 </p>
+                <footer class="u-flex u-flexAlignItemsCenter">
+                  <div class="Thumbnail Thumbnail--circle  u-marginRightXs">
+                    <img src="{{avatar}}" alt="" style="width: 2em;">
+                  </div>
+                  <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                    <p class="u-textBold u-marginRightXs">{{author}}</p>
+                    <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                  </div>
+                </footer>
+              </div>
+            </article>
+          {{/unless}}{{/each}}
+        </div>
+
+        <hr>
+
+        <div class="u-flex u-flexAlignItemsBaseline u-flexWrap">
+          <h2 class="u-marginRightXs">Cloud Four Curriculum</h2>
+          <p>Our most well-regarded, frequently-cited posts.</p>
+        </div>
+
+        <div class="Grid Grid--withGutter">
+          {{#each drizzle.data.posts.contents.essential}}
+            <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-marginBottomLg u-marginTopXs">
+              <div class="u-rhythmXs u-md-paddingRightXs">
+                <header>
+                  <h3>
+                    <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
+                  </h3>
+                </header>
+                <p>
+                  {{random "paragraph" sentences=2}}&nbsp;
+                  <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                    Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
+                    {{/embed}}
+                  </a>
+                </p>
+                <footer class="u-flex u-flexAlignItemsCenter">
+                  <div class="Thumbnail Thumbnail--circle  u-marginRightXs">
+                    <img src="{{avatar}}" alt="" style="width: 2em;">
+                  </div>
+                  <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                    <p class="u-textBold u-marginRightXs">{{author}}</p>
+                    <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                  </div>
+                </footer>
               </div>
             </article>
           {{/each}}
-          <nav role="menu" aria-label="Pagination">
-            <ul class="Pagination Pagination--withPreviousy Pagination--withNext">
-              {{#iterate 10}}
-                <li>
-                  {{#compare @count "===" 1}}
-                    <span class="Pagination-item">
-                      <span class="u-hiddenVisually">Currently viewing page</span> {{@count}}
-                    </span>
-                  {{else}}
-                    <a class="Pagination-item" href="#">
-                      {{#compare @count "===" 0}}
-                        <span class="Pagination-item Pagination-item--previous">
-                          <svg class="Icon Icon--large" title="Previous:">
-                            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow-left" />
-                          </svg>
-                        </span>
-                      {{/compare}}
-                      {{#compare @count "===" 2}}
-                        <span class="Pagination-item Pagination-item--next">
-                          <svg class="Icon Icon--large" title="Next:">
-                            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow-right" />
-                          </svg>
-                        </span>
-                      {{/compare}}
-                      <span class="u-hiddenVisually">Page</span> {{@count}}
-                    </a>
-                  {{/compare}}
-                </li>
-              {{/iterate}}
-            </ul>
-          </nav>
         </div>
-        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceChildren u-marginEndsXs">
 
-          <div class="u-marginTopXs">
-            <h2><span class="u-md-textSmaller">Essentials</span></h2>
-            <p class="u-md-textSmaller">Frequently-cited posts we&rsquo;re particularly proud of.</p>
-            <ul class="u-listUnstyled">
-              {{#each drizzle.data.posts.contents.essential}}
-                <li class="u-md-textSmaller {{#unless @first}}u-borderTopMd{{/unless}}">
-                  <a class="u-paddingEndsXs u-linkBlock" href="#">
-                    {{title}}
-                  </a>
-                </li>
-              {{/each}}
-            </ul>
-          </div>
-
-          <div class="u-rhythmXs">
-            <h2><span class="u-md-textSmaller">Topics</span></h2>
-            <ul class="u-listUnstyled">
-              {{#each drizzle.data.topics.contents}}
-                <li class="{{#unless @first}}u-borderTopMd{{/unless}}">
-                  <a class="u-paddingEndsXs u-linkClean u-flex" href="#">
-                    {{@key}}
-                    <span class="u-flexExpandLeft" style="color: #909699;">
-                      <span class="u-hiddenVisually">(</span>{{.}}<span class="u-hiddenVisually">)</span>
-                    </span>
-                  </a>
-                </li>
-              {{/each}}
-              <li class="u-borderTopMd">
-                <a class="u-paddingEndsXs u-linkClean u-flex u-flexAlignItemsCenter" href="#">
-                  All topics
-                  <span class="u-flexExpandLeft">
-                    {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
-                    {{/embed}}
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
       </div>
 
     </div>

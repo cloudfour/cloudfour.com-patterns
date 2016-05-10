@@ -88,31 +88,65 @@ notes: |
                 <img src="{{image}}" alt="">
               {{/if}}
               <p>
-                {{excerpt}}&nbsp;
-                <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
-                  Read more&nbsp;{{#embed "patterns.components.icon.base" iconid="arrow-right"}}
-                  {{/embed}}
-                </a>
+                {{excerpt}}
               </p>
-              <footer class="u-flex u-flexAlignItemsCenter">
-                <div class="Thumbnail Thumbnail--circle">
-                  <img src="{{avatar}}" alt="" width="48">
-                </div>
-                <div class="u-marginLeftXs">
-                  <p class="u-textBold">{{author}}</p>
-                  <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
-                </div>
-              </footer>
+              <div class="u-flex u-flexAlignItemsCenter">
+                <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+                  <div class="u-marginRightXs">
+                    <div class="Thumbnail Thumbnail--circle u-block">
+                      <img src="{{avatar}}" alt="" style="width: 2em;">
+                    </div>
+                  </div>
+                  <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                    <p class="u-marginRightXs u-textNoWrap u-textBold">
+                      {{author}}
+                    </p>
+                    <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                      {{timestamp date format="MMM D, YYYY"}}
+                    </p>
+                  </div>
+                </footer>
+                <p class="u-flexExpandLeft">
+                  <a class="u-textNoWrap u-textBold u-linkClean" href="#">
+                    Read <span class="u-hidden u-sm-inline">more</span>
+                    {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+                    {{/embed}}
+                  </a>
+                </p>
+              </div>
             </article>
           {{/each}}
-          <p>
-            <a class="Button Button--tertiary" href="#">
-              <svg class="Icon" role="img">
-                <use xlink:href="/assets/toolkit/images/icons.svg#arrow-left"/>
-              </svg>
-              &nbsp;Older Articles
-            </a>
-          </p>
+          <nav role="menu" aria-label="Pagination">
+            <ul class="Pagination Pagination--withPreviousy Pagination--withNext">
+              {{#iterate 10}}
+                <li>
+                  {{#compare @count "===" 1}}
+                    <span class="Pagination-item">
+                      <span class="u-hiddenVisually">Currently viewing page</span> {{@count}}
+                    </span>
+                  {{else}}
+                    <a class="Pagination-item" href="#">
+                      {{#compare @count "===" 0}}
+                        <span class="Pagination-item Pagination-item--previous">
+                          <svg class="Icon Icon--large" title="Previous:">
+                            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow-left" />
+                          </svg>
+                        </span>
+                      {{/compare}}
+                      {{#compare @count "===" 2}}
+                        <span class="Pagination-item Pagination-item--next">
+                          <svg class="Icon Icon--large" title="Next:">
+                            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow-right" />
+                          </svg>
+                        </span>
+                      {{/compare}}
+                      <span class="u-hiddenVisually">Page</span> {{@count}}
+                    </a>
+                  {{/compare}}
+                </li>
+              {{/iterate}}
+            </ul>
+          </nav>
         </div>
         <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceChildren u-marginEndsXs">
 

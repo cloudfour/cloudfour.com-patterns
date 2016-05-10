@@ -77,7 +77,7 @@ notes: |
 
       <div class="Grid Grid--withGutter">
         <div class="Grid-cell u-md-size2of3 u-rhythmXl u-marginEndsLg">
-          {{#each drizzle.data.posts.contents}}
+          {{#each drizzle.data.posts.contents.recent}}
             <article class="u-rhythmXs">
               <header>
                 <h2>
@@ -154,7 +154,7 @@ notes: |
             <h2><span class="u-md-textSmaller">Essentials</span></h2>
             <p class="u-md-textSmaller">Frequently-cited posts we&rsquo;re particularly proud of.</p>
             <ul class="u-listUnstyled">
-              {{#each drizzle.data.posts.contents}}
+              {{#each drizzle.data.posts.contents.essential}}
                 <li class="u-md-textSmaller {{#unless @first}}u-borderTopMd{{/unless}}">
                   <a class="u-paddingEndsXs u-linkBlock" href="#">
                     {{title}}

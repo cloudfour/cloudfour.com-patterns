@@ -1,0 +1,314 @@
+---
+title: Core Blog Page F
+layout: toolkit.blank
+stylesheets:
+  - sandbox/tcs-blog-f
+labels:
+  - inprogress
+notes: |
+  Evolution of C using elements from E, with a few adventurous foundational
+  tweaks as well.
+---
+
+{{#embed "patterns.components.sky.base"}}
+  {{#content "top"}}
+    <div class="u-bigOlContainer">
+      <header class="Sky-nav" role="banner">
+        <ul class="Sky-nav-controls">
+          {{! TODO: Allow these href destinations to be customized }}
+          <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
+          <li><a class="Sky-nav-controls-skipToMenu Button Button--defaultLight" href="#menu" aria-label="Skip to navigation">Menu</a></li>
+        </ul>
+        <a class="Sky-nav-logo" href="/">
+          <svg class="Sky-nav-logo-object" width="80" height="80" role="img" aria-labelledby="logo-title">
+            <title id="logo-title">Cloud Four</title>
+            <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor"/>
+          </svg>
+        </a>
+        {{! TODO: Allow this ID to be customized (see above href todo as well) }}
+        <nav class="Sky-nav-menu" role="navigation" id="menu">
+          <ul class="Sky-nav-menu-items">
+            <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Our Process</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Our Work</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Articles</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Speaking</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">Code</a></li>
+            <li><a class="Sky-nav-menu-item" href="/">The Team</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  {{/content}}
+{{/embed}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      <div class="u-bigOlContainer u-paddingMd">
+        <div class="Grid Grid--withGutter Grid--alignMiddle">
+          <div class="Grid-cell u-md-size5of12 u-lg-size1of2">
+            <h1 class="BigOlMasthead u-marginRightMd">Articles</h1>
+            <p class="u-textLarger" style="opacity: 0.8;">
+              Tales from the edge of the web
+            </p>
+          </div>
+          <div class="Grid-cell u-md-size7of12 u-lg-size1of2 u-marginTopMd">
+            <form class="Grid Grid--withGutter">
+              <div class="Grid-cell u-sm-sizeFill">
+                {{#embed "patterns.components.input.float-label.base"
+                 label="Your Email Address"
+                 type="email"
+                 inputid="blog-digest-email"}}
+                {{/embed}}
+              </div>
+              <div class="Grid-cell u-marginTopXs u-sm-sizeFit u-sm-marginTopNone">
+                <button class="Button Button--heyNameMe u-sizeFull">
+                  Get Weekly Digests
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    {{/content}}
+  {{/embed}}
+  <div class="u-bgWhite">
+
+    <div class="u-bigOlContainer u-paddingMd">
+
+      {{#with drizzle.data.posts.contents.recent.[0]}}
+        <article class="Grid Grid--withGutter Grid--alignMiddle u-marginEndsLg">
+          <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-marginBottomMd u-md-marginBottomNone">
+            <img class="u-sizeFull u-maxHeight50 u-fitCover" src="{{image}}" alt="">
+          </div>
+          <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textLarger u-rhythmXs">
+            <header>
+              <h2>
+                <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
+              </h2>
+            </header>
+            <p>
+              {{excerpt}}
+            </p>
+            <div class="u-flex u-flexAlignItemsCenter u-textSmaller">
+              <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+                <div class="u-marginRightXs">
+                  <div class="Thumbnail Thumbnail--circle u-block">
+                    <img src="{{avatar}}" alt="" style="width: 2em;">
+                  </div>
+                </div>
+                <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                  <p class="u-marginRightXs u-textNoWrap u-textBold">
+                    {{author}}
+                  </p>
+                  <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                    {{timestamp date format="MMM D, YYYY"}}
+                  </p>
+                </div>
+              </footer>
+              <p class="u-flexExpandLeft">
+                <a class="u-textNoWrap u-textBold u-linkClean" href="#">
+                  Read <span class="u-hidden u-sm-inline">more</span>
+                  {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+                  {{/embed}}
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
+      {{/with}}
+
+      <div class="Grid Grid--withGutter u-paddingTopXs">
+        <div class="Grid-cell u-md-size2of3 u-marginEndsLg">
+          {{!-- <h2 class="u-marginBottomLg">More Recent Articles</h2> --}}
+          <div class="Grid Grid--withGutter">
+            {{#each drizzle.data.posts.contents.recent}}{{#unless @first}}
+              <article class="Grid-cell u-lg-size1of2 u-marginBottomXl">
+                <div class="u-rhythmXs u-md-paddingRightMd u-lg-paddingRightLg">
+                  <header>
+                    <h3>
+                      <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
+                    </h3>
+                  </header>
+                  <p>
+                    {{excerpt}}
+                  </p>
+                  <div class="u-flex u-flexAlignItemsCenter">
+                    <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+                      <div class="u-marginRightXs">
+                        <div class="Thumbnail Thumbnail--circle u-block">
+                          <img src="{{avatar}}" alt="" style="width: 2em;">
+                        </div>
+                      </div>
+                      <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                        <p class="u-marginRightXs u-textNoWrap u-textBold">
+                          {{author}}
+                        </p>
+                        <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                          {{timestamp date format="MMM D, YYYY"}}
+                        </p>
+                      </div>
+                    </footer>
+                    <p class="u-flexExpandLeft">
+                      <a class="u-textNoWrap u-textBold u-linkClean" href="#">
+                        Read <span class="u-hidden u-sm-inline">more</span>
+                        {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+                        {{/embed}}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            {{/unless}}{{/each}}
+          </div>
+          <nav role="menu" aria-label="Pagination">
+            <ul class="Pagination Pagination--withPreviousy Pagination--withNext">
+              {{#iterate 10}}
+                <li>
+                  {{#compare @count "===" 1}}
+                    <span class="Pagination-item">
+                      <span class="u-hiddenVisually">Currently viewing page</span> {{@count}}
+                    </span>
+                  {{else}}
+                    <a class="Pagination-item" href="#">
+                      {{#compare @count "===" 0}}
+                        <span class="Pagination-item Pagination-item--previous">
+                          <svg class="Icon Icon--large" title="Previous:">
+                            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow-left" />
+                          </svg>
+                        </span>
+                      {{/compare}}
+                      {{#compare @count "===" 2}}
+                        <span class="Pagination-item Pagination-item--next">
+                          <svg class="Icon Icon--large" title="Next:">
+                            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow-right" />
+                          </svg>
+                        </span>
+                      {{/compare}}
+                      <span class="u-hiddenVisually">Page</span> {{@count}}
+                    </a>
+                  {{/compare}}
+                </li>
+              {{/iterate}}
+            </ul>
+          </nav>
+        </div>
+        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-marginEndsXs">
+
+          <div class="u-marginTopXs u-rhythmXs">
+            <h3><span class="u-md-textSmallery">Essentials</span></h3>
+            <p class="u-md-textSmaller">Frequently-cited posts we&rsquo;re particularly proud of.</p>
+            <ul class="u-listUnstyled u-marginTopMd u-marginBottomLg u-spaceChildren">
+              {{#each drizzle.data.posts.contents.essential}}
+                <li class="u-md-textSmaller">
+                  <a class="u-linkClean" href="#">
+                    {{title}}
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+
+          <div class="u-marginTopXl">
+            <h3><span class="u-md-textSmallery">Topics</span></h3>
+            <ul class="u-listUnstyled u-marginEndsLg u-spaceChildren">
+              {{#each drizzle.data.topics.contents}}
+                <li class="u-md-textSmaller">
+                  <a class="u-linkClean u-flex" href="#">
+                    <span class="u-textNoWrap">{{@key}}</span>
+                    <span style="min-width: 0; overflow-x: hidden; white-space: nowrap; margin: 0 0.125rem; color: #ccc;">{{#iterate 100}}.{{/iterate}}</span>
+                    <span class="u-flexExpandLeft" style="color: #111;">
+                      <span class="u-hiddenVisually">(</span>{{.}}<span class="u-hiddenVisually">)</span>
+                    </span>
+                  </a>
+                </li>
+              {{/each}}
+              <li class="u-md-textSmaller">
+                <a class="u-linkClean" href="#">
+                  All topics
+                  <span>
+                    {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+                    {{/embed}}
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="u-bigOlContainer">
+      <hr class="u-marginSidesMd u-marginEndsNone">
+    </div>
+    <div class="u-bigOlContainer u-posRelative">
+      <p class="u-paddingMd u-size2of3">
+        <span class="u-inlineBlock u-textLarger u-marginRightSm u-textNoWrap">
+          Need help clouding your fours?
+        </span>
+        <a class="Button Button--primary u-marginEndsXs u-textNoWrap" href="mailto:info@cloudfour.com">
+          <svg class="Icon Icon--large" role="img">
+            <use xlink:href="/assets/toolkit/images/icons.svg#envelope"/>
+          </svg>
+          Squiddly-doo
+        </a>
+      </p>
+      <img class="u-posAbsoluteBottomRight u-size2of5 u-sm-size1of3 u-sm-marginRightMd u-md-size1of4"
+        src="/assets/toolkit/images/portland.svg" alt="">
+    </div>
+  </div>
+</main>
+
+<footer class="u-bigOlContainer u-paddingMd u-marginBottomSm" role="contentinfo">
+  <p>
+    <a href="/"><strong>Cloud Four, Inc.</strong></a>
+  </p>
+  <div class="u-posRelative">
+    <div class="Grid Grid--withGutter">
+      <div class="Grid-cell u-sm-size1of2 u-md-size1of3">
+        <p>
+          208 SW 1st Ave, Suite 240<br>
+          Portland, Oregon 97204 USA
+        </p>
+        <ul class="u-listUnstyled">
+          <li><a href="mailto:info@cloudfour.com">info@cloudfour.com</a></li>
+          <li><a href="tel:15032901090">+1 503.290.1090</a></li>
+        </ul>
+        <ul class="u-listInline u-marginTopMd u-md-marginTopNone u-md-posAbsoluteTopRight">
+          {{#each drizzle.data.social.contents.links}}
+            <li>
+              <a class="u-textLarger" href="{{url}}" title="{{text}}">
+                <svg class="Icon Icon--large" role="img">
+                  <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
+                </svg>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="Grid-cell u-sm-hidden">
+        <hr class="u-marginTopMd u-marginBottomNone"/>
+      </div>
+      <nav class="Grid-cell u-marginTopMd u-sm-marginTopNone u-sm-size1of2 u-md-size1of3">
+        <ul class="u-listUnstyled u-columns2">
+          <li><a href="/">Our Process</a></li>
+          <li><a href="/">Our Work</a></li>
+          <li><a href="/">Articles</a></li>
+          <li><a href="/">Speaking</a></li>
+          <li><a href="/">Code</a></li>
+          <li><a href="/">The Team</a></li>
+          <li><a href="/">Patterns</a></li>
+          <li><a href="/">Device Lab</a></li>
+        </ul>
+      </nav>
+      <div class="Grid-cell u-md-hidden">
+        <hr class="u-marginTopMd u-marginBottomNone"/>
+      </div>
+      <p class="Grid-cell u-marginTopMd u-md-sizeFit u-md-flexAlignSelfEnd u-md-flexExpandLeft">
+        <small>&copy; 2007 - 2016 Cloud Four, Inc.</small>
+      </p>
+    </div>
+  </div>
+</footer>

@@ -85,7 +85,7 @@ notes: |
             <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textLarger u-rhythmXs">
               <header>
                 <h2>
-                  <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
+                  <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
                 </h2>
               </header>
               <p>
@@ -110,7 +110,7 @@ notes: |
 
         <hr>
 
-        <h2>More Recent Articles</h2>
+        <h1>More Recent Articles</h1>
 
         <div class="Grid Grid--withGutter">
           {{#each drizzle.data.posts.contents.recent}}{{#unless @first}}
@@ -118,7 +118,7 @@ notes: |
               <div class="u-rhythmXs u-md-paddingRightXs">
                 <header>
                   <h3>
-                    <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
+                    <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
                   </h3>
                 </header>
                 <p>
@@ -145,17 +145,17 @@ notes: |
         <hr>
 
         <div class="u-flex u-flexAlignItemsBaseline u-flexWrap">
-          <h2 class="u-marginRightXs">Cloud Four Curriculum</h2>
+          <h1 class="u-marginRightXs">Cloud Four Curriculum</h1>
           <p>Our most well-regarded, frequently-cited posts.</p>
         </div>
 
         <div class="Grid Grid--withGutter">
           {{#each drizzle.data.posts.contents.essential}}
-            <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-marginBottomLg u-marginTopXs">
-              <div class="u-rhythmXs u-md-paddingRightXs">
+            <article class="Grid-cell u-md-size1of3 u-lg-size1of4 u-marginBottomLg u-marginTopXs">
+              <div class="u-rhythmXs u-md-paddingRightXs u-md-textSmaller">
                 <header>
                   <h3>
-                    <a class="u-linkClean u-textCoastGuard" href="#">{{title}}</a>
+                    <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
                   </h3>
                 </header>
                 <p>

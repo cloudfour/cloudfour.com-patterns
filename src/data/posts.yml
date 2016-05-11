@@ -51,6 +51,20 @@ recent:
     excerpt: |
       Our new logo was born out of necessity, quietly appearing first as a favicon, then migrating to our Twitter account and beyond.
 
+  - date: "2016-02-25"
+    title: "Mood Boards (Neither Bored Nor Moody)"
+    author: "Tyler Sticka"
+    avatar: "http://0.gravatar.com/avatar/0326d10d4bb16cdc74dd244068e2ef81?s=96&d=mm&r=g"
+    excerpt: |
+      Our team had a set of defining characteristics and was almost ready to start redesigning cloudfour.com. But before we dived into element collages, we wanted to draw from a shared well of design inspiration. So we decided to make a mood board.
+
+  - date: "2016-02-24"
+    title: "Shared Visions and Sticky Notes"
+    author: "Tyler Sticka"
+    avatar: "http://0.gravatar.com/avatar/0326d10d4bb16cdc74dd244068e2ef81?s=96&d=mm&r=g"
+    excerpt: |
+      When we started redesigning cloudfour.com, I knew I wanted the entire team to feel a sense of ownership in the end result. Fortunately for us, few problems in the universe cannot be solved by getting in a room and writing things on sticky notes.
+
 essential:
 
   - date: "2013-01-03"

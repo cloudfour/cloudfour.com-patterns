@@ -138,6 +138,31 @@ img {
   right: 0;
 }
 
+.LeaderDots {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.LeaderDots-item {
+  flex: 1 0 auto;
+}
+
+.LeaderDots-dots + .LeaderDots-item {
+  &::before {
+    content: "\00a0";
+  }
+}
+
+.LeaderDots-dots {
+  flex: 1 1 auto;
+  overflow: hidden;
+
+  &::before {
+    content: "\00a0........................................................................................................................................................................................................";
+  }
+}
+
 .u-rhythmXl > * + *:not(.u-flexExpandTop) {
   margin-top: var(--space-xl) !important;
 }

@@ -1,15 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 24" width="420" height="24" preserveAspectRatio="none">
   <g fill="#fff">
-    <circle cx="0" cy="45" r="36"/>
-    <circle cx="41" cy="38" r="25"/>
-    <circle cx="86" cy="46" r="36"/>
-    <circle cx="125" cy="31" r="25"/>
-    <circle cx="158" cy="42" r="25"/>
-    <circle cx="200" cy="46" r="36"/>
-    <circle cx="244" cy="28" r="25"/>
-    <circle cx="280" cy="45" r="36"/>
-    <circle cx="330" cy="48" r="36"/>
-    <circle cx="372" cy="42" r="25"/>
-    <circle cx="420" cy="45" r="36"/>
+    <circle cx="0" cy="43" r="37"/>
+    <circle cx="41" cy="37" r="25"/>
+    <circle cx="86" cy="45" r="36"/>
+    <circle cx="125" cy="30" r="25"/>
+    <circle cx="158" cy="41" r="25"/>
+    <circle cx="200" cy="45" r="36"/>
+    <circle cx="244" cy="27" r="25"/>
+    <circle cx="280" cy="44" r="36"/>
+    <circle cx="330" cy="47" r="36"/>
+    <circle cx="372" cy="40" r="25"/>
+    <circle cx="420" cy="43" r="37"/>
+    <!-- Fix for 1px gap below in some browsers -->
+    <rect x="0" y="23" width="420" height="1" shape-rendering="crispEdges"/>
   </g>
 </svg>

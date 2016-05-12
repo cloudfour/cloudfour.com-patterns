@@ -88,32 +88,28 @@ notes: |
               </h2>
             </header>
             <p>
-              {{excerpt}}
+              {{~excerpt~}}
+              <a class="u-textNoWrap u-linkClean u-inlineBlock u-textSmaller" href="#">
+                More
+                {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+                {{/embed}}
+              </a>
             </p>
-            <div class="u-flex u-flexAlignItemsCenter u-textSmaller">
-              <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
-                <div class="u-marginRightXs">
-                  <div class="Thumbnail Thumbnail--circle u-block">
-                    <img src="{{avatar}}" alt="" style="width: 2em;">
-                  </div>
+            <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+              <div class="u-marginRightXs">
+                <div class="Thumbnail Thumbnail--circle u-block">
+                  <img src="{{avatar}}" alt="" style="width: 2.5em;">
                 </div>
-                <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
-                  <p class="u-marginRightXs u-textNoWrap u-textBold">
-                    {{author}}
-                  </p>
-                  <p class="u-marginRightXs u-textNoWrap u-textSmaller">
-                    {{timestamp date format="MMM D, YYYY"}}
-                  </p>
-                </div>
-              </footer>
-              <p class="u-flexExpandLeft">
-                <a class="u-textNoWrap u-textBold u-linkClean" href="#">
-                  Read <span class="u-hidden u-sm-inline">more</span>
-                  {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
-                  {{/embed}}
-                </a>
-              </p>
-            </div>
+              </div>
+              <div classy="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                <p class="u-marginRightXs u-textNoWrap u-textSemibold">
+                  {{author}}
+                </p>
+                <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                  {{timestamp date format="MMM D, YYYY"}}
+                </p>
+              </div>
+            </footer>
           </div>
         </article>
       {{/with}}
@@ -131,32 +127,28 @@ notes: |
                     </h3>
                   </header>
                   <p>
-                    {{excerpt}}
+                    {{~excerpt~}}
+                    <a class="u-textNoWrap u-linkClean u-inlineBlock u-textSmaller" href="#">
+                      More
+                      {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
+                      {{/embed}}
+                    </a>
                   </p>
-                  <div class="u-flex u-flexAlignItemsCenter">
-                    <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
-                      <div class="u-marginRightXs">
-                        <div class="Thumbnail Thumbnail--circle u-block">
-                          <img src="{{avatar}}" alt="" style="width: 2em;">
-                        </div>
+                  <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+                    <div class="u-marginRightXs">
+                      <div class="Thumbnail Thumbnail--circle u-block">
+                        <img src="{{avatar}}" alt="" style="width: 2.5em;">
                       </div>
-                      <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
-                        <p class="u-marginRightXs u-textNoWrap u-textBold">
-                          {{author}}
-                        </p>
-                        <p class="u-marginRightXs u-textNoWrap u-textSmaller">
-                          {{timestamp date format="MMM D, YYYY"}}
-                        </p>
-                      </div>
-                    </footer>
-                    <p class="u-flexExpandLeft">
-                      <a class="u-textNoWrap u-textBold u-linkClean" href="#">
-                        Read <span class="u-hidden u-sm-inline">more</span>
-                        {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
-                        {{/embed}}
-                      </a>
-                    </p>
-                  </div>
+                    </div>
+                    <div classy="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                      <p class="u-marginRightXs u-textNoWrap u-textSemibold">
+                        {{author}}
+                      </p>
+                      <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                        {{timestamp date format="MMM D, YYYY"}}
+                      </p>
+                    </div>
+                  </footer>
                 </div>
               </article>
             {{/unless}}{{/each}}
@@ -214,10 +206,10 @@ notes: |
             <ul class="u-listUnstyled u-marginEndsLg u-spaceChildren">
               {{#each drizzle.data.topics.contents}}
                 <li class="u-md-textSmaller">
-                  <a class="u-linkClean u-flex" href="#">
-                    <span class="u-textNoWrap">{{@key}}</span>
-                    <span style="min-width: 0; overflow-x: hidden; white-space: nowrap; margin: 0 0.125rem; color: #ccc;">{{#iterate 100}}.{{/iterate}}</span>
-                    <span class="u-flexExpandLeft" style="color: #111;">
+                  <a class="u-linkClean LeaderDots" href="#">
+                    <span class="LeaderDots-item">{{@key}}</span>
+                    <span class="LeaderDots-dots u-textGray"></span>
+                    <span class="LeaderDots-item" style="color: #111;">
                       <span class="u-hiddenVisually">(</span>{{.}}<span class="u-hiddenVisually">)</span>
                     </span>
                   </a>

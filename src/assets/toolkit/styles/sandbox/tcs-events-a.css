@@ -121,10 +121,6 @@
   padding-top: var(--space-xs);
 }
 
-.Button--tertiary {
-  border-color: currentColor;
-}
-
 .PresenterInfo {
   background: color(var(--color-gray) a(50%));
   margin-left: calc(var(--space-md) * -1);

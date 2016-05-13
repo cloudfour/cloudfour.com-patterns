@@ -16,9 +16,12 @@
         {{#each drizzle.data.social.contents.links}}
           <li>
             <a class="u-textLarger" href="{{url}}" title="{{text}}">
-              <svg class="Icon Icon--large" role="img">
-                <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
-              </svg>
+              {{{
+                embed "patterns.components.icon.base"
+                class="Icon--large"
+                iconid=@key
+                role="img"
+              }}}
             </a>
           </li>
         {{/each}}

@@ -91,8 +91,11 @@ notes: |
               {{~excerpt~}}
               <a class="u-textNoWrap u-linkClean u-inlineBlock u-textSmaller" href="#">
                 More
-                {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
-                {{/embed}}
+                {{{
+                  embed "patterns.components.icon.base"
+                  iconid="arrow-right"
+                  role="presentation"
+                }}}
               </a>
             </p>
             <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
@@ -130,8 +133,11 @@ notes: |
                     {{~excerpt~}}
                     <a class="u-textNoWrap u-linkClean u-inlineBlock u-textSmaller" href="#">
                       More
-                      {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
-                      {{/embed}}
+                      {{{
+                        embed "patterns.components.icon.base"
+                        iconid="arrow-right"
+                        role="presentation"
+                      }}}
                     </a>
                   </p>
                   <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
@@ -165,16 +171,20 @@ notes: |
                     <a class="Pagination-item" href="#">
                       {{#compare @count "===" 0}}
                         <span class="Pagination-item Pagination-item--previous">
-                          <svg class="Icon Icon--large" title="Previous:">
-                            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow-left" />
-                          </svg>
+                          {{#embed "patterns.components.icon.base" iconid="arrow-left" labelledby="pagination-next-title"}}
+                            {{#content "before"}}
+                              <title id="pagination-next-title">Previous:</title>
+                            {{/content}}
+                          {{/embed}}
                         </span>
                       {{/compare}}
                       {{#compare @count "===" 2}}
                         <span class="Pagination-item Pagination-item--next">
-                          <svg class="Icon Icon--large" title="Next:">
-                            <use xlink:href="{{baseurl}}/assets/toolkit/images/icons.svg#arrow-right" />
-                          </svg>
+                          {{#embed "patterns.components.icon.base" iconid="arrow-right" labelledby="pagination-next-title"}}
+                            {{#content "before"}}
+                              <title id="pagination-next-title">Next:</title>
+                            {{/content}}
+                          {{/embed}}
                         </span>
                       {{/compare}}
                       <span class="u-hiddenVisually">Page</span> {{@count}}
@@ -218,10 +228,11 @@ notes: |
               <li class="u-md-textSmaller">
                 <a class="u-linkClean" href="#">
                   All topics
-                  <span>
-                    {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
-                    {{/embed}}
-                  </span>
+                  {{{
+                    embed "patterns.components.icon.base"
+                    iconid="arrow-right"
+                    role="presentation"
+                  }}}
                 </a>
               </li>
             </ul>
@@ -241,9 +252,12 @@ notes: |
           Need help clouding your fours?
         </span>
         <a class="Button Button--primary u-marginEndsXs u-textNoWrap" href="mailto:info@cloudfour.com">
-          <svg class="Icon Icon--large" role="img">
-            <use xlink:href="/assets/toolkit/images/icons.svg#envelope"/>
-          </svg>
+          {{{
+            embed "patterns.components.icon.base"
+            class="Icon--large"
+            iconid="envelope"
+            role="presentation"
+          }}}
           Squiddly-doo
         </a>
       </p>
@@ -272,9 +286,12 @@ notes: |
           {{#each drizzle.data.social.contents.links}}
             <li>
               <a class="u-textLarger" href="{{url}}" title="{{text}}">
-                <svg class="Icon Icon--large" role="img">
-                  <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
-                </svg>
+                {{{
+                  embed "patterns.components.icon.base"
+                  class="Icon--large"
+                  iconid=@key
+                  role="img"
+                }}}
               </a>
             </li>
           {{/each}}

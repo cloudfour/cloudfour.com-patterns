@@ -138,9 +138,9 @@ notes: |
               {{#each drizzle.data.topics.contents}}
                 <li class="{{#unless @first}}u-borderTopMd{{/unless}}">
                   <a class="u-paddingEndsXs u-linkClean u-flex" href="#">
-                    {{@key}}
+                    {{label}}
                     <span class="u-flexExpandLeft" style="color: #909699;">
-                      <span class="u-hiddenVisually">(</span>{{.}}<span class="u-hiddenVisually">)</span>
+                      <span class="u-hiddenVisually">(</span>{{count}}<span class="u-hiddenVisually">)</span>
                     </span>
                   </a>
                 </li>

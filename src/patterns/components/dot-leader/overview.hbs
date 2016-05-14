@@ -8,10 +8,9 @@ links:
 
 <ul class="u-listUnstyled">
   {{#iterate 4}}
-    <li class="DotLeader">
-      <span class="DotLeader-start">{{capitalize (random "word")}}</span>
-      <span class="DotLeader-between" aria-hidden="true"></span>
-      <span class="DotLeader-end">{{random min=0 max=200}}</span>
-    </li>
+    {{#embed "patterns.components.dot-leader.base" tag="li"}}
+      {{#content "start"}}{{capitalize (random "word")}}{{/content}}
+      {{#content "end"}}{{random min=0 max=200}}{{/content}}
+    {{/embed}}
   {{/iterate}}
 </ul>

@@ -1,9 +1,14 @@
-"Responsive": 53
-"Design": 42
-"Images": 37
-"JavaScript": 23
-"Standards": 19
-"SVG": 14
-"Process": 12
-# "Unicorns": 1
-# "Ricky Martin": 0
+- label: "Responsive"
+  count: 53
+- label: "Design"
+  count: 42
+- label: "Images"
+  count: 37
+- label: "JavaScript"
+  count: 23
+- label: "Standards"
+  count: 19
+- label: "SVG"
+  count: 14
+- label: "Process"
+  count: 12

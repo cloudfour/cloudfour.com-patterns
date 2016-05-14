@@ -2,4 +2,8 @@
 hidden: true
 ---
 
-Hello world.
+<{{defaultTo tag "div"}} class="DotLeader {{class}}"{{#compare tag "===" "a"}} href="{{href}}"{{/compare}}>
+  <span class="DotLeader-start {{startclass}}">{{{block "start"}}}</span>
+  <span class="DotLeader-between {{betweenclass}}" aria-hidden="true"></span>
+  <span class="DotLeader-end {{endclass}}">{{{block "end"}}}</span>
+</{{defaultTo tag "div"}}>

@@ -216,6 +216,16 @@ notes: |
             <ul class="u-listUnstyled u-marginEndsLg u-spaceChildren">
               {{#each drizzle.data.topics.contents}}
                 <li class="u-md-textSmaller">
+                  <a class="DotLeaders u-linkClean u-textInheritColor" href="#">
+                    <span class="DotLeaders-start">
+                      <span class="u-linkTarget">{{@key}}</span>
+                    </span>
+                    <span class="DotLeaders-end">
+                      <span class="u-hiddenVisually">(</span>{{.}}<span class="u-hiddenVisually"> articles)</span>
+                    </span>
+                  </a>
+                </li>
+                {{!-- <li class="u-md-textSmaller">
                   <a class="u-linkClean LeaderDots" href="#">
                     <span class="LeaderDots-item">{{@key}}</span>
                     <span class="LeaderDots-dots u-textGray"></span>
@@ -223,7 +233,7 @@ notes: |
                       <span class="u-hiddenVisually">(</span>{{.}}<span class="u-hiddenVisually">)</span>
                     </span>
                   </a>
-                </li>
+                </li> --}}
               {{/each}}
               <li class="u-md-textSmaller">
                 <a class="u-linkClean" href="#">

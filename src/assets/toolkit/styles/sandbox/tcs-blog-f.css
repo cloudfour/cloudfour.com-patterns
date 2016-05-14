@@ -135,7 +135,7 @@ img {
   right: 0;
 }
 
-.LeaderDots {
+/*.LeaderDots {
   display: flex;
   justify-content: space-between;
   white-space: nowrap;
@@ -158,7 +158,7 @@ img {
   &::before {
     content: "\00a0........................................................................................................................................................................................................";
   }
-}
+}*/
 
 .u-rhythmXl > * + *:not(.u-flexExpandTop) {
   margin-top: var(--space-xl) !important;

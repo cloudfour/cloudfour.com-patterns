@@ -1,7 +1,7 @@
-/** @define DotLeaders */
+/** @define DotLeader */
 
 :root {
-  --DotLeaders-space: "\00a0";
+  --DotLeader-space: "\00a0";
 }
 
 /**
@@ -13,7 +13,7 @@
  * 3. Underlines cover up the leader dots.
  */
 
-.DotLeaders {
+.DotLeader {
   display: flex; /* 1 */
   white-space: nowrap; /* 2 */
   text-decoration: none; /* 3 */
@@ -25,8 +25,8 @@
  * @see https://github.com/philipwalton/flexbugs#11-min-and-max-size-declarations-are-ignored-when-wrapping-flex-items
  */
 
-.DotLeaders-start,
-.DotLeaders-end {
+.DotLeader-start,
+.DotLeader-end {
   flex: 1 0 auto;
 }
 
@@ -34,9 +34,9 @@
  * Insert a non-breaking space before and after the leader.
  */
 
-.DotLeaders-start::after,
-.DotLeaders-end::before {
-  content: var(--DotLeaders-space);
+.DotLeader-start::after,
+.DotLeader-end::before {
+  content: var(--DotLeader-space);
 }
 
 /**
@@ -45,7 +45,7 @@
  * doesn't display.
  */
 
-.DotLeaders-end {
+.DotLeader-end {
   text-align: right;
 }
 
@@ -57,7 +57,7 @@
  * 2. Hide any horizontal overflow. CSS, everybody! 👋
  */
 
-.DotLeaders-between {
+.DotLeader-between {
   flex: 1 1 auto; /* 1 */
   overflow-x: hidden; /* 2 */
 }
@@ -69,7 +69,7 @@
  * this purpose) repeated 200 times.
  */
 
-.DotLeaders-between::before {
+.DotLeader-between::before {
   content:
     "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
     "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"

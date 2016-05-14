@@ -8,7 +8,7 @@
  */
 
 :root {
-  --Button-border-color: transparent;
+  --Button-border-color: var(--color-relative);
   --Button-border-radius: var(--control-radius);
   --Button-border-width: var(--control-stroke);
   --Button-disabled-opacity: var(--control-disabled-opacity);
@@ -147,29 +147,6 @@
 
 .Button--primary:active {
   background-color: color(var(--Button-primary-background-color) shade(10%));
-}
-
-/**
- * Modifier: secondary buttons
- */
-
-:root {
-  --Button-secondary-background-color: var(--color-gray);
-  --Button-secondary-color: inherit;
-}
-
-.Button--secondary,
-.Button--secondary:matches(:focus, :hover, :active) {
-  color: var(--Button-secondary-color);
-  background-color: var(--Button-secondary-background-color);
-}
-
-.Button--secondary:matches(:focus, :hover) {
-  background-color: color(var(--Button-secondary-background-color) l(+5%));
-}
-
-.Button--secondary:active {
-  background-color: color(var(--Button-secondary-background-color) shade(10%));
 }
 
 /**

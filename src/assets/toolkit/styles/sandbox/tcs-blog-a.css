@@ -67,10 +67,7 @@ img {
 .Button--heyNameMe {
   background: color(var(--color-navy) l(+30%));
   color: var(--color-white);
-}
-
-.Button--tertiary {
-  border-color: currentColor;
+  border-color: var(--color-null);
 }
 
 .Pagination {

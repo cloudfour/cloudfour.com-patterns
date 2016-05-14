@@ -1,0 +1,12 @@
+---
+name: Overview
+---
+
+<ul class="u-listUnstyled">
+  {{#iterate 5}}
+    <li class="DotLeaders">
+      <span class="DotLeaders-start">{{capitalize (random "word")}}</span>
+      <span class="DotLeaders-end">{{random min=0 max=200}}</span>
+    </li>
+  {{/iterate}}
+</ul>

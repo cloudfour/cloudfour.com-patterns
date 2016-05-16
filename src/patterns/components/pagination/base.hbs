@@ -1,0 +1,45 @@
+---
+hidden: true;
+---
+
+<nav role="menu" aria-label="Pagination">
+  <ul class="Pagination {{#compare (defaultTo current 1) '>' 1}}Pagination--withPrevious{{/compare}} {{#compare (defaultTo current 1) '<' (defaultTo pages 10)}}Pagination--withNext{{/compare}}">
+    {{#iterate (defaultTo pages 10)}}
+      <li>
+        {{#compare @count "===" (defaultTo ../current 1)}}
+          <span class="Pagination-item">
+            <span class="u-hiddenVisually">Currently viewing page</span>
+            {{@count}}
+          </span>
+        {{else}}
+          <a class="Pagination-item" href="#">
+            {{#compare @count "===" (math (defaultTo ../current 1) "--")}}
+              <span class="Pagination-item Pagination-item--previous">
+                {{#embed "patterns.components.icon.base"
+                  iconid="arrow-left"
+                  labelledby="pagination-previous-title"}}
+                  {{#content "before"}}
+                    <title id="pagination-previous-title">Previous:</title>
+                  {{/content}}
+                {{/embed}}
+              </span>
+            {{/compare}}
+            {{#compare @count "===" (math (defaultTo ../current 1) "++")}}
+              <span class="Pagination-item Pagination-item--next">
+                {{#embed "patterns.components.icon.base"
+                  iconid="arrow-right"
+                  labelledby="pagination-next-title"}}
+                  {{#content "before"}}
+                    <title id="pagination-next-title">Next:</title>
+                  {{/content}}
+                {{/embed}}
+              </span>
+            {{/compare}}
+            <span class="u-hiddenVisually">Page</span>
+            {{@count}}
+          </a>
+        {{/compare}}
+      </li>
+    {{/iterate}}
+  </ul>
+</nav>

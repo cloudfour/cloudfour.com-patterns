@@ -91,50 +91,6 @@ img {
   border-color: var(--color-null);
 }
 
-.Pagination {
-  display: flex;
-  flex-wrap: wrap;
-  height: 2em;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 0;
-  position: relative;
-}
-
-.Pagination > * {
-  flex: 1;
-}
-
-.Pagination--withPrevious {
-  padding-left: 3em;
-}
-
-.Pagination--withNext {
-  padding-right: 3em;
-}
-
-.Pagination-item {
-  display: block;
-  line-height: 1;
-  padding: 0.5em 1em;
-  text-align: center;
-  text-decoration: none;
-}
-
-.Pagination-item--previous,
-.Pagination-item--next {
-  position: absolute;
-  top: 0;
-}
-
-.Pagination-item--previous {
-  left: 0;
-}
-
-.Pagination-item--next {
-  right: 0;
-}
-
 .u-rhythmXl > * + *:not(.u-flexExpandTop) {
   margin-top: var(--space-xl) !important;
 }

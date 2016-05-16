@@ -164,7 +164,3 @@ img {
 .u-fitCover {
   object-fit: cover !important;
 }
-
-.u-textSemibold {
-  font-weight: var(--font-weight-semibold) !important;
-}

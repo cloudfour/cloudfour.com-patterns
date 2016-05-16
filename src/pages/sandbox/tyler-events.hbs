@@ -11,7 +11,7 @@ notes: |
 
 {{#embed "patterns.components.sky.base"}}
   {{#content "top"}}
-    <div class="u-bigOlContainer">
+    <div class="u-containSpread">
       <header class="Sky-nav" role="banner">
         <ul class="Sky-nav-controls">
           {{! TODO: Allow these href destinations to be customized }}
@@ -43,7 +43,7 @@ notes: |
 <main role="main" id="main">
   {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
     {{#content "top"}}
-      <div class="u-bigOlContainer u-paddingMd u-md-flex u-flexAlignItemsBaseline">
+      <div class="u-containSpread u-paddingMd u-md-flex u-flexAlignItemsBaseline">
         <h1 class="BigOlMasthead u-marginRightMd">Speaking</h1>
         <p class="u-textLarger" style="opacity: 0.8;">
           Saying what we mean, meaning what we say
@@ -53,7 +53,7 @@ notes: |
   {{/embed}}
   <div class="u-bgWhite">
 
-    <div class="u-bigOlContainer u-paddingMd">
+    <div class="u-containSpread u-paddingMd">
       <h1 class="u-marginEndsXs">Future Events</h1>
       <div class="Grid Grid--withGutter">
         {{#each drizzle.data.events.contents.upcoming}}
@@ -73,10 +73,10 @@ notes: |
       </div>
     </div>
 
-    <div class="u-bigOlContainer">
+    <div class="u-containSpread">
       <hr class="u-marginSidesMd u-marginEndsNone">
     </div>
-    <div class="u-bigOlContainer u-posRelative">
+    <div class="u-containSpread u-posRelative">
       <p class="u-paddingMd u-size2of3">
         <span class="u-inlineBlock u-textLarger u-marginRightSm u-textNoWrap">
           Need help clouding your fours?
@@ -94,7 +94,7 @@ notes: |
   </div>
 </main>
 
-<footer class="u-bigOlContainer u-paddingMd u-marginBottomSm" role="contentinfo">
+<footer class="u-containSpread u-paddingMd u-marginBottomSm" role="contentinfo">
   <p>
     <a href="/"><strong>Cloud Four, Inc.</strong></a>
   </p>

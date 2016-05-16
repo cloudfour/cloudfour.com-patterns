@@ -23,39 +23,6 @@ img {
   max-width: none;
 }
 
-/*.u-bigOlContainer {
-  max-width: 60rem;
-  margin-left: auto;
-  margin-right: auto;
-}*/
-
-@media (--lg-viewport) {
-  .u-bigOlContainer {
-    margin-left: 2%;
-    margin-right: 2%;
-  }
-}
-
-@media (--xl-viewport) {
-  .u-bigOlContainer {
-    margin-left: 6%;
-    margin-right: 6%;
-  }
-}
-
-@media (min-width: 100em) {
-  .u-bigOlContainer {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-}
-
-.u-bebehContainer {
-  max-width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .BigOlMasthead {
   font-size: calc(1em * var(--ms5));
 }

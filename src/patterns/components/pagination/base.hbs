@@ -1,22 +1,19 @@
 ---
-notes: |
-  Show several page links in a row with optional visible controls for "next" and "previous" pages.
-
-  If there are too many links to show in the given space, they are hidden. "Next" and "previous" controls are never hidden.
+hidden: true;
 ---
+
 <nav role="menu" aria-label="Pagination">
-  <ul class="Pagination Pagination--withNext Pagination--withPrevious">
+  <ul class="Pagination {{#compare (defaultTo current 1) '>' 1}}Pagination--withPrevious{{/compare}} {{#compare (defaultTo current 1) '<' (defaultTo pages 10)}}Pagination--withNext{{/compare}}">
     {{#iterate (defaultTo pages 10)}}
       <li>
-        {{#compare @count "===" (defaultTo current 2)}}
+        {{#compare @count "===" (defaultTo ../current 1)}}
           <span class="Pagination-item">
             <span class="u-hiddenVisually">Currently viewing page</span>
             {{@count}}
           </span>
         {{else}}
           <a class="Pagination-item" href="#">
-            {{! TODO: Make pagination states dynamic and based on incrementing or decrementing current }}
-            {{#compare @count "===" 1}}
+            {{#compare @count "===" (math (defaultTo ../current 1) "--")}}
               <span class="Pagination-item Pagination-item--previous">
                 {{#embed "patterns.components.icon.base"
                   iconid="arrow-left"
@@ -27,7 +24,7 @@ notes: |
                 {{/embed}}
               </span>
             {{/compare}}
-            {{#compare @count "===" 3}}
+            {{#compare @count "===" (math (defaultTo ../current 1) "++")}}
               <span class="Pagination-item Pagination-item--next">
                 {{#embed "patterns.components.icon.base"
                   iconid="arrow-right"

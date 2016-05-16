@@ -1,0 +1,38 @@
+.u-containSpread {
+
+}
+
+@media (--lg-viewport) {
+  .u-containSpread {
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+  }
+}
+
+@media (--xl-viewport) {
+  .u-containSpread {
+    margin-left: 6% !important;
+    margin-right: 6% !important;
+  }
+}
+
+@media (--xxl-viewport) {
+  .u-containSpread {
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+  }
+}
+
+@media (--xxxl-viewport) {
+  .u-containSpread {
+    max-width: 80em; /* ~ 1600 @ 20px base */
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+.u-containProse {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}

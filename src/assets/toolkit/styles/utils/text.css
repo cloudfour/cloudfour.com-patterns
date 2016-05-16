@@ -21,3 +21,7 @@
 .u-textBold {
   font-weight: var(--font-weight-bold) !important;
 }
+
+.u-textSemibold {
+  font-weight: var(--font-weight-semibold) !important;
+}

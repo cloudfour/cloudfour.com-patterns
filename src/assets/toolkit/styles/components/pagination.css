@@ -1,0 +1,79 @@
+:root {
+  --Pagination-height: calc(var(--Pagination-item-pad-vertical) * 2 + 1em);
+  --Pagination-item-pad: var(--Pagination-item-pad-vertical) var(--Pagination-item-pad-horizontal);
+  --Pagination-item-pad-horizontal: 1em;
+  --Pagination-item-pad-vertical: 0.5em;
+  --Pagination-control-pad: 3em;
+}
+
+/**
+ * 1. Allow "next" and "previous" helpers to position themselves relative to
+ *    this container.
+ * 2. Cap the height to that of an item, and prevent overflowing items from
+ *    being visible within the container.
+ * 3. Override default list styles.
+ */
+
+.Pagination {
+  position: relative; /* 1 */
+  display: flex;
+  overflow: hidden; /* 2 */
+  height: var(--Pagination-height); /* 2 */
+  padding-left: 0; /* 3 */
+  list-style: none; /* 3 */
+  flex-wrap: wrap; /* 2 */
+}
+
+/**
+ * Modifiers: With next and/or previous controls
+ */
+
+.Pagination--withPrevious {
+  padding-left: var(--Pagination-control-pad);
+}
+
+.Pagination--withNext {
+  padding-right: var(--Pagination-control-pad);
+}
+
+/**
+ * Child elements should expand to fill the available space before wrapping.
+ */
+
+.Pagination > * {
+  flex: 1 1 auto;
+}
+
+/**
+ * 1. Fill available space.
+ * 2. Establish padding so items can't squish together.
+ * 3. Cap the line height so that the container height is easier to calculate.
+ * 4. Center in case the container grows larger than the numeral + padding.
+ * 5. Override any text decoration because it looks weird on narrow numerals.
+ */
+
+.Pagination-item {
+  display: block; /* 1 */
+  padding: var(--Pagination-item-pad); /* 2 */
+  line-height: 1; /* 3 */
+  text-align: center; /* 4 */
+  text-decoration: none; /* 5 */
+}
+
+/**
+ * "Next" and "previous" controls align to the sides of the container.
+ */
+
+.Pagination-item--previous,
+.Pagination-item--next {
+  position: absolute;
+  top: 0;
+}
+
+.Pagination-item--previous {
+  left: 0;
+}
+
+.Pagination-item--next {
+  right: 0;
+}

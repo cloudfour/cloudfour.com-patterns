@@ -1,0 +1,94 @@
+/** @define DotLeader */
+
+:root {
+  --DotLeader-space: "\00a0";
+}
+
+/**
+ * Pattern for inserting a fluid-width typographic leader between a start
+ * and end value.
+ *
+ * 1. Arrange children in a row.
+ * 2. Prevent wrapping to new line for any child elements.
+ * 3. Underlines cover up the leader dots.
+ */
+
+.DotLeader {
+  display: flex; /* 1 */
+  white-space: nowrap; /* 2 */
+  text-decoration: none; /* 3 */
+}
+
+/**
+ * Prevent elements from shrinking below their minimum content size in Safari.
+ *
+ * @see https://github.com/philipwalton/flexbugs#11-min-and-max-size-declarations-are-ignored-when-wrapping-flex-items
+ */
+
+.DotLeader-start,
+.DotLeader-end {
+  flex: 1 0 auto;
+}
+
+/**
+ * Insert a non-breaking space before and after the leader.
+ */
+
+.DotLeader-start::after,
+.DotLeader-end::before {
+  content: var(--DotLeader-space);
+}
+
+/**
+ * Right-align the final element. Since we had can't use flex-shrink because of
+ * Safari, this is a failsafe in case the leader element is omitted or otherwise
+ * doesn't display.
+ */
+
+.DotLeader-end {
+  text-align: right;
+}
+
+/**
+ * 1. Allow this element to fill the available space. Because of the earlier
+ *    Safari flexbox compromises, we need to specify all of these values in
+ *    case the element is ever wide enough that the amount of dots doesn't
+ *    fill the space. Otherwise, the other elements will start expanding.
+ * 2. Hide any horizontal overflow. CSS, everybody! 👋
+ */
+
+.DotLeader-between {
+  flex: 1 1 auto; /* 1 */
+  overflow-x: hidden; /* 2 */
+}
+
+/**
+ * Ladies and gentlemen: The Dots!
+ *
+ * This is the unicode character U+2024 ONE DOT LEADER (which exists for exactly
+ * this purpose) repeated 200 times.
+ */
+
+.DotLeader-between::before {
+  content:
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024"
+    "\2024\2024\2024\2024\2024\2024\2024\2024\2024\2024";
+}

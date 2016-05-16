@@ -1,8 +1,8 @@
 :root {
   --Pagination-height: calc(var(--Pagination-item-pad-vertical) * 2 + 1em);
   --Pagination-item-pad: var(--Pagination-item-pad-vertical) var(--Pagination-item-pad-horizontal);
-  --Pagination-item-pad-horizontal: 1em;
-  --Pagination-item-pad-vertical: 0.5em;
+  --Pagination-item-pad-horizontal: var(--space-md);
+  --Pagination-item-pad-vertical: var(--space-xs);
   --Pagination-control-pad: 3em;
 }
 

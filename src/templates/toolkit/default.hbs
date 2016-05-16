@@ -18,15 +18,16 @@
         <div class="
          u-paddingMd
          u-spaceChildren
-         u-flexExpand
-         {{defaultTo containerClass "u-md-size8of10"}}">
+         {{defaultTo containerClass "u-containSpread"}}">
           {{#block "body"}}
             {{!-- PAGE CONTENT GOES HERE --}}
           {{/block}}
         </div>
         {{!-- After-page content --}}
-        <hr class="u-marginMd u-marginBottomNone">
-        {{{embed "toolkit.page-segue"}}}
+        <div class="u-containSpread">
+          <hr class="u-marginMd u-marginBottomNone">
+          {{{embed "toolkit.page-segue"}}}
+        </div>
       </div>
     </main>
 

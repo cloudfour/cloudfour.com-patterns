@@ -7,41 +7,12 @@ notes: |
   One featured post, then tiled chronological posts.
 ---
 
-{{#embed "patterns.components.sky.base"}}
-  {{#content "top"}}
-    <div class="u-containSpread">
-      <header class="Sky-nav" role="banner">
-        <ul class="Sky-nav-controls">
-          {{! TODO: Allow these href destinations to be customized }}
-          <li><a class="Sky-nav-controls-skipToMain Button Button--inverse u-textNoWrap u-hiddenTillFocus" href="#main">Skip to main content</a></li>
-          <li><a class="Sky-nav-controls-skipToMenu Button Button--defaultLight" href="#menu" aria-label="Skip to navigation">Menu</a></li>
-        </ul>
-        <a class="Sky-nav-logo" href="/">
-          <svg class="Sky-nav-logo-object" width="80" height="80" role="img" aria-labelledby="logo-title">
-            <title id="logo-title">Cloud Four</title>
-            <use xlink:href="/assets/toolkit/images/icons.svg#cloud-four" fill="currentColor"/>
-          </svg>
-        </a>
-        {{! TODO: Allow this ID to be customized (see above href todo as well) }}
-        <nav class="Sky-nav-menu" role="navigation" id="menu">
-          <ul class="Sky-nav-menu-items">
-            <li><a class="Sky-nav-menu-item" href="/#main" aria-current>Our Process</a></li>
-            <li><a class="Sky-nav-menu-item" href="/">Our Work</a></li>
-            <li><a class="Sky-nav-menu-item" href="/">Articles</a></li>
-            <li><a class="Sky-nav-menu-item" href="/">Speaking</a></li>
-            <li><a class="Sky-nav-menu-item" href="/">Code</a></li>
-            <li><a class="Sky-nav-menu-item" href="/">The Team</a></li>
-          </ul>
-        </nav>
-      </header>
-    </div>
-  {{/content}}
-{{/embed}}
+{{{embed "patterns.components.sky.base"}}}
 
 <main role="main" id="main">
   {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
     {{#content "top"}}
-      <div class="u-containSpread u-paddingMd">
+      <div class="u-paddingMd">
         <div class="Grid Grid--withGutter Grid--alignMiddle">
           <div class="Grid-cell u-md-size5of12 u-lg-size1of2">
             <h1 class="BigOlMasthead u-marginRightMd">Articles</h1>
@@ -167,73 +138,9 @@ notes: |
 
     <div class="u-containSpread">
       <hr class="u-marginSidesMd u-marginEndsNone">
-    </div>
-    <div class="u-containSpread u-posRelative">
-      <p class="u-paddingMd u-size2of3">
-        <span class="u-inlineBlock u-textLarger u-marginRightSm u-textNoWrap">
-          Need help clouding your fours?
-        </span>
-        <a class="Button Button--primary u-marginEndsXs u-textNoWrap" href="mailto:info@cloudfour.com">
-          <svg class="Icon Icon--large" role="img">
-            <use xlink:href="/assets/toolkit/images/icons.svg#envelope"/>
-          </svg>
-          Squiddly-doo
-        </a>
-      </p>
-      <img class="u-posAbsoluteBottomRight u-size2of5 u-sm-size1of3 u-sm-marginRightMd u-md-size1of4"
-        src="/assets/toolkit/images/portland.svg" alt="">
+      {{> toolkit.page-segue }}
     </div>
   </div>
 </main>
 
-<footer class="u-containSpread u-paddingMd u-marginBottomSm" role="contentinfo">
-  <p>
-    <a href="/"><strong>Cloud Four, Inc.</strong></a>
-  </p>
-  <div class="u-posRelative">
-    <div class="Grid Grid--withGutter">
-      <div class="Grid-cell u-sm-size1of2 u-md-size1of3">
-        <p>
-          208 SW 1st Ave, Suite 240<br>
-          Portland, Oregon 97204 USA
-        </p>
-        <ul class="u-listUnstyled">
-          <li><a href="mailto:info@cloudfour.com">info@cloudfour.com</a></li>
-          <li><a href="tel:15032901090">+1 503.290.1090</a></li>
-        </ul>
-        <ul class="u-listInline u-marginTopMd u-md-marginTopNone u-md-posAbsoluteTopRight">
-          {{#each drizzle.data.social.contents.links}}
-            <li>
-              <a class="u-textLarger" href="{{url}}" title="{{text}}">
-                <svg class="Icon Icon--large" role="img">
-                  <use xlink:href="/assets/toolkit/images/icons.svg#{{@key}}"/>
-                </svg>
-              </a>
-            </li>
-          {{/each}}
-        </ul>
-      </div>
-      <div class="Grid-cell u-sm-hidden">
-        <hr class="u-marginTopMd u-marginBottomNone"/>
-      </div>
-      <nav class="Grid-cell u-marginTopMd u-sm-marginTopNone u-sm-size1of2 u-md-size1of3">
-        <ul class="u-listUnstyled u-columns2">
-          <li><a href="/">Our Process</a></li>
-          <li><a href="/">Our Work</a></li>
-          <li><a href="/">Articles</a></li>
-          <li><a href="/">Speaking</a></li>
-          <li><a href="/">Code</a></li>
-          <li><a href="/">The Team</a></li>
-          <li><a href="/">Patterns</a></li>
-          <li><a href="/">Device Lab</a></li>
-        </ul>
-      </nav>
-      <div class="Grid-cell u-md-hidden">
-        <hr class="u-marginTopMd u-marginBottomNone"/>
-      </div>
-      <p class="Grid-cell u-marginTopMd u-md-sizeFit u-md-flexAlignSelfEnd u-md-flexExpandLeft">
-        <small>&copy; 2007 - 2016 Cloud Four, Inc.</small>
-      </p>
-    </div>
-  </div>
-</footer>
+{{> toolkit.global-footer }}

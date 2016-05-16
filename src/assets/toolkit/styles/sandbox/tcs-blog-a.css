@@ -5,12 +5,6 @@
   --space-xl: calc(var(--ms6) * 1rem);
 }
 
-@media (--xl-viewport) {
-  html {
-    font-size: calc(var(--ms1) * 1rem);
-  }
-}
-
 img {
   max-width: 100%;
 }

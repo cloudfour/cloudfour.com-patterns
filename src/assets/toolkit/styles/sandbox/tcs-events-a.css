@@ -1,16 +1,6 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
-.BigOlMasthead {
-  font-size: calc(1em * var(--ms5));
-}
-
-@media (--sm-viewport) {
-  .BigOlMasthead {
-    font-size: calc(1em * var(--ms6));
-  }
-}
-
 .HotDate {
   background: #fff;
   border: 3px solid currentColor;

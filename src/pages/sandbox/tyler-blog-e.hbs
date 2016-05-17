@@ -16,8 +16,8 @@ notes: |
       <div class="u-paddingMd">
         <div class="Grid Grid--withGutter Grid--alignMiddle">
           <div class="Grid-cell u-md-size5of12 u-lg-size1of2">
-            <h1 class="BigOlMasthead u-marginRightMd">Articles</h1>
-            <p class="u-textLarger">
+            <h1 class="u-textGrow5 u-sm-textGrow6 u-marginRightMd">Articles</h1>
+            <p class="u-textGrow1">
               Tales from the edge of the web
             </p>
           </div>
@@ -48,7 +48,7 @@ notes: |
           <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-marginBottomMd u-md-marginBottomNone">
             <img class="u-sizeFull" src="{{image}}" alt="">
           </div>
-          <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textLarger u-rhythmXs">
+          <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textGrow1 u-rhythmXs">
             <header>
               <h2>
                 <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -57,7 +57,7 @@ notes: |
             <p>
               {{excerpt}}
             </p>
-            <div class="u-flex u-flexAlignItemsCenter u-textSmaller">
+            <div class="u-flex u-flexAlignItemsCenter u-textShrink1">
               <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
                 <div class="u-marginRightXs">
                   <div class="Thumbnail Thumbnail--circle u-block">
@@ -68,7 +68,7 @@ notes: |
                   <p class="u-marginRightXs u-textNoWrap u-textBold">
                     {{author}}
                   </p>
-                  <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                  <p class="u-marginRightXs u-textNoWrap u-textShrink1">
                     {{timestamp date format="MMM D, YYYY"}}
                   </p>
                 </div>
@@ -108,7 +108,7 @@ notes: |
                     <p class="u-marginRightXs u-textNoWrap u-textBold">
                       {{author}}
                     </p>
-                    <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                    <p class="u-marginRightXs u-textNoWrap u-textShrink1">
                       {{timestamp date format="MMM D, YYYY"}}
                     </p>
                   </div>
@@ -157,11 +157,11 @@ notes: |
         </div>
         <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceChildren u-marginEndsXs">
           <div class="u-marginTopXs">
-            <h2><span class="u-md-textSmaller">Essentials</span></h2>
-            <p class="u-md-textSmaller">Frequently-cited posts we&rsquo;re particularly proud of.</p>
+            <h2><span class="u-md-textShrink1">Essentials</span></h2>
+            <p class="u-md-textShrink1">Frequently-cited posts we&rsquo;re particularly proud of.</p>
             <ul class="u-listUnstyled u-marginTopMd u-marginBottomLg u-spaceChildren">
               {{#each drizzle.data.posts.contents.essential}}
-                <li class="u-md-textSmaller">
+                <li class="u-md-textShrink1">
                   <a class="u-linkClean" href="#">
                     {{title}}
                   </a>
@@ -170,10 +170,10 @@ notes: |
             </ul>
           </div>
           <div>
-            <h2><span class="u-md-textSmaller">Topics</span></h2>
+            <h2><span class="u-md-textShrink1">Topics</span></h2>
             <ul class="u-listUnstyled u-marginEndsLg u-spaceChildren">
               {{#each drizzle.data.topics.contents}}
-                <li class="u-md-textSmaller">
+                <li class="u-md-textShrink1">
                   <a class="u-linkClean LeaderDots" href="#">
                     <span class="LeaderDots-item">{{label}}</span>
                     <span class="LeaderDots-dots u-textGray"></span>
@@ -183,7 +183,7 @@ notes: |
                   </a>
                 </li>
               {{/each}}
-              <li class="u-md-textSmaller">
+              <li class="u-md-textShrink1">
                 <a class="u-linkClean" href="#">
                   All topics
                   <span>

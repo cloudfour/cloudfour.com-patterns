@@ -17,16 +17,6 @@ img {
   max-width: none;
 }
 
-.BigOlMasthead {
-  font-size: calc(1em * var(--ms5));
-}
-
-@media (--sm-viewport) {
-  .BigOlMasthead {
-    font-size: calc(1em * var(--ms6));
-  }
-}
-
 .Sky .FloatLabel-label {
   background: var(--color-blue);
   color: var(--color-white);
@@ -161,12 +151,6 @@ img {
 
 .u-textGray {
   color: color(var(--color-gray) l(-25%) s(-15%));
-}
-
-@media (--md-viewport) {
-  .u-md-textSmaller {
-    font-size: calc(1em / var(--ms1));
-  }
 }
 
 @media (--sm-viewport) {

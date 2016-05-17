@@ -15,8 +15,8 @@ notes: |
       <div class="u-paddingMd">
         <div class="Grid Grid--withGutter Grid--alignMiddle">
           <div class="Grid-cell u-md-size5of12 u-lg-size1of2">
-            <h1 class="BigOlMasthead u-marginRightMd">Articles</h1>
-            <p class="u-textLarger">
+            <h1 class="u-textGrow5 u-sm-textGrow6 u-marginRightMd">Articles</h1>
+            <p class="u-textGrow1">
               Tales from the edge of the web
             </p>
           </div>
@@ -48,7 +48,7 @@ notes: |
             <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-marginBottomMd u-md-marginBottomNone">
               <img class="u-sizeFull" src="{{image}}" alt="">
             </div>
-            <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textLarger u-rhythmXs">
+            <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textGrow1 u-rhythmXs">
               <header>
                 <h2>
                   <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -56,7 +56,7 @@ notes: |
               </header>
               <p>
                 {{excerpt}}&nbsp;
-                <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                <a class="u-linkClean u-textNoWrap u-textShrink1" href="#">
                   Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
                   {{/embed}}
                 </a>
@@ -67,7 +67,7 @@ notes: |
                 </div>
                 <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
                   <p class="u-textBold u-marginRightXs">{{author}}</p>
-                  <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                  <p class="u-textShrink1">{{timestamp date format="MMM D, YYYY"}}</p>
                 </div>
               </footer>
             </div>
@@ -86,7 +86,7 @@ notes: |
                 </header>
                 <p>
                   {{excerpt}}&nbsp;
-                  <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                  <a class="u-linkClean u-textNoWrap u-textShrink1" href="#">
                     Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
                     {{/embed}}
                   </a>
@@ -97,7 +97,7 @@ notes: |
                   </div>
                   <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
                     <p class="u-textBold u-marginRightXs">{{author}}</p>
-                    <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                    <p class="u-textShrink1">{{timestamp date format="MMM D, YYYY"}}</p>
                   </div>
                 </footer>
               </div>
@@ -112,7 +112,7 @@ notes: |
         <div class="Grid Grid--withGutter">
           {{#each drizzle.data.posts.contents.essential}}
             <article class="Grid-cell u-md-size1of3 u-lg-size1of4 u-marginBottomLg u-marginTopXs">
-              <div class="u-rhythmXs u-md-paddingRightXs u-md-textSmaller">
+              <div class="u-rhythmXs u-md-paddingRightXs u-md-textShrink1">
                 <header>
                   <h3>
                     <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -120,7 +120,7 @@ notes: |
                 </header>
                 <p>
                   {{random "paragraph" sentences=2}}&nbsp;
-                  <a class="u-linkClean u-textNoWrap u-textSmaller" href="#">
+                  <a class="u-linkClean u-textNoWrap u-textShrink1" href="#">
                     Read more{{#embed "patterns.components.icon.base" class="u-marginLeftXxs" iconid="arrow-right"}}
                     {{/embed}}
                   </a>
@@ -131,7 +131,7 @@ notes: |
                   </div>
                   <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
                     <p class="u-textBold u-marginRightXs">{{author}}</p>
-                    <p class="u-textSmaller">{{timestamp date format="MMM D, YYYY"}}</p>
+                    <p class="u-textShrink1">{{timestamp date format="MMM D, YYYY"}}</p>
                   </div>
                 </footer>
               </div>

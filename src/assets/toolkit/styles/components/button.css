@@ -77,7 +77,7 @@
  * UI states
  */
 
-.Button:matches(:hover, :focus, :active) {
+.Button:matches(:--enter, :active) {
   text-decoration: none;
 }
 
@@ -96,31 +96,31 @@
 }
 
 .Button--default,
-.Button--default:matches(:focus, :hover, :active),
-.Button--defaultLight,
-.Button--defaultLight:matches(:focus, :hover, :active) {
+.Button--default:matches(:--enter, :active),
+.Button--defaultDark,
+.Button--defaultDark:matches(:--enter, :active) {
   color: var(--Button-default-color);
   border-color: color(var(--Button-default-background-color) shade(10%));
   background-color: var(--Button-default-background-color);
 }
 
-.Button--defaultLight,
-.Button--defaultLight:matches(:focus, :hover, :active) {
+.Button--defaultDark,
+.Button--defaultDark:matches(:--enter, :active) {
   border-color: color(var(--Button-default-background-color) l(+10%));
 }
 
-.Button--default:matches(:focus, :hover),
-.Button--defaultLight:matches(:focus, :hover) {
+.Button--default:matches(:--enter),
+.Button--defaultDark:matches(:--enter) {
   border-color: color(var(--Button-default-background-color) shade(5%));
   background-color: color(var(--Button-default-background-color) l(+5%));
 }
 
-.Button--defaultLight:matches(:focus, :hover) {
+.Button--defaultDark:matches(:--enter) {
   border-color: color(var(--Button-default-background-color) l(+20%));
 }
 
 .Button--default:active,
-.Button--defaultLight:active {
+.Button--defaultDark:active {
   background-color: color(var(--Button-default-background-color) shade(10%));
 }
 
@@ -131,16 +131,17 @@
 :root {
   --Button-primary-background-color: var(--color-orange);
   --Button-primary-color: var(--color-white);
+  --Button-primaryDark-background-color: color(var(--color-navy) l(+30%));
 }
 
 .Button--primary,
-.Button--primary:matches(:focus, :hover, :active) {
+.Button--primary:matches(:--enter, :active) {
   color: var(--Button-primary-color);
   border-color: color(var(--Button-primary-background-color) shade(10%));
   background-color: var(--Button-primary-background-color);
 }
 
-.Button--primary:matches(:focus, :hover) {
+.Button--primary:matches(:--enter) {
   border-color: color(var(--Button-primary-background-color) shade(5%));
   background-color: color(var(--Button-primary-background-color) l(+5%));
 }
@@ -149,28 +150,18 @@
   background-color: color(var(--Button-primary-background-color) shade(10%));
 }
 
-/**
- * Modifier: inverse buttons
- */
-
-:root {
-  --Button-inverse-background-color: var(--color-white);
-  --Button-inverse-border-color: var(--color-gray);
-  --Button-inverse-color: var(--color-blue);
+.Button--primaryDark,
+.Button--primaryDark:matches(:--enter, :active) {
+  background: var(--Button-primaryDark-background-color);
+  color: var(--Button-primary-color);
+  border-color: color(var(--Button-primaryDark-background-color) shade(10%));
 }
 
-.Button--inverse,
-.Button--inverse:matches(:focus, :hover, :active) {
-  color: var(--Button-inverse-color);
-  background-color: var(--Button-inverse-background-color);
-  border-color: var(--Button-inverse-border-color);
+.Button--primaryDark:matches(:--enter) {
+  border-color: color(var(--Button-primaryDark-background-color) shade(5%));
+  background-color: color(var(--Button-primaryDark-background-color) l(+5%));
 }
 
-.Button--inverse:matches(:focus, :hover) {
-  border-color: var(--color-white);
-}
-
-.Button--inverse:active {
-  background-color: var(--Button-inverse-border-color);
-  border-color: var(--Button-inverse-border-color);
+.Button--primaryDark:active {
+  background-color: color(var(--Button-primaryDark-background-color) shade(10%));
 }

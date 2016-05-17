@@ -23,14 +23,17 @@ notes: |
           <div class="Grid-cell u-md-size7of12 u-lg-size1of2 u-marginTopMd">
             <form class="Grid Grid--withGutter">
               <div class="Grid-cell u-sm-sizeFill">
-                {{#embed "patterns.components.input.float-label.base"
-                 label="Your Email Address"
-                 type="email"
-                 inputid="blog-digest-email"}}
-                {{/embed}}
+                {{{
+                  embed "patterns.components.input.float-label.base"
+                  floatlabelclass="FloatLabel--dark"
+                  inputclass="Input--dark"
+                  label="Your Email Address"
+                  type="email"
+                  inputid="blog-digest-email"
+                }}}
               </div>
               <div class="Grid-cell u-marginTopXs u-sm-sizeFit u-sm-marginTopNone">
-                <button class="Button Button--heyNameMe u-sizeFull">
+                <button class="Button Button--primaryDark u-sizeFull">
                   Get Weekly Digests
                 </button>
               </div>

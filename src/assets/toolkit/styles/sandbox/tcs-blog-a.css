@@ -17,31 +17,6 @@ img {
   max-width: none;
 }
 
-.Sky .FloatLabel-label {
-  background: var(--color-blue);
-  color: var(--color-white);
-}
-
-.Sky .FloatLabel.is-empty .FloatLabel-label {
-  color: var(--color-white);
-}
-
-.Sky .Input {
-  background: transparent;
-  border-color: color(var(--color-blue) l(+10%));
-  color: var(--color-white);
-}
-
-.Sky .Input:focus {
-  border-color: var(--color-white);
-}
-
-.Button--heyNameMe {
-  background: color(var(--color-navy) l(+30%));
-  color: var(--color-white);
-  border-color: var(--color-null);
-}
-
 .Pagination {
   display: flex;
   flex-wrap: wrap;

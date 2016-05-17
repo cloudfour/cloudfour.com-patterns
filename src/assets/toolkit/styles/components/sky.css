@@ -3,7 +3,8 @@
 :root {
   --Sky-background-color: var(--color-blue);
   --Sky-background-color-dark: color(var(--color-navy) h(+5) s(-12) l(+18));
-  --Sky-color: var(--color-white);
+  --Sky-color: color(var(--Sky-background-color) s(+10%) l(85%));
+  --Sky-color-light: var(--color-white);
 
   --Sky-clouds-image: url("/assets/toolkit/images/sky-clouds.svg");
   --Sky-clouds-image-height: calc(30 / 16 * 1rem);
@@ -20,7 +21,6 @@
   --Sky-nav-menu-background-image: linear-gradient(to bottom, var(--Sky-background-color-dark), var(--Sky-background-color));
   --Sky-nav-menu-item-border-color: color(var(--color-black) a(10%));
   --Sky-nav-menu-item-border-width: var(--control-stroke);
-  --Sky-nav-menu-item-color: var(--Sky-color);
   --Sky-nav-menu-item-font-size: var(--font-size-md);
   --Sky-nav-menu-item-line-height: var(--line-height-xs);
   --Sky-nav-menu-space: var(--space-sm);
@@ -57,6 +57,16 @@
   background-repeat: repeat-x;
   background-position: var(--Sky-clouds-x-offset) bottom; /* 2 */
   background-size: var(--Sky-clouds-image-width); /* 3*/
+}
+
+/**
+ * Child element defaults
+ */
+
+.Sky a,
+.Sky a:matches(:--enter, :active),
+.Sky :--headings {
+  color: var(--Sky-color-light);
 }
 
 /**
@@ -144,13 +154,8 @@
 }
 
 /**
- * 1. Logo is probably a link, so override any inherited link colors/states.
+ * Logo
  */
-
-.Sky-nav-logo,
-.Sky-nav-logo:matches(:hover, :focus, :active) {
-  color: var(--Sky-nav-logo-color); /* 1 */
-}
 
 .Sky-nav-logo {
   padding: var(--Sky-nav-logo-padding);
@@ -249,15 +254,6 @@
     flex-wrap: nowrap; /* 1 */
     justify-content: space-between; /* 2 */
   }
-}
-
-/**
- * Menu items are likely links, so set their color for all states.
- */
-
-.Sky-nav-menu-item,
-.Sky-nav-menu-item:matches(:hover, :focus, :active) {
-  color: var(--Sky-nav-menu-item-color);
 }
 
 /**

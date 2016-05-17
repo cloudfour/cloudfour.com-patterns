@@ -2,7 +2,7 @@
 title: Section Page Layout
 layout: toolkit.default
 section:
-  heading: Some Section
+  heading: Section
   subheading: This is some section
 notes: |
   A test for the section page layout.

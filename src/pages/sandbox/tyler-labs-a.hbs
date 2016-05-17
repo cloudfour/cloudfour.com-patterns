@@ -1,6 +1,9 @@
 ---
 title: Core Labs Page
-layout: toolkit.blank
+layout: toolkit.default
+section:
+  heading: Labs
+  subheading: Open source goodness for our fellow web craftspeople
 stylesheets:
   - sandbox/tcs-labs-a
 labels:
@@ -9,44 +12,20 @@ notes: |
   Will include our open source projects and recent nuggets of code goodness.
 ---
 
-{{{embed "patterns.components.sky.base"}}}
-
-<main role="main" id="main">
-  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
-    {{#content "top"}}
-      <div class="u-paddingMd u-md-flex u-flexAlignItemsBaseline">
-        <h1 class="u-textGrow5 u-sm-textGrow6 u-marginRightMd">Labs</h1>
-        <p class="u-textGrow1">
-          Open source goodness for our fellow web craftspeople
-        </p>
-      </div>
-    {{/content}}
-  {{/embed}}
-  <div class="u-bgWhite">
-    <div class="u-containSpread u-paddingMd">
-      <h1 class="u-marginEndsXs">Tools and Resources</h1>
-      <div class="Grid Grid--withGutter">
-        {{#each drizzle.data.labs.contents.projects}}
-          <article class="Grid-cell u-flex u-marginEndsLg u-md-size1of2 u-lg-size1of3">
-            {{#embed "patterns.combos.labs.project" project=this}}{{/embed}}
-          </article>
-        {{/each}}
-      </div>
-      <hr class="u-marginEndsMd u-marginBottomLg">
-      <h1 class="u-marginEndsXs">Experiments</h1>
-      <div class="Grid Grid--withGutter">
-        {{#each drizzle.data.labs.contents.pens}}
-          <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
-            {{#embed "patterns.combos.labs.pen-preview" pen=this}}{{/embed}}
-          </article>
-        {{/each}}
-      </div>
-    </div>
-    <div class="u-containSpread">
-      <hr class="u-marginSidesMd u-marginEndsNone">
-      {{> toolkit.page-segue}}
-    </div>
-  </div>
-</main>
-
-{{> toolkit.global-footer }}
+<h1 class="u-marginEndsXs">Tools and Resources</h1>
+<div class="Grid Grid--withGutter">
+  {{#each drizzle.data.labs.contents.projects}}
+    <article class="Grid-cell u-flex u-marginEndsLg u-md-size1of2 u-lg-size1of3">
+      {{#embed "patterns.combos.labs.project" project=this}}{{/embed}}
+    </article>
+  {{/each}}
+</div>
+<hr class="u-marginEndsMd u-marginBottomLg">
+<h1 class="u-marginEndsXs">Experiments</h1>
+<div class="Grid Grid--withGutter">
+  {{#each drizzle.data.labs.contents.pens}}
+    <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
+      {{#embed "patterns.combos.labs.pen-preview" pen=this}}{{/embed}}
+    </article>
+  {{/each}}
+</div>

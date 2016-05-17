@@ -47,11 +47,6 @@
   text-decoration: none;
 }
 
-.u-marginSidesMinusMd {
-  margin-left: calc(var(--space-md) * -1);
-  margin-right: calc(var(--space-md) * -1);
-}
-
 @media (--sm-viewport) {
   .Thumbnail--rounded\@sm {
     border-radius: var(--control-radius);
@@ -104,9 +99,4 @@
 
 .PresenterInfo .Thumbnail {
   float: right;
-}
-
-.u-marginEndsXl {
-  margin-top: calc(var(--space-lg) * 2);
-  margin-bottom: calc(var(--space-lg) * 2);
 }

@@ -1,13 +1,13 @@
 ---
 hidden: true
 ---
-<div class="FloatLabel js-FloatLabel">
+<div class="FloatLabel js-FloatLabel {{floatlabelclass}}">
   {{#block "content"}}
     <label class="FloatLabel-label" for="{{inputid}}">{{label}}</label>
     {{#compare type "===" "textarea"}}
-      <textarea class="Input" id="{{inputid}}">{{value}}</textarea>
+      <textarea class="Input {{inputclass}}" id="{{inputid}}">{{value}}</textarea>
     {{else}}
-      <input class="Input" id="{{inputid}}" type="{{defaultTo type "text"}}" value="{{value}}">
+      <input class="Input {{inputclass}}" id="{{inputid}}" type="{{defaultTo type "text"}}" value="{{value}}">
     {{/compare}}
   {{/block}}
 </div>

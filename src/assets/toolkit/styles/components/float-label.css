@@ -45,3 +45,22 @@
   background: transparent;
   cursor: text;
 }
+
+/**
+ * Modifier: Dark backgrounds
+ */
+
+:root {
+  --FloatLabel-dark-background-color: var(--color-blue);
+  --FloatLabel-dark-color: var(--color-white);
+  --FloatLabel-dark-color-empty: inherit;
+}
+
+.FloatLabel--dark .FloatLabel-label {
+  background: var(--FloatLabel-dark-background-color);
+  color: var(--FloatLabel-dark-color);
+}
+
+.FloatLabel--dark.is-empty .FloatLabel-label {
+  color: var(--FloatLabel-dark-color-empty);
+}

@@ -45,11 +45,41 @@
 
 .Input:matches(:disabled, .is-disabled) {
   color: color(var(--Input-color) a(50%));
-  border-color: color(var(--Input-border-color));
+  border-color: var(--Input-border-color);
   background-color: color(var(--Input-border-color) l(+5%));
 }
 
 .Input:focus {
   border-color: var(--Input-border-color-focus);
   outline: none;
+}
+
+/**
+ * Modifier: Dark backgrounds
+ */
+
+:root {
+  --Input-dark-background-color: var(--color-blue);
+  --Input-dark-border-color: color(var(--Input-dark-background-color) l(+20%));
+  --Input-dark-color: var(--color-white);
+}
+
+.Input--dark {
+  background-color: var(--Input-dark-background-color);
+  border-color: var(--Input-dark-border-color);
+  color: var(--Input-dark-color);
+}
+
+.Input--dark:matches(:active, :hover) {
+  border-color: color(var(--Input-dark-border-color) l(+10%));
+}
+
+.Input--dark:matches(:disabled, .is-disabled) {
+  color: color(var(--Input-dark-color) a(50%));
+  border-color: var(--Input-dark-border-color);
+  background-color: color(var(--Input-dark-border-color) l(-12%));
+}
+
+.Input--dark:focus {
+  border-color: var(--color-white);
 }

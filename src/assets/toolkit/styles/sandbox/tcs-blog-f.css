@@ -36,12 +36,6 @@ img {
   border-color: var(--color-white);
 }
 
-.Button--heyNameMe {
-  background: color(var(--color-navy) l(+30%));
-  color: var(--color-white);
-  border-color: var(--color-null);
-}
-
 .u-rhythmXl > * + *:not(.u-flexExpandTop) {
   margin-top: var(--space-xl) !important;
 }

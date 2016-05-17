@@ -12,7 +12,7 @@ default:
 
 ---
 
-<article class="u-paddingEndsSm u-spaceChildren{{#if class}} {{class}}{{/if}}">
+<article class="u-padEnds u-rhythm1{{#if class}} {{class}}{{/if}}">
   {{#with (defaultTo comment default.comment)}}
     <p>
       {{!-- TODO: This should be HTML and not <p> content. --}}
@@ -22,7 +22,7 @@ default:
       <span class="u-textBold">
         {{author}}
       </span>
-      <time class="u-textShrink1 u-marginSidesSm" datetime="{{timestamp date}}">
+      <time class="u-textShrink1 u-spaceSides" datetime="{{timestamp date}}">
         {{date}}
       </time>
       <a class="u-flexExpandLeft u-textBold" href="#">

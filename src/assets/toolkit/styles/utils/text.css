@@ -1,20 +1,6 @@
 @import "suitcss-utils-text";
 
 /**
- * Incremental text size utilities
- *
- * See: http://blog.cloudfour.com/responsive-guide-to-type-sizing/
- */
-
-.u-textLarger {
-  font-size: calc(1em * var(--ms1));
-}
-
-.u-textSmaller {
-  font-size: calc(1em / var(--ms1));
-}
-
-/**
  * Font weight control
  */
 
@@ -24,4 +10,74 @@
 
 .u-textSemibold {
   font-weight: var(--font-weight-semibold) !important;
+}
+
+/**
+ * Utilities for adjusting text size using modular scale
+ *
+ * @see http://blog.cloudfour.com/responsive-guide-to-type-sizing/
+ */
+
+@define-mixin makeTestSizeUtils $prefix {
+  .u-$(prefix)textShrink6 {
+    font-size: calc(1em * var(--ms-6)) !important;
+  }
+
+  .u-$(prefix)textShrink5 {
+    font-size: calc(1em * var(--ms-5)) !important;
+  }
+
+  .u-$(prefix)textShrink4 {
+    font-size: calc(1em * var(--ms-4)) !important;
+  }
+
+  .u-$(prefix)textShrink3 {
+    font-size: calc(1em * var(--ms-3)) !important;
+  }
+
+  .u-$(prefix)textShrink2 {
+    font-size: calc(1em * var(--ms-2)) !important;
+  }
+
+  .u-$(prefix)textShrink1 {
+    font-size: calc(1em * var(--ms-1)) !important;
+  }
+
+  .u-$(prefix)textGrow1 {
+    font-size: calc(1em * var(--ms1)) !important;
+  }
+
+  .u-$(prefix)textGrow2 {
+    font-size: calc(1em * var(--ms2)) !important;
+  }
+
+  .u-$(prefix)textGrow3 {
+    font-size: calc(1em * var(--ms3)) !important;
+  }
+
+  .u-$(prefix)textGrow4 {
+    font-size: calc(1em * var(--ms4)) !important;
+  }
+
+  .u-$(prefix)textGrow5 {
+    font-size: calc(1em * var(--ms5)) !important;
+  }
+
+  .u-$(prefix)textGrow6 {
+    font-size: calc(1em * var(--ms6)) !important;
+  }
+}
+
+@mixin makeTestSizeUtils;
+
+@media (--sm-viewport) {
+  @mixin makeTestSizeUtils sm-;
+}
+
+@media (--md-viewport) {
+  @mixin makeTestSizeUtils md-;
+}
+
+@media (--lg-viewport) {
+  @mixin makeTestSizeUtils lg-;
 }

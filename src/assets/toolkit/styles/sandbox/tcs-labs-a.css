@@ -1,16 +1,6 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
-.BigOlMasthead {
-  font-size: calc(1em * var(--ms5));
-}
-
-@media (--sm-viewport) {
-  .BigOlMasthead {
-    font-size: calc(1em * var(--ms6));
-  }
-}
-
 .u-marginSidesMinusMd {
   margin-left: calc(var(--space-md) * -1);
   margin-right: calc(var(--space-md) * -1);

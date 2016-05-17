@@ -18,8 +18,8 @@ notes: |
       <div class="u-paddingMd">
         <div class="Grid Grid--withGutter Grid--alignMiddle">
           <div class="Grid-cell u-md-size5of12 u-lg-size1of2">
-            <h1 class="BigOlMasthead u-marginRightMd">Articles</h1>
-            <p class="u-textLarger">
+            <h1 class="u-textGrow5 u-sm-textGrow6 u-marginRightMd">Articles</h1>
+            <p class="u-textGrow1">
               Tales from the edge of the web
             </p>
           </div>
@@ -50,7 +50,7 @@ notes: |
           <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-marginBottomMd u-md-marginBottomNone">
             <img class="u-sizeFull u-maxHeight50 u-fitCover" src="{{image}}" alt="">
           </div>
-          <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textLarger u-rhythmXs">
+          <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textGrow1 u-rhythmXs">
             <header>
               <h2>
                 <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -58,7 +58,7 @@ notes: |
             </header>
             <p>
               {{~excerpt~}}
-              <a class="u-textNoWrap u-linkClean u-inlineBlock u-textSmaller" href="#">
+              <a class="u-textNoWrap u-linkClean u-inlineBlock u-textShrink1" href="#">
                 More
                 {{{
                   embed "patterns.components.icon.base"
@@ -77,7 +77,7 @@ notes: |
                 <p class="u-marginRightXs u-textNoWrap u-textSemibold">
                   {{author}}
                 </p>
-                <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                <p class="u-marginRightXs u-textNoWrap u-textShrink1">
                   {{timestamp date format="MMM D, YYYY"}}
                 </p>
               </div>
@@ -98,7 +98,7 @@ notes: |
                   </header>
                   <p>
                     {{~excerpt~}}
-                    <a class="u-textNoWrap u-linkClean u-inlineBlock u-textSmaller" href="#">
+                    <a class="u-textNoWrap u-linkClean u-inlineBlock u-textShrink1" href="#">
                       More
                       {{{
                         embed "patterns.components.icon.base"
@@ -117,7 +117,7 @@ notes: |
                       <p class="u-marginRightXs u-textNoWrap u-textSemibold">
                         {{author}}
                       </p>
-                      <p class="u-marginRightXs u-textNoWrap u-textSmaller">
+                      <p class="u-marginRightXs u-textNoWrap u-textShrink1">
                         {{timestamp date format="MMM D, YYYY"}}
                       </p>
                     </div>
@@ -130,11 +130,11 @@ notes: |
         </div>
         <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-marginEndsXs">
           <div class="u-marginTopXs u-rhythmXs">
-            <h3><span class="u-md-textSmallery">Essentials</span></h3>
-            <p class="u-md-textSmaller">Frequently-cited posts we&rsquo;re particularly proud of.</p>
+            <h3><span class="u-md-textShrink1y">Essentials</span></h3>
+            <p class="u-md-textShrink1">Frequently-cited posts we&rsquo;re particularly proud of.</p>
             <ul class="u-listUnstyled u-marginTopMd u-marginBottomLg u-spaceChildren">
               {{#each drizzle.data.posts.contents.essential}}
-                <li class="u-md-textSmaller">
+                <li class="u-md-textShrink1">
                   <a class="u-linkClean" href="#">
                     {{title}}
                   </a>
@@ -143,10 +143,10 @@ notes: |
             </ul>
           </div>
           <div class="u-marginTopXl">
-            <h3><span class="u-md-textSmallery">Topics</span></h3>
+            <h3><span class="u-md-textShrink1y">Topics</span></h3>
             <ul class="u-listUnstyled u-marginEndsLg u-spaceChildren">
               {{#each drizzle.data.topics.contents}}
-                <li class="u-md-textSmaller">
+                <li class="u-md-textShrink1">
                   {{#embed "patterns.components.dot-leader.base" tag="a" href="#"
                     class="u-linkClean u-textInheritColor" startclass="u-linkTarget"}}
                     {{#content "start"}}{{label}}{{/content}}
@@ -156,7 +156,7 @@ notes: |
                   {{/embed}}
                 </li>
               {{/each}}
-              <li class="u-md-textSmaller">
+              <li class="u-md-textShrink1">
                 <a class="u-linkClean" href="#">
                   All topics
                   {{{

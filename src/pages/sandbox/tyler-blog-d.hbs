@@ -45,13 +45,13 @@ notes: |
   {{/embed}}
   <div class="u-bgWhite">
     <div class="u-containSpread u-pad1">
-      <div class="u-spaceEnds2 u-rhythm2">
+      <div class="u-spaceEnds2 u-spaceItems2">
         {{#with drizzle.data.posts.contents.recent.[0]}}
           <article class="Grid Grid--withGutter Grid--alignMiddle">
             <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-spaceBottom1 u-md-spaceBottomNone">
               <img class="u-sizeFull" src="{{image}}" alt="">
             </div>
-            <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textGrow1 u-rhythm01">
+            <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textGrow1 u-spaceItems01">
               <header>
                 <h2>
                   <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -81,7 +81,7 @@ notes: |
         <div class="Grid Grid--withGutter">
           {{#each drizzle.data.posts.contents.recent}}{{#unless @first}}
             <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-spaceBottom2 u-spaceTop01">
-              <div class="u-rhythm01 u-md-padRight01">
+              <div class="u-spaceItems01 u-md-padRight01">
                 <header>
                   <h3>
                     <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -115,7 +115,7 @@ notes: |
         <div class="Grid Grid--withGutter">
           {{#each drizzle.data.posts.contents.essential}}
             <article class="Grid-cell u-md-size1of3 u-lg-size1of4 u-spaceBottom2 u-spaceTop01">
-              <div class="u-rhythm01 u-md-padRight01 u-md-textShrink1">
+              <div class="u-spaceItems01 u-md-padRight01 u-md-textShrink1">
                 <header>
                   <h3>
                     <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>

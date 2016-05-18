@@ -51,7 +51,7 @@ notes: |
           <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-spaceBottom1 u-md-spaceBottomNone">
             <img class="u-sizeFull" src="{{image}}" alt="">
           </div>
-          <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textGrow1 u-rhythm01">
+          <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-textGrow1 u-spaceItems01">
             <header>
               <h2>
                 <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -89,9 +89,9 @@ notes: |
       {{/with}}
       <hr class="u-spaceTop2">
       <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-md-size2of3 u-rhythm6 u-spaceEnds2">
+        <div class="Grid-cell u-md-size2of3 u-spaceItems6 u-spaceEnds2">
           {{#each drizzle.data.posts.contents.recent}}{{#unless @first}}
-            <article class="u-rhythm01">
+            <article class="u-spaceItems01">
               <header>
                 <h2>
                   <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -158,11 +158,11 @@ notes: |
             </ul>
           </nav>
         </div>
-        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-rhythm1 u-spaceEnds01">
+        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceItems1 u-spaceEnds01">
           <div class="u-spaceTop01">
             <h2><span class="u-md-textShrink1">Essentials</span></h2>
             <p class="u-md-textShrink1">Frequently-cited posts we&rsquo;re particularly proud of.</p>
-            <ul class="u-listUnstyled u-spaceTop1 u-spaceBottom2 u-rhythm1">
+            <ul class="u-listUnstyled u-spaceTop1 u-spaceBottom2 u-spaceItems1">
               {{#each drizzle.data.posts.contents.essential}}
                 <li class="u-md-textShrink1">
                   <a class="u-linkClean" href="#">
@@ -174,7 +174,7 @@ notes: |
           </div>
           <div>
             <h2><span class="u-md-textShrink1">Topics</span></h2>
-            <ul class="u-listUnstyled u-spaceEnds2 u-rhythm1">
+            <ul class="u-listUnstyled u-spaceEnds2 u-spaceItems1">
               {{#each drizzle.data.topics.contents}}
                 <li class="u-md-textShrink1">
                   <a class="u-linkClean LeaderDots" href="#">

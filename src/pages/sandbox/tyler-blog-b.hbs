@@ -47,7 +47,7 @@ notes: |
 
     <div class="u-containSpread u-pad1">
 
-      <div class="Grid Grid--withGutter u-spaceEnds2 u-rhythm6">
+      <div class="Grid Grid--withGutter u-spaceEnds2 u-spaceItems6">
         {{#each drizzle.data.posts.contents.recent}}
           {{#if @first}}
             <article class="Grid-cell">
@@ -55,7 +55,7 @@ notes: |
                 <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-spaceBottom1 u-md-spaceBottomNone">
                   <img class="u-sizeFull" src="{{image}}" alt="">
                 </div>
-                <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-rhythm01">
+                <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-spaceItems01">
                   <header>
                     <h2>
                       <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -85,7 +85,7 @@ notes: |
         {{/each}}
         {{#each drizzle.data.posts.contents.recent}}
           {{#unless @first}}
-            <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-rhythm01">
+            <article class="Grid-cell u-md-size1of2 u-lg-size1of3 u-spaceItems01">
               <header class="u-md-padRight01">
                 <h2>
                   <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -121,7 +121,7 @@ notes: |
         </a>
       </p>
       <hr class="u-spaceEnds2">
-      <div class="u-spaceEnds2 u-spaceBottomNone u-rhythm">
+      <div class="u-spaceEnds2 u-spaceBottomNone u-spaceItems">
         <h3>Browse by Topic</h3>
         <ul class="u-listInline">
           {{#each drizzle.data.topics.contents}}

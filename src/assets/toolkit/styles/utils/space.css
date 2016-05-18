@@ -1,7 +1,7 @@
 /** @define utilities */
 
 @define-mixin makeRhythmUtils $value, $suffix {
-  .u-rhythm$(suffix) > * + * {
+  .u-spaceItems$(suffix) > * + * {
     margin-top: $(value) !important;
   }
 }

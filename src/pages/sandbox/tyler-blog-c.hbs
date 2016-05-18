@@ -48,11 +48,11 @@ notes: |
     <div class="u-containSpread u-pad1">
 
       <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-md-size3of4 u-rhythm6 u-spaceEnds2">
-          <div class="Grid Grid--withGutter u-rhythm6 u-md-spaceRight2">
+        <div class="Grid-cell u-md-size3of4 u-spaceItems6 u-spaceEnds2">
+          <div class="Grid Grid--withGutter u-spaceItems6 u-md-spaceRight2">
             {{#each drizzle.data.posts.contents.recent}}
               {{#compare @index "<" 5}}
-                <article class="Grid-cell {{#and @first image}}{{else}}u-md-size1of2{{/and}} u-rhythm01">
+                <article class="Grid-cell {{#and @first image}}{{else}}u-md-size1of2{{/and}} u-spaceItems01">
                   <header>
                     <h2>
                       <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -90,7 +90,7 @@ notes: |
             </a>
           </p>
         </div>
-        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-rhythm1 u-spaceEnds01">
+        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceItems1 u-spaceEnds01">
 
           <div class="u-spaceTop01">
             <h2><span class="u-md-textShrink1">Essentials</span></h2>
@@ -106,7 +106,7 @@ notes: |
             </ul>
           </div>
 
-          <div class="u-rhythm01">
+          <div class="u-spaceItems01">
             <h2><span class="u-md-textShrink1">Topics</span></h2>
             <ul class="u-listUnstyled">
               {{#each drizzle.data.topics.contents}}

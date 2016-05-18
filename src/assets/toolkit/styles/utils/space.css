@@ -94,7 +94,7 @@
 @mixin makeSpaceUtils calc(var(--ms4)  * 1rem),  4;
 @mixin makeSpaceUtils calc(var(--ms5)  * 1rem),  5;
 @mixin makeSpaceUtils calc(var(--ms6)  * 1rem),  6;
-@mixin makeSpaceUtils 0, , de;
+@mixin makeSpaceUtils 0, None;
 
 @mixin makePadUtils calc(var(--ms-6) * 1rem), 06;
 @mixin makePadUtils calc(var(--ms-5) * 1rem), 05;
@@ -109,7 +109,7 @@
 @mixin makePadUtils calc(var(--ms4)  * 1rem),  4;
 @mixin makePadUtils calc(var(--ms5)  * 1rem),  5;
 @mixin makePadUtils calc(var(--ms6)  * 1rem),  6;
-@mixin makePadUtils 0, , de;
+@mixin makePadUtils 0, None;
 
 @media (--sm-viewport) {
   @mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06, sm-;
@@ -125,7 +125,7 @@
   @mixin makeSpaceUtils calc(var(--ms4)  * 1rem),  4, sm-;
   @mixin makeSpaceUtils calc(var(--ms5)  * 1rem),  5, sm-;
   @mixin makeSpaceUtils calc(var(--ms6)  * 1rem),  6, sm-;
-  @mixin makeSpaceUtils 0, , sm-de;
+  @mixin makeSpaceUtils 0, None, sm-;
 
   @mixin makePadUtils calc(var(--ms-6) * 1rem), 06, sm-;
   @mixin makePadUtils calc(var(--ms-5) * 1rem), 05, sm-;
@@ -140,7 +140,7 @@
   @mixin makePadUtils calc(var(--ms4)  * 1rem),  4, sm-;
   @mixin makePadUtils calc(var(--ms5)  * 1rem),  5, sm-;
   @mixin makePadUtils calc(var(--ms6)  * 1rem),  6, sm-;
-  @mixin makePadUtils 0, , sm-de;
+  @mixin makePadUtils 0, None, sm-;
 }
 
 @media (--md-viewport) {
@@ -157,7 +157,7 @@
   @mixin makeSpaceUtils calc(var(--ms4)  * 1rem),  4, md-;
   @mixin makeSpaceUtils calc(var(--ms5)  * 1rem),  5, md-;
   @mixin makeSpaceUtils calc(var(--ms6)  * 1rem),  6, md-;
-  @mixin makeSpaceUtils 0, , md-de;
+  @mixin makeSpaceUtils 0, None, md-;
 
   @mixin makePadUtils calc(var(--ms-6) * 1rem), 06, md-;
   @mixin makePadUtils calc(var(--ms-5) * 1rem), 05, md-;
@@ -172,7 +172,7 @@
   @mixin makePadUtils calc(var(--ms4)  * 1rem),  4, md-;
   @mixin makePadUtils calc(var(--ms5)  * 1rem),  5, md-;
   @mixin makePadUtils calc(var(--ms6)  * 1rem),  6, md-;
-  @mixin makePadUtils 0, , md-de;
+  @mixin makePadUtils 0, None, md-;
 }
 
 @media (--lg-viewport) {
@@ -189,7 +189,7 @@
   @mixin makeSpaceUtils calc(var(--ms4)  * 1rem),  4, lg-;
   @mixin makeSpaceUtils calc(var(--ms5)  * 1rem),  5, lg-;
   @mixin makeSpaceUtils calc(var(--ms6)  * 1rem),  6, lg-;
-  @mixin makeSpaceUtils 0, , lg-de;
+  @mixin makeSpaceUtils 0, None, lg-;
 
   @mixin makePadUtils calc(var(--ms-6) * 1rem), 06, lg-;
   @mixin makePadUtils calc(var(--ms-5) * 1rem), 05, lg-;
@@ -204,5 +204,5 @@
   @mixin makePadUtils calc(var(--ms4)  * 1rem),  4, lg-;
   @mixin makePadUtils calc(var(--ms5)  * 1rem),  5, lg-;
   @mixin makePadUtils calc(var(--ms6)  * 1rem),  6, lg-;
-  @mixin makePadUtils 0, , lg-de;
+  @mixin makePadUtils 0, None, lg-;
 }

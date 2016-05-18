@@ -19,6 +19,7 @@
   --Sky-nav-logo-padding: var(--Sky-nav-controls-space-y) var(--Sky-nav-controls-space-x);
 
   --Sky-nav-menu-background-image: linear-gradient(to bottom, var(--Sky-background-color-dark), var(--Sky-background-color));
+  --Sky-nav-menu-count: 6;
   --Sky-nav-menu-item-border-color: color(var(--color-black) a(10%));
   --Sky-nav-menu-item-border-width: var(--control-stroke);
   --Sky-nav-menu-item-font-size: var(--font-size-md);
@@ -154,11 +155,13 @@
 }
 
 /**
- * Logo
+ * 1. Helps balance the logo visually next to other nav items, especially at
+ *    wider viewport sizes.
  */
 
 .Sky-nav-logo {
   padding: var(--Sky-nav-logo-padding);
+  flex: 1 1 calc(100% / (var(--Sky-nav-menu-count) + 1)); /* 1 */
 }
 
 /**

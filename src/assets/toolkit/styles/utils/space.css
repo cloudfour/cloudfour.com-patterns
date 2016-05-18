@@ -1,6 +1,6 @@
 /** @define utilities */
 
-@define-mixin makeRhythmUtils $value, $suffix {
+@define-mixin makeSpaceItemsUtils $value, $suffix {
   .u-spaceItems$(suffix) > * + * {
     margin-top: $(value) !important;
   }
@@ -70,14 +70,14 @@
   }
 }
 
-@mixin makeRhythmUtils calc(var(--ms-1) * 1rem), 01;
-@mixin makeRhythmUtils calc(var(--ms0)  * 1rem);
-@mixin makeRhythmUtils calc(var(--ms1)  * 1rem),  1;
-@mixin makeRhythmUtils calc(var(--ms2)  * 1rem),  2;
-@mixin makeRhythmUtils calc(var(--ms3)  * 1rem),  3;
-@mixin makeRhythmUtils calc(var(--ms4)  * 1rem),  4;
-@mixin makeRhythmUtils calc(var(--ms5)  * 1rem),  5;
-@mixin makeRhythmUtils calc(var(--ms6)  * 1rem),  6;
+@mixin makeSpaceItemsUtils calc(var(--ms-1) * 1rem), 01;
+@mixin makeSpaceItemsUtils calc(var(--ms0)  * 1rem);
+@mixin makeSpaceItemsUtils calc(var(--ms1)  * 1rem),  1;
+@mixin makeSpaceItemsUtils calc(var(--ms2)  * 1rem),  2;
+@mixin makeSpaceItemsUtils calc(var(--ms3)  * 1rem),  3;
+@mixin makeSpaceItemsUtils calc(var(--ms4)  * 1rem),  4;
+@mixin makeSpaceItemsUtils calc(var(--ms5)  * 1rem),  5;
+@mixin makeSpaceItemsUtils calc(var(--ms6)  * 1rem),  6;
 
 @mixin makePullUtils calc(var(--ms1) * 1rem), 1;
 

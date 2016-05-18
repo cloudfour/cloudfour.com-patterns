@@ -12,19 +12,19 @@ notes: |
   With upcoming events and index of talks.
 ---
 
-<h1 class="u-marginEndsXs">Future Events</h1>
+<h1 class="u-spaceEnds01">Future Events</h1>
 <div class="Grid Grid--withGutter">
   {{#each drizzle.data.events.contents.upcoming}}
-    <article class="Grid-cell u-flex u-marginEndsXs u-sm-size1of2 u-md-size1of3">
+    <article class="Grid-cell u-flex u-spaceEnds01 u-sm-size1of2 u-md-size1of3">
       {{#embed "patterns.combos.speaking.future-event" event=this}}{{/embed}}
     </article>
   {{/each}}
 </div>
-<hr class="u-marginEndsMd">
-<h1 class="u-marginEndsXs">Our Talks</h1>
+<hr class="u-spaceEnds1">
+<h1 class="u-spaceEnds01">Our Talks</h1>
 <div class="Grid Grid--withGutter">
   {{#each drizzle.data.talks.contents}}
-    <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
+    <article class="Grid-cell u-spaceEnds01 u-spaceBottom1 u-sm-size1of2 u-md-size1of3">
       {{#embed "patterns.combos.speaking.talk-preview" talk=this}}{{/embed}}
     </article>
   {{/each}}

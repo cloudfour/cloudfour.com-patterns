@@ -24,10 +24,10 @@ default:
   <div class="Thumbnail Thumbnail--circle u-flexAlignSelfStart">
     <img src="{{dummyImgSrc 64 64}}" alt="">
   </div>
-  <div class="u-marginLeftSm u-flex u-flexCol u-flexGrow1">
+  <div class="u-spaceLeft u-flex u-flexCol u-flexGrow1">
     <h3 class="u-textGrow1">{{name}}</h3>
-    <p class="u-md-paddingRightSm">{{{notes}}}</p>
-    <ul class="u-listInline u-paddingTopXs u-flexExpandTop">
+    <p class="u-md-padRight">{{{notes}}}</p>
+    <ul class="u-listInline u-padTop01 u-flexExpandTop">
       {{#each links}}
         <li><a href="{{url}}">{{label}}</a></li>
       {{/each}}

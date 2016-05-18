@@ -12,19 +12,19 @@ notes: |
   Will include our open source projects and recent nuggets of code goodness.
 ---
 
-<h1 class="u-marginEndsXs">Tools and Resources</h1>
+<h1 class="u-spaceEnds01">Tools and Resources</h1>
 <div class="Grid Grid--withGutter">
   {{#each drizzle.data.labs.contents.projects}}
-    <article class="Grid-cell u-flex u-marginEndsLg u-md-size1of2 u-lg-size1of3">
+    <article class="Grid-cell u-flex u-spaceEnds2 u-md-size1of2 u-lg-size1of3">
       {{#embed "patterns.combos.labs.project" project=this}}{{/embed}}
     </article>
   {{/each}}
 </div>
-<hr class="u-marginEndsMd u-marginBottomLg">
-<h1 class="u-marginEndsXs">Experiments</h1>
+<hr class="u-spaceEnds1 u-spaceBottom2">
+<h1 class="u-spaceEnds01">Experiments</h1>
 <div class="Grid Grid--withGutter">
   {{#each drizzle.data.labs.contents.pens}}
-    <article class="Grid-cell u-marginEndsXs u-marginBottomMd u-sm-size1of2 u-md-size1of3">
+    <article class="Grid-cell u-spaceEnds01 u-spaceBottom1 u-sm-size1of2 u-md-size1of3">
       {{#embed "patterns.combos.labs.pen-preview" pen=this}}{{/embed}}
     </article>
   {{/each}}

@@ -18,7 +18,7 @@ default:
 {{#with (defaultTo event default.event)}}
   <a href="{{url}}" class="u-flex u-flexAlignItemsCenter u-linkClean u-textInheritColor">
     {{#embed "patterns.components.calendar-date.base" event=this}}{{/embed}}
-    <div class="u-marginLeftSm">
+    <div class="u-spaceLeft">
       <h3 class="u-textGrow1 u-linkTarget">{{name}}</h3>
       <p class="u-textNoWrap u-textBold">{{location}}</p>
       <p>

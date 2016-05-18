@@ -1,10 +1,6 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
-:root {
-  --space-xl: calc(var(--ms6) * 1rem);
-}
-
 img {
   max-width: 100%;
 }
@@ -15,62 +11,6 @@ img {
 
 .Thumbnail > img {
   max-width: none;
-}
-
-.u-rhythmXl > * + *:not(.u-flexExpandTop) {
-  margin-top: var(--space-xl) !important;
-}
-
-.u-rhythmLg > * + *:not(.u-flexExpandTop) {
-  margin-top: var(--space-lg) !important;
-}
-
-.u-rhythmSm > * + *:not(.u-flexExpandTop) {
-  margin-top: var(--space-sm) !important;
-}
-
-.u-rhythmXs > * + *:not(.u-flexExpandTop) {
-  margin-top: var(--space-xs) !important;
-}
-
-.u-marginSidesMinusMd {
-  margin-left: calc(var(--space-md) * -1);
-  margin-right: calc(var(--space-md) * -1);
-}
-
-.u-marginEndsXl {
-  margin-top: var(--space-xl) !important;
-  margin-bottom: var(--space-xl) !important;
-}
-
-.u-marginTopXl {
-  margin-top: var(--space-xl) !important;
-}
-
-.u-marginBottomXl {
-  margin-bottom: var(--space-xl) !important;
-}
-
-.u-borderRadius {
-  border-radius: var(--control-radius);
-}
-
-.u-textGray {
-  color: color(var(--color-gray) l(-25%) s(-15%));
-}
-
-@media (--sm-viewport) {
-  .u-sm-inline {
-    display: inline !important;
-  }
-}
-
-.u-marginLeftXxs {
-  margin-left: calc(var(--ms-4) / 1rem);
-}
-
-.u-textCoastGuard {
-  color: color(var(--color-navy) l(+15%));
 }
 
 .u-maxHeight50 {

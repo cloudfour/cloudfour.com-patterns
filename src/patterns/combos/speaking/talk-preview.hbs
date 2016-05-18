@@ -18,14 +18,14 @@ default:
 ---
 {{#with (defaultTo talk default.talk)}}
   <a href="{{url}}" class="u-linkBlock u-textInheritColor">
-    <div class="Thumbnail u-block u-marginSidesMinusMd u-sm-marginSidesNone u-sm-borderRadius">
+    <div class="Thumbnail u-block u-pullSides1 u-sm-spaceSidesNone u-sm-borderRadius">
       <img class="u-sizeFull" src="{{thumbnail}}" alt="{{alt}}">
     </div>
-    <h2 class="u-marginTopXs u-linkTarget">
+    <h2 class="u-spaceTop01 u-linkTarget">
       {{title}}
     </h2>
     <p class="u-textBold">By {{speaker}}</p>
-    <p class="u-sm-paddingRightSm">
+    <p class="u-sm-padRight">
       Presented at
       {{#each events}}{{#if @index}}, {{/if}}{{.}}{{/each}}
       {{#if moreEvents}}

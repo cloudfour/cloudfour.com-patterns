@@ -1,163 +1,208 @@
 /** @define utilities */
 
-/**
- * Apply the Lobotomized Owl selector on child sibling elements within.
- * http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
- */
-
-.u-spaceChildren > * + * {
-  margin-top: var(--base-margin) !important;
-}
-
-/**
- * Edge space utilities
- *
- * TODO: Clean this up once we've updated to latest PostCSS
- */
-
-@define-mixin makeMarginUtils $value, $suffix, $prefix {
-  .u-$(prefix)margin$(suffix),
-  .u-$(prefix)marginEnds$(suffix),
-  .u-$(prefix)marginTop$(suffix) {
+@define-mixin makeSpaceItemsUtils $value, $suffix {
+  .u-spaceItems$(suffix) > * + * {
     margin-top: $(value) !important;
   }
-
-  .u-$(prefix)margin$(suffix),
-  .u-$(prefix)marginEnds$(suffix),
-  .u-$(prefix)marginBottom$(suffix) {
-    margin-bottom: $(value) !important;
-  }
-
-  .u-$(prefix)margin$(suffix),
-  .u-$(prefix)marginSides$(suffix),
-  .u-$(prefix)marginLeft$(suffix) {
-    margin-left: $(value) !important;
-  }
-
-  .u-$(prefix)margin$(suffix),
-  .u-$(prefix)marginSides$(suffix),
-  .u-$(prefix)marginRight$(suffix) {
-    margin-right: $(value) !important;
-  }
 }
 
-@define-mixin makePaddingUtils $value, $suffix, $prefix {
-  .u-$(prefix)padding$(suffix),
-  .u-$(prefix)paddingEnds$(suffix),
-  .u-$(prefix)paddingTop$(suffix) {
-    padding-top: $(value) !important;
-  }
-
-  .u-$(prefix)padding$(suffix),
-  .u-$(prefix)paddingEnds$(suffix),
-  .u-$(prefix)paddingBottom$(suffix) {
-    padding-bottom: $(value) !important;
-  }
-
-  .u-$(prefix)padding$(suffix),
-  .u-$(prefix)paddingSides$(suffix),
-  .u-$(prefix)paddingLeft$(suffix) {
-    padding-left: $(value) !important;
-  }
-
-  .u-$(prefix)padding$(suffix),
-  .u-$(prefix)paddingSides$(suffix),
-  .u-$(prefix)paddingRight$(suffix) {
-    padding-right: $(value) !important;
-  }
-}
-
-/**
- * Apply negative side margins to extend out of gutters.
- */
-
-@define-mixin extend-sides $value, $suffix, $prefix {
-  .u-$(prefix)extendSides$(suffix) {
+@define-mixin makePullUtils $value, $suffix, $prefix {
+  .u-$(prefix)pullSides$(suffix),
+  .u-$(prefix)pullLeft$(suffix) {
     margin-left: calc(-1 * $(value)) !important;
+  }
+
+  .u-$(prefix)pullSides$(suffix),
+  .u-$(prefix)pullRight$(suffix) {
     margin-right: calc(-1 * $(value)) !important;
   }
 }
 
-@mixin makeMarginUtils var(--space-xs), Xs;
-@mixin makeMarginUtils var(--space-sm), Sm;
-@mixin makeMarginUtils var(--space-md), Md;
-@mixin makeMarginUtils var(--space-lg), Lg;
-@mixin makeMarginUtils auto, Auto;
-@mixin makeMarginUtils 0, None;
+@define-mixin makeSpaceUtils $value, $suffix, $prefix {
+  .u-$(prefix)space$(suffix),
+  .u-$(prefix)spaceEnds$(suffix),
+  .u-$(prefix)spaceTop$(suffix) {
+    margin-top: $(value) !important;
+  }
 
-@mixin makePaddingUtils var(--space-xs), Xs;
-@mixin makePaddingUtils var(--space-sm), Sm;
-@mixin makePaddingUtils var(--space-md), Md;
-@mixin makePaddingUtils var(--space-lg), Lg;
-@mixin makePaddingUtils 0, None;
+  .u-$(prefix)space$(suffix),
+  .u-$(prefix)spaceEnds$(suffix),
+  .u-$(prefix)spaceBottom$(suffix) {
+    margin-bottom: $(value) !important;
+  }
+
+  .u-$(prefix)space$(suffix),
+  .u-$(prefix)spaceSides$(suffix),
+  .u-$(prefix)spaceLeft$(suffix) {
+    margin-left: $(value) !important;
+  }
+
+  .u-$(prefix)space$(suffix),
+  .u-$(prefix)spaceSides$(suffix),
+  .u-$(prefix)spaceRight$(suffix) {
+    margin-right: $(value) !important;
+  }
+}
+
+@define-mixin makePadUtils $value, $suffix, $prefix {
+  .u-$(prefix)pad$(suffix),
+  .u-$(prefix)padEnds$(suffix),
+  .u-$(prefix)padTop$(suffix) {
+    padding-top: $(value) !important;
+  }
+
+  .u-$(prefix)pad$(suffix),
+  .u-$(prefix)padEnds$(suffix),
+  .u-$(prefix)padBottom$(suffix) {
+    padding-bottom: $(value) !important;
+  }
+
+  .u-$(prefix)pad$(suffix),
+  .u-$(prefix)padSides$(suffix),
+  .u-$(prefix)padLeft$(suffix) {
+    padding-left: $(value) !important;
+  }
+
+  .u-$(prefix)pad$(suffix),
+  .u-$(prefix)padSides$(suffix),
+  .u-$(prefix)padRight$(suffix) {
+    padding-right: $(value) !important;
+  }
+}
+
+@mixin makeSpaceItemsUtils calc(var(--ms-1) * 1rem), 01;
+@mixin makeSpaceItemsUtils calc(var(--ms0)  * 1rem);
+@mixin makeSpaceItemsUtils calc(var(--ms1)  * 1rem),  1;
+@mixin makeSpaceItemsUtils calc(var(--ms2)  * 1rem),  2;
+@mixin makeSpaceItemsUtils calc(var(--ms3)  * 1rem),  3;
+@mixin makeSpaceItemsUtils calc(var(--ms4)  * 1rem),  4;
+@mixin makeSpaceItemsUtils calc(var(--ms5)  * 1rem),  5;
+@mixin makeSpaceItemsUtils calc(var(--ms6)  * 1rem),  6;
+
+@mixin makePullUtils calc(var(--ms1) * 1rem), 1;
+
+@mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06;
+@mixin makeSpaceUtils calc(var(--ms-5) * 1rem), 05;
+@mixin makeSpaceUtils calc(var(--ms-4) * 1rem), 04;
+@mixin makeSpaceUtils calc(var(--ms-3) * 1rem), 03;
+@mixin makeSpaceUtils calc(var(--ms-2) * 1rem), 02;
+@mixin makeSpaceUtils calc(var(--ms-1) * 1rem), 01;
+@mixin makeSpaceUtils calc(var(--ms0)  * 1rem);
+@mixin makeSpaceUtils calc(var(--ms1)  * 1rem),  1;
+@mixin makeSpaceUtils calc(var(--ms2)  * 1rem),  2;
+@mixin makeSpaceUtils calc(var(--ms3)  * 1rem),  3;
+@mixin makeSpaceUtils calc(var(--ms4)  * 1rem),  4;
+@mixin makeSpaceUtils calc(var(--ms5)  * 1rem),  5;
+@mixin makeSpaceUtils calc(var(--ms6)  * 1rem),  6;
+@mixin makeSpaceUtils 0, None;
+
+@mixin makePadUtils calc(var(--ms-6) * 1rem), 06;
+@mixin makePadUtils calc(var(--ms-5) * 1rem), 05;
+@mixin makePadUtils calc(var(--ms-4) * 1rem), 04;
+@mixin makePadUtils calc(var(--ms-3) * 1rem), 03;
+@mixin makePadUtils calc(var(--ms-2) * 1rem), 02;
+@mixin makePadUtils calc(var(--ms-1) * 1rem), 01;
+@mixin makePadUtils calc(var(--ms0)  * 1rem);
+@mixin makePadUtils calc(var(--ms1)  * 1rem),  1;
+@mixin makePadUtils calc(var(--ms2)  * 1rem),  2;
+@mixin makePadUtils calc(var(--ms3)  * 1rem),  3;
+@mixin makePadUtils calc(var(--ms4)  * 1rem),  4;
+@mixin makePadUtils calc(var(--ms5)  * 1rem),  5;
+@mixin makePadUtils calc(var(--ms6)  * 1rem),  6;
+@mixin makePadUtils 0, None;
 
 @media (--sm-viewport) {
-  @mixin makeMarginUtils var(--space-xs), Xs, sm-;
-  @mixin makeMarginUtils var(--space-sm), Sm, sm-;
-  @mixin makeMarginUtils var(--space-md), Md, sm-;
-  @mixin makeMarginUtils var(--space-lg), Lg, sm-;
-  @mixin makeMarginUtils auto, Auto, sm-;
-  @mixin makeMarginUtils 0, None, sm-;
+  @mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06, sm-;
+  @mixin makeSpaceUtils calc(var(--ms-5) * 1rem), 05, sm-;
+  @mixin makeSpaceUtils calc(var(--ms-4) * 1rem), 04, sm-;
+  @mixin makeSpaceUtils calc(var(--ms-3) * 1rem), 03, sm-;
+  @mixin makeSpaceUtils calc(var(--ms-2) * 1rem), 02, sm-;
+  @mixin makeSpaceUtils calc(var(--ms-1) * 1rem), 01, sm-;
+  @mixin makeSpaceUtils calc(var(--ms0)  * 1rem),   , sm-;
+  @mixin makeSpaceUtils calc(var(--ms1)  * 1rem),  1, sm-;
+  @mixin makeSpaceUtils calc(var(--ms2)  * 1rem),  2, sm-;
+  @mixin makeSpaceUtils calc(var(--ms3)  * 1rem),  3, sm-;
+  @mixin makeSpaceUtils calc(var(--ms4)  * 1rem),  4, sm-;
+  @mixin makeSpaceUtils calc(var(--ms5)  * 1rem),  5, sm-;
+  @mixin makeSpaceUtils calc(var(--ms6)  * 1rem),  6, sm-;
+  @mixin makeSpaceUtils 0, None, sm-;
 
-  @mixin makePaddingUtils var(--space-xs), Xs, sm-;
-  @mixin makePaddingUtils var(--space-sm), Sm, sm-;
-  @mixin makePaddingUtils var(--space-md), Md, sm-;
-  @mixin makePaddingUtils var(--space-lg), Lg, sm-;
-  @mixin makePaddingUtils 0, None, sm-;
+  @mixin makePadUtils calc(var(--ms-6) * 1rem), 06, sm-;
+  @mixin makePadUtils calc(var(--ms-5) * 1rem), 05, sm-;
+  @mixin makePadUtils calc(var(--ms-4) * 1rem), 04, sm-;
+  @mixin makePadUtils calc(var(--ms-3) * 1rem), 03, sm-;
+  @mixin makePadUtils calc(var(--ms-2) * 1rem), 02, sm-;
+  @mixin makePadUtils calc(var(--ms-1) * 1rem), 01, sm-;
+  @mixin makePadUtils calc(var(--ms0)  * 1rem),   , sm-;
+  @mixin makePadUtils calc(var(--ms1)  * 1rem),  1, sm-;
+  @mixin makePadUtils calc(var(--ms2)  * 1rem),  2, sm-;
+  @mixin makePadUtils calc(var(--ms3)  * 1rem),  3, sm-;
+  @mixin makePadUtils calc(var(--ms4)  * 1rem),  4, sm-;
+  @mixin makePadUtils calc(var(--ms5)  * 1rem),  5, sm-;
+  @mixin makePadUtils calc(var(--ms6)  * 1rem),  6, sm-;
+  @mixin makePadUtils 0, None, sm-;
 }
 
 @media (--md-viewport) {
-  @mixin makeMarginUtils var(--space-xs), Xs, md-;
-  @mixin makeMarginUtils var(--space-sm), Sm, md-;
-  @mixin makeMarginUtils var(--space-md), Md, md-;
-  @mixin makeMarginUtils var(--space-lg), Lg, md-;
-  @mixin makeMarginUtils auto, Auto, md-;
-  @mixin makeMarginUtils 0, None, md-;
+  @mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06, md-;
+  @mixin makeSpaceUtils calc(var(--ms-5) * 1rem), 05, md-;
+  @mixin makeSpaceUtils calc(var(--ms-4) * 1rem), 04, md-;
+  @mixin makeSpaceUtils calc(var(--ms-3) * 1rem), 03, md-;
+  @mixin makeSpaceUtils calc(var(--ms-2) * 1rem), 02, md-;
+  @mixin makeSpaceUtils calc(var(--ms-1) * 1rem), 01, md-;
+  @mixin makeSpaceUtils calc(var(--ms0)  * 1rem),   , md-;
+  @mixin makeSpaceUtils calc(var(--ms1)  * 1rem),  1, md-;
+  @mixin makeSpaceUtils calc(var(--ms2)  * 1rem),  2, md-;
+  @mixin makeSpaceUtils calc(var(--ms3)  * 1rem),  3, md-;
+  @mixin makeSpaceUtils calc(var(--ms4)  * 1rem),  4, md-;
+  @mixin makeSpaceUtils calc(var(--ms5)  * 1rem),  5, md-;
+  @mixin makeSpaceUtils calc(var(--ms6)  * 1rem),  6, md-;
+  @mixin makeSpaceUtils 0, None, md-;
 
-  @mixin makePaddingUtils var(--space-xs), Xs, md-;
-  @mixin makePaddingUtils var(--space-sm), Sm, md-;
-  @mixin makePaddingUtils var(--space-md), Md, md-;
-  @mixin makePaddingUtils var(--space-lg), Lg, md-;
-  @mixin makePaddingUtils 0, None, md-;
+  @mixin makePadUtils calc(var(--ms-6) * 1rem), 06, md-;
+  @mixin makePadUtils calc(var(--ms-5) * 1rem), 05, md-;
+  @mixin makePadUtils calc(var(--ms-4) * 1rem), 04, md-;
+  @mixin makePadUtils calc(var(--ms-3) * 1rem), 03, md-;
+  @mixin makePadUtils calc(var(--ms-2) * 1rem), 02, md-;
+  @mixin makePadUtils calc(var(--ms-1) * 1rem), 01, md-;
+  @mixin makePadUtils calc(var(--ms0)  * 1rem),   , md-;
+  @mixin makePadUtils calc(var(--ms1)  * 1rem),  1, md-;
+  @mixin makePadUtils calc(var(--ms2)  * 1rem),  2, md-;
+  @mixin makePadUtils calc(var(--ms3)  * 1rem),  3, md-;
+  @mixin makePadUtils calc(var(--ms4)  * 1rem),  4, md-;
+  @mixin makePadUtils calc(var(--ms5)  * 1rem),  5, md-;
+  @mixin makePadUtils calc(var(--ms6)  * 1rem),  6, md-;
+  @mixin makePadUtils 0, None, md-;
 }
 
 @media (--lg-viewport) {
-  @mixin makeMarginUtils var(--space-xs), Xs, lg-;
-  @mixin makeMarginUtils var(--space-sm), Sm, lg-;
-  @mixin makeMarginUtils var(--space-md), Md, lg-;
-  @mixin makeMarginUtils var(--space-lg), Lg, lg-;
-  @mixin makeMarginUtils auto, Auto, lg-;
-  @mixin makeMarginUtils 0, None, lg-;
+  @mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06, lg-;
+  @mixin makeSpaceUtils calc(var(--ms-5) * 1rem), 05, lg-;
+  @mixin makeSpaceUtils calc(var(--ms-4) * 1rem), 04, lg-;
+  @mixin makeSpaceUtils calc(var(--ms-3) * 1rem), 03, lg-;
+  @mixin makeSpaceUtils calc(var(--ms-2) * 1rem), 02, lg-;
+  @mixin makeSpaceUtils calc(var(--ms-1) * 1rem), 01, lg-;
+  @mixin makeSpaceUtils calc(var(--ms0)  * 1rem),   , lg-;
+  @mixin makeSpaceUtils calc(var(--ms1)  * 1rem),  1, lg-;
+  @mixin makeSpaceUtils calc(var(--ms2)  * 1rem),  2, lg-;
+  @mixin makeSpaceUtils calc(var(--ms3)  * 1rem),  3, lg-;
+  @mixin makeSpaceUtils calc(var(--ms4)  * 1rem),  4, lg-;
+  @mixin makeSpaceUtils calc(var(--ms5)  * 1rem),  5, lg-;
+  @mixin makeSpaceUtils calc(var(--ms6)  * 1rem),  6, lg-;
+  @mixin makeSpaceUtils 0, None, lg-;
 
-  @mixin makePaddingUtils var(--space-xs), Xs, lg-;
-  @mixin makePaddingUtils var(--space-sm), Sm, lg-;
-  @mixin makePaddingUtils var(--space-md), Md, lg-;
-  @mixin makePaddingUtils var(--space-lg), Lg, lg-;
-  @mixin makePaddingUtils 0, None, lg-;
-}
-
-@mixin extend-sides var(--space-xs), Xs;
-@mixin extend-sides var(--space-sm), Sm;
-@mixin extend-sides var(--space-md), Md;
-@mixin extend-sides var(--space-lg), Lg;
-
-@media (--sm-viewport) {
-  @mixin extend-sides var(--space-xs), Xs, sm-;
-  @mixin extend-sides var(--space-sm), Sm, sm-;
-  @mixin extend-sides var(--space-md), Md, sm-;
-  @mixin extend-sides var(--space-lg), Lg, sm-;
-}
-
-@media (--md-viewport) {
-  @mixin extend-sides var(--space-xs), Xs, md-;
-  @mixin extend-sides var(--space-sm), Sm, md-;
-  @mixin extend-sides var(--space-md), Md, md-;
-  @mixin extend-sides var(--space-lg), Lg, md-;
-}
-
-@media (--lg-viewport) {
-  @mixin extend-sides var(--space-xs), Xs, lg-;
-  @mixin extend-sides var(--space-sm), Sm, lg-;
-  @mixin extend-sides var(--space-md), Md, lg-;
-  @mixin extend-sides var(--space-lg), Lg, lg-;
+  @mixin makePadUtils calc(var(--ms-6) * 1rem), 06, lg-;
+  @mixin makePadUtils calc(var(--ms-5) * 1rem), 05, lg-;
+  @mixin makePadUtils calc(var(--ms-4) * 1rem), 04, lg-;
+  @mixin makePadUtils calc(var(--ms-3) * 1rem), 03, lg-;
+  @mixin makePadUtils calc(var(--ms-2) * 1rem), 02, lg-;
+  @mixin makePadUtils calc(var(--ms-1) * 1rem), 01, lg-;
+  @mixin makePadUtils calc(var(--ms0)  * 1rem),   , lg-;
+  @mixin makePadUtils calc(var(--ms1)  * 1rem),  1, lg-;
+  @mixin makePadUtils calc(var(--ms2)  * 1rem),  2, lg-;
+  @mixin makePadUtils calc(var(--ms3)  * 1rem),  3, lg-;
+  @mixin makePadUtils calc(var(--ms4)  * 1rem),  4, lg-;
+  @mixin makePadUtils calc(var(--ms5)  * 1rem),  5, lg-;
+  @mixin makePadUtils calc(var(--ms6)  * 1rem),  6, lg-;
+  @mixin makePadUtils 0, None, lg-;
 }

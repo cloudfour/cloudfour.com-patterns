@@ -17,9 +17,9 @@ default:
       </p>
 ---
 
-<div class="u-paddingMd u-cf u-bgGray{{#if class}} {{class}}{{/if}}">
+<div class="u-pad1 u-cf u-bgGray{{#if class}} {{class}}{{/if}}">
   {{#with (defaultTo author default.author)}}
-    <a class="Thumbnail Thumbnail--circle u-floatRight u-marginLeftSm" href="{{url}}">
+    <a class="Thumbnail Thumbnail--circle u-floatRight u-spaceLeft" href="{{url}}">
       <img src="{{avatar}}" width="75" height="75" alt="{{name}}" />
     </a>
     {{{bio}}}

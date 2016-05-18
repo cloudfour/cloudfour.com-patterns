@@ -12,15 +12,15 @@ notes: |
 <main role="main" id="main">
   {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
     {{#content "top"}}
-      <div class="u-paddingMd">
+      <div class="u-pad1">
         <div class="Grid Grid--withGutter Grid--alignMiddle">
           <div class="Grid-cell u-md-size5of12 u-lg-size1of2">
-            <h1 class="u-textGrow5 u-sm-textGrow6 u-marginRightMd">Articles</h1>
+            <h1 class="u-textGrow5 u-sm-textGrow6 u-spaceRight1">Articles</h1>
             <p class="u-textGrow1">
               Tales from the edge of the web
             </p>
           </div>
-          <div class="Grid-cell u-md-size7of12 u-lg-size1of2 u-marginTopMd">
+          <div class="Grid-cell u-md-size7of12 u-lg-size1of2 u-spaceTop1">
             <form class="Grid Grid--withGutter">
               <div class="Grid-cell u-sm-sizeFill">
                 {{{
@@ -32,7 +32,7 @@ notes: |
                   inputid="blog-digest-email"
                 }}}
               </div>
-              <div class="Grid-cell u-marginTopXs u-sm-sizeFit u-sm-marginTopNone">
+              <div class="Grid-cell u-spaceTop01 u-sm-sizeFit u-sm-spaceTopNone">
                 <button class="Button Button--primaryDark u-sizeFull">
                   Get Weekly Digests
                 </button>
@@ -45,14 +45,14 @@ notes: |
   {{/embed}}
   <div class="u-bgWhite">
 
-    <div class="u-containSpread u-paddingMd">
+    <div class="u-containSpread u-pad1">
 
       <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-md-size3of4 u-rhythmXl u-marginEndsLg">
-          <div class="Grid Grid--withGutter u-rhythmXl u-md-marginRightLg">
+        <div class="Grid-cell u-md-size3of4 u-spaceItems6 u-spaceEnds2">
+          <div class="Grid Grid--withGutter u-spaceItems6 u-md-spaceRight2">
             {{#each drizzle.data.posts.contents.recent}}
               {{#compare @index "<" 5}}
-                <article class="Grid-cell {{#and @first image}}{{else}}u-md-size1of2{{/and}} u-rhythmXs">
+                <article class="Grid-cell {{#and @first image}}{{else}}u-md-size1of2{{/and}} u-spaceItems01">
                   <header>
                     <h2>
                       <a class="u-linkClean u-textInheritColor" href="#">{{title}}</a>
@@ -61,7 +61,7 @@ notes: |
                   {{#and @first image}}
                     <img src="{{image}}" alt="">
                   {{/and}}
-                  <p class="u-paddingRightSm">
+                  <p class="u-padRight">
                     {{excerpt}}&nbsp;
                     <a class="u-linkClean u-textNoWrap u-textShrink1" href="#">
                       Read more&nbsp;{{#embed "patterns.components.icon.base" iconid="arrow-right"}}
@@ -72,7 +72,7 @@ notes: |
                     <div class="Thumbnail Thumbnail--circle">
                       <img src="{{avatar}}" alt="" width="48">
                     </div>
-                    <div class="u-marginLeftXs">
+                    <div class="u-spaceLeft01">
                       <p class="u-textBold">{{author}}</p>
                       <p class="u-textShrink1">{{timestamp date format="MMM D, YYYY"}}</p>
                     </div>
@@ -90,15 +90,15 @@ notes: |
             </a>
           </p>
         </div>
-        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceChildren u-marginEndsXs">
+        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceItems1 u-spaceEnds01">
 
-          <div class="u-marginTopXs">
+          <div class="u-spaceTop01">
             <h2><span class="u-md-textShrink1">Essentials</span></h2>
             <p class="u-md-textShrink1">Frequently-cited posts we&rsquo;re particularly proud of.</p>
             <ul class="u-listUnstyled">
               {{#each drizzle.data.posts.contents.essential}}
                 <li class="u-md-textShrink1 {{#unless @first}}u-borderTopMd{{/unless}}">
-                  <a class="u-paddingEndsXs u-linkBlock" href="#">
+                  <a class="u-padEnds01 u-linkBlock" href="#">
                     {{title}}
                   </a>
                 </li>
@@ -106,12 +106,12 @@ notes: |
             </ul>
           </div>
 
-          <div class="u-rhythmXs">
+          <div class="u-spaceItems01">
             <h2><span class="u-md-textShrink1">Topics</span></h2>
             <ul class="u-listUnstyled">
               {{#each drizzle.data.topics.contents}}
                 <li class="{{#unless @first}}u-borderTopMd{{/unless}}">
-                  <a class="u-paddingEndsXs u-linkClean u-flex" href="#">
+                  <a class="u-padEnds01 u-linkClean u-flex" href="#">
                     {{label}}
                     <span class="u-flexExpandLeft" style="color: #909699;">
                       <span class="u-hiddenVisually">(</span>{{count}}<span class="u-hiddenVisually">)</span>
@@ -120,7 +120,7 @@ notes: |
                 </li>
               {{/each}}
               <li class="u-borderTopMd">
-                <a class="u-paddingEndsXs u-linkClean u-flex u-flexAlignItemsCenter" href="#">
+                <a class="u-padEnds01 u-linkClean u-flex u-flexAlignItemsCenter" href="#">
                   All topics
                   <span class="u-flexExpandLeft">
                     {{#embed "patterns.components.icon.base" iconid="arrow-right"}}
@@ -137,7 +137,7 @@ notes: |
     </div>
 
     <div class="u-containSpread">
-      <hr class="u-marginSidesMd u-marginEndsNone">
+      <hr class="u-spaceSides1 u-spaceEndsNone">
       {{> toolkit.page-segue }}
     </div>
   </div>

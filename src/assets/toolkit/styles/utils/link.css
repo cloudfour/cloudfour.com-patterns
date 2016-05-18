@@ -8,3 +8,11 @@
 .u-linkClean:matches(:active, :focus, :hover) .u-linkTarget {
   color: var(--link-hover-color);
 }
+
+.u-linkEnter {
+  text-decoration: none;
+}
+
+.u-linkEnter:not(:focus, :hover) {
+  color: var(--color-relative);
+}

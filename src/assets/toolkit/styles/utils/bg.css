@@ -2,7 +2,8 @@
   background-color: var(--color-white);
 }
 
-.u-bgGray {
+.u-bgGray,
+.u-bgGrayTarget:target {
   background-color: color(
     var(--color-gray)
     blend(var(--color-white) 50%)

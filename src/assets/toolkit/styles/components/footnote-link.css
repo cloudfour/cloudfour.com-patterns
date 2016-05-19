@@ -1,43 +1,48 @@
 /** @define FootnoteLink */
 
+:root {
+  --FootnoteLink-background-color: var(--color-blue);
+  --FootnoteLink-border-radius: calc(var(--FootnoteLink-min-width) / 2);
+  --FootnoteLink-color: var(--color-white);
+  --FootnoteLink-font-size: var(--font-size-xs);
+  --FootnoteLink-line-height: var(--ms2);
+  --FootnoteLink-min-width: calc(var(--FootnoteLink-line-height) * 1em);
+  --FootnoteLink-padding: 0 calc(var(--ms-6) * 1em);
+}
+
 /**
- * 1. Base size on ratio. TODO: can we use `--font-size-md`?
- * 2. If we used `50%`, wider elements would look like ovals. Using a value
- *    based on the size (1) will maintain more of a pill shape.
- * 3. Base offset on `line-height` (since this will be used to avoid unnecessary
- *    shifts in `line-height`).
+ * Override color defaults for all states
  */
 
-:root {
-  --FootnoteLink-size: calc(var(--ms-ratio) * 1em); /* 1 */
-  --FootnoteLink-border-radius: calc(var(--FootnoteLink-size) / 2); /* 2 */
-  --FootnoteLink-line-height-offset: calc((var(--line-height-md) - 1) / -2em); /* 3 */
-
-  --FootnoteLink-border-color: var(--color-gray);
-  --FootnoteLink-border-width: var(--border-width-sm);
-  --FootnoteLink-font-weight: var(--font-weight-semibold);
-  --FootnoteLink-padding: 0 0.25em;
-  --FootnoteLink-transition-duration: var(--motion-duration-lg);
-  --FootnoteLink-transition-timing-function: var(--motion-timing-function-default);
-
-  --FootnoteLink-hover-border-color: var(--color-relative);
+.FootnoteLink,
+.FootnoteLink:matches(:--enter, :active) {
+  color: var(--FootnoteLink-color);
 }
+
+/**
+ * 1. Maintain a circular shape even for narrow text contents.
+ * 2. If the text is wider than the minimum, make sure it still has some
+ *    padding so it doesn't appear to drift outside of the rounded sides.
+ * 3. Once computed, this value should be equal to the min-width to default
+ *    to a circular shape with centered text.
+ */
 
 .FootnoteLink {
-  position: relative;
-  margin: var(--FootnoteLink-line-height-offset) 0;
   display: inline-block;
-  min-width: var(--FootnoteLink-size);
-  padding: var(--FootnoteLink-padding);
-  font-weight: var(--FootnoteLink-font-weight);
-  line-height: var(--FootnoteLink-size);
+  min-width: var(--FootnoteLink-min-width); /* 1 */
+  padding: var(--FootnoteLink-padding); /* 2 */
+  font-size: var(--FootnoteLink-font-size);
+  line-height: var(--FootnoteLink-line-height); /* 3 */
   text-align: center;
   text-decoration: none;
-  border: var(--FootnoteLink-border-width) solid var(--FootnoteLink-border-color);
   border-radius: var(--FootnoteLink-border-radius);
-  transition: all var(--FootnoteLink-transition-duration) var(--FootnoteLink-transition-timing-function);
+  background: var(--FootnoteLink-background-color);
 }
 
-.FootnoteLink:matches(:focus, :hover) {
-  border-color: var(--FootnoteLink-hover-border-color);
+/**
+ * Change the background color on hover or focus
+ */
+
+.FootnoteLink:matches(:--enter) {
+  background-color: color(var(--FootnoteLink-background-color) l(+5%));
 }

@@ -19,11 +19,12 @@
   --Sky-nav-logo-padding: var(--Sky-nav-controls-space-y) var(--Sky-nav-controls-space-x);
 
   --Sky-nav-menu-background-image: linear-gradient(to bottom, var(--Sky-background-color-dark), var(--Sky-background-color));
-  --Sky-nav-menu-count: 6;
   --Sky-nav-menu-item-border-color: color(var(--color-black) a(10%));
   --Sky-nav-menu-item-border-width: var(--control-stroke);
   --Sky-nav-menu-item-font-size: var(--font-size-md);
   --Sky-nav-menu-item-line-height: var(--line-height-xs);
+  --Sky-nav-menu-item-transition-duration: var(--motion-duration-md);
+  --Sky-nav-menu-item-transition-timing-function: var(--motion-timing-function-default);
   --Sky-nav-menu-space: var(--space-sm);
 }
 
@@ -155,13 +156,11 @@
 }
 
 /**
- * 1. Helps balance the logo visually next to other nav items, especially at
- *    wider viewport sizes.
+ * Logo
  */
 
 .Sky-nav-logo {
   padding: var(--Sky-nav-logo-padding);
-  flex: 1 1 calc(100% / (var(--Sky-nav-menu-count) + 1)); /* 1 */
 }
 
 /**
@@ -241,21 +240,28 @@
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav-menu-items {
     display: flex; /* 1 */
-    padding: var(--Sky-nav-menu-space); /* 2 */
+    margin: var(--Sky-nav-menu-space); /* 2 */
     flex-wrap: wrap; /* 3 */
     justify-content: flex-end; /* 4 */
   }
 }
 
-/**
- * 1. At this size, stop allowing items to break onto multiple rows.
- * 2. Spread items out evenly within the container.
- */
-
 @media (--Sky-nav-full-viewport) {
+  /**
+   * Don't allow items to wrap to multiple rows anymore.
+   */
+
   .Sky-nav-menu-items {
-    flex-wrap: nowrap; /* 1 */
-    justify-content: space-between; /* 2 */
+    flex-wrap: nowrap;
+  }
+
+  /**
+   * Distribute space evenly while allowing items to occupy full list-item
+   * width (larger hit areas are almost always good).
+   */
+
+  .Sky-nav-menu-items > li {
+    flex: 1 1 auto;
   }
 }
 
@@ -264,6 +270,7 @@
  * 2. See?  Padding. What'd I tell ya?
  * 3. Don't let menu labels wrap because they look ugly.
  * 4. Add dividers between items.
+ * 5. Transition for hover effect at large sizes.
  */
 
 .Sky-nav-menu-item {
@@ -275,14 +282,27 @@
   text-align: center;
   text-decoration: none;
   border-bottom: var(--Sky-nav-menu-item-border-width) solid var(--Sky-nav-menu-item-border-color); /* 4 */
+  transition: color var(--Sky-nav-menu-item-transition-duration) var(--Sky-nav-menu-item-transition-timing-function); /* 5 */
 }
 
-/**
- * When the nav is horizontal, ditch those dividers.
- */
-
 @media (--Sky-nav-expanded-viewport) {
+  /**
+   * When the nav is horizontal, ditch those dividers.
+   */
+
   .Sky-nav-menu-item {
     border-bottom: 0;
+  }
+
+  /**
+   * When the cursor is over the nav items, lighten any that aren't being
+   * hovered directly.
+   *
+   * TODO: Currently this triggers even if the cursor is over _no_ other items,
+   * which can cause the entire list to fade.
+   */
+
+  .Sky-nav-menu-items:hover .Sky-nav-menu-item:not(:hover) {
+    color: var(--Sky-color);
   }
 }

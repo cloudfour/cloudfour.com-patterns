@@ -270,6 +270,7 @@ padding-bottom: calc(24 / 16em * 1.25);
         {{#embed "patterns.components.input.float-label.base"
           type="textarea"
           label="Message"
+          inputclass="js-ElasticTextarea"
           inputid="commentform-message"}}{{/embed}}
         <div class="Grid Grid--withGutter">
           <div class="Grid-cell u-sm-size1of2">
@@ -325,33 +326,4 @@ padding-bottom: calc(24 / 16em * 1.25);
 
     </footer>
   </article>
-
-<script>
-  var messageField = document.getElementById('commentform-message');
-  var rows = messageField.getAttribute('rows') || 2;
-  var minRows = rows;
-  var content = messageField.innerHTML;
-
-  function growField () {
-    while (messageField.scrollHeight > messageField.clientHeight) {
-      rows += 1;
-      messageField.setAttribute('rows', rows);
-    }
-  }
-
-  function shrinkField () {
-    rows = minRows;
-    messageField.setAttribute('rows', rows);
-    growField();
-  }
-
-  messageField.addEventListener('input', function (event) {
-    if (messageField.innerHTML.length > content.length) {
-      growField();
-    } else {
-      shrinkField();
-    }
-
-    content = messageField.innerHTML;
-  });
-</script>
+</main>

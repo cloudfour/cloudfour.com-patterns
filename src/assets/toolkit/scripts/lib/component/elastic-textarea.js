@@ -34,17 +34,27 @@ export class ElasticTextarea {
 
   grow () {
     while (this.isScrolling) {
-      this.setRows(this.rows + 1);
+      this.rows++;
     }
   }
 
   shrink () {
-    this.setRows();
-    this.grow();
+    for (var i = this.rows; i >= this.minRows; i--) {
+      this.rows = i;
+
+      if (this.isScrolling) {
+        this.grow();
+        break;
+      }
+    }
   }
 
-  setRows (num = this.minRows) {
+  set rows (num) {
     this.element.setAttribute('rows', Math.max(num, this.minRows));
+  }
+
+  get rows () {
+    return parseInt(this.element.getAttribute('rows') || this.minRows, 10);
   }
 
   get content () {
@@ -53,9 +63,5 @@ export class ElasticTextarea {
 
   get isScrolling () {
     return this.element.scrollHeight > this.element.clientHeight;
-  }
-
-  get rows () {
-    return parseInt(this.element.getAttribute('rows') || this.minRows, 10);
   }
 };

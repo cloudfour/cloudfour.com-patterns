@@ -80,6 +80,11 @@
 @mixin makeSpaceItemsUtils calc(var(--ms6)  * 1rem),  6;
 
 @mixin makePullUtils calc(var(--ms1) * 1rem), 1;
+@mixin makePullUtils calc(var(--ms2) * 1rem), 2;
+@mixin makePullUtils calc(var(--ms3) * 1rem), 3;
+@mixin makePullUtils calc(var(--ms4) * 1rem), 4;
+@mixin makePullUtils calc(var(--ms5) * 1rem), 5;
+@mixin makePullUtils calc(var(--ms6) * 1rem), 6;
 
 @mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06;
 @mixin makeSpaceUtils calc(var(--ms-5) * 1rem), 05;
@@ -112,6 +117,13 @@
 @mixin makePadUtils 0, None;
 
 @media (--sm-viewport) {
+  @mixin makePullUtils calc(var(--ms1) * 1rem), 1, sm-;
+  @mixin makePullUtils calc(var(--ms2) * 1rem), 2, sm-;
+  @mixin makePullUtils calc(var(--ms3) * 1rem), 3, sm-;
+  @mixin makePullUtils calc(var(--ms4) * 1rem), 4, sm-;
+  @mixin makePullUtils calc(var(--ms5) * 1rem), 5, sm-;
+  @mixin makePullUtils calc(var(--ms6) * 1rem), 6, sm-;
+
   @mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06, sm-;
   @mixin makeSpaceUtils calc(var(--ms-5) * 1rem), 05, sm-;
   @mixin makeSpaceUtils calc(var(--ms-4) * 1rem), 04, sm-;
@@ -144,6 +156,13 @@
 }
 
 @media (--md-viewport) {
+  @mixin makePullUtils calc(var(--ms1) * 1rem), 1, md-;
+  @mixin makePullUtils calc(var(--ms2) * 1rem), 2, md-;
+  @mixin makePullUtils calc(var(--ms3) * 1rem), 3, md-;
+  @mixin makePullUtils calc(var(--ms4) * 1rem), 4, md-;
+  @mixin makePullUtils calc(var(--ms5) * 1rem), 5, md-;
+  @mixin makePullUtils calc(var(--ms6) * 1rem), 6, md-;
+
   @mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06, md-;
   @mixin makeSpaceUtils calc(var(--ms-5) * 1rem), 05, md-;
   @mixin makeSpaceUtils calc(var(--ms-4) * 1rem), 04, md-;
@@ -176,6 +195,13 @@
 }
 
 @media (--lg-viewport) {
+  @mixin makePullUtils calc(var(--ms1) * 1rem), 1, lg-;
+  @mixin makePullUtils calc(var(--ms2) * 1rem), 2, lg-;
+  @mixin makePullUtils calc(var(--ms3) * 1rem), 3, lg-;
+  @mixin makePullUtils calc(var(--ms4) * 1rem), 4, lg-;
+  @mixin makePullUtils calc(var(--ms5) * 1rem), 5, lg-;
+  @mixin makePullUtils calc(var(--ms6) * 1rem), 6, lg-;
+
   @mixin makeSpaceUtils calc(var(--ms-6) * 1rem), 06, lg-;
   @mixin makeSpaceUtils calc(var(--ms-5) * 1rem), 05, lg-;
   @mixin makeSpaceUtils calc(var(--ms-4) * 1rem), 04, lg-;

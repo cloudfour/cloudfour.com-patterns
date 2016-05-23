@@ -38,7 +38,7 @@ a:matches(:active, :focus, :hover) {
 /**
  * Apply color to permalink headings.
  */
- 
+
 :--headings:target {
   color: var(--link-color);
 }
@@ -49,4 +49,8 @@ a:matches(:active, :focus, :hover) {
 
 pre {
   overflow: auto;
+}
+
+img {
+  max-width: 100%;
 }

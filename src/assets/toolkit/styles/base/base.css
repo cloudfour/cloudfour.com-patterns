@@ -51,6 +51,24 @@ pre {
   overflow: auto;
 }
 
+*:not(pre) > code {
+  color: var(--color-fuchsia);
+}
+
+/**
+ * TODO: Revise once we know how this will or won't interact with
+ * our syntax highlighting solution.
+ */
+
+pre {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+/**
+ * Embeds
+ */
+
 img {
   max-width: 100%;
 }

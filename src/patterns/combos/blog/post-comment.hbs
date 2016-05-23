@@ -3,7 +3,7 @@ name: Post Comment
 order: 4
 ---
 
-{{#with (defaultTo comment randomItem drizzle.data.comments.contents.[1])}}
+{{#with (defaultTo comment drizzle.data.comments.contents.[1])}}
   <article class="u-padEnds u-spaceItems1 u-borderBottomMd">
     <p>{{comment}}</p>
     <footer>

@@ -2,7 +2,6 @@
 title: Single Article
 layout: toolkit.single
 labels:
-  - inprogress
   - latest
 notes: |
   Converting (with some tweaks) the earlier blog post prototype with nothing
@@ -10,19 +9,9 @@ notes: |
 ---
 
 <article class="u-spaceEnds1 u-spaceItems1">
-  <header class="u-spaceItems01">
-    <h1>
-      <a href="#" class="u-textGrow1 u-linkEnter">The Year of the Ugly Unicorn</a>
-    </h1>
-    <p>
-      Written by <a href="#">Nicole Mors</a> on
-      <time datetime="{{timestamp format='YYYY-MM-DDTHH:mm'}}">{{timestamp format="MMM D, YYYY"}}</time>
-    </p>
-  </header>
+  {{{ embed "patterns.combos.blog.post-header" }}}
 
-  <p class="u-bgGray u-pad1 u-pullSides1 u-textGrow1">
-    I have always considered myself a “designer who codes”. I enjoy that aspect of the web, even while in a purely visual design role.
-  </p>
+  {{{ embed "patterns.combos.blog.post-intro" }}}
 
   <p>
     Not too long ago, in a previous visual design position I was in, I had a manager refer to me as a code “dabbler”. This actually offended me. Surely countless hours spent reading books, doing tutorials, hacking away, building websites makes me more than a “dabbler”? I thought to myself, I am not a “dabbler”, I am a unicorn! <sup><a class="FootnoteLink" href="#article-fn-1" id="article-fn-ref-1" title="Jump to footnote">1</a></sup>
@@ -189,18 +178,7 @@ notes: |
   </section>
 
   <footer class="u-spaceItems4 u-spaceTop4">
-    <div class="u-cf u-bgGray u-pad1 u-pullSides1">
-      <a class="Thumbnail Thumbnail--circle u-floatRight u-spaceLeft"
-       href="/authors/foo">
-        <img src="/assets/toolkit/images/sandbox/orange-avatar.svg" width="75"
-         height="75" alt="Author Name" />
-      </a>
-      <p>
-        <a href="...">Author Name</a> has an author bio. HTML elements
-        can be within it. It should be relatively short. It should
-        contain some links, possibly pointing to a <a href="...">@twitter</a> profile or maybe a <a href="...">website</a>.
-      </p>
-    </div>
+    {{{ embed "patterns.combos.blog.post-byline" }}}
 
     <section>
       <header class="u-flex u-flexAlignItemsBaseline u-flexJustifyBetween">
@@ -218,91 +196,10 @@ notes: |
       </header>
 
       {{#each drizzle.data.comments.contents}}
-        <article class="u-padEnds u-spaceItems1 u-borderBottomMd">
-          <p>{{comment}}</p>
-          <footer>
-            <div class="u-flex u-flexAlignItemsCenter u-flexJustifyBetween">
-              <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
-                <p class="u-textBold u-spaceRight01">
-                  {{author}}
-                </p>
-                <p class="u-textShrink1 u-spaceRight01">
-                  <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
-                </p>
-              </div>
-              <p>
-                <a class="u-linkClean u-textBold u-textNoWrap" href="#">
-                  {{{
-                    embed "patterns.components.icon.base"
-                    role="presentation"
-                    iconid="reply"
-                  }}}
-                  Reply
-                </a>
-              </p>
-            </div>
-            {{#if reply}}
-              <section class="u-spaceLeft1">
-                <header class="u-hiddenVisually">
-                  <h2>Replies</h2>
-                </header>
-                {{#each reply}}
-                  <article class="u-padTop u-spaceTop u-spaceItems1 u-borderTopMd">
-                    <p>{{comment}}</p>
-                    <footer class="u-flex u-flexWrap u-flexAlignItemsBaseline">
-                      <p class="u-textBold u-spaceRight01">
-                        {{#if cloudfour}}
-                          {{{
-                            embed "patterns.components.icon.base"
-                            role="presentation"
-                            iconid="cloud-four"
-                            class="Icon--large u-linkTarget u-spaceRight06"
-                          }}}
-                        {{/if}}
-                        {{author}}
-                      </p>
-                      <p class="u-textShrink1 u-spaceRight01">
-                        <a class="u-linkEnter" href="#" title="Link to this comment">
-                          <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
-                        </a>
-                      </p>
-                    </footer>
-                  </article>
-                {{/each}}
-              </section>
-            {{/if}}
-          </footer>
-        </article>
+        {{{ embed "patterns.combos.blog.post-comment" comment=this }}}
       {{/each}}
-      <form class="u-spaceTop2 u-spaceItems1" id="commentform">
-        <h2>Leave a Comment</h2>
-        <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference/">Markdown</a> in your comments. All fields are required.</p>
-        {{#embed "patterns.components.input.float-label.base"
-          type="textarea"
-          label="Message"
-          inputclass="js-ElasticTextarea"
-          inputid="commentform-message"}}{{/embed}}
-        <div class="Grid Grid--withGutter">
-          <div class="Grid-cell u-sm-size1of2">
-            {{#embed "patterns.components.input.float-label.base"
-              label="Name"
-              inputid="commentform-name"}}{{/embed}}
-          </div>
-          <div class="Grid-cell u-spaceTop1 u-sm-spaceTopNone u-sm-size1of2">
-            {{#embed "patterns.components.input.float-label.base"
-              label="Email"
-              type="email"
-              inputid="commentform-email"}}{{/embed}}
-          </div>
-          <div class="Grid-cell u-spaceTop1">
-            {{#embed "patterns.components.button.base" class="Button--default u-block u-sizeFull"}}
-              {{#content "content"}}
-                Submit Comment
-              {{/content}}
-            {{/embed}}
-          </div>
-        </div>
-      </form>
+
+      {{{ embed "patterns.combos.blog.post-comment-form" }}}
     </section>
 
   </footer>

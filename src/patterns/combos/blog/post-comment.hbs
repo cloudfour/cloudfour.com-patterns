@@ -1,34 +1,62 @@
 ---
 name: Post Comment
 order: 4
-default:
-  comment:
-    author: Craig Little
-    date: Mar 3, 2016
-    thumbnail: https://randomuser.me/api/portraits/men/59.jpg
-    comment: |
-      Keytar McSweeney's Williamsburg, readymade leggings try hard 90's street
-      art letterpress hoodie occupy Wes Anderson Banksy.
-
 ---
 
-<article class="u-padEnds u-spaceItems1{{#if class}} {{class}}{{/if}}">
-  {{#with (defaultTo comment default.comment)}}
-    <p>
-      {{!-- TODO: This should be HTML and not <p> content. --}}
-      {{~{comment}~}}
-    </p>
-    <div class="u-flex u-flexAlignItemsBaseline u-textNoWrap">
-      <span class="u-textBold">
-        {{author}}
-      </span>
-      <time class="u-textShrink1 u-spaceSides" datetime="{{timestamp date}}">
-        {{date}}
-      </time>
-      <a class="u-flexExpandLeft u-textBold" href="#">
-        {{~# embed "patterns.components.icon.base" iconid="reply"}}{{/embed~}}
-        Reply
-      </a>
-    </div>
-  {{/with}}
-</article>
+{{#with (defaultTo comment randomItem drizzle.data.comments.contents.[1])}}
+  <article class="u-padEnds u-spaceItems1 u-borderBottomMd">
+    <p>{{comment}}</p>
+    <footer>
+      <div class="u-flex u-flexAlignItemsCenter u-flexJustifyBetween">
+        <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+          <p class="u-textBold u-spaceRight01">
+            {{author}}
+          </p>
+          <p class="u-textShrink1 u-spaceRight01">
+            <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
+          </p>
+        </div>
+        <p>
+          <a class="u-linkClean u-textBold u-textNoWrap" href="#">
+            {{{
+              embed "patterns.components.icon.base"
+              role="presentation"
+              iconid="reply"
+            }}}
+            Reply
+          </a>
+        </p>
+      </div>
+      {{#if reply}}
+        <section class="u-spaceLeft1">
+          <header class="u-hiddenVisually">
+            <h2>Replies</h2>
+          </header>
+          {{#each reply}}
+            <article class="u-padTop u-spaceTop u-spaceItems1 u-borderTopMd">
+              <p>{{comment}}</p>
+              <footer class="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                <p class="u-textBold u-spaceRight01">
+                  {{#if cloudfour}}
+                    {{{
+                      embed "patterns.components.icon.base"
+                      role="presentation"
+                      iconid="cloud-four"
+                      class="Icon--large u-linkTarget u-spaceRight06"
+                    }}}
+                  {{/if}}
+                  {{author}}
+                </p>
+                <p class="u-textShrink1 u-spaceRight01">
+                  <a class="u-linkEnter" href="#" title="Link to this comment">
+                    <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
+                  </a>
+                </p>
+              </footer>
+            </article>
+          {{/each}}
+        </section>
+      {{/if}}
+    </footer>
+  </article>
+{{/with}}

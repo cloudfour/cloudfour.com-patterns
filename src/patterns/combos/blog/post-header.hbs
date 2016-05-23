@@ -3,27 +3,17 @@ name: Post Header
 order: 1
 notes: |
   This is a heading group intended to live at the start of blog posts.
-
-default:
-  post:
-    title: This is a post title
-    date: 2017-05-23
-  author:
-    name: Author Name
-    url: /authors/foo
 ---
 
-<header>
-  {{#with (defaultTo post default.post)}}
-    <h1>{{title}}</h1>
-  {{/with}}
+<header class="u-spaceItems01">
+  <h1>
+    <a href="{{defaultTo post.url '#'}}" class="u-textGrow1 u-linkEnter">{{defaultTo post.title 'This is a post title'}}</a>
+  </h1>
   <p>
     Written by
-    {{#with (defaultTo author default.author)}}
-      <a href="{{url}}">{{name}}</a>
-    {{/with}}
-    {{#with (defaultTo post default.post)}}
-      on <time datetime="{{date}}">{{timestamp date format="MMM D, YYYY"}}</time>
+    <a href="{{defaultTo author.url '#'}}">{{defaultTo author.name 'Author Name'}}</a>
+    {{#with (defaultTo post.date '2017-05-23')}}
+      on <time datetime="{{timestamp this format='YYYY-MM-DDTHH:mm'}}">{{timestamp this format="MMM D, YYYY"}}</time>
     {{/with}}
   </p>
 </header>

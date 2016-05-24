@@ -14,6 +14,17 @@ th {
 }
 
 /**
+ * Restrict horizontal scrolling
+ *
+ * Necessary evil for using 100vw with visible scrollbars
+ */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/**
  * Base body styles
  */
 

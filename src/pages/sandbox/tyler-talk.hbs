@@ -1,8 +1,6 @@
 ---
 title: Single Talk Page
 layout: toolkit.single
-stylesheets:
-  - sandbox/tcs-events-a
 labels:
   - latest
 notes: |
@@ -17,12 +15,12 @@ notes: |
   </p>
   <div class="u-flex u-flexAlignItemsCenter">
     <div class="Thumbnail Thumbnail--circle u-spaceRight01">
-      <img src="/assets/toolkit/images/sandbox/rico.jpg" alt="" style="width: 3em; height: 3em;">
+      <img src="/assets/toolkit/images/sandbox/rico.jpg" alt="" style="width: 3em;">
     </div>
-    <div>
+    <p>
       <b>Phillipé Flarghuunstöw</b><br>
       <i>Lead Something Person</i>
-    </div>
+    </p>
   </div>
 </div>
 <div class="u-spaceItems1 u-spaceTop2">
@@ -58,11 +56,11 @@ notes: |
   </div>
 </div>
 <hr class="u-spaceEnds2">
-<div class="u-spaceItems1">
+<div class="u-spaceItems01">
   <h2>Presented at&hellip;</h2>
-  <div class="ODoyleRules">
+  <div>
     {{#each drizzle.data.events.contents.past}}
-      <article>
+      <article class="u-padEnds01 {{#unless @first}}u-borderTopSm{{/unless}}">
         <div class="Grid Grid--withGutter">
           <p class="Grid-cell u-size1of3 u-sm-size1of4 u-md-size1of5 u-textNoWrap">{{date}}</p>
           <div class="Grid-cell u-size2of3 u-sm-size3of4 u-md-size4of5 u-sm-flex u-flexWrap">
@@ -85,14 +83,10 @@ notes: |
     {{/each}}
   </div>
 </div>
-<div class="PresenterInfo u-spaceEnds2">
-  <div class="Thumbnail Thumbnail--circle">
-    <img src="/assets/toolkit/images/sandbox/rico.jpg" alt="" style="width: 5em; height: 5em;">
-  </div>
-  <p>
-    <a href="#"><b>Phillipé Flarghuunstöw</b></a> was discovered under one of Portland's many bridges ranting about Web Standards at unsuspecting passerby. After an excruciatingly tedious period of reintroduction into society, he began delivering those same rants to appreciative audiences worldwide. He regularly updates his <a href="#">MySpace</a> and <a href="#">LiveJournal</a>.
-  </p>
-</div>
+{{{
+  embed "patterns.combos.blog.post-byline"
+  class="u-spaceEnds2 u-pullSides1"
+}}}
 <p class="u-spaceEnds2">
   <a class="Button" href="#">
     <svg class="Icon" role="img">

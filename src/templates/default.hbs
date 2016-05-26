@@ -31,7 +31,8 @@
     {{/if}}
     {{#block "scripts"}}
     <!-- Polyfill service, see: https://cdn.polyfill.io/v2/docs/ -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Object.assign,Array.from,Element.prototype.classList"></script>      <script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Object.assign,Array.from,Element.prototype.classList"></script>
+    <script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
       {{#each scripts}}
         <script src="{{baseurl}}/assets/toolkit/scripts/{{this}}.js"></script>
       {{/each}}

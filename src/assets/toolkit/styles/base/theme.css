@@ -77,8 +77,8 @@
   --font-size-lg: calc(var(--ms2) * 1em);
   --font-size-xl: calc(var(--ms3) * 1em);
 
-  --font-family-default: "Source Sans Pro", sans-serif;
-  --font-family-mono: "Source Code Pro", monospace;
+  --font-family-default: "Source Sans Pro", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-mono: "Source Code Pro", Monaco, Consolas, "Lucida Console", "Andale Mono", monospace;
 
   --font-weight-normal: 400;
   --font-weight-semibold: 600;

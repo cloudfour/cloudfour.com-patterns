@@ -4,6 +4,10 @@
  * Font weight control
  */
 
+.u-textNormal {
+  font-weight: var(--font-weight-normal) !important;
+}
+
 .u-textBold {
   font-weight: var(--font-weight-bold) !important;
 }

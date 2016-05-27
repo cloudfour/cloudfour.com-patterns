@@ -1,0 +1,114 @@
+---
+title: Deep Blog Topic
+layout: toolkit.default
+labels:
+  - inprogress
+notes: |
+  Blog index of posts from a particular topic.
+topics:
+  - label: "Responsive"
+    count: 53
+  - label: "Design"
+    count: 42
+  - label: "Images"
+    count: 37
+  - label: "JavaScript"
+    count: 23
+  - label: "Standards"
+    count: 19
+  - label: "SVG"
+    count: 14
+  - label: "Process"
+    count: 12
+  - label: "Essentials"
+    count: 24
+  - label: "Typography"
+    count: 8
+  - label: "Today I Learned"
+    count: 28
+  - label: "CSS"
+    count: 31
+  - label: "Tips and Tricks"
+    count: 23
+  - label: "Accessibility"
+    count: 18
+---
+
+
+<div class="Grid Grid--withGutter u-padTop01">
+  <div class="Grid-cell u-md-size2of3 u-spaceEnds01">
+    <h1 class="u-textGrow3 u-spaceBottom1">Topic: Responsive</h1>
+    <div class="Grid Grid--withGutter">
+      {{#each drizzle.data.posts.contents.recent}}{{#unless @first}}
+        <article class="Grid-cell u-lg-size1of2 u-spaceBottom6">
+          <div class="u-spaceItems01 u-md-padRight u-lg-padRight2">
+            <header>
+              <h2 class="u-md-textGrow1">
+                <a class="u-linkEnter" href="#">{{title}}</a>
+              </h2>
+            </header>
+            <p>
+              {{~excerpt~}}
+              <a class="u-textNoWrap u-linkClean u-inlineBlock u-textShrink1" href="#">
+                More
+                {{{
+                  embed "patterns.components.icon.base"
+                  iconid="arrow-right"
+                  role="presentation"
+                }}}
+              </a>
+            </p>
+            <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+              <div class="u-spaceRight01">
+                <div class="Thumbnail Thumbnail--circle u-block">
+                  <img src="{{avatar}}" alt="" style="width: 2.5em;">
+                </div>
+              </div>
+              <div classy="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                <p class="u-spaceRight01 u-textNoWrap u-textSemibold">
+                  {{author}}
+                </p>
+                <p class="u-spaceRight01 u-textNoWrap u-textShrink1">
+                  <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
+                </p>
+              </div>
+            </footer>
+          </div>
+        </article>
+      {{/unless}}{{/each}}
+    </div>
+    {{{embed "patterns.components.pagination.base"}}}
+  </div>
+  <div class="Grid-cell u-sizeFull u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceEnds01">
+    <div class="u-spaceTop02">
+      <h3>Topics</h3>
+      <ul class="u-listUnstyled u-spaceTop1 u-spaceBottom2 u-spaceItems1">
+        {{#each topics}}
+          <li class="u-md-textShrink1">
+            {{#embed "patterns.components.dot-leader.base" tag="a" href="#"
+              class="u-linkClean u-textInheritColor" startclass="u-linkTarget"}}
+              {{#content "start"}}{{label}}{{/content}}
+              {{#content "end"}}
+                <span class="u-hiddenVisually">(</span>{{count}}<span class="u-hiddenVisually"> articles)</span>
+              {{/content}}
+            {{/embed}}
+          </li>
+        {{/each}}
+
+      </ul>
+    </div>
+    <div class="u-spaceTop6 u-spaceItems01">
+      <h3>Essentials</h3>
+      <p class="u-md-textShrink1">Frequently-cited posts we&rsquo;re particularly proud of.</p>
+      <ul class="u-listUnstyled u-spaceTop1 u-spaceBottom2 u-spaceItems1">
+        {{#each drizzle.data.posts.contents.essential}}
+          <li class="u-md-textShrink1">
+            <a class="u-linkClean" href="#">
+              {{title}}
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

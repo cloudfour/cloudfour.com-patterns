@@ -6,3 +6,19 @@
   columns: 2 !important;
   column-gap: var(--space-md) !important;
 }
+
+@media (--sm-viewport) {
+  .u-sm-columns2 {
+    columns: 2;
+  }
+}
+
+@media (--lg-viewport) {
+  .u-lg-columns3 {
+    columns: 3;
+  }
+}
+
+.u-columnGapLg {
+  column-gap: var(--space-lg);
+}

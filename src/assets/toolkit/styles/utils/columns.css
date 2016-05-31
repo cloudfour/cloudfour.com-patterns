@@ -2,7 +2,25 @@
  * Flow element content into columns
  */
 
+:root {
+  --column-gap: var(--space-lg);
+}
+
 .u-columns2 {
-  columns: 2 !important;
-  column-gap: var(--space-md) !important;
+  columns: 2;
+  column-gap: var(--column-gap);
+}
+
+@media (--sm-viewport) {
+  .u-sm-columns2 {
+    columns: 2;
+    column-gap: var(--column-gap);
+  }
+}
+
+@media (--lg-viewport) {
+  .u-lg-columns3 {
+    columns: 3;
+    column-gap: var(--column-gap);
+  }
 }

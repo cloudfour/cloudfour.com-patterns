@@ -4,7 +4,6 @@
 
 'use strict';
 
-import Modernizr from 'modernizr';
 import svgxuse from 'svgxuse';
 import {arrayFromSelector} from './lib/dom/core';
 import {FloatLabel} from './lib/component/float-label';
@@ -15,7 +14,7 @@ import {ElasticTextarea} from './lib/component/elastic-textarea';
 
   arrayFromSelector('.js-FloatLabel').map(element => {
     new FloatLabel(element, {
-      eventName: Modernizr.oninput ? 'input' : 'keyup'
+      eventName: 'keyup'
     });
   });
 
@@ -38,7 +37,7 @@ import {ElasticTextarea} from './lib/component/elastic-textarea';
 
   arrayFromSelector('.js-ElasticTextarea').map(element => {
     new ElasticTextarea(element, {
-      eventName: Modernizr.oninput ? 'input' : 'keyup'
+      eventName: 'keyup'
     });
   });
 

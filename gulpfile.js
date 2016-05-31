@@ -5,7 +5,6 @@ const drizzle = require('drizzle-builder');
 const env = require('gulp-util').env;
 const gulp = require('gulp');
 const helpers = require('core-hbs-helpers');
-const modernizr = require('gulp-modernizr');
 const svgSprite = require('gulp-svg-sprite');
 const tasks = require('core-gulp-tasks');
 
@@ -29,18 +28,6 @@ gulp.task('css', ['css:drizzle', 'css:toolkit']);
 gulp.task('drizzle', () => {
   const result = drizzle(config.drizzle);
   return result;
-});
-
-// Register custom Modernizr task
-gulp.task('modernizr', () => {
-  return gulp.src(config.modernizr.src)
-    .pipe(modernizr({
-      options: [
-        'setClasses',
-        'html5shiv'
-      ]
-    }))
-    .pipe(gulp.dest(config.modernizr.dest));
 });
 
 // Register images task
@@ -76,7 +63,6 @@ gulp.task('frontend', [
   'drizzle',
   'css',
   'js',
-  'modernizr',
   'images'
 ]);
 

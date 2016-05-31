@@ -52,17 +52,9 @@ module.exports = {
               loaders: ['babel-loader']
             }
           ]
-        },
-        externals: {
-          modernizr: 'Modernizr'
         }
       }
     }
-  },
-
-  modernizr: {
-    src: './src/assets/toolkit/**/*.{js,css}',
-    dest: './dist/assets/toolkit/scripts'
   },
 
   serve: {

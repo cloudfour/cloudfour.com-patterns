@@ -1,6 +1,11 @@
 'use strict';
 
 module.exports = {
+  copy: {
+    src: './src/static/**/*',
+    dest: './dist'
+  },
+
   'css:toolkit': {
     src: './src/assets/toolkit/{styles,styles/sandbox}/*.css',
     dest: './dist/assets/toolkit/styles',
@@ -14,25 +19,9 @@ module.exports = {
     name: 'css:drizzle'
   },
 
-  // TODO: This might be handled by the core assets task?
-  favicon: {
-    src: './src/favicon.ico',
-    dest: './dist'
-  },
-
   icons: {
     src: 'src/assets/toolkit/icons/*.svg',
-    dest: './dist/assets/toolkit/images'
-  },
-
-  images: {
-    src: './src/assets/toolkit/images/**/*',
-    dest: './dist/assets/toolkit/images'
-  },
-
-  copy: {
-    src: './src/static/**/*',
-    dest: './dist'
+    dest: './dist/images'
   },
 
   js: {

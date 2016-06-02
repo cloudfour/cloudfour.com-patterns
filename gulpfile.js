@@ -31,12 +31,6 @@ gulp.task('drizzle', () => {
   return result;
 });
 
-// Register images task
-// gulp.task('favicon', () => {
-//   return gulp.src(config.favicon.src)
-//     .pipe(gulp.dest(config.favicon.dest));
-// });
-
 // Register icons task
 gulp.task('icons', () => {
   return gulp.src(config.icons.src)
@@ -50,14 +44,6 @@ gulp.task('icons', () => {
     }))
     .pipe(gulp.dest(config.icons.dest));
 });
-
-// Register images task
-// gulp.task('images', ['icons'], () => {
-//   return gulp.src(config.images.src)
-//     // TODO: Assess why this is taking so darn long!!
-//     // .pipe(imagemin())
-//     .pipe(gulp.dest(config.images.dest));
-// });
 
 // Register frontend composite task
 gulp.task('frontend', [

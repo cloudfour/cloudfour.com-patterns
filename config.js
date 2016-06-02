@@ -30,6 +30,11 @@ module.exports = {
     dest: './dist/assets/toolkit/images'
   },
 
+  copy: {
+    src: './src/static/**/*',
+    dest: './dist'
+  },
+
   js: {
     plugins: {
       webpack: {

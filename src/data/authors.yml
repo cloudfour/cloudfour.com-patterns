@@ -1,6 +1,6 @@
 - name: Nicole Mors
   url: /authors/nicole-mors
-  avatar: /assets/toolkit/images/sandbox/orange-avatar.svg
+  avatar: /images/sandbox/orange-avatar.svg
   bio: |
     <p>
       <strong><a href="">Nicole Mors</a></strong> is a highly caffeinated
@@ -11,6 +11,6 @@
 
 - name: Mick Fish
   url: /authors/micky-fishy
-  avatar: /assets/toolkit/images/sandbox/ugly-unicorn.svg
+  avatar: /images/sandbox/ugly-unicorn.svg
   bio: |
     <p>Mick likes fish and gaming.</p>

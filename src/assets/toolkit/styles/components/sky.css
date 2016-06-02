@@ -6,7 +6,7 @@
   --Sky-color: color(var(--Sky-background-color) s(+10%) l(85%));
   --Sky-color-light: var(--color-white);
 
-  --Sky-clouds-image: url("/assets/toolkit/images/sky-clouds.svg");
+  --Sky-clouds-image: url("/images/sky-clouds.svg");
   --Sky-clouds-image-height: calc(30 / 16 * 1rem);
   --Sky-clouds-image-width: calc(525 / 16 * 1rem);
   --Sky-clouds-x-offset: -60%;

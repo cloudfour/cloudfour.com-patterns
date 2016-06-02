@@ -7,7 +7,7 @@ body {
 
 .Sky {
   background-color: var(--color-blue);
-  background-image: url("/assets/toolkit/images/sandbox/clouds.svg");
+  background-image: url("/images/sandbox/clouds.svg");
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 38em;

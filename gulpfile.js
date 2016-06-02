@@ -13,6 +13,7 @@ Object.assign(config.drizzle, {helpers});
 
 // Register core tasks
 [
+  'copy',
   'clean',
   'js',
   'serve',
@@ -30,12 +31,6 @@ gulp.task('drizzle', () => {
   return result;
 });
 
-// Register images task
-gulp.task('favicon', () => {
-  return gulp.src(config.favicon.src)
-    .pipe(gulp.dest(config.favicon.dest));
-});
-
 // Register icons task
 gulp.task('icons', () => {
   return gulp.src(config.icons.src)
@@ -50,20 +45,13 @@ gulp.task('icons', () => {
     .pipe(gulp.dest(config.icons.dest));
 });
 
-// Register images task
-gulp.task('images', ['favicon', 'icons'], () => {
-  return gulp.src(config.images.src)
-    // TODO: Assess why this is taking so darn long!!
-    // .pipe(imagemin())
-    .pipe(gulp.dest(config.images.dest));
-});
-
 // Register frontend composite task
 gulp.task('frontend', [
   'drizzle',
+  'copy',
   'css',
-  'js',
-  'images'
+  'icons',
+  'js'
 ]);
 
 // Register build task (for continuous deployment via Netflify)

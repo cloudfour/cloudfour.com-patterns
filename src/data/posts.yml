@@ -4,7 +4,7 @@ recent:
     title: "The Year of the Ugly Unicorn"
     author: "Nicole Mors"
     avatar: "http://1.gravatar.com/avatar/71a2629d473c5793fd3b318ace3fc474?s=96&d=mm&r=g"
-    image: "/assets/toolkit/images/sandbox/post-image-unicorn.png"
+    image: "/images/sandbox/post-image-unicorn.png"
     excerpt: |
       I have always considered myself a “designer who codes”. I enjoy that aspect of the web, even while in a purely visual design role.
 
@@ -12,7 +12,7 @@ recent:
     title: "Responsive Logo Composition With SVG"
     author: "Tyler Sticka"
     avatar: "http://0.gravatar.com/avatar/0326d10d4bb16cdc74dd244068e2ef81?s=96&d=mm&r=g"
-    image: "/assets/toolkit/images/sandbox/post-image-exampleco.png"
+    image: "/images/sandbox/post-image-exampleco.png"
     excerpt: |
       What if we want to re-arrange our logo elements depending on the aspect ratio of the asset, perhaps to account for the amount of vertical real estate available to us?
 

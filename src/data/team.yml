@@ -1,6 +1,6 @@
 individuals:
   - name: Aileen Jeffries
-    image: /assets/toolkit/images/sandbox/aileen.png
+    image: /images/sandbox/aileen.png
     title: Co-Founder, President
     thumb_bgcolor: "#825198"
   - name: Jason Grigsby
@@ -10,7 +10,7 @@ individuals:
     thumb_bgcolor: salmon
     title: Project Manager
   - name: Tyler Sticka
-    image: /assets/toolkit/images/sandbox/tyler.png
+    image: /images/sandbox/tyler.png
     title: Lead Designer
     thumb_bgcolor: "#71C7F2"
   - name: Erik Jung
@@ -23,6 +23,6 @@ individuals:
     thumb_bgcolor: mediumpurple
     title: Designer
   - name: Gerardo Rodriguez
-    image: /assets/toolkit/images/sandbox/gerardo.png
+    image: /images/sandbox/gerardo.png
     title: Developer
     thumb_bgcolor: "#6971ab"

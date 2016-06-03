@@ -1,0 +1,28 @@
+individuals:
+  - name: Aileen Jeffries
+    image: /assets/toolkit/images/sandbox/aileen.png
+    title: Co-Founder, President
+    thumb_bgcolor: "#825198"
+  - name: Jason Grigsby
+    thumb_bgcolor: gold
+    title: Co-Founder, Strategist
+  - name: Megan Notarte
+    thumb_bgcolor: salmon
+    title: Project Manager
+  - name: Tyler Sticka
+    image: /assets/toolkit/images/sandbox/tyler.png
+    title: Lead Designer
+    thumb_bgcolor: "#71C7F2"
+  - name: Erik Jung
+    thumb_bgcolor: green
+    title: Developer
+  - name: Nicole Mors
+    thumb_bgcolor: mediumaquamarine
+    title: Designer
+  - name: Sara Lohr
+    thumb_bgcolor: mediumpurple
+    title: Designer
+  - name: Gerardo Rodriguez
+    image: /assets/toolkit/images/sandbox/gerardo.png
+    title: Developer
+    thumb_bgcolor: "#6971ab"

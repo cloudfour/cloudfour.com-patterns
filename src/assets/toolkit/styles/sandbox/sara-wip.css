@@ -20,6 +20,12 @@
   }
 }
 
+@media (--lg-viewport) {
+  .u-lg-columns1 {
+    columns: 1 !important;
+  }
+}
+
 .u-avoidBreak {
   break-inside: avoid;
 }

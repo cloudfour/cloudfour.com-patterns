@@ -70,6 +70,11 @@
   }
 }
 
+@mixin makeSpaceItemsUtils calc(var(--ms-6) * 1rem), 06;
+@mixin makeSpaceItemsUtils calc(var(--ms-5) * 1rem), 05;
+@mixin makeSpaceItemsUtils calc(var(--ms-4) * 1rem), 04;
+@mixin makeSpaceItemsUtils calc(var(--ms-3) * 1rem), 03;
+@mixin makeSpaceItemsUtils calc(var(--ms-2) * 1rem), 02;
 @mixin makeSpaceItemsUtils calc(var(--ms-1) * 1rem), 01;
 @mixin makeSpaceItemsUtils calc(var(--ms0)  * 1rem);
 @mixin makeSpaceItemsUtils calc(var(--ms1)  * 1rem),  1;

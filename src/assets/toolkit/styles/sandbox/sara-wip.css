@@ -29,6 +29,14 @@
   .u-lg-inlineBlock {
     display: inline-block !important;
   }
+
+  .u-lg-unhideVisually {
+    clip: auto !important;
+    width: auto !important;
+    height: auto !important;
+    position: static !important;
+    overflow: inherit !important;
+  }
 }
 
 @media (--sm-viewport) {

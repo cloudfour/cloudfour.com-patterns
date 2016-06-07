@@ -77,7 +77,7 @@ stylesheets:
   </div>
 </div>
 
-{{! Fun Facts -navigation sides }}
+{{! Fun Facts }}
 <div class="u-md-size2of3">
   <aside class="u-bgGray u-padSides5 u-padEnds2 u-lg-padSides1 u-pullSides1 u-spaceTop4 u-posRelative u-flex FunFacts">
     {{#each drizzle.data.fun-facts.contents.aileen}}
@@ -97,21 +97,24 @@ stylesheets:
     <ul class="u-listInline u-spaceSides03 u-flexJustifyBetween  u-flexAlignContentCenter u-lg-flexJustifyEnd u-posAbsoluteMiddle u-lg-spaceRight2">
       <li class="u-spaceLeft05">
         <a class="u-linkClean js-FunFact-prev" href="">
-          <svg viewBox="0 0 24 24" class="Icon u-textGrow3">
+          <span class="u-hiddenVisually">Previous Fun Fact</span>
+          <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
             <circle r="12" cx="12" cy="12" fill="#fff"/>
             <use xlink:href="{{baseurl}}/images/icons.svg#arrow-left" transform="scale(.5) translate(12,12)"/>
           </svg>
         </a>
       </li>
       <li>
-        <span class="u-hidden u-lg-inlineBlock u-textShrink1">
+        <span class="u-hiddenVisually u-lg-unhideVisually u-lg-inlineBlock u-textShrink1">
+          <span class="u-hiddenVisually">Current Fun Fact:</span>
           <span class="js-FunFact-current">1</span> of
           <span class="js-FunFact-total"></span>
         </span>
       </li>
       <li>
         <a class="u-linkClean js-FunFact-next" href="">
-          <svg viewBox="0 0 24 24" class="Icon u-textGrow3">
+          <span class="u-hiddenVisually">Next Fun Fact</span>
+          <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
             <circle r="12" cx="12" cy="12" fill="#fff"/>
             <use xlink:href="{{baseurl}}/images/icons.svg#arrow-right" transform="scale(.5) translate(12,12)"/>
           </svg>

@@ -15,14 +15,14 @@ title: Overview
   style guidelines.
 </p>
 
-<h2>Color</h2>
+<h2>Colors</h2>
 
 {{#each drizzle.data.colors.contents}}
-  <ul class="drizzle-Swatches">
+  <h4 class="drizzle-u-capitalize">{{@key}}</h4>
+  <ul class="drizzle-u-listInline">
     {{#each this}}
-      <li class="drizzle-Swatch" style="border-top-color:{{this}}">
-        <div class="drizzle-Swatch-name">{{@key}}</div>
-        <div class="drizzle-Swatch-color">{{this}}</div>
+      <li class="drizzle-u-marginBottom">
+        {{> drizzle.swatch }}
       </li>
     {{/each}}
   </ul>

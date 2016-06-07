@@ -1,8 +1,15 @@
 primary:
-  Navy: "rgb(15, 28, 63)"
-  Blue: "rgb(69, 107, 217)"
-  Gray: "rgb(219, 229, 234)"
-secondary:
-  Orange: "rgb(242, 105, 65)"
-  Green: "rgb(53, 201, 141)"
-  Pink: "rgb(241, 76, 163)"
+  - color: "#0F1C3F"
+    property: "--color-navy"
+  - color: "#456BD9"
+    property: "--color-blue"
+  - color: "#DBE5EA"
+    property: "--color-gray"
+
+accents:
+  - color: "#F26941"
+    property: "--color-orange"
+  - color: "#35C98D"
+    property: "--color-green"
+  - color: "#F14CA3"
+    property: "--color-fuchsia"

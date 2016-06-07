@@ -1,0 +1,34 @@
+---
+title: Team Page B
+layout: toolkit.default
+section:
+  heading: Our Team
+  subheading: Passionate workers of the web
+labels:
+  - inprogress
+stylesheets:
+ - sandbox/sara-wip
+notes: |
+  Our Team page with square heads.
+---
+
+{{! Two column text intro}}
+<div class="u-sm-columns2 u-spaceBottom6 u-sm-spaceTop4 u-spaceItems1">
+  <p class="u-avoidBreak TextBlock">Cloud Four started when our initial team of four noticed something was changing in our world: connected, portable, always-on devices were becoming mainstream.</p>
+  <p class="u-avoidBreak">We left behind our traditional web jobs and came together in 2007 to form Cloud Four, a Portland, Oregon based company laser focused on mobile web technology. It was a good bet to make: within a year we saw products like the first iPhone transform the mobile world.</p>
+  <p class="u-avoidBreak">Since then, we've taken on dozens of web projects, founded a local organization, spoken at innumerable conferences and workshops, wrote the book on mobile web development, and recently organized a conference about Responsive Web Design.</p>
+  <p class="u-avoidBreak">Our team has grown beyond the four founders, and we are passionate about building accessible, performant experiences that improve the state of the web and contribute to the larger web community.</p>
+</div>
+
+{{! Team Grid }}
+<div class="Grid Grid--alignCenter u-spaceTop6">
+  {{#each drizzle.data.team.contents.individuals}}
+    <div class="Grid-cell u-size1of2 u-sm-size1of3 u-md-size1of4 u-textCenter u-spaceBottom4">
+      <a href="#" class="u-block" style="background-color: {{thumb_bgcolor}}">
+        <img class="u-block u-flexExpand" src="{{defaultTo image (dummyImgSrc 500 500 bg=thumb_bgcolor text="")}}">
+      </a>
+      <a href="#" class="u-block u-linkClean u-textBold u-spaceTop02"><p>{{name}}</p></a>
+      <p class="u-textShrink1">{{title}}</p>
+    </div>
+  {{/each}}
+</div>

@@ -1,7 +1,6 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
-
 .FunFacts {
   overflow: hidden;
 }
@@ -43,4 +42,33 @@
   .u-sm-textLeft {
     text-align: left !important;
   }
+}
+
+.Thumbnail--large {
+  width: 7rem;
+  height: 7rem;
+}
+
+@media (--md-viewport) {
+  .Thumbnail--large {
+    width: 11rem;
+    height: 11rem;
+  }
+}
+
+@media (--sm-viewport) {
+  .u-sm-columns2 {
+    columns: 2;
+    column-gap: var(--space-lg);
+  }
+}
+
+@media (--lg-viewport) {
+  .u-lg-columns1 {
+    columns: 1 !important;
+  }
+}
+
+.u-avoidBreak {
+  break-inside: avoid;
 }

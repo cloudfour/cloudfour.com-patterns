@@ -10,21 +10,18 @@ export class FactSlider {
     className = 'is-visible'
   } = {}) {
 
-    facts = Array.from(facts);
-    let numFacts = facts.length;
-    let counter = 0;
-    totalCount.innerHTML = numFacts;
+    this.facts = Array.from(facts);
+    this.numFacts = this.facts.length;
+    this.counter = 0;
+    totalCount.innerHTML = this.numFacts;
 
     Object.assign(this, {
       element,
-      facts,
-      numFacts,
       nextTrigger,
       prevTrigger,
       currentCount,
       totalCount,
-      className,
-      counter
+      className
     });
 
     this.attachEvents();

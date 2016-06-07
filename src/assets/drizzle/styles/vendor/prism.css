@@ -3,7 +3,7 @@
  */
 
 :matches(code, pre)[class*="language-"] {
-  background-color: color(var(--color-silver) blend(var(--color-white) 50%));
+  background-color: color(var(--color-silver) blend(var(--color-white) 80%));
   color: var(--color-black);
   cursor: text;
   direction: ltr;

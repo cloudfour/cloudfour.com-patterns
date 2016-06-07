@@ -1,7 +1,7 @@
 :root {
   /* Common properties */
   --color-aqua: #7fdbff;
-  --color-blue: #0074d9;
+  --color-blue: #456BD9;
   --color-lime: #01ff70;
   --color-navy: #001f3f;
   --color-teal: #39cccc;
@@ -13,10 +13,10 @@
   --color-purple: #b10dc9;
   --color-yellow: #ffdc00;
   --color-fuchsia: #f012be;
-  --color-gray: #aaa;
+  --color-gray: color(var(--color-silver) l(-10%));
   --color-white: #fff;
   --color-black: #111;
-  --color-silver: #f0f0f0;
+  --color-silver: #DBE5EA;
   --monospace: "Source Code Pro";
   --space: 1rem;
 

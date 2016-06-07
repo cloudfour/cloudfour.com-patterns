@@ -9,8 +9,13 @@ import {arrayFromSelector} from './lib/dom/core';
 import {FloatLabel} from './lib/component/float-label';
 import {Sky} from './lib/component/sky';
 import {ElasticTextarea} from './lib/component/elastic-textarea';
+import {FactSlider} from './lib/component/fact-slider';
 
 (function() {
+
+  arrayFromSelector('.js-FunFacts').map(element => {
+    new FactSlider(element);
+  });
 
   arrayFromSelector('.js-FloatLabel').map(element => {
     new FloatLabel(element, {

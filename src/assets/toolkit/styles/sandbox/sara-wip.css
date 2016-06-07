@@ -1,6 +1,49 @@
 @import "../base/theme.css";
 @import "../base/theme-map.css";
 
+.FunFacts {
+  overflow: hidden;
+}
+
+.FunFact {
+  flex: 1 0 100%;
+  opacity: 0;
+  transition: opacity ease 500ms;
+}
+
+.FunFact.is-visible {
+  order: -1;
+  opacity: 1;
+}
+
+.u-posAbsoluteMiddle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  left: 0;
+}
+
+@media (--lg-viewport) {
+  .u-lg-inlineBlock {
+    display: inline-block !important;
+  }
+
+  .u-lg-unhideVisually {
+    clip: auto !important;
+    width: auto !important;
+    height: auto !important;
+    position: static !important;
+    overflow: inherit !important;
+  }
+}
+
+@media (--sm-viewport) {
+  .u-sm-textLeft {
+    text-align: left !important;
+  }
+}
+
 .Thumbnail--large {
   width: 7rem;
   height: 7rem;

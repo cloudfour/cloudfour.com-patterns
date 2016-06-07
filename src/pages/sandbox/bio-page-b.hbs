@@ -1,10 +1,12 @@
 ---
-title: Bio Page A
+title: Bio Page B
 layout: toolkit.default
 labels:
-  - inprogress
+  - latest
 notes: |
   Individual team member bio and related content.
+stylesheets:
+ - sandbox/sara-wip
 ---
 
 <div class="u-spaceItems1 u-cf">
@@ -75,41 +77,52 @@ notes: |
   </div>
 </div>
 
-<aside class="u-bgGray u-pad1 u-pullSides1 u-spaceTop4">
-  <div class="Grid Grid--withGutter Grid--alignMiddle">
-    <div class="Grid-cell u-size1of3 u-sm-size1of6 u-lg-size1of8">
-      <div class="Thumbnail Thumbnail--circle">
-        <img class="u-sizeFull" src="/images/sandbox/trivia-aileen-catio.jpg" alt="">
+{{! Fun Facts -navigation sides }}
+<div class="u-md-size2of3">
+  <aside class="u-bgGray u-padSides5 u-padEnds2 u-lg-padSides1 u-pullSides1 u-spaceTop4 u-posRelative u-flex FunFacts">
+    {{#each drizzle.data.fun-facts.contents.aileen}}
+      <div class="Grid Grid--withGutter Grid--alignMiddle FunFact u-spaceRight5 {{#if @first}} is-visible{{/if}} u-flexExpand u-flexJustifyCenter u-sm-flexJustifyStart">
+        <div class="Grid-cell u-size1of2 u-sm-size1of4 u-lg-size1of5">
+          <div class="Thumbnail Thumbnail--circle u-block">
+            <img class="u-sizeFull" src="{{image}}" alt="">
+          </div>
+        </div>
+        <div class="Grid-cell u-sm-size3of4 u-lg-size1of2 u-spaceItems06 u-textCenter u-sm-textLeft u-spaceTop01 u-sm-spaceTopNone">
+          <h4 class="u-md-textGrow1">Did you know&hellip;?</h4>
+          <p>{{fact}}</p>
+        </div>
       </div>
-    </div>
-    <div class="Grid-cell u-size2of3 u-sm-size5of6 u-lg-size7of8 u-spaceItems06">
-      <h4 class="u-md-textGrow1">Did you know&hellip;?</h4>
-      <p>Aileen excels at catio craftsmanship.</p>
-      <ul class="u-listInline">
-        <li>
-          <a class="u-linkClean" href="#">
-            {{{
-              embed "patterns.components.icon.base"
-              iconid="arrow-left"
-            }}}
-          </a>
-        </li>
-        <li>
-          <span class="u-textShrink1">1 of 3</span>
-        </li>
-        <li>
-          <a class="u-linkClean" href="#">
-            {{{
-              embed "patterns.components.icon.base"
-              iconid="arrow-right"
-            }}}
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</aside>
+    {{/each}}
 
+    <ul class="u-listInline u-spaceSides03 u-flexJustifyBetween  u-flexAlignContentCenter u-lg-flexJustifyEnd u-posAbsoluteMiddle u-lg-spaceRight2">
+      <li class="u-spaceLeft05">
+        <a class="u-linkClean js-FunFact-prev" href="">
+          <svg viewBox="0 0 24 24" class="Icon u-textGrow3">
+            <circle r="12" cx="12" cy="12" fill="#fff"/>
+            <use xlink:href="{{baseurl}}/images/icons.svg#arrow-left" transform="scale(.5) translate(12,12)"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <span class="u-hidden u-lg-inlineBlock u-textShrink1">
+          <span class="js-FunFact-current">1</span> of
+          <span class="js-FunFact-total"></span>
+        </span>
+      </li>
+      <li>
+        <a class="u-linkClean js-FunFact-next" href="">
+          <svg viewBox="0 0 24 24" class="Icon u-textGrow3">
+            <circle r="12" cx="12" cy="12" fill="#fff"/>
+            <use xlink:href="{{baseurl}}/images/icons.svg#arrow-right" transform="scale(.5) translate(12,12)"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </aside>
+</div>
+
+
+{{! Latest Articles }}
 <div class="Grid Grid--withGutter u-spaceTopNone">
   <div class="Grid-cell u-md-size2of3">
     <h2 class="u-spaceTop4">Latest Articles</h2>
@@ -135,6 +148,8 @@ notes: |
       </a>
     </p>
   </div>
+
+  {{! Upcoming Talks }}
   <div class="Grid-cell u-spaceItems1 u-md-size1of4 u-md-flexExpandLeft">
     <h2 class="u-spaceTop4">Upcoming Talks</h2>
     {{#each drizzle.data.events.contents.upcoming}}

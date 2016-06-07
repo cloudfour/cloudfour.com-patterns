@@ -13,7 +13,7 @@ import {FactSlider} from './lib/component/fact-slider';
 
 (function() {
 
-  arrayFromSelector('.FunFacts').map(element => {
+  arrayFromSelector('.js-FunFacts').map(element => {
     new FactSlider(element);
   });
 

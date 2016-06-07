@@ -79,9 +79,9 @@ stylesheets:
 
 {{! Fun Facts }}
 <div class="u-md-size2of3">
-  <aside class="u-bgGray u-padSides5 u-padEnds2 u-lg-padSides1 u-pullSides1 u-spaceTop4 u-posRelative u-flex FunFacts">
+  <aside class="u-bgGray u-padSides5 u-padEnds2 u-lg-padSides1 u-pullSides1 u-spaceTop4 u-posRelative u-flex FunFacts js-FunFacts">
     {{#each drizzle.data.fun-facts.contents.aileen}}
-      <div class="Grid Grid--withGutter Grid--alignMiddle FunFact u-spaceRight5 {{#if @first}} is-visible{{/if}} u-flexExpand u-flexJustifyCenter u-sm-flexJustifyStart">
+      <div class="Grid Grid--withGutter Grid--alignMiddle FunFact js-FunFact u-spaceRight5 {{#if @first}} is-visible{{/if}} u-flexExpand u-flexJustifyCenter u-sm-flexJustifyStart">
         <div class="Grid-cell u-size1of2 u-sm-size1of4 u-lg-size1of5">
           <div class="Thumbnail Thumbnail--circle u-block">
             <img class="u-sizeFull" src="{{image}}" alt="">

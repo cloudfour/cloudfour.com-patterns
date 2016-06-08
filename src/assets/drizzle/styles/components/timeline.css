@@ -4,7 +4,7 @@
 
 :root {
   --Timeline-space: 1em;
-  --Timeline-border-color: color(var(--color-silver) blend(var(--color-gray) 50%));
+  --Timeline-border-color: var(--color-silver);
   --Timeline-border-width: 0.1875em;
   --Timeline-tile-background: #fff;
   --Timeline-tile-border-radius: 0.5em;

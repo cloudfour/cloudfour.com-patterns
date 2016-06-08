@@ -9,18 +9,27 @@ labels:
 stylesheets:
  - sandbox/sara-wip
 notes: |
-  Our Team page with circle heads.
+  Our Team page with a group selfie photo.
 ---
 
-{{! Two column text intro}}
-<div class="u-sm-columns2 u-spaceBottom6 u-sm-spaceTop4 u-spaceItems1">
-  <p class="u-avoidBreak TextBlock">Cloud Four started when our initial team of four noticed something was changing in our world: connected, portable, always-on devices were becoming mainstream.</p>
-  <p class="u-avoidBreak">We left behind our traditional web jobs and came together in 2007 to form Cloud Four, a Portland, Oregon based company laser focused on mobile web technology. It was a good bet to make: within a year we saw products like the first iPhone transform the mobile world.</p>
-  <p class="u-avoidBreak">Since then, we've taken on dozens of web projects, founded a local organization, spoken at innumerable conferences and workshops, wrote the book on mobile web development, and recently organized a conference about Responsive Web Design.</p>
-  <p class="u-avoidBreak">Our team has grown beyond the four founders, and we are passionate about building accessible, performant experiences that improve the state of the web and contribute to the larger web community.</p>
+{{! Intro and team photo }}
+<div class="Grid Grid--alignMiddle u-spaceTop4">
+  <div class="Grid-cell u-md-size1of2 u-md-flexOrderLast u-containProse">
+    <div class="Thumbnail u-lg-spaceSides2">
+      <img src="/images/sandbox/team-horizontal-7227.jpg" alt="The Cloud Four Team">
+    </div>
+  </div>
+  <div class="Grid-cell u-md-size1of2 u-spaceItems1 u-md-padRight2 u-spaceTop1 u-lg-spaceTopNone u-containProse">
+    <p class="TextBlock">We are a small, versatile team who care passionately about the web.</p>
+
+    <p>We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school.
+    </p>
+
+    <p>{{ random "paragraph" sentences=1 }}</p>
+  </div>
 </div>
 
-{{! Team Grid }}
+{{! Team illustrations grid }}
 <div class="Grid Grid--withGutter Grid--alignCenter u-spaceTop6 u-md-padTop2">
   {{#each drizzle.data.team.contents.individuals}}
     <div class="Grid-cell u-size1of2 u-sm-size1of3 u-md-size1of4 u-textCenter u-spaceBottom4">

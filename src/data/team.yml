@@ -2,17 +2,15 @@ individuals:
   - name: Aileen Jeffries
     image: /images/sandbox/aileen.png
     title: Co-Founder, President
-    thumb_bgcolor: "#825198"
   - name: Jason Grigsby
-    thumb_bgcolor: gold
     title: Co-Founder, Strategist
+    thumb_bgcolor: gold
   - name: Megan Notarte
-    thumb_bgcolor: salmon
+    image: /images/sandbox/megan.png
     title: Project Manager
   - name: Tyler Sticka
     image: /images/sandbox/tyler.png
     title: Lead Designer
-    thumb_bgcolor: "#71C7F2"
   - name: Erik Jung
     thumb_bgcolor: green
     title: Developer
@@ -25,4 +23,3 @@ individuals:
   - name: Gerardo Rodriguez
     image: /images/sandbox/gerardo.png
     title: Developer
-    thumb_bgcolor: "#6971ab"

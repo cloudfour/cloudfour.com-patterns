@@ -18,6 +18,8 @@ recent:
 
   - date: "2016-04-11"
     title: "One amazing video that shows the potential of the physical web"
+    external_publication: "A List Apart"
+    external_publication_icon: "/images/sandbox/ala.png"    
     author: "Jason Grigsby"
     avatar: "http://1.gravatar.com/avatar/dac45089aeda3bca56193072601a49d4?s=96&d=mm&r=g"
     excerpt: |

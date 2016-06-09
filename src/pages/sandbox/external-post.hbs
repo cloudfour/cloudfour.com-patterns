@@ -1,0 +1,192 @@
+---
+title: Blog with external post
+layout: toolkit.blank
+labels:
+  - latest
+notes: |
+  Building on version F to include a post from another publication.
+stylesheets:
+ - sandbox/sara-wip
+---
+
+{{{embed "patterns.components.sky.base"}}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      <div class="u-pad1">
+        <div class="Grid Grid--withGutter Grid--alignMiddle">
+          <div class="Grid-cell u-md-size5of12 u-lg-size1of2">
+            <h1 class="u-textGrow5 u-sm-textGrow6">Articles</h1>
+            <p class="u-textGrow1">
+              Tales from the edge of the web
+            </p>
+          </div>
+          <div class="Grid-cell u-md-size7of12 u-lg-size1of2 u-spaceTop1">
+            <form class="Grid Grid--withGutter">
+              <div class="Grid-cell u-sm-sizeFill">
+                {{{
+                  embed "patterns.components.input.float-label.base"
+                  floatlabelclass="FloatLabel--dark"
+                  inputclass="Input--dark"
+                  label="Your Email Address"
+                  type="email"
+                  inputid="blog-digest-email"
+                }}}
+              </div>
+              <div class="Grid-cell u-spaceTop01 u-sm-sizeFit u-sm-spaceTopNone">
+                <button class="Button Button--primaryDark u-sizeFull">
+                  Get Weekly Digests
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    {{/content}}
+  {{/embed}}
+  <div class="u-bgWhite">
+    <div class="u-containSpread u-pad1">
+      {{#with drizzle.data.posts.contents.recent.[0]}}
+        <article class="Grid Grid--withGutter Grid--alignMiddle u-spaceEnds2">
+          <div class="Grid-cell u-md-size1of2 u-lg-size2of3 u-spaceBottom1 u-md-spaceBottomNone">
+            <img class="u-sizeFull" src="{{image}}" alt="">
+          </div>
+          <div class="Grid-cell u-md-size1of2 u-lg-size1of3 u-md-textGrow1 u-spaceItems01">
+            <header>
+              <h2>
+                <a class="u-linkEnter" href="#">{{title}}</a>
+              </h2>
+            </header>
+            <p>
+              {{~excerpt~}}
+              <a class="u-textNoWrap u-linkClean u-inlineBlock u-textShrink1" href="#">
+                More
+                {{{
+                  embed "patterns.components.icon.base"
+                  iconid="arrow-right"
+                  role="presentation"
+                }}}
+              </a>
+            </p>
+            <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+              <div class="u-spaceRight01">
+                <div class="Thumbnail Thumbnail--circle u-block">
+                  <img src="{{avatar}}" alt="" style="width: 2.5em;">
+                </div>
+              </div>
+              <div classy="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                <p class="u-spaceRight01 u-textNoWrap u-textSemibold">
+                  {{author}}
+                </p>
+                <p class="u-spaceRight01 u-textNoWrap u-textShrink1">
+                  <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
+                </p>
+              </div>
+            </footer>
+          </div>
+        </article>
+      {{/with}}
+      <div class="Grid Grid--withGutter u-padTop01">
+        <div class="Grid-cell u-md-size2of3 u-spaceEnds2">
+          <div class="Grid Grid--withGutter">
+            {{#each drizzle.data.posts.contents.recent}}{{#unless @first}}
+              <article class="Grid-cell u-lg-size1of2 u-spaceBottom6">
+                <div class="u-spaceItems01 u-md-padRight u-lg-padRight2">
+                  <header>
+                    <h2 class="u-md-textGrow1">
+                      <a class="u-linkEnter" href="#">{{title}}</a>
+                    </h2>
+                    {{#if external_publication}}
+                      <p class="u-textShrink1 u-flex u-flexAlignItemsCenter u-spaceTop01">
+                        <img src="{{external_publication_icon}}" alt="">
+                        <span class="u-spaceLeft04">
+                          Written for
+                          <i>{{external_publication}}</i>
+                        </span>
+                      </p>
+                    {{/if}}
+                  </header>
+                  <p {{#if external_publication}}class="u-spaceTop03"{{/if}}>
+                    {{~excerpt~}}
+                      <a class="u-textNoWrap u-linkClean u-inlineBlock u-textShrink1" href="#">
+                        More
+                        {{{
+                          embed "patterns.components.icon.base"
+                          iconid="arrow-right"
+                          role="presentation"
+                        }}}
+                      </a>
+                  </p>
+                  <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+                    <div class="u-spaceRight01">
+                      <div class="Thumbnail Thumbnail--circle u-block">
+                        <img src="{{avatar}}" alt="" style="width: 2.5em;">
+                      </div>
+                    </div>
+                    <div classy="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                      <p class="u-spaceRight01 u-textNoWrap u-textSemibold">
+                        {{author}}
+                      </p>
+                      <p class="u-spaceRight01 u-textNoWrap u-textShrink1">
+                        <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
+                      </p>
+                    </div>
+                  </footer>
+                </div>
+              </article>
+            {{/unless}}{{/each}}
+          </div>
+          {{{embed "patterns.components.pagination.base"}}}
+        </div>
+        <div class="Grid-cell u-md-size1of4 u-lg-size1of4 u-flexExpandLeft u-spaceEnds01">
+          <div class="u-spaceTop01 u-spaceItems01">
+            <h3><span class="u-md-textShrink1y">Essentials</span></h3>
+            <p class="u-md-textShrink1">Frequently-cited posts we&rsquo;re particularly proud of.</p>
+            <ul class="u-listUnstyled u-spaceTop1 u-spaceBottom2 u-spaceItems1">
+              {{#each drizzle.data.posts.contents.essential}}
+                <li class="u-md-textShrink1">
+                  <a class="u-linkClean" href="#">
+                    {{title}}
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="u-spaceTop6">
+            <h3><span class="u-md-textShrink1y">Topics</span></h3>
+            <ul class="u-listUnstyled u-spaceTop1 u-spaceBottom2 u-spaceItems1">
+              {{#each drizzle.data.topics.contents}}
+                <li class="u-md-textShrink1">
+                  {{#embed "patterns.components.dot-leader.base" tag="a" href="#"
+                    class="u-linkClean u-textInheritColor" startclass="u-linkTarget"}}
+                    {{#content "start"}}{{label}}{{/content}}
+                    {{#content "end"}}
+                      <span class="u-hiddenVisually">(</span>{{count}}<span class="u-hiddenVisually"> articles)</span>
+                    {{/content}}
+                  {{/embed}}
+                </li>
+              {{/each}}
+              <li class="u-md-textShrink1">
+                <a class="u-linkClean" href="#">
+                  All topics
+                  {{{
+                    embed "patterns.components.icon.base"
+                    iconid="arrow-right"
+                    role="presentation"
+                  }}}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="u-containSpread">
+      <hr class="u-spaceSides1 u-spaceEndsNone">
+      {{> toolkit.page-segue }}
+    </div>
+  </div>
+</main>
+
+{{> toolkit.global-footer }}

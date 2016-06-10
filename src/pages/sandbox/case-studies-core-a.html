@@ -1,0 +1,65 @@
+---
+title: Case Studies A
+layout: toolkit.default
+section:
+  heading: Our work
+  subheading: Oh, the things we've built!
+notes: |
+  Work overview page.
+stylesheets:
+  - sandbox/sara-wip
+---
+
+{{! Intro }}
+<div class="u-containProse u-spaceEnds6 u-spaceItems1">
+  <p class="TextBlock">
+    We've built responsive web sites, JavaScript applications, hybrid apps, you name it—if it's mobile, we've built it.
+  </p>
+  <p>
+    We've worked on high-profile projects ranging from Walmart's responsive web redesign to the official Obama '08 iPhone App.
+  <p>
+</div>
+
+{{! Logos }}
+<div class="u-release u-bgGray u-spaceEnds6 u-padEnds3 u-md-padEnds6 u-padSides1">
+  <div class="Grid Grid--alignCenter Grid--alignMiddle u-containSpread">
+    {{#each drizzle.data.case-studies.contents.logos}}
+      <div class="Grid-cell u-size1of2 u-sm-size1of3 u-md-size1of4 u-textCenter">
+        <img src="{{this}}" class="u-pad03">
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+{{! Work Lead-in }}
+<p class="u-containProse">
+  While we can't share much of our work due to client confidentiality, we're happy to talk about our experience in general terms if you have a project and wonder if we've done something similar in the past. Here are a few case studies typical of the work we do:
+</p>
+
+{{! The Work }}
+{{#each drizzle.data.case-studies.contents.teasers}}
+  <hr class="u-spaceEnds6">
+  <div class="Grid Grid--alignMiddle Grid--withGutter u-flexJustifyBetween u-spaceEnds6 Work">
+    <div class="Grid-cell u-sm-size2of3 u-md-size1of2 u-flexExpand u-md-spaceSidesNone">
+      <img src="{{image}}" class="u-block u-flexExpand">
+    </div>
+    <div class="Grid-cell u-md-size5of12 u-spaceTop1 u-md-spaceTopNone">
+      <a href="" class="u-linkClean">
+        <h2>{{client}}</h2>
+      </a>
+      <p>
+        {{summary}}
+      </p>
+      <p>
+        <a class="u-linkClean" href="#">
+          Read more
+          {{{
+            embed "patterns.components.icon.base"
+            iconid="arrow-right"
+            role="presentation"
+          }}}
+        </a>
+      </p>
+    </div>
+  </div>
+{{/each}}

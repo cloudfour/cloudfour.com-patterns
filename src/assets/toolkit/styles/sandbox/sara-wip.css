@@ -43,3 +43,9 @@
     text-align: left !important;
   }
 }
+
+@media (--md-viewport) {
+  .Work:nth-child(4n+3) .Grid-cell:last-child {
+    order: -1;
+  }
+}

@@ -1,0 +1,70 @@
+---
+title: Team Page C
+layout: toolkit.blank
+section:
+  heading: Our Team
+  subheading: We are a small, versatile team who care passionately about the web.
+labels:
+  - inprogress
+stylesheets:
+ - sandbox/sara-wip
+notes: |
+  Our Team page with a group selfie photo.
+---
+
+
+{{{embed "patterns.components.sky.base"}}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+
+      {{! Intro and team photo }}
+      <div class="Grid Grid--alignMiddle Grid--withGutter u-pad1 u-flexJustifyBetween u-spaceBottom4">
+
+        <div class="Grid-cell u-spaceBottom1 u-md-hidden">
+          <h1 class="u-textGrow5 u-sm-textGrow6">Our team</h1>
+        </div>
+
+        <div class="Grid-cell u-sm-size3of4 u-flexExpand u-md-spaceSidesNone u-md-size1of2 u-md-flexOrderLast">
+          <div class="u-md-padTop3">
+            <img src="/images/sandbox/team-horizontal-7227.jpg" alt="The Cloud Four Team">
+          </div>
+        </div>
+
+        <div class="Grid-cell u-sm-size3of4 u-flexExpand u-md-spaceSidesNone u-spaceItems1 u-md-size1of2 u-lg-size5of12 u-textWhite">
+          <h1 class="u-textGrow5 u-sm-textGrow6 u-hidden u-md-block">Our team</h1>
+          <p class="TextBlock u-sm-textGrow2">
+            We are a small, versatile team who care passionately about the web.
+          </p>
+          <p class="">We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school. {{random "sentence"}}</p>
+        </div>
+      </div>
+    {{/content}}
+  {{/embed}}
+
+  <div class="u-bgWhite">
+    <div class="u-containSpread u-pad1">
+
+      {{! Team illustrations grid }}
+      <div class="Grid Grid--withGutter Grid--alignCenter u-spaceTop6 u-md-padTop2">
+        {{#each drizzle.data.team.contents.individuals}}
+          <div class="Grid-cell u-size1of2 u-sm-size1of3 u-md-size1of4 u-textCenter u-spaceBottom4">
+            <a href="#" class="Thumbnail Thumbnail--circle u-size7of8">
+              <img src="{{image}}">
+            </a>
+            <a href="#" class="u-linkClean u-textBold"><p>{{name}}</p></a>
+            <p class="u-textShrink1">{{title}}</p>
+          </div>
+        {{/each}}
+      </div>
+
+    </div>
+    <div class="u-containSpread">
+      <hr class="u-spaceSides1 u-spaceEndsNone">
+      {{> toolkit.page-segue }}
+    </div>
+  </div>
+</main>
+
+{{> toolkit.global-footer }}

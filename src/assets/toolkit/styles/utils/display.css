@@ -42,6 +42,10 @@
   .u-md-hidden {
     display: none !important;
   }
+
+  .u-md-block {
+    display: block !important;
+  }
 }
 
 @media (--lg-viewport) {

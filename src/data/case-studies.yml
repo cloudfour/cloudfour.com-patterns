@@ -1,0 +1,47 @@
+logos:
+  - /images/sandbox/logo_walmart.png
+  - /images/sandbox/logo_deschutes.png
+  - /images/sandbox/logo_obama-08.png
+  - /images/sandbox/logo_treasure-coast-hospice.png
+  - /images/sandbox/logo_entertainment.png
+  - /images/sandbox/logo_hautelook.png
+  - /images/sandbox/logo_ceasefire.png
+
+teasers:
+  - client: Walmart
+    image: /images/sandbox/projects_walmart-homepage.png
+    summary: |
+      Cloud Four was hired to help Walmart make the transition to responsive web design. We started with the smaller Walmart Grocery site, built a pattern library, and converted the site to responsive design in three months ahead of schedule. We then worked on the main Walmart.com site.
+    cta: Read more about Walmart's responsive design conversion.
+
+  - client: Treasure Coast Hospice
+    image: /images/sandbox/projects_tch.png
+    summary: |
+      Treasure Coast Hospice is one of the nation's leaders in hospice and palliative care. We were honored to be selected to help with their redesign and re-platforming.
+    cta: Read more about Treasure Coast Hospice's redesign.
+
+  - client: Ceasefire Oregon
+    image: /images/sandbox/projects_ceasefire.png
+    summary: |
+      Ceasefire Oregon is a small, non-profit organization working for sensible gun law reform. Their site had a wealth of information, but was difficult to navigate and read. We helped Ceasefire Oregon rebrand, redesign, and move to a new content management system.
+    cta: Read more about the Ceasefire Oregon project.
+
+  - client: Responsive Field Day
+    image: /images/sandbox/projects_rfdpdx.png
+    summary: |
+      Cloud Four organized a conference that brought the best minds in responsive web design to Portland, Oregon. The website for the event was a labor of love where we sweated each word and line of code.
+
+  # - client: Deschutes Brewery
+  #   image:
+  #   summary: |
+  #     Deschutes Brewery revamped their website with a mobile-first design, featuring on-the-go discovery of beers. On the technical side, the mobile version of the site uses geolocation to find brews, pubs, and retail outlets featuring patrons' favorite beers.
+
+  - client: Hautelook
+    image: /images/sandbox/projects_hautelook.png
+    summary: |
+     Popular fashion flash-sale site Hautelook has a passionate customer base with high expectations. Each day brings new designer labels, with sales starting at precisely scheduled times. Hautelook needed a mobile-optimized experience that would stand up to the high volume of users and wouldn't collapse from sale-starting traffic spikes.
+
+  # - client: Entertainment Productions
+  #   image:
+  #   summary: |
+  #     Entertainment Promotions is the leading provider of coupons in the US, with a 50-year history creating its iconic coupon book, and more recently online deals and printable coupons accessed via the Entertainment.com desktop website.

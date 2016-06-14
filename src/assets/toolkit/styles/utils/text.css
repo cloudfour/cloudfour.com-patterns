@@ -16,6 +16,16 @@
   font-weight: var(--font-weight-semibold) !important;
 }
 
+
+/**
+ * Text color
+ */
+
+.u-textWhite {
+  color: var(--color-white);
+}
+
+
 /**
  * Utilities for adjusting text size using modular scale
  *

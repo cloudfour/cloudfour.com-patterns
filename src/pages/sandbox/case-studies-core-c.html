@@ -1,0 +1,77 @@
+---
+title: Case Studies C
+layout: toolkit.blank
+notes: |
+  Work overview page.
+stylesheets:
+  - sandbox/sara-wip
+---
+
+
+{{{embed "patterns.components.sky.base"}}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      {{! Intro }}
+      <div class="u-containProse u-md-spaceSidesNone u-spaceBottom1 u-spaceItems1 u-pad1 u-textWhite">
+        <h1 class="u-textGrow5 u-sm-textGrow6">Our work</h1>
+        <p class="TextBlock u-sm-textGrow2">
+          We've built responsive web sites, JavaScript applications, hybrid apps, you name it—if it's mobile, we've built it.
+        </p>
+      </div>
+    {{/content}}
+  {{/embed}}
+
+  <div class="u-bgWhite">
+    <div class="u-containSpread u-pad1">
+
+    {{! The Work }}
+    {{#each drizzle.data.case-studies.contents.teasers}}
+        <div class="Grid Grid--alignMiddle Work u-spaceTop4 u-posRelative u-posRelative">
+          <div class="Grid-cell u-md-size5of12 u-borderMd">
+            <div class="u-bgGray u-padEnds1 u-md-padEnds2 ">
+              <img src="{{image_white}}" class="u-block u-size7of8 u-sm-size2of3 u-md-size5of6 u-flexExpand">
+            </div>
+          </div>
+          <div class="Grid-cell u-padEnds2 u-md-size5of12 u-flexExpandTop u-flexExpandBottom u-md-spaceLeft6">
+            <a href="" class="u-linkClean">
+              <h2 class="u-textGrow2 u-sm-textGrow2">{{client}}</h2>
+            </a>
+            <p>
+              {{summary}}
+            </p>
+            <p class="u-spaceTop1">
+              <button class="Button Button--primary ">
+                Read more
+                {{{
+                  embed "patterns.components.icon.base"
+                  iconid="arrow-right"
+                  role="presentation"
+                }}}
+              </button>
+            </p>
+          </div>
+        </div>
+    {{/each}}
+
+    {{! Logos }}
+    <div class="u-release u-spaceEnds3 u-md-spaceEnds6 u-padEnds3 u-md-padEnds6 u-padSides1">
+      <div class="Grid Grid--alignCenter Grid--alignMiddle u-containSpread">
+        {{#each drizzle.data.case-studies.contents.logos}}
+          <div class="Grid-cell u-size1of2 u-sm-size1of3 u-md-size1of4 u-textCenter">
+            <img src="{{this}}" class="u-pad03">
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+  </div>
+  <div class="u-containSpread">
+    <hr class="u-spaceSides1 u-spaceEndsNone">
+    {{> toolkit.page-segue }}
+  </div>
+</div>
+</main>
+
+{{> toolkit.global-footer }}

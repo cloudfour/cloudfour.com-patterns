@@ -1,7 +1,7 @@
 ---
 title: Case Studies B
 layout: toolkit.blank
-labels: inprogress
+labels: latest
 notes: |
   Work overview page.
 stylesheets:
@@ -15,16 +15,10 @@ stylesheets:
   {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
     {{#content "top"}}
       {{! Intro }}
-      <div class="u-containProse u-md-spaceSidesNone u-spaceBottom3 u-spaceItems1 u-pad1 u-textWhite">
+      <div class="u-containProse u-md-spaceSidesNone u-spaceBottom3 u-spaceItems1 u-pad1">
         <h1 class="u-textGrow5 u-sm-textGrow6">Our work</h1>
         <p class="TextBlock u-sm-textGrow2">
           We've built responsive web sites, JavaScript applications, hybrid apps, you name it—if it's mobile, we've built it.
-        </p>
-        <p>
-          We've worked on high-profile projects ranging from Walmart's responsive web redesign to the official Obama '08 iPhone App.
-        <p>
-        <p>
-          While we can't share much of our work due to client confidentiality, we're happy to talk about our experience in general terms if you have a project and wonder if we've done something similar in the past. Below are a few case studies typical of the work we do.
         </p>
       </div>
     {{/content}}
@@ -35,44 +29,38 @@ stylesheets:
 
     {{! The Work }}
     {{#each drizzle.data.case-studies.contents.teasers}}
-      <div class="Grid Grid--alignMiddle Grid--withGutter u-flexJustifyBetween u-spaceEnds6 Work">
-        <div class="Grid-cell u-sm-size2of3 u-md-size1of2 u-flexExpand u-md-spaceSidesNone">
-          <img src="{{image}}" class="u-block u-flexExpand">
-        </div>
-        <div class="Grid-cell u-md-size5of12 u-spaceTop1 u-md-spaceTopNone">
-          <a href="" class="u-linkClean">
-            <h2>{{client}}</h2>
-          </a>
-          <p>
-            {{summary}}
-          </p>
-          <p>
-            <a class="u-linkClean" href="#">
+        <div class="Grid Grid--alignMiddle Grid--withGutter u-padEnds6 Work">
+          <div class="Grid-cell u-sm-size3of4 u-md-size1of2 u-flexExpand u-md-spaceSidesNone u-rotateBack3">
+            <img src="{{image}}@0,5x.png" class="u-block u-md-size7of8 u-lg-size3of4 u-flexExpand">
+          </div>
+          <div class="Grid-cell u-sm-size3of4 u-md-size5of12 u-spaceTop1 u-md-spaceTopNone u-flexExpand u-md-spaceNone">
+            <a href="" class="u-linkClean">
+              <h2>{{client}}</h2>
+            </a>
+            <p>
+              {{summary}}
+            </p>
+            <button class="Button Button--primary u-spaceTop2">
               Read more
               {{{
                 embed "patterns.components.icon.base"
                 iconid="arrow-right"
                 role="presentation"
               }}}
-            </a>
-          </p>
+            </button>
+          </div>
         </div>
-      </div>
-      {{#unless @last}}
-        <hr class="u-spaceEnds6">
-      {{/unless}}
+        <hr>
     {{/each}}
 
-    <!-- {{! Logos }}
-    <div class="u-release u-bgGray u-spaceEnds6 u-padEnds3 u-md-padEnds6 u-padSides1">
-      <div class="Grid Grid--alignCenter Grid--alignMiddle u-containSpread">
-        {{#each drizzle.data.case-studies.contents.logos}}
-          <div class="Grid-cell u-size1of2 u-sm-size1of3 u-md-size1of4 u-textCenter">
-            <img src="{{this}}" class="u-pad03">
-          </div>
-        {{/each}}
-      </div>
-    </div> -->
+    {{! Logos }}
+    <div class="Grid Grid--alignCenter Grid--alignMiddle u-padEnds3 u-md-padEnds6">
+      {{#each drizzle.data.case-studies.contents.logos}}
+        <div class="Grid-cell u-size1of2 u-sm-size1of3 u-md-size1of4 u-textCenter">
+          <img src="{{this}}" class="u-pad03">
+        </div>
+      {{/each}}
+    </div>
 
   </div>
   <div class="u-containSpread">

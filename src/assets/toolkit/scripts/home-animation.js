@@ -39,7 +39,6 @@ const timelines = {
 
 const dom = (function (nodeList) {
   const result = {};
-  nodeList = Array.prototype.slice.call(nodeList);
 
   for (let i = 0; i < nodeList.length; i++) {
     let node = nodeList[i];

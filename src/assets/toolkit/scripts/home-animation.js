@@ -286,7 +286,7 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration / 4, {
     rx: 0,
     ry: 0
   }
-}, 'toWatch');
+}, 'toPhone');
 
 timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
   attr: {

@@ -33,7 +33,10 @@ module.exports = {
             './src/assets/drizzle/scripts/drizzle.js',
           // Common toolkit scripts
           'toolkit/scripts/toolkit':
-            './src/assets/toolkit/scripts/toolkit.js'
+            './src/assets/toolkit/scripts/toolkit.js',
+          // Homepage animation
+          'toolkit/scripts/home-animation':
+            './src/assets/toolkit/scripts/home-animation.js'
         },
         output: {
           path: './dist/assets',
@@ -61,7 +64,7 @@ module.exports = {
         notify: false,
         online: false,
         open: false,
-        server: {baseDir: './dist'}
+        server: { baseDir: './dist' }
       }
     }
   },
@@ -77,8 +80,12 @@ module.exports = {
         tasks: ['js']
       },
       {
-        match: ['./src/assets/toolkit/{images,icons}/**/*'],
-        tasks: ['images', 'icons']
+        match: ['./src/assets/toolkit/icons/**/*'],
+        tasks: ['icons']
+      },
+      {
+        match: ['./src/static/**/*'],
+        tasks: ['copy']
       },
       {
         match: ['./src/{data,pages,patterns,templates}/**/*'],

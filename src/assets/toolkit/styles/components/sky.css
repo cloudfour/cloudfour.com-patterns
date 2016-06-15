@@ -3,7 +3,7 @@
 :root {
   --Sky-background-color: var(--color-blue);
   --Sky-background-color-dark: color(var(--color-navy) h(+5) s(-12) l(+18));
-  --Sky-color: color(var(--Sky-background-color) s(+10%) l(85%));
+  --Sky-color: color(var(--Sky-background-color) s(+10%) l(90%));
   --Sky-color-light: var(--color-white);
 
   --Sky-clouds-image: url("/images/sky-clouds.svg");
@@ -37,7 +37,7 @@
 
 .Sky {
   position: relative; /* 1 */
-  color: var(--Sky-color);
+  color: var(--Sky-color-light);
   background-color: var(--Sky-background-color);
 }
 

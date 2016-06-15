@@ -53,7 +53,7 @@
 :root {
   --FloatLabel-dark-background-color: var(--color-blue);
   --FloatLabel-dark-color: var(--color-white);
-  --FloatLabel-dark-color-empty: inherit;
+  --FloatLabel-dark-color-empty: color(var(--FloatLabel-dark-background-color) s(+10%) l(90%));
 }
 
 .FloatLabel--dark .FloatLabel-label {

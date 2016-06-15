@@ -1,0 +1,22 @@
+---
+title: Home A
+layout: toolkit.blank
+labels:
+  - inprogress
+notes: |
+  With responsive devices SVG animation.
+---
+
+{{{embed "patterns.components.sky.base"}}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      <object data="/images/sandbox/home-animation.svg" type="image/svg+xml" style="width: 100%; height: 20em;">
+
+      </object>
+    {{/content}}
+  {{/embed}}
+</main>
+
+{{> toolkit.global-footer }}

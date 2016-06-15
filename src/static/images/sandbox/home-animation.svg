@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 320 320" width="320" height="320">
+  <defs>
+    <style>
+      .u-hidden {
+        visibility: hidden;
+      }
+
+      .u-fillDark {
+        fill: #0F1C3F;
+      }
+
+      .u-fillMid {
+        fill: #DBE5EA;
+      }
+
+      .u-fillLight {
+        fill: white;
+      }
+
+      .u-strokeMid {
+        fill: none;
+        stroke: #DBE5EA;
+      }
+    </style>
+
+    <mask id="screenMask">
+      <rect id="screenMaskMain" class="u-fillLight" x="130" y="107" width="60" height="106" rx="0" ry="0" transform="rotate(0)"/>
+      <polygon id="screenMaskPointer" class="u-fillLight" points="160 160 160 160 160 160"/>
+    </mask>
+
+  </defs>
+
+  <g id="keyboard" class="u-hidden js-scaleIn">
+    <polygon class="u-fillMid" points="67 216 253 216 283 256 37 256"/>
+    <rect class="u-fillDark" x="37" y="256" width="246" height="4"/>
+    <polygon class="u-fillLight" points="128 241 192 241 198 256 198 258 122 258 122 256"/>
+  </g>
+
+  <path id="headphones" class="u-hidden u-fillDark js-scaleIn" d="M248,138.94a88,88,0,1,0-176,0V205a16,16,0,0,0,16,16h8a8,8,0,0,0,8-8V173a8,8,0,0,0-8-8H88V138.94a72,72,0,1,1,144,0V165h-8a8,8,0,0,0-8,8v40a8,8,0,0,0,8,8h8a16,16,0,0,0,16-16V138.94Z"/>
+
+  <path id="watchband" class="u-hidden u-fillMid js-scaleIn" d="M188,148H178V130l-3.4-18.72a4,4,0,0,0-3.94-3.28H149.34a4,4,0,0,0-3.94,3.28L142,130v60l3.4,18.72a4,4,0,0,0,3.94,3.28h21.32a4,4,0,0,0,3.94-3.28L178,190V157h10a2,2,0,0,0,2-2v-5A2,2,0,0,0,188,148Z"/>
+
+  <rect id="bezel" class="u-fillDark" x="127" y="92" width="66" height="136" rx="6" ry="6" transform="rotate(0)"/>
+
+  <g id="screen" mask="url(#screenMask)">
+    <rect class="u-fillLight" width="100%" height="100%"/>
+  </g>
+
+  <g id="remote" class="u-hidden js-scaleIn">
+    <rect class="u-fillDark" x="236" y="216" width="36" height="88" rx="4" ry="4"/>
+    <circle class="u-strokeMid" stroke-width="4" cx="254" cy="242" r="9"/>
+    <circle class="u-fillMid" cx="245" cy="264" r="3"/>
+    <circle class="u-fillMid" cx="254" cy="264" r="3"/>
+    <circle class="u-fillMid" cx="263" cy="264" r="3"/>
+  </g>
+
+  <script xlink:href="/assets/toolkit/scripts/home-animation.js"/>
+</svg>

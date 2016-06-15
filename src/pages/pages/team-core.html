@@ -1,9 +1,6 @@
 ---
 title: Team Page Core
 layout: toolkit.blank
-section:
-  heading: Our Team
-  subheading: We are a small, versatile team who care passionately about the web.
 labels:
   - latest
 stylesheets:
@@ -12,7 +9,6 @@ notes: |
   Our Team page with a group selfie photo.
 ---
 
-
 {{{embed "patterns.components.sky.base"}}}
 
 <main role="main" id="main">
@@ -20,24 +16,14 @@ notes: |
     {{#content "top"}}
 
       {{! Intro and team photo }}
-      <div class="Grid Grid--alignMiddle Grid--withGutter u-pad1 u-flexJustifyBetween u-spaceBottom4">
-
-        <div class="Grid-cell u-spaceBottom1 u-md-hidden">
+      <div class="Grid Grid--alignMiddle u-flexJustifyBetween u-padEnds2">
+        <div class="Grid-cell u-md-size1of2 u-lg-size5of12 u-md-flexOrderLast">
+          <img class="u-borderMd u-block u-limitHeight3of4 u-mdh-limitHeight1of2 u-flexExpand" src="/images/team/team-photo.jpg" alt="The Cloud Four Team">
+        </div>
+        <div class="Grid-cell u-spaceItems01 u-md-size1of2 u-pad1">
           <h1 class="u-textGrow5 u-sm-textGrow6">Our team</h1>
-        </div>
-
-        <div class="Grid-cell u-sm-size3of4 u-flexExpand u-md-spaceSidesNone u-md-size1of2 u-md-flexOrderLast">
-          <div class="u-md-padTop3 ">
-            <img class="u-borderMd" src="/images/team/team-photo.jpg" alt="The Cloud Four Team">
-          </div>
-        </div>
-
-        <div class="Grid-cell u-sm-size3of4 u-flexExpand u-md-spaceSidesNone u-spaceItems1 u-md-size1of2 u-lg-size5of12 u-textWhite">
-          <h1 class="u-textGrow5 u-sm-textGrow6 u-hidden u-md-block">Our team</h1>
-          <p class="TextBlock u-sm-textGrow2">
-            We are a small, versatile team who care passionately about the web.
-          </p>
-          <p class="">We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school. {{random "sentence"}}</p>
+          <p class="u-textGrow1">
+            We are a small, versatile team who care passionately about the web. We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school.</p>
         </div>
       </div>
     {{/content}}
@@ -47,7 +33,7 @@ notes: |
     <div class="u-containSpread u-pad1">
 
       {{! Team illustrations grid }}
-      <div class="Grid Grid--withGutter Grid--alignCenter u-spaceTop6 u-md-padTop2">
+      <div class="Grid Grid--withGutter Grid--alignCenter u-spaceTop2 u-md-padTop2">
         {{#each drizzle.data.team.contents.individuals}}
           <div class="Grid-cell u-size1of2 u-sm-size1of3 u-md-size1of4 u-textCenter u-spaceBottom4">
             <a href="#" class="Thumbnail Thumbnail--circle u-size7of8">

@@ -5,7 +5,11 @@
  * See: https://github.com/greensock/GreenSock-JS/issues/71
  */
 
-import TweenMax from 'gsap';
+import TweenLite from 'gsap/src/uncompressed/TweenLite';
+import TimelineMax from 'gsap/src/uncompressed/TimelineMax';
+import EasePack from 'gsap/src/uncompressed/easing/EasePack';
+import CSSPlugin from 'gsap/src/uncompressed/plugins/CSSPlugin';
+import AttrPlugin from 'gsap/src/uncompressed/plugins/AttrPlugin';
 
 /**
  * Settings
@@ -49,7 +53,7 @@ const dom = (function (nodeList) {
   return result;
 })(document.querySelectorAll('*[id]'));
 
-TweenMax.set('.js-scaleIn', {
+TweenLite.set('.js-scaleIn', {
   visibility: 'visible',
   scale: 0,
   transformOrigin: '50% 50%'

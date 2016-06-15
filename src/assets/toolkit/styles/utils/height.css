@@ -1,0 +1,11 @@
+/* Set height limits with vh units */
+
+.u-limitHeight75 {
+  max-height: 75vh !important;
+}
+
+@media (min-height: 550px) {
+  .u-mdvh-limitHeight50 {
+    max-height: 50vh !important;
+  }
+}

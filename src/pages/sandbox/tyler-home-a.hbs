@@ -91,6 +91,73 @@ notes: |
           </p>
         </div>
       </div>
+
+      <hr class="u-spaceTop2 u-spaceBottomNone">
+
+      {{! Latest Articles }}
+      <div class="Grid Grid--withGutter u-spaceTopNone u-spaceBottom3">
+        <div class="Grid-cell u-md-size2of3">
+          <h2 class="u-spaceTop4">Featured Articles</h2>
+          <div class="Grid Grid--withGutter">
+            {{#each drizzle.data.posts.contents.recent}}{{#compare @index "<" 2}}
+              <article class="Grid-cell u-md-size1of2 u-md-padRight1 u-spaceTop1 u-spaceItems01">
+                <header>
+                  <h3><a class="u-linkClean" href="#">{{title}}</a></h3>
+                </header>
+                <p>{{~excerpt~}}</p>
+                <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+                  <div class="u-spaceRight01">
+                    <div class="Thumbnail Thumbnail--circle u-block">
+                      <img src="{{avatar}}" alt="" style="width: 2.5em;">
+                    </div>
+                  </div>
+                  <div classy="u-flex u-flexWrap u-flexAlignItemsBaseline">
+                    <p class="u-spaceRight01 u-textNoWrap u-textSemibold">
+                      {{author}}
+                    </p>
+                    <p class="u-spaceRight01 u-textNoWrap u-textShrink1">
+                      <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
+                    </p>
+                  </div>
+                </footer>
+              </article>
+            {{/compare}}{{/each}}
+          </div>
+          <p class="u-spaceTop1">
+            <a class="Button" href="#">
+              See all
+              {{{
+                embed "patterns.components.icon.base"
+                class="u-spaceLeft06"
+                iconid="arrow-right"
+                role="presentation"
+              }}}
+            </a>
+          </p>
+        </div>
+
+        {{! Upcoming Talks }}
+        <div class="Grid-cell u-spaceItems1 u-md-size1of4 u-md-flexExpandLeft">
+          <h2 class="u-spaceTop4">Upcoming Talks</h2>
+          {{#each drizzle.data.events.contents.upcoming}}
+            {{#compare @index "<" 3}}
+              <article class="u-md-textShrink1">
+                <a href="{{url}}" class="u-flex u-flexAlignItemsCenter u-linkClean u-textInheritColor">
+                  {{#embed "patterns.components.calendar-date.base" event=this}}{{/embed}}
+                  <div class="u-spaceLeft">
+                    <h3 class="u-linkTarget">{{name}}</h3>
+                    <p class="u-textNoWrap u-textSemibold">{{location}}</p>
+                    <p>
+                      Speaker:
+                      {{#each speakers}}{{#if @index}}, {{/if}}{{.}}{{/each}}
+                    </p>
+                  </div>
+                </a>
+              </article>
+            {{/compare}}
+          {{/each}}
+        </div>
+      </div>
     </div>
     <div class="u-containSpread">
       <hr class="u-spaceSides1 u-spaceEndsNone">

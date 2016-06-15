@@ -1,3 +1,15 @@
 /** @define utilities */
 
 @import "suitcss-utils-size";
+
+/* Set height limits with vh units */
+
+.u-limitHeight3of4 {
+  max-height: 75vh !important;
+}
+
+@media (--mdh-viewport) {
+  .u-mdh-limitHeight1of2 {
+    max-height: 50vh !important;
+  }
+}

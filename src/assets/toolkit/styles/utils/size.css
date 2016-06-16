@@ -4,6 +4,10 @@
 
 /* Set height limits with vh units */
 
+.u-limitHeight2of3 {
+  max-height: calc(100vh * 2 / 3) !important;
+}
+
 .u-limitHeight3of4 {
   max-height: 75vh !important;
 }

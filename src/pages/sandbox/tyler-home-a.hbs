@@ -12,16 +12,19 @@ notes: |
 <main role="main" id="main">
   {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
     {{#content "top"}}
-      <div class="Grid Grid--alignMiddle">
+      <div class="Grid Grid--alignMiddle u-md-spaceBottom2">
         <div class="Grid-cell u-md-size1of2 u-md-flexOrderLast">
           <div class="u-lg-pullSides1">
-            <object data="/images/sandbox/home-animation.svg" type="image/svg+xml" style="width: 100%; height: 20em;">
-              {{! TODO: Fallback (GIF, maybe?) }}
-            </object>
+            <div class="FlexEmbed">
+              <div class="FlexEmbed-ratio FlexEmbed-ratio--4by3"></div>
+              <object class="FlexEmbed-content" data="/images/sandbox/home-animation.svg" type="image/svg+xml">
+                {{! TODO: Fallback (GIF, maybe?) }}
+              </object>
+            </div>
           </div>
         </div>
         <div class="Grid-cell u-md-size1of2">
-          <div class="u-padSides1 u-padBottom1 u-md-padRightNone u-md-padEnds1 u-md-padBottom4 u-spaceItems1">
+          <div class="u-padSides1 u-padBottom1 u-md-padRightNone u-md-padEnds1 u-spaceItems1">
             <h1 class="u-textGrow2 u-sm-textGrow3">
               We design and develop responsive web&shy;sites and progressive <span class="u-textNoWrap">web apps.</span>
             </h1>
@@ -48,8 +51,11 @@ notes: |
     <div class="u-containSpread u-pad1 u-spaceItems1">
       <div class="Grid Grid--withGutter">
         <div class="Grid-cell u-md-size1of2 u-spaceEnds2 u-spaceItems1">
-          <div class="u-bgGray u-pad2 u-pullSides1 u-md-spaceSidesNone" style="overflow: hidden; max-height: 11.25rem;">
-            <img src="/images/case-studies/walmart-475.png" class="u-rotateBack3 u-block u-flexExpandLeft u-flexExpandRight u-size5of6" style="visibility:hidden;">
+          <div class="FlexEmbed u-pullSides1 u-md-spaceSidesNone">
+            <div class="FlexEmbed-ratio FlexEmbed-ratio--16by9"></div>
+            <div class="FlexEmbed-content u-bgGray u-pad2">
+              
+            </div>
           </div>
           <h2>Our goals are audacious.</h2>
           <p class="u-spaceTop06 u-md-padRight1">We believe the web should be dependable, fast and inclusive. We believe a small company like ours can have an outsized impact on our customers and the world. We bring this perspective to everything we do.</p>
@@ -66,8 +72,11 @@ notes: |
           </p>
         </div>
         <div class="Grid-cell u-md-size1of2 u-spaceEnds2 u-spaceItems1">
-          <div class="u-bgGray u-pad2 u-pullSides1 u-md-spaceSidesNone" style="overflow: hidden; max-height: 11.25rem;">
-            <img src="/images/case-studies/walmart-475.png" class="u-rotateBack3 u-block u-flexExpandLeft u-flexExpandRight u-size5of6">
+          <div class="FlexEmbed u-pullSides1 u-md-spaceSidesNone">
+            <div class="FlexEmbed-ratio FlexEmbed-ratio--16by9"></div>
+            <div class="FlexEmbed-content u-bgGray u-pad2">
+              <img src="/images/case-studies/walmart-475.png" class="u-rotateBack3 u-block u-flexExpandLeft u-flexExpandRight u-size5of6">
+            </div>
           </div>
           <h2>We know the terrain.</h2>
           <p class="u-spaceTop06 u-md-padRight1">Responsive websites, JavaScript applications, hybrid apps, pattern libraries, you name it… if it’s mobile, we’ve built it.</p>

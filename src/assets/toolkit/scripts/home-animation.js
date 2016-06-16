@@ -74,7 +74,7 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toTablet');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 100,
     y: 80,
@@ -82,6 +82,12 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
     height: 160
   },
   ease: settings.morph.ease
+}, 'toTablet');
+
+timelines.morph.set(dom.screenContent, {
+  attr: {
+    class: 'is-md'
+  }
 }, 'toTablet');
 
 timelines.morph.addLabel('toTabletLandscape', settings.morph.delay);
@@ -127,7 +133,7 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toLaptop');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 70,
     y: 84,
@@ -161,7 +167,7 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toTV');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 0,
     y: 67,
@@ -175,6 +181,12 @@ timelines.morph.to(dom.remote, settings.morph.duration, {
   rotation: '-15deg',
   scale: 1,
   ease: settings.morph.ease
+}, 'toTV');
+
+timelines.morph.set(dom.screenContent, {
+  attr: {
+    class: 'is-lg'
+  }
 }, 'toTV');
 
 timelines.morph.addLabel('toAudio', settings.morph.delay);
@@ -191,6 +203,16 @@ timelines.morph.to(dom.bezel, settings.morph.duration / 4, {
     width: 0,
     height: 0
   }
+}, 'toAudio');
+
+timelines.morph.to(dom.screenContent, settings.morph.duration, {
+  attr: {
+    x: 135,
+    y: 145,
+    width: 50,
+    height: 50
+  },
+  ease: settings.morph.ease
 }, 'toAudio');
 
 timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
@@ -215,6 +237,12 @@ timelines.morph.to(dom.screenMaskPointer, settings.morph.duration, {
 timelines.morph.to(dom.headphones, settings.morph.duration, {
   scale: 1,
   ease: settings.morph.ease
+}, 'toAudio');
+
+timelines.morph.set(dom.screenContent, {
+  attr: {
+    class: 'is-sm'
+  }
 }, 'toAudio');
 
 timelines.morph.addLabel('toWatch', settings.morph.delay);
@@ -248,7 +276,7 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration / 4, {
   }
 }, 'toWatch');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 140,
     y: 136,
@@ -288,7 +316,7 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration / 4, {
   }
 }, 'toPhone');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 130,
     y: 107,

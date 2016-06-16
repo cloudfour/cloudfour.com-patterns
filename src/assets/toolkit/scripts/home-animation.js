@@ -12,6 +12,25 @@ import CSSPlugin from 'gsap/src/uncompressed/plugins/CSSPlugin';
 import AttrPlugin from 'gsap/src/uncompressed/plugins/AttrPlugin';
 
 /**
+ * Shuffle arrays or nodeLists
+ *
+ * See: http://thenewcode.com/1095/Shuffling-and-Sorting-JavaScript-Arrays
+ */
+
+function shuffle (list) {
+  list = Array.prototype.slice.call(list);
+
+  for (let i = list.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
+  }
+
+  return list;
+}
+
+/**
  * Settings
  */
 
@@ -20,6 +39,12 @@ const settings = {
     delay: '+=1',
     duration: 0.5,
     ease: Elastic.easeOut.config(0.5, 0.4)
+  },
+  carousel: {
+    delay: '+=2',
+    duration: 1,
+    ease: Power2.easeInOut,
+    offset: 50
   }
 };
 
@@ -29,6 +54,9 @@ const settings = {
 
 const timelines = {
   morph: new TimelineMax({
+    repeat: -1
+  }),
+  carousel: new TimelineMax({
     repeat: -1
   })
 };
@@ -52,7 +80,14 @@ const dom = (function (nodeList) {
   return result;
 })(document.querySelectorAll('*[id]'));
 
-TweenLite.set('.js-scaleIn', {
+dom.scaleIn = document.querySelectorAll('.js-scaleIn');
+dom.carouselItems = shuffle(document.querySelectorAll('.js-carouselItem'));
+
+/**
+ * Initialize elements that will scale in
+ */
+
+TweenLite.set(dom.scaleIn, {
   visibility: 'visible',
   scale: 0,
   transformOrigin: '50% 50%'
@@ -91,6 +126,16 @@ timelines.morph.set(dom.screenContent, {
 }, 'toTablet');
 
 timelines.morph.addLabel('toTabletLandscape', settings.morph.delay);
+
+timelines.morph.to(dom.screenContent, settings.morph.duration, {
+  attr: {
+    x: 80,
+    y: 100,
+    width: 160,
+    height: 120
+  },
+  ease: Back.easeInOut.config(1.7)
+}, 'toTabletLandscape');
 
 timelines.morph.to([dom.bezel, dom.screenMaskMain], settings.morph.duration, {
   attr: {
@@ -207,10 +252,10 @@ timelines.morph.to(dom.bezel, settings.morph.duration / 4, {
 
 timelines.morph.to(dom.screenContent, settings.morph.duration, {
   attr: {
-    x: 135,
-    y: 145,
-    width: 50,
-    height: 50
+    x: 125,
+    y: 135,
+    width: 70,
+    height: 70
   },
   ease: settings.morph.ease
 }, 'toAudio');
@@ -325,3 +370,39 @@ timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.durat
   },
   ease: settings.morph.ease
 }, 'toPhone');
+
+/**
+ * Carousel
+ */
+
+var currentItem = 0;
+
+TweenLite.set(dom.carouselItems.slice(1), {
+  x: 320
+});
+
+setInterval(() => {
+  const current = dom.carouselItems[currentItem];
+
+  currentItem = currentItem + 1;
+
+  if (currentItem >= dom.carouselItems.length) {
+    currentItem = 0;
+  }
+
+  const next = dom.carouselItems[currentItem];
+
+  TweenLite.fromTo(current, 1, {
+    x: 0
+  }, {
+    x: -320,
+    ease: Power2.easeInOut
+  });
+
+  TweenLite.fromTo(next, 1, {
+    x: 320
+  }, {
+    x: 0,
+    ease: Power2.easeInOut
+  });
+}, 3000);

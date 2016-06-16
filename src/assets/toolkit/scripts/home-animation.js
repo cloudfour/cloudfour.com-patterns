@@ -252,9 +252,9 @@ timelines.morph.to(dom.bezel, settings.morph.duration / 4, {
 
 timelines.morph.to(dom.screenContent, settings.morph.duration, {
   attr: {
-    x: 125,
+    x: 117,
     y: 135,
-    width: 70,
+    width: 86,
     height: 70
   },
   ease: settings.morph.ease

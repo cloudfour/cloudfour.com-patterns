@@ -12,6 +12,25 @@ import CSSPlugin from 'gsap/src/uncompressed/plugins/CSSPlugin';
 import AttrPlugin from 'gsap/src/uncompressed/plugins/AttrPlugin';
 
 /**
+ * Shuffle arrays or nodeLists
+ *
+ * See: http://thenewcode.com/1095/Shuffling-and-Sorting-JavaScript-Arrays
+ */
+
+function shuffle (list) {
+  list = Array.prototype.slice.call(list);
+
+  for (let i = list.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
+  }
+
+  return list;
+}
+
+/**
  * Settings
  */
 
@@ -20,8 +39,24 @@ const settings = {
     delay: '+=1',
     duration: 0.5,
     ease: Elastic.easeOut.config(0.5, 0.4)
+  },
+  carousel: {
+    duration: 0.8,
+    ease: Power3.easeInOut,
+    skipEvery: 1
   }
 };
+
+/**
+ * State
+ */
+
+const state = {
+  carousel: {
+    current: 0,
+    called: 0
+  }
+}
 
 /**
  * Timelines
@@ -52,11 +87,65 @@ const dom = (function (nodeList) {
   return result;
 })(document.querySelectorAll('*[id]'));
 
-TweenLite.set('.js-scaleIn', {
+dom.scaleIn = document.querySelectorAll('.js-scaleIn');
+dom.carouselItems = shuffle(document.querySelectorAll('.js-carouselItem'));
+
+/**
+ * Initialize elements that will scale in
+ */
+
+TweenLite.set(dom.scaleIn, {
   visibility: 'visible',
   scale: 0,
   transformOrigin: '50% 50%'
 });
+
+/**
+ * Initialize carousel
+ */
+
+TweenLite.set(dom.carouselItems[state.carousel.current], {
+  visibility: 'visible'
+});
+
+function carouselStep () {
+  state.carousel.called++;
+
+  if (state.carousel.called <= settings.carousel.skipEvery) {
+    return;
+  }
+
+  var current = dom.carouselItems[state.carousel.current];
+  var offset = parseFloat(dom.screenContent.getAttribute('width'));
+  var nextIndex = state.carousel.current + 1;
+  var next;
+
+  if (nextIndex >= dom.carouselItems.length) {
+    nextIndex = 0;
+  }
+
+  next = dom.carouselItems[nextIndex];
+
+  TweenLite.to(current, settings.carousel.duration, {
+    x: -offset,
+    ease: settings.carousel.ease,
+    onComplete: () => TweenLite.set(current, {
+      x: 0,
+      visibility: 'hidden'
+    })
+  });
+
+  TweenLite.fromTo(next, settings.carousel.duration, {
+    x: offset,
+    visibility: 'visible'
+  }, {
+    x: 0,
+    ease: settings.carousel.ease
+  });
+
+  state.carousel.current = nextIndex;
+  state.carousel.called = 0;
+}
 
 /**
  * Device morphing
@@ -74,7 +163,7 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toTablet');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 100,
     y: 80,
@@ -84,7 +173,19 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toTablet');
 
+timelines.morph.addCallback(carouselStep);
+
 timelines.morph.addLabel('toTabletLandscape', settings.morph.delay);
+
+timelines.morph.to(dom.screenContent, settings.morph.duration, {
+  attr: {
+    x: 80,
+    y: 100,
+    width: 160,
+    height: 120
+  },
+  ease: Back.easeInOut.config(1.7)
+}, 'toTabletLandscape');
 
 timelines.morph.to([dom.bezel, dom.screenMaskMain], settings.morph.duration, {
   attr: {
@@ -113,6 +214,8 @@ timelines.morph.set(dom.screenMaskMain, {
   }
 });
 
+timelines.morph.addCallback(carouselStep);
+
 timelines.morph.addLabel('toLaptop', settings.morph.delay);
 
 timelines.morph.to(dom.bezel, settings.morph.duration, {
@@ -127,7 +230,7 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toLaptop');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 70,
     y: 84,
@@ -141,6 +244,8 @@ timelines.morph.to(dom.keyboard, settings.morph.duration, {
   scale: 1,
   ease: settings.morph.ease
 }, 'toLaptop');
+
+timelines.morph.addCallback(carouselStep);
 
 timelines.morph.addLabel('toTV', settings.morph.delay);
 
@@ -161,7 +266,7 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toTV');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 0,
     y: 67,
@@ -177,6 +282,8 @@ timelines.morph.to(dom.remote, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toTV');
 
+timelines.morph.addCallback(carouselStep);
+
 timelines.morph.addLabel('toAudio', settings.morph.delay);
 
 timelines.morph.to(dom.remote, settings.morph.duration / 4, {
@@ -191,6 +298,16 @@ timelines.morph.to(dom.bezel, settings.morph.duration / 4, {
     width: 0,
     height: 0
   }
+}, 'toAudio');
+
+timelines.morph.to(dom.screenContent, settings.morph.duration, {
+  attr: {
+    x: 117,
+    y: 135,
+    width: 86,
+    height: 70
+  },
+  ease: settings.morph.ease
 }, 'toAudio');
 
 timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
@@ -216,6 +333,8 @@ timelines.morph.to(dom.headphones, settings.morph.duration, {
   scale: 1,
   ease: settings.morph.ease
 }, 'toAudio');
+
+timelines.morph.addCallback(carouselStep);
 
 timelines.morph.addLabel('toWatch', settings.morph.delay);
 
@@ -248,7 +367,7 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration / 4, {
   }
 }, 'toWatch');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 140,
     y: 136,
@@ -262,6 +381,8 @@ timelines.morph.to(dom.watchband, settings.morph.duration, {
   scale: 1,
   ease: settings.morph.ease
 }, 'toWatch');
+
+timelines.morph.addCallback(carouselStep);
 
 timelines.morph.addLabel('toPhone', settings.morph.delay);
 
@@ -288,7 +409,7 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration / 4, {
   }
 }, 'toPhone');
 
-timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
+timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.duration, {
   attr: {
     x: 130,
     y: 107,
@@ -297,3 +418,5 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
   },
   ease: settings.morph.ease
 }, 'toPhone');
+
+timelines.morph.addCallback(carouselStep);

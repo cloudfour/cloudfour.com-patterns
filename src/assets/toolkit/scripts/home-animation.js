@@ -41,12 +41,22 @@ const settings = {
     ease: Elastic.easeOut.config(0.5, 0.4)
   },
   carousel: {
-    delay: '+=2',
-    duration: 1,
-    ease: Power2.easeInOut,
-    offset: 50
+    duration: 0.8,
+    ease: Power3.easeInOut,
+    skipEvery: 1
   }
 };
+
+/**
+ * State
+ */
+
+const state = {
+  carousel: {
+    current: 0,
+    called: 0
+  }
+}
 
 /**
  * Timelines
@@ -54,9 +64,6 @@ const settings = {
 
 const timelines = {
   morph: new TimelineMax({
-    repeat: -1
-  }),
-  carousel: new TimelineMax({
     repeat: -1
   })
 };
@@ -94,6 +101,53 @@ TweenLite.set(dom.scaleIn, {
 });
 
 /**
+ * Initialize carousel
+ */
+
+TweenLite.set(dom.carouselItems[state.carousel.current], {
+  visibility: 'visible'
+});
+
+function carouselStep () {
+  state.carousel.called++;
+
+  if (state.carousel.called <= settings.carousel.skipEvery) {
+    return;
+  }
+
+  var current = dom.carouselItems[state.carousel.current];
+  var offset = parseFloat(dom.screenContent.getAttribute('width'));
+  var nextIndex = state.carousel.current + 1;
+  var next;
+
+  if (nextIndex >= dom.carouselItems.length) {
+    nextIndex = 0;
+  }
+
+  next = dom.carouselItems[nextIndex];
+
+  TweenLite.to(current, settings.carousel.duration, {
+    x: -offset,
+    ease: settings.carousel.ease,
+    onComplete: () => TweenLite.set(current, {
+      x: 0,
+      visibility: 'hidden'
+    })
+  });
+
+  TweenLite.fromTo(next, settings.carousel.duration, {
+    x: offset,
+    visibility: 'visible'
+  }, {
+    x: 0,
+    ease: settings.carousel.ease
+  });
+
+  state.carousel.current = nextIndex;
+  state.carousel.called = 0;
+}
+
+/**
  * Device morphing
  */
 
@@ -119,11 +173,7 @@ timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.durat
   ease: settings.morph.ease
 }, 'toTablet');
 
-timelines.morph.set(dom.screenContent, {
-  attr: {
-    class: 'is-md'
-  }
-}, 'toTablet');
+timelines.morph.addCallback(carouselStep);
 
 timelines.morph.addLabel('toTabletLandscape', settings.morph.delay);
 
@@ -164,6 +214,8 @@ timelines.morph.set(dom.screenMaskMain, {
   }
 });
 
+timelines.morph.addCallback(carouselStep);
+
 timelines.morph.addLabel('toLaptop', settings.morph.delay);
 
 timelines.morph.to(dom.bezel, settings.morph.duration, {
@@ -192,6 +244,8 @@ timelines.morph.to(dom.keyboard, settings.morph.duration, {
   scale: 1,
   ease: settings.morph.ease
 }, 'toLaptop');
+
+timelines.morph.addCallback(carouselStep);
 
 timelines.morph.addLabel('toTV', settings.morph.delay);
 
@@ -228,11 +282,7 @@ timelines.morph.to(dom.remote, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toTV');
 
-timelines.morph.set(dom.screenContent, {
-  attr: {
-    class: 'is-lg'
-  }
-}, 'toTV');
+timelines.morph.addCallback(carouselStep);
 
 timelines.morph.addLabel('toAudio', settings.morph.delay);
 
@@ -284,11 +334,7 @@ timelines.morph.to(dom.headphones, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toAudio');
 
-timelines.morph.set(dom.screenContent, {
-  attr: {
-    class: 'is-sm'
-  }
-}, 'toAudio');
+timelines.morph.addCallback(carouselStep);
 
 timelines.morph.addLabel('toWatch', settings.morph.delay);
 
@@ -336,6 +382,8 @@ timelines.morph.to(dom.watchband, settings.morph.duration, {
   ease: settings.morph.ease
 }, 'toWatch');
 
+timelines.morph.addCallback(carouselStep);
+
 timelines.morph.addLabel('toPhone', settings.morph.delay);
 
 timelines.morph.to(dom.watchband, settings.morph.duration / 2, {
@@ -371,38 +419,4 @@ timelines.morph.to([dom.screenMaskMain, dom.screenContent], settings.morph.durat
   ease: settings.morph.ease
 }, 'toPhone');
 
-/**
- * Carousel
- */
-
-var currentItem = 0;
-
-TweenLite.set(dom.carouselItems.slice(1), {
-  x: 320
-});
-
-setInterval(() => {
-  const current = dom.carouselItems[currentItem];
-
-  currentItem = currentItem + 1;
-
-  if (currentItem >= dom.carouselItems.length) {
-    currentItem = 0;
-  }
-
-  const next = dom.carouselItems[currentItem];
-
-  TweenLite.fromTo(current, 1, {
-    x: 0
-  }, {
-    x: -320,
-    ease: Power2.easeInOut
-  });
-
-  TweenLite.fromTo(next, 1, {
-    x: 320
-  }, {
-    x: 0,
-    ease: Power2.easeInOut
-  });
-}, 3000);
+timelines.morph.addCallback(carouselStep);

@@ -3,17 +3,8 @@
   viewBox="0 10 320 300" width="320" height="300">
   <defs>
     <style>
-      .u-hidden,
-      .u-sm-visible,
-      .u-md-visible,
-      .u-lg-visible {
+      .u-hidden {
         visibility: hidden;
-      }
-
-      .is-sm .u-sm-visible,
-      .is-md .u-md-visible,
-      .is-lg .u-lg-visible {
-        visibility: visible;
       }
 
       .u-fillDark {
@@ -39,19 +30,7 @@
     </mask>
   </defs>
 
-  <!-- Icons in screen -->
-
-  <symbol id="icon-circle" viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="40" fill="blue"/>
-  </symbol>
-
-  <symbol id="icon-diamond" viewBox="0 0 400 400">
-    <rect x="100" y="100" width="200" height="200" fill="red" transform="rotate(45 200 200)"/>
-  </symbol>
-
-  <symbol id="icon-square" viewBox="0 0 400 400">
-    <rect x="100" y="100" width="200" height="200" fill="green"/>
-  </symbol>
+  <!-- Carousel Icon Definitions -->
 
   <symbol id="icon-wineGlass" viewBox="-10 -10 60 96">
     <path d="M40,15.61A42.17,42.17,0,0,0,36.58,0H3.42A42.17,42.17,0,0,0,0,15.61C0,27.28,7.5,39,20,39S40,27.28,40,15.61Z" fill="#fff" stroke="#7cbada" stroke-width="3"/>
@@ -66,16 +45,6 @@
     <path d="M39.79,52.51C39.79,48.38,35,38.34,27,33.89V27H13v6.89C5,38.34.21,48.38,0.21,52.51L0,125a4.89,4.89,0,0,0,4.81,5H35.15A4.89,4.89,0,0,0,40,125Z" fill="#a5375c"/>
     <rect x="3" y="56" width="34" height="48" fill="#f8e9df"/>
     <path d="M27,4c0-2.74-2-4-4.66-4H17.66C15,0,13,1.25,13,4V28H27V4Z" fill="#9caab1"/>
-  </symbol>
-
-  <symbol id="icon-wineRack" viewBox="0 0 244 160">
-    <use xlink:href="#icon-wineBottle" width="60" height="150" x="2"/>
-    <use xlink:href="#icon-wineBottle" width="60" height="150" x="62"/>
-    <use xlink:href="#icon-wineBottle" width="60" height="150" x="122"/>
-    <use xlink:href="#icon-wineBottle" width="60" height="150" x="182"/>
-    <rect x="0" y="64" width="244" height="28" fill="#7A6338"/>
-    <rect x="0" y="100" width="244" height="28" fill="#7A6338"/>
-    <rect x="6" y="76" width="232" height="70" fill="none" stroke="#7A6338" stroke-width="6"/>
   </symbol>
 
   <symbol id="icon-umbrella" viewBox="-20 -20 300 270">
@@ -101,7 +70,7 @@
     <circle cx="79" cy="79" r="28" fill="#456bd9"/>
   </symbol>
 
-  <!-- Animated components -->
+  <!-- Animated Components -->
 
   <g id="keyboard" class="u-hidden js-scaleIn">
     <polygon class="u-fillMid" points="67 216 253 216 283 256 37 256"/>
@@ -117,14 +86,10 @@
 
   <g id="screen" mask="url(#screenMask)">
     <rect class="u-fillLight" width="100%" height="100%"/>
-    <svg class="is-sm" id="screenContent" x="130" y="107" width="60" height="106">
-      <g class="js-carouselItem">
-        <use class="u-sm-visible" xlink:href="#icon-wineGlass"/>
-        <use class="u-md-visible" xlink:href="#icon-wineBottle"/>
-        <use class="u-lg-visible" xlink:href="#icon-wineRack"/>
-      </g>
-      <use class="js-carouselItem" xlink:href="#icon-umbrella"/>
-      <use class="js-carouselItem" xlink:href="#icon-rocket"/>
+    <svg id="screenContent" x="130" y="107" width="60" height="106">
+      <use class="js-carouselItem u-hidden" xlink:href="#icon-wineGlass"/>
+      <use class="js-carouselItem u-hidden" xlink:href="#icon-umbrella"/>
+      <use class="js-carouselItem u-hidden" xlink:href="#icon-rocket"/>
     </svg>
   </g>
 

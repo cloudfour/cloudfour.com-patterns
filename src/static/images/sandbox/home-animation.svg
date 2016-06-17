@@ -70,6 +70,47 @@
     <circle cx="79" cy="79" r="28" fill="#456bd9"/>
   </symbol>
 
+  <symbol id="icon-social" viewBox="0 -10 110 120">
+    <path d="M40,78.44h0c0-4.54-7.52-8.33-12.62-9a7.56,7.56,0,0,1-.84-3.07H26.43c2-1.84,3.46-4.91,4.29-8.62A8.86,8.86,0,0,0,22.56,47c-4.81-.27-9.46,3.72-9.26,9.77,0.13,4,1.53,7.53,3.84,9.59,0,0,.38,2.86-0.53,3.14C11.63,70.38,5,74.06,5,78.44H5c0,5-.54,7.88,3.08,7.53H35.63C40.57,86,40,83.46,40,78.44Z" fill="#f26941"/>
+    <path d="M105,78.44c0-4.55-7.52-8.33-12.62-9a7.51,7.51,0,0,1-.8-2.75c2.41-2,3.73-5.69,4.1-10.16A8.82,8.82,0,0,0,86.12,47c-4.8.41-8.87,5-7.85,11a14.11,14.11,0,0,0,4.3,8.36h0s0,2.86-.95,3.15c-5,.87-11.58,4.55-11.58,8.93,0,5-.54,7.88,3.08,7.53h27.52C105.57,86,105,83.46,105,78.44Z" fill="#35c98d"/>
+    <path d="M72.48,86.44c0-4.55-7.52-8.33-12.62-9a7.51,7.51,0,0,1-.8-2.75c2.41-2,3.73-5.69,4.1-10.16A8.82,8.82,0,0,0,53.62,55c-4.8.41-8.87,5-7.85,11a14.11,14.11,0,0,0,4.3,8.36h0s0,2.86-.95,3.15c-5,.87-11.58,4.55-11.58,8.93,0,5-.54,7.88,3.08,7.53H68.13C73.07,94,72.48,91.46,72.48,86.44Z" fill="#456bd9"/>
+    <path d="M81,21C81,10.51,72.12,2,55,2S29,10.51,29,21c0,6.52,3.43,12.27,10.14,15.69-0.76,2.26-2.34,6-5.05,8.06,0,0,6.07,1.36,11.46-5.78a38.35,38.35,0,0,0,5.75.87L55,49.76l3.7-9.92A38.35,38.35,0,0,0,64.45,39c5.39,7.14,11.46,5.78,11.46,5.78-2.71-2.08-4.3-5.8-5.05-8.06C77.57,33.27,81,27.52,81,21Z" fill="#B0D6E9"/>
+  </symbol>
+
+  <symbol id="icon-barGraph" viewBox="-50 -30 190 160">
+    <rect x="0" y="20" width="30" height="80" fill="#F26941" rx="4" ry="4"/>
+    <rect x="35" y="0" width="30" height="100" fill="#35C98D" rx="4" ry="4"/>
+    <rect x="70" y="40" width="30" height="60" fill="#456BD9" rx="4" ry="4"/>
+    <polyline points="-10 -5 -10 110 105 110" fill="none" stroke="#DBE5EA" stroke-width="10" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="icon-orbits" viewBox="-10 -10 120 120">
+    <g fill="none" stroke="#0F1C3F">
+      <circle cx="50" cy="50" r="48"/>
+      <circle cx="50" cy="50" r="38"/>
+      <circle cx="50" cy="50" r="28"/>
+    </g>
+    <circle cx="50" cy="50" r="18" fill="#E2C733"/>
+    <circle cx="16" cy="16" r="5" fill="#F26941"/>
+    <circle cx="77" cy="23" r="5" fill="#456BD9"/>
+    <circle cx="31" cy="69" r="5" fill="#F14CA3"/>
+  </symbol>
+
+  <symbol id="icon-trees" viewBox="-10 -20 103 115">
+    <polygon points="35,70 59,10 83,70" fill="#249579"/>
+    <polygon points="0,70 30,0 60,70" fill="#35C98D"/>
+    <g id="limbs" stroke="#DBE5EA" stroke-width="3">
+      <line x1="30" y1="30" x2="30" y2="70"/>
+      <line x1="30" y1="45" x2="40" y2="37"/>
+      <line x1="21" y1="44" x2="30" y2="50"/>
+      <line x1="30" y1="55" x2="40" y2="47"/>
+    </g>
+  </symbol>
+
+  <symbol id="icon-heart" viewBox="0 0 60 60">
+    <path d="M30,47.25C50.77,32.73,50,27.62,50,23.61s-3.75-8.86-10-8.86-10,5.9-10,5.9-3.75-5.9-10-5.9-10,4.84-10,8.86S9.23,32.73,30,47.25Z" fill="#f14ca3"/>
+  </symbol>
+
   <!-- Animated Components -->
 
   <g id="keyboard" class="u-hidden js-scaleIn">
@@ -90,6 +131,11 @@
       <use class="js-carouselItem u-hidden" xlink:href="#icon-wineGlass"/>
       <use class="js-carouselItem u-hidden" xlink:href="#icon-umbrella"/>
       <use class="js-carouselItem u-hidden" xlink:href="#icon-rocket"/>
+      <use class="js-carouselItem u-hidden" xlink:href="#icon-social"/>
+      <use class="js-carouselItem u-hidden" xlink:href="#icon-barGraph"/>
+      <use class="js-carouselItem u-hidden" xlink:href="#icon-orbits"/>
+      <use class="js-carouselItem u-hidden" xlink:href="#icon-trees"/>
+      <use class="js-carouselItem u-hidden" xlink:href="#icon-heart"/>
     </svg>
   </g>
 

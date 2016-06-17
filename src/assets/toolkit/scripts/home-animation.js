@@ -37,7 +37,7 @@ function shuffle (list) {
 const settings = {
   morph: {
     delay: '+=1',
-    duration: 0.5,
+    duration: 0.6,
     ease: Elastic.easeOut.config(0.5, 0.4)
   },
   carousel: {

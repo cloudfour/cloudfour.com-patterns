@@ -5,6 +5,9 @@
 @use postcss-easings;
 @use postcss-discard-comments;
 @use postcss-discard-empty;
+@use postcss-inline-svg {
+  path: "./src/static/images"
+}
 
 /**
  * Theme definition

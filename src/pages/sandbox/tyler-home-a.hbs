@@ -47,14 +47,14 @@ notes: |
   <div class="u-bgWhite">
     <div class="u-containSpread u-pad1 u-spaceItems1">
       <div class="Grid Grid--withGutter">
-        <div class="Grid-cell u-flex u-flexCol u-md-size1of2 u-spaceEnds2 u-spaceItems1">
+        <div class="Grid-cell u-flex u-flexCol u-md-size1of2 u-spaceEnds2">
           <div class="FlexEmbed u-pullSides1 u-md-spaceSidesNone">
             <div class="FlexEmbed-ratio FlexEmbed-ratio--16by9"></div>
             <img class="FlexEmbed-content" src="/images/sandbox/home-goals.svg" alt="">
           </div>
-          <h2>Our goals are audacious.</h2>
-          <p class="u-spaceTop02 u-md-padRight1 u-flexGrow1">We believe the web should be dependable, fast and inclusive. We believe a small company like ours can have an outsized impact on our customers and the world. We bring this perspective to everything we do.</p>
-          <p>
+          <h2 class="u-spaceTop1">Our goals are audacious.</h2>
+          <p class="u-spaceTop02 u-spaceBottom1 u-md-padRight1">We believe the web should be dependable, fast and inclusive. We believe a small company like ours can have an outsized impact on our customers and the world. We bring this perspective to everything we do.</p>
+          <p class="u-flexExpandTop">
             <a href="#" class="Button Button--default">
               What sets us apart
               {{{
@@ -66,16 +66,16 @@ notes: |
             </a>
           </p>
         </div>
-        <div class="Grid-cell u-flex u-flexCol u-md-size1of2 u-spaceEnds2 u-spaceItems1">
+        <div class="Grid-cell u-flex u-flexCol u-md-size1of2 u-spaceEnds2">
           <div class="FlexEmbed u-pullSides1 u-md-spaceSidesNone">
             <div class="FlexEmbed-ratio FlexEmbed-ratio--16by9"></div>
             <div class="FlexEmbed-content u-bgGray u-pad2">
               <img src="/images/case-studies/walmart-475.png" class="u-rotateBack3 u-block u-flexExpandLeft u-flexExpandRight u-size5of6">
             </div>
           </div>
-          <h2>We know the terrain.</h2>
-          <p class="u-spaceTop02 u-md-padRight1 u-flexGrow1">Responsive websites, JavaScript applications, hybrid apps, pattern libraries, you name it… if it’s mobile, we’ve built it.</p>
-          <p>
+          <h2 class="u-spaceTop1">We know the terrain.</h2>
+          <p class="u-spaceTop02 u-spaceBottom1 u-md-padRight1">Responsive websites, JavaScript applications, hybrid apps, pattern libraries, you name it… if it’s mobile, we’ve built it.</p>
+          <p class="u-flexExpandTop">
             <a href="#" class="Button Button--default">
               Our work
               {{{
@@ -95,19 +95,19 @@ notes: |
 
       <div class="Grid Grid--withGutter u-spaceTopNone">
         {{#each drizzle.data.posts.contents.recent}}{{#compare @index "<" 2}}
-          <article class="Grid-cell u-flex u-flexCol u-md-size1of2 u-spaceItems01 u-spaceEnds2">
-            <div class="u-spaceBottom1 u-pullSides1 u-md-spaceSidesNone">
+          <article class="Grid-cell u-flex u-flexCol u-md-size1of2 u-spaceEnds2">
+            <div class="u-pullSides1 u-md-spaceSidesNone">
               <img class="u-sizeFull" src="{{image}}" alt="">
             </div>
-            <header>
+            <header class="u-spaceTop1">
               <h3>
                 <a class="u-linkClean" href="#">{{title}}</a>
               </h3>
             </header>
-            <p class="u-md-padRight1 u-flexGrow1">
+            <p class="u-spaceTop02 u-spaceBottom1 u-md-padRight1">
               {{~excerpt~}}
             </p>
-            <footer class="u-flex u-flexAlignItemsCenter" role="contentinfo">
+            <footer class="u-flex u-flexAlignItemsCenter u-flexExpandTop" role="contentinfo">
               <div class="u-spaceRight01">
                 <div class="Thumbnail Thumbnail--circle u-block">
                   <img src="{{avatar}}" alt="" style="width: 2.5em;">

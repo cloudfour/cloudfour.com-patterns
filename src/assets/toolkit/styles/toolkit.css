@@ -1,3 +1,4 @@
 @import "./base/index.css";
 @import "./components/index.css";
 @import "./utils/index.css";
+@import "./vendor/wordpress.css";

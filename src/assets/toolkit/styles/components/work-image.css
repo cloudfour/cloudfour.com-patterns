@@ -1,27 +1,40 @@
+:root {
+  --WorkImage-bezel-fill: var(--color-navy);
+  --WorkImage-detail-fill: var(--color-gray);
+  --WorkImage-detail-alt-fill: none;
+  --WorkImage-detail-alt-stroke: var(--WorkImage-detail-fill);
+  --WorkImage-detail-alt-stroke-width: 2px;
+  --WorkImage-screen-fill: var(--color-white);
+  --WorkImage-tilt-rotate: -3deg;
+  --WorkImage-small-rotate: calc(var(--WorkImage-tilt-rotate) * -2);
+  --WorkImage-small-translateX: 690px;
+  --WorkImage-small-translateY: 120px;
+}
+
 .WorkImage {
 
 }
 
 .WorkImage--tilt {
-  transform: rotate(-3deg);
+  transform: rotate(var(--WorkImage-tilt-rotate));
 }
 
 .WorkImage-bezel {
-  fill: var(--color-navy);
+  fill: var(--WorkImage-bezel-fill);
 }
 
 .WorkImage-detail {
-  fill: var(--color-gray);
+  fill: var(--WorkImage-detail-fill);
 }
 
 .WorkImage-detail--alt {
-  fill: none;
-  stroke: var(--color-gray);
-  stroke-width: 2px;
+  fill: var(--WorkImage-detail-alt-fill);
+  stroke: var(--WorkImage-detail-alt-stroke);
+  stroke-width: var(--WorkImage-detail-alt-stroke-width);
 }
 
 .WorkImage-screen {
-  fill: var(--color-white);
+  fill: var(--WorkImage-screen-fill);
 }
 
 .WorkImage-large {
@@ -29,5 +42,5 @@
 }
 
 .WorkImage-small {
-  transform: rotate(6deg) translate(690px, 120px);
+  transform: rotate(var(--WorkImage-small-rotate)) translate(var(--WorkImage-small-translateX), var(--WorkImage-small-translateY));
 }

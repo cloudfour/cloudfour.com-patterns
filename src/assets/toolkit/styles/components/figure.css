@@ -7,7 +7,8 @@
 
 /**
  * A container for visual media with accompanying caption text. Intended to be
- * used with `<figure>` and `<figcaption>`. Defined as a mixin so as to be easily reused for Wordpress generated classes for `<figure>` and `<figcaption>`
+ * used with `<figure>` and `<figcaption>`.
+ * Defined as mixins to be easily reused for Wordpress generated classes.
  *
  * 1. Self-contain and center images.
  */

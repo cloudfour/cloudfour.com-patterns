@@ -1,0 +1,29 @@
+.WorkImage {
+
+}
+
+.WorkImage-bezel {
+  fill: var(--color-navy);
+}
+
+.WorkImage-detail {
+  fill: var(--color-gray);
+}
+
+.WorkImage-detail--alt {
+  fill: none;
+  stroke: var(--color-gray);
+  stroke-width: 2px;
+}
+
+.WorkImage-screen {
+  fill: var(--color-white);
+}
+
+.WorkImage-large {
+  transform: rotate(-3deg) translate(-1px, 46px);
+}
+
+.WorkImage-small {
+  transform: rotate(3deg) translate(706px, 110px);
+}

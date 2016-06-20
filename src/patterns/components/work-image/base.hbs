@@ -1,0 +1,30 @@
+---
+
+---
+
+<svg class="WorkImage" width="950" height="702" viewBox="0 0 950 702">
+  <defs>
+    <clipPath id="WorkImage-viewportLarge">
+      <path d="M3 33 L845 33 Q845 33 845 33 L845 644 Q845 653 836 653 L12 653 Q3 653 3 644 L3 33 Q3 33 3 33 Z"/>
+    </clipPath>
+    <g id="WorkImage-frameLarge">
+      <rect class="WorkImage-bezel" width="848" height="656" rx="10"/>
+      <circle class="WorkImage-detail" cx="17" cy="17" r="6"/>
+      <path class="WorkImage-screen" d="M3.5 33.5 L844.5 33.5 Q844.5 33.5 844.5 33.5 L844.5 644 Q844.5 652.5 836 652.5 L12 652.5 Q3.5 652.5 3.5 644 L3.5 33.5 Q3.5 33.5 3.5 33.5 Z"/>
+    </g>
+    <g id="WorkImage-frameSmall">
+      <rect class="WorkImage-bezel" width="250" height="468" rx="20"/>
+      <circle class="WorkImage-detail" cx="125" cy="25" r="6"/>
+      <rect class="WorkImage-detail WorkImage-detail--alt" x="95" y="434" width="60" height="18" rx="9"/>
+      <rect class="WorkImage-screen" x="3.5" y="50.5" width="243" height="367"/>
+    </g>
+  </defs>
+  <g class="WorkImage-large">
+    <use xlink:href="#WorkImage-frameLarge"/>
+    <image xlink:href="http://placeimg.com/640/480/nature/sepia" x="3" y="33" width="842" height="620" preserveAspectRatio="xMaxYMin slice" clip-path="url(#WorkImage-viewportLarge)"/>
+  </g>
+  <g class="WorkImage-small">
+    <use xlink:href="#WorkImage-frameSmall"/>
+    <image xlink:href="http://placeimg.com/244/368/animals" x="3" y="50" width="244" height="368" preserveAspectRatio="xMaxYMin slice"/>
+  </g>
+</svg>

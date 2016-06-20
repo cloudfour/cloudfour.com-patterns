@@ -30,8 +30,14 @@ stylesheets:
     {{! The Work }}
     {{#each drizzle.data.case-studies.contents.teasers}}
         <div class="Grid Grid--alignMiddle Grid--withGutter u-padEnds6 Work">
-          <div class="Grid-cell u-sm-size3of4 u-md-size1of2 u-flexExpand u-md-spaceSidesNone u-rotateBack3">
-            <img src="{{image}}-475.png" class="u-block u-md-size7of8 u-lg-size3of4 u-flexExpand">
+          <div class="Grid-cell u-sm-size3of4 u-md-size1of2 u-flexExpand u-md-spaceSidesNone">
+            {{{
+              embed "patterns.components.work-image.base"
+              class="WorkImage--tilt u-block u-md-size7of8 u-lg-size3of4 u-flexExpand"
+              includeDefs=@first
+              large=imageLarge
+              small=imageSmall
+            }}}
           </div>
           <div class="Grid-cell u-sm-size3of4 u-md-size5of12 u-spaceTop1 u-md-spaceTopNone u-flexExpand u-md-spaceNone">
             <a href="" class="u-linkClean">

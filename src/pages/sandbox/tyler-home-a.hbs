@@ -70,7 +70,15 @@ notes: |
           <div class="FlexEmbed u-pullSides1 u-md-spaceSidesNone">
             <div class="FlexEmbed-ratio FlexEmbed-ratio--16by9"></div>
             <div class="FlexEmbed-content u-bgGray u-pad2">
-              <img src="/images/case-studies/walmart-475.png" class="u-rotateBack3 u-block u-flexExpandLeft u-flexExpandRight u-size5of6">
+              {{#with drizzle.data.case-studies.contents.teasers.[0]}}
+                {{{
+                  embed "patterns.components.work-image.base"
+                  class="WorkImage--tilt u-block u-flexExpandLeft u-flexExpandRight u-size5of6"
+                  includeDefs=true
+                  large=imageLarge
+                  small=imageSmall
+                }}}
+              {{/with}}
             </div>
           </div>
           <h2 class="u-spaceTop1">We know the terrain.</h2>

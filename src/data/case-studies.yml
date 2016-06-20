@@ -9,7 +9,6 @@ logos:
 
 teasers:
   - client: Walmart
-    image: /images/case-studies/walmart
     imageLarge: /images/case-studies/walmart-large.png
     imageSmall: /images/case-studies/walmart-small.png
     summary: |
@@ -17,7 +16,6 @@ teasers:
     cta: Read more about Walmart's responsive design conversion.
 
   - client: Treasure Coast Hospice
-    image: /images/case-studies/tch
     imageLarge: /images/case-studies/tch-large.png
     imageSmall: /images/case-studies/tch-small.jpg
     summary: |
@@ -25,7 +23,6 @@ teasers:
     cta: Read more about Treasure Coast Hospice's redesign.
 
   - client: Ceasefire Oregon
-    image: /images/case-studies/ceasefire
     imageLarge: /images/case-studies/ceasefire-large.png
     imageSmall: /images/case-studies/ceasefire-small.png
     summary: |
@@ -33,14 +30,12 @@ teasers:
     cta: Read more about the Ceasefire Oregon project.
 
   - client: Responsive Field Day
-    image: /images/case-studies/rfd
     imageLarge: /images/case-studies/rfd-large.png
     imageSmall: /images/case-studies/rfd-small.png
     summary: |
       Cloud Four organized a conference that brought the best minds in responsive web design to Portland, Oregon. The website for the event was a labor of love where we sweated each word and line of code.
 
   - client: Hautelook
-    image: /images/case-studies/hautelook
     imageLarge: /images/case-studies/hautelook-large.jpg
     imageSmall: /images/case-studies/hautelook-small.jpg
     summary: |

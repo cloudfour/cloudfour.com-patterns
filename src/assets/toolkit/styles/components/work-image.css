@@ -2,6 +2,10 @@
 
 }
 
+.WorkImage--tilt {
+  transform: rotate(-3deg);
+}
+
 .WorkImage-bezel {
   fill: var(--color-navy);
 }
@@ -21,9 +25,9 @@
 }
 
 .WorkImage-large {
-  transform: rotate(-3deg) translate(-1px, 46px);
+
 }
 
 .WorkImage-small {
-  transform: rotate(3deg) translate(706px, 110px);
+  transform: rotate(6deg) translate(690px, 120px);
 }

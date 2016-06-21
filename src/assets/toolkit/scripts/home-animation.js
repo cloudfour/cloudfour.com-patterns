@@ -87,8 +87,17 @@ const dom = (function (nodeList) {
   return result;
 })(document.querySelectorAll('*[id]'));
 
+dom.hide = document.querySelectorAll('.js-hide');
 dom.scaleIn = document.querySelectorAll('.js-scaleIn');
 dom.carouselItems = shuffle(document.querySelectorAll('.js-carouselItem'));
+
+/**
+ * Fade out fallback elements
+ */
+
+TweenLite.set(dom.hide, {
+  visibility: 'hidden'
+});
 
 /**
  * Initialize elements that will scale in

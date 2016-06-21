@@ -1,7 +1,5 @@
 'use strict';
 
-import 'prismjs';
-
 class DrizzleDom {
   constructor () {
     // Nav toggle

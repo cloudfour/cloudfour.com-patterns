@@ -14,8 +14,8 @@ import {FactSlider} from './lib/component/fact-slider';
 /**
  * Syntax highlighting
  */
-import Prism from 'prismjs';
-import PrismHandlebars from 'prismjs/components/prism-handlebars';
+import 'prismjs';
+import 'prismjs/components/prism-handlebars';
 
 (function() {
 

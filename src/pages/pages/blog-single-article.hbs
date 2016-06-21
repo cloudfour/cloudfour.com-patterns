@@ -59,14 +59,38 @@ notes: |
     Yikes. I kept hearing the those words echo through my head: <code>.code dabbler</code> <code>&lt;code dabbler&gt;</code> <code>.code dabbler</code>. Over the last year I have been waiting for an “ah-ha” moment where things would click and I would feel super comfortable and confident in my skill set, that really hasn’t been the case.
   </p>
 
-  <pre class="u-pad1 u-pullSides1"><code>&lt;p&gt;Code Block&lt;/p&gt;
-
-.Sky--clouds {
+  <pre class="u-pad1 u-pullSides1"><code class="language-css">.Sky--clouds {
   background-image: url("/images/sandbox/clouds-alt.svg");
   background-position: -60% bottom;
   background-repeat: repeat-x;
   background-size: calc(420 / 16em * 1.25);
+  content: "Whut?" !important;
   padding-bottom: calc(24 / 16em * 1.25);
+}
+
+@media (min-width: 1337px) {
+  p > b > a {
+    content: "Terrible selector! :(";
+  }
+}</code></pre>
+
+  <pre class="u-pad1 u-pullSides1"><code class="language-handlebars">&lt;ul class=&quot;Example&quot;&gt;
+  \{{#each items 'another' hashValue=false}}
+    &lt;li&gt;Whoa!!&lt;/li&gt;
+  \{{/each}}
+&lt;/ul&gt;</code></pre>
+
+  <pre class="u-pad1 u-pullSides1"><code class="language-js">// Sweet useless condition
+if (this !== 'that' || truth == false) {
+  new RegExp(/ab+c/, 'i');
+  boyHowdy(5, 'something');
+  return 2 * 4 / 3;
+}
+
+class Bread {
+  constructor (slices) {
+    this.slices = 12;
+  }
 }</code></pre>
 
   <p>

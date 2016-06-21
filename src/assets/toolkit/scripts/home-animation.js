@@ -87,8 +87,17 @@ const dom = (function (nodeList) {
   return result;
 })(document.querySelectorAll('*[id]'));
 
+dom.hide = document.querySelectorAll('.js-hide');
 dom.scaleIn = document.querySelectorAll('.js-scaleIn');
 dom.carouselItems = shuffle(document.querySelectorAll('.js-carouselItem'));
+
+/**
+ * Fade out fallback elements
+ */
+
+TweenLite.set(dom.hide, {
+  visibility: 'hidden'
+});
 
 /**
  * Initialize elements that will scale in
@@ -224,8 +233,7 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
     y: 78,
     width: 192,
     height: 132,
-    rx: 3,
-    ry: 3
+    rx: 3
   },
   ease: settings.morph.ease
 }, 'toLaptop');
@@ -260,8 +268,7 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
     y: 63,
     width: 328,
     height: 194,
-    rx: 1,
-    ry: 1
+    rx: 1
   },
   ease: settings.morph.ease
 }, 'toTV');
@@ -316,8 +323,7 @@ timelines.morph.to(dom.screenMaskMain, settings.morph.duration, {
     y: 127,
     width: 86,
     height: 86,
-    rx: 43,
-    ry: 43
+    rx: 43
   },
   ease: settings.morph.ease
 }, 'toAudio');
@@ -354,16 +360,14 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
     y: 130,
     width: 52,
     height: 60,
-    rx: 8,
-    ry: 8
+    rx: 8
   },
   ease: settings.morph.ease
 }, 'toWatch');
 
 timelines.morph.to(dom.screenMaskMain, settings.morph.duration / 4, {
   attr: {
-    rx: 2,
-    ry: 2
+    rx: 2
   }
 }, 'toWatch');
 
@@ -396,16 +400,14 @@ timelines.morph.to(dom.bezel, settings.morph.duration, {
     y: 92,
     width: 66,
     height: 136,
-    rx: 6,
-    ry: 6
+    rx: 6
   },
   ease: settings.morph.ease
 }, 'toPhone');
 
 timelines.morph.to(dom.screenMaskMain, settings.morph.duration / 4, {
   attr: {
-    rx: 0,
-    ry: 0
+    rx: 0
   }
 }, 'toPhone');
 

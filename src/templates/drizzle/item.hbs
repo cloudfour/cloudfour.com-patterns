@@ -49,13 +49,13 @@
     </div>
   {{/if}}
   {{!-- Preview --}}
-  <div class="drizzle-u-border">
-    <div class="drizzle-u-pad drizzle-u-cf drizzle-u-posRelative {{data.previewClass}}">
+  <div>
+    <div class="{{#if data.sourceless}}drizzle-u-border{{else}}drizzle-u-borderTop drizzle-u-borderSides{{/if}} drizzle-u-pad drizzle-u-cf drizzle-u-posRelative {{data.previewClass}}">
       {{{pattern id @root}}}
     </div>
     {{!-- Code sample --}}
     {{#unless data.sourceless}}
-      <pre class="drizzle-u-borderTop drizzle-u-pad"><code class="language-markup">{{{patternSource id @root}}}</code></pre>
+      <pre class="drizzle-u-pad"><code class="language-markup">{{{patternSource id @root}}}</code></pre>
     {{/unless}}
   </div>
 </div>

@@ -11,6 +11,12 @@ import {Sky} from './lib/component/sky';
 import {ElasticTextarea} from './lib/component/elastic-textarea';
 import {FactSlider} from './lib/component/fact-slider';
 
+/**
+ * Syntax highlighting
+ */
+import 'prismjs';
+import 'prismjs/components/prism-handlebars';
+
 (function() {
 
   arrayFromSelector('.js-FunFacts').map(element => {

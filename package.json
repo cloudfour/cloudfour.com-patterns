@@ -55,7 +55,7 @@
     "postcss-inline-svg": "^2.0.1",
     "postcss-mixins": "^4.0.1",
     "postcss-use": "^2.0.2",
-    "prismjs": "^1.4.1",
+    "prismjs": "^1.5.1",
     "require-dir": "^0.3.0",
     "script-loader": "^0.6.1",
     "suitcss-base": "^2.0.0",

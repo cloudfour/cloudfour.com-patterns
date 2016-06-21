@@ -6,8 +6,6 @@
 @import "./base/index.css";
 @import "./components/index.css";
 
-@import "./vendor/prism.css";
-
 @import "suitcss-utils";
 @import "./utils/index.css";
 

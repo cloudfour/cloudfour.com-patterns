@@ -1,0 +1,49 @@
+/**
+ * Cloud Four theme for Prism syntax highlighting
+ *
+ * Expand as needed based on content.
+ *
+ * http://prismjs.com/
+ */
+
+.token.punctuation,
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: color(var(--color-white) a(60%));
+}
+
+.token.property,
+.token.keyword {
+  color: color(var(--color-blue) h(-15) s(+50) l(+20));
+}
+
+.token.attr-value,
+.token.selector,
+.token.class-name {
+  color: color(var(--color-green) l(+15%));
+}
+
+.token.rule,
+.token.tag,
+.token.regex,
+.token.number,
+.token.boolean {
+  color: color(var(--color-fuchsia) l(+10%));
+}
+
+.token.variable,
+.token.attr-name,
+.token.operator {
+  color: color(var(--color-orange) l(+10));
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}

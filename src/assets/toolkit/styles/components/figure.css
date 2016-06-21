@@ -8,11 +8,12 @@
 /**
  * A container for visual media with accompanying caption text. Intended to be
  * used with `<figure>` and `<figcaption>`.
+ * Defined as mixins to be easily reused for Wordpress generated classes.
  *
  * 1. Self-contain and center images.
  */
 
-.Figure {
+@define-mixin Figure {
   display: block;
 
   & > img { /* 1 */
@@ -23,9 +24,17 @@
   }
 }
 
-.Figure-caption {
+.Figure {
+  @mixin Figure;
+}
+
+@define-mixin Figure-caption {
   color: var(--Figure-caption-color);
   font-style: var(--Figure-caption-font-style);
   margin-top: var(--Figure-caption-margin);
   text-align: var(--Figure-caption-text-align);
+}
+
+.Figure-caption {
+  @mixin Figure-caption;
 }

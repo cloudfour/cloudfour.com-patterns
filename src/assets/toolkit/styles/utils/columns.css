@@ -11,6 +11,11 @@
   column-gap: var(--column-gap);
 }
 
+.u-columns3 {
+  columns: 3;
+  column-gap: var(--column-gap);
+}
+
 @media (--sm-viewport) {
   .u-sm-columns2 {
     columns: 2;

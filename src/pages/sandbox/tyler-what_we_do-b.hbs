@@ -1,0 +1,84 @@
+---
+title: What We Do
+layout: toolkit.default
+section:
+  heading: What We Do
+  subheading: We love solving tough puzzles through our design and code
+labels:
+  - inprogress
+notes: |
+  Includes only content from the "What We Do" document.
+---
+
+<div class="Grid Grid--withGutter u-spaceTop02">
+  <div class="Grid-cell u-md-size2of3 u-spaceItems1">
+    <p class="u-textGrow1">
+      Do you have an app or site that no one believes can be made responsive? Perhaps you want to use the latest web technology, but no one on your team has experience with&nbsp;it?
+    </p>
+    <h1>
+      We Can Help
+    </h1>
+    <p>
+      Many companies know they need a responsive web design or progressive web app, but don't know where to start. Their teams face the pressure of deadlines but need the project done right the first time.
+    </p>
+    <p>
+      We work closely with internal teams to find the best design and technical approach. We set them up for success by incorporating education and training into every project.
+    </p>
+    <p>
+      <a href="#" class="Button">
+        What Sets Us Apart
+        {{{
+          embed "patterns.components.icon.base"
+          iconid="arrow-right"
+          class="u-spaceLeft06"
+          role="presentation"
+        }}}
+      </a>
+    </p>
+    <h2 class="u-spaceTop4">
+      Industry Jargon
+    </h2>
+    <p>
+      When you hire someone, we think it matters more how they work and what they can accomplish for you than whether or not they’ve used a particular framework. But we recognize that sometimes you’ve been told that you gotta find a team that knows X or it won’t work. So here’s our list&hellip;
+    </p>
+    <ul class="u-listUnstyled u-columns3">
+      <li>CanJS</li>
+      <li>Bootstrap</li>
+      <li>React</li>
+      {{#iterate 12}}
+        <li>{{capitalize (random "word" syllables=3)}}</li>
+      {{/iterate}}
+    </ul>
+  </div>
+  <div class="Grid-cell u-md-size1of4 u-flexExpandLeft u-spaceItems1 u-spaceTop4 u-md-spaceTopNone u-md-floatRight">
+    <h2>
+      Our Services
+    </h2>
+    <ul class="u-listUnstyled u-spaceItems1">
+      <li class="u-flex u-flexAlignItemsCenter">
+        <img class="u-spaceRight01" src="{{dummyImgSrc 60 60 text='Icon'}}" alt=""  style="width: 3.75em;">
+        Responsive Web&nbsp;Design
+      </li>
+      <li class="u-flex u-flexAlignItemsCenter">
+        <img class="u-spaceRight01" src="{{dummyImgSrc 60 60 text='Icon'}}" alt=""  style="width: 3.75em;">
+        Progressive Web&nbsp;Apps
+      </li>
+      <li class="u-flex u-flexAlignItemsCenter">
+        <img class="u-spaceRight01" src="{{dummyImgSrc 60 60 text='Icon'}}" alt=""  style="width: 3.75em;">
+        User Experience Design
+      </li>
+      <li class="u-flex u-flexAlignItemsCenter">
+        <img class="u-spaceRight01" src="{{dummyImgSrc 60 60 text='Icon'}}" alt=""  style="width: 3.75em;">
+        JavaScript Development
+      </li>
+      <li class="u-flex u-flexAlignItemsCenter">
+        <img class="u-spaceRight01" src="{{dummyImgSrc 60 60 text='Icon'}}" alt=""  style="width: 3.75em;">
+        Web Performance Tuning
+      </li>
+      <li class="u-flex u-flexAlignItemsCenter">
+        <img class="u-spaceRight01" src="{{dummyImgSrc 60 60 text='Icon'}}" alt=""  style="width: 3.75em;">
+        Training and Workshops
+      </li>
+    </ul>
+  </div>
+</div>

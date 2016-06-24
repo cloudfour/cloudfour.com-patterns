@@ -1,11 +1,11 @@
 logos:
-  - /images/case-studies/logos/logo_walmart.svg
-  - /images/case-studies/logos/logo_deschutes.svg
-  - /images/case-studies/logos/logo_obama-08.svg
-  - /images/case-studies/logos/logo_treasure-coast-hospice.svg
-  - /images/case-studies/logos/logo_entertainment.svg
-  - /images/case-studies/logos/logo_hautelook.svg
-  - /images/case-studies/logos/logo_ceasefire.svg
+  - /images/case-studies/logos/walmart.svg
+  - /images/case-studies/logos/deschutes.svg
+  - /images/case-studies/logos/obama-08.svg
+  - /images/case-studies/logos/treasure-coast-hospice.svg
+  - /images/case-studies/logos/entertainment.svg
+  - /images/case-studies/logos/hautelook.svg
+  - /images/case-studies/logos/ceasefire.svg
 
 teasers:
   - client: Walmart

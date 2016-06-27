@@ -1,0 +1,18 @@
+---
+notes: |
+  The `.CmsContent` class is used on the parent element of CMS prose fields to style some common child elements:
+    + `<pre>`: Adds padding and negative margins
+---
+
+<article class="CmsContent u-spaceItems1">
+  <p>
+    {{random "paragraph" sentences="2"}}
+  </p>
+  <pre><code class="language-css">.CodeSample {
+  display: block;
+  padding: 1rem;
+}</code></pre>
+  <p>
+    {{random "paragraph" sentences="2"}}
+  </p>
+</article>

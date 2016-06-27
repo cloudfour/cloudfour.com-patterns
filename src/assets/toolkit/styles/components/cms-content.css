@@ -1,0 +1,11 @@
+:root {
+  --cms-content-space: calc(var(--ms1)  * 1rem);
+}
+
+.CmsContent {}
+
+.CmsContent pre {
+  padding: var(--cms-content-space);
+  margin-right: calc(-1 * var(--cms-content-space));
+  margin-left: calc(-1 * var(--cms-content-space));
+}

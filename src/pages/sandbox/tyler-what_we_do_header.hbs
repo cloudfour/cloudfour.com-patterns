@@ -1,0 +1,41 @@
+---
+title: What We Do (Header Illustration)
+layout: toolkit.blank
+notes: |
+  Header area design with robot illustration.
+---
+
+{{{embed "patterns.components.sky.base"}}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      <div class="Grid Grid--alignMiddle u-spaceBottom1">
+        <div class="Grid-cell u-md-size1of2 u-padSides1 u-md-padSidesNone u-md-flexOrderLast u-textCenter">
+          <img class="u-limitHeight2of3" src="/images/sandbox/what_we_do-robot.svg" alt="" style="width: 21.25em; height: 15.625em;">
+        </div>
+        <div class="Grid-cell u-md-size1of2 u-padSides1 u-padBottom1 u-md-padTop1">
+          <h1 class="u-textGrow5 u-sm-textGrow6 u-spaceRight1">
+            What We Do
+          </h1>
+          <p class="u-textGrow1">
+            We love solving tough puzzles through our design <span class="u-textNoWrap">and code</span>
+          </p>
+        </div>
+      </div>
+    {{/content}}
+  {{/embed}}
+  <div class="u-bgWhite">
+    <div class="u-containSpread u-pad1">
+
+      (Page content should go here.)
+
+    </div>
+    <div class="u-containSpread">
+      <hr class="u-spaceSides1 u-spaceEndsNone">
+      {{> toolkit.page-segue }}
+    </div>
+  </div>
+</main>
+
+{{> toolkit.global-footer }}

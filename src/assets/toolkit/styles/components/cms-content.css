@@ -1,0 +1,7 @@
+.CmsContent {}
+
+.CmsContent pre {
+  padding: calc(var(--ms1)  * 1rem);
+  margin-right: calc(-1 * calc(var(--ms1)  * 1rem));
+  margin-left: calc(-1 * calc(var(--ms1)  * 1rem));
+}

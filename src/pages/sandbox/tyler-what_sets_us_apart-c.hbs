@@ -1,0 +1,46 @@
+---
+title: Our Approach
+layout: toolkit.blank
+stylesheets:
+  - sandbox/tcs-our_approach
+labels:
+  - inprogress
+notes: |
+  Another iteration of the page formerly known as "What Sets Us Apart," now with
+  header illustration.
+---
+
+{{{embed "patterns.components.sky.base"}}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      <div class="Sky-ufo">
+        <img class="Sky-ufo-object" src="/images/sandbox/our_approach.svg" alt="">
+        <div class="Sky-ufo-content">
+          <div class="u-pad1 u-padBottom3 u-md-padTop3 u-md-size1of2">
+            <h1 class="u-textGrow4 u-sm-textGrow6 u-textNoWrap">
+              Our Approach
+            </h1>
+            <p class="u-textGrow1">
+              We believe the web can provide fast, compelling, and inclusive experiences, and we’ve set out to prove it.
+            </p>
+          </div>
+        </div>
+      </div>
+    {{/content}}
+  {{/embed}}
+  <div class="u-bgWhite">
+    <div class="u-containSpread u-pad1">
+
+      (Page content should go here.)
+
+    </div>
+    <div class="u-containSpread">
+      <hr class="u-spaceSides1 u-spaceEndsNone">
+      {{> toolkit.page-segue }}
+    </div>
+  </div>
+</main>
+
+{{> toolkit.global-footer }}

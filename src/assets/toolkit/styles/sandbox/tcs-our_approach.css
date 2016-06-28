@@ -1,0 +1,37 @@
+@import "../base/theme.css";
+@import "../base/theme-map.css";
+
+.Sky-ufo {
+  margin-bottom: calc(30 / 16 * -1rem);
+  padding-bottom: calc(30 / 16 * 1rem);
+  overflow: hidden;
+  position: relative;
+}
+
+.Sky-ufo-object {
+  position: absolute;
+  width: 22rem;
+  max-width: none;
+  left: calc(100% / 3 * 2);
+  transform: translateX(-50%);
+}
+
+@media (--md-viewport) {
+  .Sky-ufo-object {
+    left: 75%;
+    width: 26rem;
+    max-width: 45%;
+  }
+}
+
+.Sky-ufo-content {
+  margin-top: 12rem;
+  position: relative;
+}
+
+@media (--md-viewport) {
+  .Sky-ufo-content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}

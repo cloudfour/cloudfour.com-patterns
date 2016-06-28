@@ -193,6 +193,10 @@ blockquote cite {
   font-style: normal;
 }
 
+/**
+ * Precede citation with em dash and non-breaking space.
+ */
+
 blockquote cite::before {
-  content: var(--content-dash-em);
+  content: "—\00a0";
 }

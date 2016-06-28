@@ -46,19 +46,36 @@
  *
  * 1. Add bottom padding equal to the cloud height to keep content from
  *    overlapping our whimsical dreamscape.
- * 2. Non-zero horizontal position adds visual interest for nerds like us who
- *    resize their browser. It also makes the compositions feel a little more
- *    organic (though YMMV).
- * 3. Though not a requirement, setting the `background-size` to a proportional
- *    unit will make the clouds grow and shrink with the base `font-size`.
  */
 
 .Sky--clouds {
   padding-bottom: var(--Sky-clouds-image-height); /* 1 */
+}
+
+/**
+ * Pseudo element for actual clouds, allows clouds to overlay other elements.
+ *
+ * 1. Non-zero horizontal position adds visual interest for nerds like us who
+ *    resize their browser. It also makes the compositions feel a little more
+ *    organic (though YMMV).
+ * 2. Though not a requirement, setting the `background-size` to a proportional
+ *    unit will make the clouds grow and shrink with the base `font-size`.
+ */
+
+.Sky--clouds::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: var(--Sky-clouds-image-height);
+
+  content: "";
+
   background-image: var(--Sky-clouds-image);
   background-repeat: repeat-x;
-  background-position: var(--Sky-clouds-x-offset) bottom; /* 2 */
-  background-size: var(--Sky-clouds-image-width); /* 3*/
+  background-position: var(--Sky-clouds-x-offset) bottom; /* 1 */
+  background-size: var(--Sky-clouds-image-width); /* 2 */
 }
 
 /**

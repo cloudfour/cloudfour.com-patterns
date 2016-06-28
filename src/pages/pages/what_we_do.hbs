@@ -19,7 +19,16 @@ notes: |
             What We Do
           </h1>
           <p class="u-textGrow1">
-            We love solving tough puzzles through our design <span class="u-textNoWrap">and code</span>
+            We
+            {{#embed "patterns.components.icon.base"
+              class="u-spaceSides06"
+              iconid="heart"
+              labelledby="what_we_do-heart-title"}}
+              {{#content "before"}}
+                <title id="what_we_do-heart-title">love</title>
+              {{/content}}
+            {{/embed}}
+            solving tough puzzles through our design <span class="u-textNoWrap">and code</span>
           </p>
         </div>
       </div>

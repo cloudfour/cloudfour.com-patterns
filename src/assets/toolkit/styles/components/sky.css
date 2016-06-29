@@ -26,10 +26,20 @@
   --Sky-nav-menu-item-transition-duration: var(--motion-duration-md);
   --Sky-nav-menu-item-transition-timing-function: var(--motion-timing-function-default);
   --Sky-nav-menu-space: var(--space-sm);
+
+  --Sky-scene-object-x-offset: calc(2 / 3 * 100%);
+  --Sky-scene-object-x-offset-full: 75%;
+  --Sky-scene-object-width: calc(1rem * var(--ms-ratio) * 19);
+  --Sky-scene-object-width-full: calc(1rem * var(--ms-ratio) * 22);
+  --Sky-scene-object-max-width: none;
+  --Sky-scene-object-max-width-full: 45%;
+  --Sky-scene-content-space-y: calc(1rem * var(--ms-ratio) * 10);
+  --Sky-scene-content-space-y-full: calc(1rem * var(--ms-ratio) * 4);
 }
 
 @custom-media --Sky-nav-expanded-viewport (width >= 36em);
 @custom-media --Sky-nav-full-viewport (width >= 75em);
+@custom-media --Sky-scene-full-viewport (--md-viewport);
 
 /**
  * 1. Keep absolute-positioned elements from leaving this container.
@@ -321,5 +331,93 @@
 
   .Sky-nav-menu-items:hover .Sky-nav-menu-item:not(:hover) {
     color: var(--Sky-nav-color-inactive);
+  }
+}
+
+/**
+ * Sky scene
+ *
+ * Overlap text with imagery.
+ *
+ * TODO: This isn't documented in the pattern library. It should be.
+ */
+
+/**
+ * 1. Allow child elements to position themselves absolutely relative to this
+ *    container.
+ * 2. Don't allow child elements to show outside this element. Allows overlap
+ *    with clouds when Sky--clouds modifier is applied.
+ */
+
+.Sky-scene {
+  position: relative; /* 1 */
+
+  overflow: hidden; /* 2 */
+}
+
+/**
+ * Counteract Sky--clouds padding so clouds overlap content
+ */
+
+.Sky--clouds .Sky-scene {
+  margin-bottom: calc(var(--Sky-clouds-image-height) * -1);
+  padding-bottom: var(--Sky-clouds-image-height);
+}
+
+/**
+ * Image in scene
+ *
+ * 1. Position absolutely.
+ * 2. Center at two-thirds of the container's width.
+ * 3. Set a hard width for narrow viewports.
+ * 4. Make sure max-width isn't set until a later media query.
+ */
+
+.Sky-scene-object {
+  position: absolute; /* 1 */
+  left: var(--Sky-scene-object-x-offset); /* 2 */
+
+  width: var(--Sky-scene-object-width); /* 3 */
+  max-width: var(--Sky-scene-object-max-width); /* 4 */
+
+  transform: translateX(-50%); /* 2 */
+}
+
+@media (--Sky-scene-full-viewport) {
+  /**
+   * 1. Center at three-fourths of the container's width.
+   * 2. Increase the width...
+   * 3. ...but constrain it as well.
+   */
+
+  .Sky-scene-object {
+    left: var(--Sky-scene-object-x-offset-full); /* 1 */
+
+    width: var(--Sky-scene-object-width-full); /* 2 */
+    max-width: var(--Sky-scene-object-max-width-full); /* 3 */
+  }
+}
+
+/**
+ * Text content for scene
+ *
+ * 1. Show on top of the preceding object.
+ * 2. Give some space beforehand for imagery.
+ */
+
+.Sky-scene-content {
+  position: relative; /* 1 */
+
+  margin-top: var(--Sky-scene-content-space-y); /* 2 */
+}
+
+@media (--Sky-scene-full-viewport) {
+  /**
+   * Now that image is on the side, adopt even margins on either end.
+   */
+
+  .Sky-scene-content {
+    margin-top: calc(var(--Sky-scene-content-space-y-full) / 2);
+    margin-bottom: calc(var(--Sky-scene-content-space-y-full) / 2);
   }
 }

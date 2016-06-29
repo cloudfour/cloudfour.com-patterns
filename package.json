@@ -43,7 +43,6 @@
     "gsap": "^1.18.5",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
-    "gulp-svg-sprite": "^1.2.9",
     "gulp-util": "^3.0.6",
     "imports-loader": "^0.6.3",
     "moment": "^2.10.6",

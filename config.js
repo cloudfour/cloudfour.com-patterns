@@ -19,11 +19,6 @@ module.exports = {
     name: 'css:drizzle'
   },
 
-  icons: {
-    src: 'src/assets/toolkit/icons/*.svg',
-    dest: './dist/images'
-  },
-
   js: {
     plugins: {
       webpack: {
@@ -78,10 +73,6 @@ module.exports = {
       {
         match: ['./src/assets/**/*.js'],
         tasks: ['js']
-      },
-      {
-        match: ['./src/assets/toolkit/icons/**/*'],
-        tasks: ['icons']
       },
       {
         match: ['./src/static/**/*'],

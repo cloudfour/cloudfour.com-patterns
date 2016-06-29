@@ -4,9 +4,9 @@ const config = require('./config');
 const drizzle = require('drizzle-builder');
 const env = require('gulp-util').env;
 const gulp = require('gulp');
-const helpers = require('core-hbs-helpers');
+const helpers = require('@cloudfour/hbs-helpers');
 const svgSprite = require('gulp-svg-sprite');
-const tasks = require('core-gulp-tasks');
+const tasks = require('@cloudfour/gulp-tasks');
 
 // Customize inline SVG helper base path
 helpers.svg = helpers.svg.create({

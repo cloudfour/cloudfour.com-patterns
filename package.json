@@ -70,8 +70,7 @@
     "suitcss-utils-offset": "^1.0.0",
     "suitcss-utils-position": "^1.0.1",
     "suitcss-utils-size": "^1.0.2",
-    "suitcss-utils-text": "^1.0.0",
-    "svgxuse": "^1.1.10"
+    "suitcss-utils-text": "^1.0.0"
   },
   "dependencies": {},
   "scripts": {

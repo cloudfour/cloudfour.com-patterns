@@ -4,7 +4,6 @@
 
 'use strict';
 
-import svgxuse from 'svgxuse';
 import {arrayFromSelector} from './lib/dom/core';
 import {FloatLabel} from './lib/component/float-label';
 import {Sky} from './lib/component/sky';

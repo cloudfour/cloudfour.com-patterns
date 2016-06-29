@@ -8,18 +8,17 @@ notes: |
 ---
 
 <ul class="drizzle-Grid drizzle-u-listUnstyled">
-  {{#each drizzle.data.icons.contents.mono as |icon|}}
+  {{#each drizzle.data.icons.contents.mono}}
     <li class="
      drizzle-Grid-cell
      drizzle-u-size1of3
      drizzle-u-md-size1of4
      drizzle-u-textCenter
      drizzle-u-pad">
-      {{#embed "patterns.components.icon.base"
-        iconid=icon
-        class="u-textGrow1"}}
-      {{/embed}}
-      <div class="u-textShrink1">{{icon}}</div>
+      {{svg @this class="Icon Icon--large"}}
+      <div>
+        <code class="u-textShrink1">{{@key}}</code>
+      </div>
     </li>
   {{/each}}
 </ul>

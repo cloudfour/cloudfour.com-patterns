@@ -197,12 +197,14 @@
  *    the base `font-size`.
  * 3. Most browsers will accept `height: auto` for this, but Safari doesn't
  *    for some reason. ¯\_(ツ)_/¯
+ * 4. SVG elements should default to inheriting the parent color.
  */
 
 .Sky-nav-logo-object {
   display: block; /* 1 */
   width: var(--Sky-nav-logo-width); /* 2 */
   height: var(--Sky-nav-logo-width); /* 3 */
+  fill: var(--color-relative); /* 4 */
 }
 
 /**

@@ -16,12 +16,7 @@
         {{#each drizzle.data.social.contents.links}}
           <li>
             <a class="u-textGrow1" href="{{url}}" title="{{text}}">
-              {{{
-                embed "patterns.components.icon.base"
-                class="Icon--large"
-                iconid=@key
-                role="img"
-              }}}
+              {{svg icon class="Icon Icon--large" role="img"}}
             </a>
           </li>
         {{/each}}

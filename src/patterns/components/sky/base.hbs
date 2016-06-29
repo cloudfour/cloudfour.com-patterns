@@ -17,10 +17,9 @@ notes: |
             <li><a class="Sky-nav-controls-skipToMenu Button Button--defaultDark" href="#menu" aria-label="Skip to navigation">Menu</a></li>
           </ul>
           <a class="Sky-nav-logo" href="/">
-            <svg class="Sky-nav-logo-object" width="80" height="80" role="img" aria-labelledby="logo-title">
+            {{#svg "icons/cloud-four" class="Sky-nav-logo-object" width="80" height="80" role="img" aria-labelledby="logo-title"}}
               <title id="logo-title">Cloud Four</title>
-              <use xlink:href="/images/icons.svg#cloud-four" fill="currentColor"/>
-            </svg>
+            {{/svg}}
           </a>
           {{! TODO: Allow this ID to be customized (see above href todo as well) }}
           <nav class="Sky-nav-menu" role="navigation" id="menu">

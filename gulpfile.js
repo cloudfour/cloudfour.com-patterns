@@ -4,9 +4,13 @@ const config = require('./config');
 const drizzle = require('drizzle-builder');
 const env = require('gulp-util').env;
 const gulp = require('gulp');
-const helpers = require('core-hbs-helpers');
-const svgSprite = require('gulp-svg-sprite');
-const tasks = require('core-gulp-tasks');
+const helpers = require('@cloudfour/hbs-helpers');
+const tasks = require('@cloudfour/gulp-tasks');
+
+// Customize inline SVG helper base path
+helpers.svg = helpers.svg.create({
+  basePath: './src/static/images'
+});
 
 // Append config
 Object.assign(config.drizzle, {helpers});
@@ -31,26 +35,11 @@ gulp.task('drizzle', () => {
   return result;
 });
 
-// Register icons task
-gulp.task('icons', () => {
-  return gulp.src(config.icons.src)
-    .pipe(svgSprite({
-      mode: {
-        symbol: {
-          dest: '',
-          sprite: 'icons.svg'
-        }
-      }
-    }))
-    .pipe(gulp.dest(config.icons.dest));
-});
-
 // Register frontend composite task
 gulp.task('frontend', [
   'drizzle',
   'copy',
   'css',
-  'icons',
   'js'
 ]);
 

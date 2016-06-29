@@ -31,45 +31,25 @@ stylesheets:
     <ul class="u-listUnstyled">
       <li>
         <a class="u-linkClean" href="#">
-          {{{
-            embed "patterns.components.icon.base"
-            class="u-spaceRight06"
-            iconid="link"
-            role="presentation"
-          }}}
+          {{svg "icons/link" class="Icon u-spaceRight06" role="presentation"}}
           Aileen&rsquo;s personal site
         </a>
       </li>
       <li>
         <a class="u-linkClean" href="#">
-          {{{
-            embed "patterns.components.icon.base"
-            class="u-spaceRight06"
-            iconid="twitter"
-            role="presentation"
-          }}}
+          {{svg "icons/twitter" class="Icon u-spaceRight06" role="presentation"}}
           Twitter
         </a>
       </li>
       <li>
         <a class="u-linkClean" href="#">
-          {{{
-            embed "patterns.components.icon.base"
-            class="u-spaceRight06"
-            iconid="github"
-            role="presentation"
-          }}}
+          {{svg "icons/github" class="Icon u-spaceRight06" role="presentation"}}
           GitHub
         </a>
       </li>
       <li>
         <a class="u-linkClean" href="#">
-          {{{
-            embed "patterns.components.icon.base"
-            class="u-spaceRight06"
-            iconid="instagram"
-            role="presentation"
-          }}}
+          {{svg "icons/instagram" class="Icon u-spaceRight06" role="presentation"}}
           Instagram
         </a>
       </li>
@@ -100,7 +80,7 @@ stylesheets:
           <span class="u-hiddenVisually">Previous Fun Fact</span>
           <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
             <circle r="12" cx="12" cy="12" fill="#fff"/>
-            <use xlink:href="{{baseurl}}/images/icons.svg#arrow-left" transform="scale(.5) translate(12,12)"/>
+            {{svg "icons/arrow-left" width="12" height="12" x="6" y="6"}}
           </svg>
         </a>
       </li>
@@ -116,7 +96,7 @@ stylesheets:
           <span class="u-hiddenVisually">Next Fun Fact</span>
           <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
             <circle r="12" cx="12" cy="12" fill="#fff"/>
-            <use xlink:href="{{baseurl}}/images/icons.svg#arrow-right" transform="scale(.5) translate(12,12)"/>
+            {{svg "icons/arrow-right" width="12" height="12" x="6" y="6"}}
           </svg>
         </a>
       </li>
@@ -142,12 +122,7 @@ stylesheets:
     <p class="u-spaceTop1">
       <a class="Button" href="#">
         See all
-        {{{
-          embed "patterns.components.icon.base"
-          class="Icon--large u-spaceLeft06"
-          iconid="arrow-right"
-          role="presentation"
-        }}}
+        {{svg "icons/arrow-right" class="Icon Icon--large u-spaceLeft06" role="presentation"}}
       </a>
     </p>
   </div>

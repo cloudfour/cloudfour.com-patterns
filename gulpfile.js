@@ -8,6 +8,11 @@ const helpers = require('core-hbs-helpers');
 const svgSprite = require('gulp-svg-sprite');
 const tasks = require('core-gulp-tasks');
 
+// Customize inline SVG helper base path
+helpers.svg = helpers.svg.create({
+  basePath: './src/static/images'
+});
+
 // Append config
 Object.assign(config.drizzle, {helpers});
 

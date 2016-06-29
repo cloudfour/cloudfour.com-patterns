@@ -28,8 +28,8 @@
   --Sky-nav-menu-space: var(--space-sm);
 }
 
-@custom-media --Sky-nav-expanded-viewport (--sm-viewport);
-@custom-media --Sky-nav-full-viewport (--lg-viewport);
+@custom-media --Sky-nav-expanded-viewport (width >= 36em);
+@custom-media --Sky-nav-full-viewport (width >= 75em);
 
 /**
  * 1. Keep absolute-positioned elements from leaving this container.

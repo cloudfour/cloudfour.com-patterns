@@ -15,6 +15,7 @@ import {FactSlider} from './lib/component/fact-slider';
  */
 import 'prismjs';
 import 'prismjs/components/prism-handlebars';
+import 'prismjs/components/prism-scss';
 
 (function() {
 

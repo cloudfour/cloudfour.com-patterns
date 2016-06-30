@@ -74,6 +74,14 @@ notes: |
   }
 }</code></pre>
 
+  <pre><code class="language-scss">$font-stack: sans-serif;
+$primary-color: #333;
+
+@mixin reset-type() {
+  font: 100% $font-stack;
+  color: $primary-color;
+}</code></pre>
+
   <pre><code class="language-handlebars">&lt;ul class=&quot;Example&quot;&gt;
   \{{#each items 'another' hashValue=false}}
     &lt;li&gt;Whoa!!&lt;/li&gt;

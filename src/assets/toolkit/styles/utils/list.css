@@ -32,3 +32,16 @@
   margin-left: calc(var(--space-md) / 2);
   margin-right: calc(var(--space-md) / 2);
 }
+
+/**
+ * Columns and lists sometimes don't play well together if markers are visible.
+ * This fixes that.
+ */
+
+ .u-listColumns {
+   padding-left: 0;
+ }
+
+ .u-listColumns > li {
+   margin-left: var(--list-marker-padding);
+ }

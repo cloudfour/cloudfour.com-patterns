@@ -36,6 +36,10 @@
   .u-sm-hidden {
     display: none !important;
   }
+
+  .u-sm-block {
+    display: block !important;
+  }
 }
 
 @media (--md-viewport) {
@@ -51,5 +55,9 @@
 @media (--lg-viewport) {
   .u-lg-hidden {
     display: none !important;
+  }
+
+  .u-lg-block {
+    display: block !important;
   }
 }

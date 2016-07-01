@@ -19,6 +19,7 @@
   color: color(var(--color-blue) h(-15) s(+50) l(+20));
 }
 
+.token.constant,
 .token.attr-value,
 .token.selector,
 .token.class-name {

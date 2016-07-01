@@ -101,6 +101,23 @@ class Bread {
   }
 }</code></pre>
 
+  <pre><code class="language-php">class InlineSvg {
+  private $svg;
+
+  public function __construct( $path ) {
+    $ext = pathinfo($path, PATHINFO_EXTENSION);
+    if ( empty( $ext ) ) {
+      $path .= '.svg';
+    }
+
+    if ( is_file( $path ) ) {
+      $this->svg = new SimpleXMLElement( $path, LIBXML_NOBLANKS | LIBXML_NOERROR, true );
+    } else {
+      $this->svg = simplexml_load_string( '<svg></svg>' );
+    }
+  }
+}</code></pre>
+
   <p>
     As someone who knows a little code,<sup><a class="FootnoteLink" href="#article-fn-2" id="article-fn-ref-2" title="Jump to footnote">2</a></sup> it’s easy to be like, “Hey, just learn to code”. However, stepping out of your knowledge base and comfort zone can be a scary place. It can even be daunting just knowing where to begin.
   </p>

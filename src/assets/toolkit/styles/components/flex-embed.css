@@ -1,1 +1,20 @@
 @import "suitcss-components-flex-embed";
+
+/**
+ * The wp_oembed_get() does not allow us to add the `FlexEmbed-content` class
+ * to the embedded iframe. This is a workaround (hack) to get the flex embed
+ * to work in this situation. This means the `FlexEmbed-content` CSS rules
+ * are duplicated, unfortunately, but I failed to find a different solution.
+ *
+ *
+ * @see https://codex.wordpress.org/Function_Reference/wp_oembed_get
+ * @see https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css#L66-L73
+ */
+.FlexEmbed > iframe {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}

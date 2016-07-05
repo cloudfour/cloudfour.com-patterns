@@ -1,5 +1,7 @@
 'use strict';
 
+var env = require('gulp-util').env;
+
 module.exports = {
   copy: {
     src: './src/static/**/*',
@@ -9,7 +11,8 @@ module.exports = {
   'css:toolkit': {
     src: './src/assets/toolkit/{styles,styles/sandbox}/*.css',
     dest: './dist/assets/toolkit/styles',
-    name: 'css:toolkit'
+    name: 'css:toolkit',
+    optimize: !env.dev
   },
 
   'css:drizzle': {
@@ -20,6 +23,7 @@ module.exports = {
   },
 
   js: {
+    optimize: !env.dev,
     plugins: {
       webpack: {
         entry: {

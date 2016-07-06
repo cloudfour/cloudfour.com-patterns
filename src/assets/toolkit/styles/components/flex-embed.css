@@ -9,6 +9,7 @@
  *
  * @see https://codex.wordpress.org/Function_Reference/wp_oembed_get
  * @see https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css#L66-L73
+ * @see https://github.com/cloudfour/cloudfour.com-wp/pull/91#discussion-diff-69822034
  */
 .FlexEmbed > iframe {
   bottom: 0;

@@ -1,0 +1,14 @@
+.Slideshow {
+  overflow: hidden;
+}
+
+.Slideshow-slide {
+  flex: 1 0 100% !important;
+  opacity: 0;
+  transition: opacity ease 500ms;
+}
+
+.Slideshow-slide.is-visible {
+  order: -1;
+  opacity: 1;
+}

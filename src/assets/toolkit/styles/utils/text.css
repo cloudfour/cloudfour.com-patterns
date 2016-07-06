@@ -17,6 +17,16 @@
 }
 
 /**
+ * Responsive text alignment
+ */
+
+@media (--sm-viewport) {
+  .u-sm-textLeft {
+    text-align: left !important;
+  }
+}
+
+/**
  * Utilities for adjusting text size using modular scale
  *
  * @see http://blog.cloudfour.com/responsive-guide-to-type-sizing/

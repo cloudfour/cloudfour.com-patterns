@@ -1,19 +1,19 @@
 'use strict';
 
-export class FactSlider {
+export class Slideshow {
   constructor (element, {
-    facts = element.querySelectorAll('.js-FunFact'),
-    nextTrigger = element.querySelector('.js-FunFact-next'),
-    prevTrigger = element.querySelector('.js-FunFact-prev'),
-    currentCount = element.querySelector('.js-FunFact-current'),
-    totalCount = element.querySelector('.js-FunFact-total'),
+    slides = element.querySelectorAll('.js-Slideshow-slide'),
+    nextTrigger = element.querySelector('.js-Slideshow-next'),
+    prevTrigger = element.querySelector('.js-Slideshow-prev'),
+    currentCount = element.querySelector('.js-Slideshow-current'),
+    totalCount = element.querySelector('.js-Slideshow-total'),
     className = 'is-visible'
   } = {}) {
 
-    this.facts = Array.from(facts);
-    this.numFacts = this.facts.length;
+    this.slides = Array.from(slides);
+    this.numSlides = this.slides.length;
     this.counter = 0;
-    totalCount.innerHTML = this.numFacts;
+    totalCount.innerHTML = this.numSlides;
 
     Object.assign(this, {
       element,
@@ -29,18 +29,18 @@ export class FactSlider {
 
   showCurrent () {
     // Get the index of the current item
-    const factToShow = Math.abs(this.counter % this.numFacts);
+    const slideToShow = Math.abs(this.counter % this.numSlides);
 
     // Remove current class from all items
-    this.facts.forEach(fact => {
-      fact.classList.remove(this.className);
+    this.slides.forEach(slide => {
+      slide.classList.remove(this.className);
     });
 
     // Add current class to current item
-    this.facts[factToShow].classList.add(this.className);
+    this.slides[slideToShow].classList.add(this.className);
 
     // Update the navigation with the current slide number
-    this.currentCount.innerHTML = factToShow + 1;
+    this.currentCount.innerHTML = slideToShow + 1;
   }
 
 

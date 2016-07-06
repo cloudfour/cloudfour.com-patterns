@@ -5,8 +5,6 @@ labels:
   - latest
 notes: |
   Individual team member bio and related content.
-stylesheets:
- - sandbox/sara-wip
 ---
 
 <div class="u-spaceItems1 u-cf">
@@ -59,9 +57,9 @@ stylesheets:
 
 {{! Fun Facts }}
 <div class="u-md-size2of3">
-  <aside class="u-bgGray u-padSides5 u-padEnds2 u-lg-padSides1 u-pullSides1 u-spaceTop4 u-posRelative u-flex FunFacts js-FunFacts">
+  <aside class="u-bgGray u-padSides5 u-padEnds2 u-lg-padSides1 u-pullSides1 u-spaceTop4 u-posRelative u-flex Slideshow js-Slideshow">
     {{#each drizzle.data.fun-facts.contents.aileen}}
-      <div class="Grid Grid--withGutter Grid--alignMiddle FunFact js-FunFact u-spaceRight5 {{#if @first}} is-visible{{/if}} u-flexExpand u-flexJustifyCenter u-sm-flexJustifyStart">
+      <div class="Grid Grid--withGutter Grid--alignMiddle Slideshow-slide js-Slideshow-slide u-spaceRight5 {{#if @first}} is-visible{{/if}} u-flexExpand u-flexJustifyCenter u-sm-flexJustifyStart">
         <div class="Grid-cell u-size1of2 u-sm-size1of4 u-lg-size1of5">
           <div class="Thumbnail Thumbnail--circle u-block">
             <img class="u-sizeFull" src="{{image}}" alt="">
@@ -74,9 +72,9 @@ stylesheets:
       </div>
     {{/each}}
 
-    <ul class="u-listInline u-spaceSides03 u-flexJustifyBetween  u-flexAlignContentCenter u-lg-flexJustifyEnd u-posAbsoluteMiddle u-lg-spaceRight2">
+    <ul class="u-listInline u-spaceSides03 u-flexJustifyBetween  u-flexAlignContentCenter u-lg-flexJustifyEnd u-posAbsoluteCenter u-lg-spaceRight2">
       <li class="u-spaceLeft05">
-        <a class="u-linkClean js-FunFact-prev" href="">
+        <a class="u-linkClean js-Slideshow-prev" href="">
           <span class="u-hiddenVisually">Previous Fun Fact</span>
           <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
             <circle r="12" cx="12" cy="12" fill="#fff"/>
@@ -87,12 +85,12 @@ stylesheets:
       <li>
         <span class="u-hiddenVisually u-lg-unhideVisually u-lg-inlineBlock u-textShrink1">
           <span class="u-hiddenVisually">Current Fun Fact:</span>
-          <span class="js-FunFact-current">1</span> of
-          <span class="js-FunFact-total"></span>
+          <span class="js-Slideshow-current">1</span> of
+          <span class="js-Slideshow-total"></span>
         </span>
       </li>
       <li>
-        <a class="u-linkClean js-FunFact-next" href="">
+        <a class="u-linkClean js-Slideshow-next" href="">
           <span class="u-hiddenVisually">Next Fun Fact</span>
           <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
             <circle r="12" cx="12" cy="12" fill="#fff"/>
@@ -102,6 +100,7 @@ stylesheets:
       </li>
     </ul>
   </aside>
+
 </div>
 
 

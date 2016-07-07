@@ -17,3 +17,7 @@
     max-height: 50vh !important;
   }
 }
+
+.u-size1of1 {
+  width: 100% !important;
+}

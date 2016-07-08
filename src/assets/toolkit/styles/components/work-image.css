@@ -6,9 +6,6 @@
   --WorkImage-detail-alt-stroke-width: 2px;
   --WorkImage-screen-fill: var(--color-white);
   --WorkImage-tilt-rotate: -3deg;
-  --WorkImage-small-rotate: calc(var(--WorkImage-tilt-rotate) * -2);
-  --WorkImage-small-translateX: 690px;
-  --WorkImage-small-translateY: 120px;
 }
 
 .WorkImage {
@@ -42,5 +39,5 @@
 }
 
 .WorkImage-small {
-  transform: rotate(var(--WorkImage-small-rotate)) translate(var(--WorkImage-small-translateX), var(--WorkImage-small-translateY));
+
 }

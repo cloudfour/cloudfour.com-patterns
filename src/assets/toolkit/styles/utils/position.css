@@ -7,7 +7,7 @@
  */
 
 .u-posAbsoluteTopCenter {
-  position: absolute;
+  position: absolute !important;
   left: 50% !important;
   top: 0 !important;
   transform: translateX(-50%) !important;

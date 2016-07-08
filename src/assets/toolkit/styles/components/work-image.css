@@ -5,10 +5,15 @@
   --WorkImage-detail-alt-stroke: var(--WorkImage-detail-fill);
   --WorkImage-detail-alt-stroke-width: 2px;
   --WorkImage-screen-fill: var(--color-white);
+  --WorkImage-tilt-rotate: -3deg;
 }
 
 .WorkImage {
 
+}
+
+.WorkImage--tilt {
+  transform: rotate(var(--WorkImage-tilt-rotate));
 }
 
 .WorkImage-bezel {

@@ -12,6 +12,7 @@
 
 /**
  * Jetpack Device Lab Form Styles
+ * TODO: Use mixins to keep this stuff DRY in the future.
  */
 
 :root {
@@ -67,12 +68,10 @@
  */
 
 :root {
-  --JetpackLabel-color: var(--color-blue);
   --JetpackLabel-font-weight: var(--font-weight-semibold);
 }
 
 .CmsContent .comment-form label {
-  color: var(--JetpackLabel-color);
   font-weight: var(--JetpackLabel-font-weight);
 }
 

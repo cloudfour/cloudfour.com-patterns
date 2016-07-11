@@ -29,6 +29,7 @@
   min-height: var(--CalendarDate-min-height);
   min-width: var(--CalendarDate-min-width);
   text-align: center;
+  overflow: hidden; /* round top corners of inner header */
 }
 
 .CalendarDate-header {

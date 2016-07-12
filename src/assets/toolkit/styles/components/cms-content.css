@@ -23,6 +23,7 @@
   --JetpackInput-border-width: var(--control-stroke);
   --JetpackInput-color: var(--base-color);
   --JetpackInput-disabled-opacity: var(--control-disabled-opacity);
+  --JetpackInput-margin: 0 0 var(--space-sm) 0;
   --JetpackInput-padding: 0.5em 0.75em;
   --JetpackInput-transition-duration: var(--motion-duration-lg);
   --JetpackInput-transition-timing-function: var(--motion-timing-function-default);
@@ -45,6 +46,7 @@
   width: 100% !important; /* 1 */
   max-width: 100% !important; /* 5 */
   padding: var(--JetpackInput-padding);
+  margin: var(--JetpackInput-margin);
   font: inherit; /* 2 */
   line-height: normal; /* 3 */
   color: var(--JetpackInput-color);

@@ -24,6 +24,7 @@
   --JetpackInput-color: var(--base-color);
   --JetpackInput-disabled-opacity: var(--control-disabled-opacity);
   --JetpackInput-padding: 0.5em 0.75em;
+  --JetpackInput-margin: var(--space-sm);
   --JetpackInput-transition-duration: var(--motion-duration-lg);
   --JetpackInput-transition-timing-function: var(--motion-timing-function-default);
 }
@@ -38,11 +39,13 @@
  *    unless we override its appearance.
  * 5. Overrides specific `max-width` set in the JetPack style sheet.
  */
-.CmsContent .contact-form input {
+.CmsContent .contact-form input,
+.CmsContent .contact-form textarea {
   display: block; /* 1 */
   box-sizing: border-box;
-  width: 100%; /* 1 */
-  max-width: 100%; /* 5 */
+  width: 100% !important; /* 1 */
+  max-width: 100% !important; /* 5 */
+  margin-bottom: var(--JetpackInput-margin);
   padding: var(--JetpackInput-padding);
   font: inherit; /* 2 */
   line-height: normal; /* 3 */
@@ -54,11 +57,17 @@
   -webkit-appearance: none; /* 4 */
 }
 
-.CmsContent .contact-form input:matches(:active, :hover) {
+.CmsContent .contact-form textarea {
+  max-height: 10em;
+}
+
+.CmsContent .contact-form input:matches(:active, :hover),
+.CmsContent .contact-form textarea:matches(:active, :hover) {
   border-color: color(var(--JetpackInput-border-color) l(-15%));
 }
 
-.CmsContent .contact-form input:focus {
+.CmsContent .contact-form input:focus,
+.CmsContent .contact-form textarea:focus {
   border-color: var(--JetpackInput-border-color-focus);
   outline: none;
 }

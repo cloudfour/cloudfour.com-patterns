@@ -136,19 +136,27 @@ function carouselStep () {
   next = dom.carouselItems[nextIndex];
 
   TweenLite.to(current, settings.carousel.duration, {
-    x: -offset,
+    attr: {
+      x: -offset
+    },
     ease: settings.carousel.ease,
     onComplete: () => TweenLite.set(current, {
-      x: 0,
+      attr: {
+        x: 0
+      },
       visibility: 'hidden'
     })
   });
 
   TweenLite.fromTo(next, settings.carousel.duration, {
-    x: offset,
+    attr: {
+      x: offset
+    },
     visibility: 'visible'
   }, {
-    x: 0,
+    attr: {
+      x: 0
+    },
     ease: settings.carousel.ease
   });
 

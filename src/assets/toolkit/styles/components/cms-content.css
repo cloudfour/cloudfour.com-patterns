@@ -38,7 +38,7 @@
  *    unless we override its appearance.
  * 5. Overrides specific `max-width` set in the JetPack style sheet.
  */
-.CmsContent .comment-form input {
+.CmsContent .contact-form input {
   display: block; /* 1 */
   box-sizing: border-box;
   width: 100%; /* 1 */
@@ -54,11 +54,11 @@
   -webkit-appearance: none; /* 4 */
 }
 
-.CmsContent .comment-form input:matches(:active, :hover) {
+.CmsContent .contact-form input:matches(:active, :hover) {
   border-color: color(var(--JetpackInput-border-color) l(-15%));
 }
 
-.CmsContent .comment-form input:focus {
+.CmsContent .contact-form input:focus {
   border-color: var(--JetpackInput-border-color-focus);
   outline: none;
 }
@@ -71,7 +71,7 @@
   --JetpackLabel-font-weight: var(--font-weight-semibold);
 }
 
-.CmsContent .comment-form label {
+.CmsContent .contact-form label {
   font-weight: var(--JetpackLabel-font-weight);
 }
 

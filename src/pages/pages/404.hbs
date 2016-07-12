@@ -1,0 +1,51 @@
+---
+title: 404 Page Not Found
+layout: toolkit.blank
+---
+
+{{{embed "patterns.components.sky.base"}}}
+
+<main role="main" id="main">
+  {{#embed "patterns.components.sky.base" class="Sky--clouds"}}
+    {{#content "top"}}
+      <div class="Grid Grid--alignMiddle u-spaceBottom">
+        <div class="Grid-cell u-sm-size2of5 u-padTop u-padSides1 u-sm-padSidesNone u-sm-flexOrderLast u-textCenter">
+          <img class="u-limitHeight1of2" src="/images/sky-404.svg" alt="">
+        </div>
+        <div class="Grid-cell u-sm-size1of2 u-padSides1 u-padTop">
+          <h1 class="u-textGrow5">
+            Cloud 404!
+          </h1>
+        </div>
+      </div>
+    {{/content}}
+  {{/embed}}
+  <div class="u-bgWhite">
+    <div class="u-containProse u-pad1 u-spaceItems1">
+      <p class="u-textGrow1">
+        We can't seem to find the page you're looking for. 
+      </p>
+      <p>
+        But don't give up! Try browsing our <a href="/topics">list of topics</a> 
+        to find something of interest. Or, watch a funny and informative presentation 
+        about the origin of Cup Noodle.        
+      </p>
+      {{#embed "patterns.components.flex-embed.base" ratio="16by9"}}
+        {{#content "content"}}
+          <iframe class="FlexEmbed-content"
+            width="420"
+            height="315"
+            src="https://www.youtube.com/embed/h65O54MZMp8"
+            frameborder="0"
+            allowfullscreen></iframe>
+        {{/content}}
+      {{/embed}}
+    </div>
+    <div class="u-containSpread">
+      <hr class="u-spaceSides1 u-spaceEndsNone">
+      {{> toolkit.page-segue }}
+    </div>
+  </div>
+</main>
+
+{{> toolkit.global-footer }}

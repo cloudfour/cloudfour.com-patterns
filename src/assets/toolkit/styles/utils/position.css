@@ -6,6 +6,13 @@
  * TODO: Revisit once we're able to update PostCSS to latest version
  */
 
+.u-posAbsoluteTopCenter {
+  position: absolute !important;
+  left: 50% !important;
+  top: 0 !important;
+  transform: translateX(-50%) !important;
+}
+
 @define-mixin makePosUtils $prefix {
   .u-$(prefix)posAbsoluteTopLeft,
   .u-$(prefix)posAbsoluteTopRight,

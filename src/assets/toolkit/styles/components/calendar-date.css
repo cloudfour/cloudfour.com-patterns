@@ -18,6 +18,9 @@
   --CalendarDate-body-range-font-size: var(--font-size-md);
 }
 
+/**
+ * 1. rounds top corners of inner header
+ */
 .CalendarDate {
   background: var(--CalendarDate-background);
   border: var(--CalendarDate-border-width) solid currentColor;
@@ -29,6 +32,7 @@
   min-height: var(--CalendarDate-min-height);
   min-width: var(--CalendarDate-min-width);
   text-align: center;
+  overflow: hidden; /* 1 */
 }
 
 .CalendarDate-header {

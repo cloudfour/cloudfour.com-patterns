@@ -28,7 +28,7 @@
   --Sky-nav-menu-item-transition-timing-function: var(--motion-timing-function-default);
   --Sky-nav-menu-item-space: var(--space-sm);
   --Sky-nav-menu-item-space-tighter: var(--space-sm) calc(var(--space-sm) * 0.5);
-  --Sky-nav-menu-space: var(--space-sm) var(--space-sm) var(--space-sm) 0;
+  --Sky-nav-menu-space: var(--space-sm);
 
   --Sky-scene-object-x-offset: calc(2 / 3 * 100%);
   --Sky-scene-object-x-offset-full: 75%;
@@ -42,9 +42,8 @@
 
 @custom-media --Sky-nav-expanded-viewport (width >= 36em);
 @custom-media --Sky-nav-full-viewport (width >= 48em);
-@custom-media --Sky-scene-full-viewport (--md-viewport);
-@custom-media --Sky-nav-font-size-sm-min (width >= 64em);
 @custom-media --Sky-nav-font-size-sm-max (width < 80em);
+@custom-media --Sky-scene-full-viewport (--md-viewport);
 
 /**
  * 1. Keep absolute-positioned elements from leaving this container.
@@ -267,16 +266,18 @@
 /**
  * 1. At large sizes, display elements in a row.
  * 2. Add some extra whitespace all around.
- * 3. Let items wrap if they overflow.
- * 4. Align items to the right end of the container.
+ * 3. Saves some room on narrow screens to reduce wrapping.
+ * 4. Let items wrap if they overflow.
+ * 5. Align items to the right end of the container.
  */
 
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav-menu-items {
     display: flex; /* 1 */
     margin: var(--Sky-nav-menu-space); /* 2 */
-    flex-wrap: wrap; /* 3 */
-    justify-content: flex-end; /* 4 */
+    margin-left: 0; /* 4 */
+    flex-wrap: wrap; /* 4 */
+    justify-content: flex-end; /* 5 */
   }
 }
 
@@ -353,7 +354,7 @@
   }
 }
 
-@media (--Sky-nav-font-size-sm-min)  and (--Sky-nav-font-size-sm-max) {
+@media (--Sky-nav-full-viewport) and (--Sky-nav-font-size-sm-max) {
   /**
    * In this viewport range, the body font size increases enough to wrap the last
    * couple of nav items. This prevents the wrapping.
@@ -361,6 +362,17 @@
 
   .Sky-nav-menu-item {
     font-size: var(--Sky-nav-menu-item-font-size-sm);
+  }
+}
+
+@media (--lg-viewport) {
+  /**
+   * On larger screens, the nav links are spaced out from each other and this provides
+   * visual balance by adding space between the nav and logo.
+   */
+
+  .Sky-nav-menu-items {
+    margin-left: var(--Sky-nav-menu-space);
   }
 }
 

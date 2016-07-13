@@ -43,6 +43,8 @@
 @custom-media --Sky-nav-expanded-viewport (width >= 36em);
 @custom-media --Sky-nav-full-viewport (width >= 48em);
 @custom-media --Sky-scene-full-viewport (--md-viewport);
+@custom-media --Sky-nav-font-sm (width >= 64em);
+@custom-media --Sky-nav-font-md (width < 80em);
 
 /**
  * 1. Keep absolute-positioned elements from leaving this container.
@@ -351,7 +353,7 @@
   }
 }
 
-@media (--lg-viewport) {
+@media (--Sky-nav-font-sm)  and (--Sky-nav-font-md) {
   /**
    * In this viewport range, the body font size increases enough to wrap the last
    * couple of nav items. This prevents the wrapping.
@@ -359,16 +361,6 @@
 
   .Sky-nav-menu-item {
     font-size: var(--Sky-nav-menu-item-font-size-sm);
-  }
-}
-
-@media (--xl-viewport) {
-  /**
-   * Back to default font size behavior now that there's enough room.
-   */
-
-  .Sky-nav-menu-item {
-    font-size: var(--Sky-nav-menu-item-font-size);
   }
 }
 

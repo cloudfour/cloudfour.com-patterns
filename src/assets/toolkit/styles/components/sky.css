@@ -318,7 +318,6 @@
 }
 
 @media (--Sky-nav-expanded-viewport) {
-
   /**
    * When the nav is horizontal, ditch those dividers.
    */
@@ -346,6 +345,7 @@
    * one line and avoids orphans. Since the containing list items also spread out at this 
    * breakpoint, the space between nav item links is maximized.
    */
+
   .Sky-nav-menu-item {
     padding: var(--Sky-nav-menu-item-space-tighter);
   }
@@ -356,6 +356,7 @@
    * In this viewport range, the body font size increases enough to wrap the last
    * couple of nav items. This prevents the wrapping.
    */
+
   .Sky-nav-menu-item {
     font-size: var(--Sky-nav-menu-item-font-size-sm);
   }
@@ -365,6 +366,7 @@
   /**
    * Back to default font size behavior now that there's enough room.
    */
+
   .Sky-nav-menu-item {
     font-size: var(--Sky-nav-menu-item-font-size);
   }

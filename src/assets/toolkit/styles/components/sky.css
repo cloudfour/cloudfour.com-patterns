@@ -341,8 +341,8 @@
 
 @media (--Sky-nav-full-viewport) {
   /**
-   * Tightening the left and right padding on nav item links allows for the nav items fit on 
-   * one line and avoids orphans. Since the containing list items also spread out at this 
+   * Tightening the left and right padding on nav item links allows for the nav items to
+   * fit on one line and avoids orphans. Since the containing list items also spread out at this 
    * breakpoint, the space between nav item links is maximized.
    */
 

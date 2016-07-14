@@ -26,9 +26,8 @@
   --Sky-nav-menu-item-line-height: var(--line-height-xs);
   --Sky-nav-menu-item-transition-duration: var(--motion-duration-md);
   --Sky-nav-menu-item-transition-timing-function: var(--motion-timing-function-default);
-  --Sky-nav-menu-item-space: var(--space-sm);
-  --Sky-nav-menu-item-space-tighter: var(--space-sm) calc(var(--space-sm) * 0.5);
   --Sky-nav-menu-space: var(--space-sm);
+  --Sky-nav-menu-space-tighter: var(--space-sm) calc(var(--space-sm) * 0.5);
 
   --Sky-scene-object-x-offset: calc(2 / 3 * 100%);
   --Sky-scene-object-x-offset-full: 75%;
@@ -42,7 +41,7 @@
 
 @custom-media --Sky-nav-expanded-viewport (width >= 36em);
 @custom-media --Sky-nav-full-viewport (width >= 48em);
-@custom-media --Sky-nav-font-size-sm-max (width < 80em);
+@custom-media --Sky-nav-font-size-sm-max (width < 70em);
 @custom-media --Sky-scene-full-viewport (--md-viewport);
 
 /**
@@ -275,7 +274,7 @@
   .Sky-nav-menu-items {
     display: flex; /* 1 */
     margin: var(--Sky-nav-menu-space); /* 2 */
-    margin-left: 0; /* 4 */
+    margin-left: 0; /* 3 */
     flex-wrap: wrap; /* 4 */
     justify-content: flex-end; /* 5 */
   }
@@ -310,7 +309,7 @@
 
 .Sky-nav-menu-item {
   display: block; /* 1 */
-  padding: var(--Sky-nav-menu-item-space); /* 2 */
+  padding: var(--Sky-nav-menu-space); /* 2 */
   font-size: var(--Sky-nav-menu-item-font-size);
   line-height: var(--Sky-nav-menu-item-line-height);
   white-space: nowrap; /* 3 */
@@ -350,7 +349,7 @@
    */
 
   .Sky-nav-menu-item {
-    padding: var(--Sky-nav-menu-item-space-tighter);
+    padding: var(--Sky-nav-menu-space-tighter);
   }
 }
 

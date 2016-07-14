@@ -84,6 +84,7 @@
 @mixin makeSpaceItemsUtils calc(var(--ms5)  * 1rem),  5;
 @mixin makeSpaceItemsUtils calc(var(--ms6)  * 1rem),  6;
 
+@mixin makePullUtils calc(var(--ms0) * 1rem);
 @mixin makePullUtils calc(var(--ms1) * 1rem), 1;
 @mixin makePullUtils calc(var(--ms2) * 1rem), 2;
 @mixin makePullUtils calc(var(--ms3) * 1rem), 3;
@@ -122,6 +123,7 @@
 @mixin makePadUtils 0, None;
 
 @media (--sm-viewport) {
+  @mixin makePullUtils calc(var(--ms0) * 1rem),  , sm-;
   @mixin makePullUtils calc(var(--ms1) * 1rem), 1, sm-;
   @mixin makePullUtils calc(var(--ms2) * 1rem), 2, sm-;
   @mixin makePullUtils calc(var(--ms3) * 1rem), 3, sm-;
@@ -161,6 +163,7 @@
 }
 
 @media (--md-viewport) {
+  @mixin makePullUtils calc(var(--ms0) * 1rem),  , md-;
   @mixin makePullUtils calc(var(--ms1) * 1rem), 1, md-;
   @mixin makePullUtils calc(var(--ms2) * 1rem), 2, md-;
   @mixin makePullUtils calc(var(--ms3) * 1rem), 3, md-;
@@ -200,6 +203,7 @@
 }
 
 @media (--lg-viewport) {
+  @mixin makePullUtils calc(var(--ms0) * 1rem),  , lg-;
   @mixin makePullUtils calc(var(--ms1) * 1rem), 1, lg-;
   @mixin makePullUtils calc(var(--ms2) * 1rem), 2, lg-;
   @mixin makePullUtils calc(var(--ms3) * 1rem), 3, lg-;

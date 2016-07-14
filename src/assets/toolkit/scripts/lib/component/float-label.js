@@ -2,26 +2,32 @@
 
 export class FloatLabel {
   /**
+   * @see https://mathiasbynens.be/notes/oninput
    * @param {DOM} element
    * @param {Object} options
    * @param {String} options.inputElement - Reference to input within element.
-   * @param {String} options.eventName - Event that will trigger updates.
    * @param {String} options.className - Class applied to `element` when `inputElement` is empty.
    */
   constructor(element, {
     inputElement = element.querySelector('input, textarea'),
-    eventName = 'input',
     className = 'is-empty'
   } = {}) {
     // Assign properties
     Object.assign(this, {
       element,
       inputElement,
-      eventName,
       className
     });
-    // Listen for event and update
-    this.element.addEventListener(this.eventName, this.update.bind(this));
+    // Fallback event handler
+    var keyUpHandler = () => this.update();
+    // Ideal event handler, will remove the other one if supported
+    var inputHandler = () => {
+      this.element.removeEventListener('keyup', keyUpHandler);
+      this.update();
+    };
+    // Attach events
+    this.element.addEventListener('input', inputHandler);
+    this.element.addEventListener('keyup', keyUpHandler);
     // Run first update now
     this.update();
   }

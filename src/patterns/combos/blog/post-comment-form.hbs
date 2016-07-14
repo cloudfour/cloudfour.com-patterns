@@ -10,18 +10,22 @@ order: 5
     type="textarea"
     label="Message"
     inputclass="js-ElasticTextarea"
-    inputid="commentform-message"}}{{/embed}}
+    inputid="comment"}}{{/embed}}
   <div class="Grid Grid--withGutter">
     <div class="Grid-cell u-sm-size1of2">
       {{#embed "patterns.components.input.float-label.base"
         label="Name"
-        inputid="commentform-name"}}{{/embed}}
+        inputid="name"
+        inputname="name"
+        autocomplete="name"}}{{/embed}}
     </div>
     <div class="Grid-cell u-spaceTop1 u-sm-spaceTopNone u-sm-size1of2">
       {{#embed "patterns.components.input.float-label.base"
         label="Email"
         type="email"
-        inputid="commentform-email"}}{{/embed}}
+        inputid="email"
+        inputname="email"
+        autocomplete="home email"}}{{/embed}}
     </div>
     <div class="Grid-cell u-spaceTop1">
       {{#embed "patterns.components.button.base" class="Button--default u-block u-sizeFull"}}

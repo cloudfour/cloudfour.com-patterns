@@ -25,7 +25,8 @@
   --Sky-nav-menu-item-line-height: var(--line-height-xs);
   --Sky-nav-menu-item-transition-duration: var(--motion-duration-md);
   --Sky-nav-menu-item-transition-timing-function: var(--motion-timing-function-default);
-  --Sky-nav-menu-space: var(--space-xs);
+  --Sky-nav-menu-space: var(--space-sm) var(--space-xs);
+  --Sky-nav-menu-max: 30em;
 
   --Sky-scene-object-x-offset: calc(2 / 3 * 100%);
   --Sky-scene-object-x-offset-full: 75%;
@@ -204,7 +205,6 @@
   }
 }
 
-
 /**
  * 1. Most embeds are `inline-block` by default, which results in an unsightly
  *    bottom space. Yuck.
@@ -278,7 +278,7 @@
     padding-bottom: 0; /* 2 */
     background: transparent; /* 3 */
     order: 2; /* 4 */
-    max-width: 30em; /* 5 */
+    max-width: var(--Sky-nav-menu-max); /* 5 */
   }
 }
 
@@ -288,7 +288,7 @@
  */ 
 
   .Sky-nav-menu {
-    max-width: 100%;
+    max-width: initial;
   }
 }
 

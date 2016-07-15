@@ -3,8 +3,10 @@ name: Post Comment Form
 order: 5
 ---
 
-<form class="u-spaceTop2 u-spaceItems1" id="commentform">
-  <h2>Leave a Comment</h2>
+<form class="u-spaceItems1 {{class}}" id="respond">
+  {{#unless isReply}}
+    <h2>Leave a Comment</h2>
+  {{/unless}}
   <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference/">Markdown</a> in your comments. All fields are required.</p>
   {{#embed "patterns.components.input.float-label.base"
     type="textarea"
@@ -27,12 +29,26 @@ order: 5
         inputname="email"
         autocomplete="home email"}}{{/embed}}
     </div>
-    <div class="Grid-cell u-spaceTop1">
-      {{#embed "patterns.components.button.base" class="Button--default u-block u-sizeFull"}}
-        {{#content "content"}}
-          Submit Comment
-        {{/content}}
-      {{/embed}}
-    </div>
+    {{#if isReply}}
+      <div class="Grid-cell u-spaceTop1 u-textRight">
+        <a href="#" class="Button u-spaceRight04 js-comment-formToggle">
+          Cancel
+        </a>
+        {{#embed "patterns.components.button.base" class="Button--default"}}
+          {{#content "content"}}
+            Submit Reply
+          {{/content}}
+        {{/embed}}
+        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+      </div>
+    {{else}}
+      <div class="Grid-cell u-spaceTop1">
+        {{#embed "patterns.components.button.base" class="Button--default u-block u-sizeFull"}}
+          {{#content "content"}}
+            Submit {{#if isReply}}Reply{{else}}Comment{{/if}}
+          {{/content}}
+        {{/embed}}
+      </div>
+    {{/if}}
   </div>
 </form>

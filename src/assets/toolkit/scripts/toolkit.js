@@ -8,6 +8,7 @@ import {arrayFromSelector} from './lib/dom/core';
 import {FloatLabel} from './lib/component/float-label';
 import {Sky} from './lib/component/sky';
 import {ElasticTextarea} from './lib/component/elastic-textarea';
+import {CommentReply} from './lib/component/comment-reply';
 
 /**
  * Syntax highlighting
@@ -45,5 +46,21 @@ import 'prismjs/components/prism-scss';
       eventName: 'keyup'
     });
   });
+
+  var replyFormTemplate = document.getElementById('comment-reply-form-template');
+
+  if (replyFormTemplate) {
+    replyFormTemplate = replyFormTemplate.innerHTML;
+    arrayFromSelector('.js-comment').map(element => {
+      new CommentReply(element, {
+        formTemplate: replyFormTemplate,
+        onShow: CommentReply => {
+          Array.from(CommentReply.formElement.querySelectorAll('.js-FloatLabel')).map(element => {
+            new FloatLabel(element);
+          });
+        }
+      });
+    });
+  }
 
 }());

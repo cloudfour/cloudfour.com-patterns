@@ -13,8 +13,8 @@
   --Sky-nav-controls-space-x: var(--space-md);
   --Sky-nav-controls-space-y: var(--space-xs);
   --Sky-nav-logo-color: var(--Sky-color);
-  --Sky-nav-logo-height: 5em;
-  --Sky-nav-logo-width: var(--Sky-nav-logo-height);
+  --Sky-nav-logo-size: 5em;
+  --Sky-nav-logo-size-sm: 4em;
   --Sky-nav-logo-padding: var(--Sky-nav-controls-space-y) var(--Sky-nav-controls-space-x);
   --Sky-nav-color-inactive: color(var(--Sky-background-color) s(+10%) l(90%));
 
@@ -22,12 +22,10 @@
   --Sky-nav-menu-item-border-color: color(var(--color-black) a(10%));
   --Sky-nav-menu-item-border-width: var(--control-stroke);
   --Sky-nav-menu-item-font-size: var(--font-size-md);
-  --Sky-nav-menu-item-font-size-sm: var(--font-size-sm);
   --Sky-nav-menu-item-line-height: var(--line-height-xs);
   --Sky-nav-menu-item-transition-duration: var(--motion-duration-md);
   --Sky-nav-menu-item-transition-timing-function: var(--motion-timing-function-default);
-  --Sky-nav-menu-space: var(--space-sm);
-  --Sky-nav-menu-space-tighter: var(--space-sm) calc(var(--space-sm) * 0.5);
+  --Sky-nav-menu-space: var(--space-xs);
 
   --Sky-scene-object-x-offset: calc(2 / 3 * 100%);
   --Sky-scene-object-x-offset-full: 75%;
@@ -40,8 +38,7 @@
 }
 
 @custom-media --Sky-nav-expanded-viewport (width >= 36em);
-@custom-media --Sky-nav-full-viewport (width >= 48em);
-@custom-media --Sky-nav-font-size-sm-max (width < 70em);
+@custom-media --Sky-nav-full-viewport (width >= 56em);
 @custom-media --Sky-scene-full-viewport (--md-viewport);
 
 /**
@@ -119,6 +116,7 @@
   display: flex;
   align-items: center; /* 1 */
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /**
@@ -193,6 +191,13 @@
   padding: var(--Sky-nav-logo-padding);
 }
 
+@media (--lg-viewport) {
+  .Sky-nav-logo {
+    padding-left: var(--space-xs);
+  }
+}
+
+
 /**
  * 1. Most embeds are `inline-block` by default, which results in an unsightly
  *    bottom space. Yuck.
@@ -205,10 +210,25 @@
 
 .Sky-nav-logo-object {
   display: block; /* 1 */
-  width: var(--Sky-nav-logo-width); /* 2 */
-  height: var(--Sky-nav-logo-width); /* 3 */
+  width: var(--Sky-nav-logo-size); /* 2 */
+  height: var(--Sky-nav-logo-size); /* 3 */
   fill: var(--color-relative); /* 4 */
 }
+
+@media (width >= 64em) {
+  .Sky-nav-logo-object {
+    width: var(--Sky-nav-logo-size-sm);
+    width: var(--Sky-nav-logo-size-sm);
+  }
+}
+
+@media (width >= 68em) {
+  .Sky-nav-logo-object {
+    width: var(--Sky-nav-logo-size);
+    width: var(--Sky-nav-logo-size);
+  }
+}
+
 
 /**
  * 1. Hidden by default.
@@ -241,7 +261,8 @@
  * 1. At large enough screens, make the menu _always_ visible.
  * 2. Remove the bump (since it won't be above anything at this point).
  * 3. Reset the background.
- * 4. Reset the order.
+ * 4. To align right, this now needs to be last.
+ * 5. Groups the last three links on a second line to avoid orphans.
  */
 
 @media (--Sky-nav-expanded-viewport) {
@@ -249,7 +270,14 @@
     display: block; /* 1 */
     padding-bottom: 0; /* 2 */
     background: transparent; /* 3 */
-    order: 0; /* 4 */
+    order: 2; /* 4 */
+    max-width: 30em; /* 5 */
+  }
+}
+
+@media (--Sky-nav-full-viewport) {
+  .Sky-nav-menu {
+    max-width: 100%;
   }
 }
 
@@ -274,9 +302,16 @@
   .Sky-nav-menu-items {
     display: flex; /* 1 */
     margin: var(--Sky-nav-menu-space); /* 2 */
-    margin-left: 0; /* 3 */
+    margin-left: 0;
     flex-wrap: wrap; /* 4 */
     justify-content: flex-end; /* 5 */
+  }
+}
+
+@media (--xl-viewport) {
+  .Sky-nav-menu-items {
+    margin: var(--Sky-nav-menu-space);
+    max-width: 100%;
   }
 }
 
@@ -341,39 +376,6 @@
   }
 }
 
-@media (--Sky-nav-full-viewport) {
-  /**
-   * Tightening the left and right padding on nav item links allows for the nav items to
-   * fit on one line and avoids orphans. Since the containing list items also spread out at this 
-   * breakpoint, the space between nav item links is maximized.
-   */
-
-  .Sky-nav-menu-item {
-    padding: var(--Sky-nav-menu-space-tighter);
-  }
-}
-
-@media (--Sky-nav-full-viewport) and (--Sky-nav-font-size-sm-max) {
-  /**
-   * In this viewport range, the body font size increases enough to wrap the last
-   * couple of nav items. This prevents the wrapping.
-   */
-
-  .Sky-nav-menu-item {
-    font-size: var(--Sky-nav-menu-item-font-size-sm);
-  }
-}
-
-@media (--lg-viewport) {
-  /**
-   * On larger screens, the nav links are spaced out from each other and this provides
-   * visual balance by adding space between the nav and logo.
-   */
-
-  .Sky-nav-menu-items {
-    margin-left: var(--Sky-nav-menu-space);
-  }
-}
 
 /**
  * Sky scene

@@ -194,7 +194,11 @@
   padding: var(--Sky-nav-logo-padding);
 }
 
-@media (--lg-viewport) {
+@media (--Sky-nav-logo-sm-min) {
+/**
+ * Reducing the left padding on the logo balances it with the right margin on the nav.
+ */
+
   .Sky-nav-logo {
     padding-left: var(--space-xs);
   }
@@ -226,7 +230,7 @@
 
   .Sky-nav-logo-object {
     width: var(--Sky-nav-logo-size-sm);
-    width: var(--Sky-nav-logo-size-sm);
+    height: var(--Sky-nav-logo-size-sm);
   }
 }
 
@@ -385,7 +389,6 @@
     color: var(--Sky-nav-color-inactive);
   }
 }
-
 
 /**
  * Sky scene

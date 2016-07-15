@@ -20,9 +20,7 @@ import 'prismjs/components/prism-scss';
 (function() {
 
   arrayFromSelector('.js-FloatLabel').map(element => {
-    new FloatLabel(element, {
-      eventName: 'keyup'
-    });
+    new FloatLabel(element);
   });
 
   /**

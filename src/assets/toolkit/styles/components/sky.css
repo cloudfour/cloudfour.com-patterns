@@ -40,7 +40,7 @@
 @custom-media --Sky-nav-expanded-viewport (width >= 36em);
 @custom-media --Sky-nav-full-viewport (width >= 56em);
 @custom-media --Sky-scene-full-viewport (--md-viewport);
-@custom-media --Sky-nav-logo-sm-min (width >= 64em);
+@custom-media --Sky-nav-logo-sm-min (--lg-viewport);
 @custom-media --Sky-nav-logo-sm-max (width < 68em);
 
 /**

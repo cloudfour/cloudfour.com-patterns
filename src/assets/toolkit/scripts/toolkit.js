@@ -1,5 +1,7 @@
 /**
  * Toolkit JavaScript
+ *
+ * TODO: Refactor toolkit.js to use Umbrella instead of arrayFromSelector, etc.
  */
 
 'use strict';
@@ -8,6 +10,7 @@ import {arrayFromSelector} from './lib/dom/core';
 import {FloatLabel} from './lib/component/float-label';
 import {Sky} from './lib/component/sky';
 import {ElasticTextarea} from './lib/component/elastic-textarea';
+import {CommentReply} from './lib/component/comment-reply';
 
 /**
  * Syntax highlighting
@@ -45,5 +48,16 @@ import 'prismjs/components/prism-scss';
       eventName: 'keyup'
     });
   });
+
+  var replyFormTemplate = document.getElementById('comment-replyForm-template');
+
+  if (replyFormTemplate) {
+    replyFormTemplate = replyFormTemplate.innerHTML;
+    arrayFromSelector('.js-comment').map(element => {
+      new CommentReply(element, {
+        template: replyFormTemplate
+      });
+    });
+  }
 
 }());

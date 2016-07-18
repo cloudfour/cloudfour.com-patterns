@@ -306,7 +306,7 @@ class Bread {
       <header class="u-flex u-flexAlignItemsBaseline u-flexJustifyBetween">
         <h2>Comments</h2>
         <p class="u-md-textGrow1">
-          <a class="u-linkClean u-textBold" href="#commentform">
+          <a class="u-linkClean u-textBold" href="#respond">
             {{svg "icons/plus" class="Icon" role="presentation"}}
             Add a comment
           </a>
@@ -317,7 +317,15 @@ class Bread {
         {{{ embed "patterns.combos.blog.post-comment" comment=this }}}
       {{/each}}
 
-      {{{ embed "patterns.combos.blog.post-comment-form" }}}
+      {{{ embed "patterns.combos.blog.post-comment-form" class="u-spaceTop2" }}}
+
+      <script id="comment-replyForm-template" type="text/template">
+        {{{
+          embed "patterns.combos.blog.post-comment-form"
+          class="u-spaceTop u-spaceLeft1 u-padTop u-borderTopMd"
+          isReply=true
+        }}}
+      </script>
     </section>
 
   </footer>

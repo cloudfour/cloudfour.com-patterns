@@ -4,10 +4,10 @@ order: 4
 ---
 
 {{#with (defaultTo comment drizzle.data.comments.contents.[1])}}
-  <article class="u-padEnds u-spaceItems1 u-borderBottomMd">
+  <article class="u-padEnds u-spaceItems1 u-borderBottomMd js-comment" data-id="{{math @index '++'}}">
     <p>{{comment}}</p>
     <footer>
-      <div class="u-flex u-flexAlignItemsCenter u-flexJustifyBetween">
+      <div class="u-flex u-flexAlignItemsCenter u-flexJustifyBetween js-comment-insertReply">
         <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
           <p class="u-textBold u-spaceRight01">
             {{author}}
@@ -16,13 +16,22 @@ order: 4
             <time datetime="{{timestamp date format='YYYY-MM-DDTHH:mm'}}">{{timestamp date format="MMM D, YYYY"}}</time>
           </p>
         </div>
-        <p>
-          <a class="u-linkClean u-textBold u-textNoWrap" href="#">
-            {{svg "icons/reply" class="Icon" role="presentation"}}
-            Reply
-          </a>
-        </p>
+        {{#unless showForm}}
+          <p>
+            <a class="u-linkClean u-textBold u-textNoWrap js-comment-replyToggle" href="#">
+              {{svg "icons/reply" class="Icon" role="presentation"}}
+              Reply
+            </a>
+          </p>
+        {{/unless}}
       </div>
+      {{#if showForm}}
+        {{{
+          embed "patterns.combos.blog.post-comment-form"
+          class="u-spaceLeft1 u-padTop u-padBottom04 u-borderTopMd"
+          isReply=true
+        }}}
+      {{/if}}
       {{#if reply}}
         <section class="u-spaceLeft1">
           <header class="u-hiddenVisually">

@@ -25,7 +25,7 @@ export class CommentReply {
     // Store element as Umbrella object
     this.element = u(element);
     // Store ID
-    this.id = this.element.attr(this.idAttribute) || 0;
+    this.id = this.element.attr(idAttribute) || 0;
     // Store relevant children of comments (also as Umbrella objects)
     this.insertElement = this.element.find(insertSelector);
     this.toggleElements = this.element.find(toggleSelector);
@@ -119,7 +119,7 @@ export class CommentReply {
         });
       }
     }
-    // Return the existing (or newly created) element 
+    // Return the existing (or newly created) element
     return this._formElement;
   }
 }

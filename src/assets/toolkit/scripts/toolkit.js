@@ -1,5 +1,7 @@
 /**
  * Toolkit JavaScript
+ *
+ * TODO: Refactor toolkit.js to use Umbrella instead of arrayFromSelector, etc.
  */
 
 'use strict';

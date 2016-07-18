@@ -8,13 +8,13 @@ import eases from 'eases';
 /**
  * Associates easing function sources w/ types
  */
-const sourcesByType = new Map([
+const sourcesByType = [
   // Array of points? Use BezierEasing to calculate.
   [Array, points => BezierEasing(...points)],
 
   // String alias? Use predefined ease calculations.
   [String, alias => eases[alias]]
-]);
+];
 
 class EaseFunction {
   /**
@@ -25,9 +25,10 @@ class EaseFunction {
    */
   static create (input) {
     const type = input.constructor;
-    const easerSource = sourcesByType.get(type);
-    if (easerSource) {
-      return easerSource(input);
+    const easerSource = sourcesByType.find(el => el[0] === type);
+    const easerFn = easerSource ? easerSource[1] : null;
+    if (easerFn) {
+      return easerFn(input);
     } else {
       throw `An easing function could not be created from ${input}.`;
     }

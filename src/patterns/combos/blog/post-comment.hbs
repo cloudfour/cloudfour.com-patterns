@@ -7,7 +7,7 @@ order: 4
   <article class="u-padEnds u-spaceItems1 u-borderBottomMd js-comment" data-id="{{math @index '++'}}">
     <p>{{comment}}</p>
     <footer>
-      <div class="u-flex u-flexAlignItemsCenter u-flexJustifyBetween js-comment-insertFormAfter">
+      <div class="u-flex u-flexAlignItemsCenter u-flexJustifyBetween js-comment-insertReply">
         <div class="u-flex u-flexWrap u-flexAlignItemsBaseline">
           <p class="u-textBold u-spaceRight01">
             {{author}}
@@ -18,7 +18,7 @@ order: 4
         </div>
         {{#unless showForm}}
           <p>
-            <a class="u-linkClean u-textBold u-textNoWrap js-comment-formToggle" href="#">
+            <a class="u-linkClean u-textBold u-textNoWrap js-comment-replyToggle" href="#">
               {{svg "icons/reply" class="Icon" role="presentation"}}
               Reply
             </a>

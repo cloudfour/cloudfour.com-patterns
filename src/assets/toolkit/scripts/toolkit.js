@@ -53,17 +53,7 @@ import 'prismjs/components/prism-scss';
     replyFormTemplate = replyFormTemplate.innerHTML;
     arrayFromSelector('.js-comment').map(element => {
       new CommentReply(element, {
-        formTemplate: replyFormTemplate,
-        onShow: CommentReply => {
-          CommentReply.formElement.find('.js-FloatLabel').map(element => {
-            new FloatLabel(element);
-          });
-          CommentReply.formElement.find('.js-ElasticTextarea').map(element => {
-            new ElasticTextarea(element, {
-              eventName: 'keyup'
-            });
-          });
-        }
+        template: replyFormTemplate
       });
     });
   }

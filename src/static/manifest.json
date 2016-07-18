@@ -1,17 +1,22 @@
 {
-	"name": "Cloud Four",
-	"icons": [
-		{
-			"src": "\/android-chrome-192x192.png",
-			"sizes": "192x192",
-			"type": "image\/png"
-		},
-		{
-			"src": "\/android-chrome-512x512.png",
-			"sizes": "512x512",
-			"type": "image\/png"
-		}
-	],
-	"theme_color": "#456BD9",
-	"display": "browser"
+  "name": "Cloud Four",
+  "short_name": "Cloud Four",
+  "description": "We design and develop responsive websites and progressive web apps.",
+  "icons": [
+    {
+      "src": "\/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image\/png"
+    },
+    {
+      "src": "\/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image\/png"
+    }
+  ],
+  "theme_color": "#456BD9",
+  "background_color": "#FFFFFF",
+  "display": "browser",
+  "orientation": "natural",
+  "start_url": "/"
 }

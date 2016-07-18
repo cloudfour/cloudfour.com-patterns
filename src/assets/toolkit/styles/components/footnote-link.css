@@ -10,39 +10,45 @@
   --FootnoteLink-padding: 0 calc(var(--ms-6) * 1em);
 }
 
-/**
- * Override color defaults for all states
- */
+@define-mixin makeFootnoteLinkComponent {
+  /**
+   * Override color defaults for all states
+   */
 
-.FootnoteLink,
-.FootnoteLink:matches(:--enter, :active) {
-  color: var(--FootnoteLink-color);
+  &,
+  &:matches(:--enter, :active) {
+    color: var(--FootnoteLink-color);
+  }
+
+  /**
+   * 1. Maintain a circular shape even for narrow text contents.
+   * 2. If the text is wider than the minimum, make sure it still has some
+   *    padding so it doesn't appear to drift outside of the rounded sides.
+   * 3. Once computed, this value should be equal to the min-width to default
+   *    to a circular shape with centered text.
+   */
+
+  & {
+    display: inline-block;
+    min-width: var(--FootnoteLink-min-width); /* 1 */
+    padding: var(--FootnoteLink-padding); /* 2 */
+    font-size: var(--FootnoteLink-font-size);
+    line-height: var(--FootnoteLink-line-height); /* 3 */
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--FootnoteLink-border-radius);
+    background: var(--FootnoteLink-background-color);
+  }
+
+  /**
+   * Change the background color on hover or focus
+   */
+
+  &:matches(:--enter) {
+    background-color: color(var(--FootnoteLink-background-color) l(+5%));
+  }
 }
-
-/**
- * 1. Maintain a circular shape even for narrow text contents.
- * 2. If the text is wider than the minimum, make sure it still has some
- *    padding so it doesn't appear to drift outside of the rounded sides.
- * 3. Once computed, this value should be equal to the min-width to default
- *    to a circular shape with centered text.
- */
 
 .FootnoteLink {
-  display: inline-block;
-  min-width: var(--FootnoteLink-min-width); /* 1 */
-  padding: var(--FootnoteLink-padding); /* 2 */
-  font-size: var(--FootnoteLink-font-size);
-  line-height: var(--FootnoteLink-line-height); /* 3 */
-  text-align: center;
-  text-decoration: none;
-  border-radius: var(--FootnoteLink-border-radius);
-  background: var(--FootnoteLink-background-color);
-}
-
-/**
- * Change the background color on hover or focus
- */
-
-.FootnoteLink:matches(:--enter) {
-  background-color: color(var(--FootnoteLink-background-color) l(+5%));
+  @mixin makeFootnoteLinkComponent;
 }

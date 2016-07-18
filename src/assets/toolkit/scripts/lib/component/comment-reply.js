@@ -1,16 +1,6 @@
 'use strict';
 
-// these two functions should probably be moved to other files
-
-function stringToNode (str) {
-  var div = document.createElement('div');
-  div.innerHTML = str.trim();
-  return div.firstChild;
-}
-
-function insertAfter (referenceNode, newNode) {
-  return referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
+import { u } from 'umbrellajs';
 
 export class CommentReply {
   constructor (element, {
@@ -25,7 +15,6 @@ export class CommentReply {
     onHide = null
   } = {}) {
     Object.assign(this, {
-      element,
       formIdInputSelector,
       formTemplate,
       toggleSelector,
@@ -35,22 +24,11 @@ export class CommentReply {
       onHide
     });
 
-    this.id = parseInt(this.element.getAttribute(idAttributeName), 10);
-    this.insertAfterElement = this.element.querySelector(insertAfterSelector);
-    this.toggleElement = this.element.querySelector(toggleSelector);
-
-    this.toggleHandler = event => {
-      event.preventDefault();
-      this.toggleForm();
-    };
-
-    if (
-      this.id &&
-      this.insertAfterElement &&
-      this.toggleElement
-    ) {
-      this.toggleElement.addEventListener('click', this.toggleHandler);
-    }
+    this.element = u(element);
+    this.id = parseInt(this.element.attr(idAttributeName), 10);
+    this.insertAfterElement = this.element.find(insertAfterSelector);
+    this.toggleElement = this.element.find(toggleSelector);
+    this.toggleElement.handle('click', () => this.toggleForm());
   }
 
   toggleForm () {
@@ -66,30 +44,29 @@ export class CommentReply {
       return;
     }
 
-    var formElement = stringToNode(this.formTemplate);
-    var formIdInputElement = formElement.querySelector(this.formIdInputSelector);
-    var formToggleElement = formElement.querySelector(this.toggleSelector);
+    this.formElement = u(this.formTemplate);
+    this.formElement.find(this.formIdInputSelector).first().value = this.id;
 
-    if (formIdInputElement) {
-      formIdInputElement.setAttribute('value', this.id);
-    }
+    this.formElement.filter('[id]').attr('id', this.formElement.attr('id') + '-' + this.id);
 
-    if (formToggleElement) {
-      formToggleElement.addEventListener('click', this.toggleHandler);
-    }
+    this.formElement.find('[id]').map(element => {
+      element = u(element);
+      const originalId = element.attr('id');
+      const newId = originalId + '-' + this.id;
+      element.attr('id', newId);
+      this.formElement.find('[for="' + originalId + '"]').attr('for', newId);
+    });
 
-    this.formElement = insertAfter(this.insertAfterElement, formElement);
+    this.insertAfterElement.after(this.formElement);
+
+    this.formElement.find(this.toggleSelector).handle('click', () => this.toggleForm());
 
     if (this.focusSelector) {
-      var focusElement = this.formElement.querySelector(this.focusSelector);
-
-      if (focusElement) {
-        focusElement.focus();
-      }
+      this.formElement.find(this.focusSelector).first().focus();
     }
 
     if (this.toggleShownClass) {
-      this.toggleElement.classList.add(this.toggleShownClass);
+      this.toggleElement.addClass(this.toggleShownClass);
     }
 
     if (this.onShow) {
@@ -102,11 +79,11 @@ export class CommentReply {
       return;
     }
 
-    this.formElement.parentNode.removeChild(this.formElement);
+    this.formElement.remove();
     this.formElement = undefined;
 
     if (this.toggleShownClass) {
-      this.toggleElement.classList.remove(this.toggleShownClass);
+      this.toggleElement.removeClass(this.toggleShownClass);
     }
 
     if (this.onHide) {

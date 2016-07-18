@@ -49,7 +49,7 @@ import 'prismjs/components/prism-scss';
     });
   });
 
-  var replyFormTemplate = document.getElementById('comment-reply-form-template');
+  var replyFormTemplate = document.getElementById('comment-replyForm-template');
 
   if (replyFormTemplate) {
     replyFormTemplate = replyFormTemplate.innerHTML;

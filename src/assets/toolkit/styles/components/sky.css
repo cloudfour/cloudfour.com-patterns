@@ -13,8 +13,8 @@
   --Sky-nav-controls-space-x: var(--space-md);
   --Sky-nav-controls-space-y: var(--space-xs);
   --Sky-nav-logo-color: var(--Sky-color);
-  --Sky-nav-logo-height: 5em;
-  --Sky-nav-logo-width: var(--Sky-nav-logo-height);
+  --Sky-nav-logo-size: 5em;
+  --Sky-nav-logo-size-sm: 4em;
   --Sky-nav-logo-padding: var(--Sky-nav-controls-space-y) var(--Sky-nav-controls-space-x);
   --Sky-nav-color-inactive: color(var(--Sky-background-color) s(+10%) l(90%));
 
@@ -25,7 +25,8 @@
   --Sky-nav-menu-item-line-height: var(--line-height-xs);
   --Sky-nav-menu-item-transition-duration: var(--motion-duration-md);
   --Sky-nav-menu-item-transition-timing-function: var(--motion-timing-function-default);
-  --Sky-nav-menu-space: var(--space-sm);
+  --Sky-nav-menu-space: var(--space-sm) var(--space-xs);
+  --Sky-nav-menu-max: 30em;
 
   --Sky-scene-object-x-offset: calc(2 / 3 * 100%);
   --Sky-scene-object-x-offset-full: 75%;
@@ -38,8 +39,10 @@
 }
 
 @custom-media --Sky-nav-expanded-viewport (width >= 36em);
-@custom-media --Sky-nav-full-viewport (width >= 75em);
+@custom-media --Sky-nav-full-viewport (width >= 56em);
 @custom-media --Sky-scene-full-viewport (--md-viewport);
+@custom-media --Sky-nav-logo-sm-min (--lg-viewport);
+@custom-media --Sky-nav-logo-sm-max (width < 68em);
 
 /**
  * 1. Keep absolute-positioned elements from leaving this container.
@@ -110,12 +113,14 @@
  * 1. Align items vertically.
  * 2. We let items wrap initially because we want the menu to be above the
  *    other elements on narrow screens.
+ * 3. So the navigation can align right when desirable.
  */
 
 .Sky-nav {
   display: flex;
   align-items: center; /* 1 */
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* 2 */
+  justify-content: space-between; /* 3 */
 }
 
 /**
@@ -190,6 +195,16 @@
   padding: var(--Sky-nav-logo-padding);
 }
 
+@media (--Sky-nav-logo-sm-min) {
+/**
+ * Reducing the left padding on the logo balances it with the right margin on the nav.
+ */
+
+  .Sky-nav-logo {
+    padding-left: var(--space-xs);
+  }
+}
+
 /**
  * 1. Most embeds are `inline-block` by default, which results in an unsightly
  *    bottom space. Yuck.
@@ -202,9 +217,21 @@
 
 .Sky-nav-logo-object {
   display: block; /* 1 */
-  width: var(--Sky-nav-logo-width); /* 2 */
-  height: var(--Sky-nav-logo-width); /* 3 */
+  width: var(--Sky-nav-logo-size); /* 2 */
+  height: var(--Sky-nav-logo-size); /* 3 */
   fill: var(--color-relative); /* 4 */
+}
+
+@media (--Sky-nav-logo-sm-min) and (--Sky-nav-logo-sm-max) {
+/**
+ * In this viewport range, reducing the size of the logo slightly prevents orphaned
+ * nav items.
+ */
+
+  .Sky-nav-logo-object {
+    width: var(--Sky-nav-logo-size-sm);
+    height: var(--Sky-nav-logo-size-sm);
+  }
 }
 
 /**
@@ -238,7 +265,8 @@
  * 1. At large enough screens, make the menu _always_ visible.
  * 2. Remove the bump (since it won't be above anything at this point).
  * 3. Reset the background.
- * 4. Reset the order.
+ * 4. To align right, this now needs to be last.
+ * 5. Constraining the width keeps the last three links on a second line to avoid orphans.
  */
 
 @media (--Sky-nav-expanded-viewport) {
@@ -246,7 +274,18 @@
     display: block; /* 1 */
     padding-bottom: 0; /* 2 */
     background: transparent; /* 3 */
-    order: 0; /* 4 */
+    order: 2; /* 4 */
+    max-width: var(--Sky-nav-menu-max); /* 5 */
+  }
+}
+
+@media (--Sky-nav-full-viewport) {
+/**
+ * No need for a max width now that there's enough room for all nav items to fit on a line.
+ */ 
+
+  .Sky-nav-menu {
+    max-width: initial;
   }
 }
 
@@ -262,16 +301,28 @@
 /**
  * 1. At large sizes, display elements in a row.
  * 2. Add some extra whitespace all around.
- * 3. Let items wrap if they overflow.
- * 4. Align items to the right end of the container.
+ * 3. Saves some room on narrow screens to reduce wrapping.
+ * 4. Let items wrap if they overflow.
+ * 5. Align items to the right end of the container.
  */
 
 @media (--Sky-nav-expanded-viewport) {
   .Sky-nav-menu-items {
     display: flex; /* 1 */
     margin: var(--Sky-nav-menu-space); /* 2 */
-    flex-wrap: wrap; /* 3 */
-    justify-content: flex-end; /* 4 */
+    margin-left: 0; /* 3 */
+    flex-wrap: wrap; /* 4 */
+    justify-content: flex-end; /* 5 */
+  }
+}
+
+@media (--xl-viewport) {
+  /**
+   * Adds balance between the logo and nav when there's enough room.
+   */
+
+  .Sky-nav-menu-items {
+    margin: var(--Sky-nav-menu-space);
   }
 }
 

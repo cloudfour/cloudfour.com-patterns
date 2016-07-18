@@ -1,0 +1,58 @@
+/**
+ * Jetpack Markdown Customization
+ */
+
+/**
+ * Footnote links
+ *
+ * Jetpack doesn't expose any theming options, but Markdown syntax is soooo
+ * much nicer to write with, so we embrace some rather shameful styles to
+ * make that work.
+ */
+
+/**
+ * Apply the FootnoteLink component's styles to elements that are clearly
+ * meant to be footnote links.
+ */
+sup[id^="fnref-"] a {
+  @mixin makeFootnoteLinkComponent;
+}
+
+/**
+ * Apply spacing above the footnote list (which is preceded by a rule), taking
+ * into account the margin+padding that the individual items will have.
+ */
+
+.footnotes > ol {
+  margin-top: calc(var(--ms-1)  * 1rem);
+}
+
+/**
+ * Customize the items themselves.
+ *
+ * 1. Give some spacing between, but not a lot since they'll have padding.
+ * 2. Give them padding so they'll look nicer when highlighted.
+ */
+
+.footnotes > ol > li {
+  margin-top: calc(var(--ms-3)  * 1rem); /* 1 */
+  padding: calc(var(--ms-3) * 1rem) calc(var(--ms-6) * 1rem); /* 2 */
+}
+
+/**
+ * Highlight footnotes when navigated to, mimicing the style of u-bgGrayTarget.
+ */
+
+.footnotes > ol > li:target {
+  @mixin makeBgGrayUtility;
+}
+
+/**
+ * Remove the underline on the return links. We aren't going to swap the unicode
+ * character with an SVG icon here (which will bloat our stylesheet), but this
+ * sets us up to do that if we so choose.
+ */
+
+.footnotes a[href^="#fnref-"] {
+  text-decoration: none;
+}

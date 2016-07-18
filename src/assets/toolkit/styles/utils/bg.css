@@ -2,10 +2,14 @@
   background-color: var(--color-white);
 }
 
-.u-bgGray,
-.u-bgGrayTarget:target {
+@define-mixin makeBgGrayUtility {
   background-color: color(
     var(--color-gray)
     blend(var(--color-white) 50%)
   );
+}
+
+.u-bgGray,
+.u-bgGrayTarget:target {
+  @mixin makeBgGrayUtility;
 }

@@ -60,6 +60,16 @@
 }
 
 /**
+ * iOS Safari on high-resolution devices sometimes rounds images and elements
+ * differently, resulting in a hard edge for some modifiers. This forces images
+ * to inherit `border-radius`, it helps smooth out those errors.
+ */
+
+.Thumbnail > img {
+  border-radius: inherit;
+}
+
+/**
  * Modifiers
  */
 

@@ -40,6 +40,7 @@ body {
 a {
   text-decoration: underline;
   color: var(--link-color);
+  -webkit-text-decoration-skip: ink;
 }
 
 a:matches(:active, :focus, :hover) {

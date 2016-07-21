@@ -8,7 +8,7 @@ import {arrayFromSelector} from './lib/dom/core';
 import {FloatLabel} from './lib/component/float-label';
 import {Sky} from './lib/component/sky';
 import {ElasticTextarea} from './lib/component/elastic-textarea';
-import {Slideshow from './lib/component/slideshow';
+import {Slideshow} from './lib/component/slideshow';
 
 /**
  * Syntax highlighting

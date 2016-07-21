@@ -2,12 +2,15 @@
 
 export class Slideshow {
   constructor (element, {
+    slideHolder = element.querySelector('.js-Slideshow-slides'),
     slides = element.querySelectorAll('.js-Slideshow-slide'),
     nextTrigger = element.querySelector('.js-Slideshow-next'),
     prevTrigger = element.querySelector('.js-Slideshow-prev'),
     currentCount = element.querySelector('.js-Slideshow-current'),
     totalCount = element.querySelector('.js-Slideshow-total'),
-    className = 'is-visible'
+    classNameVisible = 'is-visible',
+    classNameForward = 'slide-forward',
+    classNameBack = 'slide-back'
   } = {}) {
 
     this.slides = Array.from(slides);
@@ -21,26 +24,39 @@ export class Slideshow {
       prevTrigger,
       currentCount,
       totalCount,
-      className
+      classNameVisible,
+      classNameForward,
+      classNameBack
     });
 
     this.attachEvents();
   }
 
-  showCurrent () {
+  showCurrent (direction) {
     // Get the index of the current item
-    const slideToShow = Math.abs(this.counter % this.numSlides);
-
-    // Remove current class from all items
-    this.slides.forEach(slide => {
-      slide.classList.remove(this.className);
-    });
-
-    // Add current class to current item
-    this.slides[slideToShow].classList.add(this.className);
+    if (this.counter > 0) {
+      var slideToShow = (this.counter % this.numSlides);
+    } else {
+      var slideToShow = (this.counter % this.numSlides) ? ((this.counter % this.numSlides) + this.numSlides) : 0;
+    }
 
     // Update the navigation with the current slide number
     this.currentCount.innerHTML = slideToShow + 1;
+
+    // Remove class names from all items
+    this.slides.forEach(slide => {
+      slide.classList.remove(this.classNameVisible, this.classNameForward, this.classNameBack);
+    });
+
+    // Add current class to current item
+    this.slides[slideToShow].classList.add(this.classNameVisible);
+
+    // Add forward or back class depending on direction
+    if (direction == 'forward') {
+      this.slides[slideToShow].classList.add(this.classNameForward);
+    } else if (direction == 'back') {
+      this.slides[slideToShow].classList.add(this.classNameBack);
+    }
   }
 
 
@@ -49,13 +65,13 @@ export class Slideshow {
     this.nextTrigger.addEventListener('click', event => {
       event.preventDefault();
       this.counter++;
-      this.showCurrent();
+      this.showCurrent('forward');
     });
 
     this.prevTrigger.addEventListener('click', event => {
       event.preventDefault();
       this.counter--;
-      this.showCurrent();
+      this.showCurrent('back');
     });
   }
 }

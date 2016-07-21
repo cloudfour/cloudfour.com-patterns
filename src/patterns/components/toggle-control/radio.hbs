@@ -1,15 +1,16 @@
 ---
-name: Radio Modifier
+name: Radio
+sourceless: true
 ---
 
 <ul class="u-listInline">
   {{#iterate 3}}
     <li>
-      <label class="ToggleControl ToggleControl--radio">
-        <input class="ToggleControl-input" type="radio" name="ToggleControl-radio-demo" value="{{count}}" {{#compare @count '===' 1}}checked{{/compare}}>
-        <span class="ToggleControl-indicator" aria-hidden="true"></span>
-        Option {{@count}}
-      </label>
+      {{#embed "patterns.components.toggle-control.base" type="radio" value=@count name="ToggleControl-radio-demo"}}
+        {{#content 'content'}}
+          Option {{@count}}
+        {{/content}}
+      {{/embed}}
     </li>
   {{/iterate}}
 </ul>

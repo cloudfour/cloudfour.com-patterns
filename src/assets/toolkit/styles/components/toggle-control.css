@@ -1,0 +1,111 @@
+:root {
+  --ToggleControl-background-color: var(--color-white);
+  --ToggleControl-background-color-checked: var(--color-blue);
+  --ToggleControl-border-color: var(--color-gray);
+  --ToggleControl-border-color-checked: transparent;
+  --ToggleControl-border-color-focus: var(--color-blue);
+  --ToggleControl-border-radius-checkbox: var(--control-radius);
+  --ToggleControl-border-radius-radio: 50%;
+  --ToggleControl-border-width: var(--control-stroke);
+  --ToggleControl-disabled-opacity: var(--control-disabled-opacity);
+  --ToggleControl-icon-color: var(--color-white);
+  --ToggleControl-size: 1.25em;
+  --ToggleControl-space-x: 0.5em;
+  --ToggleControl-space-y: calc((var(--line-height-md) * 1em - var(--ToggleControl-size)) / 2);
+}
+
+@svg-load ToggleControl-icon-checkbox url("icons/check.svg") {
+  polyline {
+    stroke: var(--ToggleControl-icon-color);
+  }
+}
+
+@svg-load ToggleControl-icon-radio url("icons/dot.svg") {
+  fill: var(--ToggleControl-icon-color);
+}
+
+/**
+ * 1. Allow input and indicators to position themselves relative to this.
+ * 2. Prevent this element from awkwardly breaking apart between lines, and
+ *    keeps the "clickable" area from extending past the label's content.
+ * 3. Make space for the input indicator. This makes the label accommodate
+ *    more than one line of text without the world collapsing.
+ */
+
+.ToggleControl {
+  position: relative; /* 1 */
+  display: inline-block; /* 2 */
+  padding-left: calc(var(--ToggleControl-size) + var(--ToggleControl-space-x)); /* 3 */
+  cursor: pointer;
+}
+
+/**
+ * 1. Prevent the input from affecting the layout of adjacent elements.
+ * 2. Prevent the input from covering other elements (can make text selection
+ *    behave strangely).
+ * 3. Hide the input without browsers acting like it doesn't exist at all.
+ */
+
+.ToggleControl-input {
+  position: absolute; /* 1 */
+  z-index: -1; /* 2 */
+  opacity: 0; /* 3 */
+}
+
+/**
+ * 1. We position the indicator absolutely to avoid impacting the height of
+ *    the container (which can throw off vertical rhythm) and so that wrapping
+ *    text won't go beneath the indicator (ew).
+ * 2. Preparing for background images that will be set by type.
+ */
+
+.ToggleControl-indicator {
+  position: absolute; /* 1 */
+  top: var(--ToggleControl-space-y); /* 1 */
+  left: 0; /* 1 */
+
+  width: var(--ToggleControl-size);
+  height: var(--ToggleControl-size);
+
+  border: var(--ToggleControl-border-width) solid var(--ToggleControl-border-color);
+  background-color: var(--ToggleControl-background-color);
+  background-repeat: no-repeat; /* 2 */
+  background-position: center; /* 2 */
+  background-size: 100%; /* 2 */
+}
+
+/**
+ * States
+ */
+
+.ToggleControl-input:active ~ .ToggleControl-indicator {
+  border-color: color(var(--ToggleControl-border-color) l(-15%));
+}
+
+.ToggleControl-input:focus ~ .ToggleControl-indicator {
+  border-color: var(--ToggleControl-border-color-focus);
+  box-shadow: 0 0 0 1px var(--ToggleControl-border-color-focus);
+}
+
+.ToggleControl-input:checked ~ .ToggleControl-indicator {
+  border-color: var(--ToggleControl-border-color-checked);
+  background-color: var(--ToggleControl-background-color-checked);
+}
+
+.ToggleControl-input:disabled ~ .ToggleControl-indicator {
+  opacity: var(--ToggleControl-disabled-opacity);
+}
+
+/**
+ * Types
+ */
+
+.ToggleControl-input[type="checkbox"] ~ .ToggleControl-indicator {
+  border-radius: var(--ToggleControl-border-radius-checkbox);
+  background-image: svg-inline(ToggleControl-icon-checkbox);
+}
+
+.ToggleControl-input[type="radio"] ~ .ToggleControl-indicator {
+  border-radius: var(--ToggleControl-border-radius-radio);
+  background-image: svg-inline(ToggleControl-icon-radio);
+}

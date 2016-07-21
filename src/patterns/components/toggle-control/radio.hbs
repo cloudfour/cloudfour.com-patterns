@@ -1,0 +1,16 @@
+---
+name: Radio
+sourceless: true
+---
+
+<ul class="u-listInline">
+  {{#iterate 3}}
+    <li>
+      {{#embed "patterns.components.toggle-control.base" type="radio" value=@count inputname="ToggleControl-radio-demo"}}
+        {{#content 'content'}}
+          Option {{@count}}
+        {{/content}}
+      {{/embed}}
+    </li>
+  {{/iterate}}
+</ul>

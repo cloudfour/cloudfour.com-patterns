@@ -24,38 +24,54 @@
   fill: var(--ToggleControl-icon-color);
 }
 
+/**
+ * 1. Allow input and indicators to position themselves relative to this.
+ * 2. Prevent this element from awkwardly breaking apart between lines, and
+ *    keeps the "clickable" area from extending past the label's content.
+ * 3. Make space for the input indicator. This makes the label accommodate
+ *    more than one line of text without the world collapsing.
+ */
+
 .ToggleControl {
-  position: relative;
-
-  display: inline-block;
-
-  padding-left: calc(var(--ToggleControl-size) + var(--ToggleControl-space-x));
-
+  position: relative; /* 1 */
+  display: inline-block; /* 2 */
+  padding-left: calc(var(--ToggleControl-size) + var(--ToggleControl-space-x)); /* 3 */
   cursor: pointer;
 }
 
-.ToggleControl-input {
-  position: absolute;
-  z-index: -1;
+/**
+ * 1. Prevent the input from affecting the layout of adjacent elements.
+ * 2. Prevent the input from covering other elements (can make text selection
+ *    behave strangely).
+ * 3. Hide the input without browsers acting like it doesn't exist at all.
+ */
 
-  opacity: 0;
+.ToggleControl-input {
+  position: absolute; /* 1 */
+  z-index: -1; /* 2 */
+  opacity: 0; /* 3 */
 }
 
-.ToggleControl-indicator {
-  position: absolute;
-  top: var(--ToggleControl-space-y);
-  left: 0;
+/**
+ * 1. We position the indicator absolutely to avoid impacting the height of
+ *    the container (which can throw off vertical rhythm) and so that wrapping
+ *    text won't go beneath the indicator (ew).
+ * 2. Preparing for background images that will be set by type.
+ */
 
-  display: inline-block;
+.ToggleControl-indicator {
+  position: absolute; /* 1 */
+  top: var(--ToggleControl-space-y); /* 1 */
+  left: 0; /* 1 */
 
   width: var(--ToggleControl-size);
   height: var(--ToggleControl-size);
 
   border: var(--ToggleControl-border-width) solid var(--ToggleControl-border-color);
   background-color: var(--ToggleControl-background-color);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
+  background-repeat: no-repeat; /* 2 */
+  background-position: center; /* 2 */
+  background-size: 100%; /* 2 */
 }
 
 /**

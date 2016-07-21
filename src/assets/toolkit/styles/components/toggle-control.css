@@ -4,19 +4,12 @@
   --ToggleControl-border-color: var(--color-gray);
   --ToggleControl-border-color-checked: transparent;
   --ToggleControl-border-color-focus: var(--color-blue);
-  --ToggleControl-border-radius: var(--control-radius);
   --ToggleControl-border-width: var(--control-stroke);
   --ToggleControl-disabled-opacity: var(--control-disabled-opacity);
   --ToggleControl-icon-color: var(--color-white);
   --ToggleControl-size: 1.25em;
   --ToggleControl-space-x: 0.5em;
   --ToggleControl-space-y: calc((var(--line-height-md) * 1em - var(--ToggleControl-size)) / 2);
-}
-
-@svg-load ToggleControl-icon-checked url("icons/check.svg") {
-  polyline {
-    stroke: var(--ToggleControl-icon-color);
-  }
 }
 
 .ToggleControl {
@@ -47,7 +40,6 @@
   height: var(--ToggleControl-size);
 
   border: var(--ToggleControl-border-width) solid var(--ToggleControl-border-color);
-  border-radius: var(--ToggleControl-border-radius);
   background-color: var(--ToggleControl-background-color);
   background-repeat: no-repeat;
   background-position: center;
@@ -60,11 +52,46 @@
 
 .ToggleControl-input:focus ~ .ToggleControl-indicator {
   border-color: var(--ToggleControl-border-color-focus);
+  box-shadow: 0 0 0 1px var(--ToggleControl-border-color-focus);
 }
 
 .ToggleControl-input:checked ~ .ToggleControl-indicator {
   border-color: var(--ToggleControl-border-color-checked);
   background-color: var(--ToggleControl-background-color-checked);
-  background-image: svg-inline(ToggleControl-icon-checked);
-  background-size: 100%;
+}
+
+/**
+ * Modifier: Checkbox
+ */
+
+:root {
+  --ToggleControl-checkbox-border-radius: var(--control-radius);
+}
+
+@svg-load ToggleControl-checkbox-icon url("icons/check.svg") {
+  polyline {
+    stroke: var(--ToggleControl-icon-color);
+  }
+}
+
+.ToggleControl--checkbox .ToggleControl-indicator {
+  border-radius: var(--ToggleControl-checkbox-border-radius);
+  background-image: svg-inline(ToggleControl-checkbox-icon);
+}
+
+/**
+ * Modifier: Radio
+ */
+
+:root {
+  --ToggleControl-radio-border-radius: 50%;
+}
+
+@svg-load ToggleControl-radio-icon url("icons/dot.svg") {
+  fill: var(--ToggleControl-icon-color);
+}
+
+.ToggleControl--radio .ToggleControl-indicator {
+  border-radius: var(--ToggleControl-radio-border-radius);
+  background-image: svg-inline(ToggleControl-radio-icon);
 }

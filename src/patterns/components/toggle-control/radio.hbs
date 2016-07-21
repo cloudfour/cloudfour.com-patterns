@@ -1,0 +1,15 @@
+---
+name: Radio Modifier
+---
+
+<ul class="u-listInline">
+  {{#iterate 3}}
+    <li>
+      <label class="ToggleControl ToggleControl--radio">
+        <input class="ToggleControl-input" type="radio" name="ToggleControl-radio-demo" value="{{count}}" {{#compare @count '===' 1}}checked{{/compare}}>
+        <span class="ToggleControl-indicator" aria-hidden="true"></span>
+        Option {{@count}}
+      </label>
+    </li>
+  {{/iterate}}
+</ul>

@@ -1,0 +1,13 @@
+---
+name: Checkbox Modifier
+---
+
+{{#iterate 2}}
+  <p>
+    <label class="ToggleControl ToggleControl--checkbox">
+      <input class="ToggleControl-input" type="checkbox" {{#compare @count '===' 1}}checked{{/compare}}>
+      <span class="ToggleControl-indicator" aria-hidden="true"></span>
+      Label text
+    </label>
+  </p>
+{{/iterate}}

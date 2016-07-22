@@ -1,8 +1,47 @@
 ---
 name: Offset
-labels:
-  - inprogress
+previewClass: u-spaceItems1
+notes: |
+  Includes the standard SUIT CSS proportional offset utilities:
+
+  + `u-beforeXofY` specifies the proportional offset before an object.
+  + `u-afterXofY` specifies the proportional offset before an object.
+
+  Also includes special negative variations of these same classes:
+
+  + `u-beforeNXofY` pulls the object this much left.
+  + `u-afterNXofY` pulls the object this much right.
+
+  `X` must be an integer less than `Y`.
+
+  `Y` can be any of the following numbers: 2, 3, 4, 5, 6, 8, 10, 12.
+
+  These can be limited to specific breakpoints. For example:
+
+  + `u-sm-beforeXofY`
+  + `u-md-afterXofY`
+  + `u-lg-beforeNXofY`
+
 links:
   "SUIT CSS utilities: before": https://github.com/suitcss/utils-before
   "SUIT CSS utilities: after": https://github.com/suitcss/utils-after
 ---
+
+<div class="u-before1of4 u-borderMd u-pad06">
+  1/4 before
+</div>
+<div class="u-before1of2 u-borderMd u-pad06">
+  1/2 before
+</div>
+<div class="u-before3of4 u-borderMd u-pad06">
+  3/4 before
+</div>
+<div class="u-after3of4 u-borderMd u-pad06">
+  3/4 after
+</div>
+<div class="u-after1of2 u-borderMd u-pad06">
+  1/2 after
+</div>
+<div class="u-after1of4 u-borderMd u-pad06">
+  1/4 after
+</div>

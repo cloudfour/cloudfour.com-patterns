@@ -1,0 +1,29 @@
+---
+name: Layout
+notes: |
+  Includes the standard SUIT CSS layout utilities:
+
+  + `u-cf` contain floats (micro clearfix).
+  + `u-nbfc` creates a new block formatting context.
+  + `u-nbfcAlt` creates a new block formatting context (alternative technique).
+  + `u-floatLeft` floats left.
+  + `u-floatRight` floats right.
+
+  Also includes responsive versions of the float utilities:
+
+  + `u-sm-floatLeft`
+  + `u-md-floatLeft`
+  + `u-lg-floatLeft`
+  + `u-sm-floatRight`
+  + `u-md-floatRight`
+  + `u-lg-floatRight`
+
+links:
+  "SUIT CSS utilities: layout": https://github.com/suitcss/utils-layout
+---
+
+<div class="u-cf u-borderMd u-pad1">
+  <div class="u-borderMd u-pad1 u-floatRight u-sm-floatLeft u-md-floatRight u-lg-floatLeft">
+    Responsive, contained float
+  </div>
+</div>

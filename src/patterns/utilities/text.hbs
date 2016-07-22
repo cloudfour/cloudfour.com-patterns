@@ -1,7 +1,72 @@
 ---
 name: Text
-labels:
-  - inprogress
+previewClass: u-spaceItems1
+notes: |
+  Includes all standard SUIT CSS text utilities:
+
+  + `u-textBreak` breaks strings when their length exceeds the width of their container.
+  + `u-textCenter` center-aligns text.
+  + `u-textLeft` left-aligns text.
+  + `u-textRight` right-aligns text.
+  + `u-textInheritColor` inherits the ancestor's text color.
+  + `u-textKern` enables kerning in supporting browsers.
+  + `u-textNoWrap` prevents wrapping at whitespace.
+  + `u-textTruncate` truncates a single line of text, with ellipsis.
+
+  Also includes weight helpers:
+
+  + `u-textNormal`
+  + `u-textBold`
+  + `u-textSemibold`
+
+  And responsive size utilities. These support the same scale-based values and
+  optional responsive breakpoints as our space utilities, and will resize text
+  relative to the base `font-size`.
+
+  + `u-textGrowX`
+  + `u-textShrinkX`
+  + `u-sm-textGrowX`
+  + `u-sm-textShrinkX`
+  + `u-md-textGrowX`
+  + `u-md-textShrinkX`
+  + `u-lg-textGrowX`
+  + `u-lg-textShrinkX`
+
 links:
   "SUIT CSS utilities: text": https://github.com/suitcss/utils-text
+  "A Responsive Guide to Type Sizing": https://cloudfour.com/thinks/responsive-guide-to-type-sizing/
 ---
+
+<p class="u-textLeft">
+  Left-aligned
+</p>
+<p class="u-textCenter">
+  Center-aligned
+</p>
+<p class="u-textRight">
+  Right-aligned
+</p>
+
+<p>
+  <span class="u-textBold">Bold</span>,
+  <span class="u-textSemibold">Semibold</span>,
+  and <b class="u-textNormal">Normal</b>
+</p>
+
+<p class="u-textTruncate">
+  This text will truncate. {{random "paragraph" sentences=2}}
+</p>
+
+<p class="u-textShrink6">u-textShrink6</p>
+<p class="u-textShrink5">u-textShrink5</p>
+<p class="u-textShrink4">u-textShrink4</p>
+<p class="u-textShrink3">u-textShrink3</p>
+<p class="u-textShrink2">u-textShrink2</p>
+<p class="u-textShrink1">u-textShrink1</p>
+<p>Default</p>
+<p class="u-textGrow1">u-textGrow1</p>
+<p class="u-textGrow2">u-textGrow2</p>
+<p class="u-textGrow3">u-textGrow3</p>
+<p class="u-textGrow4">u-textGrow4</p>
+<p class="u-textGrow5">u-textGrow5</p>
+<p class="u-textGrow6">u-textGrow6</p>

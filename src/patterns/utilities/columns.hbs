@@ -1,0 +1,26 @@
+---
+name: Columns
+previewClass: u-spaceItems1
+notes: |
+  + `u-columns2` divides content into two columns.
+  + `u-columns3` divides content into three columns.
+  + `u-sm-columns2` divides content into two columns starting at the
+    `--sm-viewport` breakpoint.
+  + `u-lg-columns3` divides content into three columns starting at the
+    `--lg-viewport` breakpoint.
+---
+
+<p class="u-columns2">
+  <b>This text will flow into two columns.</b>
+  {{random "paragraph"}}
+</p>
+
+<p class="u-columns3">
+  <b>This text will flow into three columns.</b>
+  {{random "paragraph"}}
+</p>
+
+<p class="u-sm-columns2 u-lg-columns3">
+  <b>This text may flow into one, two or three columns based on the viewport.</b>
+  {{random "paragraph"}}
+</p>

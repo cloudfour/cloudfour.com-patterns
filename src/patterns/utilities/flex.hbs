@@ -1,0 +1,19 @@
+---
+name: Flexbox
+notes: |
+  Includes all [SUIT CSS flexbox utilities](https://github.com/suitcss/utils-flex)
+  (too numerous to list here), with one custom addition:
+
+  + `u-flexShrink0` prevents element from shrinking below its natural width.
+links:
+  "SUIT CSS utilities: flex": https://github.com/suitcss/utils-flex
+---
+
+<div class="u-flex u-flexAlignItemsStretch">
+  <p class="u-borderMd u-pad1">
+    Example
+  </p>
+  <p class="u-borderMd u-pad1 u-flexGrow1">
+    {{random "paragraph" sentences=2}}
+  </p>
+</div>

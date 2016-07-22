@@ -53,9 +53,8 @@ export class Slideshow {
     // Remove previously applied directional class
     this.slideHolder.classList.remove(this.classForward, this.classBack, this.classForwardAlt, this.classBackAlt);
 
-    // This triggers a reflow which gives a fresh start
-    // for adding back the same class name so the same animation
-    // can re-run
+    // Trigger a reflow which gives a fresh start to the element, so we can add
+    // back the same class that runs the same animation
     this.slideHolder.offsetWidth;
 
     // Add new directional class to slide container
@@ -77,11 +76,12 @@ export class Slideshow {
       this.slideHolder.classList.add(this.classBack);
     }
 
+    // Remove `was-visible` class
     this.slides.forEach(slide => {
       slide.classList.remove(this.classWasVisible);
     });
 
-    // Remove class names from all items
+    // Find slide that has class `is-visible`, and replace it with `was-visible`
     this.slides.forEach(slide => {
       if (slide.classList.contains(this.classIsVisible)) {
         slide.classList.remove(this.classIsVisible);
@@ -89,7 +89,7 @@ export class Slideshow {
       }
     });
 
-    // Add current class to current item
+    // Add `is-visible` class to current item
     this.slides[slideToShow].classList.add(this.classIsVisible);
   }
 

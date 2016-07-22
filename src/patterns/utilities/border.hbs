@@ -1,0 +1,39 @@
+---
+name: Border
+previewClass: u-spaceItems1
+notes: |
+  Add, remove or apply radii to borders.
+
+  + `.u-borderNone` removes all borders.
+  + `.u-borderSm` applies a thin border to all sides.
+  + `.u-borderMd` applies a thick border to all sides.
+  + `.u-borderWidthSm` applies a thin `border-width` but does not set its color.
+  + `.u-borderWidthMd` applies a thick `border-width` but does not set its color.
+
+  Any of the above utilities can also be applied to specific edges by including
+  `Top`, `Bottom`, `Left` or `Right` before the thickness. For example:
+
+  + `.u-borderTopNone` removes any top border.
+  + `.u-borderBottomSm` applies a thin border to the bottom edge.
+  + `.u-borderLeftMd` applies a thick border to the left edge.
+  + `.u-borderRightWidthSm` makes the element's right edge border thin.
+
+  There is also a `.u-sm-borderRadius` utility to round corners starting from
+  the `--sm-viewport` breakpoint. It is particularly useful in combination with
+  `Thumbnail`.
+---
+
+<div class="u-borderMd u-pad1">
+  Thick border
+</div>
+
+<div class="u-borderSm u-pad1">
+  Thin border
+</div>
+
+<ul class="u-listInline">
+  <li class="u-borderTopMd u-pad1">Top</li>
+  <li class="u-borderBottomMd u-pad1">Bottom</li>
+  <li class="u-borderLeftMd u-pad1">Left</li>
+  <li class="u-borderRightMd u-pad1">Right</li>
+</ul>

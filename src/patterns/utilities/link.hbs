@@ -1,0 +1,33 @@
+---
+name: Link
+previewClass: u-spaceItems1
+notes: |
+  Includes the standard SUIT CSS link utilities:
+
+  + `u-linkBlock` makes link block-level with no `text-decoration` for any state.
+  + `u-linkClean` removes `text-decoration` for any state.
+  + `u-linkComplex` limits a link's interactive `text-decoration` underline to a
+    sub-section of the link text.
+
+  Also includes additional utilities for revealing links on interaction:
+
+  + `u-linkEnter` colors the element on `focus` or `hover`.
+  + `u-linkTarget` reapplies the link color regardless of parent utility.
+
+links:
+  "SUIT CSS utilities: link": https://github.com/suitcss/utils-link
+---
+
+<p>
+  <a class="u-linkClean" href="#">Clean link</a>
+</p>
+
+<a href="#" class="u-linkBlock u-pad1 u-borderMd">
+  Block link
+</a>
+
+<p>
+  <a href="#" class="u-linkEnter">
+    Link style on hover/focus
+  </a>
+</p>

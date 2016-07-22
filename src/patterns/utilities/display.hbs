@@ -1,0 +1,37 @@
+---
+name: Display
+notes: |
+  Includes the standard SUIT CSS display utilities:
+
+  + `u-block` sets display to `block`.
+  + `u-hidden` sets display to `none`.
+  + `u-hiddenVisually` visually hides element in an accessible way.
+  + `u-inline` sets display to `inline`.
+  + `u-inlineBlock` sets display to `inline-block`.
+  + `u-table` sets display to `table`.
+  + `u-tableCell` sets display to `table-cell`.
+  + `u-tableRow` sets display to `table-row`.
+
+  Also includes responsive versions of `u-hidden` and `u-block`. Examples:
+
+  + `.u-sm-block` sets display to `block` starting at `--sm-viewport`.
+  + `.u-md-block` sets display to `block` starting at `--md-viewport`.
+  + `.u-lg-hidden` sets display to `none` starting at `--lg-viewport`.
+
+  Also includes two original utilities:
+
+  + `.u-hiddenTillFocus` works like `u-hiddenVisually`, except the element is
+    displayed if it receives keyboard focus.
+  + `.u-testBlock` makes an element's dimensions inspectable by JavaScript
+    without displaying it visually.
+
+links:
+  "SUIT CSS utilities: display": https://github.com/suitcss/utils-display
+---
+
+<span class="u-block u-borderMd u-pad1">
+  Block Span
+  <div class="u-inlineBlock u-borderMd u-pad1">
+    Inline Block Div
+  </div>
+</span>

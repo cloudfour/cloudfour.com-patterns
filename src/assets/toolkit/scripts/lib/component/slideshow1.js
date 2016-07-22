@@ -8,7 +8,9 @@ export class Slideshow {
     prevTrigger = element.querySelector('.js-Slideshow-prev'),
     currentCount = element.querySelector('.js-Slideshow-current'),
     totalCount = element.querySelector('.js-Slideshow-total'),
-    className = 'is-visible'
+    classForward = 'slide-forward',
+    classForwardReset = 'slide-forwardReset',
+    classBack = 'slide-back'
   } = {}) {
 
     this.slides = Array.from(slides);
@@ -23,7 +25,9 @@ export class Slideshow {
       prevTrigger,
       currentCount,
       totalCount,
-      className
+      classForward,
+      classForwardReset,
+      classBack
     });
 
     this.attachEvents();
@@ -56,33 +60,60 @@ export class Slideshow {
     return percent;
   }
 
+  findKeyframesRule(rule) {
+    var ss = document.styleSheets;
+    console.log(ss);
+    for (var j = 0; j < ss[1].cssRules.length; ++j) {
+      if (ss[1].cssRules[j].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE &&
+      ss[1].cssRules[j].name == rule) {
+        return ss[1].cssRules[j]; }
+    }
+    return null;
+  }
+
   slide(direction) {
 
-    // Reset the position
-    // if ((this.counter != 0) && (this.counter % this.numSlides) == 0) {
-    //   console.log('Start over');
-    //   var currentPosition = 100;
-    // } else {
-    //   var currentPosition = this.getCurrentPosition(this.slideHolder);
-    // }
-    //
-    if ((this.counter == -1) && (direction == 1)) {
-      var increment = (this.counter % this.numSlides + this.numSlides) * -100;
+    // Remove previously applied directional class
+    this.slideHolder.classList.remove(this.classForward, this.classBack);
+
+    // Add new directional class to slide container
+    if (direction == -1) {
+      this.slideHolder.classList.add(this.classForward);
     } else {
-      var increment = direction * 100;
+      this.slideHolder.classList.add(this.classBack);
     }
 
-    var currentPosition = this.getCurrentPosition(this.slideHolder);
+    // Reset the position when going forward
+    if (((this.counter % this.numSlides) == 0) && (direction == -1)) {
+      var currentPosition = 100;
+      this.slideHolder.classList.add(this.classForwardReset);
+    }
+    // Reset the position when going back
+    else if ((
+      // counter > 0
+      ((this.counter % this.numSlides) == (this.numSlides - 1)) ||
+      // counter < 0
+      ((this.counter % this.numSlides) == -1)) &&
+      // Going back
+      (direction == 1)) {
+      var currentPosition = -(this.numSlides * 100);
+    } else {
+      var currentPosition = this.getCurrentPosition(this.slideHolder);
+    }
+
+    var increment = direction * 100;
 
     const newPosition = Number(currentPosition) + Number(increment);
+
     this.slideHolder.style.transform = 'translateX(' + newPosition + '%)';
 
-    console.log(this.counter);
-    console.log(this.numSlides);
-    console.log('Old position:' + currentPosition);
+    console.log('Counter: ' + this.counter);
+    console.log('Number of slides: ' + this.numSlides);
+    console.log('Old position: ' + currentPosition);
     console.log('Direction: ' + direction);
-    console.log('Increment:' + increment);
-    console.log('New position:' + newPosition);
+    console.log('Increment: ' + increment);
+    console.log('New position: ' + newPosition);
+    console.log('END' + '\n\n');
   }
 
   attachEvents () {

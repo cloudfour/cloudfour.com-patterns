@@ -8,9 +8,12 @@ export class Slideshow {
     prevTrigger = element.querySelector('.js-Slideshow-prev'),
     currentCount = element.querySelector('.js-Slideshow-current'),
     totalCount = element.querySelector('.js-Slideshow-total'),
-    classNameVisible = 'is-visible',
-    classNameForward = 'slide-forward',
-    classNameBack = 'slide-back'
+    classIsVisible = 'is-visible',
+    classWasVisible = 'was-visible',
+    classForward = 'slide-forward',
+    classBack = 'slide-back',
+    classForwardAlt = 'slide-forward-alt',
+    classBackAlt = 'slide-back-alt'
   } = {}) {
 
     this.slides = Array.from(slides);
@@ -20,13 +23,17 @@ export class Slideshow {
 
     Object.assign(this, {
       element,
+      slideHolder,
       nextTrigger,
       prevTrigger,
       currentCount,
       totalCount,
-      classNameVisible,
-      classNameForward,
-      classNameBack
+      classIsVisible,
+      classWasVisible,
+      classForward,
+      classBack,
+      classForwardAlt,
+      classBackAlt
     });
 
     this.attachEvents();
@@ -43,20 +50,47 @@ export class Slideshow {
     // Update the navigation with the current slide number
     this.currentCount.innerHTML = slideToShow + 1;
 
+    // Remove previously applied directional class
+    this.slideHolder.classList.remove(this.classForward, this.classBack, this.classForwardAlt, this.classBackAlt);
+
+    // This triggers a reflow which gives a fresh start
+    // for adding back the same class name so the same animation
+    // can re-run
+    this.slideHolder.offsetWidth;
+
+    // Add new directional class to slide container
+    if (direction == 'forward') {
+      // Alternate class names to apply a different animation since you can't
+      // run the same animation twice in a row
+      // if (this.counter % 2) {
+      //   this.slideHolder.classList.add(this.classForward);
+      // } else {
+      //   this.slideHolder.classList.add(this.classForwardAlt);
+      // }
+      this.slideHolder.classList.add(this.classForward);
+    } else {
+      // if (this.counter % 2) {
+      //   this.slideHolder.classList.add(this.classBack);
+      // } else {
+      //   this.slideHolder.classList.add(this.classBackAlt);
+      // }
+      this.slideHolder.classList.add(this.classBack);
+    }
+
+    this.slides.forEach(slide => {
+      slide.classList.remove(this.classWasVisible);
+    });
+
     // Remove class names from all items
     this.slides.forEach(slide => {
-      slide.classList.remove(this.classNameVisible, this.classNameForward, this.classNameBack);
+      if (slide.classList.contains(this.classIsVisible)) {
+        slide.classList.remove(this.classIsVisible);
+        slide.classList.add(this.classWasVisible);
+      }
     });
 
     // Add current class to current item
-    this.slides[slideToShow].classList.add(this.classNameVisible);
-
-    // Add forward or back class depending on direction
-    if (direction == 'forward') {
-      this.slides[slideToShow].classList.add(this.classNameForward);
-    } else if (direction == 'back') {
-      this.slides[slideToShow].classList.add(this.classNameBack);
-    }
+    this.slides[slideToShow].classList.add(this.classIsVisible);
   }
 
 

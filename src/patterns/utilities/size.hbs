@@ -1,7 +1,74 @@
 ---
 name: Size
-labels:
-  - inprogress
+previewClass: u-spaceItems1
+notes: |
+  Includes all standard SUIT CSS size utilities:
+
+  + `u-sizeFit` makes an element shrink wrap its content with `flex-basis`.
+  + `u-sizeFull` makes an element the width of its parent.
+  + `u-sizeFill` makes an element fill the remaining space. Distribute space evenly on multiple elements.
+  + `u-sizeFillAlt` uses an alternative method to make an element fill the remaining space. Distribute space based on element width.
+  + `u-sizeXofY` specifies the proportional width of an object.
+
+  `X` must be an integer less than `Y`.
+
+  `Y` can be any of the following numbers: 2, 3, 4, 5, 6, 8, 10, 12.
+
+  These can be limited to specific breakpoints:
+
+  + `u-sm-sizeXofY`
+  + `u-md-sizeXofY`
+  + `u-lg-sizeXofY`
+
+  Also includes a utility for `width: 100%` that works better with Flexbox:
+
+  + `u-size1of1`
+
+  And utilities for limiting the height of elements based on viewport size:
+
+  + `u-limitHeight2of3` caps the element height at two-thirds of the viewport.
+  + `u-limitHeight3of4` caps the element height at three-quarters of the viewport.
+  + `u-mdh-limitHeight1of2` caps the element height at one-half the viewport
+    above a certain minimum viewport height.
 links:
   "SUIT CSS utilities: size": https://github.com/suitcss/utils-size
 ---
+
+<div class="u-size1of12 u-borderMd u-pad06">
+  1/12
+</div>
+<div class="u-size1of6 u-borderMd u-pad06">
+  1/6
+</div>
+<div class="u-size1of4 u-borderMd u-pad06">
+  1/4
+</div>
+<div class="u-size1of3 u-borderMd u-pad06">
+  1/3
+</div>
+<div class="u-size5of12 u-borderMd u-pad06">
+  5/12
+</div>
+<div class="u-size1of2 u-borderMd u-pad06">
+  1/2
+</div>
+<div class="u-size7of12 u-borderMd u-pad06">
+  7/12
+</div>
+<div class="u-size2of3 u-borderMd u-pad06">
+  2/3
+</div>
+<div class="u-size3of4 u-borderMd u-pad06">
+  3/4
+</div>
+<div class="u-size5of6 u-borderMd u-pad06">
+  5/6
+</div>
+<div class="u-size11of12 u-borderMd u-pad06">
+  11/12
+</div>
+<div class="u-sizeFull u-borderMd u-pad06">
+  Full
+</div>
+
+<img class="u-limitHeight2of3" src="{{dummyImgSrc 800 800}}" alt="u-limitHeight example">

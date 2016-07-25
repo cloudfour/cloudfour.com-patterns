@@ -63,7 +63,7 @@ pre {
   overflow: auto;
 }
 
-*:not(pre) > code {
+*:not(pre, a) > code {
   color: var(--color-fuchsia);
 }
 

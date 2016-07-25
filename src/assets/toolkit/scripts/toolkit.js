@@ -1,12 +1,10 @@
 /**
  * Toolkit JavaScript
- *
- * TODO: Refactor toolkit.js to use Umbrella instead of arrayFromSelector, etc.
  */
 
 'use strict';
 
-import {arrayFromSelector} from './lib/dom/core';
+import {u} from 'umbrellajs';
 import {FloatLabel} from './lib/component/float-label';
 import {Sky} from './lib/component/sky';
 import {ElasticTextarea} from './lib/component/elastic-textarea';
@@ -22,7 +20,7 @@ import 'prismjs/components/prism-scss';
 
 (function() {
 
-  arrayFromSelector('.js-FloatLabel').map(element => {
+  u('.js-FloatLabel').map(element => {
     new FloatLabel(element);
   });
 
@@ -30,7 +28,7 @@ import 'prismjs/components/prism-scss';
    * TODO: Make this smart enough to not just fail if `.Sky` has no nav.
    * Or better yet, hook it to a js-* class only when a nav is included.
    */
-  arrayFromSelector('.Sky').map(element => {
+  u('.Sky').map(element => {
     var menu = element.querySelector('.Sky-nav-menu');
     var toggle = element.querySelector('.Sky-nav-controls-skipToMenu');
 
@@ -43,7 +41,7 @@ import 'prismjs/components/prism-scss';
     }
   });
 
-  arrayFromSelector('.js-ElasticTextarea').map(element => {
+  u('.js-ElasticTextarea').map(element => {
     new ElasticTextarea(element, {
       eventName: 'keyup'
     });
@@ -53,7 +51,7 @@ import 'prismjs/components/prism-scss';
 
   if (replyFormTemplate) {
     replyFormTemplate = replyFormTemplate.innerHTML;
-    arrayFromSelector('.js-comment').map(element => {
+    u('.js-comment').map(element => {
       new CommentReply(element, {
         template: replyFormTemplate
       });

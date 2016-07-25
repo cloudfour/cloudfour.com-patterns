@@ -42,9 +42,7 @@ import 'prismjs/components/prism-scss';
   });
 
   u('.js-ElasticTextarea').map(element => {
-    new ElasticTextarea(element, {
-      eventName: 'keyup'
-    });
+    new ElasticTextarea(element);
   });
 
   var replyFormTemplate = document.getElementById('comment-replyForm-template');

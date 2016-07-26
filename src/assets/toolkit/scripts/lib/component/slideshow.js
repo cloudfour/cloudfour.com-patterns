@@ -70,8 +70,9 @@ export class Slideshow {
 
     // Find slide that has class `is-visible`, and replace it with `was-visible`
     this.slides.forEach(slide => {
-      if (u(slide).hasClass(this.classIsVisible)) {
-        u(slide).removeClass(this.classIsVisible).addClass(this.classWasVisible);
+      var slide = u(slide);
+      if (slide.hasClass(this.classIsVisible)) {
+        slide.removeClass(this.classIsVisible).addClass(this.classWasVisible);
       }
     });
 

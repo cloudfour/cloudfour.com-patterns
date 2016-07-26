@@ -41,20 +41,24 @@ export class Slideshow {
     return this.slides.length;
   }
 
-  slide(direction) {
-
+  get slideToShow() {
     var slideToShow;
     var slideRemainder = this.counter % this.numSlides;
 
     // Get the index of the current item
     if (this.counter > 0) {
-      var slideToShow = slideRemainder;
+      slideToShow = slideRemainder;
     } else {
-      var slideToShow = slideRemainder ? (slideRemainder + this.numSlides) : 0;
+      slideToShow = slideRemainder ? (slideRemainder + this.numSlides) : 0;
     }
 
+    return slideToShow;
+  }
+
+  slide(direction) {
+
     // Update the navigation with the current slide number
-    u(this.currentCountElement).text(slideToShow + 1);
+    u(this.currentCountElement).text(this.slideToShow + 1);
 
     // Remove previous directional class
     u(this.slideHolder).removeClass(this.classIsForward, this.classIsBack);
@@ -67,13 +71,12 @@ export class Slideshow {
     // Find slide that has class `is-visible`, and replace it with `was-visible`
     this.slides.forEach(slide => {
       if (u(slide).hasClass(this.classIsVisible)) {
-        u(slide).removeClass(this.classIsVisible);
-        u(slide).addClass(this.classWasVisible);
+        u(slide).removeClass(this.classIsVisible).addClass(this.classWasVisible);
       }
     });
 
     // Add `is-visible` class to current item
-    u(this.slides[slideToShow]).addClass(this.classIsVisible);
+    u(this.slides[this.slideToShow]).addClass(this.classIsVisible);
 
     // Add new directional classes to slide container
     if (direction == 'forward') {

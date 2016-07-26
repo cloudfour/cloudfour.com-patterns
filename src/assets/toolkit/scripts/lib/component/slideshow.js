@@ -33,8 +33,8 @@ export class Slideshow {
 
     this.counter = 0;
     u(this.totalCountElement).text(this.numSlides);
-    u(this.nextTrigger).handle('click', () => this.next());
-    u(this.prevTrigger).handle('click', () => this.prev());
+    u(this.nextTrigger).handle('click', () => this.nextSlide());
+    u(this.prevTrigger).handle('click', () => this.prevSlide());
   }
 
   get numSlides() {
@@ -93,12 +93,12 @@ export class Slideshow {
     u(this.slideHolder).on("animationend", onAnimationEnd, false);
   }
 
-  next() {
+  nextSlide() {
     this.counter++;
     this.slide('forward');
   }
 
-  prev() {
+  prevSlide() {
     this.counter--;
     this.slide('back');
   }

@@ -78,7 +78,7 @@ export class Slideshow {
     u(this.slides[this.slideToShow]).addClass(this.classIsVisible);
 
     // Add new directional classes to slide container
-    if (direction == 'forward') {
+    if (direction === 'forward') {
       u(this.slideHolder).addClass(this.classIsSlidingForward, this.classIsForward);
     } else {
       u(this.slideHolder).addClass(this.classIsSlidingBack, this.classIsBack);
@@ -89,7 +89,7 @@ export class Slideshow {
       u(this.slideHolder).removeClass(this.classIsSlidingForward, this.classIsSlidingBack);
     }
 
-    u(this.slideHolder).on("animationend", onAnimationEnd, false);
+    u(this.slideHolder).on('animationend', onAnimationEnd, false);
   }
 
   nextSlide() {

@@ -64,9 +64,7 @@ export class Slideshow {
     u(this.slideHolder).removeClass(this.classIsForward, this.classIsBack);
 
     // Remove previous 'was-visible' class
-    this.slides.forEach(slide => {
-      u(slide).removeClass(this.classWasVisible);
-    });
+    u(this.slides).removeClass(this.classWasVisible);
 
     // Find slide that has class `is-visible`, and replace it with `was-visible`
     this.slides.forEach(slide => {

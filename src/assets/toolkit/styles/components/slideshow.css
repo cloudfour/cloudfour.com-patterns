@@ -1,32 +1,66 @@
+/**
+ * Slideshow
+ */
+
+/**
+ * 1. Hide the overflowing flexbox list
+ */
+
 .Slideshow {
-  overflow: hidden;
+  overflow: hidden; /* 1 */
 }
 
 .Slideshow-slides {
 
 }
 
+/**
+ * 1. Each slide fills the parent container
+ */
+
 .Slideshow-slide {
   flex: 1 0 100% !important;
 }
 
+/**
+ * 1. Retain position of the slide-forward animation
+ */
+
 .Slideshow-slides.is-forward {
-  transform: translateX(-100%);
+  transform: translateX(-100%); /* 1 */
 }
+
+/**
+ * 1. Depending on direction, move currently or previously visible
+ *    item to the front of the list
+ */
 
 .Slideshow-slides.is-forward .Slideshow-slide.was-visible,
 .Slideshow-slides.is-back .Slideshow-slide.is-visible {
-  order: -2;
+  order: -2; /* 1 */
 }
+
+/**
+ * 1. Depending on direction, move currently or previously visible
+ *    item to second position in the list
+ */
 
 .Slideshow-slides.is-forward .Slideshow-slide.is-visible,
 .Slideshow-slides.is-back .Slideshow-slide.was-visible {
   order: -1;
 }
 
+/**
+ * Animation class that slides the container forward
+ */
+
 .Slideshow-slides.is-sliding-forward {
   animation: 500ms ease forwards slide-forward;
 }
+
+/**
+ * Animation class that slides the container back
+ */
 
 .Slideshow-slides.is-sliding-back {
   animation: 500ms ease forwards slide-back;

@@ -32,7 +32,7 @@ export class Slideshow {
     });
 
     this.counter = 0;
-    u(this.totalCountElement).html(this.numSlides);
+    u(this.totalCountElement).text(this.numSlides);
     u(this.nextTrigger).handle('click', () => this.next());
     u(this.prevTrigger).handle('click', () => this.prev());
   }
@@ -43,15 +43,18 @@ export class Slideshow {
 
   slide(direction) {
 
+    var slideToShow;
+    var slideRemainder = this.counter % this.numSlides;
+
     // Get the index of the current item
     if (this.counter > 0) {
-      var slideToShow = (this.counter % this.numSlides);
+      var slideToShow = slideRemainder;
     } else {
-      var slideToShow = (this.counter % this.numSlides) ? ((this.counter % this.numSlides) + this.numSlides) : 0;
+      var slideToShow = slideRemainder ? (slideRemainder + this.numSlides) : 0;
     }
 
     // Update the navigation with the current slide number
-    u(this.currentCountElement).html(slideToShow + 1);
+    u(this.currentCountElement).text(slideToShow + 1);
 
     // Remove previous directional class
     u(this.slideHolder).removeClass(this.classIsForward, this.classIsBack);

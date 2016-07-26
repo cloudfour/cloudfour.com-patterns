@@ -85,11 +85,11 @@ export class Slideshow {
     }
 
     // Remove animation class so it can be re-applied as a new animation
-    var onAnimationEnd = () => {
-      u(this.slideHolder).removeClass(this.classIsSlidingForward, this.classIsSlidingBack);
-    }
+    u(this.slideHolder).on('animationend', this.onAnimationEnd.bind(this));
+  }
 
-    u(this.slideHolder).on('animationend', onAnimationEnd, false);
+  onAnimationEnd() {
+    u(this.slideHolder).removeClass(this.classIsSlidingForward, this.classIsSlidingBack);
   }
 
   nextSlide() {

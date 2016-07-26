@@ -73,11 +73,11 @@
     display: inline-block !important;
   }
 
-  .u-lg-unhideVisually {
-    clip: auto !important;
-    width: auto !important;
-    height: auto !important;
-    position: static !important;
-    overflow: inherit !important;
+  .u-lg-showVisually {
+    clip: initial !important;
+    width: initial !important;
+    height: initial !important;
+    position: initial !important;
+    overflow: initial !important;
   }
 }

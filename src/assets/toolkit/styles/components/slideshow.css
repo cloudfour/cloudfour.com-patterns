@@ -14,6 +14,11 @@
 
 }
 
+.Slideshow-control {
+  color: var(--color-blue);
+  cursor: pointer;
+}
+
 /**
  * 1. Each slide fills the parent container
  */

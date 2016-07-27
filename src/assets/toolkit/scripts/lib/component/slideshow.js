@@ -2,12 +2,12 @@
 import {u} from 'umbrellajs';
 export class Slideshow {
   constructor (element, {
-    slideHolder = u('.js-Slideshow-slides'),
-    slides = u('.js-Slideshow-slide'),
-    nextTrigger = u('.js-Slideshow-next'),
-    prevTrigger = u('.js-Slideshow-prev'),
-    currentCountElement = u('.js-Slideshow-current'),
-    totalCountElement = u('.js-Slideshow-total'),
+    slideHolderSelector = '.js-Slideshow-slides',
+    slidesSelector = '.js-Slideshow-slide',
+    nextTriggerSelector = '.js-Slideshow-next',
+    prevTriggerSelector = '.js-Slideshow-prev',
+    currentCountElementSelector = '.js-Slideshow-current',
+    totalCountElementSelector = '.js-Slideshow-total',
     classIsVisible = 'is-visible',
     classWasVisible = 'was-visible',
     classIsSlidingForward = 'is-sliding-forward',
@@ -15,6 +15,13 @@ export class Slideshow {
     classIsForward = 'is-forward',
     classIsBack = 'is-back'
   } = {}) {
+
+    const slideHolder = u(slideHolderSelector, element);
+    const slides = u(slidesSelector, element);
+    const nextTrigger = u(nextTriggerSelector, element);
+    const prevTrigger = u(prevTriggerSelector, element);
+    const currentCountElement = u(currentCountElementSelector, element);
+    const totalCountElement = u(totalCountElementSelector, element);
 
     Object.assign(this, {
       slides,
@@ -32,14 +39,14 @@ export class Slideshow {
     });
 
     this.counter = 0;
-    u(this.totalCountElement).text(this.numSlides);
-    u(this.nextTrigger).handle('click', this.nextSlide.bind(this));
-    u(this.prevTrigger).handle('click', this.prevSlide.bind(this));
-    u(this.slideHolder).on('animationend', this.onAnimationEnd.bind(this));
+    this.totalCountElement.text(this.numSlides);
+    this.nextTrigger.handle('click', this.nextSlide.bind(this));
+    this.prevTrigger.handle('click', this.prevSlide.bind(this));
+    this.slideHolder.on('animationend', this.onAnimationEnd.bind(this));
   }
 
   get numSlides() {
-    return u(this.slides).length;
+    return this.slides.length;
   }
 
   get slideToShow() {
@@ -57,24 +64,20 @@ export class Slideshow {
   }
 
   slide(direction) {
-
-    const uSlideHolder = u(this.slideHolder);
-    const uSlides = u(this.slides);
-
     // Update the navigation with the current slide number
-    u(this.currentCountElement).text(this.slideToShow + 1);
+    this.currentCountElement.text(this.slideToShow + 1);
 
     // Remove previous directional class
-    uSlideHolder.removeClass(this.classIsForward, this.classIsBack);
+    this.slideHolder.removeClass(this.classIsForward, this.classIsBack);
 
     // Remove previous 'was-visible' class
-    uSlides.removeClass(this.classWasVisible);
+    this.slides.removeClass(this.classWasVisible);
 
     // Find slide that has class `is-visible`, and replace it with `was-visible`
-    uSlides.each((slide, i) => {
-      var uSlide = u(slide);
-      if (uSlide.hasClass(this.classIsVisible)) {
-        uSlide.removeClass(this.classIsVisible).addClass(this.classWasVisible);
+    this.slides.each((slide, i) => {
+      var slide = u(slide);
+      if (slide.hasClass(this.classIsVisible)) {
+        slide.removeClass(this.classIsVisible).addClass(this.classWasVisible);
       }
     });
 
@@ -83,14 +86,14 @@ export class Slideshow {
 
     // Add new directional classes to slide container
     if (direction === 'forward') {
-      uSlideHolder.addClass(this.classIsSlidingForward, this.classIsForward);
+      this.slideHolder.addClass(this.classIsSlidingForward, this.classIsForward);
     } else {
-      uSlideHolder.addClass(this.classIsSlidingBack, this.classIsBack);
+      this.slideHolder.addClass(this.classIsSlidingBack, this.classIsBack);
     }
   }
 
   onAnimationEnd() {
-    u(this.slideHolder).removeClass(this.classIsSlidingForward, this.classIsSlidingBack);
+    this.slideHolder.removeClass(this.classIsSlidingForward, this.classIsSlidingBack);
   }
 
   nextSlide() {

@@ -24,18 +24,18 @@ export class Slideshow {
     const totalCountElement = u(totalCountElementSelector, element);
 
     Object.assign(this, {
-      slides,
       slideHolder,
+      slides,
       nextTrigger,
       prevTrigger,
       currentCountElement,
       totalCountElement,
       classIsVisible,
       classWasVisible,
-      classIsForward,
-      classIsBack,
       classIsSlidingForward,
-      classIsSlidingBack
+      classIsSlidingBack,
+      classIsForward,
+      classIsBack
     });
 
     this.counter = 0;

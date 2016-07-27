@@ -8,38 +8,33 @@
             <img class="u-sizeFull" src="{{image}}" alt="">
           </div>
         </div>
-        <div class="Grid-cell u-sm-size3of4 u-lg-size1of2 u-spaceItems06 u-textCenter u-sm-textLeft u-spaceTop01 u-sm-spaceTopNone">
+        <div class="Grid-cell u-sizeFull u-sm-size3of4 u-lg-size1of2 u-spaceItems06 u-textCenter u-sm-textLeft u-spaceTop01 u-sm-spaceTopNone">
           <h4 class="u-md-textGrow1">Did you know&hellip;?</h4>
           <p>{{fact}}</p>
         </div>
       </li>
     {{/each}}
   </ul>
-  <ul class="Slideshow-nav u-listInline u-spaceSidesNone u-flexJustifyBetween u-flexAlignContentCenter u-lg-flexJustifyEnd u-lg-padRight3 u-posAbsoluteCenter u-size1of1" aria-controls="#Slideshow-slides">
-    <li class="u-spaceLeft05">
-      <button type="button" class="Slideshow-control js-Slideshow-prev">
-        <span class="u-hiddenVisually">Previous Fun Fact</span>
-        <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
-          <circle r="12" cx="12" cy="12" fill="#fff"/>
-          {{svg "icons/arrow-left" width="12" height="12" x="6" y="6"}}
-        </svg>
-      </button>
-    </li>
-    <li>
-      <span class="u-hiddenVisually u-lg-showVisually u-lg-inlineBlock u-textShrink1">
-        <span class="u-hiddenVisually">Current Fun Fact:</span>
-        <span class="js-Slideshow-current">1</span> of
-        <span class="js-Slideshow-total"></span>
-      </span>
-    </li>
-    <li>
-      <button type="button" class="Slideshow-control js-Slideshow-next" href="">
-        <span class="u-hiddenVisually">Next Fun Fact</span>
-        <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
-          <circle r="12" cx="12" cy="12" fill="#fff"/>
-          {{svg "icons/arrow-right" width="12" height="12" x="6" y="6"}}
-        </svg>
-      </button>
-    </li>
-  </ul>
+  <div class="u-flex u-flexJustifyBetween u-flexAlignItemsCenter u-lg-flexJustifyEnd u-padSides03 u-lg-padRight3 u-posAbsoluteCenter  u-size1of1" aria-controls="#Slideshow-slides">
+    <h3 class="u-hiddenVisually">Fun fact navigation</h3>
+    <p class="u-hiddenVisually u-lg-showVisually u-lg-inlineBlock u-textShrink1 u-spaceSides1">
+      <span class="u-hiddenVisually">Current Fun Fact:</span>
+      <span class="js-Slideshow-current">1</span> of
+      {{drizzle.data.fun-facts.contents.aileen.length}}
+    </p>
+    <button type="button" class="Slideshow-control js-Slideshow-prev u-flexOrderFirst">
+      <span class="u-hiddenVisually">Previous Fun Fact</span>
+      <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
+        <circle r="12" cx="12" cy="12" fill="#fff"/>
+        {{svg "icons/arrow-left" width="12" height="12" x="6" y="6"}}
+      </svg>
+    </button>
+    <button type="button" class="Slideshow-control js-Slideshow-next">
+      <span class="u-hiddenVisually">Next Fun Fact</span>
+      <svg viewBox="0 0 24 24" class="Icon u-textGrow3" role="presentation">
+        <circle r="12" cx="12" cy="12" fill="#fff"/>
+        {{svg "icons/arrow-right" width="12" height="12" x="6" y="6"}}
+      </svg>
+    </button>
+  </div>
 </div>

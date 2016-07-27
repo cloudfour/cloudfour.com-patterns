@@ -59,6 +59,7 @@ export class Slideshow {
   slide(direction) {
 
     const uSlideHolder = u(this.slideHolder);
+    const uSlides = u(this.slides);
 
     // Update the navigation with the current slide number
     u(this.currentCountElement).text(this.slideToShow + 1);
@@ -67,18 +68,15 @@ export class Slideshow {
     uSlideHolder.removeClass(this.classIsForward, this.classIsBack);
 
     // Remove previous 'was-visible' class
-    u(this.slides).removeClass(this.classWasVisible);
+    uSlides.removeClass(this.classWasVisible);
 
     // Find slide that has class `is-visible`, and replace it with `was-visible`
-    u(this.slides).each((slide, i) => {
+    uSlides.each((slide, i) => {
       var uSlide = u(slide);
       if (uSlide.hasClass(this.classIsVisible)) {
         uSlide.removeClass(this.classIsVisible).addClass(this.classWasVisible);
       }
     });
-
-    console.log(this.slideToShow);
-    console.log(u(this.slides.nodes[this.slideToShow]));
 
     // Add `is-visible` class to current item
     u(this.slides.nodes[this.slideToShow]).addClass(this.classIsVisible);

@@ -16,7 +16,6 @@ export class Slideshow {
     nextTriggerSelector = '.js-Slideshow-next',
     prevTriggerSelector = '.js-Slideshow-prev',
     currentCountElementSelector = '.js-Slideshow-current',
-    totalCountElementSelector = '.js-Slideshow-total',
     classIsVisible = 'is-visible',
     classWasVisible = 'was-visible',
     classIsSlidingForward = 'is-sliding-forward',
@@ -31,7 +30,6 @@ export class Slideshow {
     const nextTrigger = u(nextTriggerSelector, element);
     const prevTrigger = u(prevTriggerSelector, element);
     const currentCountElement = u(currentCountElementSelector, element);
-    const totalCountElement = u(totalCountElementSelector, element);
 
     Object.assign(this, {
       slideHolder,
@@ -39,7 +37,6 @@ export class Slideshow {
       nextTrigger,
       prevTrigger,
       currentCountElement,
-      totalCountElement,
       classIsVisible,
       classWasVisible,
       classIsSlidingForward,
@@ -48,10 +45,7 @@ export class Slideshow {
       classIsBack
     });
 
-    this.counter = 0;
-
-    // Insert total number of slides into the DOM
-    this.totalCountElement.text(this.numSlides);
+    this.counter = 0;    
 
     // Add event listener for interaction with slide controls
     this.nextTrigger.handle('click', this.nextSlide.bind(this));

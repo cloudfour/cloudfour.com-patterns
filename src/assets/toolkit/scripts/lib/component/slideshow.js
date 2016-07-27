@@ -1,6 +1,15 @@
 'use strict';
+
 import {u} from 'umbrellajs';
+
+/**
+ * Class representing the Slideshow component
+ */
 export class Slideshow {
+  /**
+   * @parameter {DOM} element - The containing element for Slideshow
+   * @parameter {Object} options - Define the inner elements
+   */
   constructor (element, {
     slideHolderSelector = '.js-Slideshow-slides',
     slidesSelector = '.js-Slideshow-slide',
@@ -16,6 +25,7 @@ export class Slideshow {
     classIsBack = 'is-back'
   } = {}) {
 
+    // Store elements as Umbrella objects
     const slideHolder = u(slideHolderSelector, element);
     const slides = u(slidesSelector, element);
     const nextTrigger = u(nextTriggerSelector, element);
@@ -39,16 +49,28 @@ export class Slideshow {
     });
 
     this.counter = 0;
+
+    // Insert total number of slides into the DOM
     this.totalCountElement.text(this.numSlides);
+
+    // Add event listener for interaction with slide controls
     this.nextTrigger.handle('click', this.nextSlide.bind(this));
     this.prevTrigger.handle('click', this.prevSlide.bind(this));
-    this.slideHolder.on('animationend', this.onAnimationEnd.bind(this));
+
+    // Add event listener for end of animation
+    this.slideHolder.handle('animationend', this.onAnimationEnd.bind(this));
   }
 
+  /**
+   * Getter for the total number of slides
+   */
   get numSlides() {
     return this.slides.length;
   }
 
+  /**
+   * Getter for the index of the current slide
+   */
   get slideToShow() {
     var slideToShow;
     var slideRemainder = this.counter % this.numSlides;
@@ -63,6 +85,11 @@ export class Slideshow {
     return slideToShow;
   }
 
+  /**
+   * Slide the slider
+   *
+   * @parameter {string} direction - Accepts 'forward' or 'back'
+   */
   slide(direction) {
     // Update the navigation with the current slide number
     this.currentCountElement.text(this.slideToShow + 1);
@@ -92,15 +119,24 @@ export class Slideshow {
     }
   }
 
+  /**
+   * Remove the animation class
+   */
   onAnimationEnd() {
     this.slideHolder.removeClass(this.classIsSlidingForward, this.classIsSlidingBack);
   }
 
+  /**
+   * Slide forward
+   */
   nextSlide() {
     this.counter++;
     this.slide('forward');
   }
 
+  /**
+   * Slide back
+   */
   prevSlide() {
     this.counter--;
     this.slide('back');

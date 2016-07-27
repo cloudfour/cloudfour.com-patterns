@@ -2,12 +2,12 @@
 import {u} from 'umbrellajs';
 export class Slideshow {
   constructor (element, {
-    slideHolder = element.querySelector('.js-Slideshow-slides'),
-    slides = element.querySelectorAll('.js-Slideshow-slide'),
-    nextTrigger = element.querySelector('.js-Slideshow-next'),
-    prevTrigger = element.querySelector('.js-Slideshow-prev'),
-    currentCountElement = element.querySelector('.js-Slideshow-current'),
-    totalCountElement = element.querySelector('.js-Slideshow-total'),
+    slideHolder = u('.js-Slideshow-slides'),
+    slides = u('.js-Slideshow-slide'),
+    nextTrigger = u('.js-Slideshow-next'),
+    prevTrigger = u('.js-Slideshow-prev'),
+    currentCountElement = u('.js-Slideshow-current'),
+    totalCountElement = u('.js-Slideshow-total'),
     classIsVisible = 'is-visible',
     classWasVisible = 'was-visible',
     classIsSlidingForward = 'is-sliding-forward',
@@ -35,10 +35,11 @@ export class Slideshow {
     u(this.totalCountElement).text(this.numSlides);
     u(this.nextTrigger).handle('click', () => this.nextSlide());
     u(this.prevTrigger).handle('click', () => this.prevSlide());
+    u(this.slideHolder).on('animationend', this.onAnimationEnd.bind(this));
   }
 
   get numSlides() {
-    return this.slides.length;
+    return u(this.slides).length;
   }
 
   get slideToShow() {
@@ -57,35 +58,37 @@ export class Slideshow {
 
   slide(direction) {
 
+    const uSlideHolder = u(this.slideHolder);
+
     // Update the navigation with the current slide number
     u(this.currentCountElement).text(this.slideToShow + 1);
 
     // Remove previous directional class
-    u(this.slideHolder).removeClass(this.classIsForward, this.classIsBack);
+    uSlideHolder.removeClass(this.classIsForward, this.classIsBack);
 
     // Remove previous 'was-visible' class
     u(this.slides).removeClass(this.classWasVisible);
 
     // Find slide that has class `is-visible`, and replace it with `was-visible`
-    this.slides.forEach(slide => {
-      var slide = u(slide);
-      if (slide.hasClass(this.classIsVisible)) {
-        slide.removeClass(this.classIsVisible).addClass(this.classWasVisible);
+    u(this.slides).each((slide, i) => {
+      var uSlide = u(slide);
+      if (uSlide.hasClass(this.classIsVisible)) {
+        uSlide.removeClass(this.classIsVisible).addClass(this.classWasVisible);
       }
     });
 
+    console.log(this.slideToShow);
+    console.log(u(this.slides.nodes[this.slideToShow]));
+
     // Add `is-visible` class to current item
-    u(this.slides[this.slideToShow]).addClass(this.classIsVisible);
+    u(this.slides.nodes[this.slideToShow]).addClass(this.classIsVisible);
 
     // Add new directional classes to slide container
     if (direction === 'forward') {
-      u(this.slideHolder).addClass(this.classIsSlidingForward, this.classIsForward);
+      uSlideHolder.addClass(this.classIsSlidingForward, this.classIsForward);
     } else {
-      u(this.slideHolder).addClass(this.classIsSlidingBack, this.classIsBack);
+      uSlideHolder.addClass(this.classIsSlidingBack, this.classIsBack);
     }
-
-    // Remove animation class so it can be re-applied as a new animation
-    u(this.slideHolder).on('animationend', this.onAnimationEnd.bind(this));
   }
 
   onAnimationEnd() {

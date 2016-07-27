@@ -9,6 +9,7 @@ import {FloatLabel} from './lib/component/float-label';
 import {Sky} from './lib/component/sky';
 import {ElasticTextarea} from './lib/component/elastic-textarea';
 import {CommentReply} from './lib/component/comment-reply';
+import {Slideshow} from './lib/component/slideshow';
 
 /**
  * Syntax highlighting
@@ -19,6 +20,10 @@ import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-scss';
 
 (function() {
+
+  u('.js-Slideshow').map(element => {
+    new Slideshow(element);
+  });
 
   u('.js-FloatLabel').map(element => {
     new FloatLabel(element);

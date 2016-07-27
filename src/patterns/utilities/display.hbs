@@ -12,11 +12,12 @@ notes: |
   + `u-tableCell` sets display to `table-cell`.
   + `u-tableRow` sets display to `table-row`.
 
-  Also includes responsive versions of `u-hidden` and `u-block`. Examples:
+  Also includes responsive versions of `u-hidden`, `u-block` and `u-inlineBlock`, as well as a responsive utility that counteracts previous application of `u-hiddenVisually`. Examples:
 
   + `u-sm-block` sets display to `block` starting at `--sm-viewport`.
-  + `u-md-block` sets display to `block` starting at `--md-viewport`.
+  + `u-md-inlineBlock` sets display to `inline-block` starting at `--md-viewport`.
   + `u-lg-hidden` sets display to `none` starting at `--lg-viewport`.
+  + `u-lg-showVisually` sets all the properties from `u-visuallyHidden` back to `initial` to restore the element's visual appearance.
 
   Also includes two original utilities:
 

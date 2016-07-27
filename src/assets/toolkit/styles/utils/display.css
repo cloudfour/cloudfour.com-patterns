@@ -40,6 +40,10 @@
   .u-sm-block {
     display: block !important;
   }
+
+  .u-sm-inlineBlock {
+    display: inline-block !important;
+  }
 }
 
 @media (--md-viewport) {
@@ -50,6 +54,10 @@
   .u-md-block {
     display: block !important;
   }
+
+  .u-md-inlineBlock {
+    display: inline-block !important;
+  }
 }
 
 @media (--lg-viewport) {
@@ -59,5 +67,17 @@
 
   .u-lg-block {
     display: block !important;
+  }
+
+  .u-lg-inlineBlock {
+    display: inline-block !important;
+  }
+
+  .u-lg-showVisually {
+    clip: initial !important;
+    width: initial !important;
+    height: initial !important;
+    position: initial !important;
+    overflow: initial !important;
   }
 }

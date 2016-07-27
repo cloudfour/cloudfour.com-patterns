@@ -1,6 +1,16 @@
 @import "suitcss-utils-text";
 
 /**
+ * Make responsive SUIT CSS text-alignment utilities
+ */
+
+@media(--sm-viewport) {
+  .u-sm-textLeft {
+    text-align: left !important;
+  }
+}
+
+/**
  * Font weight control
  */
 

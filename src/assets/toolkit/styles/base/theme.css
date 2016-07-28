@@ -181,7 +181,7 @@
  * Breakpoints
  */
 
-/* Width */
+/* min-width */
 @custom-media --sm-viewport (width >= 30em);
 @custom-media --md-viewport (width >= 48em);
 @custom-media --lg-viewport (width >= 64em);
@@ -189,5 +189,8 @@
 @custom-media --xxl-viewport (width >= 100em);
 @custom-media --xxxl-viewport (width >= 120em);
 
-/* Height */
+/* max-width */
+@custom-media --sm-max-viewport (width < 48em);
+
+/* min-height */
 @custom-media --mdh-viewport (height >= 35em);

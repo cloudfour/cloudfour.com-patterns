@@ -14,7 +14,7 @@
 /**
  * Headings may contain classes or inline styles, so we're using a max-width
  * media query and targeting the elements themselves (instead of our usual,
- * cleaner BEM class naming conventions) to avoid colissions or messy attribute
+ * cleaner BEM class naming conventions) to avoid collisions or messy attribute
  * writing in our CMS.
  */
 

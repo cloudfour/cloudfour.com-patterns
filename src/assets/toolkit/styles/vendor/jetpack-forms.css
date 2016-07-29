@@ -1,10 +1,9 @@
 /**
  * Jetpack Device Lab Form Styles
+ *
+ * Uses Button and Input mixins to reuse pattern styles
  */
 
-/**
- * 1. Overrides specific `max-width` set in the JetPack style sheet.
- */
 .contact-form input:not([type="submit"]),
 .contact-form textarea {
   @mixin Input;

@@ -10,6 +10,16 @@ import TimelineMax from 'gsap/src/uncompressed/TimelineMax';
 import EasePack from 'gsap/src/uncompressed/easing/EasePack';
 import CSSPlugin from 'gsap/src/uncompressed/plugins/CSSPlugin';
 import AttrPlugin from 'gsap/src/uncompressed/plugins/AttrPlugin';
+import isOperaMini from './lib/tests/opera-mini.js';
+
+/**
+ * Opera Mini supports all the necessary features but won't update the animation
+ * per frame, so we won't bother animating in that case.
+ */
+
+if (isOperaMini()) {
+  return;
+}
 
 /**
  * Shuffle arrays or nodeLists

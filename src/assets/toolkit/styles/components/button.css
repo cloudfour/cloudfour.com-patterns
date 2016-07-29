@@ -30,7 +30,7 @@
  * 6. Prevent button text from being selectable.
  * 7. Corrects inability to style clickable `input` types in iOS.
  */
-.Button {
+@define-mixin Button {
   display: inline-block;
   box-sizing: border-box; /* 1 */
   padding: var(--Button-padding);
@@ -52,39 +52,44 @@
   user-select: none; /* 6 */
 
   -webkit-appearance: none; /* 7 */
+
+  /**
+  * Remove excess padding and border in Firefox 4+
+  */
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  /**
+  * Work around a Firefox/IE bug where the transparent `button` background
+  * results in a loss of the default `button` focus styles.
+  */
+
+  &:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+ /**
+  * UI states
+  */
+
+  &:matches(:--enter, :active) {
+    text-decoration: none;
+  }
+
+  &:matches(:disabled, .is-disabled) {
+    opacity: var(--Button-disabled-opacity);
+    cursor: default;
+  }
 }
 
-/**
- * Remove excess padding and border in Firefox 4+
- */
-
-.Button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
+.Button {
+  @mixin Button;
 }
 
-/**
- * Work around a Firefox/IE bug where the transparent `button` background
- * results in a loss of the default `button` focus styles.
- */
-
-.Button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-
-/**
- * UI states
- */
-
-.Button:matches(:--enter, :active) {
-  text-decoration: none;
-}
-
-.Button:matches(:disabled, .is-disabled) {
-  opacity: var(--Button-disabled-opacity);
-  cursor: default;
-}
 
 /**
  * Modifier: default buttons
@@ -95,34 +100,50 @@
   --Button-default-color: var(--color-white);
 }
 
-.Button--default,
-.Button--default:matches(:--enter, :active),
-.Button--defaultDark,
-.Button--defaultDark:matches(:--enter, :active) {
+@define-mixin Button--default {
   color: var(--Button-default-color);
   border-color: color(var(--Button-default-background-color) shade(10%));
   background-color: var(--Button-default-background-color);
+
+  &:--enter {
+    color: var(--Button-default-color);
+    border-color: color(var(--Button-default-background-color) shade(5%));
+    background-color: color(var(--Button-default-background-color) l(+5%));
+  }
+
+  &:active {
+    color: var(--Button-default-color);
+    border-color: color(var(--Button-default-background-color) shade(10%));
+    background-color: color(var(--Button-default-background-color) shade(10%));
+  }
 }
 
-.Button--defaultDark,
-.Button--defaultDark:matches(:--enter, :active) {
+.Button--default {
+  @mixin Button--default;
+}
+
+@define-mixin Button--defaultDark {
+  color: var(--Button-default-color);
   border-color: color(var(--Button-default-background-color) l(+10%));
+  background-color: var(--Button-default-background-color);
+
+  &:--enter {
+    color: var(--Button-default-color);
+    border-color: color(var(--Button-default-background-color) l(+20%));
+    background-color: color(var(--Button-default-background-color) l(+5%));
+  }
+
+  &:active {
+    color: var(--Button-default-color);
+    border-color: color(var(--Button-default-background-color) l(+10%));
+    background-color: color(var(--Button-default-background-color) shade(10%));
+  }
 }
 
-.Button--default:matches(:--enter),
-.Button--defaultDark:matches(:--enter) {
-  border-color: color(var(--Button-default-background-color) shade(5%));
-  background-color: color(var(--Button-default-background-color) l(+5%));
+.Button--defaultDark {
+  @mixin Button--defaultDark;
 }
 
-.Button--defaultDark:matches(:--enter) {
-  border-color: color(var(--Button-default-background-color) l(+20%));
-}
-
-.Button--default:active,
-.Button--defaultDark:active {
-  background-color: color(var(--Button-default-background-color) shade(10%));
-}
 
 /**
  * Modifier: primary buttons

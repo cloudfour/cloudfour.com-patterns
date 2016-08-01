@@ -1,0 +1,33 @@
+/**
+ * Jetpack Device Lab Form Styles
+ *
+ * Uses Button and Input mixins to reuse pattern styles
+ */
+
+.contact-form input:not([type="submit"]),
+.contact-form textarea {
+  @mixin Input;
+  margin-bottom: var(--space-sm);
+}
+
+.contact-form textarea {
+  max-height: 10em;
+}
+
+/**
+ * Jetpack Form Labels
+ */
+
+.contact-form label {
+  font-weight: var(--font-weight-semibold);
+}
+
+/**
+ * Jetpack Form Button
+ */
+
+.pushbutton-wide {
+  @mixin Button;
+  @mixin Button--default;
+  width: 100%;
+}

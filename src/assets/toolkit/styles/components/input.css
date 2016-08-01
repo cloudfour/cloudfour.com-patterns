@@ -24,7 +24,7 @@
  * 4. Unfortunately, Webkit won't play nice with our styles on some input types
  *    unless we override its appearance.
  */
-.Input {
+@define-mixin Input {
   display: block; /* 1 */
   box-sizing: border-box;
   width: 100%; /* 1 */
@@ -37,21 +37,25 @@
   background: var(--Input-background-color);
   transition: all var(--Input-transition-duration) var(--Input-transition-timing-function);
   -webkit-appearance: none; /* 4 */
+
+  &:matches(:active, :hover) {
+    border-color: color(var(--Input-border-color) l(-15%));
+  }
+
+  &:matches(:disabled, .is-disabled) {
+    color: color(var(--Input-color) a(50%));
+    border-color: var(--Input-border-color);
+    background-color: color(var(--Input-border-color) l(+5%));
+  }
+
+  &:focus {
+    border-color: var(--Input-border-color-focus);
+    outline: none;
+  }
 }
 
-.Input:matches(:active, :hover) {
-  border-color: color(var(--Input-border-color) l(-15%));
-}
-
-.Input:matches(:disabled, .is-disabled) {
-  color: color(var(--Input-color) a(50%));
-  border-color: var(--Input-border-color);
-  background-color: color(var(--Input-border-color) l(+5%));
-}
-
-.Input:focus {
-  border-color: var(--Input-border-color-focus);
-  outline: none;
+.Input {
+  @mixin Input;
 }
 
 /**

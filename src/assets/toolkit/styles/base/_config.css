@@ -1,11 +1,4 @@
 /**
- * Theme definition
- *
- * Add common values as variables for consistent
- * style
- */
-
-/**
  * POSTCSS plugins
  *
  * https://github.com/postcss/postcss/blob/master/docs/plugins.md
@@ -83,7 +76,7 @@
 
 /**
  * Modular Scale
- * 
+ *
  * Define a modular scale for a consistent rhythm in
  * sizing and spacing of elements
  *

@@ -10,8 +10,6 @@
 
 .Table {
   width: 100%;
-  display: block;
-  overflow-x: auto;
 }
 
 .Table :matches(th, td) {

@@ -1,4 +1,8 @@
-/* TODO: maybe make a config.css like the Drizzle styles */
+/**
+ * POSTCSS plugins
+ *
+ * https://github.com/postcss/postcss/blob/master/docs/plugins.md
+ */
 
 @use postcss-mixins;
 @use postcss-cssnext;
@@ -10,31 +14,10 @@
 }
 
 /**
- * Theme definition
- *
- * This defines the theme in fundamental terms, but not how it is applied to
- * the components. That is done in `theme-map.css`.
- */
-
-@import "css-modularscale";
-
-/**
- * Misc
- */
-
-:root {
-  /* http://www.modularscale.com/?1&em&1.25&web&text */
-  --ms-ratio: var(--major-third);
-  --ms-base: 1;
-}
-
-/**
  * Colors
  *
  * Where possible, color names should map to standard webcolors.
  * See: https://zaim.github.io/webcolors/
- *
- * Define variables for color usage (i.e., `--color-link`) in theme-map.
  *
  * For adjustments to existing colors (lightening, darkening) use the
  * `color` function: https://github.com/postcss/postcss-color-function
@@ -70,6 +53,55 @@
 }
 
 /**
+ * Opacity
+ */
+
+:root {
+  --opacity-lower: 0.125;
+  --opacity-low: 0.25;
+  --opacity-mid: 0.5;
+  --opacity-high: 0.75;
+}
+
+/**
+ * Shades
+ */
+
+:root {
+  --shade-lower: color(var(--color-black) alpha(0.125));
+  --shade-low: color(var(--color-black) alpha(0.25));
+  --shade-mid: color(var(--color-black) alpha(0.5));
+  --shade-high: color(var(--color-black) alpha(0.75));
+}
+
+/**
+ * Modular Scale
+ *
+ * Define a modular scale for a consistent rhythm in
+ * sizing and spacing of elements
+ *
+ * http://www.modularscale.com/?1&em&1.25&web&text
+ */
+
+@import "css-modularscale";
+
+:root {
+  --ms-ratio: var(--major-third);
+  --ms-base: 1;
+}
+
+/**
+ * Spacing
+ */
+
+:root {
+  --space-xs: calc(var(--ms-1) / 1rem);
+  --space-sm: calc(var(--ms0) * 1rem);
+  --space-md: calc(var(--ms1) * 1rem);
+  --space-lg: calc(var(--ms2) * 1rem);
+}
+
+/**
  * Typography
  */
 
@@ -91,6 +123,10 @@
   --line-height-sm: var(--ms1);
   --line-height-md: var(--ms2);
   --line-height-lg: var(--ms3);
+
+  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-default);
+
+  --code-font: var(--font-size-sm) var(--font-family-mono);
 }
 
 /**
@@ -106,23 +142,33 @@
 }
 
 /**
- * Element
+ * Base
+ */
+
+:root {
+  --base-background: var(--color-gray);
+  --base-color: var(--color-black);
+  --base-font: var(--font-size-sm)/var(--line-height-md) var(--font-family-default);
+  --base-margin: var(--space-md);
+}
+
+/**
+ * Link
+ */
+
+:root {
+  --link-color: var(--color-blue);
+  --link-hover-color: color(var(--link-color) l(+10%));
+}
+
+/**
+ * Lists
  */
 
 :root {
   --list-style-default: disc;
   --list-style-numeric: decimal;
-}
-
-/**
- * Spacing
- */
-
-:root {
-  --space-xs: calc(var(--ms-1) / 1rem);
-  --space-sm: calc(var(--ms0) * 1rem);
-  --space-md: calc(var(--ms1) * 1rem);
-  --space-lg: calc(var(--ms2) * 1rem);
+  --list-marker-padding: var(--space-md);
 }
 
 /**
@@ -136,6 +182,7 @@
   --motion-timing-function-default: ease;
 }
 
+
 /**
  * Border
  */
@@ -147,25 +194,28 @@
 }
 
 /**
- * Opacity
+ * Rules
  */
 
 :root {
-  --opacity-lower: 0.125;
-  --opacity-low: 0.25;
-  --opacity-mid: 0.5;
-  --opacity-high: 0.75;
+  --rule-color: var(--shade-lower);
+  --rule-style: solid;
+  --rule-width-sm: var(--border-width-sm);
+  --rule-width-md: var(--border-width-md);
 }
 
 /**
- * Shades
+ * Component
  */
 
 :root {
-  --shade-lower: color(var(--color-black) alpha(0.125));
-  --shade-low: color(var(--color-black) alpha(0.25));
-  --shade-mid: color(var(--color-black) alpha(0.5));
-  --shade-high: color(var(--color-black) alpha(0.75));
+  --control-stroke: var(--border-width-md);
+  --control-line: var(--border-width-sm);
+  --control-radius: var(--border-radius-md);
+  --control-color: var(--base-color);
+  --control-background-color: var(--color-null);
+  --control-border-color: var(--color-relative);
+  --control-disabled-opacity: var(--opacity-mid);
 }
 
 /**

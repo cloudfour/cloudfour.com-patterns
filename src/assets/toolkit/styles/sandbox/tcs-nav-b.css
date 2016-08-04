@@ -1,5 +1,4 @@
-@import "../base/theme.css";
-@import "../base/theme-map.css";
+@import "../base/_config.css";
 
 body {
   background: var(--color-white);

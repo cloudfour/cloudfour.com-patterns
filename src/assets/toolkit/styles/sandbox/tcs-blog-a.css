@@ -1,5 +1,4 @@
-@import "../base/theme.css";
-@import "../base/theme-map.css";
+@import "../base/_config.css";
 
 :root {
   --space-xl: calc(var(--ms6) * 1rem);

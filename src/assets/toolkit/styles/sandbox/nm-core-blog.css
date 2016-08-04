@@ -1,5 +1,4 @@
-@import "../base/theme.css";
-@import "../base/theme-map.css";
+@import "../base/_config.css";
 
 
 .blog-section, .blog-header, .blog-footer {
@@ -167,7 +166,7 @@ code, pre {
   display: inline-block;
 }
 
-.permalink { 
+.permalink {
   /*color: var(--color-gray);*/
   color: var(--color-blue);
   font-size: var(--font-size-xs);

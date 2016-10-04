@@ -3,9 +3,8 @@
 :root {
   --Message-padding: var(--space-xs) 2.5em;
   --Message-background: var(--color-gray);
-  --Message-offline-background: var(--color-orange);
-  --Message-offline-color: var(--color-white);
-  --Message-close-size: 1.4em;
+  --Message-warning-background: var(--color-orange);
+  --Message-warning-color: var(--color-white);
 }
 
 .Message {
@@ -20,19 +19,14 @@
   display: block;
   top: var(--space-xs);
   right: var(--space-xs);
+  color: inherit;
 }
 
-.Message-close svg {
-  transform: rotate(45deg); /* turns a plus sign into an X */
-  width: var(--Message-close-size);
-  height: var(--Message-close-size);
+.Message--warning {
+  background: var(--Message-warning-background);
+  color: var(--Message-warning-color);
 }
 
-.Message--offline {
-  background: var(--Message-offline-background);
-  color: var(--Message-offline-color);
-}
-
-.Message--offline a {
-  color: var(--Message-offline-color);
+.Message--warning a {
+  color: var(--Message-warning-color);
 }

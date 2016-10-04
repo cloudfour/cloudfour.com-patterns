@@ -1,0 +1,38 @@
+/** @define Message */
+
+:root {
+  --Message-padding: var(--space-xs) 2.5em;
+  --Message-background: var(--color-gray);
+  --Message-offline-background: var(--color-orange);
+  --Message-offline-color: var(--color-white);
+  --Message-close-size: 1.4em;
+}
+
+.Message {
+  position: relative;
+  padding: var(--Message-padding);
+  background: var(--Message-background);
+  text-align: center;
+}
+
+.Message-close {
+  position: absolute;
+  display: block;
+  top: var(--space-xs);
+  right: var(--space-xs);
+}
+
+.Message-close svg {
+  transform: rotate(45deg); /* turns a plus sign into an X */
+  width: var(--Message-close-size);
+  height: var(--Message-close-size);
+}
+
+.Message--offline {
+  background: var(--Message-offline-background);
+  color: var(--Message-offline-color);
+}
+
+.Message--offline a {
+  color: var(--Message-offline-color);
+}

@@ -1,7 +1,8 @@
 /** @define Message */
 
 :root {
-  --Message-padding: var(--space-xs) 2.5em;
+  --Message-padding: var(--space-xs);
+  --Message-padding-right: calc(var(--space-md) * 2);
   --Message-background: var(--color-gray);
   --Message-warning-background: var(--color-orange);
   --Message-warning-color: var(--color-white);
@@ -10,16 +11,17 @@
 .Message {
   position: relative;
   padding: var(--Message-padding);
+  padding-right: var(--Message-padding-right); /* room for close button if present */
   background: var(--Message-background);
-  text-align: center;
 }
 
 .Message-close {
   position: absolute;
   display: block;
-  top: var(--space-xs);
-  right: var(--space-xs);
+  top: var(--Message-padding);
+  right: var(--Message-padding);
   color: inherit;
+  cursor: pointer;
 }
 
 .Message--warning {

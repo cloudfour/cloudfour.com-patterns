@@ -11,7 +11,7 @@ notes: |
   {{#if includeClose}}
     <button class="Message-close">
       {{#svg "icons/close" aria-labelledby=(defaultTo closeIconTitle "Message-close-title")}}
-        <title id="Message-close-title">Close</title>
+        <title id="{{defaultTo closeIconTitle "Message-close-title"}}">Close</title>
       {{/svg}}
     </button>
   {{/if}}

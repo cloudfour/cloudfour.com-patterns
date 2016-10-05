@@ -2,24 +2,23 @@
 
 :root {
   --Message-padding: var(--space-xs);
-  --Message-padding-right: calc(var(--space-md) * 2);
   --Message-background: var(--color-gray);
   --Message-warning-background: var(--color-orange);
   --Message-warning-color: var(--color-white);
 }
 
 .Message {
-  position: relative;
+  display: flex;
   padding: var(--Message-padding);
-  padding-right: var(--Message-padding-right); /* room for close button if present */
   background: var(--Message-background);
+  justify-content: space-between;
+}
+
+.Message a {
+  color: inherit;
 }
 
 .Message-close {
-  position: absolute;
-  display: block;
-  top: var(--Message-padding);
-  right: var(--Message-padding);
   color: inherit;
   cursor: pointer;
 }
@@ -29,6 +28,4 @@
   color: var(--Message-warning-color);
 }
 
-.Message--warning a {
-  color: var(--Message-warning-color);
-}
+

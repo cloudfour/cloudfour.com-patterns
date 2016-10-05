@@ -4,7 +4,16 @@ notes: |
   Message pattern
 ---
 
-<div class="Message">
- Hi, I'm a message!
+<div class="Message {{messageClass}}">
+  {{#block "content"}}
+    <p>Hi, I'm a message!</p>
+  {{/block}}
+  {{#if includeClose}}
+    <button class="Message-close">
+      {{#svg "icons/close" aria-labelledby=(defaultTo closeIconTitle "Message-close-title")}}
+        <title id="Message-close-title">Close</title>
+      {{/svg}}
+    </button>
+  {{/if}}
 </div>
 

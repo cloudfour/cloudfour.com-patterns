@@ -3,9 +3,10 @@ order: 2
 name: Message with Close Button
 ---
 
-<div class="Message">
-  <p>I'm a message with a close button!</p>
-  <button class="Message-close">
-    {{svg "icons/close" class="Icon Icon--large"}}
-  </button>
-</div>
+{{#embed "patterns.components.message.overview" 
+  includeClose=true}}
+  {{#content "content"}}
+    <p>Message with close button.</p>
+  {{/content}}
+{{/embed}}
+

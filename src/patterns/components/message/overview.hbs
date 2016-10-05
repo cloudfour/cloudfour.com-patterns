@@ -1,0 +1,18 @@
+---
+order: 1
+notes: |
+  Message pattern
+---
+
+<div class="Message {{messageClass}}">
+  {{#block "content"}}
+    <p>Hi, I'm a message!</p>
+  {{/block}}
+  {{#if includeClose}}
+    <button class="Message-close">
+      {{#svg "icons/close" aria-labelledby=(defaultTo closeIconTitle "Message-close-title")}}
+        <title id="{{defaultTo closeIconTitle "Message-close-title"}}">Close</title>
+      {{/svg}}
+    </button>
+  {{/if}}
+</div>

@@ -1,0 +1,29 @@
+/** @define Message */
+
+:root {
+  --Message-padding: var(--space-xs);
+  --Message-background: var(--color-gray);
+  --Message-warning-background: var(--color-orange);
+  --Message-warning-color: var(--color-white);
+}
+
+.Message {
+  display: flex;
+  padding: var(--Message-padding);
+  background: var(--Message-background);
+  justify-content: space-between;
+}
+
+.Message a {
+  color: inherit;
+}
+
+.Message-close {
+  color: inherit;
+  cursor: pointer;
+}
+
+.Message--warning {
+  background: var(--Message-warning-background);
+  color: var(--Message-warning-color);
+}

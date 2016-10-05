@@ -1,0 +1,12 @@
+---
+order: 3
+name: Warning Message
+---
+
+{{#embed "patterns.components.message.overview" 
+  messageClass="Message--warning"
+  includeClose=true}}
+  {{#content "content"}}
+    <p>You seem to be offline at the moment. <span class="u-hidden u-md-inlineBlock">We&rsquo;ll keep trying to connect.</span> <a href=".">Try again</a></p>
+  {{/content}}
+{{/embed}}

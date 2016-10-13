@@ -112,8 +112,10 @@
   --font-size-lg: calc(var(--ms2) * 1em);
   --font-size-xl: calc(var(--ms3) * 1em);
 
-  --font-family-default: "Source Sans Pro", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-family-mono: "Source Code Pro", Monaco, Consolas, "Lucida Console", "Andale Mono", monospace;
+  --font-family-default-fallbacks: Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-default: "Source Sans Pro", var(--font-family-default-fallbacks);
+  --font-family-mono-fallbacks: Monaco, Consolas, "Lucida Console", "Andale Mono", monospace;
+  --font-family-mono: "Source Code Pro", var(--font-family-mono-fallbacks);
 
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
@@ -148,8 +150,14 @@
 :root {
   --base-background: var(--color-gray);
   --base-color: var(--color-black);
-  --base-font: var(--font-size-sm)/var(--line-height-md) var(--font-family-default);
+  --base-font-size: var(--font-size-sm);
+  --base-line-height: var(--line-height-md);
+  --base-font-family: var(--font-family-default-fallbacks);
   --base-margin: var(--space-md);
+}
+
+:root {
+  --body-font-family: var(--font-family-default);
 }
 
 /**

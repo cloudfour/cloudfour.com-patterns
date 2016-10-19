@@ -31,7 +31,7 @@ body {
  * See https://www.filamentgroup.com/lab/font-events.html
  */
 .fonts-loaded body {
-  font-family: var(--body-font-family);
+  font-family: var(--base-font-family);
 }
 
 /**
@@ -39,7 +39,8 @@ body {
  */
 
 :--headings {
-  font: var(--heading-font);
+  font-weight: var(--heading-font-weight);
+  font-size: var(--heading-font-size);
 }
 
 /**

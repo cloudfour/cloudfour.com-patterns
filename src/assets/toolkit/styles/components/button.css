@@ -186,3 +186,28 @@
 .Button--primaryDark:active {
   background-color: color(var(--Button-primaryDark-background-color) shade(10%));
 }
+
+/**
+ * Modifier: secondary buttons
+ */
+
+:root {
+  --Button-secondary-background-color: var(--color-green);
+  --Button-secondary-color: var(--color-white);
+}
+
+.Button--secondary,
+.Button--secondary:matches(:--enter, :active) {
+  color: var(--Button-secondary-color);
+  border-color: color(var(--Button-secondary-background-color) shade(10%));
+  background-color: var(--Button-secondary-background-color);
+}
+
+.Button--secondary:matches(:--enter) {
+  border-color: color(var(--Button-secondary-background-color) shade(5%));
+  background-color: color(var(--Button-secondary-background-color) l(+5%));
+}
+
+.Button--secondary:active {
+  background-color: color(var(--Button-secondary-background-color) shade(10%));
+}

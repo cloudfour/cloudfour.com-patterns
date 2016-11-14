@@ -19,46 +19,44 @@ import 'prismjs/components/prism-handlebars';
 import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-scss';
 
-(function() {
+const components = [];
 
-  u('.js-Slideshow').map(element => {
-    new Slideshow(element);
-  });
+u('.js-Slideshow').each(element => {
+  components.push(new Slideshow(element));
+});
 
-  u('.js-FloatLabel').map(element => {
-    new FloatLabel(element);
-  });
+u('.js-FloatLabel').each(element => {
+  components.push(new FloatLabel(element));
+});
 
-  /**
-   * TODO: Make this smart enough to not just fail if `.Sky` has no nav.
-   * Or better yet, hook it to a js-* class only when a nav is included.
-   */
-  u('.Sky').map(element => {
-    var menu = element.querySelector('.Sky-nav-menu');
-    var toggle = element.querySelector('.Sky-nav-controls-skipToMenu');
+/**
+ * TODO: Make this smart enough to not just fail if `.Sky` has no nav.
+ * Or better yet, hook it to a js-* class only when a nav is included.
+ */
+u('.Sky').each(element => {
+  const menu = element.querySelector('.Sky-nav-menu');
+  const toggle = element.querySelector('.Sky-nav-controls-skipToMenu');
 
-    if (menu && toggle) {
-      new Sky({
-        root: element,
-        menu: menu,
-        toggle: toggle
-      })
-    }
-  });
-
-  u('.js-ElasticTextarea').map(element => {
-    new ElasticTextarea(element);
-  });
-
-  var replyFormTemplate = document.getElementById('comment-replyForm-template');
-
-  if (replyFormTemplate) {
-    replyFormTemplate = replyFormTemplate.innerHTML;
-    u('.js-comment').map(element => {
-      new CommentReply(element, {
-        template: replyFormTemplate
-      });
-    });
+  if (menu && toggle) {
+    components.push(new Sky({
+      root: element,
+      menu,
+      toggle
+    }));
   }
+});
 
-}());
+u('.js-ElasticTextarea').each(element => {
+  components.push(new ElasticTextarea(element));
+});
+
+let replyFormTemplate = document.getElementById('comment-replyForm-template');
+
+if (replyFormTemplate) {
+  replyFormTemplate = replyFormTemplate.innerHTML;
+  u('.js-comment').each(element => {
+    components.push(new CommentReply(element, {
+      template: replyFormTemplate
+    }));
+  });
+}

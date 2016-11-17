@@ -211,3 +211,27 @@
 .Button--positive:active {
   background-color: color(var(--Button-positive-background-color) shade(10%));
 }
+
+/**
+ * Modifier: negative button
+ */
+
+:root {
+  --Button-negative-background-color: var(--color-red);
+  --Button-negative-color: var(--color-white);
+}
+
+.Button--negative {
+  color: var(--Button-negative-color);
+  border-color: color(var(--Button-negative-background-color) shade(10%));
+  background-color: var(--Button-negative-background-color);
+}
+
+.Button--negative:matches(:--enter) {
+  border-color: color(var(--Button-negative-background-color) shade(5%));
+  background-color: color(var(--Button-negative-background-color) l(+5%));
+}
+
+.Button--negative:active {
+  background-color: color(var(--Button-negative-background-color) shade(10%));
+}

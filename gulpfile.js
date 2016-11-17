@@ -31,7 +31,8 @@ gulp.task('css', ['css:drizzle', 'css:toolkit']);
 
 // Register custom JS task
 gulp.task('js', () => {
-  const {rollup: baseconfig, bundles} = config.js;
+  const baseconfig = config.js.rollup;
+  const bundles = config.js.bundles;
   const rollups = bundles.map(opts => {
     const config = Object.assign({}, baseconfig, opts);
     return rollup(config).then(bundle => bundle.write(config));

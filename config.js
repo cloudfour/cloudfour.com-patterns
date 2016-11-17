@@ -1,6 +1,10 @@
 'use strict';
 
-var env = require('gulp-util').env;
+const env = require('gulp-util').env;
+const uglify = require('rollup-plugin-uglify');
+const buble = require('rollup-plugin-buble');
+const commonjs = require('rollup-plugin-commonjs');
+const nodeResolve = require('rollup-plugin-node-resolve');
 
 module.exports = {
   copy: {
@@ -23,34 +27,31 @@ module.exports = {
   },
 
   js: {
-    optimize: !env.dev,
-    plugins: {
-      webpack: {
-        entry: {
-          // Drizzle UI scripts
-          'drizzle/scripts/drizzle':
-            './src/assets/drizzle/scripts/drizzle.js',
-          // Common toolkit scripts
-          'toolkit/scripts/toolkit':
-            './src/assets/toolkit/scripts/toolkit.js',
-          // Homepage animation
-          'toolkit/scripts/home-animation':
-            './src/assets/toolkit/scripts/home-animation.js'
-        },
-        output: {
-          path: './dist/assets',
-          filename: '[name].js'
-        },
-        module: {
-          loaders: [
-            {
-              test: /\.js$/,
-              loaders: ['babel-loader']
-            }
-          ]
-        }
+    // Default Rollup options
+    rollup: {
+      exports: 'none',
+      format: 'iife',
+      plugins: [
+        nodeResolve(),
+        commonjs(),
+        buble()
+      ].concat(env.dev ? [] : uglify())
+    },
+    // Bundle-specific Rollup option overrides
+    bundles: [
+      {
+        entry: './src/assets/toolkit/scripts/toolkit.js',
+        dest: './dist/assets/toolkit/scripts/toolkit.js'
+      },
+      {
+        entry: './src/assets/drizzle/scripts/drizzle.js',
+        dest: './dist/assets/drizzle/scripts/drizzle.js'
+      },
+      {
+        entry: './src/assets/toolkit/scripts/home-animation.js',
+        dest: './dist/assets/toolkit/scripts/home-animation.js'
       }
-    }
+    ]
   },
 
   serve: {
@@ -63,7 +64,7 @@ module.exports = {
         notify: false,
         online: false,
         open: false,
-        server: { baseDir: './dist' }
+        server: {baseDir: './dist'}
       }
     }
   },

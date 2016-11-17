@@ -211,3 +211,40 @@
 .Button--positive:active {
   background-color: color(var(--Button-positive-background-color) shade(10%));
 }
+
+/**
+ * Modifier: Notifications buttons
+ */
+
+:root {
+  --Button-notifications-color: var(--color-white);
+  --Button-activate-background-color: var(--color-green);
+  --Button-deactivate-background-color: var(--color-red);
+}
+
+.Button--notifications {
+  color: var(--Button-notifications-color);
+  border-color: color(var(--Button-activate-background-color) shade(10%));
+  background-color: var(--Button-activate-background-color);
+}
+
+.Button--notifications:matches(:--enter) {
+  border-color: color(var(--Button-deactivate-background-color) shade(10%));
+  background-color: var(--Button-deactivate-background-color);
+}
+
+.Button--notifications .Button-deactivateMessage {
+  display: none;
+}
+
+.Button--notifications:matches(:--enter) .Button-deactivateMessage {
+  display: block;
+}
+
+.Button--notifications .Button-activateMessage {
+  display: block;
+}
+
+.Button--notifications:matches(:--enter) .Button-activateMessage {
+  display: none;
+}

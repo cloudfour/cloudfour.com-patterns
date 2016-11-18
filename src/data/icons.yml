@@ -18,6 +18,8 @@ mono:
   "link": "icons/link"
   "linkedin": "icons/linkedin"
   "notification": "icons/notification"
+  "notifications": "icons/notifications"
+  "notifications-off": "icons/notifications-off"
   "plus": "icons/plus"
   "reply": "icons/reply"
   "return": "icons/return"

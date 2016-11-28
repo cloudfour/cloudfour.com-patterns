@@ -235,3 +235,25 @@
 .Button--negative:active {
   background-color: color(var(--Button-negative-background-color) shade(10%));
 }
+
+/**
+ * Modifier: plain button
+ */
+
+:root {
+  --Button-plain-color: var(--color-blue);
+}
+
+.Button--plain {
+  color: var(--Button-plain-color);
+}
+
+.Button--plain:--enter {
+  color: color(var(--Button-plain-color) l(+10%));
+  border-color: color(var(--Button-plain-color) l(+10%));
+}
+
+.Button--plain:active {
+  color: color(var(--Button-plain-color) shade(10%));
+  border-color: color(var(--Button-plain-color) shade(10%));
+}

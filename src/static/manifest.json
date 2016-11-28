@@ -16,7 +16,7 @@
   ],
   "theme_color": "#456BD9",
   "background_color": "#FFFFFF",
-  "display": "browser",
+  "display": "standalone",
   "orientation": "natural",
   "start_url": "/",
   "gcm_sender_id": "482941778795"

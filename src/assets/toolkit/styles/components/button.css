@@ -233,7 +233,8 @@
   --Button-negative-color: var(--color-white);
 }
 
-.Button--negative {
+.Button--negative,
+.Button--negative:matches(:--enter) {
   color: var(--Button-negative-color);
   border-color: color(var(--Button-negative-background-color) shade(10%));
   background-color: var(--Button-negative-background-color);

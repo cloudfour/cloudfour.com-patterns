@@ -27,7 +27,7 @@
  */
 
 .pushbutton-wide {
-  @mixin Button;
-  @mixin Button--default;
+  /*@mixin Button;*/
+  /*@mixin Button--default;*/
   width: 100%;
 }

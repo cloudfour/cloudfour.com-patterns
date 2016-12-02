@@ -8,7 +8,6 @@
  */
 
 :root {
-  --Button-border-color: var(--color-relative);
   --Button-border-radius: var(--control-radius);
   --Button-border-width: var(--control-stroke);
   --Button-disabled-opacity: var(--control-disabled-opacity);
@@ -30,7 +29,9 @@
  * 6. Prevent button text from being selectable.
  * 7. Corrects inability to style clickable `input` types in iOS.
  */
-@define-mixin Button {
+ /*@define-mixin Button {*/
+.Button {
+  color: var(--Button-color);
   display: inline-block;
   box-sizing: border-box; /* 1 */
   padding: var(--Button-padding);
@@ -45,6 +46,7 @@
   border-color: var(--Button-border-color);
   border-radius: var(--Button-border-radius);
   background: transparent;
+  background-color: var(--Button-background-color);
   transition-duration: var(--Button-transition-duration);
   transition-property: var(--Button-transition-property);
   transition-timing-function: var(--Button-transition-timing-function);
@@ -80,49 +82,48 @@
     text-decoration: none;
   }
 
+  &:--enter {
+    color: var(--Button-enter-color);
+    border-color: var(--Button-enter-border-color);
+    background-color: var(--Button-enter-background-color);
+  }
+
+  &:active {
+    /*color: color(var(--Button-color) shade(10%));*/
+    /*border-color: color(var(--Button-color) shade(10%));*/
+    color: var(--Button-active-color);
+    border-color: var(--Button-active-border-color);
+    background-color: var(--Button-active-background-color);
+  }
+
   &:matches(:disabled, .is-disabled) {
     opacity: var(--Button-disabled-opacity);
     cursor: default;
   }
 }
 
-.Button {
-  @mixin Button;
-}
-
-
 /**
  * Modifier: default buttons
  */
-
 :root {
-  --Button-default-background-color: var(--color-blue);
-  --Button-default-color: var(--color-white);
+  --Button-default-text-color: var(--color-white);
+  --Button-default-theme-color: var(--color-blue);
 }
-
-@define-mixin Button--default {
-  color: var(--Button-default-color);
-  border-color: color(var(--Button-default-background-color) shade(10%));
-  background-color: var(--Button-default-background-color);
-
-  &:--enter {
-    color: var(--Button-default-color);
-    border-color: color(var(--Button-default-background-color) shade(5%));
-    background-color: color(var(--Button-default-background-color) l(+5%));
-  }
-
-  &:active {
-    color: var(--Button-default-color);
-    border-color: color(var(--Button-default-background-color) shade(10%));
-    background-color: color(var(--Button-default-background-color) shade(10%));
-  }
-}
-
 .Button--default {
-  @mixin Button--default;
+  color: var(--Button-default-text-color);
+  border-color: color(var(--Button-default-theme-color) shade(10%));
+  background-color: var(--Button-default-theme-color);
+
+  --Button-enter-color: var(--Button-default-text-color);
+  --Button-enter-border-color: color(var(--Button-default-theme-color) shade(5%));
+  --Button-enter-background-color: color(var(--Button-default-theme-color) l(+5%));
+
+  --Button-active-color: var(--Button-default-text-color);
+  --Button-active-border-color: color(var(--Button-default-theme-color) shade(10%));
+  --Button-active-background-color: color(var(--Button-default-theme-color) shade(10%));
 }
 
-@define-mixin Button--defaultDark {
+/*@define-mixin Button--defaultDark {
   color: var(--Button-default-color);
   border-color: color(var(--Button-default-background-color) l(+10%));
   background-color: var(--Button-default-background-color);
@@ -142,7 +143,7 @@
 
 .Button--defaultDark {
   @mixin Button--defaultDark;
-}
+}*/
 
 
 /**
@@ -150,27 +151,26 @@
  */
 
 :root {
-  --Button-primary-background-color: var(--color-orange);
-  --Button-primary-color: var(--color-white);
+  --Button-primary-text-color: var(--color-white);
+  --Button-primary-theme-color: var(--color-orange);
+}
+.Button--primary {
+  color: var(--Button-primary-text-color);
+  border-color: color(var(--Button-primary-theme-color) shade(10%));
+  background-color: var(--Button-primary-theme-color);
+
+  --Button-enter-color: var(--Button-primary-text-color);
+  --Button-enter-border-color: color(var(--Button-primary-theme-color) shade(5%));
+  --Button-enter-background-color: color(var(--Button-primary-theme-color) l(+5%));
+
+  --Button-active-color: var(--Button-primary-text-color);
+  --Button-active-border-color: color(var(--Button-primary-theme-color) shade(10%));
+  --Button-active-background-color: color(var(--Button-primary-theme-color) shade(10%));
+}
+
+:root {
   --Button-primaryDark-background-color: color(var(--color-navy) l(+30%));
 }
-
-.Button--primary,
-.Button--primary:matches(:--enter, :active) {
-  color: var(--Button-primary-color);
-  border-color: color(var(--Button-primary-background-color) shade(10%));
-  background-color: var(--Button-primary-background-color);
-}
-
-.Button--primary:matches(:--enter) {
-  border-color: color(var(--Button-primary-background-color) shade(5%));
-  background-color: color(var(--Button-primary-background-color) l(+5%));
-}
-
-.Button--primary:active {
-  background-color: color(var(--Button-primary-background-color) shade(10%));
-}
-
 .Button--primaryDark,
 .Button--primaryDark:matches(:--enter, :active) {
   background: var(--Button-primaryDark-background-color);
@@ -192,24 +192,21 @@
  */
 
 :root {
-  --Button-positive-background-color: var(--color-green);
-  --Button-positive-color: var(--color-white);
+  --Button-positive-text-color: var(--color-white);
+  --Button-positive-theme-color: var(--color-green);
 }
+.Button--positive {
+  color: var(--Button-positive-text-color);
+  border-color: color(var(--Button-positive-theme-color) shade(10%));
+  background-color: var(--Button-positive-theme-color);
 
-.Button--positive,
-.Button--positive:matches(:--enter, :active) {
-  color: var(--Button-positive-color);
-  border-color: color(var(--Button-positive-background-color) shade(10%));
-  background-color: var(--Button-positive-background-color);
-}
+  --Button-enter-color: var(--Button-positive-text-color);
+  --Button-enter-border-color: color(var(--Button-positive-theme-color) shade(5%));
+  --Button-enter-background-color: color(var(--Button-positive-theme-color) l(+5%));
 
-.Button--positive:matches(:--enter) {
-  border-color: color(var(--Button-positive-background-color) shade(5%));
-  background-color: color(var(--Button-positive-background-color) l(+5%));
-}
-
-.Button--positive:active {
-  background-color: color(var(--Button-positive-background-color) shade(10%));
+  --Button-active-color: var(--Button-positive-text-color);
+  --Button-active-border-color: color(var(--Button-positive-theme-color) shade(10%));
+  --Button-active-background-color: color(var(--Button-positive-theme-color) shade(10%));
 }
 
 /**
@@ -217,23 +214,21 @@
  */
 
 :root {
-  --Button-negative-background-color: var(--color-red);
-  --Button-negative-color: var(--color-white);
+  --Button-negative-text-color: var(--color-white);
+  --Button-negative-theme-color: var(--color-red);
 }
-
 .Button--negative {
-  color: var(--Button-negative-color);
-  border-color: color(var(--Button-negative-background-color) shade(10%));
-  background-color: var(--Button-negative-background-color);
-}
+  color: var(--Button-negative-text-color);
+  border-color: color(var(--Button-negative-theme-color) shade(10%));
+  background-color: var(--Button-negative-theme-color);
 
-.Button--negative:matches(:--enter) {
-  border-color: color(var(--Button-negative-background-color) shade(5%));
-  background-color: color(var(--Button-negative-background-color) l(+5%));
-}
+  --Button-enter-color: var(--Button-negative-text-color);
+  --Button-enter-border-color: color(var(--Button-negative-theme-color) shade(5%));
+  --Button-enter-background-color: color(var(--Button-negative-theme-color) l(+5%));
 
-.Button--negative:active {
-  background-color: color(var(--Button-negative-background-color) shade(10%));
+  --Button-active-color: var(--Button-negative-text-color);
+  --Button-active-border-color: color(var(--Button-negative-theme-color) shade(10%));
+  --Button-active-background-color: color(var(--Button-negative-theme-color) shade(10%));
 }
 
 /**
@@ -246,14 +241,14 @@
 
 .Button--plain {
   color: var(--Button-plain-color);
-}
-
-.Button--plain:--enter {
-  color: color(var(--Button-plain-color) l(+10%));
-  border-color: color(var(--Button-plain-color) l(+10%));
-}
-
-.Button--plain:active {
-  color: color(var(--Button-plain-color) shade(10%));
   border-color: color(var(--Button-plain-color) shade(10%));
+  background-color: none;
+
+  --Button-enter-color: color(var(--Button-plain-color) l(+10%));
+  --Button-enter-border-color: color(var(--Button-plain-color) l(+10%));
+  --Button-enter-background-color: none;
+
+  --Button-active-color: color(var(--Button-plain-color) shade(10%));
+  --Button-active-border-color: color(var(--Button-plain-color) shade(10%));
+  --Button-active-background-color: none;
 }

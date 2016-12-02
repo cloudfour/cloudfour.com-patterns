@@ -8,7 +8,8 @@
  */
 
 :root {
-  --Button-border-color: var(--color-relative);
+  --Button-color: var(--color-blue);
+  --Button-border-color: var(--color-blue);
   --Button-border-radius: var(--control-radius);
   --Button-border-width: var(--control-stroke);
   --Button-disabled-opacity: var(--control-disabled-opacity);
@@ -31,6 +32,7 @@
  * 7. Corrects inability to style clickable `input` types in iOS.
  */
 @define-mixin Button {
+  color: var(--Button-color);
   display: inline-block;
   box-sizing: border-box; /* 1 */
   padding: var(--Button-padding);
@@ -83,6 +85,16 @@
   &:matches(:disabled, .is-disabled) {
     opacity: var(--Button-disabled-opacity);
     cursor: default;
+  }
+
+  &:--enter {
+    color: color(var(--Button-color) l(+10%));
+    border-color: color(var(--Button-border-color) l(+10%));
+  }
+
+  &:active {
+    color: color(var(--Button-color) shade(10%));
+    border-color: color(var(--Button-border-color) shade(10%));
   }
 }
 

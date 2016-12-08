@@ -10,7 +10,8 @@
 .token.comment,
 .token.prolog,
 .token.doctype,
-.token.cdata {
+.token.cdata,
+.language-json .token.operator {
   color: color(var(--color-white) a(60%));
 }
 

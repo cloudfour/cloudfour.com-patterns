@@ -16,6 +16,7 @@ import {Slideshow} from './lib/component/slideshow';
  */
 import 'prismjs';
 import 'prismjs/components/prism-handlebars';
+import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-scss';
 

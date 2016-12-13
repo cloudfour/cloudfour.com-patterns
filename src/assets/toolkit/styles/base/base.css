@@ -38,9 +38,9 @@ body {
  */
 
 a {
-  text-decoration: underline;
   color: var(--link-color);
-  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
+  text-decoration: underline;
 }
 
 a:matches(:active, :focus, :hover) {

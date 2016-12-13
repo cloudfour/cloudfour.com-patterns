@@ -109,11 +109,6 @@ body {
   transition: all 300ms ease;
 }
 
-/*.Masthead-control:matches(:--enter) {
-  color: var(--color-blue);
-  background-color: var(--color-white);
-}*/
-
 .Hero {
   background-color: var(--color-blue);
   background-image: url("/images/sandbox/clouds.svg");

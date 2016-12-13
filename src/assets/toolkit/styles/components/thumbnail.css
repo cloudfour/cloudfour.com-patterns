@@ -51,7 +51,7 @@
   transition: border 300ms ease; /* 6 */
 }
 
-.Thumbnail:matches(:focus, :hover)::after {
+.Thumbnail:matches(:--enter)::after {
   border-color: color(var(--Thumbnail-border-color) a(25%));
 }
 

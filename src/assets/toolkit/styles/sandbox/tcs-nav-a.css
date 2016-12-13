@@ -75,7 +75,7 @@ body {
   transition: background-color 300ms ease;
 }
 
-.Masthead-link:matches(:focus, :hover) {
+.Masthead-link:matches(:--enter) {
   background-color: color(var(--color-navy) a(20%));
 }
 
@@ -100,7 +100,7 @@ body {
   transition: transform 300ms easeOutCirc;
 }
 
-.Masthead-logo:matches(:focus, :hover) {
+.Masthead-logo:matches(:--enter) {
   transform: scale(1.1);
 }
 
@@ -117,7 +117,7 @@ body {
   transition: all 300ms ease;
 }
 
-.Masthead-control:matches(:focus, :hover) {
+.Masthead-control:matches(:--enter) {
   color: var(--color-blue);
   background-color: var(--color-white);
 }

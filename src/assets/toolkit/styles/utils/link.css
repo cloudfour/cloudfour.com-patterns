@@ -4,8 +4,8 @@
   color: var(--color-blue);
 }
 
-.u-linkBlock:matches(:active, :focus, :hover) .u-linkTarget,
-.u-linkClean:matches(:active, :focus, :hover) .u-linkTarget {
+.u-linkBlock:matches(:active, :--enter) .u-linkTarget,
+.u-linkClean:matches(:active, :--enter) .u-linkTarget {
   color: var(--link-hover-color);
 }
 
@@ -13,6 +13,9 @@
   text-decoration: none;
 }
 
-.u-linkEnter:not(:focus, :hover) {
+/**
+ * :--enter when combined with :not() misbehaves, so it is not used here.
+ */
+.u-linkEnter:not(:hover, :focus) {
   color: var(--color-relative);
 }

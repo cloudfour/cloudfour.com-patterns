@@ -21,7 +21,6 @@
  */
 .Icon {
   position: relative;
-  top: -1px; /* 1 */
   margin: 0;
   display: inline-block;
   width: 1em;
@@ -32,13 +31,29 @@
 }
 
 /**
- * 1. Negative vertical margins prevent the icon from disrupting the surrounding
- *    content's `line-height`.
- * 2. Actual size adjustment occurs via `font-size`.
+ * Because vertical alignment is funny, icons always appear about a pixel too
+ * low when they're the same height as the current `font-size`. Using `top`
+ * frees up `margin-top` for adjustments we'll be applying to modifiers.
+ */
+
+.Icon:not(.Icon--block) {
+  top: -1px;
+}
+
+/**
+ * Actual size adjustment occurs via `font-size`.
  */
 
 .Icon--large {
-  margin-top: var(--Icon-line-height-offset); /* 1 */
+  font-size: var(--Icon-size-lg);
+}
+
+/**
+ * Negative vertical margins prevent the icon from disrupting the surrounding
+ * content's `line-height`.
+ */
+
+.Icon--large:not(.Icon--block) {
   margin-bottom: var(--Icon-line-height-offset); /* 1 */
-  font-size: var(--Icon-size-lg); /* 2 */
+  margin-top: var(--Icon-line-height-offset); /* 1 */
 }

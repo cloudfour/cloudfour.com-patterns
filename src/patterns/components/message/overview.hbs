@@ -9,8 +9,8 @@ notes: |
     <p>Hi, I'm a message!</p>
   {{/block}}
   {{#if includeClose}}
-    <button class="Message-close">
-      {{#svg "icons/close" aria-labelledby=(defaultTo closeIconTitle "Message-close-title")}}
+    <button class="Message-close" type="button">
+      {{#svg "icons/close" class="Icon Icon--block" aria-labelledby=(defaultTo closeIconTitle "Message-close-title")}}
         <title id="{{defaultTo closeIconTitle "Message-close-title"}}">Close</title>
       {{/svg}}
     </button>

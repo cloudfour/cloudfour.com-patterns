@@ -64,7 +64,7 @@ pre {
 }
 
 *:not(pre, a) > code {
-  color: var(--color-fuchsia);
+  color: var(--color-fuchsia-a11y);
 }
 
 pre {

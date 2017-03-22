@@ -39,6 +39,10 @@
 
   /* Other colors */
   --color-red: #bf0000;
+
+  /* a11y variations for light-on-dark text contrast */
+  --color-blue-a11y: color(var(--color-blue) l(-4%));
+  --color-fuchsia-a11y: color(var(--color-fuchsia) l(-14%) s(-5%));
 }
 
 /**
@@ -160,7 +164,7 @@
  */
 
 :root {
-  --link-color: var(--color-blue);
+  --link-color: var(--color-blue-a11y);
   --link-hover-color: color(var(--link-color) l(+10%));
 }
 

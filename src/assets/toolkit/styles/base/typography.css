@@ -17,9 +17,21 @@
  */
 
 body {
-  font: var(--base-font); /* 1 */
+  font-size: var(--base-font-size); /* 1 */
+  line-height: var(--base-line-height); /* 1 */
   word-wrap: break-word; /* 2 */
   text-size-adjust: none; /* 3 */
+}
+
+/**
+ * FOUT control. This class is added once fonts are loaded to prevent
+ * the double-FOUT that can occur from setting font styles prior to loading
+ * the target font.
+ *
+ * See https://www.filamentgroup.com/lab/font-events.html
+ */
+.fonts-loaded body {
+  font-family: var(--base-font-family);
 }
 
 /**
@@ -27,7 +39,8 @@ body {
  */
 
 :--headings {
-  font: var(--heading-font);
+  font-weight: var(--heading-font-weight);
+  font-size: var(--heading-font-size);
 }
 
 /**

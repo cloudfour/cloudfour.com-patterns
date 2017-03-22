@@ -131,7 +131,8 @@
   --line-height-md: var(--ms2);
   --line-height-lg: var(--ms3);
 
-  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-default);
+  --heading-font-weight: var(--font-weight-bold);
+  --heading-font-size: var(--font-size-sm);
 
   --code-font: var(--font-size-sm) var(--font-family-mono);
 }
@@ -155,7 +156,9 @@
 :root {
   --base-background: var(--color-gray);
   --base-color: var(--color-black);
-  --base-font: var(--font-size-sm)/var(--line-height-md) var(--font-family-default);
+  --base-font-size: var(--font-size-sm);
+  --base-line-height: var(--line-height-md);
+  --base-font-family: var(--font-family-default);
   --base-margin: var(--space-md);
 }
 

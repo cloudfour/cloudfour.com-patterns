@@ -31,41 +31,55 @@ body {
 }
 
 /**
- * Largest and smallest default heading sizes
+ * Heading sizes
+ *
+ * Styles stored as mixins to keep things DRY for HashHeading component.
  */
 
-h1 {
+@define-mixin h1 {
   font-size: var(--font-size-lg);
   line-height: var(--line-height-sm);
+
+  @media (--md-viewport) {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@define-mixin h2 {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-sm);
+
+  @media (--md-viewport) {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@define-mixin h3 {
+  @media (--md-viewport) {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-sm);
+  }
+}
+
+@define-mixin h5 {
+  font-size: var(--font-size-xs);
+}
+
+h1 {
+  @mixin h1;
 }
 
 h2 {
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-sm);
+  @mixin h2;
+}
+
+h3 {
+  @mixin h3;
 }
 
 h5,
 h6 {
-  font-size: var(--font-size-xs);
-}
-
-/**
- * Responsive heading size increases
- */
-
-@media (--md-viewport) {
-  h1 {
-    font-size: var(--font-size-xl);
-  }
-
-  h2 {
-    font-size: var(--font-size-lg);
-  }
-
-  h3 {
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-sm);
-  }
+  @mixin h5;
 }
 
 /**

@@ -1,5 +1,8 @@
 :root {
   --CmsContent-space: calc(var(--ms1)  * 1rem);
+  --CmsContent-blockquote-color: color(var(--color-black) blend(var(--color-gray) 50%) s(+5%));
+  --CmsContent-blockquote-border-color: var(--color-gray);
+  --CmsContent-blockquote-border-width: var(--border-width-md);
 }
 
 .CmsContent {}
@@ -8,4 +11,9 @@
   padding: var(--CmsContent-space);
   margin-right: calc(-1 * var(--CmsContent-space));
   margin-left: calc(-1 * var(--CmsContent-space));
+}
+
+.CmsContent blockquote {
+  border-left: var(--CmsContent-blockquote-border-width) solid var(--CmsContent-blockquote-border-color);
+  color: var(--CmsContent-blockquote-color);
 }

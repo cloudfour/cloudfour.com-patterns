@@ -170,16 +170,36 @@ hr {
  */
 
 blockquote {
-  padding-left: var(--space-md);
   font-style: italic;
+  padding-left: var(--base-margin);
 }
 
-blockquote p {
+/**
+ * Make sure items are still spaced apart, using `margin-bottom` so inline
+ * elements won't run up against their preceding sibling.
+ */
+
+blockquote > *:not(:last-child) {
   margin-bottom: var(--base-margin);
 }
 
-blockquote :matches(p:last-of-type, footer) {
+/**
+ * Make the last paragraph that's a direct descendent and an adjacent footer
+ * (if any) inline so that they'll run together all fancy-like. 🎩
+ */
+
+blockquote > p:last-of-type,
+blockquote > p:last-of-type + footer {
   display: inline;
+}
+
+/**
+ * If the last paragraph's adjacent sibling is *not* a footer, give it a margin
+ * top to compensate for the paragraph's inline-edness.
+ */
+
+blockquote > p:last-of-type + *:not(footer) {
+  margin-top: var(--base-margin);
 }
 
 blockquote cite {

@@ -17,7 +17,3 @@
   border-left: var(--CmsContent-blockquote-border-width) solid var(--CmsContent-blockquote-border-color);
   color: var(--CmsContent-blockquote-color);
 }
-
-.CmsContent blockquote > * + * {
-  margin-top: var(--CmsContent-space);
-}

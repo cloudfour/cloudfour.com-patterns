@@ -2,6 +2,7 @@
 notes: |
   The `.CmsContent` class is used on the parent element of CMS prose fields to style some common child elements:
     + `<pre>`: Adds padding and negative margins
+    + `<blockquote>`: Adds border, lightens color and adds child spacing
 ---
 
 <article class="CmsContent u-spaceItems1">
@@ -12,6 +13,17 @@ notes: |
   display: block;
   padding: 1rem;
 }</code></pre>
+  <p>
+    {{random "paragraph" sentences="2"}}
+  </p>
+  <blockquote>
+    <p>
+      {{random "paragraph" sentences="1"}}
+    </p>
+    <p>
+      {{random "paragraph" sentences="1"}}
+    </p>
+  </blockquote>
   <p>
     {{random "paragraph" sentences="2"}}
   </p>

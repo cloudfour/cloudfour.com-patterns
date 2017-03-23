@@ -170,16 +170,8 @@ hr {
  */
 
 blockquote {
-  padding-left: var(--space-md);
   font-style: italic;
-}
-
-blockquote p {
-  margin-bottom: var(--base-margin);
-}
-
-blockquote :matches(p:last-of-type, footer) {
-  display: inline;
+  padding-left: var(--base-margin);
 }
 
 blockquote cite {

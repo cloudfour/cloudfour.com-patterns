@@ -12,6 +12,7 @@
  * 2. Cap the height to that of an item, and prevent overflowing items from
  *    being visible within the container.
  * 3. Override default list styles.
+ * 4. Center pages if there aren't enough to fill the container.
  */
 
 .Pagination {
@@ -22,6 +23,7 @@
   padding-left: 0; /* 3 */
   list-style: none; /* 3 */
   flex-wrap: wrap; /* 2 */
+  justify-content: center; /* 4 */
 }
 
 /**
@@ -37,11 +39,13 @@
 }
 
 /**
- * Child elements should expand to fill the available space before wrapping.
+ * Child elements should not grow, should shrink as necessary, and it should
+ * default to about ⅛ the available space. This prevents numbers from looking
+ * oddly far apart when there are only a handful visible.
  */
 
 .Pagination > * {
-  flex: 1 1 auto;
+  flex: 0 1 calc(100% / 8);
 }
 
 /**

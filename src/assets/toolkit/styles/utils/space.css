@@ -6,6 +6,12 @@
   }
 }
 
+@define-mixin makeStaggerItemsUtils $value, $suffix {
+  .u-staggerItems$(suffix) > * + * {
+    margin-top: $(value) !important;
+  }
+}
+
 @define-mixin makePullUtils $value, $suffix, $prefix {
   .u-$(prefix)pullSides$(suffix),
   .u-$(prefix)pullLeft$(suffix) {
@@ -83,6 +89,20 @@
 @mixin makeSpaceItemsUtils calc(var(--ms4)  * 1rem),  4;
 @mixin makeSpaceItemsUtils calc(var(--ms5)  * 1rem),  5;
 @mixin makeSpaceItemsUtils calc(var(--ms6)  * 1rem),  6;
+
+@mixin makeStaggerItemsUtils calc(var(--ms-6) * 1em), 06;
+@mixin makeStaggerItemsUtils calc(var(--ms-5) * 1em), 05;
+@mixin makeStaggerItemsUtils calc(var(--ms-4) * 1em), 04;
+@mixin makeStaggerItemsUtils calc(var(--ms-3) * 1em), 03;
+@mixin makeStaggerItemsUtils calc(var(--ms-2) * 1em), 02;
+@mixin makeStaggerItemsUtils calc(var(--ms-1) * 1em), 01;
+@mixin makeStaggerItemsUtils calc(var(--ms0)  * 1em);
+@mixin makeStaggerItemsUtils calc(var(--ms1)  * 1em),  1;
+@mixin makeStaggerItemsUtils calc(var(--ms2)  * 1em),  2;
+@mixin makeStaggerItemsUtils calc(var(--ms3)  * 1em),  3;
+@mixin makeStaggerItemsUtils calc(var(--ms4)  * 1em),  4;
+@mixin makeStaggerItemsUtils calc(var(--ms5)  * 1em),  5;
+@mixin makeStaggerItemsUtils calc(var(--ms6)  * 1em),  6;
 
 @mixin makePullUtils calc(var(--ms1) * 1rem), 1;
 @mixin makePullUtils calc(var(--ms2) * 1rem), 2;

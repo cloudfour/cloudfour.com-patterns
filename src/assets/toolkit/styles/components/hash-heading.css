@@ -26,7 +26,7 @@
    */
 
   .HashHeading-heading,
-  .HashHeading > :matches(h1, h2, h3, h4, h5, h6) {
+  .HashHeading > :--headings {
     display: inline; /* 1 */
     margin-right: calc(var(--ms-6) * 1rem); /* 2 */
   }
@@ -61,6 +61,7 @@
 
   color: color(var(--color-gray) l(-20%) s(-10%)); /* 7 */
 
+  font-size: calc(var(--ms0) * 1rem);
   line-height: 1; /* 8 */
 }
 
@@ -85,4 +86,44 @@
 
     transform: translateY(-50%); /* 6 */
   }
+}
+
+/**
+ * Heading Level Modifiers
+ *
+ * These exist for when proportional (em-based) spacing is desired, but the
+ * containing HashHeading doesn't have the inner heading's font-size set.
+ *
+ * Mixins defined in base typography stylesheet.
+ */
+
+.HashHeading--h1,
+.HashHeading--h2,
+.HashHeading--h3,
+.HashHeading--h4,
+.HashHeading--h5,
+.HashHeading--h6 {
+  font: var(--heading-font);
+
+  & > .HashHeading-heading,
+  & > :--headings {
+    font: inherit;
+  }
+}
+
+.HashHeading--h1 {
+  @mixin h1;
+}
+
+.HashHeading--h2 {
+  @mixin h2;
+}
+
+.HashHeading--h3 {
+  @mixin h3;
+}
+
+.HashHeading--h5,
+.HashHeading--h6 {
+  @mixin h5;
 }

@@ -1,0 +1,53 @@
+data:
+  - company: The Weather Channel
+    headline: |
+      <span class="u-textBold">The Weather Channel</span> improves load time by <span class="u-textBold">80%</span> with Progressive Web App, launched in 62 languages to 178 countries
+    link: https://developers.google.com/web/showcase/2016/weather-channel
+    logo: /images/fpo-pwa/weatherchannel.png
+    tags:
+      - AppShell
+      - PreCache
+      - PushNotifications
+
+  - company: Alibaba
+    headline:  |
+      <span class="u-textBold">Alibaba</span> increases conversions by <span class="u-textBold">76%</span> after upgrading their site to a Progressive Web App
+    link: https://developers.google.com/web/showcase/2016/alibaba
+    logo: /images/fpo-pwa/alibaba.png
+    tags:
+      - ServiceWorker
+      - PreCache
+
+  - company: Housing.com
+    headline:  |
+      <span class="u-textBold">Housing.com</span> increases conversions by <span class="u-textBold">38%</span> with their new Progressive Web App, also delivers higher-value users spending <span class="u-textBold">10%</span> longer per session and returning more often
+    link: https://developers.google.com/web/showcase/2016/housing
+    logo: /images/fpo-pwa/housing.jpg
+    tags:
+      - ServiceWorker
+      - ProgressiveWebApp
+
+  - company: Carnival Cruise Line
+    headline:  |
+      <span class="u-textBold">Carnival Cruise Line</span> improves engagement by <span class="u-textBold">42%</span> with customers who receive push notifications
+    link: https://developers.google.com/web/showcase/2016/carnival
+    logo: /images/fpo-pwa/carnival.png
+    tags:
+      - PushNotifications
+
+  - company: Google
+    headline:  |
+      <span class="u-textBold">Google I/O</span> uses service workers to deliver a rich, app-like experience to its users
+    link: https://developers.google.com/web/showcase/2016/service-worker-perf
+    logo: /images/fpo-pwa/googleio.svg
+    tags:
+      - ServiceWorker
+      - Performance
+
+  - company: Washington Post
+    headline:  |
+      <span class="u-textBold">Washington Post</span> increases returning users from mobile search by <span class="u-textBold">23%</span> with AMP
+    link: https://developers.google.com/web/showcase/2016/wapo
+    logo: /images/fpo-pwa/wapo.png
+    tags:
+      - AMP

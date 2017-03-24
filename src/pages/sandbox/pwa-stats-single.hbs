@@ -1,0 +1,76 @@
+---
+title: PWA Stats Permalink
+layout: toolkit.blank
+notes: |
+  PWA Stats post page.
+order: -1
+stylesheets:
+  - sandbox/sil-pwa
+---
+
+<div class="Sky Sky--clouds">
+  <div class="u-containSpread u-padSides u-spaceBottom2">
+    <header class="u-textCenter u-padEnds3">
+      <h1 class="u-textNoWrap u-textGrow4 u-sm-textGrow6 u-textShadow">
+        <a href="" class="u-linkWhite u-linkClean">PWA Stats</a>
+      </h1>
+      <p class="u-sm-textGrow1 u-containProse">
+        A community-driven list of stats and news related to Progressive Web Apps, brought to you by
+        <a class="u-textNoWrap" href="https://cloudfour.com/">
+          {{svg "icons/cloud-four" class="Icon Icon--large u-spaceLeft06"}}
+          Cloud Four
+        </a>
+      </p>
+    </header>
+    {{#with drizzle.data.pwa-stats.contents.data.[0]}}
+      <article class="u-containProse u-padTop1 u-sm-padTop2 u-padSides1 u-padBottom u-bgWhite u-flex u-flexWrap u-sm-flexNoWrap u-flexAlignItemsStart u-posRelative">
+        {{#if logo}}
+          <img src="{{logo}}" class="u-sm-spaceRight1 u-flexShrink0 u-block u-padTop06" alt="" style="width: 3.5rem;">
+        {{/if}}
+        <div class="u-spaceTop u-sm-spaceTopNone">
+          <header>
+            <h2 class="u-textGrow1 u-lg-textBase u-textNormal u-sm-size3of4 u-md-size5of6">
+              <a href="{{link}}" class="u-linkClean u-linkBlue u-spaceRight05">
+                {{{headline}}}
+              </a>
+            </h2>
+            <p class="u-textShrink1 u-bgGrayLight u-textGrayDark u-posAbsoluteTopRight u-padEnds05 u-padSides03">
+              <time datetime="2015-03-31">
+                March 31, 2015
+              </time>
+            </p>
+          </header>
+          <footer>
+            <h3 class="u-hiddenVisually">Tags:</h3>
+            <ul class="u-listUnstyled u-flex u-flexAlignItemsStart u-flexWrap u-spaceTop">
+              {{#each this.tags}}
+                <li>
+                  <a class="Button Button--muted u-linkBlue u-textShrink2 u-spaceBottom03 u-spaceRight03 u-textNoWrap u-pad05" href="">
+                    #{{this}}
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+          </footer>
+        </div>
+      </article>
+    {{/with}}
+  </div>
+</div>
+
+<div class="u-bgWhite">
+  <div class="u-containSpread u-posRelative">
+    <p class="u-pad1 u-size2of3">
+      <span class="u-inlineBlock u-textGrow1 u-spaceRight u-textNoWrap">
+        Help us build this resource!
+      </span>
+      <a class="Button Button--primary u-spaceEnds01 u-textNoWrap" href="mailto:info@cloudfour.com">
+        Contribute a Story
+      </a>
+    </p>
+    <img class="u-posAbsoluteBottomRight u-size2of5 u-sm-size1of3 u-sm-spaceRight1 u-md-size1of4"
+      src="/images/portland.svg" alt="">
+  </div>
+</div>
+
+{{{embed "toolkit.global-footer"}}}

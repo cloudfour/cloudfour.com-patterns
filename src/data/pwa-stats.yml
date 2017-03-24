@@ -22,7 +22,7 @@ data:
     headline:  |
       <span class="u-textBold">Housing.com</span> increases conversions by <span class="u-textBold">38%</span> with their new Progressive Web App, also delivers higher-value users spending <span class="u-textBold">10%</span> longer per session and returning more often
     link: https://developers.google.com/web/showcase/2016/housing
-    logo: /images/fpo-pwa/housing.jpg
+    logo: /images/fpo-pwa/housing.png
     tags:
       - ServiceWorker
       - ProgressiveWebApp

@@ -56,3 +56,11 @@ sup[id^="fnref-"] a {
 .footnotes a[href^="#fnref-"] {
   text-decoration: none;
 }
+
+/**
+ * Footnotes in comments should be smaller in font-size than the parent element.
+ */
+
+[id^="comment-"] .footnotes {
+  font-size: calc(var(--ms-1) * 1em);
+}

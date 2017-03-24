@@ -27,6 +27,14 @@
 }
 
 /**
+ * Text shadow
+ */
+
+.u-textShadow {
+  text-shadow: .0325em .0325em color(var(--color-navy) s(+25%) l(+10%) a(75%)) !important;
+}
+
+/**
  * Utilities for adjusting text size using modular scale
  *
  * @see http://blog.cloudfour.com/responsive-guide-to-type-sizing/
@@ -55,6 +63,10 @@
 
   .u-$(prefix)textShrink1 {
     font-size: calc(1em * var(--ms-1)) !important;
+  }
+
+  .u-$(prefix)textBase {
+    font-size: calc(1em * var(--ms-0)) !important;
   }
 
   .u-$(prefix)textGrow1 {

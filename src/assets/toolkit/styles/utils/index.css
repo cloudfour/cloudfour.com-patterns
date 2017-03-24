@@ -1,5 +1,6 @@
 @import "./bg.css";
 @import "./border.css";
+@import "./color.css";
 @import "./columns.css";
 @import "./contain.css";
 @import "./display.css";
@@ -8,6 +9,7 @@
 @import "./link.css";
 @import "./list.css";
 @import "./offset.css";
+@import "./opacity.css";
 @import "./scroll.css";
 @import "./size.css";
 @import "./space.css";

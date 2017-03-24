@@ -156,6 +156,24 @@
   @mixin Button--defaultDark;
 }
 
+/**
+ * Modifier: muted buttons
+ */
+
+:root {
+  --Button-muted-border-color: var(--color-gray);
+  --Button-muted-color: var(--color-blue-a11y);
+}
+
+.Button--muted {
+  border-color: var(--Button-muted-border-color);
+  color: var(--Button-muted-color);
+}
+
+.Button--muted:matches(:--enter) {
+  border-color: color(var(--Button-muted-border-color) l(-10%));
+  color: color(var(--Button-muted-color) l(+10%));
+}
 
 /**
  * Modifier: primary buttons

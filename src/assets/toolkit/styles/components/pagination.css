@@ -39,12 +39,30 @@
 }
 
 /**
- * Child elements should not grow, should shrink as necessary, and it should
- * default to about ⅛ the available space. This prevents numbers from looking
- * oddly far apart when there are only a handful visible.
+ * Spacing of pagination items is currently in a state of hackery due to a
+ * Flexbox bug in Safari.
+ *
+ * What we want to do is prevent the items from growing, cap them out at a
+ * reasonable width and center them when there are two few to fill the row.
+ * But Safari has a bug with wrapping items that have a non-default flex-basis,
+ * so at smaller sizes it can cause large amounts of pagination to go wonky.
+ *
+ * The solution is to keep the items stretchy by default (which Safari likes)
+ * and to only cap their widths when there are few enough that the risk of
+ * wrapping is minimal. We currently do this with Heydon Pickering's Quantity
+ * Query hack.
+ *
+ * @see https://github.com/philipwalton/flexbugs#11-min-and-max-size-declarations-are-ignored-when-wrapping-flex-items
+ * @see https://bugs.webkit.org/show_bug.cgi?id=136041
+ * @see https://alistapart.com/article/quantity-queries-for-css
  */
 
 .Pagination > * {
+  flex: 1 1 auto;
+}
+
+.Pagination > *:nth-last-child(-n+5):first-child,
+.Pagination > *:nth-last-child(-n+5):first-child ~ * {
   flex: 0 1 calc(100% / 8);
 }
 

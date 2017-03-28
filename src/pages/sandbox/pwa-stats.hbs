@@ -28,33 +28,36 @@ stylesheets:
     </header>
     <div class="Masonry">
       {{#each drizzle.data.pwa-stats.contents.data}}
-        <article class="Card">
-          <a href="{{link}}" class="Card-main">
-            <h2 class="Card-summary">
-              {{{headline}}}
-            </h2>
-            <img class="Card-icon" src="{{logo}}" alt="">
-          </a>
-          <footer class="Card-meta">
+        {{#embed "patterns.components.card.base"
+          cardClass="u-borderNone"
+          icon=logo}}
+          {{#content "content"}}
+            {{{headline}}}
+          {{/content}}
+          {{#content "footer"}}
             <h3 class="u-hiddenVisually">
               Tags
             </h3>
-            <ul class="u-listInline">
-              {{#each tags}}
-                <li>
-                  <a class="Card-metaLink" href="">
-                    #{{this}}
-                  </a>
-                </li>
-              {{/each}}
-            </ul>
-            <p class="u-spaceLeft1">
-              <a class="Card-metaLink" href="./pwa-stats-single.html" title="Permalink">
-                {{svg "icons/link" class="Icon Icon--large"}}
-              </a>
-            </p>
-          </footer>
-        </article>
+            <div class="Grid Grid--withGutter Grid--alignMiddle u-textShrink1">
+              <div class="Grid-cell u-sizeFill">
+                <ul class="u-listInline">
+                  {{#each tags}}
+                    <li>
+                      <a class="Card-metaLink" href="">
+                        #{{this}}
+                      </a>
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+              <p class="Grid-cell u-sizeFit">
+                <a class="Card-metaLink" href="" title="Permalink">
+                  {{svg "icons/link" class="Icon Icon--large"}}
+                </a>
+              </p>
+            </div>
+          {{/content}}
+        {{/embed}}
       {{/each}}
     </div>
     <div class="u-containProse u-sm-size2of3 u-md-size1of2">

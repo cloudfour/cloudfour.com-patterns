@@ -26,33 +26,36 @@ stylesheets:
       </p>
     </header>
     {{#with drizzle.data.pwa-stats.contents.data.[0]}}
-      <article class="Card u-containProse u-md-textGrow1">
-        <a href="{{link}}" class="Card-main">
-          <h2 class="Card-summary">
-            {{{headline}}}
-          </h2>
-          <img class="Card-icon" src="{{logo}}" alt="">
-        </a>
-        <footer class="Card-meta">
+      {{#embed "patterns.components.card.base"
+        cardClass="u-borderNone u-containProse u-md-textGrow1"
+        icon=logo}}
+        {{#content "content"}}
+          {{{headline}}}
+        {{/content}}
+        {{#content "footer"}}
           <h3 class="u-hiddenVisually">
             Tags
           </h3>
-          <ul class="u-listInline">
-            {{#each tags}}
-              <li>
-                <a class="Card-metaLink" href="">
-                  #{{this}}
-                </a>
-              </li>
-            {{/each}}
-          </ul>
-          <p class="u-spaceLeft1">
-            <time datetime="2015-03-31">
-              March 31, 2015
-            </time>
-          </p>
-        </footer>
-      </article>
+          <div class="Grid Grid--withGutter Grid--alignMiddle u-textShrink1">
+            <div class="Grid-cell u-sizeFill">
+              <ul class="u-listInline">
+                {{#each tags}}
+                  <li>
+                    <a class="Card-metaLink" href="">
+                      #{{this}}
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+            <p class="Grid-cell u-sizeFit">
+              <time datetime="2015-03-31">
+                March 31, 2015
+              </time>
+            </p>
+          </div>
+        {{/content}}
+      {{/embed}}
     {{/with}}
   </div>
 </div>

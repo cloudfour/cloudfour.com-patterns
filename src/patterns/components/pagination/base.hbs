@@ -7,7 +7,7 @@ hidden: true;
     {{#iterate (defaultTo pages 10)}}
       <li>
         {{#compare @count "===" (defaultTo ../current 1)}}
-          <span class="Pagination-item">
+          <span class="Pagination-item Pagination-item--muted">
             <span class="u-hiddenVisually">Currently viewing page</span>
             {{@count}}
           </span>

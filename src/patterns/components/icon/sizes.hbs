@@ -2,11 +2,15 @@
 name: Size Modifiers
 order: 3
 notes: |
-  You can make icons larger with the `.Icon--large` modifier.
+  You can make icons larger with the `Icon--large` or `Icon--larger` modifiers.
+  These will also adjust top and bottom `margin` values to minimize impact
+  on the containing element's `line-height` (except when `Icon--block` is also
+  applied).
+
+  Alternatively, icons can be sized using any class or style that changes
+  `font-size`.
 ---
 
+{{svg "icons/cloud-four" class="Icon"}}
 {{svg "icons/cloud-four" class="Icon Icon--large"}}
-
-{{svg "icons/envelope" class="Icon Icon--large"}}
-
-{{svg "icons/link" class="Icon Icon--large"}}
+{{svg "icons/cloud-four" class="Icon Icon--larger"}}

@@ -8,7 +8,8 @@
 :root {
   --Icon-line-height-offset: calc((var(--line-height-md) - 1) / -2em);
   --Icon-size: 1em;
-  --Icon-size-lg: calc(var(--Icon-size) * var(--ms-ratio));
+  --Icon-size-1: calc(var(--Icon-size) * var(--ms-ratio));
+  --Icon-size-2: calc(var(--Icon-size-1) * var(--ms-ratio));
 }
 
 /**
@@ -42,7 +43,11 @@
  */
 
 .Icon--large {
-  font-size: var(--Icon-size-lg);
+  font-size: var(--Icon-size-1);
+}
+
+.Icon--larger {
+  font-size: var(--Icon-size-2);
 }
 
 /**
@@ -50,7 +55,8 @@
  * content's `line-height`.
  */
 
-.Icon--large:not(.Icon--block) {
+.Icon--large:not(.Icon--block),
+.Icon--larger:not(.Icon--block) {
   margin-bottom: var(--Icon-line-height-offset); /* 1 */
   margin-top: var(--Icon-line-height-offset); /* 1 */
 }

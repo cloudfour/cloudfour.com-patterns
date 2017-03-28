@@ -1,7 +1,7 @@
 data:
   - company: The Weather Channel
     headline: |
-      <span class="u-textBold">The Weather Channel</span> improves load time by <span class="u-textBold">80%</span> with Progressive Web App, launched in 62 languages to 178 countries
+      <b>The Weather Channel</b> improves load time by <b>80%</b> with Progressive Web App, launched in 62 languages to 178 countries
     link: https://developers.google.com/web/showcase/2016/weather-channel
     logo: /images/fpo-pwa/weatherchannel.png
     tags:
@@ -11,7 +11,7 @@ data:
 
   - company: Alibaba
     headline:  |
-      <span class="u-textBold">Alibaba</span> increases conversions by <span class="u-textBold">76%</span> after upgrading their site to a Progressive Web App
+      <b>Alibaba</b> increases conversions by <b>76%</b> after upgrading their site to a Progressive Web App
     link: https://developers.google.com/web/showcase/2016/alibaba
     logo: /images/fpo-pwa/alibaba.png
     tags:
@@ -20,7 +20,7 @@ data:
 
   - company: Housing.com
     headline:  |
-      <span class="u-textBold">Housing.com</span> increases conversions by <span class="u-textBold">38%</span> with their new Progressive Web App, also delivers higher-value users spending <span class="u-textBold">10%</span> longer per session and returning more often
+      <b>Housing.com</b> increases conversions by <b>38%</b> with their new Progressive Web App, also delivers higher-value users spending <b>10%</b> longer per session and returning more often
     link: https://developers.google.com/web/showcase/2016/housing
     logo: /images/fpo-pwa/housing.png
     tags:
@@ -29,7 +29,7 @@ data:
 
   - company: Carnival Cruise Line
     headline:  |
-      <span class="u-textBold">Carnival Cruise Line</span> improves engagement by <span class="u-textBold">42%</span> with customers who receive push notifications
+      <b>Carnival Cruise Line</b> improves engagement by <b>42%</b> with customers who receive push notifications
     link: https://developers.google.com/web/showcase/2016/carnival
     logo: /images/fpo-pwa/carnival.png
     tags:
@@ -37,7 +37,7 @@ data:
 
   - company: Google
     headline:  |
-      <span class="u-textBold">Google I/O</span> uses service workers to deliver a rich, app-like experience to its users
+      <b>Google I/O</b> uses service workers to deliver a rich, app-like experience to its users
     link: https://developers.google.com/web/showcase/2016/service-worker-perf
     logo: /images/fpo-pwa/googleio.svg
     tags:
@@ -46,7 +46,7 @@ data:
 
   - company: Washington Post
     headline:  |
-      <span class="u-textBold">Washington Post</span> increases returning users from mobile search by <span class="u-textBold">23%</span> with AMP
+      <b>Washington Post</b> increases returning users from mobile search by <b>23%</b> with AMP
     link: https://developers.google.com/web/showcase/2016/wapo
     logo: /images/fpo-pwa/wapo.png
     tags:

@@ -1,0 +1,29 @@
+---
+name: Overview
+notes: |
+  Useful for displaying a linked excerpt or summary (perhaps in a grid) with
+  `:hover` animation.
+
+  Created for our PWA Stats project.
+order: -1
+labels:
+  - inprogress
+---
+<article class="Card {{cardClass}}">
+  <a class="Card-main" href="{{href}}">
+    {{#if icon}}
+      <img class="Card-mainObject" alt="{{iconAlt}}"
+        src="{{icon}}">
+    {{/if}}
+    <h2 class="Card-mainContent">
+      {{#block "content"}}
+        Sometimes when you innovate, you make mistakes. It is best to admit them quickly, and get on with improving your other innovations.
+      {{/block}}
+    </h2>
+  </a>
+  {{#if (content "footer")}}
+    <footer class="Card-meta">
+      {{{block "footer"}}}
+    </footer>
+  {{/if}}
+</article>

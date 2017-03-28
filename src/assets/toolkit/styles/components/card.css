@@ -34,7 +34,7 @@
  * Animation effect
  */
 
-.Card:matches(:--enter) {
+.Card:--enter {
   transform: scale(1.05);
 }
 
@@ -43,6 +43,7 @@
  *    height is stretched.
  * 2. Make this element expand to fill free space.
  * 3. Allow children to position themselves relative to this element.
+ * 4. Override default link style for this element only.
  */
 
 .Card-main {
@@ -51,7 +52,7 @@
   flex: 1; /* 2 */
   padding: var(--Card-pad);
   position: relative; /* 3 */
-  text-decoration: none;
+  text-decoration: none; /* 4 */
 }
 
 /**

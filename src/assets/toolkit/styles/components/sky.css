@@ -98,7 +98,7 @@
 .Sky a,
 .Sky a:matches(:--enter, :active),
 .Sky :--headings {
-  color: var(--Sky-color);
+  color: inherit;
 }
 
 /**

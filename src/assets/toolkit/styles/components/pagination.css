@@ -99,3 +99,11 @@
 .Pagination-item--next {
   right: 0;
 }
+
+/**
+ * Optional: Inactive controls may appear semi-opaque.
+ */
+
+.Pagination-item--muted {
+  opacity: var(--opacity-mid);
+}

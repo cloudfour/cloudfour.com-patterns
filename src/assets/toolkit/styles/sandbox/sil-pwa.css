@@ -1,74 +1,88 @@
 @import "../base/_config.css";
 
-/* Overrides Sky > a { color: white} */
-.u-linkBlue {
-  color: var(--color-blue) !important;
-}
+.Masonry {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 30em;
 
-.u-linkBlue:--enter {
-  color: var(--color-blue) !important;
-  opacity: 0.75 !important;
-}
-
-/* Permalink color */
-.u-linkGrayDark {
-  color: color(var(--color-gray) l(-35%) s(+5%)) !important;
-}
-
-.u-linkGrayDark:--enter {
-  color: color(var(--color-gray) l(-35%) s(+5%)) !important;
-  opacity: 0.75 !important;
-}
-
-/* Permalink bg */
-.u-bgGrayLight {
-  background-color: color(var(--color-gray) l(+5%)) !important;
-}
-
-/* Used for the date on the post page */
-.u-textGrayDark {
-  color: color(var(--color-gray) l(-45%) s(+5%)) !important;
-}
-
-/* Setting columns with min-width
- * Probably break gap size into another utility
- */
-.u-columns {
-  columns: 14.5rem 5;
-  column-gap: calc(1em * var(--ms1));
-}
-
-.u-breakInsideAvoid {
-  break-inside: avoid;
-}
-
-/* Tag style */
-.Button--muted {
-  border-color: var(--color-gray);
-  color: var(--color-blue);
-}
-
-.Button--muted:--enter {
-  border-color: color(var(--color-gray) l(-10%));
-  color: var(--color-blue);
-}
-
-/* Currently we don't have a way (that I'm aware of) to reset text to --ms0;
- * Shrink and grow utilities apply --ms1+ and --ms-1-
- * Used to reduce post headline <h2> to base font size
- */
-@media (--lg-viewport) {
-  .u-lg-textBase {
-    font-size: 1rem !important;
+  @supports (display: grid) {
+    display: grid;
+    grid-gap: var(--space-md);
+    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+    justify-content: center;
+    max-width: none;
   }
 }
 
-/* Applied to "PWA Stats" heading */
-.u-textShadow {
-  text-shadow: .0325em .0325em color(var(--color-navy) s(+25%) l(+10%) a(75%));
+.Masonry > * + * {
+  margin-top: var(--space-md);
+
+  @supports (display: grid) {
+    margin-top: 0;
+  }
 }
 
-/* Applied to current pagination state */
-.u-opacityMid {
-  opacity: var(--opacity-mid);
+.Card {
+  background: var(--color-white);
+  color: var(--link-color);
+  display: flex;
+  flex-direction: column;
+  transform-origin: center;
+  transition: transform 0.2s easeOutQuad;
+  position: relative;
+}
+
+.Card:matches(:--enter) {
+  transform: scale(1.05);
+}
+
+.Card-main {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding: var(--space-md);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.Card-main.Card-main:matches(:--enter, :active) {
+  color: var(--link-hover-color);
+}
+
+.Card-icon {
+  width: calc(var(--ms5) * 1em);
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: var(--space-md);
+}
+
+.Card-summary {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  overflow: hidden;
+}
+
+.Card-summary::before {
+  content: "";
+  float: right;
+  height: calc(var(--ms5) * 1em);
+  margin-left: var(--space-xs);
+  width: calc(var(--ms5) * 1em);
+}
+
+.Card-meta {
+  align-items: center;
+  background-color: color(var(--color-gray) l(+5%));
+  color: #657BAE;
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.Card-metaLink:not(:hover, :focus, :active) {
+  text-decoration: none;
 }

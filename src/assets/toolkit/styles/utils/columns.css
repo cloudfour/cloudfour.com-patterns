@@ -29,3 +29,7 @@
     column-gap: var(--column-gap);
   }
 }
+
+.u-breakInsideAvoid {
+  break-inside: avoid;
+}

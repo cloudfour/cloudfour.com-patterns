@@ -30,11 +30,11 @@ stylesheets:
                 <img src="{{logo}}" class="u-block" style="width: 3rem" alt="">
               {{/if}}
               <h2 class="u-textGrow1 u-lg-textBase u-textNormal u-spaceTop">
-                <a href="{{link}}" class="u-linkClean u-linkBlue u-spaceRight05">
+                <a href="{{link}}" class="u-linkClean u-linkBlueA11y u-spaceRight05">
                   {{{headline}}}
                 </a>
               </h2>
-              <a class="u-posAbsoluteTopRight u-pad04 u-bgGrayLight u-linkGrayDark" href="" title="Visit Post Permalink">
+              <a class="u-posAbsoluteTopRight u-pad04 u-bgGray u-linkGrayDark" href="" title="Visit Post Permalink">
                 {{svg "icons/link" class="Icon u-block"}}
               </a>
             </header>
@@ -43,7 +43,7 @@ stylesheets:
               <ul class="u-listUnstyled u-flex u-flexAlignItemsStart u-flexWrap">
                 {{#each this.tags}}
                   <li>
-                    <a class="Button Button--muted u-linkBlue u-textShrink2 u-spaceBottom03 u-spaceRight03 u-textNoWrap u-pad05" href="">
+                    <a class="Button Button--muted u-linkBlueA11y u-textShrink2 u-spaceBottom03 u-spaceRight03 u-textNoWrap u-pad05" href="">
                       #{{this}}
                     </a>
                   </li>

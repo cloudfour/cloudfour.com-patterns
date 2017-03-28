@@ -1,74 +1,9 @@
 @import "../base/_config.css";
 
-/* Overrides Sky > a { color: white} */
-.u-linkBlue {
-  color: var(--color-blue) !important;
-}
-
-.u-linkBlue:--enter {
-  color: var(--color-blue) !important;
-  opacity: 0.75 !important;
-}
-
-/* Permalink color */
-.u-linkGrayDark {
-  color: color(var(--color-gray) l(-35%) s(+5%)) !important;
-}
-
-.u-linkGrayDark:--enter {
-  color: color(var(--color-gray) l(-35%) s(+5%)) !important;
-  opacity: 0.75 !important;
-}
-
-/* Permalink bg */
-.u-bgGrayLight {
-  background-color: color(var(--color-gray) l(+5%)) !important;
-}
-
-/* Used for the date on the post page */
-.u-textGrayDark {
-  color: color(var(--color-gray) l(-45%) s(+5%)) !important;
-}
-
 /* Setting columns with min-width
  * Probably break gap size into another utility
  */
 .u-columns {
   columns: 14.5rem 5;
   column-gap: calc(1em * var(--ms1));
-}
-
-.u-breakInsideAvoid {
-  break-inside: avoid;
-}
-
-/* Tag style */
-.Button--muted {
-  border-color: var(--color-gray);
-  color: var(--color-blue);
-}
-
-.Button--muted:--enter {
-  border-color: color(var(--color-gray) l(-10%));
-  color: var(--color-blue);
-}
-
-/* Currently we don't have a way (that I'm aware of) to reset text to --ms0;
- * Shrink and grow utilities apply --ms1+ and --ms-1-
- * Used to reduce post headline <h2> to base font size
- */
-@media (--lg-viewport) {
-  .u-lg-textBase {
-    font-size: 1rem !important;
-  }
-}
-
-/* Applied to "PWA Stats" heading */
-.u-textShadow {
-  text-shadow: .0325em .0325em color(var(--color-navy) s(+25%) l(+10%) a(75%));
-}
-
-/* Applied to current pagination state */
-.u-opacityMid {
-  opacity: var(--opacity-mid);
 }

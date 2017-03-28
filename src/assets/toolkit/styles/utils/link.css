@@ -19,3 +19,23 @@
 .u-linkEnter:not(:hover, :focus) {
   color: var(--color-relative);
 }
+
+/**
+ * Link Colors
+ */
+
+.u-linkBlueA11y {
+  color: var(--color-blue-a11y) !important;
+}
+
+.u-linkBlueA11y:--enter {
+  color: color(var(--color-blue-a11y) l(+10%)) !important;
+}
+
+.u-linkGrayDark {
+  color: color(var(--color-gray) l(-45%)) !important;
+}
+
+.u-linkGrayDark:--enter {
+  color: color(var(--color-gray) l(-35%)) !important;
+}

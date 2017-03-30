@@ -68,16 +68,19 @@
 /**
  * Pseudo element for actual clouds, allows clouds to overlay other elements.
  *
- * 1. Non-zero horizontal position adds visual interest for nerds like us who
+ * 1. Some high-resolution mobile devices will show a subpixel gap between the
+ *    bottom of the clouds and the parent element. A single pixel of overlap
+ *    helps avoid this issue.
+ * 2. Non-zero horizontal position adds visual interest for nerds like us who
  *    resize their browser. It also makes the compositions feel a little more
  *    organic (though YMMV).
- * 2. Though not a requirement, setting the `background-size` to a proportional
+ * 3. Though not a requirement, setting the `background-size` to a proportional
  *    unit will make the clouds grow and shrink with the base `font-size`.
  */
 
 .Sky--clouds::after {
   position: absolute;
-  bottom: 0;
+  bottom: -1px; /* 1 */
   left: 0;
 
   width: 100%;
@@ -87,8 +90,8 @@
 
   background-image: var(--Sky-clouds-image);
   background-repeat: repeat-x;
-  background-position: var(--Sky-clouds-x-offset) bottom; /* 1 */
-  background-size: var(--Sky-clouds-image-width); /* 2 */
+  background-position: var(--Sky-clouds-x-offset) bottom; /* 2 */
+  background-size: var(--Sky-clouds-image-width); /* 3 */
 }
 
 /**

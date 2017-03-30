@@ -55,6 +55,17 @@
 }
 
 /**
+ * On some high-resolution mobile devices, a subpixel seam will show between
+ * two of these elements pancaked together. Because we want to encourage this
+ * item to be split between semantic elements like <header> and <main>, we
+ * use a thin shadow to cover these seams without affecting layout.
+ */
+
+.Sky:not(.Sky--clouds) {
+  box-shadow: 0 1px 0 var(--Sky-background-color);
+}
+
+/**
  * Modifier: clouds ☁️
  *
  * 1. Add bottom padding equal to the cloud height to keep content from

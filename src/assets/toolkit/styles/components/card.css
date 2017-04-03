@@ -4,8 +4,8 @@
   --Card-bg: var(--color-white);
   --Card-border-color: var(--color-gray);
   --Card-border-width: var(--border-width-md);
-  --Card-main-color: var(--link-color);
-  --Card-main-color-hover: var(--link-hover-color);
+  --Card-main-color: color(var(--color-navy) l(+10%));
+  --Card-main-color-emphasis: var(--link-color);
   --Card-mainObject-size: calc(var(--ms5) * 1em);
   --Card-meta-bg: color(var(--color-gray) l(+5%));
   --Card-meta-color: #657BAE;
@@ -63,10 +63,15 @@
 
 .Card-main.Card-main {
   color: var(--Card-main-color);
+}
 
-  &:matches(:active, :--enter) {
-    color: var(--Card-main-color-hover);
-  }
+/**
+ * Highlight text on interaction, highlight emphasis elements always
+ */
+
+.Card-main.Card-main:--enter,
+.Card-main.Card-main :matches(b, strong, i, em) {
+  color: var(--Card-main-color-emphasis);
 }
 
 /**

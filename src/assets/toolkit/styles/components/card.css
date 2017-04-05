@@ -8,7 +8,7 @@
   --Card-main-color-emphasis: var(--link-color);
   --Card-mainObject-size: calc(var(--ms5) * 1em);
   --Card-meta-bg: color(var(--color-gray) l(+5%));
-  --Card-meta-color: #657BAE;
+  --Card-meta-color: color(#657BAE l(-10%));
   --Card-pad: var(--space-md);
   --Card-pad-sm: var(--space-sm);
 }

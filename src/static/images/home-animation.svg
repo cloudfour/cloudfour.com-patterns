@@ -71,7 +71,7 @@
 
   <rect id="bezel" class="u-fillDark" x="127" y="92" width="66" height="136" rx="6" transform="rotate(0)"/>
 
-  <g id="screen" mask="url(#screenMask)">
+  <g id="screen" class="u-hidden js-show" mask="url(#screenMask)">
     <rect class="u-fillLight" width="100%" height="100%"/>
     <svg id="screenContent" x="130" y="107" width="60" height="106">
       <!--
@@ -145,6 +145,17 @@
         <path d="M30,47.25C50.77,32.73,50,27.62,50,23.61s-3.75-8.86-10-8.86-10,5.9-10,5.9-3.75-5.9-10-5.9-10,4.84-10,8.86S9.23,32.73,30,47.25Z" fill="#f14ca3"/>
       </svg>
     </svg>
+  </g>
+
+  <!--
+  More fallback components, only necessary due to Chrome issue:
+  https://bugs.chromium.org/p/chromium/issues/detail?id=750252
+  https://github.com/cloudfour/cloudfour.com-patterns/issues/423
+  -->
+
+  <g class="js-remove">
+    <use xlink:href="#screenMaskMain"/>
+    <use xlink:href="#screenContent"/>
   </g>
 
   <g id="remote" class="u-hidden js-scaleIn">

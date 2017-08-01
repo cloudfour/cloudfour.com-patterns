@@ -10,6 +10,7 @@ import TimelineMax from 'gsap/src/uncompressed/TimelineMax';
 import EasePack from 'gsap/src/uncompressed/easing/EasePack';
 import CSSPlugin from 'gsap/src/uncompressed/plugins/CSSPlugin';
 import AttrPlugin from 'gsap/src/uncompressed/plugins/AttrPlugin';
+import isChromium from './lib/tests/chromium';
 import isOperaMini from './lib/tests/opera-mini';
 
 /**
@@ -34,9 +35,13 @@ function shuffle (list) {
 /**
  * Opera Mini supports all the necessary features but won't update the animation
  * per frame, so we won't bother animating in that case.
+ *
+ * We also won't bother in Chrome ≥ 60 due to this issue:
+ * https://bugs.chromium.org/p/chromium/issues/detail?id=750252
+ * https://github.com/cloudfour/cloudfour.com-patterns/issues/423
  */
 
-if (!isOperaMini()) {
+if (!isChromium(60) && !isOperaMini()) {
   /**
    * Settings
    */
@@ -94,16 +99,26 @@ if (!isOperaMini()) {
     return result;
   })(document.querySelectorAll('*[id]'));
 
+  dom.remove = document.querySelectorAll('.js-remove');
   dom.hide = document.querySelectorAll('.js-hide');
+  dom.show = document.querySelectorAll('.js-show');
   dom.scaleIn = document.querySelectorAll('.js-scaleIn');
   dom.carouselItems = shuffle(document.querySelectorAll('.js-carouselItem'));
 
   /**
-   * Fade out fallback elements
+   * Hide/show fallback or non-fallback elements
    */
+
+  for (let i = 0; i < dom.remove.length; i++) {
+    dom.remove[i].parentNode.removeChild(dom.remove[i]);
+  }
 
   TweenLite.set(dom.hide, {
     visibility: 'hidden'
+  });
+
+  TweenLite.set(dom.show, {
+    visibility: 'visible'
   });
 
   /**

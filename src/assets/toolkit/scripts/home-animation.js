@@ -139,7 +139,7 @@ if (!isChromium(60) && !isOperaMini()) {
     visibility: 'visible'
   });
 
-  function carouselStep () {
+  const carouselStep = function () {
     state.carousel.called++;
 
     if (state.carousel.called <= settings.carousel.skipEvery) {

@@ -59,11 +59,8 @@
 
 .Pagination > * {
   flex: 1 1 auto;
-}
-
-.Pagination > *:nth-last-child(-n+5):first-child,
-.Pagination > *:nth-last-child(-n+5):first-child ~ * {
-  flex: 0 1 calc(100% / 8);
+  max-width: 90px;
+  width: 100%; /* Fixes centering issue in ie11 */
 }
 
 /**

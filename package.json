@@ -74,8 +74,7 @@
     "umbrellajs": "^2.6.7"
   },
   "scripts": {
-    "prestart": "npm install",
     "start": "gulp --dev",
-    "build": "npm run prestart && gulp"
+    "build": "gulp"
   }
 }

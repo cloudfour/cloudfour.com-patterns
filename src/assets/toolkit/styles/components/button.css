@@ -88,13 +88,13 @@
   }
 
   &:--enter {
-    color: color(var(--Button-color) l(+10%));
-    border-color: color(var(--Button-border-color) l(+10%));
+    color: color-mod(var(--Button-color) l(+10%));
+    border-color: color-mod(var(--Button-border-color) l(+10%));
   }
 
   &:active {
-    color: color(var(--Button-color) shade(10%));
-    border-color: color(var(--Button-border-color) shade(10%));
+    color: color-mod(var(--Button-color) shade(10%));
+    border-color: color-mod(var(--Button-border-color) shade(10%));
   }
 }
 
@@ -114,19 +114,19 @@
 
 @define-mixin Button--default {
   color: var(--Button-default-color);
-  border-color: color(var(--Button-default-background-color) shade(10%));
+  border-color: color-mod(var(--Button-default-background-color) shade(10%));
   background-color: var(--Button-default-background-color);
 
   &:--enter {
     color: var(--Button-default-color);
-    border-color: color(var(--Button-default-background-color) shade(5%));
-    background-color: color(var(--Button-default-background-color) l(+5%));
+    border-color: color-mod(var(--Button-default-background-color) shade(5%));
+    background-color: color-mod(var(--Button-default-background-color) l(+5%));
   }
 
   &:active {
     color: var(--Button-default-color);
-    border-color: color(var(--Button-default-background-color) shade(10%));
-    background-color: color(var(--Button-default-background-color) shade(10%));
+    border-color: color-mod(var(--Button-default-background-color) shade(10%));
+    background-color: color-mod(var(--Button-default-background-color) shade(10%));
   }
 }
 
@@ -136,19 +136,19 @@
 
 @define-mixin Button--defaultDark {
   color: var(--Button-default-color);
-  border-color: color(var(--Button-default-background-color) l(+10%));
+  border-color: color-mod(var(--Button-default-background-color) l(+10%));
   background-color: var(--Button-default-background-color);
 
   &:--enter {
     color: var(--Button-default-color);
-    border-color: color(var(--Button-default-background-color) l(+20%));
-    background-color: color(var(--Button-default-background-color) l(+5%));
+    border-color: color-mod(var(--Button-default-background-color) l(+20%));
+    background-color: color-mod(var(--Button-default-background-color) l(+5%));
   }
 
   &:active {
     color: var(--Button-default-color);
-    border-color: color(var(--Button-default-background-color) l(+10%));
-    background-color: color(var(--Button-default-background-color) shade(10%));
+    border-color: color-mod(var(--Button-default-background-color) l(+10%));
+    background-color: color-mod(var(--Button-default-background-color) shade(10%));
   }
 }
 
@@ -164,39 +164,39 @@
 :root {
   --Button-primary-background-color: var(--color-orange);
   --Button-primary-color: var(--color-white);
-  --Button-primaryDark-background-color: color(var(--color-navy) l(+30%));
+  --Button-primaryDark-background-color: color-mod(var(--color-navy) l(+30%));
 }
 
 .Button--primary,
 .Button--primary:matches(:--enter, :active) {
   color: var(--Button-primary-color);
-  border-color: color(var(--Button-primary-background-color) shade(10%));
+  border-color: color-mod(var(--Button-primary-background-color) shade(10%));
   background-color: var(--Button-primary-background-color);
 }
 
 .Button--primary:matches(:--enter) {
-  border-color: color(var(--Button-primary-background-color) shade(5%));
-  background-color: color(var(--Button-primary-background-color) l(+5%));
+  border-color: color-mod(var(--Button-primary-background-color) shade(5%));
+  background-color: color-mod(var(--Button-primary-background-color) l(+5%));
 }
 
 .Button--primary:active {
-  background-color: color(var(--Button-primary-background-color) shade(10%));
+  background-color: color-mod(var(--Button-primary-background-color) shade(10%));
 }
 
 .Button--primaryDark,
 .Button--primaryDark:matches(:--enter, :active) {
   background: var(--Button-primaryDark-background-color);
   color: var(--Button-primary-color);
-  border-color: color(var(--Button-primaryDark-background-color) shade(10%));
+  border-color: color-mod(var(--Button-primaryDark-background-color) shade(10%));
 }
 
 .Button--primaryDark:matches(:--enter) {
-  border-color: color(var(--Button-primaryDark-background-color) shade(5%));
-  background-color: color(var(--Button-primaryDark-background-color) l(+5%));
+  border-color: color-mod(var(--Button-primaryDark-background-color) shade(5%));
+  background-color: color-mod(var(--Button-primaryDark-background-color) l(+5%));
 }
 
 .Button--primaryDark:active {
-  background-color: color(var(--Button-primaryDark-background-color) shade(10%));
+  background-color: color-mod(var(--Button-primaryDark-background-color) shade(10%));
 }
 
 /**
@@ -211,17 +211,17 @@
 .Button--positive,
 .Button--positive:matches(:--enter, :active) {
   color: var(--Button-positive-color);
-  border-color: color(var(--Button-positive-background-color) shade(10%));
+  border-color: color-mod(var(--Button-positive-background-color) shade(10%));
   background-color: var(--Button-positive-background-color);
 }
 
 .Button--positive:matches(:--enter) {
-  border-color: color(var(--Button-positive-background-color) shade(5%));
-  background-color: color(var(--Button-positive-background-color) l(+5%));
+  border-color: color-mod(var(--Button-positive-background-color) shade(5%));
+  background-color: color-mod(var(--Button-positive-background-color) l(+5%));
 }
 
 .Button--positive:active {
-  background-color: color(var(--Button-positive-background-color) shade(10%));
+  background-color: color-mod(var(--Button-positive-background-color) shade(10%));
 }
 
 /**
@@ -236,15 +236,15 @@
 .Button--negative,
 .Button--negative:matches(:--enter) {
   color: var(--Button-negative-color);
-  border-color: color(var(--Button-negative-background-color) shade(10%));
+  border-color: color-mod(var(--Button-negative-background-color) shade(10%));
   background-color: var(--Button-negative-background-color);
 }
 
 .Button--negative:matches(:--enter) {
-  border-color: color(var(--Button-negative-background-color) shade(5%));
-  background-color: color(var(--Button-negative-background-color) l(+5%));
+  border-color: color-mod(var(--Button-negative-background-color) shade(5%));
+  background-color: color-mod(var(--Button-negative-background-color) l(+5%));
 }
 
 .Button--negative:active {
-  background-color: color(var(--Button-negative-background-color) shade(10%));
+  background-color: color-mod(var(--Button-negative-background-color) shade(10%));
 }

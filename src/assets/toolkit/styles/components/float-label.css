@@ -4,7 +4,7 @@
 
 :root {
   --FloatLabel-background-color: var(--color-white);
-  --FloatLabel-color-empty: color(var(--base-color) a(50%));
+  --FloatLabel-color-empty: color-mod(var(--base-color) a(50%));
   --FloatLabel-color: var(--color-blue);
   --FloatLabel-font-size: 0.777777778em;
   --FloatLabel-font-weight: var(--font-weight-semibold);
@@ -53,7 +53,7 @@
 :root {
   --FloatLabel-dark-background-color: var(--color-blue);
   --FloatLabel-dark-color: var(--color-white);
-  --FloatLabel-dark-color-empty: color(var(--FloatLabel-dark-background-color) s(+10%) l(90%));
+  --FloatLabel-dark-color-empty: color-mod(var(--FloatLabel-dark-background-color) s(+10%) l(90%));
 }
 
 .FloatLabel--dark .FloatLabel-label {

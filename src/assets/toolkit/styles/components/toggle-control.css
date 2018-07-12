@@ -79,7 +79,7 @@
  */
 
 .ToggleControl-input:active ~ .ToggleControl-indicator {
-  border-color: color(var(--ToggleControl-border-color) l(-15%));
+  border-color: color-mod(var(--ToggleControl-border-color) l(-15%));
 }
 
 .ToggleControl-input:focus ~ .ToggleControl-indicator {

@@ -45,7 +45,7 @@
    */
 
   &:matches(:--enter) {
-    background-color: color(var(--FootnoteLink-background-color) l(+5%));
+    background-color: color-mod(var(--FootnoteLink-background-color) l(+5%));
   }
 }
 

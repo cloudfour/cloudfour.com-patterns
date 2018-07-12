@@ -3,7 +3,7 @@
 }
 
 @define-mixin makeBgGrayUtility {
-  background-color: color(
+  background-color: color-mod(
     var(--color-gray)
     blend(var(--color-white) 50%)
   );

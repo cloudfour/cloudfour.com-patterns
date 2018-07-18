@@ -44,13 +44,14 @@
  * But Safari has a bug with wrapping items that have a non-default flex-basis,
  * so at smaller sizes it can cause large amounts of pagination to go wonky.
  *
+ * 1. Specified flex-basis to fix Safari 10 bug
  * @see https://github.com/philipwalton/flexbugs#11-min-and-max-size-declarations-are-ignored-when-wrapping-flex-items
+ * 2. Fixes centering issue in ie11
  */
-
 .Pagination > * {
-  flex: 1 1 calc(3.5em + 6%); /* specified flex-basis to fix Safari 10 bug */
+  flex: 1 1 calc(3.5em + 6%); /* 1 */
   max-width: calc(3.5em + 6%);
-  width: 100%; /* Fixes centering issue in ie11 */
+  width: 100%; /* 2 */
 }
 
 /**

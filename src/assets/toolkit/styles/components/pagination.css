@@ -59,7 +59,7 @@
 
 .Pagination > * {
   flex: 1 1 auto;
-  max-width: 90px;
+  max-width: calc(3.5em + 6%);
   width: 100%; /* Fixes centering issue in ie11 */
 }
 

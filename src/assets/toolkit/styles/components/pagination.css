@@ -4,6 +4,7 @@
   --Pagination-item-pad-horizontal: var(--space-md);
   --Pagination-item-pad-vertical: var(--space-xs);
   --Pagination-control-pad: 3em;
+  --Pagination-item-max-width: calc(3.5em + 6%);
 }
 
 /**
@@ -49,8 +50,8 @@
  * 2. Fixes centering issue in ie11
  */
 .Pagination > * {
-  flex: 1 1 calc(3.5em + 6%); /* 1 */
-  max-width: calc(3.5em + 6%);
+  flex: 1 1 var(--Pagination-item-max-width); /* 1 */
+  max-width: var(--Pagination-item-max-width);
   width: 100%; /* 2 */
 }
 

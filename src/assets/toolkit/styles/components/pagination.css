@@ -58,7 +58,7 @@
  */
 
 .Pagination > * {
-  flex: 1 1 auto;
+  flex: 1 1 calc(3.5em + 6%); /* specified flex-basis to fix Safari 10 bug */
   max-width: calc(3.5em + 6%);
   width: 100%; /* Fixes centering issue in ie11 */
 }

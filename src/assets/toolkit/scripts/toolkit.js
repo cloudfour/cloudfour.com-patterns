@@ -14,11 +14,20 @@ import {Slideshow} from './lib/component/slideshow';
 /**
  * Syntax highlighting
  */
-import 'prismjs';
-import 'prismjs/components/prism-handlebars';
-import 'prismjs/components/prism-json';
-import 'prismjs/components/prism-php';
+import 'prismjs/components/prism-core';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-json';
+
+// dependencies
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-markup-templating';
+
+// these require dependencies
+import 'prismjs/components/prism-php';
+import 'prismjs/components/prism-handlebars';
+import 'prismjs/components/prism-javascript';
 
 const components = [];
 

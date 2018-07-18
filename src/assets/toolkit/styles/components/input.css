@@ -39,13 +39,13 @@
   -webkit-appearance: none; /* 4 */
 
   &:matches(:active, :hover) {
-    border-color: color(var(--Input-border-color) l(-15%));
+    border-color: color-mod(var(--Input-border-color) l(-15%));
   }
 
   &:matches(:disabled, .is-disabled) {
-    color: color(var(--Input-color) a(50%));
+    color: color-mod(var(--Input-color) a(50%));
     border-color: var(--Input-border-color);
-    background-color: color(var(--Input-border-color) l(+5%));
+    background-color: color-mod(var(--Input-border-color) l(+5%));
   }
 
   &:focus {
@@ -64,7 +64,7 @@
 
 :root {
   --Input-dark-background-color: var(--color-blue);
-  --Input-dark-border-color: color(var(--Input-dark-background-color) l(+20%));
+  --Input-dark-border-color: color-mod(var(--Input-dark-background-color) l(+20%));
   --Input-dark-color: var(--color-white);
 }
 
@@ -75,13 +75,13 @@
 }
 
 .Input--dark:matches(:active, :hover) {
-  border-color: color(var(--Input-dark-border-color) l(+10%));
+  border-color: color-mod(var(--Input-dark-border-color) l(+10%));
 }
 
 .Input--dark:matches(:disabled, .is-disabled) {
-  color: color(var(--Input-dark-color) a(50%));
+  color: color-mod(var(--Input-dark-color) a(50%));
   border-color: var(--Input-dark-border-color);
-  background-color: color(var(--Input-dark-border-color) l(-12%));
+  background-color: color-mod(var(--Input-dark-border-color) l(-12%));
 }
 
 .Input--dark:focus {

@@ -124,7 +124,7 @@ img {
 }
 
 .u-textGray {
-  color: color(var(--color-gray) l(-25%) s(-15%));
+  color: color-mod(var(--color-gray) l(-25%) s(-15%));
 }
 
 @media (--sm-viewport) {
@@ -138,5 +138,5 @@ img {
 }
 
 .u-textCoastGuard {
-  color: color(var(--color-navy) l(+15%));
+  color: color-mod(var(--color-navy) l(+15%));
 }

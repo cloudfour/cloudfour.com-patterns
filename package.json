@@ -34,13 +34,15 @@
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.6",
-    "postcss-cssnext": "^2.9.0",
+    "postcss-calc": "^5.0.0",
+    "postcss-cssnext": "^2.11.0",
     "postcss-discard-comments": "^2.0.4",
     "postcss-discard-empty": "^2.0.1",
     "postcss-easings": "^0.3.0",
     "postcss-easy-import": "^1.0.1",
     "postcss-inline-svg": "^2.0.1",
     "postcss-mixins": "^4.0.1",
+    "postcss-preset-env": "^5.2.1",
     "postcss-use": "^2.0.2",
     "require-dir": "^0.3.0",
     "rollup": "^0.36.3",
@@ -56,12 +58,13 @@
     "feature.js": "^1.0.0",
     "gsap": "^1.18.5",
     "moment": "^2.10.6",
-    "prismjs": "^1.5.1",
+    "prismjs": "^1.15.0",
     "suitcss-base": "^2.0.0",
     "suitcss-components-arrange": "^1.1.1",
     "suitcss-components-button": "^5.0.0",
     "suitcss-components-flex-embed": "^2.0.4",
     "suitcss-components-grid": "^3.0.2",
+    "suitcss-utils": "^1.0.0",
     "suitcss-utils-display": "^1.0.2",
     "suitcss-utils-flex": "^1.1.1",
     "suitcss-utils-layout": "^1.0.1",
@@ -70,12 +73,11 @@
     "suitcss-utils-position": "^1.0.1",
     "suitcss-utils-size": "^2.0.0",
     "suitcss-utils-text": "^1.0.0",
-    "suitcss-utils": "^1.0.0",
     "umbrellajs": "^2.6.7"
   },
   "scripts": {
     "prestart": "npm install",
     "start": "gulp --dev",
-    "build": "npm run prestart && gulp"
+    "build": "gulp"
   }
 }

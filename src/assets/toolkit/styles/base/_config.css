@@ -1,3 +1,5 @@
+@import "css-modularscale";
+
 /**
  * POSTCSS plugins
  *
@@ -5,13 +7,21 @@
  */
 
 @use postcss-mixins;
-@use postcss-cssnext;
+@use postcss-preset-env {
+  stage: 0;
+  features {
+    custom-properties {
+      preserve: false
+    }
+  }
+};
 @use postcss-easings;
 @use postcss-discard-comments;
 @use postcss-discard-empty;
 @use postcss-inline-svg {
   path: "./src/static/images"
 }
+@use postcss-calc;
 
 /**
  * Colors
@@ -41,8 +51,8 @@
   --color-red: #bf0000;
 
   /* a11y variations for light-on-dark text contrast */
-  --color-blue-a11y: color(var(--color-blue) l(-4%));
-  --color-fuchsia-a11y: color(var(--color-fuchsia) l(-14%) s(-5%));
+  --color-blue-a11y: color-mod(var(--color-blue) l(-4%));
+  --color-fuchsia-a11y: color-mod(var(--color-fuchsia) l(-14%) s(-5%));
 }
 
 /**
@@ -75,10 +85,10 @@
  */
 
 :root {
-  --shade-lower: color(var(--color-black) alpha(0.125));
-  --shade-low: color(var(--color-black) alpha(0.25));
-  --shade-mid: color(var(--color-black) alpha(0.5));
-  --shade-high: color(var(--color-black) alpha(0.75));
+  --shade-lower: color-mod(var(--color-black) alpha(0.125));
+  --shade-low: color-mod(var(--color-black) alpha(0.25));
+  --shade-mid: color-mod(var(--color-black) alpha(0.5));
+  --shade-high: color-mod(var(--color-black) alpha(0.75));
 }
 
 /**
@@ -89,8 +99,6 @@
  *
  * http://www.modularscale.com/?1&em&1.25&web&text
  */
-
-@import "css-modularscale";
 
 :root {
   --ms-ratio: var(--major-third);
@@ -165,7 +173,7 @@
 
 :root {
   --link-color: var(--color-blue-a11y);
-  --link-hover-color: color(var(--link-color) l(+10%));
+  --link-hover-color: color-mod(var(--link-color) l(+10%));
 }
 
 /**

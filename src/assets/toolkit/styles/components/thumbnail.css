@@ -46,17 +46,17 @@
   bottom: 0; /* 2 */
   left: 0; /* 2 */
   content: ""; /* 3 */
-  border: var(--Thumbnail-border-width) solid color(var(--Thumbnail-border-color) a(10%)); /* 4 */
+  border: var(--Thumbnail-border-width) solid color-mod(var(--Thumbnail-border-color) a(10%)); /* 4 */
   border-radius: inherit; /* 5 */
   transition: border 300ms ease; /* 6 */
 }
 
 .Thumbnail:matches(:--enter)::after {
-  border-color: color(var(--Thumbnail-border-color) a(25%));
+  border-color: color-mod(var(--Thumbnail-border-color) a(25%));
 }
 
 .Thumbnail:active::after {
-  border-color: color(var(--Thumbnail-border-color) a(50%));
+  border-color: color-mod(var(--Thumbnail-border-color) a(50%));
 }
 
 /**

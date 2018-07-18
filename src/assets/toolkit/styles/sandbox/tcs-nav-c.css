@@ -36,7 +36,7 @@ body {
 }
 
 .Header-menuToggle .Button {
-  border-color: color(var(--color-white) a(20%));
+  border-color: color-mod(var(--color-white) a(20%));
 }
 
 .Header-menu {
@@ -70,7 +70,7 @@ body {
 }
 
 .Header-menu ul {
-  /*background-image: linear-gradient(to bottom, color(var(--color-navy) a(60%)), color(var(--color-navy) a(0)));*/
+  /*background-image: linear-gradient(to bottom, color-mod(var(--color-navy) a(60%)), color-mod(var(--color-navy) a(0)));*/
   /*columns: 2;*/
   /*column-gap: 0;*/
   list-style: none;
@@ -98,27 +98,27 @@ body {
 }
 
 .Header-menu li:nth-child(1) a {
-  background-color: color(var(--color-navy) a(72%));
+  background-color: color-mod(var(--color-navy) a(72%));
 }
 
 .Header-menu li:nth-child(2) a {
-  background-color: color(var(--color-navy) a(60%));
+  background-color: color-mod(var(--color-navy) a(60%));
 }
 
 .Header-menu li:nth-child(3) a {
-  background-color: color(var(--color-navy) a(48%));
+  background-color: color-mod(var(--color-navy) a(48%));
 }
 
 .Header-menu li:nth-child(4) a {
-  background-color: color(var(--color-navy) a(36%));
+  background-color: color-mod(var(--color-navy) a(36%));
 }
 
 .Header-menu li:nth-child(5) a {
-  background-color: color(var(--color-navy) a(24%));
+  background-color: color-mod(var(--color-navy) a(24%));
 }
 
 .Header-menu li:nth-child(6) a {
-  background-color: color(var(--color-navy) a(12%));
+  background-color: color-mod(var(--color-navy) a(12%));
 }
 
 .Sky-content {

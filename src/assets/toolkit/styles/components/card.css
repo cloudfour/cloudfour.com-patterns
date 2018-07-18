@@ -4,11 +4,11 @@
   --Card-bg: var(--color-white);
   --Card-border-color: var(--color-gray);
   --Card-border-width: var(--border-width-md);
-  --Card-main-color: color(var(--color-navy) l(+10%));
+  --Card-main-color: color-mod(var(--color-navy) l(+10%));
   --Card-main-color-emphasis: var(--link-color);
   --Card-mainObject-size: calc(var(--ms5) * 1em);
-  --Card-meta-bg: color(var(--color-gray) l(+5%));
-  --Card-meta-color: color(#657BAE l(-10%));
+  --Card-meta-bg: color-mod(var(--color-gray) l(+5%));
+  --Card-meta-color: color-mod(#657BAE l(-10%));
   --Card-pad: var(--space-md);
   --Card-pad-sm: var(--space-sm);
 }

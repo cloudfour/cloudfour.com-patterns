@@ -13,7 +13,7 @@
   --color-purple: #b10dc9;
   --color-yellow: #ffdc00;
   --color-fuchsia: #f012be;
-  --color-gray: color(var(--color-silver) l(-10%));
+  --color-gray: color-mod(var(--color-silver) l(-10%));
   --color-white: #fff;
   --color-black: #111;
   --color-silver: #DBE5EA;

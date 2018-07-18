@@ -1,5 +1,5 @@
 :root {
-  --Figure-caption-color: color(var(--color-gray) blend(var(--color-black) 50%));
+  --Figure-caption-color: color-mod(var(--color-gray) blend(var(--color-black) 50%));
   --Figure-caption-font-style: italic;
   --Figure-caption-margin: var(--space-xs);
   --Figure-caption-text-align: center;

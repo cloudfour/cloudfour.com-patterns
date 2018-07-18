@@ -4,7 +4,7 @@
   --Table-border-color: var(--color-gray);
   --Table-border-width: var(--control-line);
   --Table-border-width-large: var(--control-stroke);
-  --Table-background-color-striped: color(var(--Table-border-color) l(+5%));
+  --Table-background-color-striped: color-mod(var(--Table-border-color) l(+5%));
   --Table-padding: 0.5rem;
 }
 

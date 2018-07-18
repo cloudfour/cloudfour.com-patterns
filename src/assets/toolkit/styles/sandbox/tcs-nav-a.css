@@ -45,7 +45,7 @@ body {
   padding: 0;
   list-style: none;
   text-align: center;
-  background-image: linear-gradient(to bottom, color(var(--color-navy) a(60%)), color(var(--color-navy) a(0)));
+  background-image: linear-gradient(to bottom, color-mod(var(--color-navy) a(60%)), color-mod(var(--color-navy) a(0)));
 }
 
 .Masthead-links > li {
@@ -61,7 +61,7 @@ body {
   width: 10%;
   height: var(--border-width-sm);
   content: "";
-  background: color(var(--color-white) a(40%));
+  background: color-mod(var(--color-white) a(40%));
 }
 
 .Masthead-links > li:first-child::before {
@@ -71,12 +71,12 @@ body {
 .Masthead-link {
   display: block;
   padding: var(--space-md) 0;
-  background-color: color(var(--color-navy) a(0%));
+  background-color: color-mod(var(--color-navy) a(0%));
   transition: background-color 300ms ease;
 }
 
 .Masthead-link:matches(:--enter) {
-  background-color: color(var(--color-navy) a(20%));
+  background-color: color-mod(var(--color-navy) a(20%));
 }
 
 .Masthead-link-heading {
@@ -85,7 +85,7 @@ body {
 
 .Masthead-link-description {
   margin-top: calc(var(--space-sm) / var(--ms-ratio));
-  color: color(var(--color-white) a(80%));
+  color: color-mod(var(--color-white) a(80%));
 }
 
 .Masthead-main {
@@ -111,7 +111,7 @@ body {
   margin: 0;
   padding: 0.5em 0.75em;
   line-height: var(--line-height-xs);
-  border: var(--border-width-sm) solid color(var(--color-white) a(40%));
+  border: var(--border-width-sm) solid color-mod(var(--color-white) a(40%));
   border-radius: var(--border-radius-md);
   transform: translateY(-50%);
   transition: all 300ms ease;

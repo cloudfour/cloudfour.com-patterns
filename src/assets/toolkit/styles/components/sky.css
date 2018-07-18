@@ -2,7 +2,7 @@
 
 :root {
   --Sky-background-color: var(--color-blue);
-  --Sky-background-color-dark: color(var(--color-navy) h(+5) s(-12) l(+18));
+  --Sky-background-color-dark: color-mod(var(--color-navy) h(+5) s(-12%) l(+18%));
   --Sky-color: var(--color-white);
 
   --Sky-clouds-image: svg-load("sky-clouds.svg");
@@ -16,10 +16,10 @@
   --Sky-nav-logo-size: 5em;
   --Sky-nav-logo-size-sm: 4em;
   --Sky-nav-logo-padding: var(--Sky-nav-controls-space-y) var(--Sky-nav-controls-space-x);
-  --Sky-nav-color-inactive: color(var(--Sky-background-color) s(+10%) l(90%));
+  --Sky-nav-color-inactive: color-mod(var(--Sky-background-color) s(+10%) l(90%));
 
   --Sky-nav-menu-background-image: linear-gradient(to bottom, var(--Sky-background-color-dark), var(--Sky-background-color));
-  --Sky-nav-menu-item-border-color: color(var(--color-black) a(10%));
+  --Sky-nav-menu-item-border-color: color-mod(var(--color-black) a(10%));
   --Sky-nav-menu-item-border-width: var(--control-stroke);
   --Sky-nav-menu-item-font-size: var(--font-size-md);
   --Sky-nav-menu-item-line-height: var(--line-height-xs);
@@ -296,7 +296,7 @@
 @media (--Sky-nav-full-viewport) {
 /**
  * No need for a max width now that there's enough room for all nav items to fit on a line.
- */ 
+ */
 
   .Sky-nav-menu {
     max-width: initial;

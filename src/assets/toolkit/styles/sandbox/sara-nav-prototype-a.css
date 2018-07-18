@@ -12,7 +12,7 @@ body {
 
   margin-top: 0; /* Override lobotomized owl */
   padding: var(--space-sm);
-  background-color: color(var(--color-blue) lightness(+0%));
+  background-color: color-mod(var(--color-blue) lightness(+0%));
 }
 
 .Header a {

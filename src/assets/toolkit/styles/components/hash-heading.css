@@ -59,7 +59,7 @@
   vertical-align: middle; /* 5 */
   text-decoration: none; /* 6 */
 
-  color: color(var(--color-gray) l(-20%) s(-10%)); /* 7 */
+  color: color-mod(var(--color-gray) l(-20%) s(-10%)); /* 7 */
 
   font-size: calc(var(--ms0) * 1rem);
   line-height: 1; /* 8 */

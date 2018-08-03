@@ -1,9 +1,9 @@
 /** @define FootnoteLink */
 
 :root {
-  --FootnoteLink-background-color: var(--color-blue);
+  --FootnoteLink-background-color: var(--color-gray);
   --FootnoteLink-border-radius: calc(var(--FootnoteLink-min-width) / 2);
-  --FootnoteLink-color: var(--color-white);
+  --FootnoteLink-color: var(--color-black);
   --FootnoteLink-font-size: var(--font-size-xs);
   --FootnoteLink-line-height: var(--ms2);
   --FootnoteLink-min-width: calc(var(--FootnoteLink-line-height) * 1em);

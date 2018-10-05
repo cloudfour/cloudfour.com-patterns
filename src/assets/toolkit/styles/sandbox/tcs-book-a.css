@@ -1,0 +1,27 @@
+@import "../base/_config.css";
+
+.Label {
+  background-color: color-mod(var(--color-green) l(+30%));
+  /* background-color: color-mod(var(--color-orange) l(+30%) s(+20%) h(+10deg)); */
+  border-radius: calc(var(--border-radius-md) / 3);
+  display: inline-block;
+  color: color-mod(var(--color-green) l(-30%) h(-10deg));
+  /* color: color-mod(var(--color-orange) l(-30%) h(-10deg) s(+20%)); */
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  text-transform: uppercase;
+  padding: calc(var(--ms-6) * 1em) calc(var(--ms-4) * 1em);
+  white-space: nowrap;
+}
+
+.ABAPWAOK {
+  display: block;
+  border: 1px solid #04CC7B;
+  /* box-shadow: 6px 6px 0 0 var(--color-gray); */
+  /* transform: rotate(3deg); */
+  transform-origin: center;
+}
+
+.ABAPWAOKTLDR {
+  transform: translateX(0.8rem) scale(1.5) rotate(-5deg);
+}

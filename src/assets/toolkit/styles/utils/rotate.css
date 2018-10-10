@@ -1,0 +1,45 @@
+.u-rotate1of60 {
+  transform: rotate(calc(360deg / 60)) !important;
+  transform-origin: center;
+}
+
+.u-rotateCounter1of60 {
+  transform: rotate(calc(-360deg / 60)) !important;
+  transform-origin: center;
+}
+
+@media (--sm-viewport) {
+  .u-sm-rotate1of60 {
+    transform: rotate(calc(360deg / 60)) !important;
+    transform-origin: center;
+  }
+
+  .u-sm-rotateCounter1of60 {
+    transform: rotate(calc(-360deg / 60)) !important;
+    transform-origin: center;
+  }
+}
+
+@media (--md-viewport) {
+  .u-md-rotate1of60 {
+    transform: rotate(calc(360deg / 60)) !important;
+    transform-origin: center;
+  }
+
+  .u-md-rotateCounter1of60 {
+    transform: rotate(calc(-360deg / 60)) !important;
+    transform-origin: center;
+  }
+}
+
+@media (--lg-viewport) {
+  .u-lg-rotate1of60 {
+    transform: rotate(calc(360deg / 60)) !important;
+    transform-origin: center;
+  }
+
+  .u-lg-rotateCounter1of60 {
+    transform: rotate(calc(-360deg / 60)) !important;
+    transform-origin: center;
+  }
+}

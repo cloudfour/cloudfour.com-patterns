@@ -1,0 +1,385 @@
+---
+title: Book Promo - Article
+layout: toolkit.single
+labels:
+  - latest
+---
+
+<aside>
+  <a class="u-containProse u-block u-padEnds2 u-linkEnter u-spaceBottom3"
+    href="https://abookapart.com/products/progressive-web-apps">
+    <div class="u-flex u-flexAlignItemsCenter u-flexJustifyCenter u-textShrink1">
+      <p>
+        Researching PWAs? Check out <b class="u-linkTarget">Progressive Web&nbsp;Apps</b>
+        by Jason Grigsby, <span class="u-linkTarget">available now {{svg "icons/arrow-right" class="Icon" role="presentation"}}
+      </p>
+      <img
+        class="u-flexNone u-sm-flexOrderFirst u-spaceLeft1 u-sm-spaceLeftNone u-sm-spaceRight1 u-rotate1of60 u-sm-rotateCounter1of60 u-borderSm"
+        style="border-color: #04CC7B !important; max-width: 3.5em;"
+        src="https://cdn.shopify.com/s/files/1/0051/7692/products/aba-cover-28_300x@2x.png?v=1536250184"
+        alt="">
+    </div>
+  </a>
+</aside>
+
+<article class="CmsContent u-spaceEnds1">
+  <div class="u-staggerItems1 u-cf">
+    {{{ embed "patterns.combos.blog.post-header" }}}
+
+    {{{ embed "patterns.combos.blog.post-intro" }}}
+
+    <p>
+      Not too long ago, in a previous visual design position I was in, I had a manager refer to me as a code “dabbler”. This actually offended me. Surely countless hours spent reading books, doing tutorials, hacking away, building websites makes me more than a “dabbler”? I thought to myself, I am not a “dabbler”, I am a unicorn! <sup><a class="FootnoteLink" href="#article-fn-1" id="article-fn-ref-1" title="Jump to footnote">1</a></sup>
+    </p>
+
+    <p>
+      Proof of this unicorniness? I packed up my design and code skills, and found a new work home at Cloud Four, haven to unicorns just like myself. Everyone at Cloud Four is a kind of unicorn… magnificent designing developers and developing designers.
+    </p>
+
+    <p class="u-release u-textCenter" style="background: #f4eee9;">
+      <img class="u-md-size2of3 u-lg-size1of2" src="/images/sandbox/post-image-unicorn.png" alt="">
+    </p>
+
+    <p>
+      Proof of this unicorniness? I packed up my design and code skills, and found a new work home at Cloud Four, haven to unicorns just like myself. Everyone at Cloud Four is a kind of unicorn… magnificent designing developers and developing designers.
+    </p>
+
+    <p>
+      But after a few months of having my code reviewed by my fellow unicorns, I felt less like a magnificent unicorn and more like this:
+    </p>
+
+    <p class="u-textCenter">
+      <img src="/images/sandbox/ugly-unicorn.png" alt="ugly unicorn" style="width: 18em;">
+    </p>
+
+    <p>
+      Working in code every day has given me a new perspective… <em>I am an Ugly Unicorn</em>.
+    </p>
+
+    <blockquote>
+      <p>
+        I found myself spending little to no time in photoshop or sketch and jumping into the deep end of pattern libraries and prototypes. For the first time I was working on a team, submitting code, using git and creating pull requests.
+      </p>
+      <p>
+        And lists were in this quote, too…
+      </p>
+      <ul>
+        <li>Look, a list item</li>
+        <li>Quick, there's another</li>
+      </ul>
+    </blockquote>
+
+    <p>
+      Here is a little how that went:
+    </p>
+
+    <p>
+      <img class="u-sizeFull" src="/images/sandbox/no-good.png" alt="PR comment">
+    </p>
+
+    <p>
+      Yikes. I kept hearing the those words echo through my head: <code>.code dabbler</code> <code>&lt;code dabbler&gt;</code> <code>.code dabbler</code>. Over the last year I have been waiting for an “ah-ha” moment where things would click and I would feel super comfortable and confident in my skill set, that really hasn’t been the case.
+    </p>
+
+    <pre><code class="language-css">.Sky--clouds {
+  background-image: url("/images/sandbox/clouds-alt.svg");
+  background-position: -60% bottom;
+  background-repeat: repeat-x;
+  background-size: calc(420 / 16em * 1.25);
+  content: "Whut?" !important;
+  padding-bottom: calc(24 / 16em * 1.25);
+}
+
+@media (min-width: 1337px) {
+  p > b > a {
+    content: "Terrible selector! :(";
+  }
+}</code></pre>
+
+    <pre><code class="language-scss">$font-stack: sans-serif;
+$primary-color: #333;
+
+@mixin reset-type() {
+  font: 100% $font-stack;
+  color: $primary-color;
+}</code></pre>
+
+    <pre><code class="language-handlebars">&lt;ul class=&quot;Example&quot;&gt;
+  \{{#each items 'another' hashValue=false}}
+    &lt;li&gt;Whoa!!&lt;/li&gt;
+  \{{/each}}
+&lt;/ul&gt;</code></pre>
+
+  <pre><code class="language-js">// Sweet useless condition
+if (this !== 'that' || truth == false) {
+  new RegExp(/ab+c/, 'i');
+  boyHowdy(5, 'something');
+  return 2 * 4 / 3;
+}
+
+class Bread {
+  constructor (slices) {
+    this.slices = 12;
+  }
+}</code></pre>
+
+    <pre><code class="language-php">function lyzadotcom_custom_loop($args)
+{
+    global $wp_query;
+    global $post;
+    $post_template_dir          = 'post_templates';
+    /* The 'template' element should be the name of the PHP template file
+       to use for rendering the matching posts. It should be the name of file,
+       without path and without '.php' extension. e.g. the default value 'default'
+       is $post_template_dir/default.php
+    */
+    $defaults                   = Array('template' => 'default' );
+
+    $opts = wp_parse_args($args, $defaults);
+
+    // Bring arguments into local scope, vars prefixed with $loop_
+    extract($opts, EXTR_PREFIX_ALL, 'loop');
+
+    // Preserve the current query object and the current global post before messing around.
+    $temp_query = clone $wp_query;
+    $temp_post  = clone $post;
+
+    $template_path = sprintf('%s/%s/%s.php', dirname(__FILE__), $post_template_dir, $loop_template);
+
+    if(!file_exists($template_path))
+    {
+        printf ('&lt;p class="error"&gt;Sorry, the template you are trying to use ("%s") in %s() does not exist (%s).',
+            $template,
+            __FUNCTION__,
+            __FILE__);
+        return false;
+    }
+    /* Allow for display of posts in order passed in post__in array
+       [as the 'orderby' arg doesn't seem to work consistently without giving it some help]
+       If 'post__in' is in args and 'orderby' is set to 'none', just grab those posts,
+       in the order provided in the 'post__in' array.
+    */
+    if($loop_orderby &amp;&amp; $loop_orderby == 'none' &amp;&amp; $loop_post__in)
+    {
+        foreach($loop_post__in as $post_id)
+            $loop_posts[] = get_post($post_id);
+    }
+    else
+        $loop_posts = query_posts($args);
+
+    /* Utility vars for the loop; in scope in included template */
+    $loop_count             = 0;
+    $loop_odd               = false;
+    $loop_even              = false;
+    $loop_first             = true;
+    $loop_last              = false;
+    $loop_css_class         = '';                               // For convenience
+    $loop_size = sizeof($loop_posts);
+    $loop_owner = $temp_post;       /* The context from within this loop is called
+                                       the global $post before we query */
+
+    foreach($loop_posts as $post)
+    {
+        $loop_count += 1;
+        ($loop_count % 2 == 0) ? $loop_even = true : $loop_even = false;
+        ($loop_count % 2 == 1) ? $loop_odd  = true : $loop_odd  = false;
+        ($loop_count == 1) ?     $loop_first = true : $loop_first = false;
+        ($loop_count == $loop_size) ? $loop_last = true : $loop_last = false;
+        ($loop_even) ? $loop_css_class = 'even' : $loop_class = 'odd';
+        setup_postdata($post);
+        include($template_path);
+    }
+    $wp_query = clone $temp_query;  // Put the displaced query and post back into global scope
+    $post = clone $temp_post;       // And set up the post for use.
+    setup_postdata($post);
+    return $loop_posts;
+}</code></pre>
+
+  <pre><code class="language-json">{
+  "name": "Cloud Four",
+  "short_name": "Cloud Four",
+  "description": "We design and develop responsive websites and progressive web apps.",
+  "icons": [
+    {
+      "src": "\/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image\/png"
+    },
+    {
+      "src": "\/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image\/png"
+    }
+  ],
+  "theme_color": "#456BD9",
+  "background_color": "#456BD9",
+  "display": "standalone",
+  "orientation": "natural",
+  "start_url": "/",
+  "gcm_sender_id": "482941778795",
+  "example_bool": true,
+  "example_integer": 42,
+  "example_float": 1.337
+}</code></pre>
+
+    <p>
+      As someone who knows a little code,<sup><a class="FootnoteLink" href="#article-fn-2" id="article-fn-ref-2" title="Jump to footnote">2</a></sup> it’s easy to be like, “Hey, just learn to code”. However, stepping out of your knowledge base and comfort zone can be a scary place. It can even be daunting just knowing where to begin.
+    </p>
+
+    <figure class="Figure u-lg-floatLeft u-lg-spaceRight1 u-lg-pullLeft6">
+      <img src="https://media.giphy.com/media/BjMlHZaZuQnBe/giphy.gif" alt="" />
+      <figcaption class="Figure-caption u-textShrink1">
+        This is a left-aligned image
+      </figcaption>
+    </figure>
+
+    <p>
+      Some designers I have talked to are straight up hostile when the idea of having to learn to code is mentioned. One designer friend of mine was appalled at the idea that now after having invested so much time, energy and money into her design education she would additionally have to learn to code. What I wanted to say to my friend, and also what I should remind myself of at times is that, <em>it is going to be okay. You do not have to become a developer.</em>
+    </p>
+
+    <figure class="Figure">
+      <img src="https://media.giphy.com/media/10uPgWshxbHyBa/giphy.gif" alt="" />
+      <figcaption class="Figure-caption u-textShrink1">
+        A Narwhal is the unicorn of the sea.
+      </figcaption>
+    </figure>
+
+    <p>
+      It’s not about being an expert at both design and development. You will always have a strong leaning towards one or the other. I will always be a designer first. I will never look at something and not want to make it beautiful. Also, there are developers out there that not only can see and appreciate design, but can put together <a href="#">typographic systems</a> and pick amazing color palettes, however, at their core they are developers. People have their natural strengths, but that doesn't preclude them from having other talents and appreciations.
+    </p>
+
+    <figure class="Figure u-lg-floatRight u-lg-spaceLeft1 u-lg-pullRight6">
+      <img src="https://media.giphy.com/media/q9IXJJklK7lpm/giphy.gif" alt="" />
+      <figcaption class="Figure-caption u-textShrink1">
+        Here is a right-aligned image
+      </figcaption>
+    </figure>
+
+    <p>
+      When I look at a problem, it will always be from the perspective of a designer. I like to solve the big problem, piecing the code together to get my idea out as quickly as possible. Then I worry about making the code better later. The main point is getting the design, or the experience out of my head and into the browser, where I can squish my screen, or pull it up on my phone. I don’t have to be an amazing developer, or a decent developer or even developer at all. I just need the tools necessary to realize my vision for the design problem I am trying to solve.
+    </p>
+
+    <p>
+      I like to look at having technical skills the same way I would look at having presentation skills. Or project management, writing, and concepting skills. We are not just pixel pushers, we are designers. We are complex thinkers, makers and problem solvers. That goes way beyond just the presentation layer of a design. It’s about a breadth of knowledge that informs your creative process. Code informing visual design. And vice versa, visual design informing the code.
+    </p>
+
+    <div class="HashHeading HashHeading--h2">
+      <h2 id="natural-unicorns">
+        I don’t believe there are natural born unicorns
+      </h2>
+      <a href="#natural-unicorns"
+        aria-label="Permalink for I don’t believe there are natural born unicorns"
+        class="HashHeading-link">
+        {{svg "icons/link" class="Icon" aria-hidden="true"}}
+      </a>
+    </div>
+
+    <p>
+      People are not just magically amazing designers and awesome developers. I do believe in the constant and perpetual learner. What being a unicorn is really about is just having a hunger for knowing more. Not stopping at just enough knowledge. Unicorns are just people who are curious. You show me a unicorn, and I see someone who likes to learn not just about their own discipline, but also the ones that overlap theirs.
+    </p>
+
+    <div class="HashHeading HashHeading--h2">
+      <h2 id="practical-advice">
+        Some practical advice from an Ugly Unicorn
+      </h2>
+      <a href="#practical-advice"
+        aria-label="Permalink for Some practical advice from an Ugly Unicorn"
+        class="HashHeading-link">
+        {{svg "icons/link" class="Icon" aria-hidden="true"}}
+      </a>
+    </div>
+
+    <figure class="Figure">
+      <img src="https://media0.giphy.com/media/l4KhKQyxYMgLec8tW/200.gif" alt="" />
+      <figcaption class="Figure-caption u-textShrink1">
+        You don’t have to become a developer, it’s about getting your idea out.
+      </figcaption>
+    </figure>
+
+    <ul>
+      <li>A basic knowledge of HTML and CSS is enough to start designing in-browser.</li>
+      <li>Start a CodePen account.</li>
+      <li>Bookmark and save plugins that can help you prototype quickly.</li>
+    </ul>
+
+    <p>
+      Be okay with feeling like you kinda suck, or feeling uncomfortable. Embrace being an ugly unicorn. Even though it feels weird and messy stepping out of your pixel-pushing comfort zone, you will ultimately be embracing the responsive web.
+    </p>
+
+    <section class="u-borderTopMd u-padTop01">
+      <header class="u-hiddenVisually">
+        <h2>Footnotes</h2>
+      </header>
+      <ol class="u-spaceItems">
+        <li class="u-bgGrayTarget u-padSides03 u-padEnds06" id="article-fn-1">
+          A unicorn is someone who can perform the tasks of a UX Designer/Architect, Visual Designer and Developer (typically front-end).
+          <a href="#article-fn-ref-1" title="Return to reference">
+            {{svg "icons/return" class="Icon" role="presentation"}}
+          </a>
+        </li>
+        <li class="u-bgGrayTarget u-padSides03 u-pad06" id="article-fn-2">
+          Otherwise known as a super smug person who considers themselves a unicorn.
+          <a href="#article-fn-ref-2" title="Return to reference">
+            {{svg "icons/return" class="Icon" role="presentation"}}
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <section class="u-borderTopMd u-padTop1 u-spaceItems1">
+      <header>
+        <h4>Responsive Images 101 Series</h4>
+      </header>
+      <ol class="u-listColumns u-sm-columns2">
+        <li><a href="#">Definitions</a></li>
+        <li><a href="#">Img Required</a></li>
+        <li><a href="#">Srcset Display Density</a></li>
+        <li><a href="#">Srcset Width Descriptors</a></li>
+        <li><a href="#">Sizes</a></li>
+        <li><a href="#">Picture Element</a></li>
+        <li><a href="#">Type</a></li>
+        <li><a href="#">CSS Responsive Images</a></li>
+        <li><a href="#">Image breakpoints</a></li>
+        <li>
+          <span class="u-hiddenVisually">Currently Viewing:</span>
+          <b>Conclusion</b>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+  <footer class="u-spaceItems4 u-spaceTop4">
+    {{{
+      embed "patterns.combos.blog.post-byline"
+      class="u-pullSides1"
+    }}}
+
+    <section>
+      <header class="u-flex u-flexAlignItemsBaseline u-flexJustifyBetween">
+        <h2>Comments</h2>
+        <p class="u-md-textGrow1">
+          <a class="u-linkClean u-textBold" href="#respond">
+            {{svg "icons/plus" class="Icon" role="presentation"}}
+            Add a comment
+          </a>
+        </p>
+      </header>
+
+      {{#each drizzle.data.comments.contents}}
+        {{{ embed "patterns.combos.blog.post-comment" comment=this }}}
+      {{/each}}
+
+      {{{ embed "patterns.combos.blog.post-comment-form" class="u-spaceTop2" }}}
+
+      <script id="comment-replyForm-template" type="text/template">
+        {{{
+          embed "patterns.combos.blog.post-comment-form"
+          class="u-spaceTop u-spaceLeft1 u-padTop u-borderTopMd"
+          isReply=true
+        }}}
+      </script>
+    </section>
+
+  </footer>
+
+</article>

@@ -1,13 +1,13 @@
 aileen:
   - fact: Aileen is the cloud fourian who is most likely to survive the zombie apocalypse.
-    image: /images/sandbox/trivia-aileen-walking_dead--square.png
+    image: https://dummyimage.com/400x400/008080/fff&text=A
   - fact: Aileen excels at catio craftsmanship.
-    image: /images/sandbox/trivia-aileen-catio.jpg
+    image: https://dummyimage.com/400x400/c33f0a/fff&text=B
   - fact: Aileen raises chickens.
-    image: /images/sandbox/chicken.jpg
+    image: https://dummyimage.com/400x400/a3d2be/fff&text=C
   - fact: Aileen spent an entire summer in college where her only objective was to avoid wearing the color black.
-    image: http://lorempixel.com/400/400/fashion
+    image: https://dummyimage.com/400x400/e5cdca/fff&text=D
   - fact: Aileen is all-time reigning champion of the game Would You Rather…
-    image: http://lorempixel.com/400/400/sports
+    image: https://dummyimage.com/400x400/f4c20d/fff&text=E
   - fact: Aileen has a special fondness for corvids.
-    image: http://lorempixel.com/400/400/people
+    image: https://dummyimage.com/400x400/865B5F/fff&text=F

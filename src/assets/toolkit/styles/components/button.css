@@ -236,7 +236,7 @@
 .Button--negative,
 .Button--negative:matches(:--enter) {
   color: var(--Button-negative-color);
-  border-color: color-mod(var(--Button-negative-background-color) shade(10%));
+  border-color: color-mod(var(--Button-negative-background-color) shade(15%));
   background-color: var(--Button-negative-background-color);
 }
 

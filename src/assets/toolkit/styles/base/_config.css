@@ -43,12 +43,12 @@
   --color-gray: #dbe5ea;
 
   /* Secondary colors */
-  --color-orange: #f26941;
+  --color-orange: #f57b47;
   --color-green: #35c98d;
-  --color-fuchsia: #f14ca3;
+  --color-fuchsia: #dd117d;
 
   /* Other colors */
-  --color-red: #DE2B0B;
+  --color-red: #de1d0b;
 
   /* a11y variations for light-on-dark text contrast */
   --color-blue-a11y: color-mod(var(--color-blue) l(-4%));

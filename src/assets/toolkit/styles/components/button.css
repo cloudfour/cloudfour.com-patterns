@@ -162,7 +162,7 @@
  */
 
 :root {
-  --Button-primary-background-color: var(--color-orange);
+  --Button-primary-background-color: var(--color-fuchsia);
   --Button-primary-color: var(--color-white);
   --Button-primaryDark-background-color: color-mod(var(--color-navy) l(+30%));
 }
@@ -180,7 +180,7 @@
 }
 
 .Button--primary:active {
-  background-color: color-mod(var(--Button-primary-background-color) shade(10%));
+  /* background-color: color-mod(var(--Button-primary-background-color) shade(10%)); */
 }
 
 .Button--primaryDark,
@@ -204,7 +204,7 @@
  */
 
 :root {
-  --Button-positive-background-color: var(--color-green);
+  --Button-positive-background-color: #068358;
   --Button-positive-color: var(--color-white);
 }
 

@@ -48,7 +48,7 @@
   --color-fuchsia: #f14ca3;
 
   /* Other colors */
-  --color-red: #de1d0b;
+  --color-red: #bf0000;
 
   /* a11y variations for light-on-dark text contrast */
   --color-blue-a11y: color-mod(var(--color-blue) l(-4%));

@@ -162,7 +162,7 @@
  */
 
 :root {
-  --Button-primary-background-color: var(--color-fuchsia);
+  --Button-primary-background-color: #dd117d;
   --Button-primary-color: var(--color-white);
   --Button-primaryDark-background-color: color-mod(var(--color-navy) l(+30%));
 }
@@ -204,7 +204,7 @@
  */
 
 :root {
-  --Button-positive-background-color: #06834f;
+  --Button-positive-background-color: #068362;
   --Button-positive-color: var(--color-white);
 }
 

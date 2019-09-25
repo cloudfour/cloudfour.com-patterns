@@ -6,14 +6,14 @@
     <polygon id="tree" points="0,70 30,0 60,70"/>
     <use id="tree-bg" xlink:href="#tree" fill="#249579"/>
     <use id="tree-fg" xlink:href="#tree" fill="#35C98D"/>
-    <g id="limbs" stroke="#DBE5EA">
+    <g id="limbs" stroke="#dee7ec">
       <line x1="30" y1="30" x2="30" y2="70"/>
       <line x1="30" y1="45" x2="40" y2="37"/>
       <line x1="21" y1="44" x2="30" y2="50"/>
       <line x1="30" y1="55" x2="40" y2="47"/>
     </g>
     <g id="building">
-      <rect x="0" y="0" width="38" height="48" fill="#D8E5EA"/>
+      <rect x="0" y="0" width="38" height="48" fill="#dee7ec"/>
       <rect id="building-detail" x="0" y="3" width="38" height="3" fill="#9FB3BE"/>
       <use xlink:href="#building-detail" y="6"/>
     </g>

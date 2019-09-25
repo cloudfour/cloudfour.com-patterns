@@ -9,7 +9,7 @@ primary:
 accents:
   - color: "#F26941"
     property: "--color-orange"
-  - color: "#35C98D"
+  - color: "#068362"
     property: "--color-green"
-  - color: "#F14CA3"
+  - color: "#DD117D"
     property: "--color-fuchsia"

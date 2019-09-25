@@ -44,11 +44,11 @@
 
   /* Secondary colors */
   --color-orange: #f26941;
-  --color-green: #35c98d;
-  --color-fuchsia: #f14ca3;
+  --color-green: #068362;
+  --color-fuchsia: #dd117d;
 
   /* Other colors */
-  --color-red: #bf0000;
+  --color-red: #de1d0b;
 
   /* a11y variations for light-on-dark text contrast */
   --color-blue-a11y: color-mod(var(--color-blue) l(-4%));

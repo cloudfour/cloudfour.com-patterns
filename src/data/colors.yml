@@ -3,7 +3,7 @@ primary:
     property: "--color-navy"
   - color: "#456BD9"
     property: "--color-blue"
-  - color: "#DBE5EA"
+  - color: "#DEE7EC"
     property: "--color-gray"
 
 accents:

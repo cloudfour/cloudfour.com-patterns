@@ -10,6 +10,10 @@
   .u-staggerItems$(suffix) > * + * {
     margin-top: $(value) !important;
   }
+
+  .u-staggerHeadings$(suffix) > * + :--headings {
+    margin-top: $(value) !important;
+  }
 }
 
 @define-mixin makePullUtils $value, $suffix, $prefix {

@@ -1,0 +1,15 @@
+---
+title: Stagger Headings
+layout: toolkit.default
+---
+
+<div class="u-staggerItems u-staggerHeadings3">
+  <h1>Heading</h1>
+  {{#iterate 2}}
+    <p>{{random "paragraph"}}</p>
+  {{/iterate}}
+  <h1>Heading</h1>
+  {{#iterate 2}}
+    <p>{{random "paragraph"}}</p>
+  {{/iterate}}
+</div>

@@ -14,6 +14,9 @@ notes: |
   + `u-spaceRightX` applies `margin` to right.
   + `u-spaceItemsX` applies vertical `margin` between adjacent items.
   + `u-staggerItemsX` applies vertical `margin` between adjacent items proportional to the item's `font-size`.
+  + `u-staggerHeadingsX` applies vertical `margin` between adjacent items using
+  a larger proportion than `u-staggerItems` to further differentiate headings
+  from preceding content.
   + `u-padX` applies `padding` all around.
   + `u-padEndsX` applies `padding` to top and bottom.
   + `u-padSidesX` applies `padding` to left and right.
@@ -33,8 +36,8 @@ notes: |
   leading zero (`01` through `06`) for whitespace smaller than the ratio with
   any of the above utilities except `u-pull*`.
 
-  With the exception of `u-spaceItems*`, all of these utilities support our
-  standard breakpoint abbreviations of `sm`, `md` and `lg`.
+  With the exception of `u-spaceItems*` and `u-staggerHeadings`, all of these
+  utilities support our standard breakpoint abbreviations of `sm`, `md` and `lg`.
 ---
 
 <div class="u-borderLeftMd u-padLeftNone">

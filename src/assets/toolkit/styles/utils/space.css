@@ -11,11 +11,8 @@
     margin-top: $(value) !important;
   }
 
-  .u-staggerHeadings$(suffix) > * + :--headings {
-    margin-top: $(value) !important;
-  }
-
-  .u-staggerNestedHeadings$(suffix) > * > :--headings {
+  .u-staggerHeadings$(suffix) > * + :--headings,
+  .u-staggerHeadings$(suffix) > * + .HashHeading {
     margin-top: $(value) !important;
   }
 }

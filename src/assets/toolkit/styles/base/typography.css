@@ -18,8 +18,16 @@
 
 body {
   font: var(--base-font); /* 1 */
+  font-weight: 400;
   word-wrap: break-word; /* 2 */
   text-size-adjust: none; /* 3 */
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: var(--font-family-variable);
+    /* font-variation-settings: "wght" 400; */
+  }
 }
 
 /**
@@ -27,7 +35,9 @@ body {
  */
 
 :--headings {
-  font: var(--heading-font);
+  /* font: var(--heading-font); */
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
 }
 
 /**

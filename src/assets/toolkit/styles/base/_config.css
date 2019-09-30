@@ -127,8 +127,10 @@
   --font-size-lg: calc(var(--ms2) * 1em);
   --font-size-xl: calc(var(--ms3) * 1em);
 
-  --font-family-default: "Source Sans Pro", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-family-mono: "Source Code Pro", Monaco, Consolas, "Lucida Console", "Andale Mono", monospace;
+  --font-family-fallback: Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-default: "SourceSans", var(--font-family-fallback);
+  --font-family-variable: "SourceSansVariable", var(--font-family-fallback);
+  --font-family-mono: "SourceCode", Monaco, Consolas, "Lucida Console", "Andale Mono", monospace;
 
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
@@ -139,7 +141,7 @@
   --line-height-md: var(--ms2);
   --line-height-lg: var(--ms3);
 
-  --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-default);
+  /* --heading-font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-default); */
 
   --code-font: var(--font-size-sm) var(--font-family-mono);
 }

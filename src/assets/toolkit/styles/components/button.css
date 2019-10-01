@@ -162,7 +162,7 @@
  */
 
 :root {
-  --Button-primary-background-color: var(--color-fuchsia);
+  --Button-primary-background-color: var(--color-orchid);
   --Button-primary-color: var(--color-white);
   --Button-primaryDark-background-color: color-mod(var(--color-navy) l(+30%));
 }

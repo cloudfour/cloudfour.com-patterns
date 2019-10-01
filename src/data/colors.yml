@@ -12,4 +12,6 @@ accents:
   - color: "#068362"
     property: "--color-green"
   - color: "#DD117D"
+    property: "--color-orchid"
+  - color: "#F14CA3"
     property: "--color-fuchsia"

@@ -24,7 +24,7 @@
 .token.attr-value,
 .token.selector,
 .token.class-name {
-  color: color-mod(var(--color-green) l(+15%));
+  color: color-mod(var(--color-green) l(+17%));
 }
 
 .token.rule,

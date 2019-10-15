@@ -31,7 +31,8 @@
 .token.tag,
 .token.regex,
 .token.number,
-.token.boolean {
+.token.boolean,
+.token.function {
   color: color-mod(var(--color-fuchsia) l(+10%));
 }
 

@@ -1,5 +1,8 @@
 dist
 node_modules
 npm-debug.log
-.svgsus
 .DS_Store
+
+# App preferences
+.svgsus
+.vscode

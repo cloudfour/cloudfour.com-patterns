@@ -1,5 +1,13 @@
 @use postcss-mixins;
-@use postcss-cssnext;
+@use postcss-preset-env {
+  stage: 0;
+  features {
+    custom-properties {
+      preserve: false
+    }
+  }
+};
 @use postcss-easings;
 @use postcss-discard-comments;
 @use postcss-discard-empty;
+@use postcss-calc;

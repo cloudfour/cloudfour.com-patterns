@@ -35,7 +35,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.6",
     "postcss-calc": "^5.0.0",
-    "postcss-cssnext": "^2.11.0",
     "postcss-discard-comments": "^2.0.4",
     "postcss-discard-empty": "^2.0.1",
     "postcss-easings": "^0.3.0",

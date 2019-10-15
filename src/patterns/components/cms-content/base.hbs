@@ -3,16 +3,19 @@ notes: |
   The `.CmsContent` class is used on the parent element of CMS prose fields to style some common child elements:
     + `<pre>`: Adds padding and negative margins
     + `<blockquote>`: Adds border and lightens color
+sourceless: true
 ---
 
 <article class="CmsContent u-staggerItems1">
   <p>
     {{random "paragraph" sentences="2"}}
   </p>
-  <pre><code class="language-css">.CodeSample {
-  display: block;
-  padding: 1rem;
-}</code></pre>
+  <pre><code class="language-html">&lt;button class="Button"&gt;
+  &lt;span class="Button-inner"&gt;
+    Example
+  &lt;/span&gt;
+  &lt;!-- badge, etc. --&gt;
+&lt;/button&gt;</code></pre>
   <p>
     {{random "paragraph" sentences="2"}}
   </p>
@@ -27,4 +30,33 @@ notes: |
   <p>
     {{random "paragraph" sentences="2"}}
   </p>
+  <pre><code class="language-css">.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}</code></pre>
+  <p>
+    {{random "paragraph" sentences="2"}}
+  </p>
+  <pre><code class="language-js">const indexedRepos = repos.map((repo, index) => ({
+  name: repo.name,
+  language: String(repo.language),
+  index,
+}));
+
+// Sort by programming language
+repos = indexedRepos.sort((a, b) => {
+  if (a.language === b.language) {
+    return a.index &lt; b.index ? -1 : 1;
+  }
+  return a.language &lt; b.language ? -1 : 1;
+});</code></pre>
 </article>

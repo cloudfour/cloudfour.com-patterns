@@ -26,7 +26,7 @@
 .token.selector,
 .token.class-name,
 :matches(.language-js, .language-javascript) .token.string {
-  color: color-mod(var(--color-green) l(+17%));
+  color: color-mod(var(--color-green) l(+25%) s(-20%));
 }
 
 .token.rule,

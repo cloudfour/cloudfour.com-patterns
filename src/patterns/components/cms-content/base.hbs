@@ -64,7 +64,7 @@ repos = indexedRepos.sort((a, b) => {
 let step = Promise.resolve();
 
 // For every frame we need to generate…
-for (let i = 0; i <= frames; i++) {
+for (let i = 0; i &lt;= frames; i++) {
   let position = duration / frames * i;
   let filename = `whut-${filePrefix}${i}${fileScale}${fileExtension}`;
   // Begin this step when the previous finishes

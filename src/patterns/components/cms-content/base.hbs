@@ -58,5 +58,26 @@ repos = indexedRepos.sort((a, b) => {
     return a.index &lt; b.index ? -1 : 1;
   }
   return a.language &lt; b.language ? -1 : 1;
-});</code></pre>
+});
+
+// Set up a resolved promise for our loop
+let step = Promise.resolve();
+
+// For every frame we need to generate…
+for (let i = 0; i <= frames; i++) {
+  let position = duration / frames * i;
+  let filename = `whut-${filePrefix}${i}${fileScale}${fileExtension}`;
+  // Begin this step when the previous finishes
+  step = step.then(() => {
+    timeline.pause(position);
+    return svgAsPngUri(document.getElementById("amoeba"), { scale }).then(
+      uri => {
+        // Convert data URI to plain base64
+        let imgDataIndex = uri.indexOf("base64,") + "base64,".length;
+        let imgData = uri.substr(imgDataIndex);
+        zip.file(filename, imgData, { base64: true });
+      }
+    );
+  });
+}</code></pre>
 </article>

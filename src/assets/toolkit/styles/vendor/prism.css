@@ -16,14 +16,16 @@
 }
 
 .token.property,
-.token.keyword {
+.token.keyword,
+.token.interpolation-punctuation {
   color: color-mod(var(--color-blue) h(-15) s(+50%) l(+20%));
 }
 
 .token.constant,
 .token.attr-value,
 .token.selector,
-.token.class-name {
+.token.class-name,
+:matches(.language-js, .language-javascript) .token.string {
   color: color-mod(var(--color-green) l(+17%));
 }
 

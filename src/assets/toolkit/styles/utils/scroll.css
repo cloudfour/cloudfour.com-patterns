@@ -1,9 +1,0 @@
-/**
- * Horizontal overflow scrolling
- */
-
-.u-scrollX {
-  max-width: 100% !important;
-  overflow-x: auto !important;
-  -webkit-overflow-scrolling: touch;
-}

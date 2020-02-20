@@ -1,9 +1,9 @@
 {
   "name": "cloudfour.com-patterns",
-  "version": "0.0.1-alpha",
+  "version": "0.1.0",
   "private": true,
   "author": "Cloud Four",
-  "description": "A pattern library authoring environment",
+  "description": "Front-end patterns for cloudfour.com",
   "homepage": "https://github.com/cloudfour/cloudfour.com-patterns",
   "license": "MIT",
   "keywords": [
@@ -21,62 +21,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/cloudfour/cloudfour.com-patterns.git"
-  },
-  "engines": {
-    "node": ">=4.0.0"
-  },
-  "devDependencies": {
-    "@cloudfour/gulp-tasks": "^2.0.1",
-    "@cloudfour/hbs-helpers": "^0.7.0",
-    "drizzle-builder": "0.0.2-alpha",
-    "eslint": "^2.7.0",
-    "eslint-config-xo-space": "^0.12.0",
-    "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-util": "^3.0.6",
-    "postcss-calc": "^5.0.0",
-    "postcss-discard-comments": "^2.0.4",
-    "postcss-discard-empty": "^2.0.1",
-    "postcss-easings": "^0.3.0",
-    "postcss-easy-import": "^1.0.1",
-    "postcss-inline-svg": "^2.0.1",
-    "postcss-mixins": "^4.0.1",
-    "postcss-preset-env": "^5.2.1",
-    "postcss-use": "^2.0.2",
-    "require-dir": "^0.3.0",
-    "rollup": "^0.36.3",
-    "rollup-plugin-buble": "^0.14.0",
-    "rollup-plugin-commonjs": "^5.0.5",
-    "rollup-plugin-node-resolve": "^2.0.0",
-    "rollup-plugin-uglify": "^1.0.1"
-  },
-  "dependencies": {
-    "bezier-easing": "^2.0.3",
-    "css-modularscale": "^1.0.0",
-    "eases": "^1.0.8",
-    "feature.js": "^1.0.0",
-    "gsap": "^1.18.5",
-    "moment": "^2.10.6",
-    "prismjs": "^1.15.0",
-    "suitcss-base": "^2.0.0",
-    "suitcss-components-arrange": "^1.1.1",
-    "suitcss-components-button": "^5.0.0",
-    "suitcss-components-flex-embed": "^2.0.4",
-    "suitcss-components-grid": "^3.0.2",
-    "suitcss-utils": "^1.0.0",
-    "suitcss-utils-display": "^1.0.2",
-    "suitcss-utils-flex": "^1.1.1",
-    "suitcss-utils-layout": "^1.0.1",
-    "suitcss-utils-link": "^1.0.1",
-    "suitcss-utils-offset": "^1.0.0",
-    "suitcss-utils-position": "^1.0.1",
-    "suitcss-utils-size": "^2.0.0",
-    "suitcss-utils-text": "^1.0.0",
-    "umbrellajs": "^2.6.7"
-  },
-  "scripts": {
-    "prestart": "npm install",
-    "start": "gulp --dev",
-    "build": "gulp"
   }
 }

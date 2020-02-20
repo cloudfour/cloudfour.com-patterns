@@ -21,5 +21,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/cloudfour/cloudfour.com-patterns.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@storybook/html": "^5.3.13",
+    "babel-loader": "^8.0.6"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }

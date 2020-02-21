@@ -1,6 +1,9 @@
 module.exports = {
   stories: ['../src/**/*.stories.(js|mdx)'],
-  addons: ['@storybook/addon-docs'],
+  addons: [
+    '@storybook/addon-a11y/register',
+    '@storybook/addon-docs'
+  ],
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.twig$/,

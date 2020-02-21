@@ -1,7 +1,10 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withA11y } from '@storybook/addon-a11y';
 import template from './button.twig';
 
-<Meta title="Demo/Button"/>
+<Meta
+  title="Demo/Button"
+  decorators={[withA11y]}/>
 
 # Button
 

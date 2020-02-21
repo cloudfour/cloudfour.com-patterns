@@ -7,7 +7,7 @@
 {% endif %}
 
 <{{tagName}}
-  class="Button{% if class %} {{class}}{% endif %}"
+  class="demo-button{% if class %} {{class}}{% endif %}"
   {% if tagName == 'a' %}
     href="{{href|default('#')}}"
   {% elseif tagName == 'button' %}

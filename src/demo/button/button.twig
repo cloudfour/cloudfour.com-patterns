@@ -17,6 +17,6 @@
     {% endif %}
   {% endif %}>
   {% block content %}
-    Button
+    {{label | default('Label')}}
   {% endblock %}
 </{{tagName}}>

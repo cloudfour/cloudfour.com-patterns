@@ -3,6 +3,7 @@ module.exports = {
   addons: [
     '@storybook/addon-a11y/register',
     '@storybook/addon-docs',
+    '@storybook/addon-knobs/register',
     {
       name: '@storybook/preset-scss',
       options: {

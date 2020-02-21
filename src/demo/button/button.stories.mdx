@@ -1,0 +1,22 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import template from './button.twig';
+
+<Meta title="Demo/Button"/>
+
+# Button
+
+The quick brown fox jumped over the lazy dog.
+
+<Preview>
+  <Story name="Button Element">
+    {template()}
+  </Story>
+</Preview>
+
+<Preview height="100">
+  <Story name="Link Element">
+    {template({
+      href: '#'
+    })}
+  </Story>
+</Preview>

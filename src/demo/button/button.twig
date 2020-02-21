@@ -1,0 +1,22 @@
+{% if not tagName %}
+  {% if href %}
+    {% set tagName = 'a' %}
+  {% else %}
+    {% set tagName = 'button' %}
+  {% endif %}
+{% endif %}
+
+<{{tagName}}
+  class="demo-button{% if class %} {{class}}{% endif %}"
+  {% if tagName == 'a' %}
+    href="{{href|default('#')}}"
+  {% elseif tagName == 'button' %}
+    type="{{type|default('button')}}"
+    {% if disabled %}
+      disabled
+    {% endif %}
+  {% endif %}>
+  {% block content %}
+    {{label | default('Label')}}
+  {% endblock %}
+</{{tagName}}>

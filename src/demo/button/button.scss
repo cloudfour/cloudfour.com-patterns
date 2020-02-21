@@ -1,0 +1,8 @@
+.demo-button {
+  color: blue;
+}
+
+.demo-button:disabled {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}

@@ -21,5 +21,26 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/cloudfour/cloudfour.com-patterns.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@storybook/addon-a11y": "^5.3.13",
+    "@storybook/addon-docs": "^5.3.13",
+    "@storybook/addon-knobs": "^5.3.13",
+    "@storybook/addon-viewport": "^5.3.13",
+    "@storybook/html": "^5.3.13",
+    "@storybook/preset-scss": "^1.0.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "twig": "^1.15.0",
+    "twigjs-loader": "^1.0.1"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }

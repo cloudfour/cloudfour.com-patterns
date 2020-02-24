@@ -2,14 +2,25 @@ const { resolve } = require('path');
 const theo = require('theo');
 const yaml = require('js-yaml');
 
-function loader(source) {
+/**
+ * Webpack loader for Theo YAML/YML.
+ *
+ * @param {string} source - The contents of the requested file.
+ */
+function theoLoader(source) {
+  // The absolute path to the requested design token file.
   const tokenPath = this.resourcePath;
+  // Lets Webpack now this is an async loader and provides us a callback.
   const done = this.async();
+  // Load the source to a JavaScript object so we can process imports.
   const def = yaml.safeLoad(source);
 
+  // By processing import paths beforehand, we give Webpack the info it needs
+  // to refresh files accurately and clear its cache.
   if (def.imports) {
     def.imports.forEach(importPath => {
-      this.addDependency(resolve(this.resourcePath, importPath));
+      // Import paths are relative to the requesting file.
+      this.addDependency(resolve(tokenPath, importPath));
     });
   }
 
@@ -31,6 +42,6 @@ function loader(source) {
     });
 }
 
-loader.raw = true;
+theoLoader.raw = true;
 
-module.exports = loader;
+module.exports = theoLoader;

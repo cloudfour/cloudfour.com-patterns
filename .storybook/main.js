@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+
 module.exports = {
   stories: ['../src/**/*.stories.(js|mdx)'],
   addons: [
@@ -9,7 +11,12 @@ module.exports = {
       name: '@storybook/preset-scss',
       options: {
         sassLoaderOptions: {
-          implementation: require('sass')
+          // Dart Sass performs much better than Node Sass
+          implementation: require('sass'),
+          sassOptions: {
+            // Import Theo design tokens as SCSS variables
+            importer: [require('./theo-importer')]
+          }
         }
       }
     }
@@ -18,6 +25,10 @@ module.exports = {
     config.module.rules.push({
       test: /\.twig$/,
       use: 'twigjs-loader'
+    }, {
+      // Import Theo design tokens as JS objects
+      test: /\.ya?ml$/,
+      use: resolve(__dirname, './theo-loader.js')
     });
 
     return config;

@@ -1,0 +1,7 @@
+imports:
+  - ./colors.yml
+props:
+  brand_primary:
+    value: "{!blue}"
+    type: color
+    category: brand

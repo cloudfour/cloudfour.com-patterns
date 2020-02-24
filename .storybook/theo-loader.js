@@ -31,11 +31,12 @@ function theoLoader(source) {
         type: 'web'
       },
       format: {
-        type: 'json'
+        // Outputs ES modules: `export const propertyName = value;`
+        type: 'module.js'
       }
     })
-    .then(jsonString => {
-      done(null, `export default ${jsonString}`);
+    .then(result => {
+      done(null, result);
     })
     .catch(({ message }) => {
       done(new Error(`Theo import of ${tokenPath} failed: ${message}`));

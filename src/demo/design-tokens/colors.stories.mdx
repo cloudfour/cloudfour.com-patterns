@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
-import brandTokens from './brand.yml';
+import * as brandTokens from './brand.yml';
 
 <Meta
   title="Demo/Colors"/>
@@ -10,7 +10,7 @@ Hello world! 👋
 
 <ColorPalette>
   <ColorItem
-    title="brand_primary"
-    colors={[brandTokens.brand_primary]}
+    title="Brand"
+    colors={[brandTokens.brandPrimary]}
   />
 </ColorPalette>

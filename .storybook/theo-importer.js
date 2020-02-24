@@ -4,6 +4,9 @@ const theo = require('theo');
 /**
  * Import Theo YAML files into SCSS files.
  *
+ * Parameter names (url, prev, done) are the same as those defined in the Sass
+ * importer documentation.
+ *
  * @param {string} url - File path relative to SCSS file.
  * @param {string} prev - File path of SCSS file that made import request.
  * @param {function({ file: string, contents: string })} done - Callback to

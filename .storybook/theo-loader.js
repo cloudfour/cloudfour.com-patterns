@@ -1,8 +1,18 @@
+const { resolve } = require('path');
 const theo = require('theo');
+const yaml = require('js-yaml');
 
-function loader() {
+function loader(source) {
   const tokenPath = this.resourcePath;
   const done = this.async();
+  const def = yaml.safeLoad(source);
+
+  if (def.imports) {
+    def.imports.forEach(importPath => {
+      this.addDependency(resolve(this.resourcePath, importPath));
+    });
+  }
+
   theo
     .convert({
       transform: {

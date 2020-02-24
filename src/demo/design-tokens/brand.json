@@ -1,0 +1,12 @@
+{
+  "imports": [
+     "./colors.json"
+  ],
+  "props": {
+     "brand_primary": {
+        "value": "blue",
+        "type": "color",
+        "category": "brand"
+     }
+  }
+}

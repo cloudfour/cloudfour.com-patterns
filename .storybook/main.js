@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+
 module.exports = {
   stories: ['../src/**/*.stories.(js|mdx)'],
   addons: [
@@ -23,6 +25,10 @@ module.exports = {
     config.module.rules.push({
       test: /\.twig$/,
       use: 'twigjs-loader'
+    }, {
+      // Import Theo design tokens as JS objects
+      test: /\.ya?ml$/,
+      use: resolve(__dirname, './theo-loader.js')
     });
 
     return config;

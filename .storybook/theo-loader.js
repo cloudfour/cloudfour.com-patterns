@@ -10,7 +10,7 @@ const yaml = require('js-yaml');
 function theoLoader(source) {
   // The absolute path to the requested design token file.
   const tokenPath = this.resourcePath;
-  // Lets Webpack now this is an async loader and provides us a callback.
+  // Lets Webpack know this is an async loader and provides us a callback.
   const done = this.async();
   // Load the source to a JavaScript object so we can process imports.
   const def = yaml.safeLoad(source);

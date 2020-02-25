@@ -1,0 +1,78 @@
+/**
+ * Sensible box model
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+ * 1. Remove white space surrounding page.
+ */
+body {
+  margin: 0; /* 1 */
+}
+
+/**
+ * 1. Block display is usually what we want
+ * 2. Remove strange space-below when inline
+ * 3. Responsive by default
+ *
+ * @see https://github.com/mozdevs/cssremedy
+ */
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+  max-width: 100%; /* 3 */
+}
+
+canvas,
+img,
+svg,
+video {
+  height: auto;
+}
+
+audio {
+  width: 100%;
+}
+
+/**
+ * Don't allow code blocks to overflow willy-nilly.
+ */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Old browser fixes
+ */
+
+img {
+  border-style: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}

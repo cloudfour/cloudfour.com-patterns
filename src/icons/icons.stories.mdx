@@ -1,9 +1,12 @@
 import { Meta, IconGallery, IconItem, Story, Preview } from '@storybook/addon-docs/blocks';
-import { basename } from 'path';
+import { extname, relative } from 'path';
+// Import whole directory of icons together
+// @see https://webpack.js.org/guides/dependency-management/#context-module-api
 const iconDir = require.context('../assets/icons', true, /\.svg$/);
 const iconElements = iconDir.keys().map(key => {
   const Icon = iconDir(key).default;
-  const name = basename(key, '.svg');
+  // Retains subdirectory if we want to organize with those in the future
+  const name = relative('.', key).replace(extname(key), '');
   return <IconItem name={name}><Icon class="o-icon"/></IconItem>;
 });
 
@@ -11,6 +14,6 @@ const iconElements = iconDir.keys().map(key => {
 
 # Icons
 
-The quick brown fox jumped over the lazy dog.
+Our icons are designed to be compact yet friendly. They embrace bold shapes, rounded corners and circular caps. They work well adjacent to text, but should rarely be used on their own to convey meaning.
 
 <IconGallery>{iconElements}</IconGallery>

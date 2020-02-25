@@ -21,15 +21,18 @@ module.exports = {
       }
     }
   ],
-  webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.twig$/,
-      use: 'twigjs-loader'
-    }, {
-      // Import Theo design tokens as JS objects
-      test: /\.ya?ml$/,
-      use: resolve(__dirname, './theo-loader.js')
-    });
+  webpackFinal: async config => {
+    config.module.rules.push(
+      {
+        test: /\.twig$/,
+        use: 'twigjs-loader'
+      },
+      {
+        // Import Theo design tokens as JS objects
+        test: /\.ya?ml$/,
+        use: resolve(__dirname, './theo-loader.js')
+      }
+    );
 
     return config;
   }

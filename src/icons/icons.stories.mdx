@@ -1,0 +1,16 @@
+import { Meta, IconGallery, IconItem, Story, Preview } from '@storybook/addon-docs/blocks';
+import { basename } from 'path';
+const iconDir = require.context('../assets/icons', true, /\.svg$/);
+const iconElements = iconDir.keys().map(key => {
+  const Icon = iconDir(key).default;
+  const name = basename(key, '.svg');
+  return <IconItem name={name}><Icon class="o-icon"/></IconItem>;
+});
+
+<Meta title="Icons"/>
+
+# Icons
+
+The quick brown fox jumped over the lazy dog.
+
+<IconGallery>{iconElements}</IconGallery>

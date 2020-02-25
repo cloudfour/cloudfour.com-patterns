@@ -1,0 +1,93 @@
+/**
+ * Sensible box model
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+ * Remove white space surrounding page.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * 1. Block display is usually what we want
+ * 2. Remove strange space-below when inline
+ * 3. Responsive by default
+ *
+ * @see https://github.com/mozdevs/cssremedy
+ */
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+  max-width: 100%; /* 3 */
+}
+
+/**
+ * Embedded elements with consistent aspect ratios require this to maintain
+ * that ratio when resized.
+ */
+canvas,
+img,
+svg,
+video {
+  height: auto;
+}
+
+/**
+ * It's pretty arbitrary that audio elements are 300px wide by default.
+ */
+audio {
+  width: 100%;
+}
+
+/**
+ * Don't allow code blocks to overflow willy-nilly.
+ */
+pre {
+  overflow: auto;
+}
+
+/**
+ * IE10 and earlier still show borders around linked images. While usage of that
+ * browser is low, this is an easy fix to include.
+ */
+img {
+  border-style: none;
+}
+
+/**
+ * IE10 and earlier do not respect the `hidden` attribute.
+ *
+ * @see https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/
+ */
+[hidden] {
+  display: none !important;
+}
+
+/**
+ * IE11 and earlier display some HTML5 elements as `inline` by default.
+ */
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}

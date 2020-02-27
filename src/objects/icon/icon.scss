@@ -1,7 +1,6 @@
 @use "sass:math";
 @use '../../mixins/svg';
-
-$inline-adjustment: 1rem / 16 * -2;
+@use '../../mixins/unit';
 
 .o-icon {
   @include svg.inherit-color;
@@ -11,6 +10,16 @@ $inline-adjustment: 1rem / 16 * -2;
   vertical-align: middle;
 }
 
+/**
+ * Apply a small vertical adjustment to properly align with adjacent text.
+ *
+ * 1. We convert a pixel value to rems so it will scale with the root font size
+ *    but not with the icon itself. If we scale the adjustment with the icon
+ *    itself, it will appear too dramatic the larger the icon is in comparison
+ *    to adjacent text.
+ *
+ * @see https://cloudfour.com/thinks/some-imaginary-css/#align-to-typeface-median
+ */
 .o-icon--inline {
-  top: $inline-adjustment;
+  top: unit.px-to-rem(-2px); /* 1 */
 }

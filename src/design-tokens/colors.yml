@@ -1,44 +1,44 @@
 aliases:
-  blue-lighter: "#8abfff"
-  blue-light: "#3d84F5"
+  blue_lighter: "#8abfff"
+  blue_light: "#3d84F5"
   blue: "#215cca"
-  blue-dark: "#183889"
-  blue-darker: "#0E1C43"
-  green-lighter: "#71f4ae"
-  green-light: "#2cdd90"
+  blue_dark: "#183889"
+  blue_darker: "#0E1C43"
+  green_lighter: "#71f4ae"
+  green_light: "#2cdd90"
   green: "#158466"
-  green-dark: "#105c52"
-  green-darker: "#0c3538"
-  purple-lighter: "#e98efa"
-  purple-light: "#d250f7"
+  green_dark: "#105c52"
+  green_darker: "#0c3538"
+  purple_lighter: "#e98efa"
+  purple_light: "#d250f7"
   purple: "#950cde"
-  purple-dark: "#560a9b"
-  purple-darker: "#2a085e"
-  fuchsia-lighter: "#ff80ca"
-  fuchsia-light: "#f240ae"
+  purple_dark: "#560a9b"
+  purple_darker: "#2a085e"
+  fuchsia_lighter: "#ff80ca"
+  fuchsia_light: "#f240ae"
   fuchsia: "#d9118f"
-  fuchsia-dark: "#950f7d"
-  fuchsia-darker: "#5c0a5c"
-  orange-lighter: "#ffad5c"
-  orange-light: "#fa8f47"
+  fuchsia_dark: "#950f7d"
+  fuchsia_darker: "#5c0a5c"
+  orange_lighter: "#ffad5c"
+  orange_light: "#fa8f47"
   orange: "#f27041"
-  orange-dark: "#aa3f24"
-  orange-darker: "#622018"
-  gray-lighter: "#dee7ec"
-  gray-light: "#a5b9c6"
+  orange_dark: "#aa3f24"
+  orange_darker: "#622018"
+  gray_lighter: "#dee7ec"
+  gray_light: "#a5b9c6"
   gray: "#738da0"
-  gray-dark: "#485968"
-  gray-darker: "#252b32"
-  black-transparent-85: "rgba(0, 0, 0, 0.85)"
-  white-transparent-85: "rgba(255, 255, 255, 0.85)"
+  gray_dark: "#485968"
+  gray_darker: "#252b32"
+  black_transparent_85: "rgba(0, 0, 0, 0.85)"
+  white_transparent_85: "rgba(255, 255, 255, 0.85)"
   white: "#fff"
 props:
   primary_brand_lighter:
-    value: "{!blue-lighter}"
+    value: "{!blue_lighter}"
     type: color
     category: brand
   primary_brand_light:
-    value: "{!blue-light}"
+    value: "{!blue_light}"
     type: color
     category: brand
   primary_brand:
@@ -46,19 +46,19 @@ props:
     type: color
     category: brand
   primary_brand_dark:
-    value: "{!blue-dark}"
+    value: "{!blue_dark}"
     type: color
     category: brand
   primary_brand_darker:
-    value: "{!blue-darker}"
+    value: "{!blue_darker}"
     type: color
     category: brand
   green_lighter:
-    value: "{!green-lighter}"
+    value: "{!green_lighter}"
     type: color
     category: brand
   green_light:
-    value: "{!green-light}"
+    value: "{!green_light}"
     type: color
     category: brand
   green:
@@ -66,19 +66,19 @@ props:
     type: color
     category: brand
   green_dark:
-    value: "{!green-dark}"
+    value: "{!green_dark}"
     type: color
     category: brand
   green_darker:
-    value: "{!green-darker}"
+    value: "{!green_darker}"
     type: color
     category: brand
   purple_lighter:
-    value: "{!purple-lighter}"
+    value: "{!purple_lighter}"
     type: color
     category: brand
   purple_light:
-    value: "{!purple-light}"
+    value: "{!purple_light}"
     type: color
     category: brand
   purple:
@@ -86,19 +86,19 @@ props:
     type: color
     category: brand
   purple_dark:
-    value: "{!purple-dark}"
+    value: "{!purple_dark}"
     type: color
     category: brand
   purple_darker:
-    value: "{!purple-darker}"
+    value: "{!purple_darker}"
     type: color
     category: brand
   fuchsia_lighter:
-    value: "{!fuchsia-lighter}"
+    value: "{!fuchsia_lighter}"
     type: color
     category: brand
   fuchsia_light:
-    value: "{!fuchsia-light}"
+    value: "{!fuchsia_light}"
     type: color
     category: brand
   fuchsia:
@@ -106,19 +106,19 @@ props:
     type: color
     category: brand
   fuchsia_dark:
-    value: "{!fuchsia-dark}"
+    value: "{!fuchsia_dark}"
     type: color
     category: brand
   fuchsia_darker:
-    value: "{!fuchsia-darker}"
+    value: "{!fuchsia_darker}"
     type: color
     category: brand
   orange_lighter:
-    value: "{!orange-lighter}"
+    value: "{!orange_lighter}"
     type: color
     category: brand
   orange_light:
-    value: "{!orange-light}"
+    value: "{!orange_light}"
     type: color
     category: brand
   orange:
@@ -126,19 +126,19 @@ props:
     type: color
     category: brand
   orange_dark:
-    value: "{!orange-dark}"
+    value: "{!orange_dark}"
     type: color
     category: brand
   orange_darker:
-    value: "{!orange-darker}"
+    value: "{!orange_darker}"
     type: color
     category: brand
   gray_lighter:
-    value: "{!gray-lighter}"
+    value: "{!gray_lighter}"
     type: color
     category: brand
   gray_light:
-    value: "{!gray-light}"
+    value: "{!gray_light}"
     type: color
     category: brand
   gray:
@@ -146,26 +146,26 @@ props:
     type: color
     category: brand
   gray_dark:
-    value: "{!gray-dark}"
+    value: "{!gray_dark}"
     type: color
     category: brand
   gray_darker:
-    value: "{!gray-darker}"
+    value: "{!gray_darker}"
     type: color
     category: brand
   text_dark:
-    value: "{!black-transparent-85}"
+    value: "{!black_transparent_85}"
     type: color
-    category: text-color
+    category: text_color
   text_light:
-    value: "{!white-transparent-85}"
+    value: "{!white_transparent_85}"
     type: color
-    category: text-color
+    category: text_color
   text_light_emphasis:
     value: "{!white}"
     type: color
-    category: text-color
+    category: text_color
   text_action:
     value: "{!blue}"
     type: color
-    category: text-color
+    category: text_color

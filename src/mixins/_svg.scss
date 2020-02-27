@@ -1,0 +1,26 @@
+/**
+ * Makes inline SVG elements inherit fill and stroke colors from the parent
+ * element's text color unless specific fill and stroke values are already
+ * defined.
+ *
+ * 1. Setting a stroke color causes strokes to be visible by default. This line
+ *    makes visible strokes opt-in.
+ */
+@mixin inherit-color {
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0; /* 1 */
+}
+
+/**
+ * Sizes an SVG element similarly to a text glyph.
+ *
+ * 1. Prevents warping within a flex container.
+ * 2. Makes element overflow as a text element would.
+ */
+@mixin inherit-size {
+  flex: none; /* 1 */
+  height: 1em;
+  max-width: none; /* 2 */
+  width: 1em;
+}

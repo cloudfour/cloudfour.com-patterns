@@ -1,0 +1,16 @@
+@use "sass:math";
+@use '../../mixins/svg';
+
+$inline-adjustment: 1rem / 16 * -2;
+
+.o-icon {
+  @include svg.inherit-color;
+  @include svg.inherit-size;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.o-icon--inline {
+  top: $inline-adjustment;
+}

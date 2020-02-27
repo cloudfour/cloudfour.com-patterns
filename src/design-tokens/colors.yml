@@ -32,3 +32,140 @@ aliases:
   black-transparent-85: "rgba(0, 0, 0, 0.85)"
   white-transparent-85: "rgba(255, 255, 255, 0.85)"
   white: "#fff"
+props:
+  primary_brand_lighter:
+    value: "{!blue-lighter}"
+    type: color
+    category: brand
+  primary_brand_light:
+    value: "{!blue-light}"
+    type: color
+    category: brand
+  primary_brand:
+    value: "{!blue}"
+    type: color
+    category: brand
+  primary_brand_dark:
+    value: "{!blue-dark}"
+    type: color
+    category: brand
+  primary_brand_darker:
+    value: "{!blue-darker}"
+    type: color
+    category: brand
+  green_lighter:
+    value: "{!green-lighter}"
+    type: color
+    category: brand
+  green_light:
+    value: "{!green-light}"
+    type: color
+    category: brand
+  green:
+    value: "{!green}"
+    type: color
+    category: brand
+  green_dark:
+    value: "{!green-dark}"
+    type: color
+    category: brand
+  green_darker:
+    value: "{!green-darker}"
+    type: color
+    category: brand
+  purple_lighter:
+    value: "{!purple-lighter}"
+    type: color
+    category: brand
+  purple_light:
+    value: "{!purple-light}"
+    type: color
+    category: brand
+  purple:
+    value: "{!purple}"
+    type: color
+    category: brand
+  purple_dark:
+    value: "{!purple-dark}"
+    type: color
+    category: brand
+  purple_darker:
+    value: "{!purple-darker}"
+    type: color
+    category: brand
+  fuchsia_lighter:
+    value: "{!fuchsia-lighter}"
+    type: color
+    category: brand
+  fuchsia_light:
+    value: "{!fuchsia-light}"
+    type: color
+    category: brand
+  fuchsia:
+    value: "{!fuchsia}"
+    type: color
+    category: brand
+  fuchsia_dark:
+    value: "{!fuchsia-dark}"
+    type: color
+    category: brand
+  fuchsia_darker:
+    value: "{!fuchsia-darker}"
+    type: color
+    category: brand
+  orange_lighter:
+    value: "{!orange-lighter}"
+    type: color
+    category: brand
+  orange_light:
+    value: "{!orange-light}"
+    type: color
+    category: brand
+  orange:
+    value: "{!orange}"
+    type: color
+    category: brand
+  orange_dark:
+    value: "{!orange-dark}"
+    type: color
+    category: brand
+  orange_darker:
+    value: "{!orange-darker}"
+    type: color
+    category: brand
+  gray_lighter:
+    value: "{!gray-lighter}"
+    type: color
+    category: brand
+  gray_light:
+    value: "{!gray-light}"
+    type: color
+    category: brand
+  gray:
+    value: "{!gray}"
+    type: color
+    category: brand
+  gray_dark:
+    value: "{!gray-dark}"
+    type: color
+    category: brand
+  gray_darker:
+    value: "{!gray-darker}"
+    type: color
+    category: brand
+  text_dark:
+    value: "{!black-transparent-85}"
+    type: color
+    category: text-color
+  text_light:
+    value: "{!white-transparent-85}"
+    type: color
+    category: text-color
+  text_light_emphasis:
+    value: "{!white}"
+    type: color
+    category: text-color
+  text_action:
+    value: "{!blue}"
+    type: color
+    category: text-color

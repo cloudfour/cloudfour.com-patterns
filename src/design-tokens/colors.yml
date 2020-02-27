@@ -29,3 +29,6 @@ aliases:
   color-gray-3: "#738da0"
   color-gray-4: "#485968"
   color-gray-5: "#252b32"
+  color-black-transparent-85: "rgba(0, 0, 0, 0.85)"
+  color-white-transparent-85: "rgba(255, 255, 255, 0.85)"
+  color-white: "#fff"

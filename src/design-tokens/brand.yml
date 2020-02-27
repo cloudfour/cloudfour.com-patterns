@@ -1,7 +1,139 @@
 imports:
   - ./colors.yml
 props:
-  brand_primary:
+  blue_1:
+    value: "{!color-blue-1}"
+    type: color
+    category: brand
+  blue_2:
+    value: "{!color-blue-2}"
+    type: color
+    category: brand
+  blue_3:
     value: "{!color-blue-3}"
     type: color
     category: brand
+  blue_4:
+    value: "{!color-blue-4}"
+    type: color
+    category: brand
+  blue_5:
+    value: "{!color-blue-5}"
+    type: color
+    category: brand
+  green_1:
+    value: "{!color-green-1}"
+    type: color
+    category: brand
+  green_2:
+    value: "{!color-green-2}"
+    type: color
+    category: brand
+  green_3:
+    value: "{!color-green-3}"
+    type: color
+    category: brand
+  green_4:
+    value: "{!color-green-4}"
+    type: color
+    category: brand
+  green_5:
+    value: "{!color-green-5}"
+    type: color
+    category: brand
+  purple_1:
+    value: "{!color-purple-1}"
+    type: color
+    category: brand
+  purple_2:
+    value: "{!color-purple-2}"
+    type: color
+    category: brand
+  purple_3:
+    value: "{!color-purple-3}"
+    type: color
+    category: brand
+  purple_4:
+    value: "{!color-purple-4}"
+    type: color
+    category: brand
+  purple_5:
+    value: "{!color-purple-5}"
+    type: color
+    category: brand
+  fuchsia_1:
+    value: "{!color-fuchsia-1}"
+    type: color
+    category: brand
+  fuchsia_2:
+    value: "{!color-fuchsia-2}"
+    type: color
+    category: brand
+  fuchsia_3:
+    value: "{!color-fuchsia-3}"
+    type: color
+    category: brand
+  fuchsia_4:
+    value: "{!color-fuchsia-4}"
+    type: color
+    category: brand
+  fuchsia_5:
+    value: "{!color-fuchsia-5}"
+    type: color
+    category: brand
+  orange_1:
+    value: "{!color-orange-1}"
+    type: color
+    category: brand
+  orange_2:
+    value: "{!color-orange-2}"
+    type: color
+    category: brand
+  orange_3:
+    value: "{!color-orange-3}"
+    type: color
+    category: brand
+  orange_4:
+    value: "{!color-orange-4}"
+    type: color
+    category: brand
+  orange_5:
+    value: "{!color-orange-5}"
+    type: color
+    category: brand
+  gray_1:
+    value: "{!color-gray-1}"
+    type: color
+    category: brand
+  gray_2:
+    value: "{!color-gray-2}"
+    type: color
+    category: brand
+  gray_3:
+    value: "{!color-gray-3}"
+    type: color
+    category: brand
+  gray_4:
+    value: "{!color-gray-4}"
+    type: color
+    category: brand
+  gray_5:
+    value: "{!color-gray-5}"
+    type: color
+    category: brand
+  text_dark:
+    value: "{!color-black-transparent-85}"
+    type: color
+    category: text-color
+  text_light:
+    value: "{!color-white-transparent-85}"
+    type: color
+    category: text-color
+  text_light_emphasis:
+    value: "{!color-white}"
+    type: color
+    category: text-color
+  text_action:
+    value: "{!color-blue-3}"
+    type: color
+    category: text-color

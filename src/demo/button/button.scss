@@ -1,7 +1,7 @@
-@import "../design-tokens/brand.yml";
+@import "../../design-tokens/brand.yml";
 
 .demo-button {
-  color: $brand-primary;
+  color: $blue-3;
 }
 
 .demo-button:disabled {

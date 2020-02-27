@@ -1,4 +1,4 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { Meta, ColorPalette, ColorItem, Props } from '@storybook/addon-docs/blocks';
 import * as brandTokens from './brand.yml';
 
 <Meta title="Design Tokens/Colors"/>
@@ -11,15 +11,15 @@ These are our core colors. Blue is our brand color and is used by many elements 
 
 <ColorPalette>
   <ColorItem
-    title="$blue-3"
+    title="$blue"
     colors={[brandTokens.blue3]}
   />
   <ColorItem
-    title="$blue-5"
+    title="$blue-darker"
     colors={[brandTokens.blue5]}
   />
   <ColorItem
-    title="$gray-1"
+    title="$gray-lighter"
     colors={[brandTokens.gray1]}
   />
 </ColorPalette>
@@ -30,19 +30,19 @@ Our secondary palette consists of green, purple, fuchsia, and orange. These colo
 
 <ColorPalette>
   <ColorItem
-    title="$green-3"
+    title="$green"
     colors={[brandTokens.green3]}
   />
   <ColorItem
-    title="$purple-3"
+    title="$purple"
     colors={[brandTokens.purple3]}
   />
   <ColorItem
-    title="$fuchsia-3"
+    title="$fuchsia"
     colors={[brandTokens.fuchsia3]}
   />
   <ColorItem
-    title="$orange-3"
+    title="$orange"
     colors={[brandTokens.orange3]}
   />
 </ColorPalette>
@@ -53,144 +53,144 @@ The extended palette is intended to be ever evolving, it offers an additional ra
 
 <ColorPalette>
   <ColorItem
-    title="$blue-1"
+    title="$blue-lighter"
     subtitle="Accessible on the darkest colors in our palette."
     colors={[brandTokens.blue1]}
   />
   <ColorItem
-    title="$blue-2"
+    title="$blue-light"
     colors={[brandTokens.blue2]}
   />
   <ColorItem
-    title="$blue-3"
+    title="$blue"
     subtitle="Accessible with white."
     colors={[brandTokens.blue3]}
   />
   <ColorItem
-    title="$blue-4"
+    title="$blue-dark"
     subtitle="Accessible with white."
     colors={[brandTokens.blue4]}
   />
   <ColorItem
-    title="$blue-5"
+    title="$blue-darker"
     subtitle="Accessible with white."
     colors={[brandTokens.blue5]}
   />
   <ColorItem
-    title="$green-1"
+    title="$green-lighter"
     subtitle="Accessible on the darkest colors in our palette."
     colors={[brandTokens.green1]}
   />
   <ColorItem
-    title="$green-2"
+    title="$green-light"
     colors={[brandTokens.green2]}
   />
   <ColorItem
-    title="$green-3"
+    title="$green"
     subtitle="Accessible with white."
     colors={[brandTokens.green3]}
   />
   <ColorItem
-    title="$green-4"
+    title="$green-dark"
     subtitle="Accessible with white."
     colors={[brandTokens.green4]}
   />
   <ColorItem
-    title="$green-5"
+    title="$green-darker"
     subtitle="Accessible with white."
     colors={[brandTokens.green5]}
   />
   <ColorItem
-    title="$purple-1"
+    title="$purple-lighter"
     subtitle="Accessible on the darkest colors in our palette."
     colors={[brandTokens.purple1]}
   />
   <ColorItem
-    title="$purple-2"
+    title="$purple-light"
     colors={[brandTokens.purple2]}
   />
   <ColorItem
-    title="$purple-3"
+    title="$purple"
     subtitle="Accessible with white."
     colors={[brandTokens.purple3]}
   />
   <ColorItem
-    title="$purple-4"
+    title="$purple-dark"
     subtitle="Accessible with white."
     colors={[brandTokens.purple4]}
   />
   <ColorItem
-    title="$purple-5"
+    title="$purple-darker"
     subtitle="Accessible with white."
     colors={[brandTokens.purple5]}
   />
   <ColorItem
-    title="$fuchsia-1"
+    title="$fuchsia-lighter"
     subtitle="Accessible on the darkest colors in our palette."
     colors={[brandTokens.fuchsia1]}
   />
   <ColorItem
-    title="$fuchsia-2"
+    title="$fuchsia-light"
     colors={[brandTokens.fuchsia2]}
   />
   <ColorItem
-    title="$fuchsia-3"
+    title="$fuchsia"
     subtitle="Accessible with white."
     colors={[brandTokens.fuchsia3]}
   />
   <ColorItem
-    title="$fuchsia-4"
+    title="$fuchsia-dark"
     subtitle="Accessible with white."
     colors={[brandTokens.fuchsia4]}
   />
   <ColorItem
-    title="$fuchsia-5"
+    title="$fuchsia-darker"
     subtitle="Accessible with white."
     colors={[brandTokens.fuchsia5]}
   />
   <ColorItem
-    title="$orange-1"
+    title="$orange-lighter"
     subtitle="Accessible on the darkest colors in our palette."
     colors={[brandTokens.orange1]}
   />
   <ColorItem
-    title="$orange-2"
+    title="$orange-light"
     colors={[brandTokens.orange2]}
   />
   <ColorItem
-    title="$orange-3"
+    title="$orange"
     colors={[brandTokens.orange3]}
   />
   <ColorItem
-    title="$orange-4"
+    title="$orange-dark"
     subtitle="Accessible with white."
     colors={[brandTokens.orange4]}
   />
   <ColorItem
-    title="$orange-5"
+    title="$orange-darker"
     subtitle="Accessible with white."
     colors={[brandTokens.orange5]}
   />
   <ColorItem
-    title="$gray-1"
+    title="$gray-lighter"
     subtitle="Accessible on the darkest colors in our palette."
     colors={[brandTokens.gray1]}
   />
   <ColorItem
-    title="$gray-2"
+    title="$gray-light"
     colors={[brandTokens.gray2]}
   />
   <ColorItem
-    title="$gray-3"
+    title="$gray"
     colors={[brandTokens.gray3]}
   />
   <ColorItem
-    title="$gray-4"
+    title="$gray-dark"
     subtitle="Accessible with white."
     colors={[brandTokens.gray4]}
   />
   <ColorItem
-    title="$gray-5"
+    title="$gray-darker"
     subtitle="Accessible with white."
     colors={[brandTokens.gray5]}
   />

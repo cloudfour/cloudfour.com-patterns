@@ -14,4 +14,32 @@ html {
 body {
   text-size-adjust: none; /* 1 */
   word-wrap: break-word; /* 2 */
+  font-family: 'Source Sans Pro', sans-serif;
+
+  @supports (font-variation-settings: normal) {
+    font-family: 'Source Sans Variable', sans-serif;
+  }
+}
+
+@font-face {
+  font-family: 'Source Sans Variable';
+  src: url('../src/fonts/Source-Sans-Variable-Latin-and-Latin-Extended-Subset/source-sans-variable.woff2')
+      format('woff2-variations'),
+    /* will be the standard and works in Safari now */
+      url('../src/fonts/Source-Sans-Variable-Latin-and-Latin-Extended-Subset/source-sans-variable.woff2')
+      format('woff2');
+  /* for the other supporting browsers */
+}
+
+// Fallback for browsers that don't support variable fonts
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../src/fonts/Source-Sans-Pro/SourceSansPro-Regular.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../src/fonts/Source-Sans-Pro/SourceSansPro-Bold.ttf')
+    format('truetype');
+  font-weight: 700;
 }

@@ -1,7 +1,11 @@
-@import "../design-tokens/brand.yml";
+@import '../design-tokens/brand.yml';
 
 .demo-button {
   color: $brand-primary;
+
+  // TODO: These font styles are temporary, for demo purposes
+  font-family: inherit;
+  font-size: 15px;
 }
 
 .demo-button:disabled {

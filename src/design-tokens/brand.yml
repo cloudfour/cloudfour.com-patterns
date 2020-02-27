@@ -1,23 +1,23 @@
 imports:
   - ./colors.yml
 props:
-  blue_1:
+  primary_brand_lighter:
     value: "{!blue-lighter}"
     type: color
     category: brand
-  blue_2:
+  primary_brand_light:
     value: "{!blue-light}"
     type: color
     category: brand
-  blue_3:
+  primary_brand:
     value: "{!blue}"
     type: color
     category: brand
-  blue_4:
+  primary_brand_dark:
     value: "{!blue-dark}"
     type: color
     category: brand
-  blue_5:
+  primary_brand_darker:
     value: "{!blue-darker}"
     type: color
     category: brand

@@ -7,16 +7,16 @@ import * as brandTokens from './brand.yml';
 
 ## Primary Colors
 
-These are our core colors. Blue is our brand color and is used by many elements like buttons, links, backgrounds, and illustration.
+These are our core colors. Blue is our brand color and is used by many elements like buttons, links, backgrounds, and illustrations.
 
 <ColorPalette>
   <ColorItem
-    title="$blue"
-    colors={[brandTokens.blue3]}
+    title="$primary-brand"
+    colors={[brandTokens.primaryBrand]}
   />
   <ColorItem
-    title="$blue-darker"
-    colors={[brandTokens.blue5]}
+    title="$primary-brand-darker"
+    colors={[brandTokens.primaryBrandDarker]}
   />
   <ColorItem
     title="$gray-lighter"
@@ -53,32 +53,32 @@ The extended palette is intended to be ever evolving, it offers an additional ra
 
 <ColorPalette>
   <ColorItem
-    title="$blue-lighter"
-    subtitle="Accessible on the darkest colors in our palette."
-    colors={[brandTokens.blue1]}
+    title="$primary-brand-lighter"
+    subtitle="Accessible on -darker colors."
+    colors={[brandTokens.primaryBrandLighter]}
   />
   <ColorItem
-    title="$blue-light"
-    colors={[brandTokens.blue2]}
+    title="$primary-brand-light"
+    colors={[brandTokens.primaryBrandLight]}
   />
   <ColorItem
-    title="$blue"
+    title="$primary-brand"
     subtitle="Accessible with white."
-    colors={[brandTokens.blue3]}
+    colors={[brandTokens.primaryBrand]}
   />
   <ColorItem
-    title="$blue-dark"
+    title="$primary-brand-dark"
     subtitle="Accessible with white."
-    colors={[brandTokens.blue4]}
+    colors={[brandTokens.primaryBrandDark]}
   />
   <ColorItem
-    title="$blue-darker"
+    title="$primary-brand-darker"
     subtitle="Accessible with white."
-    colors={[brandTokens.blue5]}
+    colors={[brandTokens.primaryBrandDarker]}
   />
   <ColorItem
     title="$green-lighter"
-    subtitle="Accessible on the darkest colors in our palette."
+    subtitle="Accessible on -darker colors."
     colors={[brandTokens.green1]}
   />
   <ColorItem
@@ -102,7 +102,7 @@ The extended palette is intended to be ever evolving, it offers an additional ra
   />
   <ColorItem
     title="$purple-lighter"
-    subtitle="Accessible on the darkest colors in our palette."
+    subtitle="Accessible on -darker colors."
     colors={[brandTokens.purple1]}
   />
   <ColorItem
@@ -126,7 +126,7 @@ The extended palette is intended to be ever evolving, it offers an additional ra
   />
   <ColorItem
     title="$fuchsia-lighter"
-    subtitle="Accessible on the darkest colors in our palette."
+    subtitle="Accessible on -darker colors."
     colors={[brandTokens.fuchsia1]}
   />
   <ColorItem
@@ -150,7 +150,7 @@ The extended palette is intended to be ever evolving, it offers an additional ra
   />
   <ColorItem
     title="$orange-lighter"
-    subtitle="Accessible on the darkest colors in our palette."
+    subtitle="Accessible on -darker colors."
     colors={[brandTokens.orange1]}
   />
   <ColorItem
@@ -173,7 +173,7 @@ The extended palette is intended to be ever evolving, it offers an additional ra
   />
   <ColorItem
     title="$gray-lighter"
-    subtitle="Accessible on the darkest colors in our palette."
+    subtitle="Accessible on -darker colors."
     colors={[brandTokens.gray1]}
   />
   <ColorItem
@@ -208,17 +208,17 @@ We design and build with accessibility in mind. Color contrast for text should m
   />
   <ColorItem
     title="$text-light"
-    subtitle="Accessible on brand blue."
+    subtitle="Accessible on primary brand color."
     colors={[brandTokens.textLight]}
   />
   <ColorItem
     title="$text-light-emphasis"
-    subtitle="Accessible on brand blue, useful for buttons and headings."
+    subtitle="Accessible on primary brand color, useful for buttons and headings."
     colors={[brandTokens.textLightEmphasis]}
   />
   <ColorItem
     title="$text-action"
-    subtitle="Accessible on white and lightest gray."
+    subtitle="Accessible on white and lighter-gray."
     colors={[brandTokens.textAction]}
   />
 </ColorPalette>

@@ -54,8 +54,8 @@
     "check-lint": "prettier --list-different '**/*.js' && eslint '**/*.js'",
     "lint": "prettier --write '**/*.js' && eslint --fix '**/*.js'",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint '**/*.{js}",
-    "lint:css": "stylelint '**/*.{scss}"
+    "lint:js": "eslint '**/*.{js}'",
+    "lint:css": "stylelint '**/*.{scss}'"
   },
   "eslintConfig": {
     "extends": "plugin:@cloudfour/recommended"

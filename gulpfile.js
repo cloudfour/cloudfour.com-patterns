@@ -35,8 +35,12 @@ function templatizeSvgString(src) {
   const svg = ltx.parse(src);
 
   // Create blocks for SVG content, before and after
-  const prepend = ltx.parse('<root>{% block before %}{% endblock %}{% block content %}</root>');
-  const append = ltx.parse('<root>{% endblock %}{% block after %}{% endblock %}</root>');
+  const prepend = ltx.parse(
+    '<root>{% block before %}{% endblock %}{% block content %}</root>'
+  );
+  const append = ltx.parse(
+    '<root>{% endblock %}{% block after %}{% endblock %}</root>'
+  );
   svg.children = [...prepend.children, ...svg.children, ...append.children];
 
   // Identify props already in use in the SVG versus those yet to be used
@@ -49,7 +53,9 @@ function templatizeSvgString(src) {
   usedProps.forEach(prop => {
     const current = svg.attrs[prop];
     const twigProp = prop.replace(/-/g, '_');
-    svg.attrs[prop] = `{% if ${twigProp} %}{{${twigProp}}}{% else %}${current}{% endif %}`;
+    svg.attrs[
+      prop
+    ] = `{% if ${twigProp} %}{{${twigProp}}}{% else %}${current}{% endif %}`;
   });
 
   // Grab the SVG source to this point
@@ -58,10 +64,12 @@ function templatizeSvgString(src) {
   if (unusedProps.length > 0) {
     // We build a big string of attribute name/value pairs for any properties
     // yet to be used for this asset.
-    const unusedPropHtml = unusedProps.map(prop => {
-      const twigProp = prop.replace(/-/g, '_');
-      return `{% if ${twigProp} %} ${prop}="{{${twigProp}}}"{% endif %}`;
-    }).join('');
+    const unusedPropHtml = unusedProps
+      .map(prop => {
+        const twigProp = prop.replace(/-/g, '_');
+        return `{% if ${twigProp} %} ${prop}="{{${twigProp}}}"{% endif %}`;
+      })
+      .join('');
 
     // We tack this string onto the root SVG element, which we assume ends with
     // the first occurrence of `>`.
@@ -75,22 +83,26 @@ function templatizeSvgString(src) {
  * Gulp task for converting SVG files to Twig templates.
  */
 function svgToTwig() {
-  return src('src/assets/**/*.svg')
-    // Optimize assets with SVGO
-    .pipe(svgmin(svgoConfig))
-    // Pipe file contents through templatize function
-    .pipe(obj((file, _, cb) => {
-      if (file.isBuffer()) {
-        const template = templatizeSvgString(file.contents.toString());
-        file.contents = Buffer.from(template);
-      }
+  return (
+    src('src/assets/**/*.svg')
+      // Optimize assets with SVGO
+      .pipe(svgmin(svgoConfig))
+      // Pipe file contents through templatize function
+      .pipe(
+        obj((file, _, cb) => {
+          if (file.isBuffer()) {
+            const template = templatizeSvgString(file.contents.toString());
+            file.contents = Buffer.from(template);
+          }
 
-      cb(null, file);
-    }))
-    // Append `.twig` to filenames
-    .pipe(rename({ extname: '.svg.twig' }))
-    // Output to same directory to expose to Storybook
-    .pipe(dest('src/assets'));
+          cb(null, file);
+        })
+      )
+      // Append `.twig` to filenames
+      .pipe(rename({ extname: '.svg.twig' }))
+      // Output to same directory to expose to Storybook
+      .pipe(dest('src/assets'))
+  );
 }
 
 // Expose to Gulp

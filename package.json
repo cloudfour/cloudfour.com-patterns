@@ -29,7 +29,7 @@
     "@cloudfour/gulp-tasks": "^2.0.1",
     "@cloudfour/hbs-helpers": "^0.7.0",
     "drizzle-builder": "0.0.2-alpha",
-    "eslint": "^2.7.0",
+    "eslint": "^4.18.2",
     "eslint-config-xo-space": "^0.12.0",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",

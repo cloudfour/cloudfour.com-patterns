@@ -52,6 +52,8 @@ function templatizeSvgString(src) {
   // comes to managing quotation marks in XML.
   usedProps.forEach(prop => {
     const current = svg.attrs[prop];
+    // Dashes have meaning in Twig expressions, so we replace them with
+    // underscores in property names.
     const twigProp = prop.replace(/-/g, '_');
     svg.attrs[
       prop

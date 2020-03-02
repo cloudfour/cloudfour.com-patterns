@@ -1,5 +1,6 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import template from './icon.twig';
+import basicExample from './examples/basic.twig';
+import inlineExample from './examples/inline.twig';
 import './icon.scss';
 
 <Meta title="Objects/Icon" />
@@ -12,7 +13,7 @@ For a list of available icons, visit [the Icons page](/?path=/docs/icons--page).
 
 <Preview>
   <Story name="Basic" height="100px">
-    {template()}
+    {basicExample()}
   </Story>
 </Preview>
 
@@ -22,9 +23,6 @@ Icons without a flex or grid container may appear [slightly low in comparison to
 
 <Preview>
   <Story name="Inline" height="100px">
-    {() => `
-      <p>Before: ${template()}</p>
-      <p>After: ${template({ class: 'o-icon--inline' })}</p>
-    `}
+    {inlineExample()}
   </Story>
 </Preview>

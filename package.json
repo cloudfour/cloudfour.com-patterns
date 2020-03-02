@@ -52,8 +52,9 @@
     "twigjs-loader": "^1.0.1"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "npm run svg-to-twig && start-storybook -p 6006",
+    "build-storybook": "npm run svg-to-twig && build-storybook",
+    "svg-to-twig": "gulp svgToTwig",
     "check-lint": "prettier --list-different '**/*.js' && eslint '**/*.js'",
     "lint": "prettier --write '**/*.js' && eslint --fix '**/*.js'"
   },

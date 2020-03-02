@@ -3,6 +3,11 @@ const svgmin = require('gulp-svgmin');
 const rename = require('gulp-rename');
 const { obj } = require('through2');
 const ltx = require('ltx');
+const yaml = require('js-yaml');
+const { readFileSync } = require('fs');
+
+// Load SVGO preferences from config file to keep things DRY
+const svgoConfig = yaml.safeLoad(readFileSync('.svgo.yml', 'utf8'));
 
 // Properties to make configurable via Twig templates
 const dynamicSvgProps = [
@@ -72,12 +77,7 @@ function templatizeSvgString(src) {
 function svgToTwig() {
   return src('src/assets/**/*.svg')
     // Optimize assets with SVGO
-    .pipe(svgmin({
-      plugins: [
-        { removeXMLNS: true },
-        { removeViewBox: false }
-      ]
-    }))
+    .pipe(svgmin(svgoConfig))
     // Pipe file contents through templatize function
     .pipe(obj((file, _, cb) => {
       if (file.isBuffer()) {

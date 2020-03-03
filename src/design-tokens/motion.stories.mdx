@@ -1,0 +1,19 @@
+import { Meta, PropsTable, PropRow, Story } from '@storybook/addon-docs/blocks';
+import * as motionTokens from './motion.yml';
+const motionTokenRows = Object.keys(motionTokens).sort((a, b) => a > b).map(key => {
+  return <tr><th scope="row">{key}</th><td>{motionTokens[key]}</td></tr>;
+});
+
+<Meta title="Design Tokens/Motion"/>
+
+# Motion
+
+TODO: Add [more guidance](https://www.smashingmagazine.com/2019/02/animation-design-system/) as to when/where to use these.
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Value</th>
+  </thead>
+  <tbody>{motionTokenRows}</tbody>
+</table>

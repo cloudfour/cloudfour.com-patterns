@@ -1,10 +1,9 @@
 @use "../../design-tokens/colors.yml";
-@use "../../design-tokens/motion/easing.yml";
-@use "../../design-tokens/motion/speed.yml";
+@use "../../design-tokens/motion.yml";
 
 .demo-button {
   color: colors.$primary-brand;
-  transition: transform speed.$speed-quick easing.$ease-out;
+  transition: transform motion.$speed-quick motion.$ease-out;
 }
 
 .demo-button:hover {

@@ -1,6 +1,6 @@
 import { Meta, PropsTable, PropRow, Story } from '@storybook/addon-docs/blocks';
-import * as easingTokens from './easing.yml';
-import * as speedTokens from './speed.yml';
+import * as easingTokens from './_easing.yml';
+import * as speedTokens from './_speed.yml';
 const easingTokenRows = Object.keys(easingTokens).map(key => {
   return <tr><th scope="row">{key}</th><td>{easingTokens[key]}</td></tr>;
 });

@@ -18,21 +18,21 @@ If you’re looking for the most stable version of our pattern library, check ou
 ## Project Structure
 
 ```
-📦cloudfour.com-patterns
-├── 📁.github               # GitHub workflows and templates
-├── 📁.storybook
-│   ├── 📄main.js           # Settings for Storybook UI
-│   └── 📄preview.js        # Settings for story previews
-├── 📁src
-│   ├── 📄**/*.scss         # Styles (Sass)
-│   ├── 📄**/*.stories.mdx  # Documentation (Storybook Docs)
-│   ├── 📄**/*.twig         # Templates (Twig)
-│   └── 📄**/*.yml          # Design tokens (Theo)
-├── 📄.editorconfig         # Low-level code consistency
-├── 📄.nvmrc                # Node version (used by Netlify)
-├── 📄.svgo.yml             # Inline SVG optimization settings
-├── 📄README.md             # ⬅️ You are here!
-├── 📄gulpfile.js           # Complex build task configuration
-├── 📄netlify.toml          # Netlify build settings
-└── 📄package.json          # Project info and dependencies
+cloudfour.com-patterns
+├── .github               # GitHub workflows and templates
+├── .storybook
+│   ├── main.js           # Settings for Storybook UI
+│   └── preview.js        # Settings for story previews
+├── src
+│   ├── **/*.scss         # Styles (Sass)
+│   ├── **/*.stories.mdx  # Documentation (Storybook Docs)
+│   ├── **/*.twig         # Templates (Twig)
+│   └── **/*.yml          # Design tokens (Theo)
+├── .editorconfig         # Low-level code consistency
+├── .nvmrc                # Node version (used by Netlify)
+├── .svgo.yml             # Inline SVG optimization settings
+├── README.md             # ⬅️ You are here!
+├── gulpfile.js           # Complex build task configuration
+├── netlify.toml          # Netlify build settings
+└── package.json          # Project info and dependencies
 ```

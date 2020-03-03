@@ -2,6 +2,9 @@
 
 .demo-button {
   color: $primary-brand;
+  // TODO: These font styles are temporary, for demo purposes
+  font-family: inherit;
+  font-size: 18px;
 }
 
 .demo-button:disabled {

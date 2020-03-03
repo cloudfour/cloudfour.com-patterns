@@ -1,0 +1,35 @@
+import { Meta, PropsTable, PropRow, Story } from '@storybook/addon-docs/blocks';
+import * as easingTokens from './easing.yml';
+import * as speedTokens from './speed.yml';
+const easingTokenRows = Object.keys(easingTokens).map(key => {
+  return <tr><th scope="row">{key}</th><td>{easingTokens[key]}</td></tr>;
+});
+const speedTokenRows = Object.keys(speedTokens).map(key => {
+  return <tr><th scope="row">{key}</th><td>{speedTokens[key]}</td></tr>;
+});
+
+<Meta title="Design Tokens/Motion"/>
+
+# Motion
+
+TODO: Add [more guidance](https://www.smashingmagazine.com/2019/02/animation-design-system/) as to when/where to use these. Visualizations would also be nice!
+
+## Speed
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Value</th>
+  </thead>
+  <tbody>{speedTokenRows}</tbody>
+</table>
+
+## Easing
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Value</th>
+  </thead>
+  <tbody>{easingTokenRows}</tbody>
+</table>

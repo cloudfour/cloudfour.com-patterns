@@ -1,0 +1,171 @@
+aliases:
+  blue_lighter: "#8abfff"
+  blue_light: "#3d84F5"
+  blue: "#215cca"
+  blue_dark: "#183889"
+  blue_darker: "#0E1C43"
+  green_lighter: "#71f4ae"
+  green_light: "#2cdd90"
+  green: "#158466"
+  green_dark: "#105c52"
+  green_darker: "#0c3538"
+  purple_lighter: "#e98efa"
+  purple_light: "#d250f7"
+  purple: "#950cde"
+  purple_dark: "#560a9b"
+  purple_darker: "#2a085e"
+  fuchsia_lighter: "#ff80ca"
+  fuchsia_light: "#f240ae"
+  fuchsia: "#d9118f"
+  fuchsia_dark: "#950f7d"
+  fuchsia_darker: "#5c0a5c"
+  orange_lighter: "#ffad5c"
+  orange_light: "#fa8f47"
+  orange: "#f27041"
+  orange_dark: "#aa3f24"
+  orange_darker: "#622018"
+  gray_lighter: "#dee7ec"
+  gray_light: "#a5b9c6"
+  gray: "#738da0"
+  gray_dark: "#485968"
+  gray_darker: "#252b32"
+  black_transparent_85: "rgba(0, 0, 0, 0.85)"
+  white_transparent_85: "rgba(255, 255, 255, 0.85)"
+  white: "#fff"
+props:
+  primary_brand_lighter:
+    value: "{!blue_lighter}"
+    type: color
+    category: brand
+  primary_brand_light:
+    value: "{!blue_light}"
+    type: color
+    category: brand
+  primary_brand:
+    value: "{!blue}"
+    type: color
+    category: brand
+  primary_brand_dark:
+    value: "{!blue_dark}"
+    type: color
+    category: brand
+  primary_brand_darker:
+    value: "{!blue_darker}"
+    type: color
+    category: brand
+  green_lighter:
+    value: "{!green_lighter}"
+    type: color
+    category: brand
+  green_light:
+    value: "{!green_light}"
+    type: color
+    category: brand
+  green:
+    value: "{!green}"
+    type: color
+    category: brand
+  green_dark:
+    value: "{!green_dark}"
+    type: color
+    category: brand
+  green_darker:
+    value: "{!green_darker}"
+    type: color
+    category: brand
+  purple_lighter:
+    value: "{!purple_lighter}"
+    type: color
+    category: brand
+  purple_light:
+    value: "{!purple_light}"
+    type: color
+    category: brand
+  purple:
+    value: "{!purple}"
+    type: color
+    category: brand
+  purple_dark:
+    value: "{!purple_dark}"
+    type: color
+    category: brand
+  purple_darker:
+    value: "{!purple_darker}"
+    type: color
+    category: brand
+  fuchsia_lighter:
+    value: "{!fuchsia_lighter}"
+    type: color
+    category: brand
+  fuchsia_light:
+    value: "{!fuchsia_light}"
+    type: color
+    category: brand
+  fuchsia:
+    value: "{!fuchsia}"
+    type: color
+    category: brand
+  fuchsia_dark:
+    value: "{!fuchsia_dark}"
+    type: color
+    category: brand
+  fuchsia_darker:
+    value: "{!fuchsia_darker}"
+    type: color
+    category: brand
+  orange_lighter:
+    value: "{!orange_lighter}"
+    type: color
+    category: brand
+  orange_light:
+    value: "{!orange_light}"
+    type: color
+    category: brand
+  orange:
+    value: "{!orange}"
+    type: color
+    category: brand
+  orange_dark:
+    value: "{!orange_dark}"
+    type: color
+    category: brand
+  orange_darker:
+    value: "{!orange_darker}"
+    type: color
+    category: brand
+  gray_lighter:
+    value: "{!gray_lighter}"
+    type: color
+    category: brand
+  gray_light:
+    value: "{!gray_light}"
+    type: color
+    category: brand
+  gray:
+    value: "{!gray}"
+    type: color
+    category: brand
+  gray_dark:
+    value: "{!gray_dark}"
+    type: color
+    category: brand
+  gray_darker:
+    value: "{!gray_darker}"
+    type: color
+    category: brand
+  text_dark:
+    value: "{!black_transparent_85}"
+    type: color
+    category: text_color
+  text_light:
+    value: "{!white_transparent_85}"
+    type: color
+    category: text_color
+  text_light_emphasis:
+    value: "{!white}"
+    type: color
+    category: text_color
+  text_action:
+    value: "{!blue}"
+    type: color
+    category: text_color

@@ -1,0 +1,6 @@
+{% embed '../button.twig' %}
+  {% block content %}Button{% endblock %}
+{% endembed %}
+{% embed '../button.twig' with { tagName: 'a' } %}
+  {% block content %}Link{% endblock %}
+{% endembed %}

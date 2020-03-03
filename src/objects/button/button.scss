@@ -1,0 +1,40 @@
+@use "../../design-tokens/colors.yml";
+@use '../../mixins/unit';
+
+.o-button {
+  background: transparent;
+  border-color: currentColor;
+  border-radius: 0.25em;
+  border-style: solid;
+  border-width: unit.px-to-em(2px);
+  color: colors.$primary-brand;
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+  padding: 0.5em 1em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: filter 0.4s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.o-button:hover {
+  filter: brightness(110%);
+  transform: scale(1.05);
+}
+
+.o-button:active {
+  filter: brightness(80%);
+  transform: scale(0.95);
+}
+
+.o-button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(95%);
+  opacity: 0.9;
+  transform: none;
+}

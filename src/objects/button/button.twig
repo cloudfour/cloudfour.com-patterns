@@ -1,0 +1,16 @@
+{% set tagName = tagName | default(href ? 'a' : 'button') %}
+
+<{{tagName}}
+  class="o-button{% if class %} {{class}}{% endif %}"
+  {% if tagName == 'a' %}
+    href="{{href|default('#')}}"
+  {% elseif tagName == 'button' %}
+    type="{{type|default('button')}}"
+    {% if disabled %}
+      disabled
+    {% endif %}
+  {% endif %}>
+  {% block content %}
+    {{label | default('Label')}}
+  {% endblock %}
+</{{tagName}}>

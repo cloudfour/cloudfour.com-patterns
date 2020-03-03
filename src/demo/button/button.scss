@@ -1,7 +1,14 @@
-@import "../../design-tokens/colors.yml";
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/motion/easing.yml";
+@use "../../design-tokens/motion/speed.yml";
 
 .demo-button {
-  color: $primary-brand;
+  color: colors.$primary-brand;
+  transition: transform speed.$speed-quick easing.$ease-out;
+}
+
+.demo-button:hover {
+  transform: scale(1.1);
 }
 
 .demo-button:disabled {

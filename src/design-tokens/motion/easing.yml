@@ -26,13 +26,10 @@ aliases:
 props:
   ease_in_out:
     value: "{!ease_in_out_quad}"
-    type: bezier
-    category: ease
   ease_in:
     value: "{!ease_in_quad}"
-    type: bezier
-    category: ease
   ease_out:
     value: "{!ease_out_quad}"
-    type: bezier
-    category: ease
+global:
+  type: bezier
+  category: easing

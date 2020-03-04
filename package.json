@@ -51,10 +51,12 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "check-lint": "prettier --list-different '**/*.js' && eslint '**/*.js'",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "prettier --write '**/*.js' && eslint --fix '**/*.js'",
-    "lint:css": "stylelint '**/*.scss'"
+    "check-lint": "npm run check-lint:css && npm run check-lint:js",
+    "check-lint:css": "stylelint '**/*.scss'",
+    "check-lint:js": "prettier --list-different '**/*.js' && eslint '**/*.js'",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "stylelint --fix '**/*.scss'",
+    "lint:js": "prettier --write '**/*.js' && eslint --fix '**/*.js'"
   },
   "eslintConfig": {
     "extends": "plugin:@cloudfour/recommended"

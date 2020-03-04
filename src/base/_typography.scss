@@ -1,3 +1,5 @@
+@use '_fonts';
+
 /**
  * Promote consistent line spacing.
  *
@@ -14,4 +16,9 @@ html {
 body {
   text-size-adjust: none; /* 1 */
   word-wrap: break-word; /* 2 */
+  font-family: 'Source Sans Pro', sans-serif;
+
+  @supports (font-variation-settings: normal) {
+    font-family: 'Source Sans Pro Variable', sans-serif;
+  }
 }

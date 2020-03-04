@@ -4,6 +4,10 @@
 .demo-button {
   color: colors.$primary-brand;
   transition: transform motion.$speed-quick motion.$ease-out;
+
+  // TODO: These font styles are temporary, for demo purposes
+  font-family: inherit;
+  font-size: 18px;
 }
 
 .demo-button:hover {

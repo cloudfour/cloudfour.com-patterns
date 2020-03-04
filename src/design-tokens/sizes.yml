@@ -1,0 +1,9 @@
+props:
+  edge_medium:
+    value: 0.125rem
+    type: relative
+    category: sizing
+  radius_medium:
+    value: 0.25em
+    type: relative
+    category: radius

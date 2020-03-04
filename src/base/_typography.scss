@@ -5,6 +5,7 @@
  *
  * @see https://drafts.csswg.org/css-inline-3/#line-sizing-property
  */
+
 html {
   line-sizing: normal;
 }
@@ -13,6 +14,7 @@ html {
  * 1. Prevent size adjustments on orientation change.
  * 2. Allow long words (like URLs) to break at arbitrary points.
  */
+
 body {
   text-size-adjust: none; /* 1 */
   word-wrap: break-word; /* 2 */

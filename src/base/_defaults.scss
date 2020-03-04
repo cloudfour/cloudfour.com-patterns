@@ -1,6 +1,7 @@
 /**
  * Sensible box model
  */
+
 *,
 ::before,
 ::after {
@@ -10,6 +11,7 @@
 /**
  * Remove white space surrounding page.
  */
+
 body {
   margin: 0;
 }
@@ -21,6 +23,7 @@ body {
  *
  * @see https://github.com/mozdevs/cssremedy
  */
+
 audio,
 canvas,
 embed,
@@ -30,14 +33,15 @@ object,
 svg,
 video {
   display: block; /* 1 */
-  vertical-align: middle; /* 2 */
   max-width: 100%; /* 3 */
+  vertical-align: middle; /* 2 */
 }
 
 /**
  * Embedded elements with consistent aspect ratios require this to maintain
  * that ratio when resized.
  */
+
 canvas,
 img,
 svg,
@@ -48,6 +52,7 @@ video {
 /**
  * It's pretty arbitrary that audio elements are 300px wide by default.
  */
+
 audio {
   width: 100%;
 }
@@ -55,6 +60,7 @@ audio {
 /**
  * Don't allow code blocks to overflow willy-nilly.
  */
+
 pre {
   overflow: auto;
 }
@@ -63,6 +69,7 @@ pre {
  * IE10 and earlier still show borders around linked images. While usage of that
  * browser is low, this is an easy fix to include.
  */
+
 img {
   border-style: none;
 }
@@ -72,6 +79,7 @@ img {
  *
  * @see https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/
  */
+
 [hidden] {
   display: none !important;
 }
@@ -79,6 +87,7 @@ img {
 /**
  * IE11 and earlier display some HTML5 elements as `inline` by default.
  */
+
 article,
 aside,
 figcaption,

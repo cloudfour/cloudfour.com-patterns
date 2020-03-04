@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as msTokens from './modular-scale.yml';
+import * as sizeTokens from './sizes.yml';
+let msStepRows = [];
+for (let i = -4; i <= 10; i++) {
+  let msStep = Math.pow(msTokens.ratio, i);
+  let msStepRow = <tr><th scope="row">{i}</th><td>{msStep.toFixed(2)}</td></tr>;
+  msStepRows.push(msStepRow);
+}
+const sizeTokenRows = Object.keys(sizeTokens).map(key => {
+  return <tr><th scope="row">{key}</th><td>{sizeTokens[key]}</td></tr>;
+});
+
+<Meta title="Design Tokens/Size and Scale"/>
+
+# Modular Scale
+
+To maintain proportions without enforcing hard pixel sizes, this project bases many dimensions off a [modular scale](https://www.modularscale.com/).
+
+<p>The current ratio is {msTokens.ratio}:</p>
+
+<table>
+  <thead>
+    <th>Step</th>
+    <th>Value</th>
+  </thead>
+  <tbody>{msStepRows}</tbody>
+</table>
+
+TODO: Improve visualization of modular scale.
+
+# Sizes
+
+Some dimensions that do not overtly impact white space or type sizing (such as border/outline/line widths or corner radii) are defined outside of the scale.
+
+TODO: Add usage guidelines and visualizations.
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Value</th>
+  </thead>
+  <tbody>{sizeTokenRows}</tbody>
+</table>

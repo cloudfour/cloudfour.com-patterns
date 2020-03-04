@@ -1,0 +1,15 @@
+@mixin focus-visible {
+  .js-focus-visible & {
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    &:focus {
+      outline: 0;
+
+      &.focus-visible {
+        @content;
+      }
+    }
+  }
+}

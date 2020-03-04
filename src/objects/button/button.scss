@@ -1,6 +1,7 @@
 @use "../../design-tokens/colors.yml";
 @use "../../design-tokens/motion.yml";
 @use "../../design-tokens/sizes.yml";
+@use "../../mixins/focus";
 @use "../../mixins/ms";
 @use "../../mixins/unit";
 
@@ -18,7 +19,7 @@
   border-radius: sizes.$radius-medium;
   border-style: solid;
   border-width: sizes.$edge-medium;
-  color: colors.$text_light_emphasis;
+  color: colors.$text-light-emphasis;
   cursor: pointer; /* 1 */
   display: inline-block;
   font: inherit;
@@ -52,5 +53,9 @@
     filter: grayscale(60%);
     opacity: 0.85;
     transform: none;
+  }
+
+  @include focus.focus-visible {
+    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
   }
 }

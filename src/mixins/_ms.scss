@@ -1,0 +1,6 @@
+@use "sass:math";
+@use "../design-tokens/modular-scale.yaml";
+
+@function step($step, $base: 1em, $ratio: modular-scale.$ratio) {
+  @return math.pow($ratio, $step) * $base;
+}

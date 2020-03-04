@@ -1,0 +1,57 @@
+@mixin _non-variable-font-face($name, $path, $parameter) {
+
+  @font-face {
+    font-family: $name;
+    src:
+      url("../src/fonts/#{$path}/#{$parameter}.woff2") format("woff2"),
+      url("../src/fonts/#{$path}/#{$parameter}.woff") format("woff");
+
+    @if (type-of($parameter) == "number") {
+      font-weight: $parameter;
+    }
+
+    @else {
+      font-style: $parameter;
+    }
+  }
+}
+
+@mixin _variable-font-face($name, $path, $style) {
+
+  @font-face {
+    font-family: "Source Sans Pro Variable";
+    font-style: $style;
+    font-weight: 100 900;
+    src:
+      url("../src/fonts/#{$path}.woff2") format("woff2-variations"),
+      url("../src/fonts/#{$path}.woff2") format("woff2");
+  }
+}
+
+@include _variable-font-face(
+  "Source Sans Pro Variable",
+  "source-sans-pro-latin-extended/variable-regular",
+  normal
+);
+@include _variable-font-face(
+  "Source Sans Pro Variable",
+  "source-sans-pro-latin-extended/variable-italic",
+  italic
+);
+
+// Fallback for browsers that don't support variable fonts
+
+@each $style in 400, 600, 700, italic {
+
+  @include _non-variable-font-face(
+    "Source Sans Pro",
+    "source-sans-pro-latin-extended",
+    $style
+  );
+}
+
+@include _non-variable-font-face(
+  "Source Code Pro",
+  "source-code-pro-latin",
+  400
+);

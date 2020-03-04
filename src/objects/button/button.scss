@@ -5,19 +5,19 @@
 @use "../../mixins/unit";
 
 .o-button {
-  background: transparent;
-  border-color: currentColor;
+  background: colors.$primary-brand;
+  border-color: colors.$primary-brand-dark;
   border-radius: sizes.$radius-medium;
   border-style: solid;
   border-width: sizes.$edge-medium;
-  color: colors.$primary-brand;
+  color: colors.$text_light_emphasis;
   cursor: pointer;
   display: inline-block;
   font: inherit;
   font-weight: 600;
   line-height: ms.step(1, 1);
   margin: 0;
-  padding: ms.step(-4) ms.step(0);
+  padding: ms.step(-3) ms.step(0);
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -36,7 +36,7 @@
 
   &:disabled {
     cursor: not-allowed;
-    filter: grayscale(50%);
+    filter: grayscale(60%);
     opacity: 0.85;
     transform: none;
   }

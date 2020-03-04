@@ -1,8 +1,11 @@
 @use "../../mixins/ms";
 @use "../../design-tokens/colors.yml";
 @use "../../design-tokens/motion.yml";
+@use "../../design-tokens/sizes.yml";
 
 .demo-button {
+  border: sizes.$edge-medium solid colors.$primary-brand;
+  border-radius: sizes.$radius-medium;
   color: colors.$primary-brand;
   font-size: ms.step(1);
   transition: transform motion.$speed-quick motion.$ease-out;

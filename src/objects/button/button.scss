@@ -4,6 +4,14 @@
 @use "../../mixins/ms";
 @use "../../mixins/unit";
 
+/**
+ * Button object
+ *
+ * 1. More overtly actionable cursor appearance. Recently this tweak has come
+ *    with some contention, but our experience has been that the average user
+ *    doesn't differentiate cursor styles between different styles of action.
+ */
+
 .o-button {
   background: colors.$primary-brand;
   border-color: colors.$primary-brand-dark;
@@ -11,7 +19,7 @@
   border-style: solid;
   border-width: sizes.$edge-medium;
   color: colors.$text_light_emphasis;
-  cursor: pointer;
+  cursor: pointer; /* 1 */
   display: inline-block;
   font: inherit;
   font-weight: 600;
@@ -23,6 +31,11 @@
   text-decoration: none;
   transition: filter motion.$speed-slow motion.$ease-out, transform motion.$speed-quick motion.$ease-out;
   user-select: none;
+
+  /**
+   * Transform, opacity and filter changes are performant and will work across
+   * many more stylistic modifiers than specific color shifts.
+   */
 
   &:hover {
     filter: brightness(110%);

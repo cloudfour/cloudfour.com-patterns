@@ -1,4 +1,5 @@
-{% embed '../button.twig' %}
+{# Don't allow href knob to change this example's tag #}
+{% embed '../button.twig' with { href: false } %}
   {% block content %}Button{% endblock %}
 {% endembed %}
 {% embed '../button.twig' with { tagName: 'a' } %}

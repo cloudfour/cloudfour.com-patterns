@@ -59,3 +59,23 @@
     box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
   }
 }
+
+/**
+ * Modifier: Secondary
+ */
+
+.o-button--secondary {
+  background-color: transparent;
+  border-color: colors.$primary-brand-light;
+  color: colors.$primary-brand;
+}
+
+/**
+ * Modifier: Tertiary
+ */
+
+.o-button--tertiary {
+  background-color: transparent;
+  border-color: transparent;
+  color: colors.$primary-brand;
+}

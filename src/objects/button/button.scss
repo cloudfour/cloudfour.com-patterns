@@ -1,40 +1,43 @@
 @use "../../design-tokens/colors.yml";
-@use '../../mixins/unit';
+@use "../../design-tokens/motion.yml";
+@use "../../design-tokens/sizes.yml";
+@use "../../mixins/ms";
+@use "../../mixins/unit";
 
 .o-button {
   background: transparent;
   border-color: currentColor;
-  border-radius: 0.25em;
+  border-radius: sizes.$radius-medium;
   border-style: solid;
-  border-width: unit.px-to-em(2px);
+  border-width: sizes.$edge-medium;
   color: colors.$primary-brand;
   cursor: pointer;
   display: inline-block;
   font: inherit;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: ms.step(1, 1);
   margin: 0;
-  padding: 0.5em 1em;
+  padding: ms.step(-4) ms.step(0);
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: filter 0.4s ease, transform 0.2s ease;
+  transition: filter motion.$speed-slow motion.$ease-out, transform motion.$speed-quick motion.$ease-out;
   user-select: none;
-}
 
-.o-button:hover {
-  filter: brightness(110%);
-  transform: scale(1.05);
-}
+  &:hover {
+    filter: brightness(110%);
+    transform: scale(1.05);
+  }
 
-.o-button:active {
-  filter: brightness(80%);
-  transform: scale(0.95);
-}
+  &:active {
+    filter: brightness(80%);
+    transform: scale(0.95);
+  }
 
-.o-button:disabled {
-  cursor: not-allowed;
-  filter: grayscale(95%);
-  opacity: 0.9;
-  transform: none;
+  &:disabled {
+    cursor: not-allowed;
+    filter: grayscale(50%);
+    opacity: 0.85;
+    transform: none;
+  }
 }

@@ -1,0 +1,224 @@
+import { Meta, ColorPalette, ColorItem} from '@storybook/addon-docs/blocks';
+import * as brandTokens from './colors.yml';
+
+<Meta title="Design Tokens/Colors"/>
+
+# Colors
+
+## Primary Colors
+
+These are our core colors. Blue is our primary brand color and is used by many elements like buttons, links, backgrounds, and illustrations.
+
+<ColorPalette>
+  <ColorItem
+    title="$primary-brand"
+    colors={[brandTokens.primaryBrand]}
+  />
+  <ColorItem
+    title="$primary-brand-darker"
+    colors={[brandTokens.primaryBrandDarker]}
+  />
+  <ColorItem
+    title="$gray-lighter"
+    colors={[brandTokens.grayLighter]}
+  />
+</ColorPalette>
+
+## Secondary Colors
+
+Our secondary palette consists of green, purple, fuchsia, and orange. These colors are meant to highlight and compliment our primary brand colors.
+
+<ColorPalette>
+  <ColorItem
+    title="$green"
+    colors={[brandTokens.green]}
+  />
+  <ColorItem
+    title="$purple"
+    colors={[brandTokens.purple]}
+  />
+  <ColorItem
+    title="$fuchsia"
+    colors={[brandTokens.fuchsia]}
+  />
+  <ColorItem
+    title="$orange"
+    colors={[brandTokens.orange]}
+  />
+</ColorPalette>
+
+## Extended Color Palette
+
+The extended palette is intended to be ever evolving, it offers an additional range of colors work with. The number of different values was determined by cataloging the current use of color throughout our site to create a sufficient number of variations. Usage of these colors will vary, but they should come in handy for illustrations and components.
+
+<ColorPalette>
+  <ColorItem
+    title="$primary-brand-lighter"
+    subtitle="Accessible on -darker colors."
+    colors={[brandTokens.primaryBrandLighter]}
+  />
+  <ColorItem
+    title="$primary-brand-light"
+    colors={[brandTokens.primaryBrandLight]}
+  />
+  <ColorItem
+    title="$primary-brand"
+    subtitle="Accessible with white."
+    colors={[brandTokens.primaryBrand]}
+  />
+  <ColorItem
+    title="$primary-brand-dark"
+    subtitle="Accessible with white."
+    colors={[brandTokens.primaryBrandDark]}
+  />
+  <ColorItem
+    title="$primary-brand-darker"
+    subtitle="Accessible with white."
+    colors={[brandTokens.primaryBrandDarker]}
+  />
+  <ColorItem
+    title="$green-lighter"
+    subtitle="Accessible on -darker colors."
+    colors={[brandTokens.greenLighter]}
+  />
+  <ColorItem
+    title="$green-light"
+    colors={[brandTokens.greenLight]}
+  />
+  <ColorItem
+    title="$green"
+    subtitle="Accessible with white."
+    colors={[brandTokens.green]}
+  />
+  <ColorItem
+    title="$green-dark"
+    subtitle="Accessible with white."
+    colors={[brandTokens.greenDark]}
+  />
+  <ColorItem
+    title="$green-darker"
+    subtitle="Accessible with white."
+    colors={[brandTokens.greenDarker]}
+  />
+  <ColorItem
+    title="$purple-lighter"
+    subtitle="Accessible on -darker colors."
+    colors={[brandTokens.purpleLighter]}
+  />
+  <ColorItem
+    title="$purple-light"
+    colors={[brandTokens.purpleLight]}
+  />
+  <ColorItem
+    title="$purple"
+    subtitle="Accessible with white."
+    colors={[brandTokens.purple]}
+  />
+  <ColorItem
+    title="$purple-dark"
+    subtitle="Accessible with white."
+    colors={[brandTokens.purpleDark]}
+  />
+  <ColorItem
+    title="$purple-darker"
+    subtitle="Accessible with white."
+    colors={[brandTokens.purpleDarker]}
+  />
+  <ColorItem
+    title="$fuchsia-lighter"
+    subtitle="Accessible on -darker colors."
+    colors={[brandTokens.fuchsiaLighter]}
+  />
+  <ColorItem
+    title="$fuchsia-light"
+    colors={[brandTokens.fuchsiaLight]}
+  />
+  <ColorItem
+    title="$fuchsia"
+    subtitle="Accessible with white."
+    colors={[brandTokens.fuchsia]}
+  />
+  <ColorItem
+    title="$fuchsia-dark"
+    subtitle="Accessible with white."
+    colors={[brandTokens.fuchsiaDark]}
+  />
+  <ColorItem
+    title="$fuchsia-darker"
+    subtitle="Accessible with white."
+    colors={[brandTokens.fuchsiaDarker]}
+  />
+  <ColorItem
+    title="$orange-lighter"
+    subtitle="Accessible on -darker colors."
+    colors={[brandTokens.orangeLighter]}
+  />
+  <ColorItem
+    title="$orange-light"
+    colors={[brandTokens.orangeLight]}
+  />
+  <ColorItem
+    title="$orange"
+    colors={[brandTokens.orange]}
+  />
+  <ColorItem
+    title="$orange-dark"
+    subtitle="Accessible with white."
+    colors={[brandTokens.orangeDark]}
+  />
+  <ColorItem
+    title="$orange-darker"
+    subtitle="Accessible with white."
+    colors={[brandTokens.orangeDarker]}
+  />
+  <ColorItem
+    title="$gray-lighter"
+    subtitle="Accessible on -darker colors."
+    colors={[brandTokens.grayLighter]}
+  />
+  <ColorItem
+    title="$gray-light"
+    colors={[brandTokens.grayLight]}
+  />
+  <ColorItem
+    title="$gray"
+    colors={[brandTokens.gray]}
+  />
+  <ColorItem
+    title="$gray-dark"
+    subtitle="Accessible with white."
+    colors={[brandTokens.grayDark]}
+  />
+  <ColorItem
+    title="$gray-darker"
+    subtitle="Accessible with white."
+    colors={[brandTokens.grayDarker]}
+  />
+</ColorPalette>
+
+## Text Colors
+
+We design and build with accessibility in mind. Color contrast for text should meet [WCAG standards](https://webaim.org/resources/contrastchecker/).
+
+<ColorPalette>
+  <ColorItem
+    title="$text-dark"
+    subtitle="Accessible on white and lightest gray."
+    colors={[brandTokens.textDark]}
+  />
+  <ColorItem
+    title="$text-light"
+    subtitle="Accessible on primary brand color."
+    colors={[brandTokens.textLight]}
+  />
+  <ColorItem
+    title="$text-light-emphasis"
+    subtitle="Accessible on primary brand color, useful for buttons and headings."
+    colors={[brandTokens.textLightEmphasis]}
+  />
+  <ColorItem
+    title="$text-action"
+    subtitle="Accessible on white and lighter-gray."
+    colors={[brandTokens.textAction]}
+  />
+</ColorPalette>

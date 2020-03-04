@@ -1,3 +1,4 @@
 multipass: true
 plugins:
   - removeViewBox: false
+  - removeXMLNS: true

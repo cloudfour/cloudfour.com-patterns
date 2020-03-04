@@ -1,0 +1,16 @@
+props:
+  speed_instant:
+    value: 0s
+  speed_immediate:
+    value: 0.1s
+  speed_quick:
+    value: 0.2s
+  speed_prompt:
+    value: 0.3s
+  speed_slow:
+    value: 0.4s
+  speed_glacial:
+    value: 0.6s
+global:
+  type: duration
+  category: speed

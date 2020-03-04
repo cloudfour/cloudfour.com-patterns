@@ -35,137 +35,105 @@ aliases:
 props:
   primary_brand_lighter:
     value: "{!blue_lighter}"
-    type: color
     category: brand
   primary_brand_light:
     value: "{!blue_light}"
-    type: color
     category: brand
   primary_brand:
     value: "{!blue}"
-    type: color
     category: brand
   primary_brand_dark:
     value: "{!blue_dark}"
-    type: color
     category: brand
   primary_brand_darker:
     value: "{!blue_darker}"
-    type: color
     category: brand
   green_lighter:
     value: "{!green_lighter}"
-    type: color
     category: brand
   green_light:
     value: "{!green_light}"
-    type: color
     category: brand
   green:
     value: "{!green}"
-    type: color
     category: brand
   green_dark:
     value: "{!green_dark}"
-    type: color
     category: brand
   green_darker:
     value: "{!green_darker}"
-    type: color
     category: brand
   purple_lighter:
     value: "{!purple_lighter}"
-    type: color
     category: brand
   purple_light:
     value: "{!purple_light}"
-    type: color
     category: brand
   purple:
     value: "{!purple}"
-    type: color
     category: brand
   purple_dark:
     value: "{!purple_dark}"
-    type: color
     category: brand
   purple_darker:
     value: "{!purple_darker}"
-    type: color
     category: brand
   fuchsia_lighter:
     value: "{!fuchsia_lighter}"
-    type: color
     category: brand
   fuchsia_light:
     value: "{!fuchsia_light}"
-    type: color
     category: brand
   fuchsia:
     value: "{!fuchsia}"
-    type: color
     category: brand
   fuchsia_dark:
     value: "{!fuchsia_dark}"
-    type: color
     category: brand
   fuchsia_darker:
     value: "{!fuchsia_darker}"
-    type: color
     category: brand
   orange_lighter:
     value: "{!orange_lighter}"
-    type: color
     category: brand
   orange_light:
     value: "{!orange_light}"
-    type: color
     category: brand
   orange:
     value: "{!orange}"
-    type: color
     category: brand
   orange_dark:
     value: "{!orange_dark}"
-    type: color
     category: brand
   orange_darker:
     value: "{!orange_darker}"
-    type: color
     category: brand
   gray_lighter:
     value: "{!gray_lighter}"
-    type: color
     category: brand
   gray_light:
     value: "{!gray_light}"
-    type: color
     category: brand
   gray:
     value: "{!gray}"
-    type: color
     category: brand
   gray_dark:
     value: "{!gray_dark}"
-    type: color
     category: brand
   gray_darker:
     value: "{!gray_darker}"
-    type: color
     category: brand
   text_dark:
     value: "{!black_transparent_85}"
-    type: color
     category: text_color
   text_light:
     value: "{!white_transparent_85}"
-    type: color
     category: text_color
   text_light_emphasis:
     value: "{!white}"
-    type: color
     category: text_color
   text_action:
     value: "{!blue}"
-    type: color
     category: text_color
+global:
+  type: color

@@ -1,7 +1,13 @@
-@import "../../design-tokens/colors.yml";
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/motion.yml";
 
 .demo-button {
-  color: $primary-brand;
+  color: colors.$primary-brand;
+  transition: transform motion.$speed-quick motion.$ease-out;
+}
+
+.demo-button:hover {
+  transform: scale(1.1);
 }
 
 .demo-button:disabled {

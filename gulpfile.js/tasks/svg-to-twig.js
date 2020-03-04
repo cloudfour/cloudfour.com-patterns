@@ -4,10 +4,12 @@ const rename = require('gulp-rename');
 const { obj } = require('through2');
 const ltx = require('ltx');
 const yaml = require('js-yaml');
+const path = require('path');
 const { readFileSync } = require('fs');
 
 // Load SVGO preferences from config file to keep things DRY
-const svgoConfig = yaml.safeLoad(readFileSync('.svgo.yml', 'utf8'));
+const svgoPath = path.join(__dirname, '../../.svgo.yml');
+const svgoConfig = yaml.safeLoad(readFileSync(svgoPath, 'utf8'));
 
 // Properties to make configurable via Twig templates
 const dynamicSvgProps = [
@@ -108,4 +110,4 @@ function svgToTwig() {
 }
 
 // Expose to Gulp
-exports.svgToTwig = svgToTwig;
+module.exports = svgToTwig;

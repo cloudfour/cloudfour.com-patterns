@@ -22,7 +22,9 @@
     "type": "git",
     "url": "https://github.com/cloudfour/cloudfour.com-patterns.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "focus-visible": "^5.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@cloudfour/eslint-plugin": "^6.0.0",
@@ -44,6 +46,7 @@
     "js-yaml": "^3.13.1",
     "ltx": "^2.9.2",
     "prettier": "^1.19.1",
+    "require-dir": "^1.2.0",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",
@@ -57,7 +60,7 @@
   "scripts": {
     "storybook": "npm run svg-to-twig && start-storybook -p 6006",
     "build-storybook": "npm run svg-to-twig && build-storybook",
-    "svg-to-twig": "gulp svgToTwig",
+    "svg-to-twig": "gulp svg-to-twig",
     "check-lint": "npm run check-lint:css && npm run check-lint:js",
     "check-lint:css": "stylelint '**/*.scss'",
     "check-lint:js": "prettier --list-different '**/*.js' && eslint '**/*.js'",

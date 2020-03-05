@@ -1,0 +1,9 @@
+{% embed '../button.twig' %}
+  {% block content %}Default{% endblock %}
+{% endembed %}
+{% embed '../button.twig' with { class: 'o-button--secondary' } %}
+  {% block content %}Secondary{% endblock %}
+{% endembed %}
+{% embed '../button.twig' with { class: 'o-button--tertiary' } %}
+  {% block content %}Tertiary{% endblock %}
+{% endembed %}

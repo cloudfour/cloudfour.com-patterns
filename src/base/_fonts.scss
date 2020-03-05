@@ -3,8 +3,8 @@
   @font-face {
     font-family: $name;
     src:
-      url("../src/fonts/#{$path}/#{$parameter}.woff2") format("woff2"),
-      url("../src/fonts/#{$path}/#{$parameter}.woff") format("woff");
+      url("../src/assets/fonts/#{$path}/#{$parameter}.woff2") format("woff2"),
+      url("../src/assets/fonts/#{$path}/#{$parameter}.woff") format("woff");
 
     @if (type-of($parameter) == "number") {
       font-weight: $parameter;
@@ -23,8 +23,8 @@
     font-style: $style;
     font-weight: 100 900;
     src:
-      url("../src/fonts/#{$path}.woff2") format("woff2-variations"),
-      url("../src/fonts/#{$path}.woff2") format("woff2");
+      url("../src/assets/fonts/#{$path}.woff2") format("woff2-variations"),
+      url("../src/assets/fonts/#{$path}.woff2") format("woff2");
   }
 }
 

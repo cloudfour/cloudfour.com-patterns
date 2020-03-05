@@ -22,7 +22,9 @@
     "type": "git",
     "url": "https://github.com/cloudfour/cloudfour.com-patterns.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "focus-visible": "^5.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@cloudfour/eslint-plugin": "^6.0.0",

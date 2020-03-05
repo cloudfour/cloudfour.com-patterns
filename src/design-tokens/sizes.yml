@@ -1,6 +1,14 @@
 props:
+  edge_small:
+    value: 0.0625rem
+    type: relative
+    category: sizing
   edge_medium:
     value: 0.125rem
+    type: relative
+    category: sizing
+  edge_large:
+    value: 0.25rem
     type: relative
     category: sizing
   radius_medium:

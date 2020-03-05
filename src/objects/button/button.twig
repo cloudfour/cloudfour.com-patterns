@@ -1,13 +1,7 @@
-{% if not tagName %}
-  {% if href %}
-    {% set tagName = 'a' %}
-  {% else %}
-    {% set tagName = 'button' %}
-  {% endif %}
-{% endif %}
+{% set tagName = tagName | default(href ? 'a' : 'button') %}
 
 <{{tagName}}
-  class="demo-button{% if class %} {{class}}{% endif %}"
+  class="o-button{% if class %} {{class}}{% endif %}"
   {% if tagName == 'a' %}
     href="{{href|default('#')}}"
   {% elseif tagName == 'button' %}
@@ -17,6 +11,6 @@
     {% endif %}
   {% endif %}>
   {% block content %}
-    {{label | default('Label')}}
+    {{label | default('Hello world')}}
   {% endblock %}
 </{{tagName}}>

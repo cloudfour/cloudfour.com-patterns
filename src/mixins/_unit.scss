@@ -20,3 +20,14 @@
 
   @return #{$rem-size}rem;
 }
+
+/**
+ * Accepts a pixel value, divides it by a base font size and returns the result
+ * in ems. For example, `24px` would become `1.5em`.
+ */
+
+@function px-to-em($value, $base: 16) {
+  $em-size: strip($value) / $base;
+
+  @return #{$em-size}em;
+}

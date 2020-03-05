@@ -23,6 +23,8 @@ cloudfour.com-patterns
 ├── .storybook
 │   ├── main.js           # Settings for Storybook UI
 │   └── preview.js        # Settings for story previews
+├── gulpfile.js
+│   └── tasks/*.js        # Complex build tasks
 ├── src
 │   ├── **/*.scss         # Styles (Sass)
 │   ├── **/*.stories.mdx  # Documentation (Storybook Docs)
@@ -32,7 +34,6 @@ cloudfour.com-patterns
 ├── .nvmrc                # Node version (used by Netlify)
 ├── .svgo.yml             # Inline SVG optimization settings
 ├── README.md             # ⬅️ You are here!
-├── gulpfile.js           # Complex build task configuration
 ├── netlify.toml          # Netlify build settings
 └── package.json          # Project info and dependencies
 ```

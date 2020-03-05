@@ -11,6 +11,9 @@
  * 1. More overtly actionable cursor appearance. Recently this tweak has come
  *    with some contention, but our experience has been that the average user
  *    doesn't differentiate cursor styles between different styles of action.
+ * 2. Although we will be overtly setting some typographic properties, the
+ *    shorthand is helpful for completely overriding all system font styles as
+ *    a starting point.
  */
 
 .o-button {
@@ -22,7 +25,8 @@
   color: colors.$text-light-emphasis;
   cursor: pointer; /* 1 */
   display: inline-block;
-  font: inherit;
+  font: inherit; /* 2 */
+  font-style: normal;
   font-weight: 600;
   line-height: ms.step(1, 1);
   margin: 0;

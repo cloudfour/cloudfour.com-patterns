@@ -2,6 +2,8 @@ import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import elementsDemo from './demo/elements.twig';
 import stylesDemo from './demo/styles.twig';
+import stylesDarkDemo from './demo/styles-dark.twig';
+import '../../themes/_index.scss';
 import './button.scss';
 
 <Meta
@@ -29,6 +31,18 @@ Some buttons may not require as much emphasis as others. The `o-button--secondar
 <Preview>
   <Story name="Styles" height="100px">
     {stylesDemo({
+      href: text('href', null),
+      type: select('type', ['', 'button', 'submit']),
+      disabled: boolean('disabled', false),
+    })}
+  </Story>
+</Preview>
+
+All visual styles are optimized for [our dark theme](/?path=/docs/themes--dark). We avoid simply inverting the visual appearance so buttons will appear distinct from white content containers or text inputs.
+
+<Preview>
+  <Story name="Styles (Dark)" height="100px" parameters={{ backgrounds: { disabled: true }}}>
+    {stylesDarkDemo({
       href: text('href', null),
       type: select('type', ['', 'button', 'submit']),
       disabled: boolean('disabled', false),

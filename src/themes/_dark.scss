@@ -1,0 +1,16 @@
+@use "../design-tokens/colors.yml";
+
+.t-dark {
+  background-color: colors.$primary-brand;
+  color: colors.$text-light;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a {
+    color: colors.$text-light-emphasis;
+  }
+}

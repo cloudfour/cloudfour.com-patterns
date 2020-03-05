@@ -1,0 +1,21 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import demo from './demo/fill-canvas.twig';
+import './_index.scss';
+
+<Meta title="Themes"/>
+
+# Themes
+
+Themes may be applied to a containing element to dramatically change that content's appearance. Theme classes are always prefixed by `t-`.
+
+While selector depth is best kept to a minimum, it's permissable to style objects and components differently within a theme class. If you find you are working _against_ a theme class a lot, it may be a sign that you really need a whole new pattern and modifier (instead of just a themed variation).
+
+## Dark
+
+`t-dark` is intended primarily for page headers.
+
+<Preview>
+  <Story name="Dark" height="200px">
+    {demo({ theme: 'dark' })}
+  </Story>
+</Preview>

@@ -1,3 +1,5 @@
+@use "../design-tokens/colors.yml";
+
 /**
  * Sensible box model
  */
@@ -9,11 +11,24 @@
 }
 
 /**
- * Remove white space surrounding page.
+ * 1. Prevents custom background colors, iframes, etc. from making page content
+ *    unreadable.
+ * 2. 100% black can appear somewhat harsh against white.
+ * 3. Remove white space surrounding page.
  */
 
 body {
-  margin: 0;
+  background-color: #fff; /* 1 */
+  color: colors.$text-dark; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Default link color
+ */
+
+a {
+  color: colors.$text-action;
 }
 
 /**

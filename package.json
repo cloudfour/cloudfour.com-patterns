@@ -26,7 +26,7 @@
     "focus-visible": "5.0.2"
   },
   "devDependencies": {
-    "@babel/core": "7.8.4",
+    "@babel/core": "7.8.7",
     "@cloudfour/eslint-plugin": "6.0.0",
     "@storybook/addon-a11y": "5.3.13",
     "@storybook/addon-backgrounds": "5.3.14",

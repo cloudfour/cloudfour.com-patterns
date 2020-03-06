@@ -62,6 +62,11 @@
   @include focus.focus-visible {
     box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
   }
+
+  .t-dark & {
+    background-color: colors.$primary-brand-dark;
+    border-color: colors.$primary-brand-darker;
+  }
 }
 
 /**
@@ -69,9 +74,18 @@
  */
 
 .o-button--secondary {
-  background-color: transparent;
   border-color: colors.$primary-brand-light;
   color: colors.$primary-brand;
+
+  &,
+  .t-dark & {
+    background-color: transparent;
+  }
+
+  .t-dark & {
+    border-color: colors.$primary-brand-dark;
+    color: colors.$text-light-emphasis;
+  }
 }
 
 /**
@@ -79,7 +93,15 @@
  */
 
 .o-button--tertiary {
-  background-color: transparent;
-  border-color: transparent;
   color: colors.$primary-brand;
+
+  &,
+  .t-dark & {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .t-dark & {
+    color: colors.$text-light-emphasis;
+  }
 }

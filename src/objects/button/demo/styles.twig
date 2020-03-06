@@ -1,9 +1,7 @@
-{% embed '../button.twig' %}
-  {% block content %}Default{% endblock %}
-{% endembed %}
-{% embed '../button.twig' with { class: 'o-button--secondary' } %}
-  {% block content %}Secondary{% endblock %}
-{% endembed %}
-{% embed '../button.twig' with { class: 'o-button--tertiary' } %}
-  {% block content %}Tertiary{% endblock %}
-{% endembed %}
+{#
+  We could use `{% block content %}` but Twig.js complains when nested in
+  Storybook for some reason... 🤔
+#}
+{% include '../button.twig' with { label: 'Default' } %}
+{% include '../button.twig' with { label: 'Secondary', class: 'o-button--secondary' } %}
+{% include '../button.twig' with { label: 'Tertiary', class: 'o-button--tertiary' } %}

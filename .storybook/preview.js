@@ -10,7 +10,5 @@ addDecorator(centered);
 addDecorator(withA11y);
 
 // Theme selection from stories
-const themes = [
-  { name: 'Dark', class: 't-dark', color: colors.primaryBrand }
-];
+const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
 addParameters({ themes });

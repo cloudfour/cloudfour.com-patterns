@@ -1,12 +1,12 @@
 {#
   These inline styles are necessary to fill both the Storybook canvas and doc
-  previews while cooexisting with the Centered addon.
+  previews while cooexisting with the Centered addon. It unfortunately does not
+  play nicely with the Themes addon.
 
-  It unfortunately does not play nicely with the Themes addon.
+  This would probably not be necessary if an HTML decorator were added to the
+  Themes addon.
 
-  It should be noted that Storybook and Storybook Docs are still in heavy
-  development as of this writing. I imagine our options for pulling this off
-  will improve over time.
+  @see https://github.com/tonai/storybook-addon-themes#usage-with-decorator
 #}
 <div{% if theme %} class="t-{{theme}}"{% endif %} style="
   align-items: center;

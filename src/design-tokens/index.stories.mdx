@@ -1,0 +1,43 @@
+import { Meta, Heading, Story, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+const tokenContext = require.context('.', false, /^\.\/[^_].+\.yml$/);
+const tokenFiles = tokenContext.keys().map(key => {
+  const tokenFileData = tokenContext(key);
+  const tokenFileName = key.replace(/^\.\/([^_].+)\.yml$/g, '$1').replace(/-/g, ' ');
+  const tokenCategoryData = {};
+  Object.keys(tokenFileData).forEach(tokenName => {
+    const token = tokenFileData[tokenName];
+    const category = token.category;
+    if (!tokenCategoryData[category]) tokenCategoryData[category] = [];
+    tokenCategoryData[category].push(token);
+  });
+  const tokenCategories = Object.keys(tokenCategoryData).map(categoryName => {
+    const tokens = tokenCategoryData[categoryName];
+    const tokenRows = Object.keys(tokens).map(tokenName => {
+      const token = tokens[tokenName];
+      return <tr>
+        <td><b>{token.sassName}</b></td>
+        <td>{token.value}</td>
+      </tr>;
+    });
+    let categoryHeading;
+    if (Object.keys(tokenCategoryData).length > 1) {
+      categoryHeading = <h3>{categoryName}</h3>;
+    }
+    return <div>
+      {categoryHeading}
+      <table>
+        <tbody>{tokenRows}</tbody>
+      </table>
+    </div>;
+  });
+  return <div>
+    <Heading>{tokenFileName}</Heading>
+    <div>{tokenCategories}</div>
+  </div>;
+});
+
+<Meta title="Design Tokens"/>
+
+# Design Tokens
+
+<div>{tokenFiles}</div>

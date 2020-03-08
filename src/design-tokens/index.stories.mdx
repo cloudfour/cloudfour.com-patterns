@@ -1,38 +1,84 @@
-import { Meta, Heading, Story, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { Meta, Heading, Subheading, Story, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import groupBy from 'lodash/groupBy';
+import startCase from 'lodash/startCase';
+const collator = new Intl.Collator(undefined, {
+  numeric: true,
+  sensitivity: 'base'
+});
 const tokenContext = require.context('.', false, /^\.\/[^_].+\.yml$/);
-const tokenFiles = tokenContext.keys().map(key => {
-  const tokenFileData = tokenContext(key);
-  const tokenFileName = key.replace(/^\.\/([^_].+)\.yml$/g, '$1').replace(/-/g, ' ');
-  const tokenCategoryData = {};
-  Object.keys(tokenFileData).forEach(tokenName => {
-    const token = tokenFileData[tokenName];
-    const category = token.category;
-    if (!tokenCategoryData[category]) tokenCategoryData[category] = [];
-    tokenCategoryData[category].push(token);
+const tokenDocData = {};
+tokenContext.keys().forEach(tokenPath => {
+  const fileData = tokenContext(tokenPath);
+  const sorted = Object.values(fileData).sort((a, b) => collator.compare(a.tokenName, b.tokenName));
+  const organized = groupBy(sorted, 'category');
+  Object.keys(organized).forEach(category => {
+    organized[category] = groupBy(organized[category], 'type');
   });
-  const tokenCategories = Object.keys(tokenCategoryData).map(categoryName => {
-    const tokens = tokenCategoryData[categoryName];
-    const tokenRows = Object.keys(tokens).map(tokenName => {
-      const token = tokens[tokenName];
-      return <tr>
-        <td><b>{token.sassName}</b></td>
-        <td>{token.value}</td>
-      </tr>;
-    });
+  tokenDocData[tokenPath] = organized;
+});
+const tokenDocs = Object.keys(tokenDocData).map(tokenPath => {
+  const file = tokenDocData[tokenPath];
+  const fileHeading = startCase(tokenPath.replace(/^\.\/([^_].+)\.yml$/g, '$1'));
+  const categoryKeys = Object.keys(file);
+  const categories = categoryKeys.map(categoryKey => {
+    const categoryData = file[categoryKey];
+    const typeKeys = Object.keys(categoryData);
     let categoryHeading;
-    if (Object.keys(tokenCategoryData).length > 1) {
-      categoryHeading = <h3>{categoryName}</h3>;
+    if (categoryKeys.length > 1) {
+      categoryHeading = <Subheading>{startCase(categoryKey)}</Subheading>
     }
+    const types = typeKeys.map(typeKey => {
+      const typeData = categoryData[typeKey];
+      const tokens = Object.values(typeData);
+      let typeHeading, typeDocs;
+      if (typeKeys.length > 1) {
+        const typeName = startCase(typeKey);
+        if (categoryHeading) {
+          typeHeading = <h3>{typeName}</h3>;
+        } else {
+          typeHeading = <Subheading>{typeName}</Subheading>;
+        }
+      }
+      if (categoryKey.indexOf('color') !== -1) {
+        const tokenColors = tokens.map(token => {
+          return <ColorItem
+            title={token.sassName}
+            colors={[token.value]}
+          />
+        });
+        typeDocs = <ColorPalette>{tokenColors}</ColorPalette>;
+      } else {
+        const tokenRows = tokens.map(token => {
+          return <tr>
+            <td>{token.sassName}</td>
+            <td>{token.value}</td>
+          </tr>
+        });
+        typeDocs = <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tokenRows}
+          </tbody>
+        </table>;
+      }
+      return <div>
+        {typeHeading}
+        {typeDocs}
+      </div>
+    });
     return <div>
       {categoryHeading}
-      <table>
-        <tbody>{tokenRows}</tbody>
-      </table>
-    </div>;
+      {types}
+    </div>
   });
   return <div>
-    <Heading>{tokenFileName}</Heading>
-    <div>{tokenCategories}</div>
+    <Heading>{fileHeading}</Heading>
+    {categories}
   </div>;
 });
 
@@ -40,4 +86,4 @@ const tokenFiles = tokenContext.keys().map(key => {
 
 # Design Tokens
 
-<div>{tokenFiles}</div>
+<div>{tokenDocs}</div>

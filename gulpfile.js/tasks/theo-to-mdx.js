@@ -7,14 +7,16 @@ theo.registerFormat('stories.mdx', mdxStoriesFormat);
 
 function theoToMdx() {
   return src(['src/design-tokens/*.yml', '!src/design-tokens/_*'])
-    .pipe(gulpTheo({
-      transform: {
-        type: 'web'
-      },
-      format: {
-        type: 'stories.mdx'
-      }
-    }))
+    .pipe(
+      gulpTheo({
+        transform: {
+          type: 'web'
+        },
+        format: {
+          type: 'stories.mdx'
+        }
+      })
+    )
     .pipe(dest('src/design-tokens'));
 }
 

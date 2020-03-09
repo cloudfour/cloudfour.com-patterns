@@ -2,14 +2,6 @@ const groupBy = require('lodash/groupBy');
 const kebabCase = require('lodash/kebabCase');
 const startCase = require('lodash/startCase');
 const { basename, extname } = require('path');
-const collator = new Intl.Collator(undefined, {
-  numeric: true,
-  sensitivity: 'base'
-});
-
-function sortProps(a, b) {
-  return collator.compare(a.name, b.name);
-}
 
 function mdxColor(prop) {
   return `
@@ -64,12 +56,14 @@ ${categoryBody}
 `.trim();
 }
 
-function mdxStoriesFormat (result) {
+function mdxStoriesFormat(result) {
   const file = result.getIn(['meta', 'file']);
   const title = startCase(basename(file, extname(file)));
-  const props = result.get('props').toJS();// .sort(sortProps);
+  const props = result.get('props').toJS();
   const categories = groupBy(props, 'category');
-  const mdxCategories = Object.keys(categories).map(category => categoryToMdx(category, categories[category]));
+  const mdxCategories = Object.keys(categories).map(category =>
+    categoryToMdx(category, categories[category])
+  );
   return `
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 

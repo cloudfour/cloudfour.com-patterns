@@ -3,7 +3,6 @@
 @use "../../mixins/unit";
 
 .o-icon {
-
   @include svg.inherit-color;
   @include svg.inherit-size;
   display: inline-block;

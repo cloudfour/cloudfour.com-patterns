@@ -34,7 +34,8 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: filter motion.$speed-slow motion.$ease-out, transform motion.$speed-quick motion.$ease-out;
+  transition: filter motion.$speed-slow motion.$ease-out,
+    transform motion.$speed-quick motion.$ease-out;
   user-select: none;
 
   /**

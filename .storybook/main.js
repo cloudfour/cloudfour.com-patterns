@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 
 module.exports = {
-  stories: ['../src/**/*.stories.(js|mdx)'],
+  stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.(js|mdx)'],
   addons: [
     // Core addons
     '@storybook/addon-a11y/register',

@@ -3,8 +3,8 @@ const { resolve } = require('path');
 module.exports = {
   stories: ['../src/**/*.stories.(js|mdx)'],
   addons: [
+    // Core addons
     '@storybook/addon-a11y/register',
-    '@storybook/addon-backgrounds/register',
     '@storybook/addon-docs',
     '@storybook/addon-knobs/register',
     '@storybook/addon-viewport/register',
@@ -20,7 +20,9 @@ module.exports = {
           }
         }
       }
-    }
+    },
+    // Community addons
+    'storybook-addon-themes'
   ],
   webpackFinal: async config => {
     // Remove default SVG processing from default config.

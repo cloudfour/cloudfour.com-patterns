@@ -39,6 +39,8 @@
     "babel-loader": "8.0.6",
     "css-loader": "3.4.2",
     "eslint": "6.8.0",
+    "eslint-plugin-mdx": "1.6.8",
+    "eslint-plugin-react": "7.19.0",
     "gulp": "4.0.2",
     "gulp-rename": "2.0.0",
     "gulp-svgmin": "2.2.0",
@@ -69,10 +71,28 @@
     "lint": "npm run lint:prettier && npm run lint:css && npm run lint:js",
     "lint:prettier": "prettier --ignore-path .gitignore --write '**/*.{scss,js}'",
     "lint:css": "stylelint --ignore-path .gitignore --fix '**/*.scss'",
-    "lint:js": "eslint --ignore-path .gitignore --fix '**/*.js'"
+    "lint:js": "eslint --ignore-path .gitignore --fix '**/*.{js,mdx}'"
   },
   "eslintConfig": {
-    "extends": "plugin:@cloudfour/recommended"
+    "extends": [
+      "plugin:@cloudfour/recommended",
+      "plugin:mdx/recommended"
+    ],
+    "plugins": [
+      "react"
+    ],
+    "settings": {
+      "node": {
+        "allowModules": [
+          "@storybook/addon-docs",
+          "@storybook/addon-knobs"
+        ]
+      }
+    },
+    "rules": {
+      "padding-line-between-statements": "off",
+      "react/jsx-uses-vars": "error"
+    }
   },
   "prettier": {
     "singleQuote": true

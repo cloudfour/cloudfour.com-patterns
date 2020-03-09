@@ -67,11 +67,11 @@
     "build-storybook": "npm run svg-to-twig && build-storybook -s static",
     "svg-to-twig": "gulp svg-to-twig",
     "check-lint": "npm run check-lint:prettier && npm run check-lint:css && npm run check-lint:js",
-    "check-lint:prettier": "prettier --ignore-path .gitignore --list-different '**/*.{scss,js}'",
+    "check-lint:prettier": "prettier --ignore-path .gitignore --list-different '**/*.{scss,js,mdx}'",
     "check-lint:css": "stylelint --ignore-path .gitignore '**/*.scss'",
     "check-lint:js": "eslint --ignore-path .gitignore '**/*.{js,mdx}'",
     "lint": "npm run lint:prettier && npm run lint:css && npm run lint:js",
-    "lint:prettier": "prettier --ignore-path .gitignore --write '**/*.{scss,js,mdx,md}'",
+    "lint:prettier": "prettier --ignore-path .gitignore --write '**/*.{scss,js,mdx}'",
     "lint:css": "stylelint --ignore-path .gitignore --fix '**/*.scss'",
     "lint:js": "eslint --ignore-path .gitignore --fix '**/*.{js,mdx}'"
   },

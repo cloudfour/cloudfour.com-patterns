@@ -24,25 +24,6 @@ function theoLoader(source) {
     });
   }
 
-  theo.registerFormat(
-    'verbose.js',
-    `
-      // Source: {{stem meta.file}}
-      module.exports = {
-        {{#each props as |prop|}}
-          {{camelcase prop.name}}: {
-            tokenName: "{{prop.name}}",
-            sassName: "\${{kebabcase prop.name}}",
-            value: {{#compare prop.type "==" "float"}}{{prop.value}}{{else}}"{{prop.value}}"{{/compare}},
-            type: "{{prop.type}}",
-            category: "{{prop.category}}"{{#if prop.meta}},
-            meta: {{JSONstringify prop.meta}}
-            {{/if}}
-          }{{#unless @last}},{{/unless}}
-        {{/each}}
-      }
-    `);
-
   theo
     .convert({
       transform: {
@@ -51,12 +32,11 @@ function theoLoader(source) {
       },
       format: {
         // Outputs ES modules: `export const propertyName = value;`
-        // type: 'module.js'
-        type: 'verbose.js'
+        type: 'module.js'
       }
     })
     .then(result => {
-      done(null, `module.exports = ${result}`);
+      done(null, result);
     })
     .catch(({ message }) => {
       done(new Error(`Theo import of ${tokenPath} failed: ${message}`));

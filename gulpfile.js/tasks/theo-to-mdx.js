@@ -17,7 +17,7 @@ function theoToMdx() {
         }
       })
     )
-    .pipe(dest('src/design-tokens'));
+    .pipe(dest('src/design-tokens/generated'));
 }
 
 module.exports = theoToMdx;

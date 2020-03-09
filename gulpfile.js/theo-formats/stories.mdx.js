@@ -67,7 +67,7 @@ function mdxStoriesFormat(result) {
   return `
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
-<Meta title="Tokens/${title}"/>
+<Meta title="Design Tokens/${title}"/>
 
 ${mdxCategories.join('\n\n')}`.trim();
 }

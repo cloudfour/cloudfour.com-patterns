@@ -9,11 +9,6 @@ import './preview.scss';
 addDecorator(centered);
 addDecorator(withA11y);
 
-// Set choosable backgrounds for stories
-const backgrounds = [
-  'primaryBrand',
-  'primaryBrandDarker',
-  'grayLighter'
-].map(name => ({ name, value: colors[name] }));
-
-addParameters({ backgrounds });
+// Theme selection from stories
+const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
+addParameters({ themes });

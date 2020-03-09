@@ -1,14 +1,24 @@
-import { Meta, PropsTable, PropRow, Story } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 import * as easingTokens from './_easing.yml';
 import * as speedTokens from './_speed.yml';
 const easingTokenRows = Object.keys(easingTokens).map(key => {
-  return <tr><th scope="row">{key}</th><td>{easingTokens[key]}</td></tr>;
+  return (
+    <tr>
+      <th scope="row">{key}</th>
+      <td>{easingTokens[key]}</td>
+    </tr>
+  );
 });
 const speedTokenRows = Object.keys(speedTokens).map(key => {
-  return <tr><th scope="row">{key}</th><td>{speedTokens[key]}</td></tr>;
+  return (
+    <tr>
+      <th scope="row">{key}</th>
+      <td>{speedTokens[key]}</td>
+    </tr>
+  );
 });
 
-<Meta title="Design Tokens/Motion"/>
+<Meta title="Design Tokens/Motion" />
 
 # Motion
 

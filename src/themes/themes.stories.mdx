@@ -2,7 +2,7 @@ import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import demo from './demo/fill-canvas.twig';
 import './_index.scss';
 
-<Meta title="Themes"/>
+<Meta title="Themes" />
 
 # Themes
 
@@ -14,8 +14,13 @@ While selector depth is best kept to a minimum, it's permissable to style object
 
 `t-dark` is intended primarily for page headers.
 
+export const parameters = { themes: { disable: true } };
+// Parameters has to be defined separately because of this prettier bug:
+// https://github.com/prettier/prettier/issues/7731
+// https://mdxjs.com/getting-started#defining-variables-with-exports
+
 <Preview>
-  <Story name="Dark" height="200px" parameters={{ themes: { disable: true }}}>
+  <Story name="Dark" height="200px" parameters={parameters}>
     {demo({ theme: 'dark' })}
   </Story>
 </Preview>

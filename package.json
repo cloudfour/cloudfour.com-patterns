@@ -58,8 +58,8 @@
     "twigjs-loader": "1.0.1"
   },
   "scripts": {
-    "storybook": "npm run svg-to-twig && start-storybook -p 6006",
-    "build-storybook": "npm run svg-to-twig && build-storybook",
+    "storybook": "npm run svg-to-twig && start-storybook -p 6006 -s static",
+    "build-storybook": "npm run svg-to-twig && build-storybook -s static",
     "svg-to-twig": "gulp svg-to-twig",
     "check-lint": "npm run check-lint:css && npm run check-lint:js",
     "check-lint:css": "stylelint '**/*.scss'",

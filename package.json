@@ -60,9 +60,10 @@
     "twigjs-loader": "1.0.1"
   },
   "scripts": {
-    "storybook": "npm run svg-to-twig && start-storybook -p 6006",
-    "build-storybook": "npm run svg-to-twig && build-storybook",
+    "storybook": "npm run svg-to-twig && npm run theo-to-mdx && start-storybook -p 6006",
+    "build-storybook": "npm run svg-to-twig && npm run theo-to-mdx && build-storybook",
     "svg-to-twig": "gulp svg-to-twig",
+    "theo-to-mdx": "gulp theo-to-mdx",
     "check-lint": "npm run check-lint:css && npm run check-lint:js",
     "check-lint:css": "stylelint '**/*.scss'",
     "check-lint:js": "prettier --list-different '**/*.js' && eslint '**/*.js'",

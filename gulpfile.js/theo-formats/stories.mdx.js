@@ -3,6 +3,12 @@ const kebabCase = require('lodash/kebabCase');
 const startCase = require('lodash/startCase');
 const { basename, extname } = require('path');
 
+/**
+ * Return a string containing Storybook Docs MDX markup for a color.
+ *
+ * @param {Object} prop - Theo property
+ * @returns {String}
+ */
 function mdxColor(prop) {
   return `
 <ColorItem
@@ -11,6 +17,12 @@ function mdxColor(prop) {
   colors={['${prop.value}']}/>`.trim();
 }
 
+/**
+ * Return a string containing Storybook Docs MDX markup for multiple colors.
+ *
+ * @param {Array} props - Theo properties
+ * @returns {String}
+ */
 function mdxColors(props) {
   const colors = props.map(mdxColor);
   return `
@@ -19,6 +31,13 @@ function mdxColors(props) {
 </ColorPalette>`.trim();
 }
 
+/**
+ * Return a string containing Storybook Docs MDX markup for a single row of a
+ * property table.
+ *
+ * @param {Object} prop - Theo property
+ * @returns {String}
+ */
 function mdxProp(prop) {
   return `
 <tr>
@@ -28,6 +47,12 @@ function mdxProp(prop) {
   `.trim();
 }
 
+/**
+ * Return a string containing Storybook Docs MDX markup for a property table.
+ *
+ * @param {Array} props - Theo properties
+ * @returns {String}
+ */
 function mdxProps(props) {
   const rows = props.map(mdxProp);
   return `
@@ -40,6 +65,14 @@ function mdxProps(props) {
 </table>`.trim();
 }
 
+/**
+ * Return a string containing Storybook Docs MDX markup for a single category
+ * of Theo properties.
+ *
+ * @param {String} category - Category of Theo properties
+ * @param {Array} props - Theo properties
+ * @returns {String}
+ */
 function categoryToMdx(category, props) {
   const categoryTitle = startCase(category);
   let categoryBody;
@@ -56,6 +89,12 @@ ${categoryBody}
 `.trim();
 }
 
+/**
+ * Theo format for Storybook Docs (`.stories.mdx`).
+ *
+ * @param {ImmutableMap} result - Map of Theo properties and meta.
+ * @returns {String}
+ */
 function mdxStoriesFormat(result) {
   const file = result.getIn(['meta', 'file']);
   const filename = basename(file);

@@ -33,96 +33,6 @@ aliases:
   white_transparent_85: "rgba(255, 255, 255, 0.85)"
   white: "#fff"
 props:
-  - name: primary_brand_lighter
-    value: "{!blue_lighter}"
-    category: color
-  - name: primary_brand_light
-    value: "{!blue_light}"
-    category: color
-  - name: primary_brand
-    value: "{!blue}"
-    category: color
-  - name: primary_brand_dark
-    value: "{!blue_dark}"
-    category: color
-  - name: primary_brand_darker
-    value: "{!blue_darker}"
-    category: color
-  - name: green_lighter
-    value: "{!green_lighter}"
-    category: color
-  - name: green_light
-    value: "{!green_light}"
-    category: color
-  - name: green
-    value: "{!green}"
-    category: color
-  - name: green_dark
-    value: "{!green_dark}"
-    category: color
-  - name: green_darker
-    value: "{!green_darker}"
-    category: color
-  - name: purple_lighter
-    value: "{!purple_lighter}"
-    category: color
-  - name: purple_light
-    value: "{!purple_light}"
-    category: color
-  - name: purple
-    value: "{!purple}"
-    category: color
-  - name: purple_dark
-    value: "{!purple_dark}"
-    category: color
-  - name: purple_darker
-    value: "{!purple_darker}"
-    category: color
-  - name: fuchsia_lighter
-    value: "{!fuchsia_lighter}"
-    category: color
-  - name: fuchsia_light
-    value: "{!fuchsia_light}"
-    category: color
-  - name: fuchsia
-    value: "{!fuchsia}"
-    category: color
-  - name: fuchsia_dark
-    value: "{!fuchsia_dark}"
-    category: color
-  - name: fuchsia_darker
-    value: "{!fuchsia_darker}"
-    category: color
-  - name: orange_lighter
-    value: "{!orange_lighter}"
-    category: color
-  - name: orange_light
-    value: "{!orange_light}"
-    category: color
-  - name: orange
-    value: "{!orange}"
-    category: color
-  - name: orange_dark
-    value: "{!orange_dark}"
-    category: color
-  - name: orange_darker
-    value: "{!orange_darker}"
-    category: color
-  - name: gray_lighter
-    value: "{!gray_lighter}"
-    category: color
-  - name: gray_light
-    value: "{!gray_light}"
-    category: color
-  - name: gray
-    value: "{!gray}"
-    category: color
-  - name: gray_dark
-    value: "{!gray_dark}"
-    category: color
-  - name: gray_darker
-    value: "{!gray_darker}"
-    category: color
   - name: text_dark
     value: "{!black_transparent_85}"
     category: text-color
@@ -136,5 +46,71 @@ props:
   - name: text_action
     value: "{!blue}"
     category: text-color
+  - name: primary_brand_lighter
+    value: "{!blue_lighter}"
+    category: primary-color
+  - name: primary_brand_light
+    value: "{!blue_light}"
+    category: primary-color
+  - name: primary_brand
+    value: "{!blue}"
+    category: primary-color
+  - name: primary_brand_dark
+    value: "{!blue_dark}"
+    category: primary-color
+  - name: primary_brand_darker
+    value: "{!blue_darker}"
+    category: primary-color
+  - name: green_lighter
+    value: "{!green_lighter}"
+  - name: green_light
+    value: "{!green_light}"
+  - name: green
+    value: "{!green}"
+  - name: green_dark
+    value: "{!green_dark}"
+  - name: green_darker
+    value: "{!green_darker}"
+  - name: purple_lighter
+    value: "{!purple_lighter}"
+  - name: purple_light
+    value: "{!purple_light}"
+  - name: purple
+    value: "{!purple}"
+  - name: purple_dark
+    value: "{!purple_dark}"
+  - name: purple_darker
+    value: "{!purple_darker}"
+  - name: fuchsia_lighter
+    value: "{!fuchsia_lighter}"
+  - name: fuchsia_light
+    value: "{!fuchsia_light}"
+  - name: fuchsia
+    value: "{!fuchsia}"
+  - name: fuchsia_dark
+    value: "{!fuchsia_dark}"
+  - name: fuchsia_darker
+    value: "{!fuchsia_darker}"
+  - name: orange_lighter
+    value: "{!orange_lighter}"
+  - name: orange_light
+    value: "{!orange_light}"
+  - name: orange
+    value: "{!orange}"
+  - name: orange_dark
+    value: "{!orange_dark}"
+  - name: orange_darker
+    value: "{!orange_darker}"
+  - name: gray_lighter
+    value: "{!gray_lighter}"
+  - name: gray_light
+    value: "{!gray_light}"
+  - name: gray
+    value: "{!gray}"
+  - name: gray_dark
+    value: "{!gray_dark}"
+  - name: gray_darker
+    value: "{!gray_darker}"
 global:
   type: color
+  category: secondary-color

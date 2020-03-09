@@ -50,7 +50,7 @@ function categoryToMdx(category, props) {
   }
 
   return `
-# ${categoryTitle}
+## ${categoryTitle}
 
 ${categoryBody}
 `.trim();
@@ -58,7 +58,9 @@ ${categoryBody}
 
 function mdxStoriesFormat(result) {
   const file = result.getIn(['meta', 'file']);
-  const title = startCase(basename(file, extname(file)));
+  const filename = basename(file);
+  const slug = basename(filename, extname(filename));
+  const title = startCase(slug);
   const props = result.get('props').toJS();
   const categories = groupBy(props, 'category');
   const mdxCategories = Object.keys(categories).map(category =>
@@ -68,6 +70,13 @@ function mdxStoriesFormat(result) {
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <Meta title="Design Tokens/${title}"/>
+
+# ${title}
+
+\`\`\`scss
+@use 'path/to/${filename}';
+$example: ${slug}.$${kebabCase(props[0].name)}; // => ${props[0].value}
+\`\`\`
 
 ${mdxCategories.join('\n\n')}`.trim();
 }

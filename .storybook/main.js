@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 
 module.exports = {
+  // We load the welcome story separately so it will be the first sidebar item.
   stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.(js|mdx)'],
   addons: [
     // Core addons

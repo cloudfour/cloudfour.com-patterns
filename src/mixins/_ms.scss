@@ -2,6 +2,5 @@
 @use "../design-tokens/modular-scale.yml";
 
 @function step($step, $base: 1em, $ratio: modular-scale.$ratio) {
-
   @return math.pow($ratio, $step) * $base;
 }

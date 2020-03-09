@@ -33,106 +33,107 @@ aliases:
   white_transparent_85: "rgba(255, 255, 255, 0.85)"
   white: "#fff"
 props:
-  primary_brand_lighter:
+  - name: primary_brand_lighter
     value: "{!blue_lighter}"
     category: color
-  primary_brand_light:
+  - name: primary_brand_light
     value: "{!blue_light}"
     category: color
-  primary_brand:
+  - name: primary_brand
     value: "{!blue}"
     category: color
-  primary_brand_dark:
+  - name: primary_brand_dark
     value: "{!blue_dark}"
     category: color
-  primary_brand_darker:
+  - name: primary_brand_darker
     value: "{!blue_darker}"
     category: color
-  green_lighter:
+  - name: green_lighter
     value: "{!green_lighter}"
     category: color
-  green_light:
+  - name: green_light
     value: "{!green_light}"
     category: color
-  green:
+  - name: green
     value: "{!green}"
     category: color
-  green_dark:
+  - name: green_dark
     value: "{!green_dark}"
     category: color
-  green_darker:
+  - name: green_darker
     value: "{!green_darker}"
     category: color
-  purple_lighter:
+  - name: purple_lighter
     value: "{!purple_lighter}"
     category: color
-  purple_light:
+  - name: purple_light
     value: "{!purple_light}"
     category: color
-  purple:
+  - name: purple
     value: "{!purple}"
     category: color
-  purple_dark:
+  - name: purple_dark
     value: "{!purple_dark}"
     category: color
-  purple_darker:
+  - name: purple_darker
     value: "{!purple_darker}"
     category: color
-  fuchsia_lighter:
+  - name: fuchsia_lighter
     value: "{!fuchsia_lighter}"
     category: color
-  fuchsia_light:
+  - name: fuchsia_light
     value: "{!fuchsia_light}"
     category: color
-  fuchsia:
+  - name: fuchsia
     value: "{!fuchsia}"
     category: color
-  fuchsia_dark:
+  - name: fuchsia_dark
     value: "{!fuchsia_dark}"
     category: color
-  fuchsia_darker:
+  - name: fuchsia_darker
     value: "{!fuchsia_darker}"
     category: color
-  orange_lighter:
+  - name: orange_lighter
     value: "{!orange_lighter}"
     category: color
-  orange_light:
+  - name: orange_light
     value: "{!orange_light}"
     category: color
-  orange:
+  - name: orange
     value: "{!orange}"
     category: color
-  orange_dark:
+  - name: orange_dark
     value: "{!orange_dark}"
     category: color
-  orange_darker:
+  - name: orange_darker
     value: "{!orange_darker}"
     category: color
-  gray_lighter:
+  - name: gray_lighter
     value: "{!gray_lighter}"
     category: color
-  gray_light:
+  - name: gray_light
     value: "{!gray_light}"
     category: color
-  gray:
+  - name: gray
     value: "{!gray}"
     category: color
-  gray_dark:
+  - name: gray_dark
     value: "{!gray_dark}"
     category: color
-  gray_darker:
+  - name: gray_darker
     value: "{!gray_darker}"
     category: color
-  text_dark:
+  - name: text_dark
     value: "{!black_transparent_85}"
     category: text-color
-  text_light:
+    comment: Accessible on white and lightest gray.
+  - name: text_light
     value: "{!white_transparent_85}"
     category: text-color
-  text_light_emphasis:
+  - name: text_light_emphasis
     value: "{!white}"
     category: text-color
-  text_action:
+  - name: text_action
     value: "{!blue}"
     category: text-color
 global:

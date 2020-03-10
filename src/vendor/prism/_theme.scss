@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "../../design-tokens/colors.yml";
 @use "../../design-tokens/font.yml";
+@use "../../design-tokens/opacity.yml";
 
 /**
  * Cloud Four theme for Prism syntax highlighting.
@@ -15,7 +16,8 @@
   &.doctype,
   &.cdata,
   .language-json &.operator {
-    color: color.change(colors.$text-light, $alpha: 0.6);
+    color: colors.$text-light;
+    opacity: opacity.$muted;
   }
 
   &.property,

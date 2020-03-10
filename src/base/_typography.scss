@@ -1,4 +1,5 @@
 @use "_fonts";
+@use "../design-tokens/font.yml";
 
 /**
  * Promote consistent line spacing.
@@ -16,11 +17,11 @@ html {
  */
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: font.$family-sans-fallback;
   text-size-adjust: none; /* 1 */
   word-wrap: break-word; /* 2 */
 
   @supports (font-variation-settings: normal) {
-    font-family: 'Source Sans Pro Variable', sans-serif;
+    font-family: font.$family-sans;
   }
 }

@@ -1,4 +1,5 @@
 @use "../../design-tokens/colors.yml";
+@use "../../design-tokens/font.yml";
 @use "../../design-tokens/motion.yml";
 @use "../../design-tokens/sizes.yml";
 @use "../../mixins/focus";
@@ -27,7 +28,7 @@
   display: inline-block;
   font: inherit; /* 2 */
   font-style: normal;
-  font-weight: 600;
+  font-weight: font.$weight-semibold;
   line-height: ms.step(1, 1);
   margin: 0;
   padding: ms.step(-3) ms.step(0);

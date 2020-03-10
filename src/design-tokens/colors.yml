@@ -40,77 +40,102 @@ props:
   - name: text_light
     value: "{!white_transparent_85}"
     category: text-color
+    comment: Accessible on primary brand color.
   - name: text_light_emphasis
     value: "{!white}"
     category: text-color
+    comment: Accessible on primary brand color, useful for buttons and headings.
   - name: text_action
     value: "{!blue}"
     category: text-color
+    comment: Accessible on white and lighter-gray.
   - name: primary_brand_lighter
     value: "{!blue_lighter}"
     category: primary-color
+    comment: Accessible on -darker colors.
   - name: primary_brand_light
     value: "{!blue_light}"
     category: primary-color
   - name: primary_brand
     value: "{!blue}"
     category: primary-color
+    comment: Accessible on white.
   - name: primary_brand_dark
     value: "{!blue_dark}"
     category: primary-color
+    comment: Accessible on white.
   - name: primary_brand_darker
     value: "{!blue_darker}"
     category: primary-color
+    comment: Accessible on white.
   - name: green_lighter
     value: "{!green_lighter}"
+    comment: Accessible on -darker colors.
   - name: green_light
     value: "{!green_light}"
   - name: green
     value: "{!green}"
+    comment: Accessible on white.
   - name: green_dark
     value: "{!green_dark}"
+    comment: Accessible on white.
   - name: green_darker
     value: "{!green_darker}"
+    comment: Accessible on white.
   - name: purple_lighter
     value: "{!purple_lighter}"
+    comment: Accessible on -darker colors.
   - name: purple_light
     value: "{!purple_light}"
   - name: purple
     value: "{!purple}"
+    comment: Accessible on white.
   - name: purple_dark
     value: "{!purple_dark}"
+    comment: Accessible on white.
   - name: purple_darker
     value: "{!purple_darker}"
+    comment: Accessible on white.
   - name: fuchsia_lighter
     value: "{!fuchsia_lighter}"
+    comment: Accessible on -darker colors.
   - name: fuchsia_light
     value: "{!fuchsia_light}"
   - name: fuchsia
     value: "{!fuchsia}"
+    comment: Accessible on white.
   - name: fuchsia_dark
     value: "{!fuchsia_dark}"
+    comment: Accessible on white.
   - name: fuchsia_darker
     value: "{!fuchsia_darker}"
+    comment: Accessible on white.
   - name: orange_lighter
     value: "{!orange_lighter}"
+    comment: Accessible on -darker colors.
   - name: orange_light
     value: "{!orange_light}"
   - name: orange
     value: "{!orange}"
   - name: orange_dark
     value: "{!orange_dark}"
+    comment: Accessible on white.
   - name: orange_darker
     value: "{!orange_darker}"
+    comment: Accessible on white.
   - name: gray_lighter
     value: "{!gray_lighter}"
+    comment: Accessible on -darker colors.
   - name: gray_light
     value: "{!gray_light}"
   - name: gray
     value: "{!gray}"
   - name: gray_dark
     value: "{!gray_dark}"
+    comment: Accessible on white.
   - name: gray_darker
     value: "{!gray_darker}"
+    comment: Accessible on white.
 global:
   type: color
-  category: secondary-color
+  category: color

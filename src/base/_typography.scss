@@ -1,15 +1,25 @@
 @use "_fonts";
 @use "../design-tokens/font.yml";
+@use "../mixins/fluid";
 @use "../mixins/ms";
 
 /**
- * Promote consistent line spacing.
+ * 1. Adjust base font size between a min and max value based on viewport width.
+ * 2. Promote consistent line spacing.
  *
+ * @todo Revise font size min and max viewport based on standard breakpoints.
+ * @see https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
  * @see https://drafts.csswg.org/css-inline-3/#line-sizing-property
  */
 
 html {
-  line-sizing: normal;
+  @include fluid.font-size(
+    20em,
+    75em,
+    ms.step(0, 1rem),
+    ms.step(1, 1rem)
+  ); /* 1 */
+  line-sizing: normal; /* 2 */
 }
 
 /**

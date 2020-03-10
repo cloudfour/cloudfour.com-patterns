@@ -1,0 +1,26 @@
+@use "unit";
+
+/**
+ * Dynamically adjust font size between a minimum and maximum, starting at a
+ * minimum breakpoint width and capping at a maximum.
+ *
+ * @see https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
+ * @see https://betterwebtype.com/articles/2019/05/14/the-state-of-fluid-web-typography/
+ */
+
+@mixin font-size($min-width, $max-width, $min-font-size, $max-font-size) {
+  $delta-font-size: unit.strip($max-font-size - $min-font-size);
+  $delta-width: unit.strip($max-width - $min-width);
+
+  & {
+    font-size: $min-font-size;
+
+    @media (min-width: $min-width) {
+      font-size: calc(#{$min-font-size} + #{$delta-font-size} * ((100vw - #{$min-width}) / #{$delta-width}));
+    }
+
+    @media (min-width: $max-width) {
+      font-size: $max-font-size;
+    }
+  }
+}

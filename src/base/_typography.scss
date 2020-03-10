@@ -1,6 +1,7 @@
 @use "_fonts";
 @use "../design-tokens/font.yml";
 @use "../mixins/fluid";
+@use "../mixins/headings";
 @use "../mixins/ms";
 
 /**
@@ -35,6 +36,16 @@ body {
 
   @supports (font-variation-settings: normal) {
     font-family: font.$family-sans;
+  }
+}
+
+/**
+ * Headings
+ */
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    @include headings.level($i);
   }
 }
 

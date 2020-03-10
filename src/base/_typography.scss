@@ -1,5 +1,6 @@
 @use "_fonts";
 @use "../design-tokens/font.yml";
+@use "../mixins/ms";
 
 /**
  * Promote consistent line spacing.
@@ -18,10 +19,23 @@ html {
 
 body {
   font-family: font.$family-sans-fallback;
+  line-height: ms.step(2, 1);
   text-size-adjust: none; /* 1 */
   word-wrap: break-word; /* 2 */
 
   @supports (font-variation-settings: normal) {
     font-family: font.$family-sans;
   }
+}
+
+/**
+ * Monospace
+ */
+
+pre,
+code,
+kbd,
+samp,
+var {
+  font-family: font.$family-mono;
 }

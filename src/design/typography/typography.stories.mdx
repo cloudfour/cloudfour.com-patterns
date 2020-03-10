@@ -1,0 +1,46 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { withKnobs, select } from '@storybook/addon-knobs';
+import headingsDemo from './demo/headings.twig';
+import paragraphsDemo from './demo/paragraphs.twig';
+import blockquoteDemo from './demo/blockquote.twig';
+import unorderedListDemo from './demo/list-unordered.twig';
+import orderedListDemo from './demo/list-ordered.twig';
+import descriptionListDemo from './demo/list-description.twig';
+import codeBlockDemo from './demo/code-block.twig';
+
+<Meta title="Design/Typography" decorators={[withKnobs]}/>
+
+# Typography
+
+This section is currently a work in progress.
+
+## Specimens
+
+<Preview>
+  <Story name="Headings" height="400px">{headingsDemo}</Story>
+</Preview>
+
+<Preview>
+  <Story name="Paragraphs" height="200px">{paragraphsDemo}</Story>
+</Preview>
+
+<Preview>
+  <Story name="Blockquote" height="200px">{blockquoteDemo}</Story>
+</Preview>
+
+<Preview>
+  <Story name="Unordered List" height="200px">{unorderedListDemo}</Story>
+  <Story name="Ordered List" height="200px">{orderedListDemo}</Story>
+</Preview>
+
+<Preview>
+  <Story name="Description List" height="200px">{descriptionListDemo}</Story>
+</Preview>
+
+<Preview>
+  <Story name="Code Block" height="200px">
+    {codeBlockDemo({
+      language: select('language', ['', 'html', 'css', 'javascript'], 'html')
+    })}
+  </Story>
+</Preview>

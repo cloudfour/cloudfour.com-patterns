@@ -44,7 +44,9 @@
     "gulp": "4.0.2",
     "gulp-rename": "2.0.0",
     "gulp-svgmin": "2.2.0",
+    "gulp-theo": "2.0.1",
     "js-yaml": "3.13.1",
+    "lodash": "4.17.15",
     "ltx": "2.9.2",
     "prettier": "1.19.1",
     "remark-preset-lint-recommended": "3.0.3",
@@ -63,9 +65,10 @@
     "twigjs-loader": "1.0.1"
   },
   "scripts": {
-    "storybook": "npm run svg-to-twig && start-storybook -p 6006 -s static",
-    "build-storybook": "npm run svg-to-twig && build-storybook -s static",
+    "storybook": "npm run svg-to-twig && npm run theo-to-mdx && start-storybook -p 6006 -s static",
+    "build-storybook": "npm run svg-to-twig && npm run theo-to-mdx && build-storybook -s static",
     "svg-to-twig": "gulp svg-to-twig",
+    "theo-to-mdx": "gulp theo-to-mdx",
     "check-lint": "npm run check-lint:prettier && npm run check-lint:css && npm run check-lint:js",
     "check-lint:prettier": "prettier --ignore-path .gitignore --list-different '**/*.{scss,js,mdx}'",
     "check-lint:css": "stylelint --ignore-path .gitignore '**/*.scss'",

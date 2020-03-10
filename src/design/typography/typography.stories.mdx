@@ -1,5 +1,6 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 import { withKnobs, select } from '@storybook/addon-knobs';
+import { useEffect } from '@storybook/client-api';
 import headingsDemo from './demo/headings.twig';
 import paragraphsDemo from './demo/paragraphs.twig';
 import blockquoteDemo from './demo/blockquote.twig';
@@ -7,6 +8,8 @@ import unorderedListDemo from './demo/list-unordered.twig';
 import orderedListDemo from './demo/list-ordered.twig';
 import descriptionListDemo from './demo/list-description.twig';
 import codeBlockDemo from './demo/code-block.twig';
+import '../../vendor/prism/config.js';
+import '../../vendor/prism/_theme.scss';
 
 <Meta title="Design/Typography" decorators={[withKnobs]}/>
 
@@ -37,10 +40,23 @@ This section is currently a work in progress.
   <Story name="Description List" height="200px">{descriptionListDemo}</Story>
 </Preview>
 
+Syntax highlighting is done via [Prism](https://prismjs.com/) because it's extremely lightweight compared to other highlighting libraries.
+
 <Preview>
-  <Story name="Code Block" height="200px">
-    {codeBlockDemo({
-      language: select('language', ['', 'html', 'css', 'javascript'], 'html')
-    })}
+  <Story name="Code Block" height="250px">
+    {() => {
+      /**
+       * The `useEffect` function is necessary because of loading order of
+       * Storybook stories relative to JavaScript. This is very poorly
+       * documented!
+       *
+       * @see https://github.com/storybookjs/storybook/pull/7791
+       * @see https://github.com/storybookjs/storybook/issues/7786#issuecomment-547207581
+       */
+      useEffect(() => Prism.highlightAll());
+      return codeBlockDemo({
+        language: select('language', ['', 'html', 'css', 'javascript'], 'html')
+      });
+    }}
   </Story>
 </Preview>

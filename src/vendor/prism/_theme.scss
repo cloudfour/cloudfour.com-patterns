@@ -1,0 +1,59 @@
+@use "sass:color";
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/font.yml";
+
+/**
+ * Cloud Four theme for Prism syntax highlighting.
+ *
+ * @see http://prismjs.com/
+ */
+
+.token {
+  &.punctuation,
+  &.comment,
+  &.prolog,
+  &.doctype,
+  &.cdata,
+  .language-json &.operator {
+    color: color.change(colors.$text-light, $alpha: 0.6);
+  }
+
+  &.property,
+  &.keyword,
+  &.interpolation-punctuation {
+    color: colors.$primary-brand-lighter;
+  }
+
+  &.constant,
+  &.attr-value,
+  &.selector,
+  &.class-name,
+  .language-js &.string,
+  .language-javascript &.string {
+    color: colors.$green-lighter;
+  }
+
+  &.rule,
+  &.tag,
+  &.regex,
+  &.number,
+  &.boolean,
+  &.function {
+    color: colors.$fuchsia-lighter;
+  }
+
+  &.variable,
+  &.attr-name,
+  &.operator {
+    color: colors.$orange-lighter;
+  }
+
+  &.important,
+  &.bold {
+    color: colors.$text-light-emphasis;
+  }
+
+  &.italic {
+    font-style: italic;
+  }
+}

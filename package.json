@@ -23,7 +23,8 @@
     "url": "https://github.com/cloudfour/cloudfour.com-patterns.git"
   },
   "dependencies": {
-    "focus-visible": "5.0.2"
+    "focus-visible": "5.0.2",
+    "prismjs": "1.19.0"
   },
   "devDependencies": {
     "@babel/core": "7.8.7",

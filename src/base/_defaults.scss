@@ -1,4 +1,5 @@
 @use "../design-tokens/colors.yml";
+@use "../mixins/ms";
 
 /**
  * Sensible box model
@@ -77,7 +78,10 @@ audio {
  */
 
 pre {
+  background: colors.$primary-brand-darker;
+  color: colors.$text-light;
   overflow: auto;
+  padding: ms.step(1);
 }
 
 /**

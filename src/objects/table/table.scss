@@ -1,0 +1,23 @@
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/font.yml";
+@use "../../design-tokens/sizes.yml";
+@use "../../mixins/ms";
+
+/**
+ * 1. Override default `th` text alignment
+ */
+
+.o-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left; /* 1 */
+}
+
+.o-table__cell,
+.o-table__heading {
+  padding: ms.step(-3);
+}
+
+.o-table__heading {
+  font-weight: font.$weight-bold;
+}

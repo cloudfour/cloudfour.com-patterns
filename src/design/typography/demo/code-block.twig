@@ -1,0 +1,78 @@
+{% set raw_example %}
+npm i --save @11ty/eleventy
+touch index.md subpage.md
+npx @11ty/eleventy --serve
+{% endset %}
+
+{% set html_example %}
+<button class="Button">
+  <span class="Button-inner">
+    Example
+  </span>
+  <!-- badge, etc. -->
+</button>
+{% endset %}
+
+{% set css_example %}
+.Menu__link {
+  opacity: 0;
+  transform: translate(100%, -300%);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out !important;
+  transition-property: opacity, transform;
+}
+
+.Menu.is-open .Menu__link {
+  opacity: 1; /* Comment */
+  transform: translate(0);
+}
+{% endset %}
+
+{% set js_example %}
+const indexedRepos = repos.map((repo, index) => ({
+  name: repo.name,
+  language: String(repo.language),
+  index,
+}));
+
+// Sort by programming language
+repos = indexedRepos.sort((a, b) => {
+  if (a.language === b.language) {
+    return a.index < b.index ? -1 : 1;
+  }
+  return a.language < b.language ? -1 : 1;
+});
+
+// Set up a resolved promise for our loop
+let step = Promise.resolve();
+
+// For every frame we need to generate…
+for (let i = 0; i <= frames; i++) {
+  let position = duration / frames * i;
+  let filename = `whut-${filePrefix}${i}${fileScale}${fileExtension}`;
+  // Begin this step when the previous finishes
+  step = step.then(() => {
+    timeline.pause(position);
+    return svgAsPngUri(document.getElementById("amoeba"), { scale }).then(
+      uri => {
+        // Convert data URI to plain base64
+        let imgDataIndex = uri.indexOf("base64,") + "base64,".length;
+        let imgData = uri.substr(imgDataIndex);
+        zip.file(filename, imgData, { base64: true });
+      }
+    );
+  });
+}
+{% endset %}
+
+{% if language == 'html' %}
+  {% set content = html_example %}
+{% elseif language == 'css' %}
+  {% set content = css_example %}
+{% elseif language == 'javascript' or language == 'js' %}
+  {% set content = js_example %}
+{% else %}
+  {% set content = raw_example %}
+{% endif %}
+
+<pre><code{% if language %} class="language-{{language}}"{% endif %}>{{content|trim|escape}}</code></pre>

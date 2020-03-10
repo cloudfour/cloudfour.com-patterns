@@ -16,7 +16,10 @@
     font-size: $min-font-size;
 
     @media (min-width: $min-width) {
-      font-size: calc(#{$min-font-size} + #{$delta-font-size} * ((100vw - #{$min-width}) / #{$delta-width}));
+      font-size: calc(
+        #{$min-font-size} + #{$delta-font-size} *
+          ((100vw - #{$min-width}) / #{$delta-width})
+      );
     }
 
     @media (min-width: $max-width) {

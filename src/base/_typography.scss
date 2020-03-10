@@ -13,7 +13,12 @@
  */
 
 html {
-  @include fluid.font-size(20em, 75em, ms.step(0, 1rem), ms.step(1, 1rem)); /* 1 */
+  @include fluid.font-size(
+    20em,
+    75em,
+    ms.step(0, 1rem),
+    ms.step(1, 1rem)
+  ); /* 1 */
   line-sizing: normal; /* 2 */
 }
 

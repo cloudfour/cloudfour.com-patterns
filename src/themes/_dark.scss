@@ -13,4 +13,8 @@
   a {
     color: colors.$text-light-emphasis;
   }
+
+  *:not(pre):not(a) > code {
+    color: inherit;
+  }
 }

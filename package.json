@@ -40,6 +40,8 @@
     "babel-loader": "8.0.6",
     "css-loader": "3.4.2",
     "eslint": "6.8.0",
+    "eslint-plugin-mdx": "1.6.8",
+    "eslint-plugin-react": "7.19.0",
     "gulp": "4.0.2",
     "gulp-rename": "2.0.0",
     "gulp-svgmin": "2.2.0",
@@ -48,7 +50,9 @@
     "lodash": "4.17.15",
     "ltx": "2.9.2",
     "npm-run-all": "4.1.5",
-    "prettier": "1.19.1",
+    "prettier": "prettier/prettier#61d3936",
+    "remark-preset-lint-recommended": "3.0.3",
+    "remark-preset-prettier": "0.4.0",
     "require-dir": "1.2.0",
     "sass": "1.26.3",
     "sass-loader": "8.0.2",
@@ -71,16 +75,38 @@
     "preprocess:theo-to-mdx": "gulp theo-to-mdx",
     "watch-preprocess": "gulp watch",
     "check-lint": "run-s check-lint:*",
-    "check-lint:prettier": "prettier --ignore-path .gitignore --list-different '**/*.{scss,js}'",
+    "check-lint:prettier": "prettier --ignore-path .gitignore --list-different '**/*.{scss,js,mdx}'",
     "check-lint:css": "stylelint --ignore-path .gitignore '**/*.scss'",
-    "check-lint:js": "eslint --ignore-path .gitignore '**/*.js'",
+    "check-lint:js": "eslint --ignore-path .gitignore '**/*.{js,mdx}'",
     "lint": "run-s lint:*",
-    "lint:prettier": "prettier --ignore-path .gitignore --write '**/*.{scss,js}'",
+    "lint:prettier": "prettier --ignore-path .gitignore --write '**/*.{scss,js,mdx}'",
     "lint:css": "stylelint --ignore-path .gitignore --fix '**/*.scss'",
-    "lint:js": "eslint --ignore-path .gitignore --fix '**/*.js'"
+    "lint:js": "eslint --ignore-path .gitignore --fix '**/*.{js,mdx}'"
   },
   "eslintConfig": {
-    "extends": "plugin:@cloudfour/recommended"
+    "extends": [
+      "plugin:@cloudfour/recommended",
+      "plugin:mdx/recommended"
+    ],
+    "globals": {
+      "Prism": true
+    },
+    "plugins": [
+      "react"
+    ],
+    "settings": {
+      "node": {
+        "allowModules": [
+          "@storybook/addon-docs",
+          "@storybook/addon-knobs",
+          "@storybook/client-api"
+        ]
+      }
+    },
+    "rules": {
+      "padding-line-between-statements": "off",
+      "react/jsx-uses-vars": "error"
+    }
   },
   "prettier": {
     "singleQuote": true

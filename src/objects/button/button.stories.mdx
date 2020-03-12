@@ -6,9 +6,7 @@ import stylesDarkDemo from './demo/styles-dark.twig';
 import '../../themes/_index.scss';
 import './button.scss';
 
-<Meta
-  title="Objects/Button"
-  decorators={[withKnobs]}/>
+<Meta title="Objects/Button" decorators={[withKnobs]} />
 
 # Button
 
@@ -19,7 +17,7 @@ The `o-button` class may be applied to button and link elements. The button appe
     {elementsDemo({
       href: text('href', null),
       type: select('type', ['', 'button', 'submit']),
-      disabled: boolean('disabled', false),
+      disabled: boolean('disabled', false)
     })}
   </Story>
 </Preview>
@@ -33,7 +31,7 @@ Some buttons may not require as much emphasis as others. The `o-button--secondar
     {stylesDemo({
       href: text('href', null),
       type: select('type', ['', 'button', 'submit']),
-      disabled: boolean('disabled', false),
+      disabled: boolean('disabled', false)
     })}
   </Story>
 </Preview>
@@ -41,11 +39,15 @@ Some buttons may not require as much emphasis as others. The `o-button--secondar
 All the above visual styles will appear slightly different within [our dark theme](/?path=/docs/themes--dark). These versions retain their visual emphasis relative to one another while remaining visually distinct from form inputs.
 
 <Preview>
-  <Story name="Styles (Dark)" height="100px" parameters={{ themes: { disable: true } }}>
+  <Story
+    name="Styles (Dark)"
+    height="100px"
+    parameters={{ themes: { disable: true } }}
+  >
     {stylesDarkDemo({
       href: text('href', null),
       type: select('type', ['', 'button', 'submit']),
-      disabled: boolean('disabled', false),
+      disabled: boolean('disabled', false)
     })}
   </Story>
 </Preview>

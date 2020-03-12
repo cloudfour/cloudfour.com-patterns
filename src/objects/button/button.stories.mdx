@@ -38,13 +38,12 @@ Some buttons may not require as much emphasis as others. The `o-button--secondar
 
 All the above visual styles will appear slightly different within [our dark theme](/?path=/docs/themes--dark). These versions retain their visual emphasis relative to one another while remaining visually distinct from form inputs.
 
-export const parameters = { themes: { disable: true } };
-// Parameters has to be defined separately because of this prettier bug:
-// https://github.com/prettier/prettier/issues/7731
-// https://mdxjs.com/getting-started#defining-variables-with-exports
-
 <Preview>
-  <Story name="Styles (Dark)" height="100px" parameters={parameters}>
+  <Story
+    name="Styles (Dark)"
+    height="100px"
+    parameters={{ themes: { disable: true } }}
+  >
     {stylesDarkDemo({
       href: text('href', null),
       type: select('type', ['', 'button', 'submit']),

@@ -14,13 +14,8 @@ While selector depth is best kept to a minimum, it's permissable to style object
 
 `t-dark` is intended primarily for page headers.
 
-export const parameters = { themes: { disable: true } };
-// Parameters has to be defined separately because of this prettier bug:
-// https://github.com/prettier/prettier/issues/7731
-// https://mdxjs.com/getting-started#defining-variables-with-exports
-
 <Preview>
-  <Story name="Dark" height="200px" parameters={parameters}>
+  <Story name="Dark" height="200px" parameters={{ themes: { disable: true } }}>
     {demo({ theme: 'dark' })}
   </Story>
 </Preview>

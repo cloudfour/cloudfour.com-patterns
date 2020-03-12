@@ -50,7 +50,7 @@
     "lodash": "4.17.15",
     "ltx": "2.9.2",
     "npm-run-all": "4.1.5",
-    "prettier": "1.19.1",
+    "prettier": "prettier/prettier#61d3936",
     "remark-preset-lint-recommended": "3.0.3",
     "remark-preset-prettier": "0.4.0",
     "require-dir": "1.2.0",

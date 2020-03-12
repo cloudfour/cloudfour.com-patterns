@@ -1,0 +1,37 @@
+@use "fluid";
+@use "ms";
+
+/**
+ * Mixin for applying heading styles at a particular level. Accepts an argument
+ * so it may be easily baked into "for" loops.
+ *
+ * Current values are based on existing patterns, but there is a lot of
+ * opportunity to enhance.
+ *
+ * @todo Revise breakpoints once we settle on some standard ones.
+ * @todo Consider increasing max sizes since the sizes are fluid now.
+ */
+
+@mixin level($level) {
+  @if $level < 1 or $level > 6 {
+    @error "$level must be between 1 and 6.";
+  }
+
+  @if $level == 1 {
+    @include fluid.font-size(20em, 48em, ms.step(2), ms.step(3));
+  } @else if $level == 2 {
+    @include fluid.font-size(20em, 48em, ms.step(1), ms.step(2));
+  } @else if $level == 3 {
+    @include fluid.font-size(20em, 48em, ms.step(0), ms.step(1));
+  } @else if $level == 4 {
+    font-size: inherit;
+  } @else {
+    font-size: ms.step(-1);
+  }
+
+  @if $level < 4 {
+    line-height: ms.step(1, 1);
+  } @else {
+    line-height: inherit;
+  }
+}

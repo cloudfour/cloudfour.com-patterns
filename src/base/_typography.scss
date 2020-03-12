@@ -1,13 +1,26 @@
 @use "_fonts";
+@use "../design-tokens/font.yml";
+@use "../mixins/fluid";
+@use "../mixins/headings";
+@use "../mixins/ms";
 
 /**
- * Promote consistent line spacing.
+ * 1. Adjust base font size between a min and max value based on viewport width.
+ * 2. Promote consistent line spacing.
  *
+ * @todo Revise font size min and max viewport based on standard breakpoints.
+ * @see https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
  * @see https://drafts.csswg.org/css-inline-3/#line-sizing-property
  */
 
 html {
-  line-sizing: normal;
+  @include fluid.font-size(
+    20em,
+    75em,
+    ms.step(0, 1rem),
+    ms.step(1, 1rem)
+  ); /* 1 */
+  line-sizing: normal; /* 2 */
 }
 
 /**
@@ -16,11 +29,34 @@ html {
  */
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: font.$family-sans-fallback;
+  line-height: ms.step(2, 1);
   text-size-adjust: none; /* 1 */
   word-wrap: break-word; /* 2 */
 
   @supports (font-variation-settings: normal) {
-    font-family: 'Source Sans Pro Variable', sans-serif;
+    font-family: font.$family-sans;
   }
+}
+
+/**
+ * Headings
+ */
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    @include headings.level($i);
+  }
+}
+
+/**
+ * Monospace
+ */
+
+pre,
+code,
+kbd,
+samp,
+var {
+  font-family: font.$family-mono;
 }

@@ -8,30 +8,38 @@ $table-border-thin: sizes.$edge_small solid $table-border-color;
 $table-border-thick: sizes.$edge_medium solid $table-border-color;
 
 /**
- * 1. Override default `th` text alignment
+ * 1. Override some table defaults
+ * 2. Tables may overflow horizontally. Keept this from breaking layouts while
+ *    ensuring content is viewable
+ * 3. Override default `th` text alignment
  */
 
 .o-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  text-align: left; /* 1 */
-  width: 100%;
+  border-collapse: collapse; /* 1 */
+  border-spacing: 0; /* 1 */
+  overflow-x: auto; /* 2 */
+  text-align: left; /* 3 */
+  width: 100%; /* 2 */
 }
 
+/**
+ * Table cells and headers share padding
+ */
 .o-table__cell,
 .o-table__heading {
   padding: ms.step(-3);
 }
 
-.o-table__cell--numeric {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
+/**
+ * Table headings are bold to stand out as labels
+ */
 .o-table__heading {
   font-weight: font.$weight-bold;
 }
 
+/**
+ * Table headers and footers are separated from the table body with strokes.
+ */
 .o-table__header {
   border-bottom: $table-border-thick;
 }
@@ -40,6 +48,10 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
   border-top: $table-border-thick;
 }
 
+/**
+ * Table rows can be styled in a couple ways.
+ * This is achieved by adding a class to the table itself.
+ */
 .o-table--ruled .o-table__row {
   border-bottom: $table-border-thin;
 }
@@ -48,6 +60,23 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
   background: colors.$gray-lighter;
 }
 
+/**
+ * When comparing numeric table cells, it's easier if the ones, tens, hundreds,
+ * etc. columns are lines up.
+ *
+ * 1. Right align numeric cells so the "ones" column lines up
+ * 2. Make numbers equal width so the "tens", "hundreds", etc. columns line up
+ */
+.o-table__cell--numeric {
+  text-align: right; /* 1 */
+  font-variant-numeric: tabular-nums; /* 2 */
+}
+
+/**
+ * Optionally right align row headings.
+ * This keeps headings closer to the content they label and in some cases
+ * improves scannability.
+ */
 .o-table--tighten-row-headings [scope='row'] {
   text-align: right;
 }

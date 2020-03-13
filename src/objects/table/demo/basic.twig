@@ -1,10 +1,13 @@
 {#
   Data fetched from here: https://codepen.io/phebert/pen/PoqQqYM
   And beautified here: https://codebeautify.org/htmlviewer/
+  With some rows removed for readability.
 #}
-<table class="o-table">
+<table class="
+  {% if rowModifier %} {{rowModifier}} {% endif %}
+  o-table">
   {% if hasHeader %}
-  <thead>
+  <thead class="o-table__header">
     <tr>
       <th></th>
       <th class="o-table__heading" scope="col">Stars</th>
@@ -14,137 +17,138 @@
     </tr>
   </thead>
   {% endif %}
+
   <tbody>
-    <tr>
+    <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/guides">guides</a>
       </th>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/guides/stargazers">16</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/guides/stargazers">16</a>
       </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/guides/forks">0</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/guides/network/members">0</a>
       </td>
-      <td class="o-table__cell">16</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/guides/issues{/number}">9</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">16</td>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/guides/issues">9</a>
       </td>
     </tr>
-    <tr>
+    <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/hideShowPassword">hideShowPassword</a>
       </th>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/hideShowPassword/stargazers">720</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/hideShowPassword/stargazers">720</a>
       </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/hideShowPassword/forks">111</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/hideShowPassword/network/members">111</a>
       </td>
-      <td class="o-table__cell">720</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/hideShowPassword/issues{/number}">4</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">720</td>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/hideShowPassword/issues">4</a>
       </td>
     </tr>
-    <tr>
+    <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/image-breakpoints">image-breakpoints</a>
       </th>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/image-breakpoints/stargazers">28</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/image-breakpoints/stargazers">28</a>
       </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/image-breakpoints/forks">1</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/image-breakpoints/network/members">1</a>
       </td>
-      <td class="o-table__cell">28</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/image-breakpoints/issues{/number}">1</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">28</td>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/image-breakpoints/issues">1</a>
       </td>
     </tr>
-    <tr>
+    <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/offCanvasMenu">offCanvasMenu</a>
       </th>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/offCanvasMenu/stargazers">147</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/offCanvasMenu/stargazers">147</a>
       </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/offCanvasMenu/forks">25</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/offCanvasMenu/network/members">25</a>
       </td>
-      <td class="o-table__cell">147</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/offCanvasMenu/issues{/number}">6</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">147</td>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/offCanvasMenu/issues">6</a>
       </td>
     </tr>
-    <tr>
+    <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/pwastats">pwastats</a>
       </th>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwastats/stargazers">79</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/pwastats/stargazers">79</a>
       </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwastats/forks">5</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/pwastats/network/members">5</a>
       </td>
-      <td class="o-table__cell">79</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwastats/issues{/number}">7</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">79</td>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/pwastats/issues">7</a>
       </td>
     </tr>
-    <tr>
+    <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/simple-svg-placeholder">simple-svg-placeholder</a>
       </th>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/simple-svg-placeholder/stargazers">89</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/simple-svg-placeholder/stargazers">89</a>
       </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/simple-svg-placeholder/forks">4</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/simple-svg-placeholder/network/members">4</a>
       </td>
-      <td class="o-table__cell">89</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/simple-svg-placeholder/issues{/number}">0</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">89</td>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/simple-svg-placeholder/issues">0</a>
       </td>
     </tr>
-    <tr>
+    <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/SimpleSlideView">SimpleSlideView</a>
       </th>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/SimpleSlideView/stargazers">260</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/SimpleSlideView/stargazers">260</a>
       </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/SimpleSlideView/forks">32</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/SimpleSlideView/network/members">32</a>
       </td>
-      <td class="o-table__cell">260</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/SimpleSlideView/issues{/number}">6</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">260</td>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/SimpleSlideView/issues">6</a>
       </td>
     </tr>
-    <tr>
+    <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/transition-hidden-element">transition-hidden-element</a>
       </th>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/transition-hidden-element/stargazers">34</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/transition-hidden-element/stargazers">34</a>
       </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/transition-hidden-element/forks">0</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/transition-hidden-element/network/members">0</a>
       </td>
-      <td class="o-table__cell">34</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/transition-hidden-element/issues{/number}">0</a>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">34</td>
+      <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">
+        <a href="https://github.com/cloudfour/transition-hidden-element/issues">0</a>
       </td>
     </tr>
   </tbody>
 
   {% if hasFooter %}
-    <tfoot>
+    <tfoot class="o-table__footer">
       <tr>
         <th class="o-table__heading" scope="row">Total:</th>
-        <td class="o-table__cell">2125</td>
-        <td class="o-table__cell">234</td>
-        <td class="o-table__cell">2125</td>
-        <td class="o-table__cell">245</td>
+        <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">2125</td>
+        <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">234</td>
+        <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">2125</td>
+        <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">245</td>
       </tr>
     </tfoot>
   {% endif %}

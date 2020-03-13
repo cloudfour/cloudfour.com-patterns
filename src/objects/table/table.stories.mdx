@@ -7,10 +7,11 @@ import './table.scss';
 
 # Table Object
 
-The `o-table` class applies default styling to HTML `table` elements
+The `o-table` class applies default styling to HTML `table` elements.
+A table can optionally headers and footers.
 
 <Preview>
-  <Story name="Basic" height="100px">
+  <Story name="Basic">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
@@ -22,7 +23,93 @@ The `o-table` class applies default styling to HTML `table` elements
       numericCells: boolean(
         'Add <code>o-table__cell--numeric</code> modifier to cells',
         false
-      )
+      ),
+      rightAlignRowHeadings: boolean('Right-align row Headings:', false)
+    })}
+  </Story>
+</Preview>
+
+# Ruled Table
+
+The `o-table--ruled` modifier adds horizontal rules in between table rows.
+
+<Preview>
+  <Story name="Ruled">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      rowModifier: 'o-table--ruled',
+      numericCells: boolean(
+        'Add <code>o-table__cell--numeric</code> modifier to cells',
+        false
+      ),
+      rightAlignRowHeadings: boolean('Right-align row Headings:', false)
+    })}
+  </Story>
+</Preview>
+
+# Striped Table
+
+The `o-table--striped` modifier adds alternating background colors to table rows.
+
+<Preview>
+  <Story name="Striped">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      rowModifier: 'o-table--striped',
+      numericCells: boolean(
+        'Add <code>o-table__cell--numeric</code> modifier to cells',
+        false
+      ),
+      rightAlignRowHeadings: boolean('Right-align row Headings:', false)
+    })}
+  </Story>
+</Preview>
+
+# Numeric Data
+
+When cells contain numeric data, aligning them to the right and using tabular
+figures can make it easier to compare cells across a column. This can be
+achieved by adding `o-table__cell--numeric` to table cells.
+
+<Preview>
+  <Story name="Numeric Data">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      rowModifier: select('Table Row Modifier Class', [
+        '',
+        'o-table--ruled',
+        'o-table--striped'
+      ]),
+      numericCells: true,
+      rightAlignRowHeadings: boolean('Right-align row Headings:', false)
+    })}
+  </Story>
+</Preview>
+
+# Tight Row Headings
+
+In complex tables, row headings sometimes begin to feel disconnected from the
+data in their row. You can tighten up the visual connection by right-aligning
+row headings. To do so, add the `o-table--tight-row-headings` to the table.
+
+<Preview>
+  <Story name="Tight Row Headings">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      rowModifier: select('Table Row Modifier Class', [
+        '',
+        'o-table--ruled',
+        'o-table--striped'
+      ]),
+      numericCells: boolean(
+        'Add <code>o-table__cell--numeric</code> modifier to cells',
+        false
+      ),
+      rightAlignRowHeadings: true
     })}
   </Story>
 </Preview>

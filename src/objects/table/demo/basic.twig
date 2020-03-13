@@ -5,7 +5,11 @@
   And then refactored to use our table.twig template
 #}
 
-{% embed '../table.twig' with { tableClass: rowModifier } %}
+{% if rightAlignRowHeadings %}
+  {% set alignmentClass = ' o-table--tight-row-headings' %}
+{% endif %}
+
+{% embed '../table.twig' with { tableClass: rowModifier ~ alignmentClass } %}
 
   {% if hasHeader %}
     {% block header %}

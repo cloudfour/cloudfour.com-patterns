@@ -48,6 +48,6 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
   background: colors.$gray-lighter;
 }
 
-.o-table--tight-row-headings [scope='row'] {
+.o-table--tighten-row-headings [scope='row'] {
   text-align: right;
 }

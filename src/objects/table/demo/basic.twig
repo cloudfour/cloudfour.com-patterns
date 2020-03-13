@@ -2,8 +2,8 @@
   Data fetched from here: https://codepen.io/phebert/pen/PoqQqYM
   And beautified here: https://codebeautify.org/htmlviewer/
 #}
-
 <table class="o-table">
+  {% if hasHeader %}
   <thead>
     <tr>
       <th></th>
@@ -13,312 +13,13 @@
       <th class="o-table__heading" scope="col">Issues</th>
     </tr>
   </thead>
+  {% endif %}
   <tbody>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/appshell-demo">appshell-demo</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/appshell-demo/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/appshell-demo/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/appshell-demo/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/calendar-link">calendar-link</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/calendar-link/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/calendar-link/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/calendar-link/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/cloudfour-boxen">cloudfour-boxen</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-boxen/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-boxen/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-boxen/issues{/number}">12</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/cloudfour-dconstruct-2012">cloudfour-dconstruct-2012</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-dconstruct-2012/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-dconstruct-2012/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-dconstruct-2012/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/cloudfour-workshop-zombie">cloudfour-workshop-zombie</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-workshop-zombie/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-workshop-zombie/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/cloudfour-workshop-zombie/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/cloudfour.com-patterns">cloudfour.com-patterns</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/cloudfour.com-patterns/stargazers">9</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/cloudfour.com-patterns/forks">3</a>
-      </td>
-      <td class="o-table__cell">9</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/cloudfour.com-patterns/issues{/number}">41</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/contentstack-import">contentstack-import</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/contentstack-import/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/contentstack-import/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/contentstack-import/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/core-gulp-tasks">core-gulp-tasks</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/core-gulp-tasks/stargazers">9</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/core-gulp-tasks/forks">1</a>
-      </td>
-      <td class="o-table__cell">9</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/core-gulp-tasks/issues{/number}">30</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/core-hbs-helpers">core-hbs-helpers</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/core-hbs-helpers/stargazers">9</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/core-hbs-helpers/forks">1</a>
-      </td>
-      <td class="o-table__cell">9</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/core-hbs-helpers/issues{/number}">10</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/drizzle">drizzle</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/drizzle/stargazers">672</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/drizzle/forks">31</a>
-      </td>
-      <td class="o-table__cell">672</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/drizzle/issues{/number}">24</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/drizzle-builder">drizzle-builder</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/drizzle-builder/stargazers">7</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/drizzle-builder/forks">4</a>
-      </td>
-      <td class="o-table__cell">7</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/drizzle-builder/issues{/number}">24</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/eleventy-patterns">eleventy-patterns</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/eleventy-patterns/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/eleventy-patterns/forks">0</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/eleventy-patterns/issues{/number}">20</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/eslint-config">eslint-config</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/eslint-config/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/eslint-config/forks">0</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/eslint-config/issues{/number}">8</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/extensions">extensions</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/extensions/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/extensions/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/extensions/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/fabricator">fabricator</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/fabricator/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/fabricator/forks">0</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/fabricator/issues{/number}">2</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/fabricator-assemble">fabricator-assemble</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/fabricator-assemble/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/fabricator-assemble/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/fabricator-assemble/issues{/number}">10</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/fluidlint">fluidlint</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/fluidlint/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/fluidlint/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/fluidlint/issues{/number}">1</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/generator-core-patternlib">generator-core-patternlib</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/generator-core-patternlib/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/generator-core-patternlib/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/generator-core-patternlib/issues{/number}">11</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/generator-core-webapp">generator-core-webapp</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/generator-core-webapp/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/generator-core-webapp/forks">1</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/generator-core-webapp/issues{/number}">4</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/generator-drizzle">generator-drizzle</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/generator-drizzle/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/generator-drizzle/forks">1</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/generator-drizzle/issues{/number}">6</a>
-      </td>
-    </tr>
     <tr>
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/guides">guides</a>
       </th>
-      <td>
+      <td class="o-table__cell">
         <a href="https://api.github.com/repos/cloudfour/guides/stargazers">16</a>
       </td>
       <td class="o-table__cell">
@@ -331,24 +32,9 @@
     </tr>
     <tr>
       <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/headsup.js">headsup.js</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/headsup.js/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/headsup.js/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/headsup.js/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/hideShowPassword">hideShowPassword</a>
       </th>
-      <td>
+      <td class="o-table__cell">
         <a href="https://api.github.com/repos/cloudfour/hideShowPassword/stargazers">720</a>
       </td>
       <td class="o-table__cell">
@@ -363,7 +49,7 @@
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/image-breakpoints">image-breakpoints</a>
       </th>
-      <td>
+      <td class="o-table__cell">
         <a href="https://api.github.com/repos/cloudfour/image-breakpoints/stargazers">28</a>
       </td>
       <td class="o-table__cell">
@@ -376,69 +62,9 @@
     </tr>
     <tr>
       <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/js-sunrise">js-sunrise</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/js-sunrise/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/js-sunrise/forks">1</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/js-sunrise/issues{/number}">1</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/leveller">leveller</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/leveller/stargazers">8</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/leveller/forks">2</a>
-      </td>
-      <td class="o-table__cell">8</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/leveller/issues{/number}">1</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/members">members</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/members/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/members/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/members/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/microlight">microlight</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/microlight/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/microlight/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/microlight/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/offCanvasMenu">offCanvasMenu</a>
       </th>
-      <td>
+      <td class="o-table__cell">
         <a href="https://api.github.com/repos/cloudfour/offCanvasMenu/stargazers">147</a>
       </td>
       <td class="o-table__cell">
@@ -451,84 +77,9 @@
     </tr>
     <tr>
       <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/pushy">pushy</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/pushy/stargazers">3</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pushy/forks">1</a>
-      </td>
-      <td class="o-table__cell">3</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pushy/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/pwa-module">pwa-module</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/pwa-module/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwa-module/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwa-module/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/pwa-trials">pwa-trials</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/pwa-trials/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwa-trials/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwa-trials/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/pwa-workshop">pwa-workshop</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/pwa-workshop/stargazers">7</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwa-workshop/forks">4</a>
-      </td>
-      <td class="o-table__cell">7</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwa-workshop/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/pwa.rocks">pwa.rocks</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/pwa.rocks/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwa.rocks/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/pwa.rocks/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/pwastats">pwastats</a>
       </th>
-      <td>
+      <td class="o-table__cell">
         <a href="https://api.github.com/repos/cloudfour/pwastats/stargazers">79</a>
       </td>
       <td class="o-table__cell">
@@ -543,7 +94,7 @@
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/simple-svg-placeholder">simple-svg-placeholder</a>
       </th>
-      <td>
+      <td class="o-table__cell">
         <a href="https://api.github.com/repos/cloudfour/simple-svg-placeholder/stargazers">89</a>
       </td>
       <td class="o-table__cell">
@@ -558,7 +109,7 @@
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/SimpleSlideView">SimpleSlideView</a>
       </th>
-      <td>
+      <td class="o-table__cell">
         <a href="https://api.github.com/repos/cloudfour/SimpleSlideView/stargazers">260</a>
       </td>
       <td class="o-table__cell">
@@ -571,114 +122,9 @@
     </tr>
     <tr>
       <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/slides-svg-101">slides-svg-101</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/slides-svg-101/stargazers">4</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/slides-svg-101/forks">2</a>
-      </td>
-      <td class="o-table__cell">4</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/slides-svg-101/issues{/number}">2</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/smashing-mag-sw">smashing-mag-sw</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/smashing-mag-sw/stargazers">2</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/smashing-mag-sw/forks">1</a>
-      </td>
-      <td class="o-table__cell">2</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/smashing-mag-sw/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/styleguides">styleguides</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/styleguides/stargazers">2</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/styleguides/forks">0</a>
-      </td>
-      <td class="o-table__cell">2</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/styleguides/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/stylelint-config-cloudfour">stylelint-config-cloudfour</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/stylelint-config-cloudfour/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/stylelint-config-cloudfour/forks">0</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/stylelint-config-cloudfour/issues{/number}">1</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/stylelint-config-cloudfour-suit">stylelint-config-cloudfour-suit</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/stylelint-config-cloudfour-suit/stargazers">2</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/stylelint-config-cloudfour-suit/forks">0</a>
-      </td>
-      <td class="o-table__cell">2</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/stylelint-config-cloudfour-suit/issues{/number}">1</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/svelte-todo-app">svelte-todo-app</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/svelte-todo-app/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/svelte-todo-app/forks">0</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/svelte-todo-app/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/svg-icon-example">svg-icon-example</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/svg-icon-example/stargazers">9</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/svg-icon-example/forks">3</a>
-      </td>
-      <td class="o-table__cell">9</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/svg-icon-example/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/transition-hidden-element">transition-hidden-element</a>
       </th>
-      <td>
+      <td class="o-table__cell">
         <a href="https://api.github.com/repos/cloudfour/transition-hidden-element/stargazers">34</a>
       </td>
       <td class="o-table__cell">
@@ -689,90 +135,17 @@
         <a href="https://api.github.com/repos/cloudfour/transition-hidden-element/issues{/number}">0</a>
       </td>
     </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/vinyl-fs-fake">vinyl-fs-fake</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/vinyl-fs-fake/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/vinyl-fs-fake/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/vinyl-fs-fake/issues{/number}">3</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/vue-clazy-load">vue-clazy-load</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/vue-clazy-load/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/vue-clazy-load/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/vue-clazy-load/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/vue2-hammer">vue2-hammer</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/vue2-hammer/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/vue2-hammer/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/vue2-hammer/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/whocanuse">whocanuse</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/whocanuse/stargazers">0</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/whocanuse/forks">0</a>
-      </td>
-      <td class="o-table__cell">0</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/whocanuse/issues{/number}">0</a>
-      </td>
-    </tr>
-    <tr>
-      <th class="o-table__heading" scope="row">
-        <a href="https://github.com/cloudfour/workshop-here-everywhere">workshop-here-everywhere</a>
-      </th>
-      <td>
-        <a href="https://api.github.com/repos/cloudfour/workshop-here-everywhere/stargazers">1</a>
-      </td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/workshop-here-everywhere/forks">0</a>
-      </td>
-      <td class="o-table__cell">1</td>
-      <td class="o-table__cell">
-        <a href="https://api.github.com/repos/cloudfour/workshop-here-everywhere/issues{/number}">0</a>
-      </td>
-    </tr>
   </tbody>
-  <tfoot>
-    <tr>
-      <th class="o-table__heading" scope="row">Total:
-    </th>
-      <td class="o-table__cell">2125</td>
-      <td class="o-table__cell">234</td>
-      <td class="o-table__cell">2125</td>
-      <td class="o-table__cell">245</td>
-    </tr>
-  </tfoot>
+
+  {% if hasFooter %}
+    <tfoot>
+      <tr>
+        <th class="o-table__heading" scope="row">Total:</th>
+        <td class="o-table__cell">2125</td>
+        <td class="o-table__cell">234</td>
+        <td class="o-table__cell">2125</td>
+        <td class="o-table__cell">245</td>
+      </tr>
+    </tfoot>
+  {% endif %}
 </table>

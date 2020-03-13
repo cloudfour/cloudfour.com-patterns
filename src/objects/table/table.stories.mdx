@@ -1,8 +1,9 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
 import './table.scss';
 
-<Meta title="Objects/Table" />
+<Meta title="Objects/Table" decorators={[withKnobs]} />
 
 # Table Object
 
@@ -10,6 +11,9 @@ The `o-table` class applies default styling to HTML `table` elements
 
 <Preview>
   <Story name="Basic" height="100px">
-    {basicDemo()}
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true)
+    })}
   </Story>
 </Preview>

@@ -1,0 +1,17 @@
+<table class="o-table {% if tableClass %} {{tableClass}} {% endif %}">
+  {% if block("header") %}
+    <thead class="o-table__header">
+      {% block header %}{% endblock %}
+    </thead>
+  {% endif %}
+
+  <tbody>
+    {% block body %}{% endblock %}
+  </tbody>
+
+  {% if block("footer") %}
+    <tfoot class="o-table__footer">
+      {% block footer %}{% endblock %}
+    </tfoot>
+  {% endif %}
+</table>

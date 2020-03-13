@@ -2,23 +2,24 @@
   Data fetched from here: https://codepen.io/phebert/pen/PoqQqYM
   And beautified here: https://codebeautify.org/htmlviewer/
   With some rows removed for readability.
+  And then refactored to use our table.twig template
 #}
-<table class="
-  {% if rowModifier %} {{rowModifier}} {% endif %}
-  o-table">
+
+{% embed '../table.twig' with { tableClass: rowModifier } %}
+
   {% if hasHeader %}
-  <thead class="o-table__header">
-    <tr>
-      <th></th>
-      <th class="o-table__heading" scope="col">Stars</th>
-      <th class="o-table__heading" scope="col">Forks</th>
-      <th class="o-table__heading" scope="col">Watchers</th>
-      <th class="o-table__heading" scope="col">Issues</th>
-    </tr>
-  </thead>
+    {% block header %}
+      <tr>
+        <th></th>
+        <th class="o-table__heading" scope="col">Stars</th>
+        <th class="o-table__heading" scope="col">Forks</th>
+        <th class="o-table__heading" scope="col">Watchers</th>
+        <th class="o-table__heading" scope="col">Issues</th>
+      </tr>
+    {% endblock %}
   {% endif %}
 
-  <tbody>
+  {% block body %}
     <tr class="o-table__row">
       <th class="o-table__heading" scope="row">
         <a href="https://github.com/cloudfour/guides">guides</a>
@@ -139,10 +140,10 @@
         <a href="https://github.com/cloudfour/transition-hidden-element/issues">0</a>
       </td>
     </tr>
-  </tbody>
+  {% endblock %}
 
   {% if hasFooter %}
-    <tfoot class="o-table__footer">
+    {% block footer %}
       <tr>
         <th class="o-table__heading" scope="row">Total:</th>
         <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">2125</td>
@@ -150,6 +151,6 @@
         <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">2125</td>
         <td class="o-table__cell {% if numericCells %} o-table__cell--numeric {% endif %}">245</td>
       </tr>
-    </tfoot>
+    {% endblock %}
   {% endif %}
-</table>
+{% endembed %}

@@ -1,5 +1,5 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
 import './table.scss';
 
@@ -13,7 +13,16 @@ The `o-table` class applies default styling to HTML `table` elements
   <Story name="Basic" height="100px">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
-      hasFooter: boolean('Include Footer', true)
+      hasFooter: boolean('Include Footer', true),
+      rowModifier: select('Table Row Modifier Class', [
+        '',
+        'o-table--ruled',
+        'o-table--striped'
+      ]),
+      numericCells: boolean(
+        'Add <code>o-table__cell--numeric</code> modifier to cells',
+        false
+      )
     })}
   </Story>
 </Preview>

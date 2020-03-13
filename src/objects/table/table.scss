@@ -3,6 +3,10 @@
 @use "../../design-tokens/sizes.yml";
 @use "../../mixins/ms";
 
+$table-border-color: colors.$gray-light;
+$table-border-thin: sizes.$edge_small solid $table-border-color;
+$table-border-thick: sizes.$edge_medium solid $table-border-color;
+
 /**
  * 1. Override default `th` text alignment
  */
@@ -11,6 +15,7 @@
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left; /* 1 */
+  width: 100%;
 }
 
 .o-table__cell,
@@ -18,6 +23,27 @@
   padding: ms.step(-3);
 }
 
+.o-table__cell--numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 .o-table__heading {
   font-weight: font.$weight-bold;
+}
+
+.o-table__header {
+  border-bottom: $table-border-thick;
+}
+
+.o-table__footer {
+  border-top: $table-border-thick;
+}
+
+.o-table--ruled .o-table__row {
+  border-bottom: $table-border-thin;
+}
+
+.o-table--striped .o-table__row:nth-of-type(2n - 1) {
+  background: colors.$gray-lighter;
 }

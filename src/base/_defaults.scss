@@ -1,4 +1,6 @@
 @use "../design-tokens/colors.yml";
+@use "../design-tokens/opacity.yml";
+@use "../mixins/ms";
 
 /**
  * Sensible box model
@@ -73,11 +75,33 @@ audio {
 }
 
 /**
- * Don't allow code blocks to overflow willy-nilly.
+ * Code blocks
+ *
+ * 1. Don't allow code blocks to overflow willy-nilly.
  */
 
 pre {
-  overflow: auto;
+  background: colors.$primary-brand-darker;
+  color: colors.$text-light;
+  overflow: auto; /* 1 */
+  padding: ms.step(1);
+}
+
+/**
+ * When code elements are not within a preformatted block or a link, we offset
+ * their color from surrounding content.
+ */
+
+*:not(pre):not(a) > code {
+  color: colors.$fuchsia;
+}
+
+/**
+ * Diff elements
+ */
+
+del {
+  opacity: opacity.$muted;
 }
 
 /**

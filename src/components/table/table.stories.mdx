@@ -3,11 +3,11 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
 import './table.scss';
 
-<Meta title="Objects/Table" decorators={[withKnobs]} />
+<Meta title="Components/Table" decorators={[withKnobs]} />
 
 # Table Object
 
-The `o-table` class applies default styling to HTML `table` elements.
+The `c-table` class applies default styling to HTML `table` elements.
 A table can optionally headers and footers.
 
 <Preview>
@@ -17,11 +17,11 @@ A table can optionally headers and footers.
       hasFooter: boolean('Include Footer', true),
       rowModifier: select('Table Row Modifier Class', [
         '',
-        'o-table--ruled',
-        'o-table--striped'
+        'c-table--ruled',
+        'c-table--striped'
       ]),
       numericCells: boolean(
-        'Add o-table__numeric-cell modifier to cells',
+        'Add c-table__numeric-cell modifier to cells',
         false
       ),
       rightAlignRowHeadings: boolean('Right-align row Headings:', false)
@@ -31,16 +31,16 @@ A table can optionally headers and footers.
 
 # Ruled Table
 
-The `o-table--ruled` modifier adds horizontal rules in between table rows.
+The `c-table--ruled` modifier adds horizontal rules in between table rows.
 
 <Preview>
   <Story name="Ruled">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      rowModifier: 'o-table--ruled',
+      rowModifier: 'c-table--ruled',
       numericCells: boolean(
-        'Add o-table__numeric-cell modifier to cells',
+        'Add c-table__numeric-cell modifier to cells',
         false
       ),
       rightAlignRowHeadings: boolean('Right-align row Headings:', false)
@@ -50,16 +50,16 @@ The `o-table--ruled` modifier adds horizontal rules in between table rows.
 
 # Striped Table
 
-The `o-table--striped` modifier adds alternating background colors to table rows.
+The `c-table--striped` modifier adds alternating background colors to table rows.
 
 <Preview>
   <Story name="Striped">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      rowModifier: 'o-table--striped',
+      rowModifier: 'c-table--striped',
       numericCells: boolean(
-        'Add o-table__numeric-cell modifier to cells',
+        'Add c-table__numeric-cell modifier to cells',
         false
       ),
       rightAlignRowHeadings: boolean('Right-align row Headings:', false)
@@ -71,7 +71,7 @@ The `o-table--striped` modifier adds alternating background colors to table rows
 
 When cells contain numeric data, aligning them to the right and using tabular
 figures can make it easier to compare cells across a column. This can be
-achieved by adding o-table\_\_cell--numeric to table cells.
+achieved by adding c-table\_\_cell--numeric to table cells.
 
 <Preview>
   <Story name="Numeric Data">
@@ -80,8 +80,8 @@ achieved by adding o-table\_\_cell--numeric to table cells.
       hasFooter: boolean('Include Footer', true),
       rowModifier: select('Table Row Modifier Class', [
         '',
-        'o-table--ruled',
-        'o-table--striped'
+        'c-table--ruled',
+        'c-table--striped'
       ]),
       numericCells: true,
       rightAlignRowHeadings: boolean('Right-align row Headings:', false)
@@ -93,7 +93,7 @@ achieved by adding o-table\_\_cell--numeric to table cells.
 
 In complex tables, row headings sometimes begin to feel disconnected from the
 data in their row. You can tighten up the visual connection by right-aligning
-row headings. To do so, add the `o-table--tighten-row-headings` to the table.
+row headings. To do so, add the `c-table--tighten-row-headings` to the table.
 
 <Preview>
   <Story name="Tighten Row Headings">
@@ -102,11 +102,11 @@ row headings. To do so, add the `o-table--tighten-row-headings` to the table.
       hasFooter: boolean('Include Footer', true),
       rowModifier: select('Table Row Modifier Class', [
         '',
-        'o-table--ruled',
-        'o-table--striped'
+        'c-table--ruled',
+        'c-table--striped'
       ]),
       numericCells: boolean(
-        'Add o-table__numeric-cell modifier to cells',
+        'Add c-table__numeric-cell modifier to cells',
         false
       ),
       rightAlignRowHeadings: true

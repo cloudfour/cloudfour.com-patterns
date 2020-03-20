@@ -1,6 +1,6 @@
-<table class="o-table {% if tableClass %} {{tableClass}} {% endif %}">
+<table class="c-table {% if tableClass %} {{tableClass}} {% endif %}">
   {% if block("header") %}
-    <thead class="o-table__header">
+    <thead class="c-table__header">
       {% block header %}{% endblock %}
     </thead>
   {% endif %}
@@ -10,7 +10,7 @@
   </tbody>
 
   {% if block("footer") %}
-    <tfoot class="o-table__footer">
+    <tfoot class="c-table__footer">
       {% block footer %}{% endblock %}
     </tfoot>
   {% endif %}

@@ -12,7 +12,7 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  *
  * Since tables require specific markup using the BEM element class names can
  * quickly become overwhelming. We make an exception from our BEM rules to
- * directly style elements within `.o-table`s.
+ * directly style elements within `.c-table`s.
  */
 
 /**
@@ -22,33 +22,33 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  *    tables are clipped.
  */
 
-.o-table {
+.c-table {
   overflow-x: auto; /* 1 */
 }
 
 /**
  * Table cells and headers share padding
  */
-.o-table td,
-.o-table th {
+.c-table td,
+.c-table th {
   padding: ms.step(-3);
 }
 
 /**
  * Table headings are bold to stand out as labels
  */
-.o-table th {
+.c-table th {
   font-weight: font.$weight-bold;
 }
 
 /**
  * Table headers and footers are separated from the table body with strokes.
  */
-.o-table thead {
+.c-table thead {
   border-bottom: $table-border-thick;
 }
 
-.o-table tfoot {
+.c-table tfoot {
   border-top: $table-border-thick;
 }
 
@@ -56,11 +56,11 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * Table rows can be styled in a couple ways.
  * This is achieved by adding a class to the table itself.
  */
-.o-table--ruled tbody tr {
+.c-table--ruled tbody tr {
   border-bottom: $table-border-thin;
 }
 
-.o-table--striped tbody tr:nth-of-type(2n - 1) {
+.c-table--striped tbody tr:nth-of-type(2n - 1) {
   background-color: colors.$gray-lighter;
 }
 
@@ -71,7 +71,7 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * 1. Make numbers equal width so the columns line up
  * 2. Right align numeric cells so the "ones" column lines up on the right side
  */
-.o-table__numeric-cell {
+.c-table__numeric-cell {
   font-variant-numeric: tabular-nums; /* 1 */
   text-align: right; /* 2 */
 }
@@ -81,6 +81,6 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * This keeps headings closer to the content they label and in some cases
  * improves scannability.
  */
-.o-table--tighten-row-headings [scope='row'] {
+.c-table--tighten-row-headings [scope='row'] {
   text-align: right;
 }

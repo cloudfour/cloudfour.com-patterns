@@ -59,7 +59,7 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
 }
 
 .o-table--striped .o-table__row:nth-of-type(2n - 1) {
-  background: colors.$gray-lighter;
+  background-color: colors.$gray-lighter;
 }
 
 /**

@@ -8,6 +8,14 @@ $table-border-thin: sizes.$edge_small solid $table-border-color;
 $table-border-thick: sizes.$edge_medium solid $table-border-color;
 
 /**
+ * Our base table component
+ *
+ * Since tables require specific markup using the BEM element class names can
+ * quickly become overwhelming. We make an exception from our BEM rules to
+ * directly style elements within `.o-table`s.
+ */
+
+/**
  * 1. Tables may overflow horizontally. Keep this from breaking layouts while
  *    ensuring content is viewable
  *    In the future we may want to consider making it visually obvious when
@@ -21,26 +29,26 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
 /**
  * Table cells and headers share padding
  */
-.o-table__cell,
-.o-table__heading {
+.o-table td,
+.o-table th {
   padding: ms.step(-3);
 }
 
 /**
  * Table headings are bold to stand out as labels
  */
-.o-table__heading {
+.o-table th {
   font-weight: font.$weight-bold;
 }
 
 /**
  * Table headers and footers are separated from the table body with strokes.
  */
-.o-table__header {
+.o-table thead {
   border-bottom: $table-border-thick;
 }
 
-.o-table__footer {
+.o-table tfoot {
   border-top: $table-border-thick;
 }
 
@@ -48,11 +56,11 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * Table rows can be styled in a couple ways.
  * This is achieved by adding a class to the table itself.
  */
-.o-table--ruled .o-table__row {
+.o-table--ruled tbody tr {
   border-bottom: $table-border-thin;
 }
 
-.o-table--striped .o-table__row:nth-of-type(2n - 1) {
+.o-table--striped tbody tr:nth-of-type(2n - 1) {
   background-color: colors.$gray-lighter;
 }
 
@@ -63,7 +71,7 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * 1. Make numbers equal width so the columns line up
  * 2. Right align numeric cells so the "ones" column lines up on the right side
  */
-.o-table__cell--numeric {
+.o-table__numeric-cell {
   font-variant-numeric: tabular-nums; /* 1 */
   text-align: right; /* 2 */
 }

@@ -8,20 +8,14 @@ $table-border-thin: sizes.$edge_small solid $table-border-color;
 $table-border-thick: sizes.$edge_medium solid $table-border-color;
 
 /**
- * 1. Override some table defaults
- * 2. Tables may overflow horizontally. Keep this from breaking layouts while
+ * 1. Tables may overflow horizontally. Keep this from breaking layouts while
  *    ensuring content is viewable
  *    In the future we may want to consider making it visually obvious when
  *    tables are clipped.
- * 3. Override default `th` text alignment
  */
 
 .o-table {
-  border-collapse: collapse; /* 1 */
-  border-spacing: 0; /* 1 */
-  overflow-x: auto; /* 2 */
-  text-align: left; /* 3 */
-  width: 100%; /* 2 */
+  overflow-x: auto; /* 1 */
 }
 
 /**

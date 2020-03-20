@@ -27,7 +27,7 @@
     "prismjs": "1.19.0"
   },
   "devDependencies": {
-    "@babel/core": "7.8.7",
+    "@babel/core": "7.9.0",
     "@cloudfour/eslint-plugin": "7.0.0",
     "@storybook/addon-a11y": "5.3.17",
     "@storybook/addon-centered": "5.3.17",
@@ -37,7 +37,7 @@
     "@storybook/html": "5.3.17",
     "@storybook/preset-scss": "1.0.2",
     "@svgr/webpack": "5.2.0",
-    "babel-loader": "8.0.6",
+    "babel-loader": "8.1.0",
     "css-loader": "3.4.2",
     "eslint": "6.8.0",
     "eslint-plugin-mdx": "1.6.8",

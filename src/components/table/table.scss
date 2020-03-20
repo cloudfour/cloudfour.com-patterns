@@ -35,10 +35,10 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
 }
 
 /**
- * Table headings are bold to stand out as labels
+ * Table headings are semibold to stand out as labels
  */
 .c-table th {
-  font-weight: font.$weight-bold;
+  font-weight: font.$weight-semibold;
 }
 
 /**

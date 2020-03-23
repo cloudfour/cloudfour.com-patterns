@@ -18,17 +18,13 @@ A table can optionally headers and footers.
       hasFooter: boolean('Include Footer', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: boolean('Add c-tabled--striped modifier to the table', false),
-      numericCells: boolean(
-        'Add c-table__numeric-cell modifier to cells',
-        false
-      ),
-      rightAlignRowHeadings: boolean('Right-align row Headings:', false),
+      numericData: boolean('Add c-table--numeric modifier to the table', false),
       tableData: data
     })}
   </Story>
 </Preview>
 
-# Ruled Table
+## Ruled Table
 
 The `c-table--ruled` modifier adds horizontal rules in between table rows.
 
@@ -39,17 +35,13 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
       hasFooter: boolean('Include Footer', true),
       isRuled: true,
       isStriped: boolean('Add c-tabled--striped modifier to the table', false),
-      numericCells: boolean(
-        'Add c-table__numeric-cell modifier to cells',
-        false
-      ),
-      rightAlignRowHeadings: boolean('Right-align row Headings:', false),
+      numericData: boolean('Add c-table--numeric modifier to the table', false),
       tableData: data
     })}
   </Story>
 </Preview>
 
-# Striped Table
+## Striped Table
 
 The `c-table--striped` modifier adds alternating background colors to table rows.
 
@@ -60,21 +52,21 @@ The `c-table--striped` modifier adds alternating background colors to table rows
       hasFooter: boolean('Include Footer', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: true,
-      numericCells: boolean(
-        'Add c-table__numeric-cell modifier to cells',
-        false
-      ),
-      rightAlignRowHeadings: boolean('Right-align row Headings:', false),
+      numericData: boolean('Add c-table--numeric modifier to the table', false),
       tableData: data
     })}
   </Story>
 </Preview>
 
-# Numeric Data
+## Numeric Data
 
-When cells contain numeric data, aligning them to the right and using tabular
-figures can make it easier to compare cells across a column. This can be
-achieved by adding c-table\_\_cell--numeric to table cells.
+Tables with lots of numeric data use a couple of modifications to make them
+easier to read and understand.
+
+Numeric cells are right-aligned and use tabular figures to make it easier to
+compare cells across a column.
+
+These changes can be achieved by adding c-table--numeric to the table.
 
 <Preview>
   <Story name="Numeric Data">
@@ -83,31 +75,7 @@ achieved by adding c-table\_\_cell--numeric to table cells.
       hasFooter: boolean('Include Footer', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: boolean('Add c-tabled--striped modifier to the table', false),
-      numericCells: true,
-      rightAlignRowHeadings: boolean('Right-align row Headings:', false),
-      tableData: data
-    })}
-  </Story>
-</Preview>
-
-# Tighten Row Headings
-
-In complex tables, row headings sometimes begin to feel disconnected from the
-data in their row. You can tighten up the visual connection by right-aligning
-row headings. To do so, add the `c-table--tighten-row-headings` to the table.
-
-<Preview>
-  <Story name="Tighten Row Headings">
-    {basicDemo({
-      hasHeader: boolean('Include Header', true),
-      hasFooter: boolean('Include Footer', true),
-      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
-      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
-      numericCells: boolean(
-        'Add c-table__numeric-cell modifier to cells',
-        false
-      ),
-      rightAlignRowHeadings: true,
+      numericData: true,
       tableData: data
     })}
   </Story>

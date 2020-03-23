@@ -54,13 +54,18 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
 }
 
 /**
+ * The `.c-table--numeric` modifier applies a few stylistic changes to make
+ * tables with numeric data easier to read and understand.
+ */
+
+/**
  * When comparing numeric table cells, it's easier if the ones, tens, hundreds,
  * etc. columns are lines up.
  *
  * 1. Make numbers equal width so the columns line up
  * 2. Right align numeric cells so the "ones" column lines up on the right side
  */
-.c-table__numeric-cell {
+.c-table--numeric td {
   font-variant-numeric: tabular-nums; /* 1 */
   text-align: right; /* 2 */
 }
@@ -70,6 +75,6 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * This keeps headings closer to the content they label and in some cases
  * improves scannability.
  */
-.c-table--tighten-row-headings [scope='row'] {
+.c-table--numeric [scope='row'] {
   text-align: right;
 }

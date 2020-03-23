@@ -1,7 +1,7 @@
 {% set _tableClass = '' %}
 
-{% if rightAlignRowHeadings %}
-  {% set _tableClass = _tableClass ~ ' c-table--tighten-row-headings' %}
+{% if numericData %}
+  {% set _tableClass = _tableClass ~ ' c-table--numeric' %}
 {% endif %}
 
 {% if isRuled %}
@@ -32,14 +32,14 @@
         <th scope="row">
           <a href="https://github.com/cloudfour/{{row.name}}">{{row.name}}</a>
         </th>
-        <td {% if numericCells %}class="c-table__numeric-cell"{% endif %}>
+        <td>
           <a href="https://github.com/cloudfour/{{row.name}}/stargazers">{{row.stargazers}}</a>
         </td>
-        <td {% if numericCells %}class="c-table__numeric-cell"{% endif %}>
+        <td>
           <a href="https://github.com/cloudfour/{{row.name}}/network/members">{{row.forks}}</a>
         </td>
-        <td {% if numericCells %}class="c-table__numeric-cell"{% endif %}>{{row.followers}}</td>
-        <td {% if numericCells %}class="c-table__numeric-cell"{% endif %}>
+        <td>{{row.followers}}</td>
+        <td>
           <a href="https://github.com/cloudfour/{{row.name}}/issues">{{row.issues}}</a>
         </td>
       </tr>
@@ -50,10 +50,10 @@
     {% block footer %}
       <tr>
         <th scope="row">Total:</th>
-        <td {% if numericCells %}class="c-table__numeric-cell"{% endif %}>2125</td>
-        <td {% if numericCells %}class="c-table__numeric-cell"{% endif %}>234</td>
-        <td {% if numericCells %}class="c-table__numeric-cell"{% endif %}>2125</td>
-        <td {% if numericCells %}class="c-table__numeric-cell"{% endif %}>245</td>
+        <td>2125</td>
+        <td>234</td>
+        <td>2125</td>
+        <td>245</td>
       </tr>
     {% endblock %}
   {% endif %}

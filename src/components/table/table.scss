@@ -41,6 +41,14 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
   border-top: $table-border-thick;
 }
 
+.c-table caption {
+  color: colors.$gray-dark;
+  caption-side: bottom;
+  font-size: ms.step(-1);
+  font-style: italic;
+  padding: ms.step(-1) 0;
+}
+
 /**
  * Table rows can be styled in a couple ways.
  * This is achieved by adding a class to the table itself.

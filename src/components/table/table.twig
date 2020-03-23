@@ -1,6 +1,12 @@
 <table class="c-table {% if tableClass %} {{tableClass}} {% endif %}">
+  {% if block("caption") %}
+    <caption>
+      {% block caption %}{% endblock %}
+    </thead>
+  {% endif %}
+
   {% if block("header") %}
-    <thead class="c-table__header">
+    <thead>
       {% block header %}{% endblock %}
     </thead>
   {% endif %}
@@ -10,7 +16,7 @@
   </tbody>
 
   {% if block("footer") %}
-    <tfoot class="c-table__footer">
+    <tfoot>
       {% block footer %}{% endblock %}
     </tfoot>
   {% endif %}

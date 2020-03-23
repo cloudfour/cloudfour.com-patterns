@@ -9,13 +9,14 @@ import './table.scss';
 # Table Object
 
 The `c-table` class applies default styling to HTML `table` elements.
-A table can optionally headers and footers.
+A table can optionally have a header, a footer, and a caption.
 
 <Preview>
   <Story name="Basic">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
+      hasCaption: boolean('Include Caption', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: boolean('Add c-tabled--striped modifier to the table', false),
       numericData: boolean('Add c-table--numeric modifier to the table', false),
@@ -33,6 +34,7 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
+      hasCaption: boolean('Include Caption', true),
       isRuled: true,
       isStriped: boolean('Add c-tabled--striped modifier to the table', false),
       numericData: boolean('Add c-table--numeric modifier to the table', false),
@@ -50,6 +52,7 @@ The `c-table--striped` modifier adds alternating background colors to table rows
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
+      hasCaption: boolean('Include Caption', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: true,
       numericData: boolean('Add c-table--numeric modifier to the table', false),
@@ -73,6 +76,7 @@ These changes can be achieved by adding c-table--numeric to the table.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
+      hasCaption: boolean('Include Caption', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: boolean('Add c-tabled--striped modifier to the table', false),
       numericData: true,

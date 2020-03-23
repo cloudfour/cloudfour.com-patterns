@@ -1,8 +1,18 @@
+{% set _tableClass = '' %}
+
 {% if rightAlignRowHeadings %}
-  {% set alignmentClass = ' c-table--tighten-row-headings' %}
+  {% set _tableClass = _tableClass ~ ' c-table--tighten-row-headings' %}
 {% endif %}
 
-{% embed '../table.twig' with { tableClass: rowModifier ~ alignmentClass } %}
+{% if isRuled %}
+  {% set _tableClass = _tableClass ~ ' c-table--ruled' %}
+{% endif %}
+
+{% if isStriped %}
+  {% set _tableClass = _tableClass ~ ' c-table--striped' %}
+{% endif %}
+
+{% embed '../table.twig' with { tableClass: _tableClass } %}
 
   {% if hasHeader %}
     {% block header %}

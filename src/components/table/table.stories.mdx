@@ -16,11 +16,8 @@ A table can optionally headers and footers.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      rowModifier: select('Table Row Modifier Class', [
-        '',
-        'c-table--ruled',
-        'c-table--striped'
-      ]),
+      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
+      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
       numericCells: boolean(
         'Add c-table__numeric-cell modifier to cells',
         false
@@ -40,7 +37,8 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      rowModifier: 'c-table--ruled',
+      isRuled: true,
+      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
       numericCells: boolean(
         'Add c-table__numeric-cell modifier to cells',
         false
@@ -60,7 +58,8 @@ The `c-table--striped` modifier adds alternating background colors to table rows
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      rowModifier: 'c-table--striped',
+      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
+      isStriped: true,
       numericCells: boolean(
         'Add c-table__numeric-cell modifier to cells',
         false
@@ -82,11 +81,8 @@ achieved by adding c-table\_\_cell--numeric to table cells.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      rowModifier: select('Table Row Modifier Class', [
-        '',
-        'c-table--ruled',
-        'c-table--striped'
-      ]),
+      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
+      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
       numericCells: true,
       rightAlignRowHeadings: boolean('Right-align row Headings:', false),
       tableData: data
@@ -105,11 +101,8 @@ row headings. To do so, add the `c-table--tighten-row-headings` to the table.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      rowModifier: select('Table Row Modifier Class', [
-        '',
-        'c-table--ruled',
-        'c-table--striped'
-      ]),
+      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
+      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
       numericCells: boolean(
         'Add c-table__numeric-cell modifier to cells',
         false

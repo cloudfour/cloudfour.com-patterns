@@ -13,7 +13,7 @@ module.exports = {
       name: '@storybook/preset-scss',
       options: {
         sassLoaderOptions: {
-          // Dart Sass performs much better than Node Sass
+          // Dart Sass is easier to install than Node Sass
           implementation: require('sass'),
           sassOptions: {
             // Import Theo design tokens as SCSS variables

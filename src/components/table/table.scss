@@ -42,8 +42,8 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
 }
 
 .c-table caption {
-  color: colors.$gray-dark;
   caption-side: bottom;
+  color: colors.$gray-dark;
   font-size: ms.step(-1);
   font-style: italic;
   padding: ms.step(-1) 0;

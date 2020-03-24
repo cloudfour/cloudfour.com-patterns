@@ -51,7 +51,7 @@
     "ltx": "2.9.2",
     "npm-run-all": "4.1.5",
     "prettier": "prettier/prettier#94a487f",
-    "remark-preset-lint-recommended": "3.0.3",
+    "remark-preset-lint-recommended": "3.0.4",
     "remark-preset-prettier": "0.4.0",
     "require-dir": "1.2.0",
     "sass": "1.26.3",

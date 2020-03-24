@@ -18,7 +18,7 @@ function theoLoader(source) {
   // By processing import paths beforehand, we give Webpack the info it needs
   // to refresh files accurately and clear its cache.
   if (def.imports) {
-    def.imports.forEach(importPath => {
+    def.imports.forEach((importPath) => {
       // Import paths are relative to the requesting file.
       this.addDependency(resolve(tokenPath, importPath));
     });
@@ -28,14 +28,14 @@ function theoLoader(source) {
     .convert({
       transform: {
         file: tokenPath,
-        type: 'web'
+        type: 'web',
       },
       format: {
         // Outputs ES modules: `export const propertyName = value;`
-        type: 'module.js'
-      }
+        type: 'module.js',
+      },
     })
-    .then(result => {
+    .then((result) => {
       done(null, result);
     })
     .catch(({ message }) => {

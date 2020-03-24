@@ -26,6 +26,13 @@
   "unpkg": "./dist/cloudfourPatterns.min.js",
   "module": "./dist/cloudfourPatterns.mjs",
   "exports": "./dist/cloudfourPatterns.mjs",
+  "files": [
+    "/dist",
+    "/src/**/*.scss",
+    "/src/**/*.twig",
+    "!/src/**/demo/**/*.twig",
+    "/src/assets"
+  ],
   "dependencies": {
     "focus-visible": "5.0.2",
     "prismjs": "1.19.0"

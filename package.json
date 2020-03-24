@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
-    "@cloudfour/eslint-plugin": "7.0.0",
+    "@cloudfour/eslint-plugin": "8.0.0",
     "@storybook/addon-a11y": "5.3.17",
     "@storybook/addon-centered": "5.3.17",
     "@storybook/addon-docs": "5.3.17",

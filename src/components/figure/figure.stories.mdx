@@ -1,0 +1,28 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { boolean } from '@storybook/addon-knobs';
+import basicDemo from './demo/basic.twig';
+import captionDemo from './demo/with-caption.twig';
+import './figure.scss';
+
+<Meta title="Components/Figure"/>
+
+# Figure
+
+<Preview>
+  <Story name="Basic">
+    {basicDemo({
+      alt: 'This is an image',
+      src: 'https://picsum.photos/600/300'
+    })}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="With Caption">
+    {captionDemo({
+      hasCaption: boolean('Include Caption', true),
+      alt: 'This is an image',
+      src: 'https://picsum.photos/600/300'
+    })}
+  </Story>
+</Preview>

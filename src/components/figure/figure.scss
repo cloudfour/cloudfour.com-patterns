@@ -1,0 +1,21 @@
+@use "../../design-tokens/colors.yml";
+@use "../../mixins/ms";
+
+.c-figure {
+  margin: 0;
+}
+
+.c-figure__object {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+.c-figure__caption {
+  color: colors.$gray;
+  font-size: ms.step(-1);
+  font-style: italic;
+  margin-top: ms.step(-1);
+  text-align: center;
+}

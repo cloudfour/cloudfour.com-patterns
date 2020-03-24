@@ -2,7 +2,7 @@
 @use "../../mixins/svg";
 @use "../../mixins/unit";
 
-.o-icon {
+.c-icon {
   @include svg.inherit-color;
   @include svg.inherit-size;
   display: inline-block;
@@ -21,6 +21,6 @@
  * @see https://cloudfour.com/thinks/some-imaginary-css/#align-to-typeface-median
  */
 
-.o-icon--inline {
+.c-icon--inline {
   top: unit.px-to-rem(-2px); /* 1 */
 }

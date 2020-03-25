@@ -139,3 +139,15 @@ nav,
 section {
   display: block;
 }
+
+/**
+ * Apply some sensible defaults to tables
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow-x: auto;
+  text-align: left;
+  width: 100%;
+}

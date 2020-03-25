@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
-    "@cloudfour/eslint-plugin": "7.0.0",
+    "@cloudfour/eslint-plugin": "8.0.0",
     "@rollup/plugin-multi-entry": "3.0.0",
     "@rollup/plugin-node-resolve": "7.1.1",
     "@storybook/addon-a11y": "5.3.17",
@@ -67,7 +67,7 @@
     "ltx": "2.9.2",
     "npm-run-all": "4.1.5",
     "prettier": "prettier/prettier#94a487f",
-    "remark-preset-lint-recommended": "3.0.3",
+    "remark-preset-lint-recommended": "3.0.4",
     "remark-preset-prettier": "0.4.0",
     "require-dir": "1.2.0",
     "rollup": "2.1.0",

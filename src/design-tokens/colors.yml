@@ -1,140 +1,140 @@
 aliases:
-  blue_lighter: "#8abfff"
-  blue_light: "#3d84F5"
-  blue: "#215cca"
-  blue_dark: "#183889"
-  blue_darker: "#0E1C43"
-  green_lighter: "#71f4ae"
-  green_light: "#2cdd90"
-  green: "#158466"
-  green_dark: "#105c52"
-  green_darker: "#0c3538"
-  purple_lighter: "#e98efa"
-  purple_light: "#d250f7"
-  purple: "#950cde"
-  purple_dark: "#560a9b"
-  purple_darker: "#2a085e"
-  fuchsia_lighter: "#ff80ca"
-  fuchsia_light: "#f240ae"
-  fuchsia: "#d9118f"
-  fuchsia_dark: "#950f7d"
-  fuchsia_darker: "#5c0a5c"
-  orange_lighter: "#ffad5c"
-  orange_light: "#fa8f47"
-  orange: "#f27041"
-  orange_dark: "#aa3f24"
-  orange_darker: "#622018"
-  gray_lighter: "#dee7ec"
-  gray_light: "#a5b9c6"
-  gray: "#738da0"
-  gray_dark: "#485968"
-  gray_darker: "#252b32"
-  black_transparent_85: "rgba(0, 0, 0, 0.85)"
-  white_transparent_85: "rgba(255, 255, 255, 0.85)"
-  white: "#fff"
+  blue_lighter: '#8abfff'
+  blue_light: '#3d84F5'
+  blue: '#215cca'
+  blue_dark: '#183889'
+  blue_darker: '#0E1C43'
+  green_lighter: '#71f4ae'
+  green_light: '#2cdd90'
+  green: '#158466'
+  green_dark: '#105c52'
+  green_darker: '#0c3538'
+  purple_lighter: '#e98efa'
+  purple_light: '#d250f7'
+  purple: '#950cde'
+  purple_dark: '#560a9b'
+  purple_darker: '#2a085e'
+  fuchsia_lighter: '#ff80ca'
+  fuchsia_light: '#f240ae'
+  fuchsia: '#d9118f'
+  fuchsia_dark: '#950f7d'
+  fuchsia_darker: '#5c0a5c'
+  orange_lighter: '#ffad5c'
+  orange_light: '#fa8f47'
+  orange: '#f27041'
+  orange_dark: '#aa3f24'
+  orange_darker: '#622018'
+  gray_lighter: '#f2f5f7'
+  gray_light: '#c0cfd8'
+  gray: '#738da0'
+  gray_dark: '#485968'
+  gray_darker: '#252b32'
+  black_transparent_85: 'rgba(0, 0, 0, 0.85)'
+  white_transparent_85: 'rgba(255, 255, 255, 0.85)'
+  white: '#fff'
 props:
   - name: text_dark
-    value: "{!black_transparent_85}"
+    value: '{!black_transparent_85}'
     category: text-color
     comment: Accessible on white and lightest gray.
   - name: text_light
-    value: "{!white_transparent_85}"
+    value: '{!white_transparent_85}'
     category: text-color
     comment: Accessible on primary brand color.
   - name: text_light_emphasis
-    value: "{!white}"
+    value: '{!white}'
     category: text-color
     comment: Accessible on primary brand color, useful for buttons and headings.
   - name: text_action
-    value: "{!blue}"
+    value: '{!blue}'
     category: text-color
     comment: Accessible on white and lighter-gray.
   - name: primary_brand_lighter
-    value: "{!blue_lighter}"
+    value: '{!blue_lighter}'
     category: primary-color
     comment: Accessible on -darker colors.
   - name: primary_brand_light
-    value: "{!blue_light}"
+    value: '{!blue_light}'
     category: primary-color
   - name: primary_brand
-    value: "{!blue}"
+    value: '{!blue}'
     category: primary-color
     comment: Accessible on white.
   - name: primary_brand_dark
-    value: "{!blue_dark}"
+    value: '{!blue_dark}'
     category: primary-color
     comment: Accessible on white.
   - name: primary_brand_darker
-    value: "{!blue_darker}"
+    value: '{!blue_darker}'
     category: primary-color
     comment: Accessible on white.
   - name: green_lighter
-    value: "{!green_lighter}"
+    value: '{!green_lighter}'
     comment: Accessible on -darker colors.
   - name: green_light
-    value: "{!green_light}"
+    value: '{!green_light}'
   - name: green
-    value: "{!green}"
+    value: '{!green}'
     comment: Accessible on white.
   - name: green_dark
-    value: "{!green_dark}"
+    value: '{!green_dark}'
     comment: Accessible on white.
   - name: green_darker
-    value: "{!green_darker}"
+    value: '{!green_darker}'
     comment: Accessible on white.
   - name: purple_lighter
-    value: "{!purple_lighter}"
+    value: '{!purple_lighter}'
     comment: Accessible on -darker colors.
   - name: purple_light
-    value: "{!purple_light}"
+    value: '{!purple_light}'
   - name: purple
-    value: "{!purple}"
+    value: '{!purple}'
     comment: Accessible on white.
   - name: purple_dark
-    value: "{!purple_dark}"
+    value: '{!purple_dark}'
     comment: Accessible on white.
   - name: purple_darker
-    value: "{!purple_darker}"
+    value: '{!purple_darker}'
     comment: Accessible on white.
   - name: fuchsia_lighter
-    value: "{!fuchsia_lighter}"
+    value: '{!fuchsia_lighter}'
     comment: Accessible on -darker colors.
   - name: fuchsia_light
-    value: "{!fuchsia_light}"
+    value: '{!fuchsia_light}'
   - name: fuchsia
-    value: "{!fuchsia}"
+    value: '{!fuchsia}'
     comment: Accessible on white.
   - name: fuchsia_dark
-    value: "{!fuchsia_dark}"
+    value: '{!fuchsia_dark}'
     comment: Accessible on white.
   - name: fuchsia_darker
-    value: "{!fuchsia_darker}"
+    value: '{!fuchsia_darker}'
     comment: Accessible on white.
   - name: orange_lighter
-    value: "{!orange_lighter}"
+    value: '{!orange_lighter}'
     comment: Accessible on -darker colors.
   - name: orange_light
-    value: "{!orange_light}"
+    value: '{!orange_light}'
   - name: orange
-    value: "{!orange}"
+    value: '{!orange}'
   - name: orange_dark
-    value: "{!orange_dark}"
+    value: '{!orange_dark}'
     comment: Accessible on white.
   - name: orange_darker
-    value: "{!orange_darker}"
+    value: '{!orange_darker}'
     comment: Accessible on white.
   - name: gray_lighter
-    value: "{!gray_lighter}"
+    value: '{!gray_lighter}'
     comment: Accessible on -darker colors.
   - name: gray_light
-    value: "{!gray_light}"
+    value: '{!gray_light}'
   - name: gray
-    value: "{!gray}"
+    value: '{!gray}'
   - name: gray_dark
-    value: "{!gray_dark}"
+    value: '{!gray_dark}'
     comment: Accessible on white.
   - name: gray_darker
-    value: "{!gray_darker}"
+    value: '{!gray_darker}'
     comment: Accessible on white.
 global:
   type: color

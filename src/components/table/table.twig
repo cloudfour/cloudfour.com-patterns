@@ -1,0 +1,23 @@
+<table class="c-table {% if tableClass %} {{tableClass}} {% endif %}">
+  {% if block("caption") %}
+    <caption>
+      {% block caption %}{% endblock %}
+    </thead>
+  {% endif %}
+
+  {% if block("header") %}
+    <thead>
+      {% block header %}{% endblock %}
+    </thead>
+  {% endif %}
+
+  <tbody>
+    {% block body %}{% endblock %}
+  </tbody>
+
+  {% if block("footer") %}
+    <tfoot>
+      {% block footer %}{% endblock %}
+    </tfoot>
+  {% endif %}
+</table>

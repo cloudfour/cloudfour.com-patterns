@@ -17,7 +17,7 @@
  *    a starting point.
  */
 
-.o-button {
+.c-button {
   background: colors.$primary-brand;
   border-color: colors.$primary-brand-dark;
   border-radius: sizes.$radius-medium;
@@ -75,7 +75,7 @@
  * Modifier: Secondary
  */
 
-.o-button--secondary {
+.c-button--secondary {
   border-color: colors.$primary-brand-light;
   color: colors.$primary-brand;
 
@@ -94,7 +94,7 @@
  * Modifier: Tertiary
  */
 
-.o-button--tertiary {
+.c-button--tertiary {
   color: colors.$primary-brand;
 
   &,

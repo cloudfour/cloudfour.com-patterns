@@ -1,31 +1,17 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import { boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
-import captionDemo from './demo/with-caption.twig';
 import './figure.scss';
 
-<Meta title="Components/Figure"/>
+<Meta title="Components/Figure" decorators={[withKnobs]} />
 
 # Figure
 
-The `c-figure` class applies styling to the figure element.
+The `c-figure` class applies styling to the figure element. Figures may be accompanied by an optional caption.
 
 <Preview>
   <Story name="Basic">
     {basicDemo({
-      src: 'https://picsum.photos/600/300',
-      alt: 'This is an image'
-    })}
-  </Story>
-</Preview>
-
-## Figure with caption
-
-Figures may be accompanied by an optional caption.
-
-<Preview>
-  <Story name="With Caption">
-    {captionDemo({
       src: 'https://picsum.photos/600/300',
       alt: 'This is an image',
       hasCaption: boolean('Include Caption', true)

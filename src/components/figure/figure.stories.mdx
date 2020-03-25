@@ -8,21 +8,27 @@ import './figure.scss';
 
 # Figure
 
+The `c-figure` class applies styling to the figure element.
+
 <Preview>
   <Story name="Basic">
     {basicDemo({
-      alt: 'This is an image',
-      src: 'https://picsum.photos/600/300'
+      src: 'https://picsum.photos/600/300',
+      alt: 'This is an image'
     })}
   </Story>
 </Preview>
 
+## Figure with caption
+
+Figures may be accompanied by an optional caption.
+
 <Preview>
   <Story name="With Caption">
     {captionDemo({
-      hasCaption: boolean('Include Caption', true),
+      src: 'https://picsum.photos/600/300',
       alt: 'This is an image',
-      src: 'https://picsum.photos/600/300'
+      hasCaption: boolean('Include Caption', true)
     })}
   </Story>
 </Preview>

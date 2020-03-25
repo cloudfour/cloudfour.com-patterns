@@ -1,10 +1,16 @@
 @use "../../design-tokens/colors.yml";
 @use "../../mixins/ms";
 
+/**
+ * Removes default margin from <figure>
+ */
 .c-figure {
   margin: 0;
 }
 
+/**
+ * Contain and center image
+ */
 .c-figure__object {
   display: block;
   margin-left: auto;
@@ -12,6 +18,9 @@
   max-width: 100%;
 }
 
+/**
+ * Styles the caption
+ */
 .c-figure__caption {
   color: colors.$gray;
   font-size: ms.step(-1);

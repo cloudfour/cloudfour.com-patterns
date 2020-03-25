@@ -37,8 +37,8 @@ function theoImporter(url, prev, done) {
     .then((scssString) => {
       done({ contents: scssString }); // Pass result to Sass
     })
-    .catch(({ message }) => {
-      done(new Error(`Theo import of ${tokenPath} failed: ${message}`));
+    .catch((error) => {
+      done(new Error(`Theo import of ${tokenPath} failed: ${error.message}`));
     });
 }
 

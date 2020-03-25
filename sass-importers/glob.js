@@ -18,7 +18,7 @@ const globImporter = (url, currentPath, done) => {
   glob(url, { cwd: path.dirname(currentPath) }).then((matchingPaths) => {
     // Generates a fake file that has the expanded @use statements
     const contents = matchingPaths
-      .map((filePath) => `@use "${filePath}";`)
+      .map((filePath) => `@forward "${filePath}";`)
       .join('\n');
     done({ contents });
   });

@@ -102,7 +102,7 @@ function mdxStoriesFormat(result) {
   const title = startCase(slug);
   const props = result.get('props').toJS();
   const categories = groupBy(props, 'category');
-  const mdxCategories = Object.keys(categories).map(category =>
+  const mdxCategories = Object.keys(categories).map((category) =>
     categoryToMdx(category, categories[category])
   );
   return `

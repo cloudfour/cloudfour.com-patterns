@@ -1,7 +1,7 @@
 {% set tagName = tagName | default(href ? 'a' : 'button') %}
 
 <{{tagName}}
-  class="o-button{% if class %} {{class}}{% endif %}"
+  class="c-button{% if class %} {{class}}{% endif %}"
   {% if tagName == 'a' %}
     href="{{href|default('#')}}"
   {% elseif tagName == 'button' %}

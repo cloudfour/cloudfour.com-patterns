@@ -23,7 +23,7 @@ const dynamicSvgProps = [
   'role',
   'style',
   'viewBox',
-  'width'
+  'width',
 ];
 
 /**
@@ -46,13 +46,13 @@ function templatizeSvgString(src) {
   svg.children = [...prepend.children, ...svg.children, ...append.children];
 
   // Identify props already in use in the SVG versus those yet to be used
-  const usedProps = dynamicSvgProps.filter(prop => Boolean(svg.attrs[prop]));
-  const unusedProps = dynamicSvgProps.filter(prop => !svg.attrs[prop]);
+  const usedProps = dynamicSvgProps.filter((prop) => Boolean(svg.attrs[prop]));
+  const unusedProps = dynamicSvgProps.filter((prop) => !svg.attrs[prop]);
 
   // Properties already in use should have their value set to a conditional.
   // The `default` filter would be less code, but things get tricky when it
   // comes to managing quotation marks in XML.
-  usedProps.forEach(prop => {
+  usedProps.forEach((prop) => {
     const current = svg.attrs[prop];
     // Dashes have meaning in Twig expressions, so we replace them with
     // underscores in property names.
@@ -69,7 +69,7 @@ function templatizeSvgString(src) {
     // We build a big string of attribute name/value pairs for any properties
     // yet to be used for this asset.
     const unusedPropHtml = unusedProps
-      .map(prop => {
+      .map((prop) => {
         const twigProp = prop.replace(/-/g, '_');
         return `{% if ${twigProp} %} ${prop}="{{${twigProp}}}"{% endif %}`;
       })

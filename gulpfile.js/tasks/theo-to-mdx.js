@@ -13,11 +13,11 @@ function theoToMdx() {
     .pipe(
       gulpTheo({
         transform: {
-          type: 'web'
+          type: 'web',
         },
         format: {
-          type: 'stories.mdx'
-        }
+          type: 'stories.mdx',
+        },
       })
     )
     .pipe(dest('src/design-tokens/generated'));

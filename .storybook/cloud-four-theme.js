@@ -5,5 +5,5 @@ export default create({
 
   brandTitle: 'Cloud Four Patterns',
   brandUrl: 'https://cloudfour.com',
-  brandImage: '/logo.svg'
+  brandImage: '/logo.svg',
 });

@@ -1,13 +1,14 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
+import stylesDemo from './demo/styles-dark.twig';
 import './figure.scss';
 
 <Meta title="Components/Figure" decorators={[withKnobs]} />
 
 # Figure
 
-The `c-figure` class applies styling to the figure element. Figures may be accompanied by an optional caption.
+The `c-figure` class applies styling to the figure and figcaption elements. Figures may be accompanied by an optional caption.
 
 <Preview>
   <Story name="Basic">
@@ -18,3 +19,19 @@ The `c-figure` class applies styling to the figure element. Figures may be accom
     })}
   </Story>
 </Preview>
+
+## Styles
+
+The caption styles change with [our dark theme](/?path=/docs/themes--dark).
+
+<Preview>
+  <Story name="Styles (Dark)">
+    {stylesDemo({
+      src: 'https://picsum.photos/600/300',
+      alt: 'This is an image',
+      hasCaption: boolean('Include Caption', true),
+    })}
+  </Story>
+</Preview>
+
+

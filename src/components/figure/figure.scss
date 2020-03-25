@@ -27,4 +27,8 @@
   font-style: italic;
   margin-top: ms.step(-1);
   text-align: center;
+
+  .t-dark & {
+    color: colors.$text-light;
+  }
 }

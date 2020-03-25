@@ -1,0 +1,11 @@
+{% embed '../../../themes/demo/fill-canvas.twig' with { theme: 'dark' } %}
+  {% block content %}
+    {% embed '../figure.twig' %}
+      {% if hasCaption %}
+        {% block caption %}
+          This is an image with a caption.
+        {% endblock %}
+      {% endif %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

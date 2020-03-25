@@ -32,7 +32,8 @@
     "/src/**/*.twig",
     "!/src/**/demo/**/*.twig",
     "/src/assets",
-    "!.gitignore"
+    "!.gitignore",
+    "!src/index.scss"
   ],
   "dependencies": {
     "focus-visible": "5.0.2",

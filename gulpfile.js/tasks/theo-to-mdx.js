@@ -2,6 +2,7 @@ const { src, dest } = require('gulp');
 const gulpTheo = require('gulp-theo');
 const theo = require('theo');
 const mdxStoriesFormat = require('../theo-formats/stories.mdx');
+const prettier = require('gulp-prettier');
 
 // Register a custom format with Theo
 theo.registerFormat('stories.mdx', mdxStoriesFormat);
@@ -20,6 +21,7 @@ function theoToMdx() {
         }
       })
     )
+    .pipe(prettier())
     .pipe(dest('src/design-tokens/generated'));
 }
 

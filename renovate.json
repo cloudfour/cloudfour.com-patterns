@@ -2,11 +2,5 @@
   "extends": ["group:recommended", "group:monorepos"],
   "assignees": ["cloudfour/dev"],
   "reviewers": ["cloudfour/dev"],
-  "rangeStrategy": "pin",
-  "packageRules": [
-    {
-      "packageNames": ["prettier"],
-      "extends": ["schedule:monthly"]
-    }
-  ]
+  "rangeStrategy": "pin"
 }

@@ -28,13 +28,13 @@ function theoImporter(url, prev, done) {
     .convert({
       transform: {
         file: tokenPath,
-        type: 'web'
+        type: 'web',
       },
       format: {
-        type: 'default.scss' // Variables will have `!default` appended
-      }
+        type: 'default.scss', // Variables will have `!default` appended
+      },
     })
-    .then(scssString => {
+    .then((scssString) => {
       done({ contents: scssString }); // Pass result to Sass
     })
     .catch(({ message }) => {

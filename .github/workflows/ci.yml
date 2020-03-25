@@ -24,3 +24,27 @@ jobs:
         run: npm ci
       - name: Run Lint
         run: npm run check-lint
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Preprocess
+        run: npm run preprocess
+      - name: Run Build
+        run: npm run build

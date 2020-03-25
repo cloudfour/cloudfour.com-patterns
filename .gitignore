@@ -11,3 +11,6 @@ npm-debug.log
 
 # Local configurations
 .vscode
+
+# Ignore generated MDX docs
+/src/design-tokens/generated/*.mdx

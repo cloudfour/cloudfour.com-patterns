@@ -20,7 +20,11 @@ const buildSass = () => {
     .pipe(
       sass({
         // Import Theo design tokens as SCSS variables
-        importer: require('../../.storybook/theo-importer'),
+        importer: [
+          require('../../sass-importers/glob'),
+          // Import Theo design tokens as SCSS variables
+          require('../../sass-importers/theo'),
+        ],
       }).on('error', sass.logError)
     )
     .pipe(rename({ basename: 'standalone' }))

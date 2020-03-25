@@ -83,6 +83,7 @@
     "stylelint-config-prettier": "8.0.1",
     "theo": "8.1.5",
     "through2": "3.0.1",
+    "tiny-glob": "0.2.6",
     "twig": "1.15.0",
     "twigjs-loader": "1.0.1"
   },

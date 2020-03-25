@@ -20,7 +20,7 @@ const buildSass = () => {
     .pipe(
       sass({
         // Import Theo design tokens as SCSS variables
-        importer: require('../../.storybook/theo-importer')
+        importer: require('../../.storybook/theo-importer'),
       }).on('error', sass.logError)
     )
     .pipe(rename({ basename: 'standalone' }))
@@ -34,21 +34,21 @@ const buildJS = async () => {
   const name = 'cloudfourPatterns';
   const bundle = await rollup.rollup({
     input: 'src/{objects,components}/**/*.js',
-    plugins: [multiEntry(), nodeResolve()]
+    plugins: [multiEntry(), nodeResolve()],
   });
   await Promise.all([
     bundle.write({ format: 'esm', file: path.join(outDir, `${name}.mjs`) }),
     bundle.write({
       format: 'umd',
       name,
-      file: path.join(outDir, `${name}.js`)
+      file: path.join(outDir, `${name}.js`),
     }),
     bundle.write({
       format: 'umd',
       name,
       file: path.join(outDir, `${name}.min.js`),
-      plugins: [terser()]
-    })
+      plugins: [terser()],
+    }),
   ]);
 };
 

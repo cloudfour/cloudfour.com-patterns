@@ -1,0 +1,11 @@
+imports:
+  - './_widths.yml'
+
+props:
+  - name: max_width_prose
+    value: '{!width_s}'
+  - name: max_width_spread
+    value: '{!width_xl}'
+global:
+  type: relative
+  category: max-width

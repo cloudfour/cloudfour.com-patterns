@@ -3,9 +3,9 @@ imports:
 
 props:
   - name: max_width_prose
-    value: '{!width_s}'
+    value: '{!width_40}'
   - name: max_width_spread
-    value: '{!width_xl}'
+    value: '{!width_80}'
 global:
   type: relative
   category: max-width

@@ -3,19 +3,19 @@ imports:
 
 props:
   - name: xs
-    value: '{!width_xs}'
+    value: '{!width_30}'
   - name: s
-    value: '{!width_s}'
+    value: '{!width_40}'
   - name: m
-    value: '{!width_m}'
+    value: '{!width_48}'
   - name: l
-    value: '{!width_l}'
+    value: '{!width_64}'
   - name: xl
-    value: '{!width_xl}'
+    value: '{!width_80}'
   - name: xxl
-    value: '{!width_xxl}'
+    value: '{!width_100}'
   - name: xxxl
-    value: '{!width_xxxl}'
+    value: '{!width_120}'
 global:
   type: relative
   category: media-query

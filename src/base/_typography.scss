@@ -16,7 +16,7 @@
 
 html {
   @include fluid.font-size(
-    breakpoint.$xs,
+    breakpoint.$s,
     breakpoint.$xl,
     ms.step(0, 1rem),
     ms.step(1, 1rem)

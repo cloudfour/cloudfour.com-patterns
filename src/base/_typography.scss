@@ -1,5 +1,6 @@
 @use "_fonts";
 @use "../design-tokens/font.yml";
+@use "../design-tokens/layout.yml";
 @use "../mixins/fluid";
 @use "../mixins/headings";
 @use "../mixins/ms";
@@ -15,8 +16,8 @@
 
 html {
   @include fluid.font-size(
-    20em,
-    75em,
+    layout.$breakpoint-xs,
+    layout.$breakpoint-xl,
     ms.step(0, 1rem),
     ms.step(1, 1rem)
   ); /* 1 */

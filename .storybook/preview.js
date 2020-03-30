@@ -2,7 +2,7 @@ import { addDecorator, addParameters } from '@storybook/html';
 import { withA11y } from '@storybook/addon-a11y';
 import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
-import * as ms from '../src/design-tokens/modular-scale.yml';
+import { ratio } from '../src/design-tokens/modular-scale.yml';
 import 'focus-visible';
 import './preview.scss';
 
@@ -18,7 +18,10 @@ const paddings = [];
 for (let i = -3; i <= 6; i++) {
   paddings.push({
     name: `Step ${i}`,
-    value: `${+Math.pow(ms.ratio, i).toFixed(2)}em`,
+    // `toFixed` keeps the values from extending past two decimal points.
+    // The leading `+` keeps values from having decimal points where they don't
+    // need them, so `1.00` becomes `1`.
+    value: `${+Math.pow(ratio, i).toFixed(2)}em`,
     default: i === 0,
   });
 }

@@ -5,56 +5,52 @@
 @use "../../mixins/ms";
 @use "../../mixins/unit";
 
-div,
-.c-input{
-  & + div,
-  & + .c-input {
-    margin-top: 1em;
-  }
-}
+/**
+ * 1. Non-normal line heights break placeholder text alignment in Safari.
+ */
 
 .c-input {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-color: colors.$text-light;
-  border-color: currentColor;
-  border-radius: sizes.$radius-medium;
-  border-style: solid;
-  border-width: sizes.$edge-medium;
-  color: colors.$text-dark;
-  display: block;
-  font: inherit;
-  font-style: normal;
-  line-height: ms.step(1, 1);
-  margin: 0;
-  padding: ms.step(-3);
-  transition: border-color motion.$speed-quick motion.$ease-out;
-  width: 100%;
+  // appearance: none;
+  // -moz-appearance: none;
+  // -webkit-appearance: none;
+  // background-color: colors.$text-light;
+  // border-color: currentColor;
+  // border-radius: sizes.$radius-medium;
+  // border-style: solid;
+  // border-width: sizes.$edge-medium;
+  // color: colors.$text-dark;
+  // display: block;
+  // font: inherit;
+  // font-style: normal;
+  // line-height: normal; /* 1 */
+  // margin: 0;
+  // outline: none;
+  // padding: ms.step(-3);
+  // transition: border-color motion.$speed-quick motion.$ease-out;
+  // width: 100%;
 
-  &[type='email'],
-  &[type='search'],
-  &[type='text'] {
-    padding-left: 0;
-    text-indent: ms.step(-3);
-  }
+  // &[type='email'],
+  // &[type='text'] {
+  //   padding-left: 0;
+  //   text-indent: ms.step(-3);
+  // }
 
-  &:hover {
-    border-color: colors.$primary-brand;
-  }
+  // &:hover {
+  //   border-color: colors.$primary-brand;
+  // }
 
-  &[readonly] {
-    background-color: transparent;
-    border-color: transparent;
-  }
+  // &[readonly] {
+  //   background-color: transparent;
+  //   border-color: transparent;
+  // }
 
-  &:disabled {
-    background-color: colors.$gray-light;
-    border-color: colors.$gray;
-    cursor: not-allowed;
-  }
+  // &:disabled {
+  //   background-color: colors.$gray-light;
+  //   border-color: colors.$gray;
+  //   cursor: not-allowed;
+  // }
 
-  &:focus {
-    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
-  }
+  // &:focus {
+  //   box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  // }
 }

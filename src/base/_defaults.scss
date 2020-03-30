@@ -151,3 +151,26 @@ table {
   text-align: left;
   width: 100%;
 }
+
+/*
+ * 1. Removes default margin
+ * 2. Center content
+ */
+
+figure {
+  margin: 0; /* 1 */
+
+  & > * {
+    margin-left: auto; /* 2 */
+    margin-right: auto; /* 2 */
+  }
+}
+
+/* Apply default styles to <figcaption> */
+
+figcaption {
+  font-size: ms.step(-1);
+  font-style: italic;
+  margin-top: ms.step(-1);
+  text-align: center;
+}

@@ -160,7 +160,6 @@ table {
 
 figure {
   margin: 0; /* 1 */
-  text-align: center;
 
   & > * {
     margin-left: auto; /* 2 */
@@ -175,4 +174,5 @@ figure {
 figcaption {
   font-size: ms.step(-1);
   font-style: italic;
+  text-align: center;
 }

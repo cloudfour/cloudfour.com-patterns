@@ -31,7 +31,7 @@
   font-weight: font.$weight-semibold;
   line-height: ms.step(1, 1);
   margin: 0;
-  padding: ms.step(-3) ms.step(0);
+  padding: sizes.$control-pad-vertical ms.step(0);
   position: relative;
   text-align: center;
   text-decoration: none;

@@ -1,5 +1,5 @@
 const { dirname, resolve } = require('path');
-const theo = require('theo');
+const theo = require('../theo');
 
 /**
  * Import Theo YAML files into SCSS files.

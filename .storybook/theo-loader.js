@@ -1,5 +1,5 @@
 const { resolve } = require('path');
-const theo = require('theo');
+const theo = require('../theo');
 const yaml = require('js-yaml');
 
 /**

@@ -1,58 +1,64 @@
-[
-  {
-    "name": "guides",
-    "stargazers": 16,
-    "forks": 0,
-    "followers": 16,
-    "issues": 9
-  },
-  {
-    "name": "hideShowPassword",
-    "stargazers": 720,
-    "forks": 111,
-    "followers": 720,
-    "issues": 4
-  },
-  {
-    "name": "image-breakpoints",
-    "stargazers": 28,
-    "forks": 1,
-    "followers": 28,
-    "issues": 1
-  },
-  {
-    "name": "offCanvasMenu",
-    "stargazers": 147,
-    "forks": 25,
-    "followers": 147,
-    "issues": 6
-  },
-  {
-    "name": "pwastats",
-    "stargazers": 79,
-    "forks": 5,
-    "followers": 79,
-    "issues": 7
-  },
-  {
-    "name": "simple-svg-placeholder",
-    "stargazers": 89,
-    "forks": 4,
-    "followers": 89,
-    "issues": 0
-  },
-  {
-    "name": "SimpleSlideView",
-    "stargazers": 260,
-    "forks": 32,
-    "followers": 260,
-    "issues": 6
-  },
-  {
-    "name": "transition-hidden-element",
-    "stargazers": 34,
-    "forks": 0,
-    "followers": 34,
-    "issues": 0
-  }
-]
+{
+  "headings": [
+    "","Stars","Forks","Watching","Issues"
+  ],
+  "footer_cells": ["Total:",2125,234,2125,245],
+  "rows": [
+    {
+      "name": "guides",
+      "stargazers": 16,
+      "forks": 0,
+      "followers": 16,
+      "issues": 9
+    },
+    {
+      "name": "hideShowPassword",
+      "stargazers": 720,
+      "forks": 111,
+      "followers": 720,
+      "issues": 4
+    },
+    {
+      "name": "image-breakpoints",
+      "stargazers": 28,
+      "forks": 1,
+      "followers": 28,
+      "issues": 1
+    },
+    {
+      "name": "offCanvasMenu",
+      "stargazers": 147,
+      "forks": 25,
+      "followers": 147,
+      "issues": 6
+    },
+    {
+      "name": "pwastats",
+      "stargazers": 79,
+      "forks": 5,
+      "followers": 79,
+      "issues": 7
+    },
+    {
+      "name": "simple-svg-placeholder",
+      "stargazers": 89,
+      "forks": 4,
+      "followers": 89,
+      "issues": 0
+    },
+    {
+      "name": "SimpleSlideView",
+      "stargazers": 260,
+      "forks": 32,
+      "followers": 260,
+      "issues": 6
+    },
+    {
+      "name": "transition-hidden-element",
+      "stargazers": 34,
+      "forks": 0,
+      "followers": 34,
+      "issues": 0
+    }
+  ]
+}

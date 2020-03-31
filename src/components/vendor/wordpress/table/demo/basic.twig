@@ -37,29 +37,27 @@
   {% if hasHeader %}
     {% block header %}
       <tr>
-        <th></th>
-        <th scope="col">Stars</th>
-        <th scope="col">Forks</th>
-        <th scope="col">Watchers</th>
-        <th scope="col">Issues</th>
+        {% for heading in tableData.headings %}
+          <th{% if loop.index0 == 0 %} scope="col"{% endif %}{% if numericData %} class="has-text-aligned-right"{%endif%}>{{heading}}</th>
+        {% endfor %}
       </tr>
     {% endblock %}
   {% endif %}
 
   {% block body %}
-    {% for row in tableData %}
+    {% for row in tableData.rows %}
       <tr>
-        <th scope="row">
+        <th scope="row"{% if numericData %} class="has-text-aligned-right"{%endif%}>
           <a href="https://github.com/cloudfour/{{row.name}}">{{row.name}}</a>
         </th>
-        <td>
+        <td{% if numericData %} class="has-text-aligned-right"{%endif%}>
           <a href="https://github.com/cloudfour/{{row.name}}/stargazers">{{row.stargazers}}</a>
         </td>
-        <td>
+        <td{% if numericData %} class="has-text-aligned-right"{%endif%}>
           <a href="https://github.com/cloudfour/{{row.name}}/network/members">{{row.forks}}</a>
         </td>
-        <td>{{row.followers}}</td>
-        <td>
+        <td{% if numericData %} class="has-text-aligned-right"{%endif%}>{{row.followers}}</td>
+        <td{% if numericData %} class="has-text-aligned-right"{%endif%}>
           <a href="https://github.com/cloudfour/{{row.name}}/issues">{{row.issues}}</a>
         </td>
       </tr>
@@ -69,11 +67,9 @@
   {% if hasFooter %}
     {% block footer %}
       <tr>
-        <th scope="row">Total:</th>
-        <td>2125</td>
-        <td>234</td>
-        <td>2125</td>
-        <td>245</td>
+        {% for footer_cell in tableData.footer_cells %}
+          <th{% if loop.index0 == 0 %} scope="row"{% endif %}{% if numericData %} class="has-text-aligned-right"{%endif%}>{{footer_cell}}</th>
+        {% endfor %}
       </tr>
     {% endblock %}
   {% endif %}

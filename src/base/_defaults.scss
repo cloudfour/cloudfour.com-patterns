@@ -167,7 +167,7 @@ figure {
     margin-right: auto; /* 2 */
   }
 
-  & > :not(:first-child) {
+  & > * + * {
     margin-top: ms.step(-1); /* 3 */
   }
 }

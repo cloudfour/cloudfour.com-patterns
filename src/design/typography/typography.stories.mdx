@@ -10,6 +10,7 @@ import descriptionListDemo from './demo/list-description.twig';
 import codeBlockDemo from './demo/code-block.twig';
 import inlineElementsDemo from './demo/inline-elements.twig';
 import figureDemo from './demo/figure.twig';
+import figureImage from './demo/tiny-web-stacks.png';
 import '../../vendor/prism/config.js';
 import '../../vendor/prism/_theme.scss';
 
@@ -84,5 +85,9 @@ Syntax highlighting is done via [Prism](https://prismjs.com/) because it's extre
 In the future we may want to add a separate section for default elements like `<figure>`.
 
 <Preview>
-  <Story name="Figure">{figureDemo}</Story>
+  <Story name="Figure">
+    {figureDemo({
+      src: figureImage,
+    })}
+  </Story>
 </Preview>

@@ -1,0 +1,80 @@
+{% set _figureClass = '' %}
+
+{% if not isStriped %}
+  {% set _figureClass = _figureClass ~ ' is-style-regular' %}
+{% endif %}
+
+{% if isStriped %}
+  {% set _figureClass = _figureClass ~ ' is-style-striped' %}
+{% endif %}
+
+{% set _tableClass = '' %}
+
+{% if hasFixedLayout %}
+  {% set _tableClass = _tableClass ~ ' has-fixed-layout' %}
+{% endif %}
+
+{% if numericData %}
+  {% set _tableClass = _tableClass ~ ' c-table--numeric' %}
+{% endif %}
+
+{% if isRuled %}
+  {% set _tableClass = _tableClass ~ ' c-table--ruled' %}
+{% endif %}
+
+{% embed '../table.twig' with {
+    tableClass: _tableClass,
+    figureClass: _figureClass
+  }
+%}
+
+  {% if hasCaption %}
+    {% block caption %}
+      Comparing popular Cloud Four projects on GitHub.
+    {% endblock %}
+  {% endif %}
+
+  {% if hasHeader %}
+    {% block header %}
+      <tr>
+        <th></th>
+        <th scope="col">Stars</th>
+        <th scope="col">Forks</th>
+        <th scope="col">Watchers</th>
+        <th scope="col">Issues</th>
+      </tr>
+    {% endblock %}
+  {% endif %}
+
+  {% block body %}
+    {% for row in tableData %}
+      <tr>
+        <th scope="row">
+          <a href="https://github.com/cloudfour/{{row.name}}">{{row.name}}</a>
+        </th>
+        <td>
+          <a href="https://github.com/cloudfour/{{row.name}}/stargazers">{{row.stargazers}}</a>
+        </td>
+        <td>
+          <a href="https://github.com/cloudfour/{{row.name}}/network/members">{{row.forks}}</a>
+        </td>
+        <td>{{row.followers}}</td>
+        <td>
+          <a href="https://github.com/cloudfour/{{row.name}}/issues">{{row.issues}}</a>
+        </td>
+      </tr>
+    {% endfor %}
+  {% endblock %}
+
+  {% if hasFooter %}
+    {% block footer %}
+      <tr>
+        <th scope="row">Total:</th>
+        <td>2125</td>
+        <td>234</td>
+        <td>2125</td>
+        <td>245</td>
+      </tr>
+    {% endblock %}
+  {% endif %}
+{% endembed %}

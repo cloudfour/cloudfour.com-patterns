@@ -1,0 +1,16 @@
+{% set _classList = '' %}
+
+{% if isLarge %}
+  {% set _classList = _classList ~ ' size-large' %}
+{% endif %}
+
+{% embed '../image.twig' with { classList: _classList } %}
+  {# The src block is a valid image URL #}
+  {% block src %}https://s.w.org/images/core/5.3/MtBlanc1.jpg{% endblock %}
+  {# The alt block is a text node #}
+  {% if addAltText %}
+    {% block alt %}Mont Blanc{% endblock %}
+  {% endif %}
+  {# The figcaption block is a text node #}
+  {% block figcaption %}Mont Blanc appears—still, snowy, and serene.{% endblock %}
+{% endembed %}

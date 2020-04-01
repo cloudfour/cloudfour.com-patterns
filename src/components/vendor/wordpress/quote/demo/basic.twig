@@ -5,7 +5,7 @@
 {% endif %}
 
 {% embed '../quote.twig' with { classList: _classList } %}
-  {# The body block can contain random markup #}
+  {# The body block can contain random markup, but must be contained in tags #}
   {% block body %}<p>In quoting others, we cite ourselves.</p>{% endblock %}
   {# The citation block is just a text node #}
   {% block citation %}Julio Cortázar{% endblock %}

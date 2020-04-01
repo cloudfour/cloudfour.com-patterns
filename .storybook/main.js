@@ -24,6 +24,7 @@ module.exports = {
     },
     // Community addons
     'storybook-addon-themes',
+    'storybook-addon-paddings',
   ],
   webpackFinal: async (config) => {
     // Remove default SVG processing from default config.

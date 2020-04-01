@@ -47,7 +47,7 @@
   &[type='email'],
   &[type='text'] {
     padding-left: 0;
-    text-indent: ms.step(-3);
+    text-indent: sizes.$control-text-inset;
   }
 
   &:hover {
@@ -80,4 +80,14 @@
     background-color: #fff;
     box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
   }
+}
+
+/**
+ * This is ugly, but unfortunately we can't target an attribute like `type` for
+ * textareas. And without this differing height, text areas would be the same
+ * height as inputs all of the time.
+ */
+
+textarea.c-input {
+  height: sizes.$control-height-multiline;
 }

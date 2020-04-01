@@ -19,8 +19,12 @@ props:
     value: 4
     type: modular/em
     category: sizing
+  control_height_multiline:
+    value: 6
+    type: modular/em
+    category: sizing
   control_pad_horizontal:
-    value: 0
+    value: 1
     type: modular/em
     category: sizing
   control_pad_vertical:
@@ -28,6 +32,6 @@ props:
     type: modular/em
     category: sizing
   control_text_inset:
-    value: -3
+    value: -1
     type: modular/em
     category: sizing

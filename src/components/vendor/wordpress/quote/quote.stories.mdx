@@ -1,0 +1,15 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
+import basicDemo from './demo/basic.twig';
+
+<Meta title="Components/Vendor/Wordpress/Quote" decorators={[withKnobs]} />
+
+# Quote
+
+The `wp-block-quote` class can be used to add theme-specific styling to a Gutenberg quote block
+
+<Preview>
+  <Story name="Basic" height="100px">
+    {basicDemo()}
+  </Story>
+</Preview>

@@ -50,24 +50,13 @@
     text-indent: sizes.$control-text-inset;
   }
 
-  &:hover {
+  &:hover:not(:disabled):not([readonly]) {
     background-color: #fff;
     border-color: colors.$primary-brand;
 
     .t-dark & {
       border-color: currentColor;
     }
-  }
-
-  &[readonly] {
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  &:disabled {
-    background-color: colors.$gray-light;
-    border-color: colors.$gray;
-    cursor: not-allowed;
   }
 
   /**
@@ -79,6 +68,23 @@
   &:focus {
     background-color: #fff;
     box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  }
+
+  &[readonly]:not(:disabled) {
+    background-color: transparent;
+    border-color: transparent;
+    color: inherit;
+  }
+
+  &:disabled {
+    background-color: colors.$gray-light;
+    border-color: colors.$gray;
+    cursor: not-allowed;
+
+    .t-dark & {
+      background-color: colors.$primary-brand-lighter;
+      border-color: colors.$primary-brand-dark;
+    }
   }
 }
 

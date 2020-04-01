@@ -6,24 +6,7 @@
     white-space: nowrap;
     margin-bottom: 1em;
     ">
-    <div><input class="c-input" type="{{type}}" value="{{type | capitalize}}"></div>
+    <div>{% include '../input.twig' with { type: type, value: type|capitalize } %}</div>
     <div>{% include '../../button/button.twig' %}</div>
   </div>
 {% endfor %}
-
-{# <div style="display: flex; gap: 1em; white-space: nowrap;">
-  <div><input class="c-input" type="text" value="Text"></div>
-  {% include '../../button/button.twig' %}
-</div>
-<input class="c-input" type="text" placeholder="Placeholder">
-<input class="c-input" type="text" value="Read-only" readonly>
-<input class="c-input" type="text" value="Disabled" disabled>
-<input class="c-input" type="email" value="info@cloudfour.com">
-<input class="c-input" type="search" value="Search">
-<input class="c-input" type="date" value="Date">
-<select class="c-input">
-  <option>Option 1</option>
-  <option>Option 2</option>
-  <option>Option 3</option>
-</select>
-<textarea class="c-input">Text area</textarea> #}

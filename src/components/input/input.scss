@@ -6,51 +6,70 @@
 @use "../../mixins/unit";
 
 /**
- * 1. Non-normal line heights break placeholder text alignment in Safari.
+ * 1. Browsers apply certain default styles unless appearance is set to `none`.
+ *    Unfortunately Chrome, Safari and Mozilla all still rely on the
+ *    vendor-prefixed version of this property at the time of this writing.
+ * 2. Input heights vary between different types in certain browsers unless a
+ *    height is explicitly set.
+ * 3. Non-normal line heights break placeholder text alignment in Safari.
  */
 
 .c-input {
-  // appearance: none;
-  // -moz-appearance: none;
-  // -webkit-appearance: none;
-  // background-color: colors.$text-light;
-  // border-color: currentColor;
-  // border-radius: sizes.$radius-medium;
-  // border-style: solid;
-  // border-width: sizes.$edge-medium;
-  // color: colors.$text-dark;
-  // display: block;
-  // font: inherit;
-  // font-style: normal;
-  // line-height: normal; /* 1 */
-  // margin: 0;
-  // outline: none;
-  // padding: ms.step(-3);
-  // transition: border-color motion.$speed-quick motion.$ease-out;
-  // width: 100%;
+  -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+  -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+  appearance: none; /* 1 */
+  background-color: colors.$text-light;
+  border: sizes.$edge-medium solid currentColor;
+  border-radius: sizes.$radius-medium;
+  color: colors.$text-dark;
+  display: block;
+  font: inherit;
+  font-style: normal;
+  height: sizes.$control-height; /* 2 */
+  line-height: normal; /* 3 */
+  margin: 0;
+  outline: none;
+  padding: sizes.$control-pad-vertical sizes.$control-text-inset;
+  transition: border-color motion.$speed-quick motion.$ease-out;
+  width: 100%;
 
-  // &[type='email'],
-  // &[type='text'] {
-  //   padding-left: 0;
-  //   text-indent: ms.step(-3);
-  // }
+  /**
+   * For certain single-line input types, using `text-indent` instead of
+   * `padding-left` gives a more natural and intuitive appearance when text
+   * content overflows.
+   *
+   * We do not apply this for search inputs because Safari gets weird about
+   * search input padding.
+   */
 
-  // &:hover {
-  //   border-color: colors.$primary-brand;
-  // }
+  &[type='email'],
+  &[type='text'] {
+    padding-left: 0;
+    text-indent: ms.step(-3);
+  }
 
-  // &[readonly] {
-  //   background-color: transparent;
-  //   border-color: transparent;
-  // }
+  &:hover {
+    border-color: colors.$primary-brand;
+  }
 
-  // &:disabled {
-  //   background-color: colors.$gray-light;
-  //   border-color: colors.$gray;
-  //   cursor: not-allowed;
-  // }
+  &[readonly] {
+    background-color: transparent;
+    border-color: transparent;
+  }
 
-  // &:focus {
-  //   box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
-  // }
+  &:disabled {
+    background-color: colors.$gray-light;
+    border-color: colors.$gray;
+    cursor: not-allowed;
+  }
+
+  /**
+   * We use plain ol' `focus` rather than `focus-visible` because text inputs
+   * are almost always in a state of keyboard interaction, making the difference
+   * (if any) minimal.
+   */
+
+  &:focus {
+    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  }
 }

@@ -15,7 +15,19 @@ props:
     value: 0.25em
     type: relative
     category: radius
+  control_height:
+    value: 4
+    type: modular/em
+    category: sizing
+  control_pad_horizontal:
+    value: 0
+    type: modular/em
+    category: sizing
   control_pad_vertical:
+    value: -4
+    type: modular/em
+    category: sizing
+  control_text_inset:
     value: -3
     type: modular/em
     category: sizing

@@ -1,5 +1,9 @@
 {% set _classList = '' %}
 
+{% if isLarge %}
+  {% set _classList = _classList ~ ' is-style-large' %}
+{% endif %}
+
 {% embed '../quote.twig' with { classList: _classList } %}
   {# The body block can contain random markup #}
   {% block body %}<p>In quoting others, we cite ourselves.</p>{% endblock %}

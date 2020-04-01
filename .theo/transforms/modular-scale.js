@@ -26,20 +26,20 @@ function modularScale(step) {
 
 // Export value transform definitions using style of standard Theo transforms
 module.exports = {
-  ms: {
-    predicate: (prop) => prop.get('type') === 'ms',
+  modular: {
+    predicate: (prop) => prop.get('type') === 'modular',
     transform: (prop) => modularScale(prop.get('value')),
   },
-  'ms/em': {
-    predicate: (prop) => prop.get('type') === 'ms/em',
+  'modular/em': {
+    predicate: (prop) => prop.get('type') === 'modular/em',
     transform: (prop) => `${modularScale(prop.get('value'))}em`,
   },
-  'ms/rem': {
-    predicate: (prop) => prop.get('type') === 'ms/rem',
+  'modular/rem': {
+    predicate: (prop) => prop.get('type') === 'modular/rem',
     transform: (prop) => `${modularScale(prop.get('value'))}rem`,
   },
-  'ms/px': {
-    predicate: (prop) => prop.get('type') === 'ms/px',
+  'modular/px': {
+    predicate: (prop) => prop.get('type') === 'modular/px',
     transform: (prop) =>
       `${Math.round(modularScale(prop.get('value')) * 16)}px`,
   },

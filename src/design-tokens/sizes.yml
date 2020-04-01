@@ -17,5 +17,5 @@ props:
     category: radius
   control_pad_vertical:
     value: -3
-    type: ms/em
+    type: modular/em
     category: sizing

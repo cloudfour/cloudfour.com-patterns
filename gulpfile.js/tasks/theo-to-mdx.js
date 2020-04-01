@@ -1,7 +1,7 @@
 const { src, dest } = require('gulp');
 const gulpTheo = require('gulp-theo');
 // Requiring this file applies our Theo customizations to gulp-theo
-require('../../theo');
+require('../../.theo');
 
 // Gulp task
 function theoToMdx() {

@@ -30,7 +30,9 @@
   margin: 0;
   outline: none;
   padding: sizes.$control-pad-vertical sizes.$control-text-inset;
-  transition: border-color motion.$speed-quick motion.$ease-out;
+  transition-duration: motion.$speed-quick;
+  transition-property: background-color, border-color;
+  transition-timing-function: motion.$ease-out;
   width: 100%;
 
   /**
@@ -49,7 +51,12 @@
   }
 
   &:hover {
+    background-color: #fff;
     border-color: colors.$primary-brand;
+
+    .t-dark & {
+      border-color: currentColor;
+    }
   }
 
   &[readonly] {
@@ -70,6 +77,7 @@
    */
 
   &:focus {
+    background-color: #fff;
     box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
   }
 }

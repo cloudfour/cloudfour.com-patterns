@@ -4,7 +4,7 @@
 @use "../../../../mixins/ms";
 
 /**
- * @TODO - Revise to apply to the Gutenberg table block
+ * @TODO - Revise to apply as neeeded to the Gutenberg table block
  */
 
 $table-border-color: colors.$gray-light;
@@ -16,36 +16,44 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  *
  * Since tables require specific markup using the BEM element class names can
  * quickly become overwhelming. We make an exception from our BEM rules to
- * directly style elements within `.c-table`s.
+ * directly style elements within `.wp-block-table`s.
  */
 
+
+
 /**
- * Table cells and headers share padding
+ * Table layout fixed
  */
-.c-table td,
-.c-table th {
-  padding: ms.step(-3);
+.wp-block-table .has-fixed-layout {
+  table-layout: fixed;
 }
 
 /**
  * Table headings are semibold to stand out as labels
  */
-.c-table th {
+.wp-block-table th {
   font-weight: font.$weight-semibold;
+}
+
+/**
+ * Table headings are semibold to stand out as labels
+ */
+ .wp-block-table .has-text-aligned-right {
+  text-align: right;
 }
 
 /**
  * Table headers and footers are separated from the table body with strokes.
  */
-.c-table thead {
+.wp-block-table thead {
   border-bottom: $table-border-thick;
 }
 
-.c-table tfoot {
+.wp-block-table tfoot {
   border-top: $table-border-thick;
 }
 
-.c-table caption {
+.wp-block-table caption {
   caption-side: bottom;
   color: colors.$gray-dark;
   font-size: ms.step(-1);
@@ -53,40 +61,6 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
   padding: ms.step(-1) 0;
 }
 
-/**
- * Table rows can be styled in a couple ways.
- * This is achieved by adding a class to the table itself.
- */
-.c-table--ruled tbody tr {
-  border-bottom: $table-border-thin;
-}
-
-.c-table--striped tbody tr:nth-of-type(2n - 1) {
+.is-style-striped tbody tr:nth-of-type(2n - 1) {
   background-color: colors.$gray-lighter;
-}
-
-/**
- * The `.c-table--numeric` modifier applies a few stylistic changes to make
- * tables with numeric data easier to read and understand.
- */
-
-/**
- * When comparing numeric table cells, it's easier if the ones, tens, hundreds,
- * etc. columns are lines up.
- *
- * 1. Make numbers equal width so the columns line up
- * 2. Right align numeric cells so the "ones" column lines up on the right side
- */
-.c-table--numeric td {
-  font-variant-numeric: tabular-nums; /* 1 */
-  text-align: right; /* 2 */
-}
-
-/**
- * Optionally right align row headings.
- * This keeps headings closer to the content they label and in some cases
- * improves scannability.
- */
-.c-table--numeric [scope='row'] {
-  text-align: right;
 }

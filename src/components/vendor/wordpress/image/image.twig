@@ -1,6 +1,6 @@
 <figure class="wp-block-image{% if classList %}{{classList}}{% endif %}">
-  <img src="{% block src %}{% endblock %}" alt="{% block alt %}{% endblock %}" />
-  {% if addFigcaption %}
-    <figcaption>{% block figcaption %}{% endblock %}</figcaption>
+  <img src="{% block src %}https://s.w.org/images/core/5.3/MtBlanc1.jpg{% endblock %}" alt="{% block alt %}{{altText}}{% endblock %}" />
+  {% if figcaptionContent %}
+    <figcaption>{% block figcaption %}{{figcaptionContent}}{% endblock %}</figcaption>
   {% endif %}
 </figure>

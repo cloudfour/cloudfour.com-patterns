@@ -6,11 +6,11 @@
 
 {% embed '../image.twig' with { classList: _classList } %}
   {# The src block is a valid image URL #}
-  {% block src %}https://s.w.org/images/core/5.3/MtBlanc1.jpg{% endblock %}
-  {# The alt block is a text node #}
-  {% if addAltText %}
-    {% block alt %}Mont Blanc{% endblock %}
+  {% if imgUrl %}
+    {% block src %}{{imgUrl}}{% endblock %}
   {% endif %}
+  {# The alt block is a text node #}
+  {% block alt %}{{altText}}{% endblock %}
   {# The figcaption block is a text node #}
-  {% block figcaption %}Mont Blanc appears—still, snowy, and serene.{% endblock %}
+  {% block figcaption %}{{figcaptionContent}}{% endblock %}
 {% endembed %}

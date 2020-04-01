@@ -1,10 +1,7 @@
 const { src, dest } = require('gulp');
 const gulpTheo = require('gulp-theo');
-const theo = require('theo');
-const mdxStoriesFormat = require('../theo-formats/stories.mdx');
-
-// Register a custom format with Theo
-theo.registerFormat('stories.mdx', mdxStoriesFormat);
+// Requiring this file applies our Theo customizations to gulp-theo
+require('../../.theo');
 
 // Gulp task
 function theoToMdx() {

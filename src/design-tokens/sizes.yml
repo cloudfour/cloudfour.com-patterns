@@ -15,3 +15,7 @@ props:
     value: 0.25em
     type: relative
     category: radius
+  control_pad_vertical:
+    value: -3
+    type: modular/em
+    category: sizing

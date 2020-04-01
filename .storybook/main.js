@@ -17,13 +17,14 @@ module.exports = {
           implementation: require('sass'),
           sassOptions: {
             // Import Theo design tokens as SCSS variables
-            importer: [require('./theo-importer')],
+            importer: [require('../.theo/sass-importer')],
           },
         },
       },
     },
     // Community addons
     'storybook-addon-themes',
+    'storybook-addon-paddings',
   ],
   webpackFinal: async (config) => {
     // Remove default SVG processing from default config.
@@ -44,7 +45,7 @@ module.exports = {
       {
         // Import Theo design tokens as JS objects
         test: /\.ya?ml$/,
-        use: resolve(__dirname, './theo-loader.js'),
+        use: resolve(__dirname, '../.theo/webpack-loader.js'),
       },
       {
         // Optimize and process SVGs as React elements for use in documentation

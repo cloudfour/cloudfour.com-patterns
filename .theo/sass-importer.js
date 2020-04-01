@@ -1,5 +1,5 @@
 const { dirname, resolve } = require('path');
-const theo = require('theo');
+const theo = require('.');
 
 /**
  * Import Theo YAML files into SCSS files.
@@ -37,8 +37,8 @@ function theoImporter(url, prev, done) {
     .then((scssString) => {
       done({ contents: scssString }); // Pass result to Sass
     })
-    .catch(({ message }) => {
-      done(new Error(`Theo import of ${tokenPath} failed: ${message}`));
+    .catch((error) => {
+      done(new Error(`Theo import of ${tokenPath} failed: ${error.message}`));
     });
 }
 

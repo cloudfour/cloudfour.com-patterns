@@ -1,4 +1,4 @@
-const modularScale = require('../lib/modular-scale');
+const modularScale = require('../../lib/modular-scale');
 
 module.exports = {
   ms: {

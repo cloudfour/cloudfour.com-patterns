@@ -1,5 +1,5 @@
 const { resolve } = require('path');
-const theo = require('../theo');
+const theo = require('.');
 const yaml = require('js-yaml');
 
 /**
@@ -38,8 +38,8 @@ function theoLoader(source) {
     .then((result) => {
       done(null, result);
     })
-    .catch(({ message }) => {
-      done(new Error(`Theo import of ${tokenPath} failed: ${message}`));
+    .catch((error) => {
+      done(new Error(`Theo import of ${tokenPath} failed: ${error.message}`));
     });
 }
 

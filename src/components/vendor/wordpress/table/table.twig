@@ -1,11 +1,5 @@
 <figure class="wp-block-table{% if figureClass %}{{figureClass}}{% endif %}">
   <table class="{% if tableClass %}{{tableClass}}{% endif %}">
-    {% if block("caption") %}
-      <caption>
-        {% block caption %}{% endblock %}
-      </caption>
-    {% endif %}
-
     {% if block("header") %}
       <thead>
         {% block header %}{% endblock %}

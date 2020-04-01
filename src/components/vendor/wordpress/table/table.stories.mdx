@@ -9,14 +9,13 @@ import './table.scss';
 # Gutenberg Table (core/table) block
 
 The `wp-block-table` class on a container element applies default styling to HTML `table` elements.
-A table can optionally have a header, a footer, and a caption.
+A table block can optionally have a header and a footer.
 
 <Preview>
   <Story name="Basic">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      hasCaption: boolean('Include Caption', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: boolean('Add is-style-striped modifier to the container', false),
       numericData: boolean('Add has-text-aligned-right modifier to all cells', false),
@@ -34,7 +33,6 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      hasCaption: boolean('Include Caption', true),
       isRuled: true,
       isStriped: boolean('Add is-style-striped modifier to the container', false),
       numericData: boolean('Add has-text-aligned-right modifier to all cells', false),
@@ -52,7 +50,6 @@ The `is-style-striped` modifier on the `table` element adds alternating backgrou
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      hasCaption: boolean('Include Caption', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: true,
       numericData: boolean('Add has-text-aligned-right modifier to all cells', false),
@@ -76,7 +73,6 @@ These changes can be achieved by adding c-table--numeric to the table.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      hasCaption: boolean('Include Caption', true),
       isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: boolean('Add is-style-striped modifier to the container', false),
       numericData: true,

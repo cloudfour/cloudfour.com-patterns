@@ -3,6 +3,10 @@
 @use "../../../../design-tokens/sizes.yml";
 @use "../../../../mixins/ms";
 
+/**
+ * @TODO - Revise to apply to the Gutenberg table block
+ */
+
 $table-border-color: colors.$gray-light;
 $table-border-thin: sizes.$edge_small solid $table-border-color;
 $table-border-thick: sizes.$edge_medium solid $table-border-color;

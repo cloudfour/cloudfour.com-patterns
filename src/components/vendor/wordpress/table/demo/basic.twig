@@ -14,25 +14,11 @@
   {% set _tableClass = _tableClass ~ ' has-fixed-layout' %}
 {% endif %}
 
-{% if numericData %}
-  {% set _tableClass = _tableClass ~ ' c-table--numeric' %}
-{% endif %}
-
-{% if isRuled %}
-  {% set _tableClass = _tableClass ~ ' c-table--ruled' %}
-{% endif %}
-
 {% embed '../table.twig' with {
     tableClass: _tableClass,
     figureClass: _figureClass
   }
 %}
-
-  {% if hasCaption %}
-    {% block caption %}
-      Comparing popular Cloud Four projects on GitHub.
-    {% endblock %}
-  {% endif %}
 
   {% if hasHeader %}
     {% block header %}

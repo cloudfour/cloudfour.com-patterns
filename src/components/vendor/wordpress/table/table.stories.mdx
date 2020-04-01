@@ -16,26 +16,9 @@ A table block can optionally have a header and a footer.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: boolean('Add is-style-striped modifier to the container', false),
       numericData: boolean('Add has-text-aligned-right modifier to all cells', false),
-      tableData: data,
-    })}
-  </Story>
-</Preview>
-
-## Ruled Table
-
-The `c-table--ruled` modifier adds horizontal rules in between table rows.
-
-<Preview>
-  <Story name="Ruled">
-    {basicDemo({
-      hasHeader: boolean('Include Header', true),
-      hasFooter: boolean('Include Footer', true),
-      isRuled: true,
-      isStriped: boolean('Add is-style-striped modifier to the container', false),
-      numericData: boolean('Add has-text-aligned-right modifier to all cells', false),
+      hasFixedLayout: boolean('Add has-fixed-layout modifier to table', false),
       tableData: data,
     })}
   </Story>
@@ -43,16 +26,33 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
 
 ## Striped Table
 
-The `is-style-striped` modifier on the `table` element adds alternating background colors to table rows.
+The `is-style-striped` modifier adds alternating background colors to table rows.
 
 <Preview>
   <Story name="Striped">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: true,
       numericData: boolean('Add has-text-aligned-right modifier to all cells', false),
+      hasFixedLayout: boolean('Add has-fixed-layout modifier to table', false),
+      tableData: data,
+    })}
+  </Story>
+</Preview>
+
+## Fixed Layout Table
+
+The `has-fixed-layout` modifier on the `table` element makes all columns equal width
+
+<Preview>
+  <Story name="Fixed Layout">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      isStriped: boolean('Add is-style-striped modifier to the container', false),
+      numericData: boolean('Add has-text-aligned-right modifier to all cells', false),
+      hasFixedLayout: true,
       tableData: data,
     })}
   </Story>
@@ -73,9 +73,9 @@ These changes can be achieved by adding c-table--numeric to the table.
     {basicDemo({
       hasHeader: boolean('Include Header', true),
       hasFooter: boolean('Include Footer', true),
-      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
       isStriped: boolean('Add is-style-striped modifier to the container', false),
       numericData: true,
+      hasFixedLayout: boolean('Add has-fixed-layout modifier to table', false),
       tableData: data,
     })}
   </Story>

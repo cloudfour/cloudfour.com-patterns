@@ -7,7 +7,7 @@ const msTransformKeys = Object.keys(msTransforms);
 theo.registerFormat('stories.mdx', mdxStoriesFormat);
 
 // Register multiple modular scale transforms
-msTransformKeys.forEach(key => {
+msTransformKeys.forEach((key) => {
   const def = msTransforms[key];
   theo.registerValueTransform(key, def.predicate, def.transform);
 });

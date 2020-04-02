@@ -10,7 +10,8 @@ to the block element itself or a wrapper.
 
 ## Quote
 
-The quote has a control to add an optional `is-style-large` class.
+The quote block has a base class of `wp-block-quote`. It has a control to add an
+optional `is-style-large` class.
 
 <Preview>
   <Story name="core/quote" height="100px">
@@ -22,18 +23,19 @@ The quote has a control to add an optional `is-style-large` class.
 
 ## Image
 
-The image is wrapped in a `figure` element with the `wp-block-image` class.
+The image block is wrapped in a `figure` element with the `wp-block-image` class.
 
-Inputs are available for `alt` text, `width`, and `height`.
+Inputs are available to set `alt` text, `width`, and `height` attributes.
 
 Controls set either the `is-style-default` (no masking) or `is-style-circle-mask`
-class on the wrapper element.
+class on the wrapper element. One of these classes is always present.
 
 Additional controls can add wrapper classes based on generated `srcset` options:
 `size-full`, `size-large`, `size-medium`, or `size-thumbnail`. Further resizing
 adds the `is-resized` class to the wrapper.
 
-Adding caption text to the image generates a `figcaption` element.
+Adding caption text to the image generates a `figcaption` element before the closing
+wrapper tag.
 
 <Preview>
   <Story name="core/image" height="500px">
@@ -53,7 +55,7 @@ Adding caption text to the image generates a `figcaption` element.
   </Story>
 </Preview>
 
-## Gallery
+## Gallery (images)
 
 The gallery block is wrapped in a `figure` element with the `wp-block-gallery` class.
 
@@ -62,23 +64,45 @@ In the block's settings, the user can choose a number of columns, which adds a `
 The gallery itself is a `ul` element with the class `blocks-gallery-grid` and each
 item has a class of `blocks-gallery-item`
 
+A single control sets whether image thumbnails within the gallery are cropped to align
+within the grid, adding an `is-cropped` class to the wrapper element
+
+Controls can update items to link to either either their source or their
+attachment page. Either selection wraps the media element in an `a` (link) tag. By default,
+items are not wrapped in links.
+
+Adding a caption creates a `figcaption` element before the closing wrapper tag.
+
 <Preview>
   <Story name="core/gallery" height="500px">
     {`<figure class="wp-block-gallery columns-2 is-cropped">
       <ul class="blocks-gallery-grid">
         <li class="blocks-gallery-item">
-          <figure><img src="https://s.w.org/images/core/5.3/Glacial_lakes%2C_Bhutan.jpg" /></figure>
+          <figure>
+            <a href="https://s.w.org/images/core/5.3/Glacial_lakes%2C_Bhutan.jpg">
+              <img src="https://s.w.org/images/core/5.3/Glacial_lakes%2C_Bhutan.jpg" />
+            </a>
+          </figure>
         </li>
         <li class="blocks-gallery-item">
-          <figure><img src="https://s.w.org/images/core/5.3/Sediment_off_the_Yucatan_Peninsula.jpg" /></figure>
+          <figure>
+            <a href="https://wp-themes.com/twentytwenty/?page_id=2">
+              <img src="https://s.w.org/images/core/5.3/Sediment_off_the_Yucatan_Peninsula.jpg" />
+            </a>
+          </figure>
         </li>
         <li class="blocks-gallery-item">
-          <figure><img src="https://s.w.org/images/core/5.3/Biologia_Centrali-Americana_-_Cantorchilus_semibadius_1902.jpg" /></figure>
+          <figure>
+            <img src="https://s.w.org/images/core/5.3/Biologia_Centrali-Americana_-_Cantorchilus_semibadius_1902.jpg" />
+          </figure>
         </li>
         <li class="blocks-gallery-item">
-          <figure><img src="https://s.w.org/images/core/5.3/Windbuchencom.jpg" /></figure>
+          <figure>
+            <img src="https://s.w.org/images/core/5.3/Windbuchencom.jpg" />
+          </figure>
         </li>
       </ul>
+      <figcaption class="blocks-gallery-caption">A gallery caption</figcaption>
     </figure>`}
   </Story>
 </Preview>

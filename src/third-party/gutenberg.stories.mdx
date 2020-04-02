@@ -39,12 +39,12 @@ Adding caption text to the image generates a `figcaption` element.
   <Story name="core/image" height="500px">
     {`<figure class="wp-block-image size-large is-style-default">
         <img
-          src="http://testwordpressgutenberg.local/wp-content/uploads/2020/04/MtBlanc1.jpg"
+          src="https://s.w.org/images/core/5.3/MtBlanc1.jpg"
           alt="Mont Blanc"
           class="wp-image-130"
           srcset="
-            http://testwordpressgutenberg.local/wp-content/uploads/2020/04/MtBlanc1.jpg         500w,
-            http://testwordpressgutenberg.local/wp-content/uploads/2020/04/MtBlanc1-300x225.jpg 300w
+            https://s.w.org/images/core/5.3/MtBlanc1.jpg         500w,
+            https://s.w.org/images/core/5.3/MtBlanc1-300x225.jpg 300w
           "
           sizes="(max-width: 500px) 100vw, 500px"
         />
@@ -52,4 +52,36 @@ Adding caption text to the image generates a `figcaption` element.
       </figure>`}
   </Story>
 </Preview>
+
+## Gallery
+
+The gallery block is wrapped in a `figure` element with the `wp-block-gallery` class.
+
+In the block's settings, the user can choose a number of columns, which adds a `columns-x` class.
+
+The gallery itself is a `ul` element with the class `blocks-gallery-grid` and each
+item has a class of `blocks-gallery-item`
+
+<Preview>
+  <Story name="core/gallery" height="500px">
+    {`<figure class="wp-block-gallery columns-2 is-cropped">
+      <ul class="blocks-gallery-grid">
+        <li class="blocks-gallery-item">
+          <figure><img src="https://s.w.org/images/core/5.3/Glacial_lakes%2C_Bhutan.jpg" /></figure>
+        </li>
+        <li class="blocks-gallery-item">
+          <figure><img src="https://s.w.org/images/core/5.3/Sediment_off_the_Yucatan_Peninsula.jpg" /></figure>
+        </li>
+        <li class="blocks-gallery-item">
+          <figure><img src="https://s.w.org/images/core/5.3/Biologia_Centrali-Americana_-_Cantorchilus_semibadius_1902.jpg" /></figure>
+        </li>
+        <li class="blocks-gallery-item">
+          <figure><img src="https://s.w.org/images/core/5.3/Windbuchencom.jpg" /></figure>
+        </li>
+      </ul>
+    </figure>`}
+  </Story>
+</Preview>
+
+
 

@@ -1,0 +1,43 @@
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/motion.yml";
+@use "../../design-tokens/sizes.yml";
+@use "../../mixins/focus";
+
+.c-checkbox {
+  @supports (-moz-appearance: none) or (-webkit-appearance: none) or (appearance: none) {
+    -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+    -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+    appearance: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: sizes.$edge-medium solid currentColor;
+    border-radius: sizes.$radius_medium;
+    color: colors.$text-dark;
+    cursor: pointer;
+    font: inherit;
+    height: sizes.$toggle-medium;
+    position: relative;
+    transition: color motion.$speed-slow motion.$ease-out,
+      transform motion.$speed-quick motion.$ease-out;
+    width: sizes.$toggle-medium;
+
+    &:checked {
+      background-color: currentColor;
+      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M4 12l5.08 6L20 6"/%3E%3C/svg%3E');
+    }
+
+    &:hover {
+      color: colors.$primary-brand;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    @include focus.focus-visible {
+      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    }
+  }
+}

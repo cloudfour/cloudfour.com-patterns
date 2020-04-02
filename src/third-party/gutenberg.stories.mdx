@@ -68,7 +68,7 @@ A single control sets whether image thumbnails within the gallery are cropped to
 within the grid, adding an `is-cropped` class to the wrapper element
 
 Controls can update items to link to either either their source or their
-attachment page. Either selection wraps the media element in an `a` (link) tag. By default,
+attachment page. Either selection wraps the media element in an `a` tag. By default,
 items are not wrapped in links.
 
 Adding a caption creates a `figcaption` element before the closing wrapper tag.
@@ -104,6 +104,36 @@ Adding a caption creates a `figcaption` element before the closing wrapper tag.
       </ul>
       <figcaption class="blocks-gallery-caption">A gallery caption</figcaption>
     </figure>`}
+  </Story>
+</Preview>
+
+## Button
+
+The button block creates one or more `div`s with class `wp-block-button`, each containing
+an `a` element with a class of `wp-block-button__link`.
+
+An additional container holds each button block (one or more buttons), and has
+a class of `wp-block-buttons`.
+
+If chosen, a button can have only an outline (no fill color), which adds the `is-style-outline`
+class on the `.wp-block-button` element.
+
+Controls allow each button to have custom text color, background color or gradient, and border
+radius. These are all set as inline styles, but additional classes are also added
+to the link, e.g., `has-text-color` and `has-background`.
+
+The button link may or may not have an `href` URL, and the user can also control the
+`rel` and `target` attributes.
+
+<Preview>
+  <Story name="core/button" height="100px">
+    {`<div class="wp-block-buttons">
+        <div class="wp-block-button">
+          <a class="wp-block-button__link" href="https://wp-themes.com/twentytwenty/" style="border-radius:50px" target="_blank" rel="noopener noreferrer">
+            Button
+          </a>
+        </div>
+    </div>`}
   </Story>
 </Preview>
 

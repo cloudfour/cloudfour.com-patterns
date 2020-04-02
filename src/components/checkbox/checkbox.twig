@@ -1,2 +1,10 @@
-<input class="c-checkbox" type="checkbox">
-<input class="c-checkbox" type="checkbox" checked>
+{% include '../input/input.twig' with { value: 'Example' } %}
+<p>
+  <input class="c-checkbox" type="checkbox">
+  <input class="c-checkbox" type="checkbox" checked>
+</p>
+{% include '../input/input.twig' with { value: 'Example', disabled: true } %}
+<p>
+  <input class="c-checkbox" type="checkbox" disabled>
+  <input class="c-checkbox" type="checkbox" checked disabled>
+</p>

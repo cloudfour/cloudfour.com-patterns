@@ -8,6 +8,7 @@
     -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     appearance: none;
+    background-color: colors.$text-light;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -17,6 +18,8 @@
     cursor: pointer;
     font: inherit;
     height: sizes.$toggle-medium;
+    margin: 0;
+    padding: 0;
     position: relative;
     transition: color motion.$speed-slow motion.$ease-out,
       transform motion.$speed-quick motion.$ease-out;
@@ -28,8 +31,13 @@
     }
 
     &:hover {
+      // background-color: colors.$text-light-emphasis;
       color: colors.$primary-brand;
       transform: scale(1.05);
+
+      .t-dark & {
+        color: colors.$text-dark;
+      }
     }
 
     &:active {
@@ -38,6 +46,27 @@
 
     @include focus.focus-visible {
       box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    }
+
+    &:disabled {
+      border-style: dashed;
+      color: colors.$gray-dark;
+      cursor:  not-allowed;
+      transform: none;
+
+      .t-dark & {
+        color: colors.$primary-brand-lighter;
+      }
+
+      &:checked {
+        background-color: transparent;
+        background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" stroke="rgb(72,89,104)" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M4 12l5.08 6L20 6"/%3E%3C/svg%3E');
+        border-color: transparent;
+
+        .t-dark & {
+          background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" stroke="%238abfff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M4 12l5.08 6L20 6"/%3E%3C/svg%3E');
+        }
+      }
     }
   }
 }

@@ -1,0 +1,5 @@
+<div class="o-container{% if containerClass %} {{containerClass}} {% endif %}{% if theme %} t-{{theme}} {% endif %}">
+  <div class="o-container__content{% if containerContentClass %} {{containerContentClass}} {% endif %}">
+    {% block content %}{% endblock %}
+  </div>
+</div>

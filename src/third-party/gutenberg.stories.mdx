@@ -17,7 +17,7 @@ The quote block has a base class of `wp-block-quote`. It has a control to add an
 optional `is-style-large` class.
 
 <Preview>
-  <Story name="core/quote" height="100px">
+  <Story name="core/quote" height="150px">
     {`<blockquote class="wp-block-quote is-style-large">
       <p>In quoting others, we cite ourselves.</p><cite>Julio Cortázar</cite>
     </blockquote>`}
@@ -139,6 +139,26 @@ The button link may or may not have an `href` URL, and the user can also control
     </div>`}
   </Story>
 </Preview>
+
+## Code
+
+The code block adds the class `wp-block-code` to a `pre` tag wrapping content inside
+`code` tags.
+
+<Preview>
+  <Story name="core/code" height="350px">
+    {`<pre class="wp-block-code">
+      <code>
+        // A "block" is the abstract term used
+        // to describe units of markup that,
+        // when composed together, form the
+        // content or layout of a page.
+        registerBlockType( name, settings );
+      </code>
+    </pre>`}
+  </Story>
+</Preview>
+
 
 
 

@@ -1,0 +1,55 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Third-Party/Gutenberg" />
+
+# WordPress Gutenberg Blocks
+
+Gutenberg blocks that can be themed by default without using element selectors
+have generated class names starting with `wp-block-`. This class may be added
+to the block element itself or a wrapper.
+
+## Quote
+
+The quote has a control to add an optional `is-style-large` class.
+
+<Preview>
+  <Story name="core/quote" height="100px">
+    {`<blockquote class="wp-block-quote is-style-large">
+      <p>In quoting others, we cite ourselves.</p><cite>Julio Cortázar</cite>
+    </blockquote>`}
+  </Story>
+</Preview>
+
+## Image
+
+The image is wrapped in a `figure` element with the `wp-block-image` class.
+
+Inputs are available for `alt` text, `width`, and `height`.
+
+Controls set either the `is-style-default` (no masking) or `is-style-circle-mask`
+class on the wrapper element.
+
+Additional controls can add wrapper classes based on generated `srcset` options:
+`size-full`, `size-large`, `size-medium`, or `size-thumbnail`. Further resizing
+adds the `is-resized` class to the wrapper.
+
+Adding caption text to the image generates a `figcaption` element.
+
+<Preview>
+  <Story name="core/image" height="500px">
+    {`<figure class="wp-block-image size-large is-style-default">
+        <img
+          src="http://testwordpressgutenberg.local/wp-content/uploads/2020/04/MtBlanc1.jpg"
+          alt="Mont Blanc"
+          class="wp-image-130"
+          srcset="
+            http://testwordpressgutenberg.local/wp-content/uploads/2020/04/MtBlanc1.jpg         500w,
+            http://testwordpressgutenberg.local/wp-content/uploads/2020/04/MtBlanc1-300x225.jpg 300w
+          "
+          sizes="(max-width: 500px) 100vw, 500px"
+        />
+        <figcaption>Mont Blanc appears—still, snowy, and serene.</figcaption>
+      </figure>`}
+  </Story>
+</Preview>
+

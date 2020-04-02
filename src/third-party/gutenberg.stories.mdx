@@ -89,7 +89,7 @@ Adding a caption creates a `figcaption` element before the closing wrapper tag.
         </li>
         <li class="blocks-gallery-item">
           <figure>
-            <a href="https://wp-themes.com/twentytwenty/?page_id=2">
+            <a href="https:/end wp-themes.com/twentytwenty/?page_id=2">
               <img src="https://s.w.org/images/core/5.3/Sediment_off_the_Yucatan_Peninsula.jpg" />
             </a>
           </figure>
@@ -132,7 +132,7 @@ The button link may or may not have an `href` URL, and the user can also control
   <Story name="core/button" height="100px">
     {`<div class="wp-block-buttons">
         <div class="wp-block-button">
-          <a class="wp-block-button__link" href="https://wp-themes.com/twentytwenty/" style="border-radius:50px" target="_blank" rel="noopener noreferrer">
+          <a class="wp-block-button__link" href="https:/end wp-themes.com/twentytwenty/" style="border-radius:50px" target="_blank" rel="noopener noreferrer">
             Button
           </a>
         </div>
@@ -159,6 +159,44 @@ The code block adds the class `wp-block-code` to a `pre` tag wrapping content in
   </Story>
 </Preview>
 
+## Columns
 
+The columns block creates a set of nested `div`s. The top wrapper `div` has a class
+of `wp-block-columns` and each `div` below that has a class of `wp-block-column`.
+Each column can contain arbitrary content.
 
+Controls set up the sizing of columns by adding an inline style with a `flex-basis`
+declaration. Therefore, it's assumed that the `.wp-block-columns` wrapper must be
+set to `display: flex`.
 
+<Preview>
+  <Story name="core/columns" height="350px">
+    {`<div class="wp-block-columns">
+      <div class="wp-block-column" style="flex-basis:37.5%">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros
+          eu felis.
+        </p>
+        <figure class="wp-block-image">
+          <img src="https://s.w.org/images/core/5.3/Windbuchencom.jpg" alt="" />
+        </figure>
+        <p>Suspendisse commodo neque lacus, a dictum orci interdum et.</p>
+      </div>
+      <div class="wp-block-column" style="flex-basis:62.5%">
+        <p>
+          Etiam et egestas lorem. Vivamus sagittis sit amet dolor quis lobortis.
+          Integer sed fermentum arcu, id vulputate lacus. Etiam fermentum sem eu
+          quam hendrerit.
+        </p>
+        <p>
+          Nam risus massa, ullamcorper consectetur eros fermentum, porta aliquet
+          ligula. Sed vel mauris nec enim.
+        </p>
+      </div>
+    </div>`}
+  </Story>
+</Preview>
+
+## Cover
+
+The cover block

@@ -1,0 +1,101 @@
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/motion.yml";
+@use "../../design-tokens/sizes.yml";
+@use "../../mixins/focus";
+@use "../../mixins/ms";
+@use "../../mixins/unit";
+
+/**
+ * 1. Browsers apply certain default styles unless appearance is set to `none`.
+ *    Unfortunately Chrome, Safari and Mozilla all still rely on the
+ *    vendor-prefixed version of this property at the time of this writing.
+ * 2. Input heights vary between different types in certain browsers unless a
+ *    height is explicitly set.
+ * 3. Non-normal line heights break placeholder text alignment in Safari.
+ */
+
+.c-input {
+  -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+  -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+  appearance: none; /* 1 */
+  background-color: colors.$text-light;
+  border: sizes.$edge-medium solid currentColor;
+  border-radius: sizes.$radius-medium;
+  color: colors.$text-dark;
+  display: block;
+  font: inherit;
+  font-style: normal;
+  height: sizes.$control-height; /* 2 */
+  line-height: normal; /* 3 */
+  margin: 0;
+  outline: none;
+  padding: sizes.$control-pad-vertical sizes.$control-text-inset;
+  transition-duration: motion.$speed-quick;
+  transition-property: background-color, border-color;
+  transition-timing-function: motion.$ease-out;
+  width: 100%;
+
+  /**
+   * For certain single-line input types, using `text-indent` instead of
+   * `padding-left` gives a more natural and intuitive appearance when text
+   * content overflows.
+   *
+   * We do not apply this for search inputs because Safari gets weird about
+   * search input padding.
+   */
+
+  &[type='email'],
+  &[type='text'] {
+    padding-left: 0;
+    text-indent: sizes.$control-text-inset;
+  }
+
+  &:hover:not(:disabled):not([readonly]) {
+    background-color: colors.$text-light-emphasis;
+    border-color: colors.$primary-brand;
+
+    .t-dark & {
+      border-color: currentColor;
+    }
+  }
+
+  /**
+   * We use plain ol' `focus` rather than `focus-visible` because text inputs
+   * are almost always in a state of keyboard interaction, making the difference
+   * (if any) minimal.
+   */
+
+  &:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  }
+
+  &[readonly]:not(:disabled) {
+    background-color: transparent;
+    border-color: transparent;
+    color: inherit;
+  }
+
+  &:disabled {
+    background-color: colors.$gray-light;
+    border-color: colors.$gray;
+    cursor: not-allowed;
+
+    .t-dark & {
+      background-color: colors.$primary-brand-lighter;
+      border-color: colors.$primary-brand-dark;
+    }
+  }
+}
+
+/**
+ * We target `textarea` elements specifically because it seems unnecessarily
+ * complex to require a modifier class that is only applicable to a single
+ * element.
+ *
+ * 1. Should be taller than a single-line input.
+ */
+
+textarea.c-input {
+  height: sizes.$control-height-multiline; /* 1 */
+}

@@ -89,11 +89,13 @@
 }
 
 /**
- * This is ugly, but unfortunately we can't target an attribute like `type` for
- * textareas. And without this differing height, text areas would be the same
- * height as inputs all of the time.
+ * We target `textarea` elements specifically because it seems unnecessarily
+ * complex to require a modifier class that is only applicable to a single
+ * element.
+ *
+ * 1. Should be taller than a single-line input.
  */
 
 textarea.c-input {
-  height: sizes.$control-height-multiline;
+  height: sizes.$control-height-multiline; /* 1 */
 }

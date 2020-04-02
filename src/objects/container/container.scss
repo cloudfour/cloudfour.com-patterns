@@ -1,8 +1,7 @@
 @use "../../design-tokens/layout.yml";
 
 .o-container__content {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: layout.$max_width_spread;
 }
 
@@ -11,7 +10,7 @@
  */
 
 .o-container--prose {
-  & .o-container__content {
+  .o-container__content {
     max-width: layout.$max_width_prose;
   }
 }

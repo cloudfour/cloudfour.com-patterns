@@ -51,7 +51,7 @@
   }
 
   &:hover:not(:disabled):not([readonly]) {
-    background-color: #fff;
+    background-color: colors.$text-light-emphasis;
     border-color: colors.$primary-brand;
 
     .t-dark & {

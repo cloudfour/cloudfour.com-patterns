@@ -5,3 +5,13 @@
   margin-right: auto;
   max-width: layout.$max_width_spread;
 }
+
+/**
+ * Prose modifier adjusts content `max-width`
+ */
+
+.o-container--prose {
+  & .o-container__content {
+    max-width: layout.$max_width_prose;
+  }
+}

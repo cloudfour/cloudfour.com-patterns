@@ -1,3 +1,7 @@
+{% if prose %}
+  {% set containerClass = containerClass ~ ' o-container--prose ' %}
+{% endif %}
+
 {% embed '../container.twig' %}
   {% block content %}
     <h1>Cooperative Design Systems</h1>

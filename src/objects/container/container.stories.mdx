@@ -8,5 +8,19 @@ import './container.scss';
 # Container
 
 <Preview>
-  <Story name="Basic">{basicDemo}</Story>
+  <Story name="Basic">
+    {basicDemo({
+      prose: boolean('Add o-container--prose modifier to the container', false),
+    })}
+  </Story>
+</Preview>
+
+## Prose
+
+<Preview>
+  <Story name="Prose">
+    {basicDemo({
+      prose: boolean('Add o-container--prose modifier to the container', true),
+    })}
+  </Story>
 </Preview>

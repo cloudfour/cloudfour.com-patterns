@@ -35,3 +35,7 @@ props:
     value: -1
     type: modular/em
     category: sizing
+  toggle_medium:
+    value: 2
+    type: modular/em
+    category: sizing

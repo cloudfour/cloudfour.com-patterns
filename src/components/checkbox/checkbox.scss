@@ -1,0 +1,163 @@
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/motion.yml";
+@use "../../design-tokens/sizes.yml";
+@use "../../mixins/focus";
+
+/**
+ * 1. This `@supports` query prevents IE11 (and older browsers) from applying
+ *    these styles, falling back to the native checkbox appearance.
+ * 2. Modern browsers let us apply wholly custom styles to certain elements,
+ *    but only when `appearance` is set to `none`. Because this property is not
+ *    a finalized standard, vendor prefixes are still required.
+ * 3. Some browsers will squish the checkbox in flex containers, which we never,
+ *    ever want.
+ * 4. Without this, checkboxes appear too small unless hard-pixel sizes are
+ *    used (ew).
+ */
+
+.c-checkbox {
+  @supports (-moz-appearance: none) or (-webkit-appearance: none) or
+    (appearance: none) {
+    /* 1 */
+    -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+    -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+    appearance: none; /* 2 */
+    background-color: colors.$text-light;
+    border: sizes.$edge-medium solid currentColor;
+    border-radius: sizes.$radius_medium;
+    color: colors.$text-dark;
+    cursor: pointer;
+    flex: none; /* 3 */
+    font: inherit; /* 4 */
+    height: sizes.$toggle-medium;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transition-duration: motion.$speed-quick;
+    transition-property: background-color, border-color, color;
+    transition-timing-function: motion.$ease-out;
+    vertical-align: middle;
+    width: sizes.$toggle-medium;
+
+    /**
+     * We add the check mark via a pseudo element so we can easily apply
+     * transitions to it without requiring separate elements.
+     *
+     * 1. The icon looks kind of claustrophobic if it runs right up to the
+     *    element edge, so we re-use the border size as an inset value. This
+     *    appears much more balanced!
+     * 2. Starting state of animation.
+     */
+
+    &::after {
+      background-image: svg-load(
+        'icons/check.svg',
+        stroke=colors.$text-light-emphasis
+      );
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      bottom: sizes.$edge-medium; /* 1 */
+      content: '';
+      left: sizes.$edge-medium; /* 1 */
+      opacity: 0; /* 2 */
+      position: absolute;
+      right: sizes.$edge-medium; /* 1 */
+      top: sizes.$edge-medium; /* 1 */
+      transform: scale(0); /* 2 */
+      transition-duration: motion.$speed-quick;
+      transition-property: opacity, transform;
+      transition-timing-function: motion.$ease-out;
+    }
+
+    /**
+     * State: Hover
+     */
+
+    &:hover {
+      background-color: colors.$text-light-emphasis;
+      color: colors.$primary-brand;
+
+      .t-dark & {
+        color: colors.$text-dark;
+      }
+    }
+
+    /**
+     * State: Checked
+     */
+
+    &:checked {
+      background-color: currentColor;
+
+      /**
+       * End state of animation
+       */
+
+      &::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .t-dark &:hover {
+        color: colors.$primary-brand-darker;
+      }
+    }
+
+    /**
+     * State: Focused
+     *
+     * We use `focus-visible` here because checkboxes do not inherently require
+     * keyboard interactions.
+     */
+
+    @include focus.focus-visible {
+      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    }
+
+    /**
+     * State: Disabled
+     *
+     * 1. We want the checkbox to appear "read-only." A transparent background
+     *    and dashed line help symbolize a lack of interactivity.
+     * 2. Same color used for disabled `c-input` borders.
+     */
+
+    &:disabled {
+      background-color: transparent; /* 1 */
+      border-style: dashed; /* 1 */
+      color: colors.$gray-dark; /* 2 */
+      cursor: not-allowed;
+
+      /**
+       * For purely visual consistency with dark theme disabled inputs we would
+       * use `$primary-brand-lighter`, but that will not have enough contrast
+       * on its own in this context.
+       */
+
+      .t-dark & {
+        color: colors.$text-light;
+      }
+
+      &::after {
+        background-image: svg-load('icons/check.svg', stroke=colors.$gray-dark);
+
+        .t-dark & {
+          background-image: svg-load(
+            'icons/check.svg',
+            stroke=colors.$text-light
+          );
+        }
+      }
+
+      /**
+       * We can forego the border entirely for a disabled checkmark, as the hit
+       * area is unimportant.
+       */
+
+      &:checked {
+        border-color: transparent;
+      }
+    }
+  }
+}

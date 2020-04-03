@@ -11,6 +11,30 @@ or more `wp-block-`-prefixed classes. These are the blocks documented below.
 Each block has controls that can modify the generated output. Where relevant, the
 additional markup and/or classes that may be generated are also documented.
 
+### Editor Controls
+
+Block editor controls vary, but many have Styles and Color settings. The effects
+of other controls are described in specific block stories.
+
+#### Styles
+
+These controls offer 2 or more options for particular stylistic variations, and
+the ability to set one as a default for new blocks of the same type. For example,
+images can have a circular mask or not. These options add an `is-style-`-type class
+to the block.
+
+#### Color settings
+
+These controls enable setting of the block's `background-color` and `color`.
+
+The base class for a block with a main (background) color is `has-background` and
+selecting a text color adds a `has-text-color` class. If one of a set of predefined
+colors is chosen, additional classes are added, such as `has-subtle-background-background-color`
+for `background-color` or `has-secondary-color` for text.
+
+If user-defined colors are chosen, instead, inline styles will set `color` and/or
+`background-color`.
+
 ## Audio
 
 The audio block wraps an `audio` element and an optional `figcaption` element in
@@ -36,12 +60,8 @@ a class of `wp-block-buttons`.
 If chosen, a button can have only an outline (no fill color), which adds the `is-style-outline`
 class on the `.wp-block-button` element.
 
-Controls allow each button to have custom text color, background color or gradient, and border
-radius. These are all set as inline styles, but additional classes are also added
-to the link, e.g., `has-text-color` and `has-background`.
-
-The button link may or may not have an `href` URL, and the user can also control the
-`rel` and `target` attributes.
+Controls allow each button to have custom text color, background color or gradient,
+and border radius.
 
 <Preview>
   <Story name="core/button" height="100px">
@@ -115,7 +135,7 @@ set to `display: flex`.
 ## Cover
 
 Adds an image or video with a text overlay. The cover block is a `div` with a class
-of `wp-block-cover`. This `div` has a `style` attribute by default that sets itself
+of `wp-block-cover`. This `div` has a `style` attribute by default that sets its
 `background-image` and `-color`.
 
 Controls set classes on the wrapper that adjust the opacity of the `background-color`.
@@ -172,8 +192,8 @@ The text overlay inside the cover block its own `div` wrapper with a class of
 The embed block wraps any embedded content in a `figure` element with class
 `wp-block-embed` and an inner `div` with class `wp-block-embed__wrapper`. Many
 specific embed block types build on this core embed block, wrapping a specific embedded
-content and adding `is-type-` and `is-provider-` classes to the parent wrapper
-element.
+content and adding `is-type-embedType-embed`, `wp-block-embed-embedType` and
+`is-provider-providerType` classes to the parent wrapper element.
 
 Adding a caption in the editor includes a `figcaption` element before the closing
 `figure` tag.
@@ -299,16 +319,7 @@ The group block is wrapped by a `div` with the class `wp-block-group`.
 A secondary wrapper `div` has the class `wp-block-group__inner-container`, and provides
 a way to set padding on the grouped content within the parent wrapper.
 
-(@TODO - Move anything like this to a top-level content section.)
-Controls enable setting of the wrapper element's `background-color` and `color`.
-
-The base class for a group with a background-color is `has-background` and the
-selection may add a modified class like `has-subtle-background-background-color`.
-Setting a text `color` will add the class `has-text-color` and may add a modified class like
-`has-secondary-color`.
-
-If user-defined colors are chosen, no modifier classes will
-be added. Instead, inline styles will set `color` and/or `background-color`.
+The group block has controls for setting both `background-color` and text `color`.
 
 By default, grouped blocks that don't set their own `background-color` and `color`
 will inherit from the group block wrapper, but otherwise they will retain their
@@ -381,7 +392,9 @@ custom `background-color`.
 Controls allow the horizontal and vertical alignment and arrangement of the media
 and text elements. Choices result in the insertion of additional parent wrapper classes
 such as `is-vertically-aligned-center` and `has-media-on-the-right`, as well as either
-an `alignwide` (horizontal padding) or `alignfull` (no horizontal padding) class.
+an `alignwide` (assumes horizontal padding) or `alignfull` (assumes no horizontal
+padding) class.
+
 Another control toggles the class `is-stacked-on-mobile`.
 
 <Preview>
@@ -424,7 +437,7 @@ The pullquote block wraps a `blockquote` element in a `figure` element with the 
 `wp-block-pullquote`.
 
 Color controls allow the setting of pre-defined or custom `background-color` and
-`color`. A styles control adds one of two wrapper classes, `is-style-default` or
+text `color`. A styles control adds one of two wrapper classes, `is-style-default` or
 `is-style-solid-color`. By default, any user-selected `background-color` will be
 applied only if the solid color background is toggled on.
 
@@ -459,9 +472,8 @@ The separator block adds the `wp-block-separator` class to an `hr` element.
 
 Style controls add `is-style-default`, `is-style-wide` or `is-style-dots` classes.
 
-The color control, if used, adds both `has-text-color` and `has-background` classes,
-as well as modifier classes for predefined color choice or inline styles for user-defined
-color selection.
+The color controls, if used, can add both `has-text-color` and `has-background`
+classes, as well as modifier classes for predefined color choices.
 
 <Preview>
   <Story name="core/separator" height="100px">

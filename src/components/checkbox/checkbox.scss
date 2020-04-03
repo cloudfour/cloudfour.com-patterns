@@ -9,7 +9,9 @@
  * 2. Modern browsers let us apply wholly custom styles to certain elements,
  *    but only when `appearance` is set to `none`. Because this property is not
  *    a finalized standard, vendor prefixes are still required.
- * 3. Without this, checkboxes appear too small unless hard-pixel sizes are
+ * 3. Some browsers will squish the checkbox in flex containers, which we never,
+ *    ever want.
+ * 4. Without this, checkboxes appear too small unless hard-pixel sizes are
  *    used (ew).
  */
 
@@ -25,7 +27,8 @@
     border-radius: sizes.$radius_medium;
     color: colors.$text-dark;
     cursor: pointer;
-    font: inherit; /* 3 */
+    flex: none; /* 3 */
+    font: inherit; /* 4 */
     height: sizes.$toggle-medium;
     margin: 0;
     padding: 0;
@@ -33,6 +36,7 @@
     transition-duration: motion.$speed-quick;
     transition-property: background-color, border-color, color;
     transition-timing-function: motion.$ease-out;
+    vertical-align: middle;
     width: sizes.$toggle-medium;
 
     /**

@@ -1,10 +1,21 @@
-{% include '../input/input.twig' with { value: 'Example' } %}
-<p>
-  <input class="c-checkbox" type="checkbox">
-  <input class="c-checkbox" type="checkbox" checked>
-</p>
-{% include '../input/input.twig' with { value: 'Example', disabled: true } %}
-<p>
-  <input class="c-checkbox" type="checkbox" disabled>
-  <input class="c-checkbox" type="checkbox" checked disabled>
-</p>
+{% set attributes %}
+  type="checkbox"
+  class="c-checkbox{% if class %} {{class}}{% endif %}"
+  {% for attribute_name in [
+    'value',
+    'id',
+    'name',
+    'autocomplete',] %}
+    {% set attribute_value = attribute(_context, attribute_name) %}
+    {% if attribute_value %}{{attribute_name}}="{{attribute_value}}"{% endif %}
+  {% endfor %}
+  {% for attribute_name in [
+    'checked',
+    'required',
+    'disabled'] %}
+    {% set attribute_value = attribute(_context, attribute_name) %}
+    {% if attribute_value %}{{attribute_name}}{% endif %}
+  {% endfor %}
+{% endset %}
+
+<input {{attributes}}>

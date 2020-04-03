@@ -1,0 +1,10 @@
+<div class="demo-checkbox-labels">
+  <label class="demo-checkbox-label">
+    {% include '../checkbox.twig' %}
+    Unchecked
+  </label>
+  <label class="demo-checkbox-label">
+    {% include '../checkbox.twig' with { checked: true } %}
+    Checked
+  </label>
+</div>

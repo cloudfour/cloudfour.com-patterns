@@ -9,24 +9,9 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-knobs/register',
     '@storybook/addon-viewport/register',
-    {
-      name: '@storybook/preset-scss',
-      options: {
-        sassLoaderOptions: {
-          // Dart Sass is easier to install than Node Sass
-          implementation: require('sass'),
-          sassOptions: {
-            importer: [
-              require('../sass-importers/glob'),
-              // Import Theo design tokens as SCSS variables
-              require('../sass-importers/theo'),
-            ],
-          },
-        },
-      },
-    },
     // Community addons
     'storybook-addon-themes',
+    'storybook-addon-paddings',
   ],
   webpackFinal: async (config) => {
     // Remove default SVG processing from default config.
@@ -41,13 +26,43 @@ module.exports = {
     // Push new rules
     config.module.rules.push(
       {
+        test: /\.s[ca]ss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              // Lets CSS loader know there are two loaders left that may be
+              // handling imports.
+              // @see https://github.com/webpack-contrib/css-loader#importloaders
+              importLoaders: 2,
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              // Dart Sass is easier to install than Node Sass
+              implementation: require('sass'),
+              sassOptions: {
+                importer: [
+                  require('../glob-sass-importer'),
+                  // Import Theo design tokens as SCSS variables
+                  require('../.theo/sass-importer'),
+                ],
+              },
+            },
+          },
+        ],
+      },
+      {
         test: /\.twig$/,
         use: 'twigjs-loader',
       },
       {
         // Import Theo design tokens as JS objects
         test: /\.ya?ml$/,
-        use: resolve(__dirname, './theo-loader.js'),
+        use: resolve(__dirname, '../.theo/webpack-loader.js'),
       },
       {
         // Optimize and process SVGs as React elements for use in documentation

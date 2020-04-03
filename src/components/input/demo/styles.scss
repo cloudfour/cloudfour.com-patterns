@@ -1,0 +1,15 @@
+@use "../../../design-tokens/breakpoint.yml";
+@use "../../../mixins/ms";
+
+.demo-input-basic {
+  align-items: center;
+  display: grid;
+  grid-column-gap: ms.step(1);
+  grid-row-gap: ms.step(-3);
+
+  &--single-line {
+    @media (min-width: breakpoint.$m) {
+      grid-template-columns: auto 1fr auto;
+    }
+  }
+}

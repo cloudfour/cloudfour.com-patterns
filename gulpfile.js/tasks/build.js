@@ -19,11 +19,10 @@ const buildSass = () => {
   return src('./src/index.scss')
     .pipe(
       sass({
-        // Import Theo design tokens as SCSS variables
         importer: [
-          require('../../sass-importers/glob'),
+          require('../../glob-sass-importer'),
           // Import Theo design tokens as SCSS variables
-          require('../../sass-importers/theo'),
+          require('../../.theo/sass-importer'),
         ],
       }).on('error', sass.logError)
     )

@@ -23,6 +23,7 @@ cloudfour.com-patterns
 ├── .storybook
 │   ├── main.js           # Settings for Storybook UI
 │   └── preview.js        # Settings for story previews
+├── .theo                 # Settings for design token processing
 ├── gulpfile.js
 │   └── tasks/*.js        # Complex build tasks
 ├── src

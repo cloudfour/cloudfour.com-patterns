@@ -22,10 +22,10 @@
     "type": "git",
     "url": "https://github.com/cloudfour/cloudfour.com-patterns.git"
   },
-  "main": "./dist/cloudfourPatterns.js",
-  "unpkg": "./dist/cloudfourPatterns.min.js",
-  "module": "./dist/cloudfourPatterns.mjs",
-  "exports": "./dist/cloudfourPatterns.mjs",
+  "main": "./dist/cloudfour-patterns.js",
+  "unpkg": "./dist/cloudfour-patterns.min.js",
+  "module": "./dist/cloudfour-patterns.mjs",
+  "exports": "./dist/cloudfour-patterns.mjs",
   "files": [
     "/dist",
     "/src/**/*.scss",

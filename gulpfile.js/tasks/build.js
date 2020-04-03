@@ -34,22 +34,23 @@ const buildSass = () => {
 };
 
 const buildJS = async () => {
-  const name = 'cloudfourPatterns';
+  const pathName = 'cloudfour-patterns';
+  const globalName = 'cloudfourPatterns';
   const bundle = await rollup.rollup({
     input: 'src/{objects,components}/**/*.js',
     plugins: [multiEntry(), nodeResolve()],
   });
   await Promise.all([
-    bundle.write({ format: 'esm', file: path.join(outDir, `${name}.mjs`) }),
+    bundle.write({ format: 'esm', file: path.join(outDir, `${pathName}.mjs`) }),
     bundle.write({
       format: 'umd',
-      name,
-      file: path.join(outDir, `${name}.js`),
+      name: globalName,
+      file: path.join(outDir, `${pathName}.js`),
     }),
     bundle.write({
       format: 'umd',
-      name,
-      file: path.join(outDir, `${name}.min.js`),
+      name: globalName,
+      file: path.join(outDir, `${pathName}.min.js`),
       plugins: [terser()],
     }),
   ]);

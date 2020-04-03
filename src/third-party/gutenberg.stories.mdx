@@ -13,14 +13,15 @@ additional markup and/or classes that may be generated are also documented.
 
 ## Quote
 
-The quote block has a base class of `wp-block-quote`. It has a control to add an
-optional `is-style-large` class.
+The quote block adds class of `wp-block-quote` to a `blockquote` element. It has
+a control to add an optional `is-style-large` class.
 
 <Preview>
   <Story name="core/quote" height="150px">
     {`<blockquote class="wp-block-quote is-style-large">
-      <p>In quoting others, we cite ourselves.</p><cite>Julio Cortázar</cite>
-    </blockquote>`}
+        <p>In quoting others, we cite ourselves.</p>
+        <cite>Julio Cortázar</cite>
+      </blockquote>`}
   </Story>
 </Preview>
 
@@ -334,14 +335,37 @@ class.
 <Preview>
   <Story name="core/preformatted" height="350px">
     {`<pre class="wp-block-preformatted">
-          ___________________________
-        < I'm an expert in my field. >
-          ---------------------------
-            \  ^__^
-            \  (oo)\\_______
+       ___________________________
+     < I'm an expert in my field. >
+       ---------------------------
+           \\  ^__^
+            \\ (oo)\\_______
               (__)\\       )\\\/\\
                   ||----w |
                   ||     ||
       </pre>`}
   </Story>
 </Preview>
+
+## Pullquote
+
+The pullquote block wraps a `blockquote` element in a `figure` element with the class
+`wp-block-pullquote`.
+
+Color controls allow the setting of pre-defined or custom `background-color` and
+`color`. A styles control adds one of two wrapper classes, `is-style-default` or
+`is-style-solid-color`. By default, any user-selected `background-color` will be
+applied only if the solid color background is toggled on.
+
+<Preview>
+  <Story name="core/pullquote" height="200px">
+    {`<figure class="wp-block-pullquote has-background is-style-solid-color" style="background-color:#dcd7ca">
+        <blockquote class="has-text-color has-accent-color">
+          <p>One of the hardest things to do in technology is disrupt yourself.</p>
+          <cite>Matt Mullenweg</cite>
+        </blockquote>
+      </figure>`}
+  </Story>
+</Preview>
+
+

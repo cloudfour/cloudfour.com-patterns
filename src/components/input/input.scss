@@ -1,9 +1,6 @@
 @use "../../design-tokens/colors.yml";
 @use "../../design-tokens/motion.yml";
 @use "../../design-tokens/sizes.yml";
-@use "../../mixins/focus";
-@use "../../mixins/ms";
-@use "../../mixins/unit";
 
 /**
  * 1. Browsers apply certain default styles unless appearance is set to `none`.
@@ -12,6 +9,9 @@
  * 2. Input heights vary between different types in certain browsers unless a
  *    height is explicitly set.
  * 3. Non-normal line heights break placeholder text alignment in Safari.
+ * 4. Safari will not style disabled inputs with readable text unless we set
+ *    this property in addition to `color`. Unfortunately this also resets the
+ *    appearance of `::placeholder`, which we'll style later on.
  */
 
 .c-input {
@@ -30,6 +30,7 @@
   margin: 0;
   outline: none;
   padding: sizes.$control-pad-vertical sizes.$control-text-inset;
+  -webkit-text-fill-color: colors.$text-dark; /* 4 */
   transition-duration: motion.$speed-quick;
   transition-property: background-color, border-color;
   transition-timing-function: motion.$ease-out;
@@ -85,6 +86,22 @@
       background-color: colors.$primary-brand-lighter;
       border-color: colors.$primary-brand-dark;
     }
+  }
+
+  /**
+   * 1. We set `-webkit-text-fill-color` on the root element so that Safari
+   *    would respect our disabled text color. But that also resets the
+   *    `::placeholder` color, so we have to specify our own so it will be
+   *    distinct from a normal value while maintaining reasonable high color
+   *    contrast.
+   * 2. Firefox uses `opacity` instead of a lightened text color, appearing
+   *    lighter than other browsers unless we reset it here.
+   */
+
+  &::placeholder {
+    color: colors.$text-dark-muted; /* 1 */
+    opacity: 1; /* 2 */
+    -webkit-text-fill-color: colors.$text-dark-muted; /* 1 */
   }
 }
 

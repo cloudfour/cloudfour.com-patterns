@@ -89,15 +89,19 @@
   }
 
   /**
-   * We set `-webkit-text-fill-color` on the root element so that Safari would
-   * respect our disabled text color. But that also resets the `::placeholder`
-   * color, so we have to specify our own so it will be distinct from a normal
-   * value while maintaining reasonable high color contrast.
+   * 1. We set `-webkit-text-fill-color` on the root element so that Safari
+   *    would respect our disabled text color. But that also resets the
+   *    `::placeholder` color, so we have to specify our own so it will be
+   *    distinct from a normal value while maintaining reasonable high color
+   *    contrast.
+   * 2. Firefox uses `opacity` instead of a lightened text color, appearing
+   *    lighter than other browsers unless we reset it here.
    */
 
   &::placeholder {
-    color: colors.$text-dark-muted;
-    -webkit-text-fill-color: colors.$text-dark-muted;
+    color: colors.$text-dark-muted; /* 1 */
+    opacity: 1; /* 2 */
+    -webkit-text-fill-color: colors.$text-dark-muted; /* 1 */
   }
 }
 

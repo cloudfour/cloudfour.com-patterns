@@ -464,3 +464,52 @@ a `figure` with class `wp-block-audio`
     </figure>
   `}</Story>
 </Preview>
+
+## Embed
+
+The embed block wraps any embedded content in a `figure` element with class
+`wp-block-embed` and an inner `div` with class `wp-block-embed__wrapper`. Many
+specific embed block types build on this core embed block, wrapping a specific embedded
+content and adding `is-type-` and `is-provider-` classes to the parent wrapper
+element.
+
+Adding a caption in the editor includes a `figcaption` element before the closing
+`figure` tag.
+
+<Preview>
+  <Story name="core/embed" height="300px">
+    {`<figure
+        class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-wp-themes-com"
+      >
+        <div class="wp-block-embed__wrapper">
+          <blockquote
+            class="wp-embedded-content"
+            data-secret="AbCd1234"
+            style="display: none;"
+          >
+            <a href="https://wp-themes.com/twentytwenty/?p=36"
+              >Elements</a
+            >
+          </blockquote>
+          <iframe
+            title=""Elements” — wp-themes.com"
+            class="wp-embedded-content"
+            sandbox="allow-scripts"
+            security="restricted"
+            src="https://wp-themes.com/twentytwenty/?p=36/embed/#?secret=AbCd1234"
+            data-secret="AbCd1234"
+            width="580"
+            height="257"
+            frameborder="0"
+            marginwidth="0"
+            marginheight="0"
+            scrolling="no"
+            data-origwidth="580"
+            data-origheight="327"
+          ></iframe>
+        </div>
+      </figure>`}
+    </Story>
+</Preview>
+
+

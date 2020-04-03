@@ -2,6 +2,12 @@
 dist
 storybook-static
 
+# Auto-generated templatized SVG files
+/src/assets/**/*.twig
+
+# Auto-generated design token stories
+/src/design-tokens/generated
+
 # Dependencies
 node_modules
 npm-debug.log

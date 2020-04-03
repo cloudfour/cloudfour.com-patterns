@@ -172,31 +172,83 @@ set to `display: flex`.
 <Preview>
   <Story name="core/columns" height="350px">
     {`<div class="wp-block-columns">
-      <div class="wp-block-column" style="flex-basis:37.5%">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros
-          eu felis.
-        </p>
-        <figure class="wp-block-image">
-          <img src="https://s.w.org/images/core/5.3/Windbuchencom.jpg" alt="" />
-        </figure>
-        <p>Suspendisse commodo neque lacus, a dictum orci interdum et.</p>
-      </div>
-      <div class="wp-block-column" style="flex-basis:62.5%">
-        <p>
-          Etiam et egestas lorem. Vivamus sagittis sit amet dolor quis lobortis.
-          Integer sed fermentum arcu, id vulputate lacus. Etiam fermentum sem eu
-          quam hendrerit.
-        </p>
-        <p>
-          Nam risus massa, ullamcorper consectetur eros fermentum, porta aliquet
-          ligula. Sed vel mauris nec enim.
-        </p>
-      </div>
-    </div>`}
+        <div class="wp-block-column" style="flex-basis:37.5%">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros
+            eu felis.
+          </p>
+          <figure class="wp-block-image">
+            <img src="https://s.w.org/images/core/5.3/Windbuchencom.jpg" alt="" />
+          </figure>
+          <p>Suspendisse commodo neque lacus, a dictum orci interdum et.</p>
+        </div>
+        <div class="wp-block-column" style="flex-basis:62.5%">
+          <p>
+            Etiam et egestas lorem. Vivamus sagittis sit amet dolor quis lobortis.
+            Integer sed fermentum arcu, id vulputate lacus. Etiam fermentum sem eu
+            quam hendrerit.
+          </p>
+          <p>
+            Nam risus massa, ullamcorper consectetur eros fermentum, porta aliquet
+            ligula. Sed vel mauris nec enim.
+          </p>
+        </div>
+      </div>`}
   </Story>
 </Preview>
 
 ## Cover
 
-The cover block
+Adds an image or video with a text overlay. The cover block is a `div` with a class
+of `wp-block-cover`. This `div` has a `style` attribute by default that sets itself
+`background-image` and `-color`.
+
+Controls set classes on the wrapper that adjust the opacity of the `background-color`.
+The base class for this control is `has-background-dim`, and a percentage is specified
+in a modifier class, e.g., `has-background-dim-40`.
+
+Another control results in setting `background-attachment` to `fixed`, by adding
+the class `has-parallax`.
+
+The text overlay inside the cover block its own `div` wrapper with a class of
+`wp-block_cover__inner-container`.
+
+<Preview>
+  <Story name="core/cover" height="350px">
+    {`<div
+        class="wp-block-cover has-background-dim-40 has-background-dim has-parallax"
+        style="background-image:url(https://s.w.org/images/core/5.3/Windbuchencom.jpg);background-color:#065174"
+      >
+        <div class="wp-block-cover__inner-container">
+          <p style="font-size:48px" class="has-text-align-center">
+            <strong>Snow Patrol</strong>
+          </p>
+        </div>
+      </div>`}
+  </Story>
+</Preview>
+
+### Cover - Video Variant
+
+<Preview>
+  <Story name="core/cover/video" height="500px">
+    {`<div class="wp-block-cover has-background-dim">
+        <div class="vsc-controller" data-vscid="g0pcyj7av">
+        </div>
+        <video
+          class="wp-block-cover__video-background"
+          autoplay="false"
+          muted="true"
+          loop="false"
+          src="http://mirrors.standaloneinstaller.com/video-sample/dolbycanyon.m4v"
+          data-origwidth="0"
+          data-origheight="0"
+          style="width: 580px;"
+          data-vscid="g0pcyj7av">
+        </video>
+        <div class="wp-block-cover__inner-container">
+          <p class="has-text-align-center has-large-font-size">Video</p>
+        </div>
+      </div>`}
+  </Story>
+</Preview>

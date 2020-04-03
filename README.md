@@ -15,6 +15,11 @@ If you’re looking for the most stable version of our pattern library, check ou
 1. `npm ci`
 1. `npm run storybook`
 
+## Building
+
+- `npm run build` Builds CSS+JS for npm package
+- `npm run build-storybook` Creates a static storybook site build, for example for publishing the pattern library to Netlify
+
 ## Project Structure
 
 ```

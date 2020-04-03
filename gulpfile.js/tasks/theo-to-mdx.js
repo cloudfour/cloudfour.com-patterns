@@ -2,6 +2,7 @@ const { src, dest } = require('gulp');
 const gulpTheo = require('gulp-theo');
 // Requiring this file applies our Theo customizations to gulp-theo
 require('../../.theo');
+const prettier = require('gulp-prettier');
 
 // Gulp task
 function theoToMdx() {
@@ -17,6 +18,7 @@ function theoToMdx() {
         },
       })
     )
+    .pipe(prettier())
     .pipe(dest('src/design-tokens/generated'));
 }
 

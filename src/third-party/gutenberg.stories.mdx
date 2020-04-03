@@ -512,4 +512,42 @@ Adding a caption in the editor includes a `figcaption` element before the closin
     </Story>
 </Preview>
 
+## File
 
+The file block allows downloading or opening media or page attachment content.
+
+This block creates a `div` with class `wp-block-file`, which wraps one or two
+`a` elements, the second of which (toggled in the editor) is meant to be styled
+as a button, adding the class `wp-block-file__button`.
+
+<Preview>
+  <Story name="core/file" height="100px">
+    {`<div class="wp-block-file">
+        <a href="https://i1.wp.com/wordpress.org/news/files/2020/03/Squares.jpg"
+          rel="noreferrer noopener" target="_blank">
+            Open in new tab
+        </a>
+        <a href="https://i1.wp.com/wordpress.org/news/files/2020/03/Squares.jpg"
+          class="wp-block-file__button"
+          download="">
+            Download file
+        </a>
+      </div>`}
+  </Story>
+</Preview>
+
+## Spacer
+
+The spacer block is a `div` with a class of `wp-block-spacer`.
+
+<Preview>
+  <Story name="core/spacer" height="200px">
+    {`<p>Content before spacer.</p>
+        <div
+          style="height:50px"
+          aria-hidden="true"
+          class="wp-block-spacer"
+        ></div>
+      <p>Content after spacer.</p>`}
+  </Story>
+</Preview>

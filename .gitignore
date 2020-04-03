@@ -2,8 +2,10 @@
 dist
 storybook-static
 
-# Generated files
+# Auto-generated templatized SVG files
 /src/assets/**/*.twig
+
+# Auto-generated design token stories
 /src/design-tokens/generated
 
 # Dependencies

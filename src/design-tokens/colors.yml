@@ -29,6 +29,7 @@ aliases:
   gray: '#738da0'
   gray_dark: '#485968'
   gray_darker: '#252b32'
+  black_transparent_60: 'rgba(0, 0, 0, 0.60)'
   black_transparent_85: 'rgba(0, 0, 0, 0.85)'
   white_transparent_85: 'rgba(255, 255, 255, 0.85)'
   white: '#fff'
@@ -37,6 +38,10 @@ props:
     value: '{!black_transparent_85}'
     category: text-color
     comment: Accessible on white and lightest gray.
+  - name: text_dark_muted
+    value: '{!black_transparent_60}'
+    category: text-color
+    comment: Intended for placeholder text in inputs. Use cautiously and always test combinations for contrast.
   - name: text_light
     value: '{!white_transparent_85}'
     category: text-color

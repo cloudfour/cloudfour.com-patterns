@@ -1,0 +1,20 @@
+{
+  "extends": ["plugin:@cloudfour/recommended", "plugin:mdx/recommended"],
+  "globals": {
+    "Prism": true
+  },
+  "plugins": ["react"],
+  "settings": {
+    "node": {
+      "allowModules": [
+        "@storybook/addon-docs",
+        "@storybook/addon-knobs",
+        "@storybook/client-api"
+      ]
+    }
+  },
+  "rules": {
+    "padding-line-between-statements": "off",
+    "react/jsx-uses-vars": "error"
+  }
+}

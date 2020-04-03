@@ -18,6 +18,6 @@ aliases:
   double_octave: 4
 props:
   ratio:
-    value: "{!major_third}"
+    value: '{!major_third}'
     type: float
     category: modular_scale

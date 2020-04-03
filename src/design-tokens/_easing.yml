@@ -25,11 +25,11 @@ aliases:
   ease_in_out_back: cubic-bezier(0.68, -0.55, 0.265, 1.55)
 props:
   ease_in_out:
-    value: "{!ease_in_out_quad}"
+    value: '{!ease_in_out_quad}'
   ease_in:
-    value: "{!ease_in_quad}"
+    value: '{!ease_in_quad}'
   ease_out:
-    value: "{!ease_out_quad}"
+    value: '{!ease_out_quad}'
 global:
   type: bezier
   category: easing

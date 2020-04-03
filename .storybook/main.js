@@ -42,11 +42,14 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              // Dart Sass performs much better than Node Sass
+              // Dart Sass is easier to install than Node Sass
               implementation: require('sass'),
               sassOptions: {
-                // Import Theo design tokens as SCSS variables
-                importer: [require('../.theo/sass-importer')],
+                importer: [
+                  require('../glob-sass-importer'),
+                  // Import Theo design tokens as SCSS variables
+                  require('../.theo/sass-importer'),
+                ],
               },
             },
           },

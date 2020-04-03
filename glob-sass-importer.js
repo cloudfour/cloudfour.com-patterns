@@ -16,7 +16,7 @@ const globImporter = (url, currentPath, done) => {
   const isGlob = url.includes('*');
   if (!isGlob) return null;
   glob(url, { cwd: path.dirname(currentPath) }).then((matchingPaths) => {
-    // Generates a fake file that has the expanded @use statements
+    // Generates a fake file that has the expanded @forward statements
     const contents = matchingPaths
       .map((filePath) => `@forward "${filePath}";`)
       .join('\n');

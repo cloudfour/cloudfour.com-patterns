@@ -4,7 +4,8 @@
 @use "../../mixins/focus";
 
 .c-checkbox {
-  @supports (-moz-appearance: none) or (-webkit-appearance: none) or (appearance: none) {
+  @supports (-moz-appearance: none) or (-webkit-appearance: none) or
+    (appearance: none) {
     -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     appearance: none;
@@ -27,7 +28,10 @@
 
     &:checked {
       background-color: currentColor;
-      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M4 12l5.08 6L20 6"/%3E%3C/svg%3E');
+      background-image: svg-load(
+        'icons/check.svg',
+        stroke=colors.$text-light-emphasis
+      );
     }
 
     &:hover {
@@ -51,7 +55,7 @@
     &:disabled {
       border-style: dashed;
       color: colors.$gray-dark;
-      cursor:  not-allowed;
+      cursor: not-allowed;
       transform: none;
 
       .t-dark & {
@@ -60,11 +64,14 @@
 
       &:checked {
         background-color: transparent;
-        background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" stroke="rgb(72,89,104)" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M4 12l5.08 6L20 6"/%3E%3C/svg%3E');
+        background-image: svg-load('icons/check.svg', stroke=colors.$gray-dark);
         border-color: transparent;
 
         .t-dark & {
-          background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="none" stroke="%238abfff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M4 12l5.08 6L20 6"/%3E%3C/svg%3E');
+          background-image: svg-load(
+            'icons/check.svg',
+            stroke=colors.$primary-brand-lighter
+          );
         }
       }
     }

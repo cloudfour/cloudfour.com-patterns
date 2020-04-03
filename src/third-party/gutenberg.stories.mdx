@@ -368,4 +368,76 @@ applied only if the solid color background is toggled on.
   </Story>
 </Preview>
 
+## Table
+
+The table block renders a table wrapped in a `figure` element with the class
+`wp-block-table`. Controls for this block render optional `thead` and `tfoot` sections.
+A caption input renders a `figcaption` element within the wrapper and below the
+`table` element.
+
+Right, left, or center alignment of cell content can be set at the column level,
+and adds a `has-text-align-` class to each affected cell.
+
+Style controls add one of 2 classes, `is-style-default` or `is-style-stripes` to
+the parent wrapper, for controlling zebra-striping on alternate rows.
+
+Another control optionally adds the `has-fixed-layout` class to the `table` element.
+
+<Preview>
+  <Story name="core/table" height="250px">
+    {`<figure class="wp-block-table is-style-stripes">
+        <table class="has-fixed-layout">
+          <thead>
+            <tr>
+              <th class="has-text-align-right" data-align="right">Heading 1</th>
+              <th class="has-text-align-right" data-align="right">Heading 2</th>
+              <th class="has-text-align-right" data-align="right">Heading 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+            </tr>
+          </tfoot>
+        </table>
+        <figcaption>A caption can be added but is not rendered as a caption element</figcaption>
+      </figure>
+      `}
+  </Story>
+</Preview>
+
+## Separator
+
+The separator block adds the `wp-block-separator` class to an `hr` element.
+
+Style controls add `is-style-default`, `is-style-wide` or `is-style-dots` classes.
+
+The color control, if used, adds both `has-text-color` and `has-background` classes,
+as well as modifier classes for predefined color choice or inline styles for user-defined
+color selection.
+
+<Preview>
+  <Story name="core/separator" height="100px">
+    {`<hr class="wp-block-separator has-text-color has-background has-subtle-background-background-color has-subtle-background-color is-style-wide">`}
+  </Story>
+</Preview>
 

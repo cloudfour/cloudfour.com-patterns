@@ -100,13 +100,13 @@
     "watch-preprocess": "gulp watch-preprocess",
     "build": "gulp build",
     "check-lint": "run-s check-lint:*",
-    "check-lint:prettier": "prettier --ignore-path .gitignore --check '**/*.{scss,js,mdx}'",
-    "check-lint:css": "stylelint --ignore-path .gitignore '**/*.scss'",
-    "check-lint:js": "eslint --ignore-path .gitignore '**/*.{js,mdx}'",
+    "check-lint:prettier": "prettier . --check",
+    "check-lint:css": "stylelint '**/*.scss'",
+    "check-lint:js": "eslint . --ext .js,.mdx",
     "lint": "run-s lint:*",
-    "lint:prettier": "prettier --ignore-path .gitignore --write '**/*.{scss,js,mdx}'",
-    "lint:css": "stylelint --ignore-path .gitignore --fix '**/*.scss'",
-    "lint:js": "eslint --ignore-path .gitignore --fix '**/*.{js,mdx}'",
+    "lint:prettier": "prettier . --write",
+    "lint:css": "stylelint --fix '**/*.scss'",
+    "lint:js": "eslint . --fix --ext .js,.mdx",
     "prepublishOnly": "npm ci && npm run check-lint && npm run preprocess && npm run build"
   }
 }

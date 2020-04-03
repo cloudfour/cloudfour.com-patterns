@@ -237,9 +237,8 @@ The text overlay inside the cover block its own `div` wrapper with a class of
         </div>
         <video
           class="wp-block-cover__video-background"
-          autoplay="false"
-          muted="true"
-          loop="false"
+          autoplay
+          muted
           src="http://mirrors.standaloneinstaller.com/video-sample/dolbycanyon.m4v"
           data-origwidth="0"
           data-origheight="0"
@@ -248,6 +247,51 @@ The text overlay inside the cover block its own `div` wrapper with a class of
         </video>
         <div class="wp-block-cover__inner-container">
           <p class="has-text-align-center has-large-font-size">Video</p>
+        </div>
+      </div>`}
+  </Story>
+</Preview>
+
+## Group
+
+A block that groups other (arbitrary) blocks.
+
+The group block is wrapped by a `div` with the class `wp-block-group`.
+
+A secondary wrapper `div` has the class `wp-block-group__inner-container`, and provides
+a way to set padding on the grouped content within the parent wrapper.
+
+(@TODO - Move anything like this to a top-level content section.)
+Controls enable setting of the wrapper element's `background-color` and `color`.
+
+The base class for a group with a background-color is `has-background` and the
+selection may add a modified class like `has-subtle-background-background-color`.
+Setting a text `color` will add the class `has-text-color` and may add a modified class like
+`has-secondary-color`.
+
+If user-defined colors are chosen, no modifier classes will
+be added. Instead, inline styles will set `color` and/or `background-color`.
+
+By default, grouped blocks that don't set their own `background-color` and `color`
+will inherit from the group block wrapper, but otherwise they will retain their
+own styles.
+
+<Preview>
+  <Story name="core/group" height="500px">
+    {`<div class="wp-block-group has-background" style="background-color:#ffffff">
+        <div class="wp-block-group__inner-container">
+          <p style="color:#cf2e2e" class="has-text-color has-large-font-size">One.</p>
+          <p style="color:#ff6900" class="has-text-color has-large-font-size">Two.</p>
+          <p style="color:#fcb900" class="has-text-color has-large-font-size">
+            Three.
+          </p>
+          <p style="color:#00d084" class="has-text-color has-large-font-size">
+            Four.
+          </p>
+          <p style="color:#0693e3" class="has-text-color has-large-font-size">
+            Five.
+          </p>
+          <p style="color:#9b51e0" class="has-text-color has-large-font-size">Six.</p>
         </div>
       </div>`}
   </Story>

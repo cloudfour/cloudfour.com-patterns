@@ -10,9 +10,6 @@
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     appearance: none;
     background-color: colors.$text-light;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     border: sizes.$edge-medium solid currentColor;
     border-radius: sizes.$radius_medium;
     color: colors.$text-dark;
@@ -22,30 +19,52 @@
     margin: 0;
     padding: 0;
     position: relative;
-    transition: color motion.$speed-slow motion.$ease-out,
-      transform motion.$speed-quick motion.$ease-out;
+    transition-duration: motion.$speed-quick;
+    transition-property: background-color, border-color, color;
+    transition-timing-function: motion.$ease-out;
     width: sizes.$toggle-medium;
 
-    &:checked {
-      background-color: currentColor;
+    &::after {
       background-image: svg-load(
         'icons/check.svg',
         stroke=colors.$text-light-emphasis
       );
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      bottom: sizes.$edge-medium;
+      content: '';
+      left: sizes.$edge-medium;
+      opacity: 0;
+      position: absolute;
+      right: sizes.$edge-medium;
+      top: sizes.$edge-medium;
+      transform: scale(0);
+      transition-duration: motion.$speed-quick;
+      transition-property: opacity, transform;
+      transition-timing-function: motion.$ease-out;
     }
 
     &:hover {
-      // background-color: colors.$text-light-emphasis;
+      background-color: colors.$text-light-emphasis;
       color: colors.$primary-brand;
-      transform: scale(1.05);
 
       .t-dark & {
         color: colors.$text-dark;
       }
     }
 
-    &:active {
-      transform: scale(0.95);
+    &:checked {
+      background-color: currentColor;
+
+      &::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .t-dark &:hover {
+        color: colors.$primary-brand-darker;
+      }
     }
 
     @include focus.focus-visible {
@@ -53,26 +72,28 @@
     }
 
     &:disabled {
+      background-color: transparent;
       border-style: dashed;
       color: colors.$gray-dark;
       cursor: not-allowed;
-      transform: none;
 
       .t-dark & {
-        color: colors.$primary-brand-lighter;
+        color: colors.$text-light;
       }
 
-      &:checked {
-        background-color: transparent;
+      &::after {
         background-image: svg-load('icons/check.svg', stroke=colors.$gray-dark);
-        border-color: transparent;
 
         .t-dark & {
           background-image: svg-load(
             'icons/check.svg',
-            stroke=colors.$primary-brand-lighter
+            stroke=colors.$text-light
           );
         }
+      }
+
+      &:checked {
+        border-color: transparent;
       }
     }
   }

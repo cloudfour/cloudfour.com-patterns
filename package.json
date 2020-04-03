@@ -82,33 +82,5 @@
     "lint:prettier": "prettier --ignore-path .gitignore --write '**/*.{scss,js,mdx}'",
     "lint:css": "stylelint --ignore-path .gitignore --fix '**/*.scss'",
     "lint:js": "eslint --ignore-path .gitignore --fix '**/*.{js,mdx}'"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:@cloudfour/recommended",
-      "plugin:mdx/recommended"
-    ],
-    "globals": {
-      "Prism": true
-    },
-    "plugins": [
-      "react"
-    ],
-    "settings": {
-      "node": {
-        "allowModules": [
-          "@storybook/addon-docs",
-          "@storybook/addon-knobs",
-          "@storybook/client-api"
-        ]
-      }
-    },
-    "rules": {
-      "padding-line-between-statements": "off",
-      "react/jsx-uses-vars": "error"
-    }
-  },
-  "prettier": {
-    "singleQuote": true
   }
 }

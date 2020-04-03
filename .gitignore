@@ -2,6 +2,10 @@
 dist
 storybook-static
 
+# Generated files
+/src/assets/**/*.twig
+/src/design-tokens/generated
+
 # Dependencies
 node_modules
 npm-debug.log

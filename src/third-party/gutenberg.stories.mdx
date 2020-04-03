@@ -296,3 +296,33 @@ own styles.
       </div>`}
   </Story>
 </Preview>
+
+## Media-Text
+
+Combines media and textual content in a wrapper with a class of `wp-block-media-text`.
+The media content is contained in a wrapper with class `wp-block-media-text__media`
+and its text sibling has a class of `wp-block-media-text__content`.
+
+As with the group block, a control can set the parent wrapper's pre-selected or
+custom `background-color`.
+
+Controls allow the horizontal and vertical alignment and arrangement of the media
+and text elements. Choices result in the insertion of additional parent wrapper classes
+such as `is-vertically-aligned-center` and `has-media-on-the-right`, as well as either
+an `alignwide` (horizontal padding) or `alignfull` (no horizontal padding) class.
+Another control toggles the class `is-stacked-on-mobile`.
+
+<Preview>
+  <Story name="core/media-text" height="500px">
+    {`<div class="wp-block-media-text alignwide is-stacked-on-mobile has-media-on-the-right is-vertically-aligned-center has-background has-subtle-background-background-color">
+        <figure class="wp-block-media-text__media">
+          <img src="https://s.w.org/images/core/5.3/Biologia_Centrali-Americana_-_Cantorchilus_semibadius_1902.jpg" alt="" />
+        </figure>
+        <div class="wp-block-media-text__content">
+
+          <p>The wren<br>Earns his living<br>Noiselessly.</p>
+
+          <p>— Kobayashi Issa (一茶)</p>
+      </div>`}
+  </Story>
+</Preview>

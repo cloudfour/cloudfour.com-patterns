@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "focus-visible": "5.1.0",
-    "prismjs": "1.19.0"
+    "prismjs": "1.20.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",

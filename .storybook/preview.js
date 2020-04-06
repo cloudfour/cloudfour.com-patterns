@@ -28,6 +28,10 @@ for (let i = -3; i <= 6; i++) {
 }
 addDecorator(withPaddings);
 addParameters({ paddings });
+/**
+ * Default viewport is Responsive: 100% x 100%. When a breakpoint is chosen, this
+ * will show as the Reset Viewport option
+ */
 addParameters({
   viewport: {
     viewports: breakpointViewports,

@@ -10,5 +10,6 @@ export const breakpointViewports = Object.keys(breakpoints).map((name) => {
       width: breakpoints[name],
       height: '100%',
     },
+    type: 'other',
   };
 });

@@ -2,10 +2,7 @@ import { addDecorator, addParameters } from '@storybook/html';
 import { withA11y } from '@storybook/addon-a11y';
 import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
-import {
-  breakpointViewports,
-  defaultBreakpoint,
-} from './helpers/breakpoint-viewports';
+import { breakpointViewports } from './helpers/breakpoint-viewports';
 import { ratio } from '../src/design-tokens/modular-scale.yml';
 import 'focus-visible';
 import './preview.scss';
@@ -34,6 +31,5 @@ addParameters({ paddings });
 addParameters({
   viewport: {
     viewports: breakpointViewports,
-    defaultViewport: defaultBreakpoint,
   },
 });

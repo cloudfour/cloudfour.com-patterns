@@ -1,23 +1,23 @@
 import * as breakpoints from '../../src/design-tokens/breakpoint.yml';
 
-const breakpointEntries = Object.entries(breakpoints);
+const breakpointNames = Object.keys(breakpoints);
 
-const defaultNum = Math.round(breakpointEntries.length / 2) - 1;
+const defaultNum = Math.round(breakpointNames.length / 2) - 1;
 
 /**
  * Default is arbitrarily set to the middle breakpoint of an odd-numbered set or
  * the largest of the lower half of breakpoints for an even-numbered set
  */
-export const defaultBreakpoint = breakpointEntries[defaultNum][0];
+export const defaultBreakpoint = breakpointNames[defaultNum];
 
 /**
  * List of viewports to use with addon-viewport, based on Theo breakpoints tokens
  */
-export const breakpointViewports = breakpointEntries.map((viewport, index) => {
+export const breakpointViewports = breakpointNames.map((name) => {
   return {
-    name: viewport[0],
+    name,
     styles: {
-      width: viewport[1],
+      width: breakpoints[name],
       height: '100%',
     },
   };

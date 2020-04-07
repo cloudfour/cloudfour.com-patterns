@@ -34,6 +34,7 @@
   transition-duration: motion.$speed-quick;
   transition-property: background-color, border-color;
   transition-timing-function: motion.$ease-out;
+  vertical-align: middle;
   width: 100%;
 
   /**
@@ -49,6 +50,38 @@
   &[type='text'] {
     padding-left: 0;
     text-indent: sizes.$control-text-inset;
+  }
+
+  /**
+   * Multi-line types should be taller
+   */
+
+  @at-root textarea#{&} {
+    height: sizes.$control-height-multiline;
+  }
+
+  /**
+   * Types that disclose additional options should have an icon
+   *
+   * 1. Setting the background size to `100%` avoids a strange background shift
+   *    bug on hover in Chrome but has no visible effect in other browsers as
+   *    long as the image is an SVG that does not preserve its aspect ratio.
+   * 2. Firefox misaligns inner options when padding is applied, but all modern
+   *    browsers seem to align selects predictably even when there is no
+   *    vertical padding. We still keep a small amount of padding because
+   *    Firefox's inner dotted outline looks gross when it runs into the outer
+   *    border, and existing hacks around this visibly degrade text rendering.
+   * 3. Prevents option text from overlapping icon.
+   */
+
+  @at-root select#{&} {
+    background-image: svg-load('icons/caret-down.svg', fill=colors.$text-dark);
+    background-position: right sizes.$control-icon-inset center;
+    background-repeat: no-repeat;
+    background-size: sizes.$control-icon-size 100%; /* 1 */
+    padding-bottom: sizes.$control-pad-vertical / 2; /* 2 */
+    padding-right: sizes.$control-icon-inset + sizes.$control-icon-size; /* 3 */
+    padding-top: sizes.$control-pad-vertical / 2; /* 2 */
   }
 
   &:hover:not(:disabled):not([readonly]) {
@@ -103,16 +136,4 @@
     opacity: 1; /* 2 */
     -webkit-text-fill-color: colors.$text-dark-muted; /* 1 */
   }
-}
-
-/**
- * We target `textarea` elements specifically because it seems unnecessarily
- * complex to require a modifier class that is only applicable to a single
- * element.
- *
- * 1. Should be taller than a single-line input.
- */
-
-textarea.c-input {
-  height: sizes.$control-height-multiline; /* 1 */
 }

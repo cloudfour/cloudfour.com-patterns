@@ -1,23 +1,21 @@
 {% set tagName = tagName | default('div') %}
 
-<div class="o-message{% if class %} {{class}}{% endif %}">
+<{{tagName}} class="c-message{% if class %} {{class}}{% endif %}">
   {% block content %}
     <p>
       {{label | default('Hi, I\'m a message!')}}
     </p>
   {% endblock %}
   {% if includeClose %}
-    <button class="o-message-close" type="button">
-      
+    <button class="c-message-close" type="button">
       {# 
         TODO
         1. aria-labelledby
         2. closeIconTitle
        #}
       {% include '../../assets/icons/close.svg.twig' with {
-        class: 'o-icon'
+        class: 'c-icon'
       } %}
-      
     </button>
   {% endif %}
-</div>
+</{{tagName}}>

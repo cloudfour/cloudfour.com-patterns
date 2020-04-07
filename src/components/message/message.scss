@@ -10,18 +10,18 @@
  * 3. Condense line height in case it breaks to multiple lines.
  */
 
-.o-message {
+.c-message {
   align-items: center; /* 1 */
-  background: colors.$primary-brand;
+  background: colors.$gray-light;
   display: flex; /* 1, 2 */
   justify-content: space-between; /* 2 */
   line-height: ms.step(1, 1); /* 3 */
   padding: ms.step(-3) ms.step(0);
-  color: colors.$text-light;
+  color: colors.$text-dark;
 }
 
-.o-message--warning {
-  background: colors.$orange;
+.c-message--warning {
+  background: colors.$fuchsia;
   color: colors.$text-light-emphasis;
 }
 
@@ -29,7 +29,7 @@
  * Inherit parent text color for links when blue is hideous against background.
  */
 
-.o-message--warning a {
+.c-message--warning a {
   color: inherit;
 }
 
@@ -41,7 +41,7 @@
  * 5. Put some space between message and close button.
  */
 
-.o-message-close {
+.c-message-close {
   background-color: inherit; /* 1 */
   border: 0; /* 1 */
   color: inherit; /* 2 */

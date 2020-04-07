@@ -9,9 +9,10 @@ import './container.scss';
 # Container
 
 <Preview>
-  <Story name="Basic"
-  height="300px"
-  parameters={{ paddings: { disabled: true } }}
+  <Story
+    name="Basic"
+    height="300px"
+    parameters={{ paddings: { disabled: true } }}
   >
     {basicDemo({
       prose: boolean('Add o-container--prose modifier to the container', false),
@@ -22,9 +23,10 @@ import './container.scss';
 ## Prose
 
 <Preview>
-  <Story name="Prose"
-  height="300px"
-  parameters={{ paddings: { disabled: true } }}
+  <Story
+    name="Prose"
+    height="300px"
+    parameters={{ paddings: { disabled: true } }}
   >
     {basicDemo({
       prose: boolean('Add o-container--prose modifier to the container', true),

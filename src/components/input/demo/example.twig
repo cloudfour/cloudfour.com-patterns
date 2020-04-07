@@ -1,0 +1,7 @@
+<demo class="demo-input-basic{% if type != 'textarea' %} demo-input-basic--single-line{% endif %}">
+  <label for="{{id}}">Label</label>
+  {% block element %}
+    {% include '../input.twig' %}
+  {% endblock %}
+  {% include '../../button/button.twig' with { label: 'Button' } %}
+</demo>

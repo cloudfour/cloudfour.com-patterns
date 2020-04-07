@@ -9,19 +9,6 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-knobs/register',
     '@storybook/addon-viewport/register',
-    {
-      name: '@storybook/preset-scss',
-      options: {
-        sassLoaderOptions: {
-          // Dart Sass performs much better than Node Sass
-          implementation: require('sass'),
-          sassOptions: {
-            // Import Theo design tokens as SCSS variables
-            importer: [require('../.theo/sass-importer')],
-          },
-        },
-      },
-    },
     // Community addons
     'storybook-addon-themes',
     'storybook-addon-paddings',
@@ -38,6 +25,36 @@ module.exports = {
 
     // Push new rules
     config.module.rules.push(
+      {
+        test: /\.s[ca]ss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              // Lets CSS loader know there are two loaders left that may be
+              // handling imports.
+              // @see https://github.com/webpack-contrib/css-loader#importloaders
+              importLoaders: 2,
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              // Dart Sass is easier to install than Node Sass
+              implementation: require('sass'),
+              sassOptions: {
+                importer: [
+                  require('../glob-sass-importer'),
+                  // Import Theo design tokens as SCSS variables
+                  require('../.theo/sass-importer'),
+                ],
+              },
+            },
+          },
+        ],
+      },
       {
         test: /\.twig$/,
         use: 'twigjs-loader',

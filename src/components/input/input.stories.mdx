@@ -1,0 +1,37 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import textDemo from './demo/example.twig';
+import selectDemo from './demo/select.twig';
+import '../../themes/_index.scss';
+import './input.scss';
+import './demo/styles.scss';
+
+<Meta title="Components/Input" decorators={[withKnobs]} />
+
+# Input
+
+The `c-input` class styles text and text-like form elements in a consistent way. It works great with an adjacent [button component](/?path=/story/components-button--elements).
+
+<Preview>
+  <Story name="Text Elements" height="200px">
+    {textDemo({
+      type: select('type', ['text', 'email', 'search', 'date', 'textarea']),
+      value: text('value'),
+      placeholder: text('placeholder', 'Placeholder text…'),
+      id: text('id', 'demo-input'),
+      readonly: boolean('readonly'),
+      disabled: boolean('disabled'),
+    })}
+  </Story>
+</Preview>
+
+You can also add `c-input` to `<select>` elements, in which case you’ll get a nifty iconographic affordance. The `multiple` attribute is not supported.
+
+<Preview>
+  <Story name="Select Element" height="200px">
+    {selectDemo({
+      id: text('id', 'demo-select'),
+      disabled: boolean('disabled'),
+    })}
+  </Story>
+</Preview>

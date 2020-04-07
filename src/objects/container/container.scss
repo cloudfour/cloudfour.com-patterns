@@ -1,5 +1,11 @@
 @use "../../design-tokens/layout.yml";
 
+/**
+ * There are no default styles for `o-container`. It acts as a wrapper so that
+ * we can add space utilities to the container without interfering with the
+ * margins for `o-container__content`.
+ */
+
 .o-container__content {
   margin: 0 auto;
   max-width: layout.$max_width_spread;

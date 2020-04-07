@@ -1,7 +1,7 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
-import themesDarkDemo from './demo/theme-dark.twig';
+import './demo/styles.scss';
 import './container.scss';
 
 <Meta title="Objects/Container" decorators={[withKnobs]} />
@@ -9,7 +9,10 @@ import './container.scss';
 # Container
 
 <Preview>
-  <Story name="Basic">
+  <Story name="Basic"
+  height="300px"
+  parameters={{ paddings: { disabled: true } }}
+  >
     {basicDemo({
       prose: boolean('Add o-container--prose modifier to the container', false),
     })}
@@ -19,7 +22,10 @@ import './container.scss';
 ## Prose
 
 <Preview>
-  <Story name="Prose">
+  <Story name="Prose"
+  height="300px"
+  parameters={{ paddings: { disabled: true } }}
+  >
     {basicDemo({
       prose: boolean('Add o-container--prose modifier to the container', true),
     })}
@@ -31,10 +37,12 @@ import './container.scss';
 <Preview>
   <Story
     name="Themes (Dark)"
+    height="300px"
     parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
   >
-    {themesDarkDemo({
+    {basicDemo({
       prose: boolean('Add o-container--prose modifier to the container', false),
+      theme: 'dark',
     })}
   </Story>
 </Preview>

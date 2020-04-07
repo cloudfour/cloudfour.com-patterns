@@ -1,5 +1,11 @@
+{#
+  Containers do not have padding or margins by default. `demo-container` adds padding to container for demo purposes only.
+#}
+
+{% set class = 'demo-container' %}
+
 {% if prose %}
-  {% set containerClass = containerClass ~ ' o-container--prose' %}
+  {% set class = class ~ ' o-container--prose' %}
 {% endif %}
 
 {% embed '../container.twig' %}

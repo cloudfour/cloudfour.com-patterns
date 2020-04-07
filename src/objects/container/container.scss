@@ -1,9 +1,5 @@
 @use "../../design-tokens/layout.yml";
 
-.o-container {
-  position: relative;
-}
-
 .o-container__content {
   margin: 0 auto;
   max-width: layout.$max_width_spread;

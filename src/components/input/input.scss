@@ -1,0 +1,139 @@
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/motion.yml";
+@use "../../design-tokens/sizes.yml";
+
+/**
+ * 1. Browsers apply certain default styles unless appearance is set to `none`.
+ *    Unfortunately Chrome, Safari and Mozilla all still rely on the
+ *    vendor-prefixed version of this property at the time of this writing.
+ * 2. Input heights vary between different types in certain browsers unless a
+ *    height is explicitly set.
+ * 3. Non-normal line heights break placeholder text alignment in Safari.
+ * 4. Safari will not style disabled inputs with readable text unless we set
+ *    this property in addition to `color`. Unfortunately this also resets the
+ *    appearance of `::placeholder`, which we'll style later on.
+ */
+
+.c-input {
+  -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+  -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+  appearance: none; /* 1 */
+  background-color: colors.$text-light;
+  border: sizes.$edge-medium solid currentColor;
+  border-radius: sizes.$radius-medium;
+  color: colors.$text-dark;
+  display: block;
+  font: inherit;
+  font-style: normal;
+  height: sizes.$control-height; /* 2 */
+  line-height: normal; /* 3 */
+  margin: 0;
+  outline: none;
+  padding: sizes.$control-pad-vertical sizes.$control-text-inset;
+  -webkit-text-fill-color: colors.$text-dark; /* 4 */
+  transition-duration: motion.$speed-quick;
+  transition-property: background-color, border-color;
+  transition-timing-function: motion.$ease-out;
+  vertical-align: middle;
+  width: 100%;
+
+  /**
+   * For certain single-line input types, using `text-indent` instead of
+   * `padding-left` gives a more natural and intuitive appearance when text
+   * content overflows.
+   *
+   * We do not apply this for search inputs because Safari gets weird about
+   * search input padding.
+   */
+
+  &[type='email'],
+  &[type='text'] {
+    padding-left: 0;
+    text-indent: sizes.$control-text-inset;
+  }
+
+  /**
+   * Multi-line types should be taller
+   */
+
+  @at-root textarea#{&} {
+    height: sizes.$control-height-multiline;
+  }
+
+  /**
+   * Types that disclose additional options should have an icon
+   *
+   * 1. Setting the background size to `100%` avoids a strange background shift
+   *    bug on hover in Chrome but has no visible effect in other browsers as
+   *    long as the image is an SVG that does not preserve its aspect ratio.
+   * 2. Firefox misaligns inner options when padding is applied, but all modern
+   *    browsers seem to align selects predictably even when there is no
+   *    vertical padding. We still keep a small amount of padding because
+   *    Firefox's inner dotted outline looks gross when it runs into the outer
+   *    border, and existing hacks around this visibly degrade text rendering.
+   * 3. Prevents option text from overlapping icon.
+   */
+
+  @at-root select#{&} {
+    background-image: svg-load('icons/caret-down.svg', fill=colors.$text-dark);
+    background-position: right sizes.$control-icon-inset center;
+    background-repeat: no-repeat;
+    background-size: sizes.$control-icon-size 100%; /* 1 */
+    padding-bottom: sizes.$control-pad-vertical / 2; /* 2 */
+    padding-right: sizes.$control-icon-inset + sizes.$control-icon-size; /* 3 */
+    padding-top: sizes.$control-pad-vertical / 2; /* 2 */
+  }
+
+  &:hover:not(:disabled):not([readonly]) {
+    background-color: colors.$text-light-emphasis;
+    border-color: colors.$primary-brand;
+
+    .t-dark & {
+      border-color: currentColor;
+    }
+  }
+
+  /**
+   * We use plain ol' `focus` rather than `focus-visible` because text inputs
+   * are almost always in a state of keyboard interaction, making the difference
+   * (if any) minimal.
+   */
+
+  &:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  }
+
+  &[readonly]:not(:disabled) {
+    background-color: transparent;
+    border-color: transparent;
+    color: inherit;
+  }
+
+  &:disabled {
+    background-color: colors.$gray-light;
+    border-color: colors.$gray;
+    cursor: not-allowed;
+
+    .t-dark & {
+      background-color: colors.$primary-brand-lighter;
+      border-color: colors.$primary-brand-dark;
+    }
+  }
+
+  /**
+   * 1. We set `-webkit-text-fill-color` on the root element so that Safari
+   *    would respect our disabled text color. But that also resets the
+   *    `::placeholder` color, so we have to specify our own so it will be
+   *    distinct from a normal value while maintaining reasonable high color
+   *    contrast.
+   * 2. Firefox uses `opacity` instead of a lightened text color, appearing
+   *    lighter than other browsers unless we reset it here.
+   */
+
+  &::placeholder {
+    color: colors.$text-dark-muted; /* 1 */
+    opacity: 1; /* 2 */
+    -webkit-text-fill-color: colors.$text-dark-muted; /* 1 */
+  }
+}

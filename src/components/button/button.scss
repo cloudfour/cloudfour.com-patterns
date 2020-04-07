@@ -1,0 +1,112 @@
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/font.yml";
+@use "../../design-tokens/motion.yml";
+@use "../../design-tokens/sizes.yml";
+@use "../../mixins/focus";
+@use "../../mixins/ms";
+@use "../../mixins/unit";
+
+/**
+ * Button object
+ *
+ * 1. More overtly actionable cursor appearance. Recently this tweak has come
+ *    with some contention, but our experience has been that the average user
+ *    doesn't differentiate cursor styles between different styles of action.
+ * 2. Although we will be overtly setting some typographic properties, the
+ *    shorthand is helpful for completely overriding all system font styles as
+ *    a starting point.
+ * 3. We set a height to coordinate consistently with `c-input`. Unfortunately
+ *    browsers don't consistently size inputs without setting `height`.
+ */
+
+.c-button {
+  background: colors.$primary-brand;
+  border-color: colors.$primary-brand-dark;
+  border-radius: sizes.$radius-medium;
+  border-style: solid;
+  border-width: sizes.$edge-medium;
+  color: colors.$text-light-emphasis;
+  cursor: pointer; /* 1 */
+  display: inline-block;
+  font: inherit; /* 2 */
+  font-style: normal;
+  font-weight: font.$weight-semibold;
+  height: sizes.$control-height; /* 3 */
+  line-height: normal;
+  margin: 0;
+  padding: sizes.$control-pad-vertical sizes.$control-pad-horizontal;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: filter motion.$speed-slow motion.$ease-out,
+    transform motion.$speed-quick motion.$ease-out;
+  user-select: none;
+
+  /**
+   * Transform, opacity and filter changes are performant and will work across
+   * many more stylistic modifiers than specific color shifts.
+   */
+
+  &:hover {
+    filter: brightness(110%);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    filter: brightness(80%);
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: grayscale(60%);
+    opacity: 0.85;
+    transform: none;
+  }
+
+  @include focus.focus-visible {
+    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  }
+
+  .t-dark & {
+    background-color: colors.$primary-brand-dark;
+    border-color: colors.$primary-brand-darker;
+  }
+}
+
+/**
+ * Modifier: Secondary
+ */
+
+.c-button--secondary {
+  border-color: colors.$primary-brand-light;
+  color: colors.$primary-brand;
+
+  &,
+  .t-dark & {
+    background-color: transparent;
+  }
+
+  .t-dark & {
+    border-color: colors.$primary-brand-dark;
+    color: colors.$text-light-emphasis;
+  }
+}
+
+/**
+ * Modifier: Tertiary
+ */
+
+.c-button--tertiary {
+  color: colors.$primary-brand;
+
+  &,
+  .t-dark & {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .t-dark & {
+    color: colors.$text-light-emphasis;
+  }
+}

@@ -1,0 +1,86 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
+import basicDemo from './demo/basic.twig';
+import data from './demo/data.json';
+import './table.scss';
+
+<Meta title="Components/Table" decorators={[withKnobs]} />
+
+# Table
+
+The `c-table` class applies default styling to HTML `table` elements.
+A table can optionally have a header, a footer, and a caption.
+
+<Preview>
+  <Story name="Basic">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      hasCaption: boolean('Include Caption', true),
+      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
+      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
+      numericData: boolean('Add c-table--numeric modifier to the table', false),
+      tableData: data,
+    })}
+  </Story>
+</Preview>
+
+## Ruled Table
+
+The `c-table--ruled` modifier adds horizontal rules in between table rows.
+
+<Preview>
+  <Story name="Ruled">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      hasCaption: boolean('Include Caption', true),
+      isRuled: true,
+      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
+      numericData: boolean('Add c-table--numeric modifier to the table', false),
+      tableData: data,
+    })}
+  </Story>
+</Preview>
+
+## Striped Table
+
+The `c-table--striped` modifier adds alternating background colors to table rows.
+
+<Preview>
+  <Story name="Striped">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      hasCaption: boolean('Include Caption', true),
+      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
+      isStriped: true,
+      numericData: boolean('Add c-table--numeric modifier to the table', false),
+      tableData: data,
+    })}
+  </Story>
+</Preview>
+
+## Numeric Data
+
+Tables with lots of numeric data use a couple of modifications to make them
+easier to read and understand.
+
+Numeric cells are right-aligned and use tabular figures to make it easier to
+compare cells across a column.
+
+These changes can be achieved by adding c-table--numeric to the table.
+
+<Preview>
+  <Story name="Numeric Data">
+    {basicDemo({
+      hasHeader: boolean('Include Header', true),
+      hasFooter: boolean('Include Footer', true),
+      hasCaption: boolean('Include Caption', true),
+      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
+      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
+      numericData: true,
+      tableData: data,
+    })}
+  </Story>
+</Preview>

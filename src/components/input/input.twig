@@ -1,0 +1,35 @@
+{% set type = type|default('text') %}
+
+{% set attributes %}
+  class="c-input{% if class %} {{class}}{% endif %}"
+  {% for attribute_name in [
+    'id',
+    'name',
+    'placeholder',
+    'pattern',
+    'autocomplete',
+    'minlength',
+    'maxlength',
+    'size',
+    'min',
+    'max',
+    'step'] %}
+    {% set attribute_value = attribute(_context, attribute_name) %}
+    {% if attribute_value %}{{attribute_name}}="{{attribute_value}}"{% endif %}
+  {% endfor %}
+  {% for attribute_name in [
+    'autofocus',
+    'required',
+    'disabled',
+    'readonly'] %}
+    {% set attribute_value = attribute(_context, attribute_name) %}
+    {% if attribute_value %}{{attribute_name}}{% endif %}
+  {% endfor %}
+{% endset %}
+
+{% if type == 'textarea' %}
+  <textarea {{attributes}}>{{value}}</textarea>
+{% else %}
+  <input type="{{type}}" value="{{value}}" {{attributes}}>
+{% endif %}
+

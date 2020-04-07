@@ -1,7 +1,6 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
-import './demo/styles.scss';
 import './container.scss';
 
 <Meta title="Objects/Container" decorators={[withKnobs]} />
@@ -14,7 +13,6 @@ Containers are helpful for layouts, they provide a maximum width and center cont
   <Story
     name="Basic"
     height="300px"
-    parameters={{ paddings: { disabled: true } }}
   >
     {basicDemo({
       prose: boolean('Prose', false),
@@ -30,25 +28,9 @@ The `--prose` modifier is intended to be used with content that mostly consists 
   <Story
     name="Prose"
     height="300px"
-    parameters={{ paddings: { disabled: true } }}
   >
     {basicDemo({
       prose: boolean('Prose', true),
-    })}
-  </Story>
-</Preview>
-
-## Themes
-
-<Preview>
-  <Story
-    name="Themes (Dark)"
-    height="300px"
-    parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
-  >
-    {basicDemo({
-      prose: boolean('Add o-container--prose modifier to the container', false),
-      theme: 'dark',
     })}
   </Story>
 </Preview>

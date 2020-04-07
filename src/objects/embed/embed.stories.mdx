@@ -1,0 +1,50 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import template from './embed.twig';
+import imageDemo from './demo/image.twig';
+import imageDemoSrc from './demo/design-system-navigation.png';
+import penDemo from './demo/pen.twig';
+import pictureDemo from './demo/picture.twig';
+import pictureDemoJpgSrc from './demo/twilight.jpg';
+import pictureDemoWebpSrc from './demo/twilight.webp';
+import videoDemo from './demo/video.twig';
+import './embed.scss';
+
+<Meta title="Objects/Embed" decorators={[withKnobs]} />
+
+# Embed
+
+<Preview>
+  <Story name="Image">
+    {imageDemo({
+      aspect_ratio: text('aspect_ratio', '16/9'),
+      src: imageDemoSrc,
+    })}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Picture">
+    {pictureDemo({
+      aspect_ratio: text('aspect_ratio', '16/9'),
+      jpgSrc: pictureDemoJpgSrc,
+      webpSrc: pictureDemoWebpSrc,
+    })}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Video">
+    {videoDemo({
+      aspect_ratio: text('aspect_ratio', '16/9'),
+    })}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="CodePen">
+    {penDemo({
+      aspect_ratio: text('aspect_ratio', '16/9'),
+    })}
+  </Story>
+</Preview>

@@ -1,0 +1,27 @@
+.o-embed > * {
+  display: block;
+  width: 100%;
+}
+
+@supports (--custom: property) {
+  .o-embed[style*='--aspect-ratio'] {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: calc(100% / (var(--aspect-ratio)));
+    }
+
+    > *,
+    > picture > img {
+      height: 100%;
+      left: 0;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
+import basicDemo from './demo/basic.twig';
+import './container.scss';
+
+<Meta title="Objects/Container" decorators={[withKnobs]} />
+
+# Containers
+
+Containers are helpful for layouts, they provide a maximum width and center content on large screens. Margins and/or padding should be applied to the outer container `o-container` to keep content centered.
+
+<Preview>
+  <Story name="Basic" height="300px">
+    {basicDemo({
+      prose: boolean('Prose', false),
+    })}
+  </Story>
+</Preview>
+
+## Prose
+
+The `--prose` modifier is intended to be used with content that mostly consists of text, like an article. It helps improve readability by limiting line length.
+
+<Preview>
+  <Story name="Prose" height="300px">
+    {basicDemo({
+      prose: boolean('Prose', true),
+    })}
+  </Story>
+</Preview>

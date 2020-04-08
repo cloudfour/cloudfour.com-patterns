@@ -2,7 +2,7 @@ import { addDecorator, addParameters } from '@storybook/html';
 import { withA11y } from '@storybook/addon-a11y';
 import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
-import { breakpointViewports } from './helpers/breakpoint-viewports';
+import * as breakpoints from '../../src/design-tokens/breakpoint.yml';
 import { ratio } from '../src/design-tokens/modular-scale.yml';
 import 'focus-visible';
 import './preview.scss';
@@ -28,9 +28,21 @@ for (let i = -3; i <= 6; i++) {
 }
 addDecorator(withPaddings);
 addParameters({ paddings });
+
+// Create viewports using widths defined in design tokens
+const breakpointViewports = Object.keys(breakpoints).map((name) => {
+  return {
+    name,
+    styles: {
+      width: breakpoints[name],
+      height: '100%',
+    },
+    type: 'other',
+  };
+});
 /**
- * Default viewport is Responsive: 100% x 100%. When a breakpoint is chosen, this
- * will show as the Reset Viewport option
+ * The default viewport (which is not overridden here) is Responsive: 100% x 100%.
+ * After a breakpoint is chosen, the "Reset Viewport" option will use this default.
  */
 addParameters({
   viewport: {

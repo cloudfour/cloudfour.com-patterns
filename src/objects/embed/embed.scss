@@ -1,22 +1,13 @@
-@use "../../design-tokens/aspect-ratio.yml";
+@use 'sass:meta';
+@use '../../design-tokens/aspect-ratio.yml';
 
 /* stylelint-disable suitcss/custom-property-no-outside-root */
 
-@mixin o-embed-modifiers($suffix: '') {
-  .o-embed--square#{$suffix} {
-    --aspect-ratio: #{aspect-ratio.$square};
-  }
-
-  .o-embed--full#{$suffix} {
-    --aspect-ratio: #{aspect-ratio.$full};
-  }
-
-  .o-embed--wide#{$suffix} {
-    --aspect-ratio: #{aspect-ratio.$wide};
-  }
-
-  .o-embed--cinema#{$suffix} {
-    --aspect-ratio: #{aspect-ratio.$cinema};
+@mixin o-embed-modifiers() {
+  @each $name, $ratio in meta.module-variables('aspect-ratio') {
+    .o-embed--#{$name} {
+      --aspect-ratio: #{$ratio};
+    }
   }
 }
 

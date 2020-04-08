@@ -1,5 +1,6 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
+import * as aspectRatioTokens from '../../design-tokens/aspect-ratio.yml';
 import template from './embed.twig';
 import imageDemo from './demo/image.twig';
 import imageDemoSrc from './demo/design-system-navigation.png';
@@ -11,10 +12,7 @@ import videoDemo from './demo/video.twig';
 import './embed.scss';
 const modifierClasses = [
   '',
-  'o-embed--square',
-  'o-embed--full',
-  'o-embed--wide',
-  'o-embed--cinema',
+  ...Object.keys(aspectRatioTokens).map((key) => `o-embed--${key}`),
 ];
 
 <Meta title="Objects/Embed" decorators={[withKnobs]} />

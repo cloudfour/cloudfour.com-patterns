@@ -4,6 +4,7 @@ import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
 import { ratio } from '../src/design-tokens/modular-scale.yml';
 import 'focus-visible';
+import '../src/index.scss';
 import './preview.scss';
 
 // Accessibility testing via aXe

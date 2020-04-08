@@ -2,24 +2,62 @@
 @use '../../design-tokens/aspect-ratio.yml';
 @use '../../design-tokens/breakpoint.yml';
 
+/**
+ * We define the default ratio up-front to avoid outputting unnecessary modifier
+ * classes for it.
+ */
+
+$default-aspect-ratio: aspect-ratio.$square;
+
 /* stylelint-disable suitcss/custom-property-no-outside-root */
 
-@mixin o-embed-modifiers() {
+/**
+ * Makes ratio modifier classes based on the `aspect-ratio` and `breakpoint`
+ * design tokens. Intended to be included from within the base class.
+
+ * We iterate over breakpoints before ratios so wider breakpoints will be later
+ * in the cascade. If we iterated over aspect ratios first, then a narrower
+ * breakpoint would override a wider one if its aspect ratio came first in our
+ * design token file.
+ *
+ * 1. For some reason Sass does not compile `$ratio` without this string
+ *    interpolation syntax. I'm not entirely sure why.
+ * 2. It's not super DRY to repeat this line twice in the mixin, but every
+ *    alternative I explored took a lot more code.
+ */
+
+@mixin aspect-ratio-modifiers() {
   @each $name, $ratio in meta.module-variables('aspect-ratio') {
-    .o-embed--#{$name} {
-      --aspect-ratio: #{$ratio};
+    @if $ratio != $default-aspect-ratio {
+      &--#{$name} {
+        --aspect-ratio: #{$ratio}; /* 1 */
+      }
     }
   }
   @each $suffix, $breakpoint in meta.module-variables('breakpoint') {
     @media (min-width: $breakpoint) {
       @each $name, $ratio in meta.module-variables('aspect-ratio') {
-        .o-embed--#{$name}\@#{$suffix} {
-          --aspect-ratio: #{$ratio};
+        &--#{$name}\@#{$suffix} {
+          --aspect-ratio: #{$ratio}; /* 2 */
         }
       }
     }
   }
 }
+
+/**
+ * This pattern uses the now-classic padding box hack, with a modern twist. The
+ * aspect ratio is defined via a custom property, which allows us arbitrary
+ * ratios based on content needs.
+ *
+ * @see https://css-tricks.com/aspect-ratio-boxes/#article-header-id-7
+ */
+
+/**
+ * Fallback behavior: Browsers that do not support custom properties will use
+ * the element's intrinsic aspect ratio. These styles cause the element to fill
+ * the available width.
+ */
 
 .o-embed > * {
   display: block;
@@ -27,29 +65,55 @@
 }
 
 @supports (--custom: property) {
+  /**
+   * Here's where the magic happens! 🦄
+   *
+   * 1. We default to a square aspect ratio. This is suitable for icons, profile
+   *    images, etc. It's also the simplest default.
+   * 2. Required to absolute-position child elements.
+   */
+
   .o-embed {
-    --aspect-ratio: 1;
-    position: relative;
+    --aspect-ratio: #{$default-aspect-ratio}; /* 1 */
+    position: relative; /* 2 */
+
+    /**
+     * The pseudo element is required to make the padding hack work.
+     *
+     * 1. The parentheses around `var` are necessary to support values with
+     *    operators, for example `16/9`.
+     */
 
     &::before {
       content: '';
       display: block;
-      padding-bottom: calc(100% / (var(--aspect-ratio)));
+      padding-bottom: calc(100% / (var(--aspect-ratio))); /* 1 */
     }
+
+    /**
+     * We absolute-position child elements so they are not pushed down by the
+     * pseudo element.
+     *
+     * 1. We need to target picture elements differently to account for the
+     *    nested `img` element.
+     * 2. This avoids distorting the image if its aspect ratio does not match
+     *    that of the embed.
+     */
 
     > *,
     > picture > img {
+      /* 1 */
       height: 100%;
       left: 0;
-      object-fit: cover;
-      object-position: center;
+      object-fit: cover; /* 2 */
+      object-position: center; /* 2 */
       position: absolute;
       top: 0;
       width: 100%;
     }
-  }
 
-  @include o-embed-modifiers();
+    @include aspect-ratio-modifiers();
+  }
 }
 
 /* stylelint-enable */

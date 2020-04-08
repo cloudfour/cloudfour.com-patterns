@@ -1,5 +1,6 @@
 @use 'sass:meta';
 @use '../../design-tokens/aspect-ratio.yml';
+@use '../../design-tokens/breakpoint.yml';
 
 /* stylelint-disable suitcss/custom-property-no-outside-root */
 
@@ -9,9 +10,16 @@
       --aspect-ratio: #{$ratio};
     }
   }
+  @each $suffix, $breakpoint in meta.module-variables('breakpoint') {
+    @media (min-width: $breakpoint) {
+      @each $name, $ratio in meta.module-variables('aspect-ratio') {
+        .o-embed--#{$name}\@#{$suffix} {
+          --aspect-ratio: #{$ratio};
+        }
+      }
+    }
+  }
 }
-
-/* stylelint-enable */
 
 .o-embed > * {
   display: block;
@@ -19,8 +27,8 @@
 }
 
 @supports (--custom: property) {
-  .o-embed[class*='o-embed--'],
-  .o-embed[style*='--aspect-ratio'] {
+  .o-embed {
+    --aspect-ratio: 1;
     position: relative;
 
     &::before {
@@ -43,3 +51,5 @@
 
   @include o-embed-modifiers();
 }
+
+/* stylelint-enable */

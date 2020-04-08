@@ -40,10 +40,6 @@ const breakpointViewports = Object.keys(breakpoints).map((name) => {
     type: 'other',
   };
 });
-/**
- * The default viewport (which is not overridden here) is Responsive: 100% x 100%.
- * After a breakpoint is chosen, the "Reset Viewport" option will use this default.
- */
 addParameters({
   viewport: {
     viewports: breakpointViewports,

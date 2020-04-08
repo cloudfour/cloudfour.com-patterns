@@ -1,4 +1,5 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import codeBlockDemo from '../design/typography/demo/code-block.twig';
 
 <Meta title="Third-Party/Gutenberg" />
 
@@ -82,12 +83,12 @@ The code block adds the class `wp-block-code` to a `pre` tag wrapping content in
 `code` tags.
 
 <Preview>
-  <Story name="core/code" height="350px">
-    {`<pre class="wp-block-code"><code>// A "block" is the abstract term used
-// to describe units of markup that
-// when composed together, form the
-// content or layout of a page.
-registerBlockType( name, settings );</code></pre>`}
+  <Story name="core/code" height="500px">
+    {
+      codeBlockDemo({
+        language: 'javascript'
+      })
+    }
   </Story>
 </Preview>
 

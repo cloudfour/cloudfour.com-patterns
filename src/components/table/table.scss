@@ -70,12 +70,15 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * When comparing numeric table cells, it's easier if the ones, tens, hundreds,
  * etc. columns are lines up.
  *
- * 1. Make numbers equal width so the columns line up
- * 2. Right align numeric cells so the "ones" column lines up on the right side
+ * 1. Right align cells so the "ones" column lines up on the right side
+ * 2. Make numbers equal width so the columns line up
  */
+.c-table--numeric {
+  text-align: right; /* 1 */
+}
+
 .c-table--numeric td {
-  font-variant-numeric: tabular-nums; /* 1 */
-  text-align: right; /* 2 */
+  font-variant-numeric: tabular-nums; /* 2 */
 }
 
 /**

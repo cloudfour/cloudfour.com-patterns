@@ -1,5 +1,5 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 import template from './embed.twig';
 import imageDemo from './demo/image.twig';
 import imageDemoSrc from './demo/design-system-navigation.png';
@@ -9,6 +9,13 @@ import pictureDemoJpgSrc from './demo/twilight.jpg';
 import pictureDemoWebpSrc from './demo/twilight.webp';
 import videoDemo from './demo/video.twig';
 import './embed.scss';
+const modifierClasses = [
+  '',
+  'o-embed--square',
+  'o-embed--full',
+  'o-embed--wide',
+  'o-embed--cinema',
+];
 
 <Meta title="Objects/Embed" decorators={[withKnobs]} />
 
@@ -17,7 +24,8 @@ import './embed.scss';
 <Preview>
   <Story name="Image">
     {imageDemo({
-      aspect_ratio: text('aspect_ratio', '16/9'),
+      class: select('modifier class', modifierClasses, 'o-embed--wide'),
+      aspect_ratio: text('aspect_ratio'),
       src: imageDemoSrc,
     })}
   </Story>
@@ -26,7 +34,8 @@ import './embed.scss';
 <Preview>
   <Story name="Picture">
     {pictureDemo({
-      aspect_ratio: text('aspect_ratio', '16/9'),
+      class: select('modifier class', modifierClasses, 'o-embed--wide'),
+      aspect_ratio: text('aspect_ratio'),
       jpgSrc: pictureDemoJpgSrc,
       webpSrc: pictureDemoWebpSrc,
     })}
@@ -36,7 +45,8 @@ import './embed.scss';
 <Preview>
   <Story name="Video">
     {videoDemo({
-      aspect_ratio: text('aspect_ratio', '16/9'),
+      class: select('modifier class', modifierClasses, 'o-embed--wide'),
+      aspect_ratio: text('aspect_ratio'),
     })}
   </Story>
 </Preview>
@@ -44,7 +54,8 @@ import './embed.scss';
 <Preview>
   <Story name="CodePen">
     {penDemo({
-      aspect_ratio: text('aspect_ratio', '16/9'),
+      class: select('modifier class', modifierClasses, 'o-embed--wide'),
+      aspect_ratio: text('aspect_ratio'),
     })}
   </Story>
 </Preview>

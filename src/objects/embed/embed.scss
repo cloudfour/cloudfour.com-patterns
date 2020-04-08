@@ -1,9 +1,34 @@
+@use "../../design-tokens/aspect-ratio.yml";
+
+/* stylelint-disable suitcss/custom-property-no-outside-root */
+
+@mixin o-embed-modifiers($suffix: '') {
+  .o-embed--square#{$suffix} {
+    --aspect-ratio: #{aspect-ratio.$square};
+  }
+
+  .o-embed--full#{$suffix} {
+    --aspect-ratio: #{aspect-ratio.$full};
+  }
+
+  .o-embed--wide#{$suffix} {
+    --aspect-ratio: #{aspect-ratio.$wide};
+  }
+
+  .o-embed--cinema#{$suffix} {
+    --aspect-ratio: #{aspect-ratio.$cinema};
+  }
+}
+
+/* stylelint-enable */
+
 .o-embed > * {
   display: block;
   width: 100%;
 }
 
 @supports (--custom: property) {
+  .o-embed[class*='o-embed--'],
   .o-embed[style*='--aspect-ratio'] {
     position: relative;
 
@@ -24,4 +49,6 @@
       width: 100%;
     }
   }
+
+  @include o-embed-modifiers();
 }

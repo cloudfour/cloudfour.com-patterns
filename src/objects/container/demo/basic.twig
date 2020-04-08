@@ -1,0 +1,10 @@
+{% if prose %}
+  {% set class = class ~ ' o-container--prose' %}
+{% endif %}
+
+{% embed '../container.twig' %}
+  {% block content %}
+    <h1>Cooperative Design Systems</h1>
+    <p>Stop me if you’ve heard this one before: There once was an organization whose products lacked harmony. Its teams struggled to embrace a shared vision, continuously reinventing wheels of infinitely varied size and shape. Then one day they all joined hands and created the Design System, addressing everyone’s needs and forever banishing the dissonance they’d felt for so long.</p>
+  {% endblock %}
+{% endembed %}

@@ -6,6 +6,7 @@ import * as breakpoints from '../src/design-tokens/breakpoint.yml';
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ratio } from '../src/design-tokens/modular-scale.yml';
 import 'focus-visible';
+import '../src/index.scss';
 import './preview.scss';
 
 // Accessibility testing via aXe

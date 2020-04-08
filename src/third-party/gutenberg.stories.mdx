@@ -44,7 +44,7 @@ a `figure` with class `wp-block-audio`
 <Preview>
   <Story name="core/audio" height="150px">{`
     <figure class="wp-block-audio type">
-      <audio controls="" src=""></audio>
+      <audio controls="" src="/media/piano.ogg"></audio>
       <figcaption>My audio clip</figcaption>
     </figure>
   `}</Story>
@@ -165,20 +165,21 @@ The text overlay inside the cover block its own `div` wrapper with a class of
 <Preview>
   <Story name="core/cover/video" height="550px">
     {`<div class="wp-block-cover has-background-dim">
-        <div class="vsc-controller" data-vscid="g0pcyj7av">
+        <div class="vsc-controller" data-vscid="y4nfjhbvo">
         </div>
         <video
           class="wp-block-cover__video-background"
           autoplay
           muted
-          src="http://mirrors.standaloneinstaller.com/video-sample/dolbycanyon.m4v"
-          data-origwidth="0"
-          data-origheight="0"
-          style="width: 580px;"
-          data-vscid="g0pcyj7av">
+          data-origwidth="1920"
+          data-origheight="1080"
+          src="/media/waterfall_edit.mp4"
+          style="width: 100%;"
+          data-vscid="y4nfjhbvo"
+          type="video/mp4">
         </video>
         <div class="wp-block-cover__inner-container">
-          <p class="has-text-align-center has-large-font-size">Video</p>
+          <p class="has-text-align-center has-large-font-size">Waterfall</p></p>
         </div>
       </div>`}
   </Story>

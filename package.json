@@ -45,6 +45,7 @@
     "@rollup/plugin-multi-entry": "3.0.0",
     "@rollup/plugin-node-resolve": "7.1.1",
     "@storybook/addon-a11y": "5.3.18",
+    "@storybook/addon-cssresources": "^5.3.18",
     "@storybook/addon-docs": "5.3.18",
     "@storybook/addon-knobs": "5.3.18",
     "@storybook/addon-viewport": "5.3.18",

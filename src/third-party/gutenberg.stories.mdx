@@ -39,8 +39,8 @@ If user-defined colors are chosen, instead, inline styles will set `color` and/o
 
 ## Audio
 
-The audio block wraps an `audio` element and an optional `figcaption` element in
-a `figure` with class `wp-block-audio`
+The audio block wraps an `audio` and optional `figcaption` element in a layout
+container.
 
 <Preview>
   <Story name="core/audio" height="150px">{`
@@ -53,11 +53,8 @@ a `figure` with class `wp-block-audio`
 
 ## Button
 
-The button block creates one or more `div`s with class `wp-block-button`, each containing
-an `a` element with a class of `wp-block-button__link`.
-
-An additional container holds each button block (one or more buttons), and has
-a class of `wp-block-buttons`.
+The button block adds call-to-action-style links to a post. Container elements provide
+layout.
 
 If chosen, a button can have only an outline (no fill color), which adds the `is-style-outline`
 class on the `.wp-block-button` element.

@@ -44,8 +44,8 @@ const breakpointViewports = Object.keys(breakpoints).map((name) => {
 addParameters({
   viewport: {
     viewports: {
-      ...MINIMAL_VIEWPORTS,
       ...breakpointViewports,
+      ...MINIMAL_VIEWPORTS,
     },
   },
 });

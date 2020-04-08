@@ -33,7 +33,7 @@ addParameters({ paddings });
 // Create viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).map((name) => {
   return {
-    name: `breakpoints.${name}`,
+    name: `breakpoints.$${name}`,
     styles: {
       width: breakpoints[name],
       height: '100%',

@@ -2,6 +2,8 @@ import { addDecorator, addParameters } from '@storybook/html';
 import { withA11y } from '@storybook/addon-a11y';
 import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
+import * as breakpoints from '../src/design-tokens/breakpoint.yml';
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ratio } from '../src/design-tokens/modular-scale.yml';
 import 'focus-visible';
 import '../src/index.scss';
@@ -28,3 +30,23 @@ for (let i = -3; i <= 6; i++) {
 }
 addDecorator(withPaddings);
 addParameters({ paddings });
+
+// Create viewports using widths defined in design tokens
+const breakpointViewports = Object.keys(breakpoints).map((name) => {
+  return {
+    name: `breakpoints.$${name}`,
+    styles: {
+      width: breakpoints[name],
+      height: '100%',
+    },
+    type: 'other',
+  };
+});
+addParameters({
+  viewport: {
+    viewports: {
+      ...breakpointViewports,
+      ...MINIMAL_VIEWPORTS,
+    },
+  },
+});

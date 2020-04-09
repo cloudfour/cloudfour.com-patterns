@@ -1,6 +1,8 @@
 import feed from './data/feed.json';
 import examplePrototype from './example/example.twig';
+import tylerPrototypeA from './tyler/a.twig';
 import './example/example.scss';
+import './tyler/tyler.scss';
 
 export default {
   title: 'Prototypes/Articles',
@@ -11,3 +13,5 @@ export default {
 };
 
 export const Example = () => examplePrototype({ feed });
+
+export const TylerA = () => tylerPrototypeA({ feed });

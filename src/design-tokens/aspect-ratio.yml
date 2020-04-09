@@ -1,0 +1,12 @@
+props:
+  - name: square
+    value: 1
+  - name: full
+    value: 4/3
+  - name: wide
+    value: 16/9
+  - name: cinema
+    value: 2
+global:
+  type: ratio
+  category: ratio

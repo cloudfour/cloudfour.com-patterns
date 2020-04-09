@@ -1,7 +1,8 @@
 {% embed '../message.twig' %}
-  {% block content %}
-    <p>
-      Hello world! This is a generic message
-    </p>
-  {% endblock %}
+  <p id="MessageInfo">
+    {% block content %}
+      Messages contain short, consice information used to highlight important
+      information.
+    {% endblock %}
+  </p>
 {% endembed %}

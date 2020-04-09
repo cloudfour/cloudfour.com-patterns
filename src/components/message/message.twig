@@ -1,11 +1,18 @@
+{# 
+  @TODO
+  1. Generate an example of a message with a decorative icon.
+  #}
+
 {% set tagName = tagName | default('div') %}
 
-<{{tagName}} class="c-message{% if class %} {{class}}{% endif %}">
-  {% block content %}
-    <p>
+<{{tagName}} aria-describedby="MessageInfo" {% if not stopAnnouncements %} aria-live="polite"{% endif %} class="c-message{% if class %} {{class}}{% endif
+%}" tabindex=”0”{% if isWarning %} role="alert"{% else %} role="status"{% endif
+%}>
+  <p id="MessageInfo">
+    {% block content %}
       {{label | default('Hi, I\'m a message!')}}
-    </p>
-  {% endblock %}
+    {% endblock %}
+  </p>
   {% if includeClose %}
     <button aria-label="Close message" class="c-message-close" type="button">
       {% include '../../assets/icons/close.svg.twig' with {

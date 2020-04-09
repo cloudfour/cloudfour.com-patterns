@@ -13,20 +13,45 @@ Use to convey general information or messages that suggest action for users.
 Message content should focus on a single theme, piece of information, or
 required action to avoid overwhelming users.
 
-Additionally, the message pattern should be used thoughtfully and sparingly for only the most important information.
+Additionally, the message pattern should be used thoughtfully and sparingly for
+only the most important information.
+
+## Accessability
+
+Messages provide context and assist workflows for users with disabilities.
+
+- Critical and warning messages have a `role="alert"` and are announced by
+assistive technologies when they appear.
+
+- All other messages have a `role="status"` and are read after any critical
+announcements.
+
+- All messages have an `aria-live` attribute and are announced by assistive
+technologies when their content is updated. These announcements can be disabled
+by using the prop `stopAnnouncements`.
+
+- Messages use `aria-describedby` to describe their purpose to assistive
+technologies when they’re announced or receive focus. If a message has a title,
+then the title content is used for the `aria-describedby`. If the message
+doesn’t have a title, then all of the message content is used for the
+`aria-describedby`.
+    
+- Message containers have a `tabindex="0"` and display a visible keyboard focus
+indicator. Because of this, users can discover messages while tabbing
+through an interface, and developers can programmatically move focus to messages.
 
 <Preview>
   <Story name="Message" height="120px">
     {messageDemo({
       label: text('Message text'),
-      includeClose: boolean('include close button'),
+      includeClose: boolean('Include close button'),
     })}
   </Story>
 </Preview>
 
 ## Message with close button
 
-Messages should almost always be dismissable. 
+Most messages should allow users to dismiss them with a close button.
 
 <Preview>
   <Story name="Message with close" height="120px">
@@ -41,7 +66,7 @@ Messages should almost always be dismissable.
 
 Color can be used to convey urgency or highlight important information. This
 pattern is ideal for offline notices but other applications may also be
-appropriate. 
+appropriate.
 
 <Preview>
   <Story name="Warning" height="120px">

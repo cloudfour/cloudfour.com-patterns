@@ -8,20 +8,25 @@
  * 1. Display message and close button in a centered row.
  * 2. Push message and close button as far apart as possible.
  * 3. Condense line height in case it breaks to multiple lines.
+ *
+ * @TODO
+ * 1. Style `:focus` state
  */
 
 .c-message {
   align-items: center; /* 1 */
   background: colors.$gray-light;
+  border-top: 4px solid colors.$gray-dark;
   color: colors.$text-dark;
   display: flex; /* 1, 2 */
   justify-content: space-between; /* 2 */
   line-height: ms.step(1, 1); /* 3 */
-  padding: ms.step(-3) ms.step(0);
+  padding: ms.step(-8) ms.step(0);
 }
 
 .c-message--warning {
   background: colors.$fuchsia;
+  border-top: 4px solid colors.$fuchsia-darker;
   color: colors.$text-light-emphasis;
 }
 
@@ -39,6 +44,8 @@
  * 3. Easy way to collapse extra whitespace between button edge and icon.
  * 4. Make icon a little larger than the parent text size.
  * 5. Put some space between message and close button.
+ * 6. Removes padding so that element maintains consistent spacing with other
+ *    inner elments
  */
 
 .c-message-close {
@@ -49,4 +56,5 @@
   display: flex; /* 3 */
   font-size: ms.step(1); /* 4 */
   margin-left: ms.step(1); /* 5 */
+  padding-right: 0;
 }

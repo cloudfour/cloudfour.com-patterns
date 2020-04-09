@@ -1,4 +1,5 @@
 import { addDecorator, addParameters } from '@storybook/html';
+import { sanitize } from '@storybook/csf';
 import { withA11y } from '@storybook/addon-a11y';
 import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
@@ -9,6 +10,10 @@ import 'focus-visible';
 import '../src/index.scss';
 import './preview.scss';
 
+/**
+ * @typedef { [String, import('@storybook/client-api/dist/types').StoreItem] } StoryItem
+ */
+
 // Accessibility testing via aXe
 addDecorator(withA11y);
 
@@ -16,22 +21,51 @@ addDecorator(withA11y);
 const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
 addParameters({ themes });
 
-const menuSort = (a, b) => {
-  // @TODO - fill in. Needs to be a recursive sort, maybe?
+/**
+ * Get the category from a `storySort` story
+ * @param {StoryItem} story - Story from `storySort`
+ * @returns {string} - Story's category
+ */
+const getStoryCategory = (story) => story[1].kind.split('/')[0];
+
+/**
+ * Define an ordered list of story categories. These should match the first part
+ * of the `<Meta>` component's `title` attribute found in each story (`.mdx` file)
+ */
+const orderedCategories = [
+  'Getting Started',
+  'Design',
+  'Design Tokens',
+  'Objects',
+  'Components',
+  'Utilities',
+  'Themes',
+  'Third-Party',
+];
+/**
+ * Sanitize (slufigy) each entry in the list of categories, to normalize odd characters,
+ * capitalization, and use of spaces vs dashes. Do this outside of the `storySort`
+ * sorting function
+ */
+const sanitizedCategories = orderedCategories.map((kind) => sanitize(kind));
+
+/**
+ * Compares two stories and sorts by category, according to a predefined order
+ * @param {String[]} sanitizedCategories - Sanitized, ordered list of categories to use for sorting
+ * @returns {(StoryItem, StoryItem) => (0 | 1 | -1)} - Sorts two stories based on the passed-in
+ * Array of ordered categories
+ */
+const storySort = (sanitizedCategories) => (a, b) => {
+  console.log(a);
+  const indexA = sanitizedCategories.indexOf(sanitize(getStoryCategory(a)));
+  const indexB = sanitizedCategories.indexOf(sanitize(getStoryCategory(b)));
+  return indexA === indexB ? 0 : indexA > indexB ? 1 : -1;
 };
 
 // Sort stories according to preferred top-level settings
 addParameters({
   options: {
-    storySort: (a, b) => {
-      const topLevelA = a[1].kind.split('/')[0];
-      const topLevelB = b[1].kind.split('/')[0];
-      console.log(topLevelA);
-      console.log(topLevelB);
-      return topLevelA === topLevelB
-        ? 0
-        : a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
-    },
+    storySort: storySort(sanitizedCategories),
   },
 });
 

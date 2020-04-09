@@ -1,0 +1,9 @@
+{% embed '../embed.twig' %}
+  {% block content %}
+    <picture>
+      <source srcset="{{webpSrc}}" type="image/webp">
+      <source srcset="{{jpgSrc}}" type="image/jpeg">
+      <img src="{{jpgSrc}}" alt="">
+    </picture>
+  {% endblock %}
+{% endembed %}

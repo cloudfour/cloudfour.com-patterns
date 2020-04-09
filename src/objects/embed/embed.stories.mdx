@@ -1,0 +1,79 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
+import * as aspectRatioTokens from '../../design-tokens/aspect-ratio.yml';
+import imageDemo from './demo/image.twig';
+import imageDemoSrc from './demo/design-system-navigation.png';
+import penDemo from './demo/pen.twig';
+import pictureDemo from './demo/picture.twig';
+import pictureDemoJpgSrc from './demo/twilight.jpg';
+import pictureDemoWebpSrc from './demo/twilight.webp';
+import videoDemo from './demo/video.twig';
+import './embed.scss';
+const modifierClasses = [
+  '',
+  ...Object.keys(aspectRatioTokens).map((key) => `o-embed--${key}`),
+];
+
+<Meta title="Objects/Embed" decorators={[withKnobs]} />
+
+# Embed
+
+Specifying aspect ratios for imagery and embedded media is important to prevent jarring page jumps as content loads. But specifying width and height may not work for all types of embedded media. The `o-embed` class [maintains aspect ratios responsively using padding](https://css-tricks.com/aspect-ratio-boxes/).
+
+Embed objects support two methods for specifying the desired aspect ratio:
+
+1. Via a modifier class. All of our [aspect ratio tokens](/?path=/docs/design-tokens-aspect-ratio--page) are supported. Example: `o-embed--wide`
+1. Via the `--aspect-ratio` custom property. This can be helpful for one-off images in articles or other content that do not conform to a typical size. Example: `--aspect-ratio: 320/480`
+
+## Basic Examples
+
+### Image
+
+<Preview>
+  <Story name="Image">
+    {imageDemo({
+      class: select('modifier class', modifierClasses, 'o-embed--wide'),
+      aspect_ratio: text('aspect_ratio'),
+      src: imageDemoSrc,
+    })}
+  </Story>
+</Preview>
+
+### Picture
+
+<Preview>
+  <Story name="Picture">
+    {pictureDemo({
+      class: select('modifier class', modifierClasses, 'o-embed--wide'),
+      aspect_ratio: text('aspect_ratio'),
+      jpgSrc: pictureDemoJpgSrc,
+      webpSrc: pictureDemoWebpSrc,
+    })}
+  </Story>
+</Preview>
+
+### Video
+
+<Preview>
+  <Story name="Video">
+    {videoDemo({
+      class: select('modifier class', modifierClasses, 'o-embed--wide'),
+      aspect_ratio: text('aspect_ratio'),
+    })}
+  </Story>
+</Preview>
+
+## Responsive Usage
+
+An additional benefit of modifier classes is support for breakpoint-specific ratios. This can be helpful for interactive embeds (CodePen, etc.) or simply for art direction.
+
+In this example, the aspect ratio starts square but becomes wider with each successive breakpoint. All [breakpoint tokens](/?path=/docs/design-tokens-breakpoint--page) are supported.
+
+<Preview>
+  <Story name="Responsive">
+    {penDemo({
+      class: text('class', 'o-embed--full@s o-embed--wide@m o-embed--cinema@l'),
+      aspect_ratio: text('aspect_ratio'),
+    })}
+  </Story>
+</Preview>

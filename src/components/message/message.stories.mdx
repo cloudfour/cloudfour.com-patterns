@@ -3,14 +3,17 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import messageDemo from './demo/default-message.twig';
 import messageWithCloseDemo from './demo/message-with-close.twig';
 import warningDemo from './demo/warning-message.twig';
-import '../../themes/_index.scss';
 import './message.scss';
 
 <Meta title="Components/Message" decorators={[withKnobs]} />
 
 # Message
 
-This is where a description will appear.
+Use to convey general information or messages that suggest action for users.
+Message content should focus on a single theme, piece of information, or
+required action to avoid overwhelming users.
+
+Additionally, the message pattern should be used thoughtfully and sparingly for only the most important information.
 
 <Preview>
   <Story name="Message" height="120px">
@@ -21,9 +24,9 @@ This is where a description will appear.
   </Story>
 </Preview>
 
-## Message with Close Button
+## Message with close button
 
-A message with a close button
+Messages should almost always be dismissable. 
 
 <Preview>
   <Story name="Message with close" height="120px">
@@ -34,9 +37,11 @@ A message with a close button
   </Story>
 </Preview>
 
-## Warning Message
+## Warning message
 
-A warning message
+Color can be used to convey urgency or highlight important information. This
+pattern is ideal for offline notices but other applications may also be
+appropriate. 
 
 <Preview>
   <Story name="Warning" height="120px">

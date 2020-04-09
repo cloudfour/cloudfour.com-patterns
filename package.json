@@ -48,6 +48,7 @@
     "@storybook/addon-docs": "5.3.18",
     "@storybook/addon-knobs": "5.3.18",
     "@storybook/addon-viewport": "5.3.18",
+    "@storybook/csf": "0.0.1",
     "@storybook/html": "5.3.18",
     "@svgr/webpack": "5.3.1",
     "babel-loader": "8.1.0",

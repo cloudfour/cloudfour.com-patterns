@@ -1,4 +1,7 @@
 @use "./base";
-// The "as components" is necessary because otherwise
-// Sass tries to generate a namespace from the glob pattern and fails
-@use './components/**/*.scss' as components;
+// The "as" is necessary because otherwise Sass tries to generate a namespace
+// from the glob pattern and fails
+@use './objects/*/*.scss' as objects;
+@use './components/*/*.scss' as components;
+@use './themes/*.scss' as themes;
+@use './vendor/*/*.scss' as vendor;

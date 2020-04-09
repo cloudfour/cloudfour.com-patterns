@@ -1,22 +1,13 @@
-import { withCssResources } from '@storybook/addon-cssresources';
-import articles from './feed.json';
+import feed from './data/feed.json';
 import examplePrototype from './example/example.twig';
-import '../../index.scss';
+import './example/example.scss';
 
 export default {
   title: 'Prototypes/Articles',
-};
-
-export const Example = () => examplePrototype({ articles });
-
-Example.story = {
   parameters: {
-    cssresources: [
-      {
-        id: 'example',
-        code: `<style>${require('./example/example.scss').toString()}</style>`,
-      },
-    ],
+    docs: { page: null },
+    paddings: { disabled: true },
   },
-  decorators: [withCssResources],
 };
+
+export const Example = () => examplePrototype({ feed });

@@ -1,3 +1,23 @@
-body {
-  background: red;
+@use "../../../design-tokens/breakpoint.yml";
+@use "../../../mixins/ms";
+
+/**
+ * Wrap entire prototype in selector to prevent CSS leakage.
+ *
+ * @see https://github.com/storybookjs/storybook/issues/729
+ */
+
+#prototype-articles-example {
+  .articles {
+    display: grid;
+    grid-gap: ms.step(4);
+    padding: ms.step(2);
+
+    @media (min-width: breakpoint.$xs) {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(breakpoint.$xs - ms.step(2) * 2, 1fr)
+      );
+    }
+  }
 }

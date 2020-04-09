@@ -42,6 +42,7 @@ const orderedCategories = [
   'Utilities',
   'Themes',
   'Third-Party',
+  'Prototypes',
 ];
 /**
  * Sanitize (slufigy) each entry in the list of categories, to normalize odd characters,

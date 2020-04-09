@@ -16,6 +16,25 @@ addDecorator(withA11y);
 const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
 addParameters({ themes });
 
+const menuSort = (a, b) => {
+  // @TODO - fill in. Needs to be a recursive sort, maybe?
+};
+
+// Sort stories according to preferred top-level settings
+addParameters({
+  options: {
+    storySort: (a, b) => {
+      const topLevelA = a[1].kind.split('/')[0];
+      const topLevelB = b[1].kind.split('/')[0];
+      console.log(topLevelA);
+      console.log(topLevelB);
+      return topLevelA === topLevelB
+        ? 0
+        : a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
+    },
+  },
+});
+
 // Padding values from modular scale
 const paddings = [];
 for (let i = -3; i <= 6; i++) {

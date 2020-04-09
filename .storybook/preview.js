@@ -23,8 +23,9 @@ addParameters({ themes });
 
 /**
  * Get the category from a `storySort` story
- * @param {StoryItem} story - Story from `storySort`
- * @returns {string} - Story's category
+ * @param {StoryItem} story - Item passed to `addParameters.options.storySort`
+ * @returns {string} - Story's category, the first part of the `StoreItem.kind`
+ * value, which is a string delimited with forward slashes
  */
 const getStoryCategory = (story) => story[1].kind.split('/')[0];
 
@@ -51,12 +52,11 @@ const sanitizedCategories = orderedCategories.map((kind) => sanitize(kind));
 
 /**
  * Compares two stories and sorts by category, according to a predefined order
- * @param {String[]} sanitizedCategories - Sanitized, ordered list of categories to use for sorting
- * @returns {(StoryItem, StoryItem) => (0 | 1 | -1)} - Sorts two stories based on the passed-in
- * Array of ordered categories
+ * @param {String[]} sanitizedCategories - Sanitized array of categories to use for sorting
+ * @returns {(StoryItem, StoryItem) => (0 | 1 | -1)} - Sorts two stories based on
+ * the order of the passed-in array of categories
  */
 const storySort = (sanitizedCategories) => (a, b) => {
-  console.log(a);
   const indexA = sanitizedCategories.indexOf(sanitize(getStoryCategory(a)));
   const indexB = sanitizedCategories.indexOf(sanitize(getStoryCategory(b)));
   return indexA === indexB ? 0 : indexA > indexB ? 1 : -1;

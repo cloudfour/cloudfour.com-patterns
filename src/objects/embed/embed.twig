@@ -1,0 +1,7 @@
+<div class="o-embed{% if class %} {{class}}{% endif %}"
+  {% if aspect_ratio %}
+    style="--aspect-ratio: {{aspect_ratio}}"
+  {% endif %}>
+  {% block content %}
+  {% endblock %}
+</div>

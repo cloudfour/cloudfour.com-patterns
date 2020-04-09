@@ -105,10 +105,11 @@ del {
 }
 
 /**
- * IE10 and earlier still show borders around linked images. While usage of that
- * browser is low, this is an easy fix to include.
+ * IE10 and earlier still show borders around linked images, and all browsers
+ * still show borders around iframe elements by default.
  */
 
+iframe,
 img {
   border-style: none;
 }

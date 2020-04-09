@@ -1,16 +1,3 @@
-{# Don't allow href knob to change this example's tag #}
-
-{# {% embed '../message.twig' with { class: 'c-message--warning' } %}
-  {% block content %}
-  <p>
-    You seem to be offline at the moment.
-    <span class="u-hidden u-md-inlineBlock">We&rsquo;ll keep trying to
-    connect.</span> <a href=".">Try again</a>
-  </p>
-  {% endblock %}
-{% endembed %} #}
-
-
 {% embed '../message.twig' with {
     includeClose: true, 
     class: 'c-message--warning'} 

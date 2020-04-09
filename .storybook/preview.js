@@ -63,7 +63,7 @@ const sanitizedCategories = orderedCategories.map((kind) => sanitize(kind));
 const storySort = (sanitizedCategories) => (a, b) => {
   /**
    * Each `StoryItem`'s category is passed to `sanitize` for comparison with values
-   * in this list.
+   * in this hard-coded array of category names, each of which was also `sanitize`d
    */
   const indexA = sanitizedCategories.indexOf(sanitize(getStoryCategory(a)));
   const indexB = sanitizedCategories.indexOf(sanitize(getStoryCategory(b)));

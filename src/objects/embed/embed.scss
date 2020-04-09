@@ -19,26 +19,35 @@ $default-aspect-ratio: aspect-ratio.$square;
  * in the cascade. If we iterated over aspect ratios first, then a narrower
  * breakpoint would override a wider one if its aspect ratio came first in our
  * design token file.
- *
- * 1. For some reason Sass does not compile `$ratio` without this string
- *    interpolation syntax. I'm not entirely sure why.
- * 2. It's not super DRY to repeat this line twice in the mixin, but every
- *    alternative I explored took a lot more code.
  */
 
 @mixin aspect-ratio-modifiers() {
   @each $name, $ratio in meta.module-variables('aspect-ratio') {
     @if $ratio != $default-aspect-ratio {
+      /**
+       * Sass will not compile variables applied to custom properties without
+       * this syntax for compatibility reasons.
+       *
+       * @see https://sass-lang.com/documentation/breaking-changes/css-vars
+       */
+
       &--#{$name} {
-        --aspect-ratio: #{$ratio}; /* 1 */
+        --aspect-ratio: #{$ratio};
       }
     }
   }
   @each $suffix, $breakpoint in meta.module-variables('breakpoint') {
     @media (min-width: $breakpoint) {
       @each $name, $ratio in meta.module-variables('aspect-ratio') {
+        /**
+         * The backslash in the selector is required for the `@` character.
+         *
+         * 1. It's not super DRY to repeat this line twice in the mixin, but
+         *    every alternative I explored took a lot more code.
+         */
+
         &--#{$name}\@#{$suffix} {
-          --aspect-ratio: #{$ratio}; /* 2 */
+          --aspect-ratio: #{$ratio}; /* 1 */
         }
       }
     }
@@ -57,11 +66,17 @@ $default-aspect-ratio: aspect-ratio.$square;
  * Fallback behavior: Browsers that do not support custom properties will use
  * the element's intrinsic aspect ratio. These styles cause the element to fill
  * the available width.
+ *
+ * We need to target picture elements differently to account for the nested
+ * `img` element.
  */
 
-.o-embed > * {
-  display: block;
-  width: 100%;
+.o-embed {
+  > *,
+  > picture > img {
+    display: block;
+    width: 100%;
+  }
 }
 
 @supports (--custom: property) {
@@ -94,19 +109,19 @@ $default-aspect-ratio: aspect-ratio.$square;
      * We absolute-position child elements so they are not pushed down by the
      * pseudo element.
      *
-     * 1. We need to target picture elements differently to account for the
-     *    nested `img` element.
-     * 2. This avoids distorting the image if its aspect ratio does not match
+     * We need to target picture elements differently to account for the
+     * nested `img` element.
+     *
+     * 1. This avoids distorting the image if its aspect ratio does not match
      *    that of the embed.
      */
 
     > *,
     > picture > img {
-      /* 1 */
       height: 100%;
       left: 0;
-      object-fit: cover; /* 2 */
-      object-position: center; /* 2 */
+      object-fit: cover; /* 1 */
+      object-position: center; /* 1 */
       position: absolute;
       top: 0;
       width: 100%;

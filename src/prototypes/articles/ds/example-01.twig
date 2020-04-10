@@ -1,0 +1,42 @@
+<div id="prototype-ds-articles-example">
+  <div class="articles">
+    {% for article in feed.items %}
+      <article>
+        <header>
+          <h2>
+            <a href="{{article.url}}">
+              {{article.title}}
+            </a>
+          </h2>
+        </header>
+        <p>
+          {{article.date_published|replace({'Z': ''})|date('F j, Y')}}
+        </p>
+        {% if article.image %}
+          {% embed '../../../objects/embed/embed.twig' with {
+              class: 'o-embed--wide'
+            } %}
+            {% block content %}
+              <img src="{{article.image}}" alt="">
+            {% endblock %}
+          {% endembed %}
+        {% endif %}
+        <p>
+          {{article.summary}}
+        </p>
+        <footer>
+          <p>
+            <a href="{{article.author.url}}">
+              {{article.author.name}}
+            </a>
+          </p>
+          {% embed '../../../objects/embed/embed.twig' %}
+            {% block content %}
+              <img src="{{article.author.avatar}}" alt="">
+            {% endblock %}
+          {% endembed %}
+        </footer>
+      </article>
+    {% endfor %}
+  </div>
+</div>

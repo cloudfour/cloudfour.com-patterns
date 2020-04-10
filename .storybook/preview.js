@@ -16,6 +16,61 @@ addDecorator(withA11y);
 const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
 addParameters({ themes });
 
+/**
+ * The parameters for Storybook sorting functions are sparsely documented.
+ * Including a detailed type definition in lieu of clear documentation to
+ * link to.
+ * @see https://github.com/storybookjs/storybook/blob/4f65ccb38dc724a7a9ea15935ef11dbad7cc8657/lib/client-api/src/types.ts#L33-L40
+ * @see https://github.com/storybookjs/storybook/blob/b6136e1539c85d253504391a7d3f65e2c1239143/lib/addons/src/types.ts#L49-L53
+ * @typedef { [String, import('@storybook/client-api/dist/types').StoreItem] } StoryItem
+ */
+
+/**
+ * Get the category from a story (StoryItem)
+ * @param {StoryItem} story - Item passed to `addParameters.options.storySort`
+ * @returns {string} - Story's category, the first part of the `StoreItem.kind`
+ * value, which is a string delimited with forward slashes
+ */
+const getStoryCategory = (story) => story[1].kind.split('/')[0];
+
+/**
+ * Define an ordered list of story categories. These should match the first part
+ * of the `<Meta>` component's `title` attribute found in each story (`.mdx` file).
+ * The order of categories will determine the display order of the top-level
+ * menu items in Storybook .
+ */
+const orderedCategories = [
+  'Getting Started',
+  'Design',
+  'Design Tokens',
+  'Objects',
+  'Components',
+  'Utilities',
+  'Themes',
+  'Third-Party',
+  'Prototypes',
+];
+
+/**
+ * Compares two stories and sorts by category, according to a predefined order
+ * @param {String[]} categories - Array of categories to use for sorting. Order of
+ * items in the array determines the top-level menu sorting order.
+ * @returns {(a: StoryItem, b: StoryItem) => (0 | 1 | -1)} - Sorts two stories based on
+ * the order of the passed-in array of categories
+ */
+const storySort = (categories) => (a, b) => {
+  const indexA = categories.indexOf(getStoryCategory(a));
+  const indexB = categories.indexOf(getStoryCategory(b));
+  return indexA === indexB ? 0 : indexA > indexB ? 1 : -1;
+};
+
+// Sort stories according to preferred top-level settings
+addParameters({
+  options: {
+    storySort: storySort(orderedCategories),
+  },
+});
+
 // Padding values from modular scale
 const paddings = [];
 for (let i = -3; i <= 6; i++) {

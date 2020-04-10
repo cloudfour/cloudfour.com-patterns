@@ -4,12 +4,12 @@
 
 $overlap: ms.step(6);
 
-#ph-prototype-articles-example {
+#ph-prototype-articles-example-2 {
   /* stylelint-disable */
   --indent: 0;
 
   @media (min-width: breakpoint.$l) {
-    --indent: #{ms.step(2)};
+    --indent: #{ms.step(2)}
   }
   /* stylelint-enable */
 
@@ -61,6 +61,7 @@ $overlap: ms.step(6);
 
   .listings > :first-child,
   .listings > :nth-of-type(5) {
+    display: flex;
     font-size: ms.step(1);
     grid-column: 1 / -1;
     margin: 0 var(--indent);
@@ -69,14 +70,8 @@ $overlap: ms.step(6);
   .card {
     background: #fff;
     border-radius: 3px;
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    justify-content: flex-start;
-    // grid-gap: ms.step(0);
-    // grid-row: span 3;
-    // grid-template-rows: subgrid;
-    padding: ms.step(2);
+    overflow: hidden;
     position: relative;
     transition-duration: 0.2s;
     transition-property: transform, box-shadow;
@@ -84,8 +79,21 @@ $overlap: ms.step(6);
   }
 
   .card:hover {
-    box-shadow: 0 ms.step(-5) ms.step(-4) 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 ms.step(-5) ms.step(-4) 0 rgba(0,0,0,0.1);
     transform: scale(1.01);
+  }
+
+  .card__preview {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+    padding: ms.step(2);
   }
 
   .card__primary-action {
@@ -125,10 +133,16 @@ $overlap: ms.step(6);
 
   /* stylelint-disable */
   .author__photo {
-    border-radius: var(--border-radius-val-1) var(--border-radius-val-2)
-      var(--border-radius-val-3) var(--border-radius-val-4) /
-      var(--border-radius-val-5) var(--border-radius-val-6)
-      var(--border-radius-val-7) var(--border-radius-val-8);
+    border-radius:
+      var(--border-radius-val-1)
+      var(--border-radius-val-2)
+      var(--border-radius-val-3)
+      var(--border-radius-val-4)
+      /
+      var(--border-radius-val-5)
+      var(--border-radius-val-6)
+      var(--border-radius-val-7)
+      var(--border-radius-val-8);
 
     height: ms.step(4);
     margin-right: ms.step(0);

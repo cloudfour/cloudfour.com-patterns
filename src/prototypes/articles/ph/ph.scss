@@ -18,6 +18,15 @@ $overlap: ms.step(6);
     margin: 0;
   }
 
+  p {
+    line-height: 1.5;
+  }
+
+  h2,
+  h2 {
+    line-height: 1.2;
+  }
+
   /**
    * Wrap entire prototype in selector to prevent CSS leakage.
    *

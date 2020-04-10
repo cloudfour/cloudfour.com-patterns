@@ -17,8 +17,11 @@ const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
 addParameters({ themes });
 
 /**
- * Define the type of value passed to `addParameters.options.storySort`, which is
- * parsed to get to the name of each story's category
+ * The parameters for Storybook sorting functions are sparsely documented.
+ * Including a detailed type definition in lieu of clear documentation to
+ * link to.
+ * @see https://github.com/storybookjs/storybook/blob/4f65ccb38dc724a7a9ea15935ef11dbad7cc8657/lib/client-api/src/types.ts#L33-L40
+ * @see https://github.com/storybookjs/storybook/blob/b6136e1539c85d253504391a7d3f65e2c1239143/lib/addons/src/types.ts#L49-L53
  * @typedef { [String, import('@storybook/client-api/dist/types').StoreItem] } StoryItem
  */
 

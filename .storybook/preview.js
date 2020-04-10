@@ -1,5 +1,4 @@
 import { addDecorator, addParameters } from '@storybook/html';
-import { sanitize } from '@storybook/csf';
 import { withA11y } from '@storybook/addon-a11y';
 import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
@@ -24,7 +23,7 @@ addParameters({ themes });
  */
 
 /**
- * Get the category from a `storySort` story
+ * Get the category from a story (StoryItem)
  * @param {StoryItem} story - Item passed to `addParameters.options.storySort`
  * @returns {string} - Story's category, the first part of the `StoreItem.kind`
  * value, which is a string delimited with forward slashes
@@ -33,7 +32,9 @@ const getStoryCategory = (story) => story[1].kind.split('/')[0];
 
 /**
  * Define an ordered list of story categories. These should match the first part
- * of the `<Meta>` component's `title` attribute found in each story (`.mdx` file)
+ * of the `<Meta>` component's `title` attribute found in each story (`.mdx` file).
+ * The order of categories will determine the display order of the top-level
+ * menu items in Storybook .
  */
 const orderedCategories = [
   'Getting Started',
@@ -46,34 +47,24 @@ const orderedCategories = [
   'Third-Party',
   'Prototypes',
 ];
-/**
- * Sanitize (slufigy) each entry in the list of categories, to normalize odd characters,
- * capitalization, and use of spaces vs dashes. Do this outside of the `storySort`
- * sorting function. Each `StoryItem`'s category will also be passed to `sanitize`
- * for comparison with values in this list.
- */
-const sanitizedCategories = orderedCategories.map((kind) => sanitize(kind));
 
 /**
  * Compares two stories and sorts by category, according to a predefined order
- * @param {String[]} sanitizedCategories - Sanitized array of categories to use for sorting
+ * @param {String[]} categories - Array of categories to use for sorting. Order of
+ * items in the array determines the top-level menu sorting order.
  * @returns {(a: StoryItem, b: StoryItem) => (0 | 1 | -1)} - Sorts two stories based on
  * the order of the passed-in array of categories
  */
-const storySort = (sanitizedCategories) => (a, b) => {
-  /**
-   * Each `StoryItem`'s category is passed to `sanitize` for comparison with values
-   * in this hard-coded array of category names, each of which was also `sanitize`d
-   */
-  const indexA = sanitizedCategories.indexOf(sanitize(getStoryCategory(a)));
-  const indexB = sanitizedCategories.indexOf(sanitize(getStoryCategory(b)));
+const storySort = (categories) => (a, b) => {
+  const indexA = categories.indexOf(getStoryCategory(a));
+  const indexB = categories.indexOf(getStoryCategory(b));
   return indexA === indexB ? 0 : indexA > indexB ? 1 : -1;
 };
 
 // Sort stories according to preferred top-level settings
 addParameters({
   options: {
-    storySort: storySort(sanitizedCategories),
+    storySort: storySort(orderedCategories),
   },
 });
 

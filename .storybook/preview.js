@@ -17,22 +17,20 @@ const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
 addParameters({ themes });
 
 /**
- * Define the type of value passed to `addParameters.options.storySort`, which is
- * parsed to get to the name of each story's category
- * @typedef { [String, import('@storybook/client-api/dist/types').StoreItem] } StoryItem
+ * Get the category from a story.
+ * The story is the 2nd value in an array passed to the comparator function assigned to
+ * `addParameters.options.storySort`.
+ * The category is the first part of the story object's `kind` property, which is
+ * a string delimited with forward slashes.
+ * For reference:
+ * @see https://storybook.js.org/docs/configurations/options-parameter/#sorting-stories
  */
-
-/**
- * Get the category from a story (StoryItem)
- * @param {StoryItem} story - Item passed to `addParameters.options.storySort`
- * @returns {string} - Story's category, the first part of the `StoreItem.kind`
- * value, which is a string delimited with forward slashes
- */
-const getStoryCategory = (story) => story[1].kind.split('/')[0];
+const getStoryCategory = (storySortParam) =>
+  storySortParam[1].kind.split('/')[0];
 
 /**
  * Define an ordered list of story categories. These should match the first part
- * of the `<Meta>` component's `title` attribute found in each story (`.mdx` file).
+ * of the `<Meta>` component's `title` attribute, found in each story (`.mdx` file).
  * The order of categories will determine the display order of the top-level
  * menu items in Storybook .
  */
@@ -49,11 +47,9 @@ const orderedCategories = [
 ];
 
 /**
- * Compares two stories and sorts by category, according to a predefined order
- * @param {String[]} categories - Array of categories to use for sorting. Order of
- * items in the array determines the top-level menu sorting order.
- * @returns {(a: StoryItem, b: StoryItem) => (0 | 1 | -1)} - Sorts two stories based on
- * the order of the passed-in array of categories
+ * Compares two stories and sorts by category.
+ * Takes in an array of categories (strings) and returns the comparator function.
+ * Items in the array determine the top-level menu sorting order.
  */
 const storySort = (categories) => (a, b) => {
   const indexA = categories.indexOf(getStoryCategory(a));

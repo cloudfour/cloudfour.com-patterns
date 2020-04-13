@@ -1,0 +1,13 @@
+@use '../../design-tokens/sizes.yml';
+
+.u-round {
+  border-radius: sizes.$radius-medium !important;
+}
+
+.u-round-full {
+  border-radius: sizes.$radius-full !important;
+}
+
+.u-round-none {
+  border-radius: 0 !important;
+}

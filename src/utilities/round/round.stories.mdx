@@ -1,0 +1,23 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import sizesDemo from './demo/sizes.twig';
+import './demo/styles.scss';
+
+<Meta title="Utilities/Rounded Corners" />
+
+# Rounded Corners
+
+Utilities for controlling the `border-radius` of an element.
+
+## Sizes
+
+`u-round` applies the default rounded corner size, as seen in components like [Button](/?path=/docs/components-button--elements) and [Input](/?path=/docs/components-input--text-elements).
+
+`u-round-full` applies as much rounding as possible evenly. This results in circular or pill-shaped elements.
+
+`u-round-none` omits rounded corners entirely.
+
+<Preview>
+  <Story name="Sizes" height="200px">
+    {sizesDemo()}
+  </Story>
+</Preview>

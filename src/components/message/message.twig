@@ -6,7 +6,7 @@
 {% set tagName = tagName | default('div') %}
 
 <{{tagName}} aria-describedby="MessageInfo" {% if not stopAnnouncements %} aria-live="polite"{% endif %} class="c-message{% if class %} {{class}}{% endif
-%}" tabindex=”0”{% if isWarning %} role="alert"{% else %} role="status"{% endif
+%}" tabindex="0"{% if isWarning %} role="alert"{% else %} role="status"{% endif
 %}>
   <p id="MessageInfo">
     {% block content %}
@@ -14,7 +14,7 @@
     {% endblock %}
   </p>
   {% if includeClose %}
-    <button aria-label="Close message" class="c-message__close" type="button">
+    <button aria-label="Close message" class="c-button c-button--link" type="button">
       {% include '../../assets/icons/close.svg.twig' with {
         class: 'c-icon'
       } %}

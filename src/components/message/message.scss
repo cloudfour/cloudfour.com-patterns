@@ -15,8 +15,7 @@
 
 .c-message {
   align-items: center; /* 1 */
-  background: colors.$gray-lighter;
-  border-top: 4px solid colors.$gray-dark;
+  background-color: colors.$gray-lighter;
   color: colors.$text-dark;
   display: flex; /* 1, 2 */
   justify-content: space-between; /* 2 */
@@ -25,8 +24,7 @@
 }
 
 .c-message--warning {
-  background: colors.$fuchsia;
-  border-top: 4px solid colors.$fuchsia-darker;
+  background-color: colors.$fuchsia;
   color: colors.$text-light-emphasis;
 }
 

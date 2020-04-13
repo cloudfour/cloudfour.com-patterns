@@ -1,13 +1,13 @@
 @use '../../design-tokens/sizes.yml';
 
-.u-round {
+.u-rounded {
   border-radius: sizes.$radius-medium !important;
 }
 
-.u-round-full {
+.u-rounded-full {
   border-radius: sizes.$radius-full !important;
 }
 
-.u-round-none {
+.u-rounded-none {
   border-radius: 0 !important;
 }

@@ -17,6 +17,10 @@ props:
     category: radius
   - name: radius_full
     value: 9999px
+    comment: |
+      A value of 50% would be more intuitive, but results in unexpectedly oblong
+      rounding for non-square shapes. We use `px` to save the browser the
+      trouble of recalculating the stupidly large value.
     type: pixel
     category: radius
   - name: control_height

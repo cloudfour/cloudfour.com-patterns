@@ -1,8 +1,8 @@
 {% embed '../message.twig' %}
-  <p id="MessageInfo">
-    {% block content %}
+  {% block content %}
+    <p>
       Messages contain short, consice information used to highlight important
       information.
-    {% endblock %}
-  </p>
+    </p>
+  {% endblock %}
 {% endembed %}

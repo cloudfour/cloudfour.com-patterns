@@ -1,7 +1,7 @@
 {% embed '../message.twig' with {includeClose: true} %}
-  <p id="MessageInfo">
-    {% block content %}
+  {% block content %}
+    <p>
       Message with Close Button
-    {% endblock %}
-  </p>
+    </p>
+  {% endblock %}
 {% endembed %}

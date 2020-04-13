@@ -1,3 +1,7 @@
 /dist
 /src/design-tokens/generated
 /storybook-static
+
+# Ignore all files in the prototypes directory except for stories
+/src/prototypes/**/*.*
+!/src/prototypes/**/*.stories.*

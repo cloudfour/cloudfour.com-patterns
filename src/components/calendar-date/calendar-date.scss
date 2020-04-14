@@ -1,0 +1,98 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/font.yml';
+@use '../../design-tokens/sizes.yml';
+@use '../../mixins/ms';
+
+.c-calendar-date {
+  display: flex;
+  flex-direction: column;
+  height: ms.step(8);
+  line-height: ms.step(1, 1);
+  // outline: 1px solid cyan;
+  text-align: center;
+  width: ms.step(8);
+
+  &__header {
+    align-items: center;
+    background-color: colors.$purple-dark;
+    border: sizes.$edge-medium solid colors.$purple-darker;
+    border-bottom-width: 0;
+    border-top-left-radius: sizes.$radius-medium;
+    border-top-right-radius: sizes.$radius-medium;
+    color: colors.$text-light-emphasis;
+    display: flex;
+    flex: none;
+    height: ms.step(3);
+    justify-content: center;
+  }
+
+  &__content {
+    align-items: center;
+    background-color: colors.$text-light-emphasis;
+    border: sizes.$edge-medium solid colors.$gray-light;
+    border-top-width: 0;
+    display: flex;
+    flex: 1;
+    height: ms.step(2);
+    justify-content: center;
+
+    &:not(:last-child) {
+      align-items: flex-end;
+      border-bottom-width: 0;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: sizes.$radius-medium;
+      border-bottom-right-radius: sizes.$radius-medium;
+    }
+
+    & + & {
+      align-items: flex-start;
+      flex: none;
+    }
+  }
+
+  &__day {
+    font-size: ms.step(2);
+    font-weight: font.$weight-medium;
+  }
+
+  &__note {
+    font-size: ms.step(-1);
+  }
+}
+
+// .c-calendar-date__month {
+//   align-items: center;
+//   background-color: colors.$purple-dark;
+//   border: sizes.$edge-medium solid colors.$purple-darker;
+//   border-bottom-width: 0;
+//   border-top-left-radius: sizes.$radius-medium;
+//   border-top-right-radius: sizes.$radius-medium;
+//   color: colors.$text-light-emphasis;
+//   display: flex;
+//   flex: none;
+//   font-weight: font.$weight-medium;
+//   height: ms.step(3);
+//   justify-content: center;
+//   text-transform: uppercase;
+// }
+
+// .c-calendar-date__day {
+//   align-items: center;
+//   background-color: colors.$text-light-emphasis;
+//   border: sizes.$edge-medium solid colors.$gray-light;
+//   border-bottom-left-radius: sizes.$radius-medium;
+//   border-bottom-right-radius: sizes.$radius-medium;
+//   border-top-width: 0;
+//   color: colors.$text-dark;
+//   display: flex;
+//   flex: 1;
+//   font-size: ms.step(3);
+//   font-weight: font.$weight-medium;
+//   justify-content: center;
+// }
+
+// .c-calendar-date__note {
+//   display: none;
+// }

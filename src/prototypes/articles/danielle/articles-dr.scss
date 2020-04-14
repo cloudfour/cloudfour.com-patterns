@@ -1,0 +1,75 @@
+@use "../../../design-tokens/breakpoint.yml";
+@use "../../../mixins/ms";
+
+/**
+ * Wrap entire prototype in selector to prevent CSS leakage.
+ *
+ * @see https://github.com/storybookjs/storybook/issues/729
+ */
+
+#prototype-articles-example {
+  .articles {
+    display: grid;
+    grid-gap: ms.step(4);
+    padding: ms.step(2);
+
+    @media (min-width: breakpoint.$xs) {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(breakpoint.$xs - ms.step(2) * 2, 1fr)
+      );
+    }
+
+    @media (min-width: breakpoint.$xl) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.card {
+  display: grid;
+  grid-gap: ms.step(0);
+
+  @media (min-width: breakpoint.$xl) {
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: breakpoint.$xl) {
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: breakpoint.$xxl) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.card__content {
+  @media (min-width: breakpoint.$xl) {
+    grid-column: 1 / 2;
+  }
+}
+
+.card__image {
+  align-self: end;
+  @media (min-width: breakpoint.$xl) {
+    grid-column: 2 / 3;
+  }
+}
+
+.details {
+  align-items: center;
+  display: flex;
+}
+
+.details__content  {
+  margin: 0;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: ms.step(5);
+  margin-right: ms.step(0);
+  width: ms.step(5);
+}

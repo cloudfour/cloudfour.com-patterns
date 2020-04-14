@@ -36,15 +36,20 @@ function mdxColors(props) {
  * property table.
  *
  * @param {Object} prop - Theo property
+ * @param {Boolean} includeComment - If `true`, include a comment cell.
  * @returns {String}
  */
-function mdxProp(prop) {
-  return `
-<tr>
-  <th scope="row">$${kebabCase(prop.name)}</th>
-  <td>${prop.value}</td>
-</tr>
-  `.trim();
+function mdxProp(prop, includeComment) {
+  let content = `
+    <td style={{width:'10%'}}><code>$${kebabCase(prop.name)}</code></td>
+    <td>${prop.value}</td>
+  `;
+
+  if (includeComment) {
+    content += `<td>${prop.comment || '&nbsp;'}</td>`;
+  }
+
+  return `<tr>${content.trim()}</tr>`;
 }
 
 /**
@@ -54,12 +59,15 @@ function mdxProp(prop) {
  * @returns {String}
  */
 function mdxProps(props) {
-  const rows = props.map(mdxProp);
+  const commentedProps = props.filter((prop) => !!prop.comment);
+  const includeComments = commentedProps.length > 0;
+  const rows = props.map((prop) => mdxProp(prop, includeComments));
   return `
 <table>
   <thead>
     <th>Name</th>
     <th>Value</th>
+    ${includeComments ? `<th>Comment</th>` : ''}
   </thead>
   <tbody>${rows.join('\n')}</tbody>
 </table>`.trim();

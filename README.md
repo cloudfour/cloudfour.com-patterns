@@ -2,44 +2,30 @@
 
 # Cloud Four Patterns 🚧
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1923e350-3172-409a-9361-b04d54d1c3b4/deploy-status)](https://app.netlify.com/sites/cloudfour-patterns/deploys?filter=v-next)
+[![NPM version](http://img.shields.io/npm/v/@cloudfour/patterns.svg)](https://www.npmjs.org/package/@cloudfour/patterns) [![Build Status](https://github.com/cloudfour/cloudfour.com-patterns/workflows/CI/badge.svg)](https://github.com/cloudfour/cloudfour.com-patterns/actions?query=workflow%3ACI) [![Renovate Status](https://badges.renovateapi.com/github/cloudfour/cloudfour.com-patterns)](https://renovatebot.com/) [![Netlify Status](https://api.netlify.com/api/v1/badges/1923e350-3172-409a-9361-b04d54d1c3b4/deploy-status)](https://app.netlify.com/sites/cloudfour-patterns/deploys?filter=v-next)
 
-You are currently viewing the `v-next` branch. This represents a significant refactor of our environment and coding standards. It is a work in progress and not yet ready for use.
+🚨 **You are currently viewing the `v-next` branch.** This represents a significant refactor of our environment and coding standards. It is a work in progress and not yet ready for use.
 
 If you’re looking for the most stable version of our pattern library, check out [the `master` branch](https://github.com/cloudfour/cloudfour.com-patterns/tree/master).
 
 [View Netlify Preview →](https://v-next--cloudfour-patterns.netlify.com/)
 
-## Getting Started
+## Installation
 
-1. `npm ci`
-1. `npm run storybook`
+### Download Compiled CSS and JS
 
-## Building
+Coming soon.
 
-- `npm run build` Builds CSS+JS for npm package
-- `npm run build-storybook` Creates a static storybook site build, for example for publishing the pattern library to Netlify
+### Package Managers
 
-## Project Structure
+The package includes both the compiled code and the source files. So you can either include the compiled CSS and JS directly, or load the source files using your own build system. If you use the source files, you'll need to compile them yourself using Sass and PostCSS.
+
+You can add the pattern library package as a dependency to your JavaScript application using npm or yarn:
 
 ```
-cloudfour.com-patterns
-├── .github               # GitHub workflows and templates
-├── .storybook
-│   ├── main.js           # Settings for Storybook UI
-│   └── preview.js        # Settings for story previews
-├── .theo                 # Settings for design token processing
-├── gulpfile.js
-│   └── tasks/*.js        # Complex build tasks
-├── src
-│   ├── **/*.scss         # Styles (Sass)
-│   ├── **/*.stories.mdx  # Documentation (Storybook Docs)
-│   ├── **/*.twig         # Templates (Twig)
-│   └── **/*.yml          # Design tokens (Theo)
-├── .editorconfig         # Low-level code consistency
-├── .nvmrc                # Node version (used by Netlify)
-├── .svgo.yml             # Inline SVG optimization settings
-├── README.md             # ⬅️ You are here!
-├── netlify.toml          # Netlify build settings
-└── package.json          # Project info and dependencies
+npm install @cloudfour/patterns
+
+or
+
+yarn add @cloudfour/patterns
 ```

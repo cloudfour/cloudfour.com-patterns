@@ -2,7 +2,6 @@ import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import messageDemo from './demo/default-message.twig';
 import messageWithCloseDemo from './demo/message-with-close.twig';
-import warningDemo from './demo/warning-message.twig';
 import './message.scss';
 
 <Meta title="Components/Message" decorators={[withKnobs]} />
@@ -32,21 +31,6 @@ Most messages should allow users to dismiss them with a close button.
 <Preview>
   <Story name="Message with close" height="120px">
     {messageWithCloseDemo({
-      label: text('Message text'),
-      includeClose: true,
-    })}
-  </Story>
-</Preview>
-
-## Warning message
-
-Color can be used to convey urgency or highlight important information. This
-pattern is ideal for offline notices but other applications may also be
-appropriate.
-
-<Preview>
-  <Story name="Warning" height="120px">
-    {warningDemo({
       label: text('Message text'),
       includeClose: true,
     })}

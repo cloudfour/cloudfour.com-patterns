@@ -1,4 +1,5 @@
 @use "../../design-tokens/colors.yml";
+@use "../../mixins/focus";
 @use "../../design-tokens/font.yml";
 @use "../../design-tokens/sizes.yml";
 @use "../../mixins/ms";
@@ -23,21 +24,11 @@
   padding: ms.step(-8) ms.step(0);
 }
 
-.c-message--warning {
-  background-color: colors.$fuchsia;
-  color: colors.$text-light-emphasis;
+.c-message--withClose {
+  padding-right: ms.step(-4);
 }
 
 /**
- * Inherit parent text color for links when blue is hideous against background.
- */
-
-.c-message--warning a {
-  color: inherit;
-}
-
-/**
- * 1. Reset default button styles (remove once reset/button CSS is inplace)
  * 2. Close icon should be the same color as the parent text color.
  * 3. Easy way to collapse extra whitespace between button edge and icon.
  * 4. Make icon a little larger than the parent text size.
@@ -48,11 +39,18 @@
 
 .c-message__close {
   background-color: inherit; /* 1 */
-  border: 0; /* 1 */
+  border-color: transparent;
+  border-radius: sizes.$radius-medium;
+  border-style: solid;
+  border-width: sizes.$edge-medium;
   color: inherit; /* 2 */
   cursor: pointer;
   display: flex; /* 3 */
   font-size: ms.step(1); /* 4 */
   margin-left: ms.step(1); /* 5 */
-  padding-right: 0;
+  padding: 0.25rem;
+
+  @include focus.focus-visible {
+    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  }
 }

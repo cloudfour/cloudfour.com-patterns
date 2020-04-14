@@ -1,49 +1,57 @@
 props:
-  edge_small:
+  - name: edge_small
     value: 0.0625rem
     type: relative
     category: sizing
-  edge_medium:
+  - name: edge_medium
     value: 0.125rem
     type: relative
     category: sizing
-  edge_large:
+  - name: edge_large
     value: 0.25rem
     type: relative
     category: sizing
-  radius_medium:
+  - name: radius_medium
     value: 0.25em
     type: relative
     category: radius
-  control_height:
+  - name: radius_full
+    value: 9999px
+    comment: |
+      A value of 50% would be more intuitive, but results in unexpectedly oblong
+      rounding for non-square shapes. We use `px` to save the browser the
+      trouble of recalculating the stupidly large value.
+    type: pixel
+    category: radius
+  - name: control_height
     value: 4
     type: modular/em
     category: sizing
-  control_height_multiline:
+  - name: control_height_multiline
     value: 6
     type: modular/em
     category: sizing
-  control_pad_horizontal:
+  - name: control_pad_horizontal
     value: 1
     type: modular/em
     category: sizing
-  control_pad_vertical:
+  - name: control_pad_vertical
     value: -4
     type: modular/em
     category: sizing
-  control_text_inset:
+  - name: control_text_inset
     value: -1
     type: modular/em
     category: sizing
-  control_icon_size:
+  - name: control_icon_size
     value: 0
     type: modular/em
     category: sizing
-  control_icon_inset:
+  - name: control_icon_inset
     value: -3
     type: modular/em
     category: sizing
-  toggle_medium:
+  - name: toggle_medium
     value: 2
     type: modular/em
     category: sizing

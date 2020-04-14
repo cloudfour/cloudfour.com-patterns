@@ -85,12 +85,16 @@ $default-aspect-ratio: aspect-ratio.$square;
    *
    * 1. We default to a square aspect ratio. This is suitable for icons, profile
    *    images, etc. It's also the simplest default.
-   * 2. Required to absolute-position child elements.
+   * 2. Required for rounded corners to work as expected. We could apply this
+   *    by default, but then circular rounding would appear elliptical in older
+   *    browsers.
+   * 3. Required to absolute-position child elements.
    */
 
   .o-embed {
     --aspect-ratio: #{$default-aspect-ratio}; /* 1 */
-    position: relative; /* 2 */
+    overflow: hidden; /* 2 */
+    position: relative; /* 3 */
 
     /**
      * The pseudo element is required to make the padding hack work.

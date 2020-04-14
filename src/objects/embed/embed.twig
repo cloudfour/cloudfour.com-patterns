@@ -1,6 +1,13 @@
+{% if aspect_ratio %}
+  {% set style = (style|default('')) ~ ';--aspect-ratio:' ~ aspect_ratio %}
+{% endif %}
+
 <div class="o-embed{% if class %} {{class}}{% endif %}"
-  {% if aspect_ratio %}
-    style="--aspect-ratio: {{aspect_ratio}}"
+  {% if style %}
+    style="
+      {%- for rule in style|split(';') if rule|length -%}
+        {{rule}}{% if not loop.last %};{% endif %}
+      {%- endfor -%}"
   {% endif %}>
   {% block content %}
   {% endblock %}

@@ -44,4 +44,6 @@ cloudfour.com-patterns
 4. `npm version` - This will bump the version number in `package.json` and `package-lock.json`
 5. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
 
+You can run `npm publish --dry-run` to see everything that _would_ happen during publish, without actually publishing to the npm registry.
+
 Note the branch is `v-next` for now. When we we merge this branch to master, these instructions should be updated.

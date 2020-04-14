@@ -1,0 +1,2 @@
+# Ignore all files in the prototypes directory
+/src/prototypes/**/*

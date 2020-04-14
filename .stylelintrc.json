@@ -1,3 +1,6 @@
 {
-  "extends": ["stylelint-config-cloudfour", "stylelint-config-prettier"]
+  "extends": ["stylelint-config-cloudfour", "stylelint-config-prettier"],
+  "rules": {
+    "suitcss/custom-property-no-outside-root": null
+  }
 }

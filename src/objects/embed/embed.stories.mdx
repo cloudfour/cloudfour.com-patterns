@@ -8,7 +8,7 @@ import pictureDemo from './demo/picture.twig';
 import pictureDemoJpgSrc from './demo/twilight.jpg';
 import pictureDemoWebpSrc from './demo/twilight.webp';
 import videoDemo from './demo/video.twig';
-import './embed.scss';
+import roundedDemoSrc from './demo/avatar.png';
 const modifierClasses = [
   '',
   ...Object.keys(aspectRatioTokens).map((key) => `o-embed--${key}`),
@@ -59,6 +59,20 @@ Embed objects support two methods for specifying the desired aspect ratio:
     {videoDemo({
       class: select('modifier class', modifierClasses, 'o-embed--wide'),
       aspect_ratio: text('aspect_ratio'),
+    })}
+  </Story>
+</Preview>
+
+## Rounded
+
+Embeds may be combined with [rounded corner utilities](/?path=/docs/utilities-rounded-corners--sizes). In this example, a square embed becomes circular thanks to `u-rounded-full`.
+
+<Preview>
+  <Story name="Rounded" height="240px">
+    {imageDemo({
+      class: 'u-rounded-full',
+      style: 'max-width: 10em',
+      src: roundedDemoSrc,
     })}
   </Story>
 </Preview>

@@ -45,8 +45,8 @@ const orderedCategories = [
   'Design Tokens',
   'Objects',
   'Components',
-  'Utilities',
   'Themes',
+  'Utilities',
   'Third-Party',
   'Prototypes',
 ];

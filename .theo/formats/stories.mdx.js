@@ -40,10 +40,30 @@ function mdxColors(props) {
  * @returns {String}
  */
 function mdxProp(prop, includeComment) {
-  let content = `
-    <td style={{width:'10%'}}><code>$${kebabCase(prop.name)}</code></td>
-    <td>${prop.value}</td>
-  `;
+  // First cell has small percentage to give values and comments more room.
+  let content = `<td style={{width:'10%'}}><code>$${kebabCase(
+    prop.name
+  )}</code></td>`;
+
+  if (prop.category === 'font-family') {
+    // Create an array for each of the fonts in the family string
+    let fonts = prop.value.split(',');
+    // Start a new array to hold the preview elements we're about to create
+    const fontStrings = [];
+    // For each font string we create, we are going to remove the first font
+    // element using `shift`. This allows each segment to be previewed along
+    // with its remaining fallbacks.
+    while (fonts.length) {
+      fontStrings.push(
+        `<span style={{ fontFamily: \`${fonts.join(
+          ','
+        )}\`}}>${fonts.shift().trim()}</span>`
+      );
+    }
+    content += `<td>${fontStrings.join(', ')}</td>`;
+  } else {
+    content += `<td><code>${prop.value}</code></td>`;
+  }
 
   if (includeComment) {
     content += `<td>${prop.comment || '&nbsp;'}</td>`;

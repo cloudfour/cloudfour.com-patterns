@@ -20,8 +20,8 @@ $radius: sizes.$radius-medium;
 
   &__header {
     align-items: center;
-    background-color: colors.$primary-brand;
-    border: $edge-size solid colors.$primary-brand-dark;
+    background-color: colors.$gray-dark;
+    border: $edge-size solid colors.$gray-darker;
     border-bottom-width: 0;
     border-top-left-radius: $radius;
     border-top-right-radius: $radius;
@@ -64,14 +64,20 @@ $radius: sizes.$radius-medium;
 
   &__main {
     align-items: center;
+    background-color: colors.$text-light-emphasis;
     border: $edge-size solid colors.$gray-light;
     border-bottom-left-radius: $radius;
     border-bottom-right-radius: $radius;
     border-top-width: 0;
+    color: colors.$text-dark;
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
+
+    .t-dark & {
+      border-color: colors.$primary-brand-dark;
+    }
   }
 
   &__day {

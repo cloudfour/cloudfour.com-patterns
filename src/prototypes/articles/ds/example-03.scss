@@ -12,7 +12,7 @@ $line-height-md: 1.5;
  * @see https://github.com/storybookjs/storybook/issues/729
  */
 
-#prototype-ds03-articles-example {
+#prototype-ds04-articles-example {
 
   * {
     box-sizing: border-box;
@@ -83,11 +83,15 @@ $line-height-md: 1.5;
 
   .articles__item:first-of-type {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-column: span 2;
+    grid-template-columns: 1fr 1fr;
+    grid-column: span 4;
     grid-column-gap: ms.step(4);
-    grid-row: span 2;
+    grid-row: span 1;
 
+    .articles__img {
+      display: block;
+    }
+    
     .articles__header {
       font-size: ms.step(1);
     }
@@ -105,7 +109,7 @@ $line-height-md: 1.5;
     width: 100%;
   }
 
-  .articles__headerLink {
+  .articles_headerLink {
     color: inherit;
     text-decoration: none;
 
@@ -120,6 +124,7 @@ $line-height-md: 1.5;
   }
 
   .articles__img {
+    display: none;
   }
 
   .articles__description {

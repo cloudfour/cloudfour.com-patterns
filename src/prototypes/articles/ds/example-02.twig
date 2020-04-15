@@ -8,7 +8,7 @@
   </div>
 
   <div class="articles">
-    {% for article in feed.items %}
+    {% for article in feed.items|slice(0, 9) %}
       <article class="articles__item">
         
         {% if article.image %}

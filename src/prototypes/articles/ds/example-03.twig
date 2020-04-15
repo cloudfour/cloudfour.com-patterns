@@ -1,4 +1,4 @@
-<div id="prototype-ds03-articles-example">
+<div id="prototype-ds04-articles-example">
 
   <div class="hero t-dark">
     <h1 class="hero__title">Articles</h1>
@@ -8,7 +8,7 @@
   </div>
 
   <div class="articles">
-    {% for article in feed.items %}
+    {% for article in feed.items|slice(0, 9) %}
       <article class="articles__item">
         
         {% if article.image %}
@@ -32,7 +32,7 @@
         <div class="articles__info">
           <header class="articles__header">
             <h2>
-              <a class="articles__headerLink" href="{{article.url}}">
+              <a class="articles_headerLink" href="{{article.url}}">
                 {{article.title}}
               </a>
             </h2>

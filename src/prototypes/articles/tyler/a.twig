@@ -4,22 +4,31 @@
       <div class="articles">
         {% for article in feed.items %}
           <article class="article">
-            <header class="article__header">
-              <h2 class="article__heading">
-                <a class="article__link" href="{{article.url}}">
-                  {{article.title}}
-                </a>
-              </h2>
-              <p class="article__date">
-                {{article.date_published|replace({'Z': ''})|date('F j, Y')}}
+            <div class="article__content">
+              <header class="article__header">
+                <h2 class="article__heading">
+                  <a class="article__link" href="{{article.url}}">
+                    {{article.title}}
+                  </a>
+                </h2>
+                <p class="article__date">
+                  {{article.date_published|replace({'Z': ''})|date('F j, Y')}}
+                </p>
+                <p class="article__author">
+                  {{article.author.name}}
+                </p>
+              </header>
+              <p class="article__summary">
+                {% if article.summary|length > 140 %}
+                  {{article.summary|slice(0, 140)}}…
+                {% else %}
+                  {{article.summary}}
+                {% endif %}
               </p>
-              <p class="article__author">
-                By {{article.author.name}}
-              </p>
-            </header>
+            </div>
             <div class="article__image">
               {% embed '../../../objects/embed/embed.twig' with {
-                  class: 'o-embed--wide o-embed--square@m o-embed--wide@l u-rounded'
+                  class: 'o-embed--wide u-rounded'
                 } %}
                 {% block content %}
                   {% if article.image %}
@@ -32,13 +41,6 @@
                 {% endblock %}
               {% endembed %}
             </div>
-            <p class="article__summary">
-              {% if article.summary|length > 140 %}
-                {{article.summary|slice(0, 140)}}…
-              {% else %}
-                {{article.summary}}
-              {% endif %}
-            </p>
           </article>
         {% endfor %}
       </div>

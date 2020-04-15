@@ -31,6 +31,11 @@
 
         <div class="articles__info">
           <header class="articles__header">
+            <p>
+              <a class="articles__author" href="{{article.author.url}}">
+                {{article.author.name}}
+              </a>
+            </p>
             <h2>
               <a class="articles__headerLink" href="{{article.url}}">
                 {{article.title}}
@@ -41,7 +46,7 @@
           <p class="articles__description">
             {{article.summary}}
           </p>
-          <footer class="articles__author">
+          {# <footer>
             
             {% embed '../../../objects/embed/embed.twig' with {class:
             "articles__authorImg"} %}
@@ -51,21 +56,45 @@
                 </a>
               {% endblock %}
             {% endembed %}
-
-            <div>
-              <p>
-                <a href="{{article.author.url}}">
-                  {{article.author.name}}
-                </a>
-              </p>
-
-              <p class="articles__date">
-                {{article.date_published|replace({'Z': ''})|date('F j, Y')}}
-              </p>
-            </div>
-          </footer>
+          </footer> #}
         </div>
       </article>
     {% endfor %}
+  </div>
+
+  <div class="articles__navigation">
+    <h2>Explore Topics</h2>
+    <ul class="articles__navigationList">
+      <li class="articles__navigationListItem">
+        <a href="#">
+          Responsive Images
+        </a>
+      </li>
+      <li class="articles__navigationListItem">
+        <a href="#">
+          Performance
+        </a>
+      </li>
+      <li class="articles__navigationListItem">
+        <a href="#">
+          Design
+        </a>
+      </li>
+      <li class="articles__navigationListItem">
+        <a href="#">
+          Development
+        </a>
+      </li>
+      <li class="articles__navigationListItem">
+        <a href="#">
+          SVGs
+        </a>
+      </li>
+      <li class="articles__navigationListItem">
+        <a href="#">
+          CSS
+        </a>
+      </li>
+    </ul>
   </div>
 </div>

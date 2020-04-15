@@ -1,5 +1,6 @@
 @use "../../../design-tokens/breakpoint.yml";
 @use "../../../design-tokens/colors.yml";
+@use "../../../design-tokens/sizes.yml";
 @use "../../../mixins/ms";
 
 $overlap: ms.step(6);
@@ -78,12 +79,12 @@ $line-height-md: 1.5;
   .articles__item {
     background-color: colors.$text_light_emphasis;
     grid-template-rows: subgrid;
-    padding: ms.step(1);
+    padding: ms.step(-1);
   }
 
   .articles__item:first-of-type {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.96fr 1fr;
     grid-column: span 4;
     grid-column-gap: ms.step(4);
     grid-row: span 1;
@@ -97,21 +98,27 @@ $line-height-md: 1.5;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+
+    &:hover .articles__headerLink {
+      color: colors.$primary_brand;
+      
+    }
+
+    &:hover .articles__author {
+      color: colors.$text_dark;
+    }
   }
 
   .articles__header {
-    
     margin-top: ms.step(2);
     width: 100%;
   }
 
   .articles__headerLink {
     color: inherit;
+    font-size: ms.step(-1);
     text-decoration: none;
-
-    &:hover {
-      color: colors.$primary_brand;
-    }
+    transition: color ease 0.7s;
   }
 
   .articles__date {
@@ -120,15 +127,19 @@ $line-height-md: 1.5;
   }
 
   .articles__img {
+    border-radius: sizes.$radius_medium;
   }
 
   .articles__description {
+    color: colors.$text_dark_muted;
     padding: ms.step(-1) 0;
   }
 
   .articles__author {
-    align-items: center;
-    display: flex;
+    color: colors.$text_action;
+    text-decoration: none;
+    font-size: ms.step(-1);
+    transition: color ease 0.7s;
   }
 
   .articles__authorImg {
@@ -137,6 +148,30 @@ $line-height-md: 1.5;
     height: 50px;
     width: 50px;
     margin-right: ms.step(-1);
+  }
+
+  .articles__navigation {
+    background-color: colors.$gray_lighter;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: ms.step(4);
+
+    h2 {
+      padding: ms.step(2) 0;
+      text-align: center;
+    }
+  }
+
+  .articles__navigationList {
+    padding: ms.step(2) 0;
+    text-align: center;
+  }
+
+  .articles__navigationListItem {
+    display: inline;
+    padding: 0 ms.step(-1);
   }
 
 }

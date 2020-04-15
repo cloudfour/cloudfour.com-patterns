@@ -89,7 +89,7 @@ $line-height-md: 1.5;
 
   .articles__item:nth-child(3n+1) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.48fr 0.5fr;
     grid-column: span 2;
     grid-column-gap: ms.step(4);
     grid-row: span 2;

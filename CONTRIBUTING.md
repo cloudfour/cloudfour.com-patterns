@@ -46,4 +46,4 @@ cloudfour.com-patterns
 
 You can run `npm publish --dry-run` to see everything that _would_ happen during publish, without actually publishing to the npm registry.
 
-Note the branch is `v-next` for now. When we we merge this branch to master, these instructions should be updated.
+Note the branch is `v-next` for now. When we we merge this branch to `master`, these instructions should be updated.

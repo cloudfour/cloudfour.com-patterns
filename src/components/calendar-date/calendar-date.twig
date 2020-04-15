@@ -1,0 +1,21 @@
+{% set datetime = datetime|default('now') %}
+{% set days = days|default(1) %}
+
+<time class="c-calendar-date c-calendar-date--{{datetime|date('F')|lower}}"
+  datetime="{{datetime|date('Y-m-d')}}">
+  <span class="c-calendar-date__header">
+    {{datetime|date('M')}}
+  </span>
+  <span class="c-calendar-date__main">
+    <span class="c-calendar-date__day">
+      {{datetime|date('j')}}
+    </span>
+    {% if block('note') or note %}
+      <span class="c-calendar-date__note">
+        {% block note %}
+          {{note}}
+        {% endblock %}
+      </span>
+    {% endif %}
+  </span>
+</time>

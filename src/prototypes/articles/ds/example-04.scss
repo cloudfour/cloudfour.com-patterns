@@ -12,7 +12,7 @@ $line-height-md: 1.5;
  * @see https://github.com/storybookjs/storybook/issues/729
  */
 
-#prototype-ds01-articles-example {
+#prototype-ds04-articles-example {
 
   * {
     box-sizing: border-box;
@@ -61,42 +61,40 @@ $line-height-md: 1.5;
     font-style: italic;
   }
 
+  /**
+   * Articles prototyping
+   */
+
   .articles {
-    // background-color: colors.$gray_lighter;
     display: grid;
-    grid-gap: ms.step(4);
-    // grid-template-rows: repeat(3, auto 1fr auto);
-    padding: ms.step(2);
+    grid-gap: ms.step(1);
+    padding: ms.step(0);
 
     @media (min-width: breakpoint.$xs) {
-      grid-template-columns: 0.5fr 0.5fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 
   .articles__item {
-    // display: grid;
     background-color: colors.$text_light_emphasis;
-    // grid-template-areas: 
-    //   "title title"
-    //   "image image"
-    //   "description description"
-    //   "author author";
     grid-template-rows: subgrid;
-    // grid-row: span 3;
-    padding: ms.step(2);
-    
+    padding: ms.step(1);
   }
 
-  .articles__item:nth-child(3n+1) {
+  .articles__item:first-of-type {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column: span 2;
+    grid-column: span 4;
     grid-column-gap: ms.step(4);
-    grid-row: span 2;
-    // grid-template-areas: 
-    //   "image title"
-    //   "image date"
-    //   "image description";
+    grid-row: span 1;
+
+    .articles__img {
+      display: block;
+    }
+    
+    .articles__header {
+      font-size: ms.step(1);
+    }
   }
 
   .articles__info {
@@ -106,13 +104,12 @@ $line-height-md: 1.5;
   }
 
   .articles__header {
-    // grid-area: title;
-    font-size: ms.step(1);
+    
     margin-top: ms.step(2);
     width: 100%;
   }
 
-  .articles__headerLink {
+  .articles_headerLink {
     color: inherit;
     text-decoration: none;
 
@@ -122,24 +119,21 @@ $line-height-md: 1.5;
   }
 
   .articles__date {
-    // grid-area: date;
     font-size: ms.step(-1);
     width: 100%;
   }
 
   .articles__img {
-    // grid-area: image;
+    display: none;
   }
 
   .articles__description {
-    // grid-area: description;
-    padding: ms.step(2) 0;
+    padding: ms.step(-1) 0;
   }
 
   .articles__author {
     align-items: center;
     display: flex;
-    // grid-area: author;
   }
 
   .articles__authorImg {

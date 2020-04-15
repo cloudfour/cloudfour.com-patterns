@@ -1,8 +1,14 @@
 import feed from './data/feed.json';
 import examplePrototype from './example/example.twig';
 import './example/example.scss';
-import dsPrototype from './ds/example-01.twig';
+import dsPrototype01 from './ds/example-01.twig';
+import dsPrototype02 from './ds/example-02.twig';
+import dsPrototype03 from './ds/example-03.twig';
+import dsPrototype04 from './ds/example-04.twig';
 import './ds/example-01.scss';
+import './ds/example-02.scss';
+import './ds/example-03.scss';
+import './ds/example-04.scss';
 
 export default {
   title: 'Prototypes/Articles',
@@ -14,4 +20,10 @@ export default {
 
 export const Example = () => examplePrototype({ feed });
 
-export const DereksPrototype = () => dsPrototype({ feed });
+export const DereksPrototype01 = () => dsPrototype01({ feed });
+
+export const DereksPrototype02 = () => dsPrototype02({ feed });
+
+export const DereksPrototype03 = () => dsPrototype03({ feed });
+
+export const DereksPrototype04 = () => dsPrototype04({ feed });

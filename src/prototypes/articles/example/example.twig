@@ -38,5 +38,36 @@
         </footer>
       </article>
     {% endfor %}
+    <div class="essentials">
+      <h2>Essentials</h2>
+      <p>Frequently-cited posts we’re particularly proud of.</p>
+      <ul>
+        {% for article in essentials %}
+          <li>
+            <a href="{{article.url}}">
+              {{article.title}}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="topics">
+      <h2>Topics</h2>
+      <ul>
+        {% for topic in topics|slice(0,7) %}
+          <li>
+            <a href="#">
+              {{topic.title}}
+              ({{topic.count}} articles)
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <p>
+        <a href="#">
+          All topics
+        </a>
+      </p>
+    </div>
   </div>
 </div>

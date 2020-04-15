@@ -31,7 +31,8 @@ cloudfour.com-patterns
 ├── .editorconfig         # Low-level code consistency
 ├── .nvmrc                # Node version (used by Netlify)
 ├── .svgo.yml             # Inline SVG optimization settings
-├── README.md             # ⬅️ You are here!
+├── CONTRIBUTING.md       # ⬅️ You are here!
+├── README.md             # Pattern library install instructions
 ├── netlify.toml          # Netlify build settings
 └── package.json          # Project info and dependencies
 ```

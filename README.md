@@ -12,20 +12,10 @@ If you’re looking for the most stable version of our pattern library, check ou
 
 ## Installation
 
-### Download Compiled CSS and JS
-
-Coming soon.
-
-### Package Managers
-
 The package includes both the compiled code and the source files. So you can either include the compiled CSS and JS directly, or load the source files using your own build system. If you use the source files, you'll need to compile them yourself using Sass and PostCSS.
 
-You can add the pattern library package as a dependency to your JavaScript application using npm or yarn:
+You can add the pattern library package as a dependency to your JavaScript application using npm:
 
 ```
 npm install @cloudfour/patterns
-
-or
-
-yarn add @cloudfour/patterns
 ```

@@ -1,43 +1,47 @@
 <div id="prototype-tyler-a">
-  <div class="articles">
-    {% for article in feed.items %}
-      <article class="article">
-        <header class="article__header">
-          <h2 class="article__heading">
-            <a class="article__link" href="{{article.url}}">
-              {{article.title}}
-            </a>
-          </h2>
-        </header>
-        <p class="article__date">
-          {{article.date_published|replace({'Z': ''})|date('F j, Y')}}
-        </p>
-        <div class="article__image">
-          {% embed '../../../objects/embed/embed.twig' with {
-              class: 'o-embed--wide'
-            } %}
-            {% block content %}
-              {% if article.image %}
-                <img src="{{article.image}}" alt="">
+  {% embed '../../../objects/container/container.twig' %}
+    {% block content %}
+      <div class="articles">
+        {% for article in feed.items %}
+          <article class="article">
+            <header class="article__header">
+              <h2 class="article__heading">
+                <a class="article__link" href="{{article.url}}">
+                  {{article.title}}
+                </a>
+              </h2>
+              <p class="article__date">
+                {{article.date_published|replace({'Z': ''})|date('F j, Y')}}
+              </p>
+              <p class="article__author">
+                By {{article.author.name}}
+              </p>
+            </header>
+            <div class="article__image">
+              {% embed '../../../objects/embed/embed.twig' with {
+                  class: 'o-embed--wide o-embed--square@m o-embed--wide@l u-rounded'
+                } %}
+                {% block content %}
+                  {% if article.image %}
+                    <img src="{{article.image}}" alt="">
+                  {% else %}
+                    <div class="article__avatar">
+                      <img src="{{article.author.avatar}}" alt="">
+                    </div>
+                  {% endif %}
+                {% endblock %}
+              {% endembed %}
+            </div>
+            <p class="article__summary">
+              {% if article.summary|length > 140 %}
+                {{article.summary|slice(0, 140)}}…
               {% else %}
-                <div class="article__avatar">
-                  <img src="{{article.author.avatar}}" alt="">
-                </div>
+                {{article.summary}}
               {% endif %}
-            {% endblock %}
-          {% endembed %}
-        </div>
-        <p class="article__summary">
-          {{article.summary}}
-        </p>
-        <footer class="article__meta">
-          <p class="article__author">
-            By <a href="{{article.author.url}}">
-              {{article.author.name}}
-            </a>
-          </p>
-        </footer>
-      </article>
-    {% endfor %}
-  </div>
+            </p>
+          </article>
+        {% endfor %}
+      </div>
+    {% endblock %}
+  {% endembed %}
 </div>

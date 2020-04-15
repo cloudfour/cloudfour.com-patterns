@@ -1,4 +1,6 @@
+import essentials from './data/essentials.json';
 import feed from './data/feed.json';
+import topics from './data/topics.json';
 import examplePrototype from './example/example.twig';
 import tylerPrototypeA from './tyler/a.twig';
 import './example/example.scss';
@@ -12,6 +14,6 @@ export default {
   },
 };
 
-export const Example = () => examplePrototype({ feed });
+export const Example = () => examplePrototype({ essentials, feed, topics });
 
-export const TylerA = () => tylerPrototypeA({ feed });
+export const TylerA = () => tylerPrototypeA({ essentials, feed, topics });

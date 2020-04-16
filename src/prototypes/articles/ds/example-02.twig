@@ -29,11 +29,11 @@
                 {{article.author.name}}
               </a>
             </p>
-            <h2>
+            <h3>
               <a class="articles__headerLink" href="{{article.url}}">
                 {{article.title}}
               </a>
-            </h2>
+            </h3>
           </header>
           
           <p class="articles__description">
@@ -55,37 +55,59 @@
     {% endfor %}
   </div>
 
+  <div class="essentialArticles">
+    <h2>Essentials</h2>
+    <div class="essentialArticles__container">
+      {% for article in feed.items|slice(0, 8) %}
+        <div class="essentialArticles__item">
+          <h3>
+            {{article.title}}
+          </h3>
+          <p class="articles__description">
+            {{article.summary}}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
   <div class="articles__navigation">
     <h2>Explore Topics</h2>
     <ul class="articles__navigationList">
       <li class="articles__navigationListItem">
-        <a href="#">
-          Responsive Images
+        <a class="articles__navigationListLink" href="#">
+          <div>11</div>
+          <div>Responsive Images</div>
         </a>
       </li>
       <li class="articles__navigationListItem">
-        <a href="#">
-          Performance
+        <a class="articles__navigationListLink" href="#">
+          <div>7</div>
+          <div>Performance</div>
         </a>
       </li>
       <li class="articles__navigationListItem">
-        <a href="#">
-          Design
+        <a class="articles__navigationListLink" href="#">
+          <div>13</div>
+          <div>Design</div>
         </a>
       </li>
       <li class="articles__navigationListItem">
-        <a href="#">
-          Development
+        <a class="articles__navigationListLink" href="#">
+          <div>23</div>
+          <div>Development</div>
         </a>
       </li>
       <li class="articles__navigationListItem">
-        <a href="#">
-          SVGs
+        <a class="articles__navigationListLink" href="#">
+          <div>97</div>
+          <div>SVGs</div>
         </a>
       </li>
       <li class="articles__navigationListItem">
-        <a href="#">
-          CSS
+        <a class="articles__navigationListLink" href="#">
+          <div>34</div>
+          <div>CSS</div>
         </a>
       </li>
     </ul>

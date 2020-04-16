@@ -44,6 +44,42 @@
           </article>
         {% endfor %}
       </div>
+      <div class="linkages">
+        <div class="linkage">
+          <h2 class="linkage__heading">Essentials</h2>
+          <p class="linkage__summary">Frequently-cited posts we’re particularly proud of.</p>
+          <ul class="essentials">
+            {% for article in essentials %}
+              <li>
+                <a class="essential" href="{{article.url}}">
+                  {{article.title}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="linkage">
+          <h2 class="linkage__heading">Topics</h2>
+          <ul class="topics">
+            {% for topic in topics|slice(0,10) %}
+              <li>
+                <a class="hello-dotty" href="#">
+                  <span>{{topic.title}}</span>
+                  <span>{{topic.count}}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          <p class="linkage__more">
+            <a class="more-link" href="#">
+              All topics
+              {% include '../../../assets/icons/arrow-right.svg.twig' with {
+                class: 'c-icon c-icon--inline'
+              } %}
+            </a>
+          </p>
+        </div>
+      </div>
     {% endblock %}
   {% endembed %}
 </div>

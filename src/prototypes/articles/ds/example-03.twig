@@ -1,12 +1,5 @@
 <div id="prototype-ds04-articles-example">
 
-  <div class="hero t-dark">
-    <h1 class="hero__title">Articles</h1>
-    <p class="hero__subtitle">
-      Tales from the edge of the web
-    </p>
-  </div>
-
   <div class="articles">
     {% for article in feed.items|slice(0, 9) %}
       <article class="articles__item">

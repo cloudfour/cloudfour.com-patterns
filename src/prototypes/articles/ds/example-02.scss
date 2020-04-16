@@ -29,39 +29,6 @@ $line-height-md: 1.5;
     line-height: $line-height-sm;
   }
 
-  .hero {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 16em;
-    justify-content: center;
-    padding: ms.step(2);
-    padding-bottom: $overlap;
-    position: relative;
-  }
-
-  .hero::after {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 1.875rem;
-    content: "";
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 24' width='420' height='24' preserveAspectRatio='none'%3E%3Cg fill='%23fff'%3E%3Ccircle cy='43' r='37'/%3E%3Ccircle cx='41' cy='37' r='25'/%3E%3Ccircle cx='86' cy='45' r='36'/%3E%3Ccircle cx='125' cy='30' r='25'/%3E%3Ccircle cx='158' cy='41' r='25'/%3E%3Ccircle cx='200' cy='45' r='36'/%3E%3Ccircle cx='244' cy='27' r='25'/%3E%3Ccircle cx='280' cy='44' r='36'/%3E%3Ccircle cx='330' cy='47' r='36'/%3E%3Ccircle cx='372' cy='40' r='25'/%3E%3Ccircle cx='420' cy='43' r='37'/%3E%3Cpath shape-rendering='crispEdges' d='M0 23h420v1H0z'/%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat-x;
-    background-position: -60% bottom;
-    background-size: 32.8125rem;
-  }
-
-  .hero_title {
-    font-size: ms.step(5);
-  }
-
-  .hero__subtitle {
-    font-size: ms.step(1);
-    font-style: italic;
-  }
-
   /**
    * Articles prototyping
    */

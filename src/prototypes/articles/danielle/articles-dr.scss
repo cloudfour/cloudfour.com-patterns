@@ -1,4 +1,6 @@
 @use "../../../design-tokens/breakpoint.yml";
+@use "../../../design-tokens/motion.yml";
+@use "../../../design-tokens/colors.yml";
 @use "../../../mixins/ms";
 
 /**
@@ -7,69 +9,75 @@
  * @see https://github.com/storybookjs/storybook/issues/729
  */
 
-#prototype-articles-example {
+#prototype-articles-danielle {
+  p, h2 {
+    margin: ms.step(-3) 0;
+  }
+
   .articles {
     display: grid;
     grid-gap: ms.step(4);
-    padding: ms.step(2);
 
-    @media (min-width: breakpoint.$xs) {
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(breakpoint.$xs - ms.step(2) * 2, 1fr)
-      );
+    @media (min-width: breakpoint.$m) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @media (min-width: breakpoint.$xl) {
+      grid-gap: ms.step(6);
       grid-template-columns: 1fr;
     }
   }
 }
 
 .card {
+  align-content: start;
   display: grid;
   grid-gap: ms.step(0);
+  position: relative;
 
   @media (min-width: breakpoint.$xl) {
     align-items: center;
-    grid-template-columns: repeat(2, 1fr);
-  }
+    grid-template-columns: 1fr 2fr;
 
-  @media (min-width: breakpoint.$xl) {
-    align-items: center;
-    grid-template-columns: repeat(2, 1fr);
-  }
+    &:first-child {
+      grid-template-columns: 2fr 1fr;
 
-  @media (min-width: breakpoint.$xxl) {
-    grid-template-columns: 2fr 1fr;
-  }
-}
-
-.card__content {
-  @media (min-width: breakpoint.$xl) {
-    grid-column: 1 / 2;
+      .card__link {
+        font-size: ms.step(3);
+      }
+    }
   }
 }
 
 .card__image {
-  align-self: end;
+
   @media (min-width: breakpoint.$xl) {
-    grid-column: 2 / 3;
+    grid-column: 1/2;
   }
 }
 
-.details {
-  align-items: center;
-  display: flex;
+.card__content {
+
+  @media (min-width: breakpoint.$xl) {
+    grid-column: 2/3;
+  }
 }
 
-.details__content  {
-  margin: 0;
+.card__link {
+  text-decoration: none;
+  transition: color motion.$speed-quick motion.$ease-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+  }
 }
 
-.avatar {
-  border-radius: 50%;
-  height: ms.step(5);
-  margin-right: ms.step(0);
-  width: ms.step(5);
+.author {
+  color: colors.$text-dark-muted;
 }

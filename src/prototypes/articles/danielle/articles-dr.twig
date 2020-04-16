@@ -1,27 +1,8 @@
-<div id="prototype-articles-example">
+<div id="prototype-articles-danielle">
   <div class="articles">
     {% for article in feed.items %}
       <article class="card">
-        <div class="card__content">
-          <header>
-            <h2>
-              <a href="{{article.url}}">
-                {{article.title}}
-              </a>
-            </h2>
-          </header>
-          <p>
-            {{article.summary}}
-          </p>
-          <div class="details">
-            <img class="avatar" src="{{article.author.avatar}}" alt="">
-            <div>
-              <p class="details__content"><a href="{{article.author.url}}">{{article.author.name}}</a></p>
-              <p class="details__content">{{article.date_published|replace({'Z': ''})|date('F j, Y')}}</p>
-            </div>
-          </div>
-        </div>
-        {% if article.image %}
+       {% if article.image %}
           <div class="card__image">
             {% embed '../../../objects/embed/embed.twig' with {
                 class: 'o-embed--wide'
@@ -31,8 +12,20 @@
               {% endblock %}
             {% endembed %}
           </div>
-
         {% endif %}
+        <div class="card__content">
+          <header class="card__header">
+            <h2>
+              <a class="card__link" href="{{article.url}}">
+                {{article.title}}
+              </a>
+            </h2>
+          </header>
+          <p>
+            {{article.summary}}
+          </p>
+          <p class="author">{{article.author.name}}</p>
+        </div>
       </article>
     {% endfor %}
   </div>

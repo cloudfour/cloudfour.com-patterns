@@ -1,4 +1,6 @@
+import essentials from './data/essentials.json';
 import feed from './data/feed.json';
+import topics from './data/topics.json';
 import examplePrototype from './example/example.twig';
 import daniellePrototype from './danielle/articles-dr.twig';
 import './example/example.scss';

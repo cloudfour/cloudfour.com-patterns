@@ -1,7 +1,6 @@
 {
-  "name": "cloudfour.com-patterns",
+  "name": "@cloudfour/patterns",
   "version": "0.1.0",
-  "private": true,
   "author": "Cloud Four",
   "description": "Front-end patterns for cloudfour.com",
   "homepage": "https://github.com/cloudfour/cloudfour.com-patterns",

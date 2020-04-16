@@ -1,0 +1,109 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/font.yml';
+@use '../../design-tokens/sizes.yml';
+@use '../../mixins/ms';
+@use '../../mixins/unit';
+
+$size: ms.step(8);
+$edge-size: sizes.$edge-medium;
+$radius: sizes.$radius-medium;
+
+.c-calendar-date {
+  display: flex;
+  flex-direction: column;
+  font-weight: font.$weight-medium;
+  height: $size;
+  line-height: ms.step(1, 1);
+  text-align: center;
+  user-select: none;
+  width: $size;
+
+  /**
+   * 1. These defaults colors are a little drab, but they won't require any
+   *    complex specificity to override across themes, and they will rarely be
+   *    seen unless seasonal modifier classes are omitted.
+   */
+
+  &__header {
+    align-items: center;
+    background-color: colors.$gray-dark; /* 1 */
+    border: $edge-size solid colors.$gray-darker; /* 1 */
+    border-bottom-width: 0;
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+    color: colors.$text-light-emphasis;
+    display: flex;
+    flex: none;
+    font-weight: font.$weight-semibold;
+    height: ms.step(3);
+    justify-content: center;
+    text-transform: uppercase;
+  }
+
+  /**
+   * Seasonal colors
+   */
+
+  &--march &__header,
+  &--april &__header,
+  &--may &__header {
+    background-color: colors.$green-dark;
+    border-color: colors.$green-darker;
+  }
+
+  &--june &__header,
+  &--july &__header,
+  &--august &__header {
+    background-color: colors.$fuchsia-dark;
+    border-color: colors.$fuchsia-darker;
+  }
+
+  &--september &__header,
+  &--october &__header,
+  &--november &__header {
+    background-color: colors.$orange-dark;
+    border-color: colors.$orange-darker;
+  }
+
+  &--december &__header,
+  &--january &__header,
+  &--february &__header {
+    background-color: colors.$purple-dark;
+    border-color: colors.$purple-darker;
+  }
+
+  &__main {
+    align-items: center;
+    background-color: colors.$text-light-emphasis;
+    border: $edge-size solid colors.$gray-light;
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    border-top-width: 0;
+    color: colors.$text-dark;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+
+    .t-dark & {
+      border-color: colors.$primary-brand-dark;
+    }
+  }
+
+  &__day {
+    font-size: ms.step(3);
+  }
+
+  /**
+   * 1. Truncation
+   */
+
+  &__note {
+    font-size: ms.step(-1);
+    overflow: hidden; /* 1 */
+    padding: 0 sizes.$control-text-inset;
+    text-overflow: ellipsis; /* 1 */
+    white-space: nowrap; /* 1 */
+    width: 100%; /* 1 */
+  }
+}

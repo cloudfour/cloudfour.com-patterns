@@ -14,6 +14,10 @@
     margin: ms.step(-3) 0;
   }
 
+  .o-container {
+    padding: ms.step(1);
+  }
+
   .articles {
     display: grid;
     grid-gap: ms.step(4);
@@ -23,7 +27,7 @@
     }
 
     @media (min-width: breakpoint.$xl) {
-      grid-gap: ms.step(6);
+      grid-gap: ms.step(5);
       grid-template-columns: 1fr;
     }
   }
@@ -35,8 +39,10 @@
   grid-gap: ms.step(0);
   position: relative;
 
+
   @media (min-width: breakpoint.$xl) {
     align-items: center;
+    grid-gap: ms.step(2);
     grid-template-columns: 1fr 2fr;
 
     &:first-child {

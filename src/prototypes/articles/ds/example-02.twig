@@ -58,8 +58,13 @@
   <div class="essentialArticles">
     <h2>Essentials</h2>
     <div class="essentialArticles__container">
-      {% for article in feed.items|slice(0, 8) %}
+      {% for article in feed.items|slice(0, 9) %}
         <div class="essentialArticles__item">
+          <p>
+            <a class="articles__author" href="{{article.author.url}}">
+              {{article.author.name}}
+            </a>
+          </p>
           <h3>
             {{article.title}}
           </h3>

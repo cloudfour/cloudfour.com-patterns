@@ -57,7 +57,14 @@ $line-height-md: 1.5;
 
   .articles__item {
     background-color: colors.$text_light_emphasis;
-    // padding: ms.step(-1);
+
+    &:hover .articles__headerLink {
+      color: colors.$primary_brand;  
+    }
+
+    &:hover .articles__author {
+      color: colors.$text_dark;
+    }
   }
 
   .articles__item:not(:first-of-type) {
@@ -98,17 +105,6 @@ $line-height-md: 1.5;
 
     .articles__author {
       font-size: ms.step(-2);
-    }
-  }
-
-  .articles__info {
-
-    &:hover .articles__headerLink {
-      color: colors.$primary_brand;  
-    }
-
-    &:hover .articles__author {
-      color: colors.$text_dark;
     }
   }
 

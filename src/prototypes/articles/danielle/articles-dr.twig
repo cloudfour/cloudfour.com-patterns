@@ -34,10 +34,8 @@
   {% embed '../../../objects/container/container.twig' %}
     {% block content %}
       <div class="essentials">
-        <div class="essential__header">
-          <h2 class="essentials__heading">Essentials</h2>
-          <p class="essentials__summary">Frequently-cited posts we’re particularly proud of.</p>
-        </div>
+        <h2 class="essentials__heading">Essentials</h2>
+        <p class="essentials__summary">Frequently-cited posts we’re particularly proud of.</p>
         <div class="essentials__content">
           {% for story in essentials %}
             <div class="essentials__item">
@@ -54,6 +52,27 @@
               <p class="author">{{story.author}}</p>
             </div>
           {% endfor %}
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+  {% embed '../../../objects/container/container.twig' %}
+    {% block content %}
+      <div class="topics">
+        <h2 class="topics__heading">Topics</h2>
+        <div class="topics__content">
+          <ul class="topics__items">
+            {% for topic in topics|slice(0,9) %}
+              <li class="topics__item">
+                <a class="topics__link" href="#">
+                  <span>{{topic.title}}</span>
+                </a>
+              </li>
+            {% endfor %}
+            <li class="more">
+              <a class="topics__link" href="#">All topics</a>
+            </li>
+          </ul>
         </div>
       </div>
     {% endblock %}

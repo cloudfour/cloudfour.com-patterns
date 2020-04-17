@@ -1,5 +1,5 @@
 {
   "extends": ["group:recommended", "group:monorepos"],
-  "reviewers": ["team:cloudfour/dev"],
+  "reviewers": ["team:dev"],
   "rangeStrategy": "pin"
 }

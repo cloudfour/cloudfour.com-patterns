@@ -1,4 +1,6 @@
+import essentials from './data/essentials.json';
 import feed from './data/feed.json';
+import topics from './data/topics.json';
 import examplePrototype from './example/example.twig';
 import './example/example.scss';
 import dsPrototype01 from './ds/example-01.twig';
@@ -16,7 +18,7 @@ export default {
   },
 };
 
-export const Example = () => examplePrototype({ feed });
+export const Example = () => examplePrototype({ essentials, feed, topics });
 
 export const DereksPrototype01 = () => dsPrototype01({ feed });
 

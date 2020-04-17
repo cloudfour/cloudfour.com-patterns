@@ -61,7 +61,7 @@
       <div class="topics">
         <h2 class="topics__heading">Topics</h2>
         <div class="topics__content">
-          <ul class="topics__items">
+          <ul class="topics__list">
             {% for topic in topics|slice(0,9) %}
               <li class="topics__item">
                 <a class="topics__link" href="#">
@@ -69,8 +69,8 @@
                 </a>
               </li>
             {% endfor %}
-            <li class="more">
-              <a class="topics__link" href="#">All topics</a>
+            <li>
+              <a class="more__link" href="#">All topics</a>
             </li>
           </ul>
         </div>

@@ -23,13 +23,38 @@
                   </a>
                 </h2>
               </header>
-              <p>
-                {{article.summary}}
-              </p>
+              <p>{{article.summary}}</p>
               <p class="author">{{article.author.name}}</p>
             </div>
           </article>
         {% endfor %}
+      </div>
+    {% endblock %}
+  {% endembed %}
+  {% embed '../../../objects/container/container.twig' %}
+    {% block content %}
+      <div class="essentials">
+        <div class="essential__header">
+          <h2 class="essentials__heading">Essentials</h2>
+          <p class="essentials__summary">Frequently-cited posts we’re particularly proud of.</p>
+        </div>
+        <div class="essentials__content">
+          {% for story in essentials %}
+            <div class="essentials__item">
+              <h3>
+                <a class="essentials__link" href="{{story.url}}">
+                  {{story.title}}
+                </a>
+              </h3>
+              {% if story.summary|length > 140 %}
+                  {{story.summary|slice(0, 140)}}…
+                {% else %}
+                  {{story.summary}}
+                {% endif %}
+              <p class="author">{{story.author}}</p>
+            </div>
+          {% endfor %}
+        </div>
       </div>
     {% endblock %}
   {% endembed %}

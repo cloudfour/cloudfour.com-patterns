@@ -16,4 +16,4 @@ export default {
 
 export const Example = () => examplePrototype({ feed });
 
-export const Danielle = () => daniellePrototype({ feed });
+export const Danielle = () => daniellePrototype({ essentials, feed, topics });

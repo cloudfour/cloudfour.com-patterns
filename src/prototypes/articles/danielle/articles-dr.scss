@@ -1,6 +1,8 @@
 @use "../../../design-tokens/breakpoint.yml";
 @use "../../../design-tokens/motion.yml";
 @use "../../../design-tokens/colors.yml";
+@use "../../../design-tokens/sizes.yml";
+@use "../../../design-tokens/font.yml";
 @use "../../../mixins/ms";
 
 /**
@@ -10,7 +12,7 @@
  */
 
 #prototype-articles-danielle {
-  p, h2 {
+  p, h2, h3 {
     margin: ms.step(-3) 0;
   }
 
@@ -69,7 +71,8 @@
   }
 }
 
-.card__link {
+.card__link,
+.essentials__link {
   color: colors.$primary-brand-dark;
   text-decoration: none;
   transition: color motion.$speed-quick motion.$ease-out;
@@ -104,3 +107,52 @@
 .author {
   color: colors.$text-dark-muted;
 }
+
+.essentials {
+  // background-color: colors.$gray-lighter;
+  // border-top: sizes.$edge-large solid colors.$gray-light;
+}
+
+.essentials__content {
+  display: grid;
+  grid-gap: ms.step(0);
+  padding: ms.step(4) 0;
+
+  @media (min-width: breakpoint.$m) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: breakpoint.$xl) {
+    grid-gap: ms.step(5);
+    grid-template-columns: repeat(3, 1fr);
+    padding: ms.step(5) 0;
+  }
+}
+
+.essential__header {
+  border-bottom: sizes.$edge-large solid colors.$gray-light;
+  padding-bottom: ms.step(-3);
+}
+
+.essentials__item {
+  // border-radius: sizes.$radius-medium;
+  // background-color: colors.$gray-lighter;
+  // border: 1px solid colors.$gray-light;
+  // list-style: none;
+  // padding: ms.step(0);
+  position: relative;
+}
+
+// .essentials__link {
+//   color: colors.$primary-brand-dark;
+//   font-weight: font.$weight-medium;
+//   text-decoration: none;
+//   transition: color motion.$speed-quick motion.$ease-out;
+
+//   &:hover,
+//   &:active,
+//   &:focus {
+//     color: colors.$primary-brand;
+//     text-decoration: underline;
+//   }
+// }

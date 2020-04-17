@@ -1,42 +1,62 @@
 [
   {
     "title": "Autofill: What web devs should know, but don’t",
-    "url": "https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/"
+    "url": "https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/",
+    "author": "Jason Grigsby",
+    "summary": "Many people know that you can scan your credit card in Mobile Safari. But how many web developers know how to create a form that supports that feature? Not many I'd bet."
   },
   {
     "title": "A Responsive Guide to Type Sizing",
-    "url": "https://cloudfour.com/thinks/responsive-guide-to-type-sizing/"
+    "url": "https://cloudfour.com/thinks/responsive-guide-to-type-sizing/",
+    "author": "Erik Jung",
+    "summary": "When starting new projects, a CSS builder’s initial concerns tend to involve typography. Setting a typographic foundation with the right mixture of ingredients can form something solid enough to support many other building blocks of design. It’s an approach that..."
   },
   {
     "title": "Seriously, Don’t Use Icon Fonts",
-    "url": "https://cloudfour.com/thinks/seriously-dont-use-icon-fonts/"
+    "url": "https://cloudfour.com/thinks/seriously-dont-use-icon-fonts/",
+    "author": "Tyler Sticka",
+    "summary": "Icons are everywhere. These “little miracle workers” (as John Hicks described them) help us reinforce meaning in the interfaces we design and build. Their popularity in web design has never been greater; the conciseness and versatility of pictograms in particular..."
   },
   {
     "title": "Responsive Images 101, Part 1: Definitions",
-    "url": "https://cloudfour.com/thinks/responsive-images-101-definitions/"
+    "url": "https://cloudfour.com/thinks/responsive-images-101-definitions/",
+    "author": "Jason Grigsby",
+    "summary": "Over the last few years, we’ve written a quite a few articles about responsive images. Now that responsive images have landed in browsers, it seemed like a good time to step back and cover the basics for those who are..."
   },
   {
     "title": "Two pretty-good techniques for styling tricky form elements",
-    "url": "https://cloudfour.com/thinks/styling-form-elements/"
+    "url": "https://cloudfour.com/thinks/styling-form-elements/",
+    "author": "Tyler Sticka",
+    "summary": "Confession time: For most of my career, I despised form elements. Checkboxes, radios, selects and file inputs seemed to gleefully defy what little control I expected from an HTML element. Their penchant for idiosyncracy drove me to almost as much..."
   },
   {
     "title": "Defining Responsiveness",
-    "url": "https://cloudfour.com/thinks/defining-responsiveness/"
+    "url": "https://cloudfour.com/thinks/defining-responsiveness/",
+    "author": "Jason Grigsby",
+    "summary": "When people say that something is responsive, what do they mean? I’m not being facetious. I think many of us think we know what is meant, but when you dig deeper, there is disagreement about what it means for something to be responsive."
   },
   {
     "title": "Picking a Responsive Tables Solution",
-    "url": "https://cloudfour.com/thinks/picking-responsive-tables-solution/"
+    "url": "https://cloudfour.com/thinks/picking-responsive-tables-solution/",
+    "author": "Jason Grigsby",
+    "summary": "One of the most common questions I get asked during responsive design workshops is how to handle tables. I usually show some of the techniques and then tell people they should pick the right technique for the content in the table."
   },
   {
     "title": "Responsive Web Design is Solid Gold",
-    "url": "https://cloudfour.com/thinks/responsive-web-design-is-solid-gold/"
+    "url": "https://cloudfour.com/thinks/responsive-web-design-is-solid-gold/",
+    "author": "Jason Grigsby",
+    "summary": "A few years ago I wrote an article entitled CSS Media Query for Mobile is Fool’s Gold. It garnered a lot of attention at the time, and I still see people reference it. I’ve long wanted to write an update..."
   },
   {
     "title": "Responsive Design for Apps — Part 1",
-    "url": "https://cloudfour.com/thinks/responsive-design-for-apps-part-1/"
+    "url": "https://cloudfour.com/thinks/responsive-design-for-apps-part-1/",
+    "author": "Jason Grigsby",
+    "summary": "A few months ago I was tasked with finding a good solution for a client who wanted to move to responsive design, but had a web app that they needed to support as well. The question they asked is one..."
   },
   {
     "title": "The EMs have it: Proportional Media Queries FTW!",
-    "url": "https://cloudfour.com/thinks/the-ems-have-it-proportional-media-queries-ftw/"
+    "url": "https://cloudfour.com/thinks/the-ems-have-it-proportional-media-queries-ftw/",
+    "author": "Lyza Gardner",
+    "summary": "Hay, I wrote this in 2012!"
   }
 ]

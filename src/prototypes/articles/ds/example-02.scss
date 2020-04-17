@@ -11,6 +11,9 @@ $line-height-md: 1.5;
  * Wrap entire prototype in selector to prevent CSS leakage.
  *
  * @see https://github.com/storybookjs/storybook/issues/729
+ *
+ * Note to self: 
+ * Resist the urge to refactor this CSS, it's just a prototype!
  */
 
 #prototype-ds02-articles-example {
@@ -66,7 +69,6 @@ $line-height-md: 1.5;
 
   .articles__item:first-of-type {
     background-color: colors.$gray_lighter;
-    // border-radius: sizes.$radius_medium;
     display: grid;
     grid-template-columns: 1fr;
     grid-column-gap: ms.step(4);
@@ -85,10 +87,6 @@ $line-height-md: 1.5;
       padding: 0;
     }
 
-    // @media (min-width: breakpoint.$l) {
-    //   grid-column: span 3;
-    // }
-
     @media (min-width: breakpoint.$xl) {
       grid-column: span 4;
     }
@@ -96,6 +94,10 @@ $line-height-md: 1.5;
     .articles__header {
       font-size: ms.step(2);
       margin-top: ms.step(-2);
+    }
+
+    .articles__author {
+      font-size: ms.step(-2);
     }
   }
 
@@ -119,7 +121,7 @@ $line-height-md: 1.5;
     color: inherit;
     font-size: ms.step(1);
     text-decoration: none;
-    transition: color ease 0.7s;
+    transition: color ease 0.6s;
 
     @media (min-width: breakpoint.$m) {
       font-size: ms.step(0);
@@ -144,7 +146,7 @@ $line-height-md: 1.5;
     color: colors.$text_action;
     text-decoration: none;
     font-size: ms.step(0);
-    transition: color ease 0.7s;
+    transition: color ease 0.6s;
 
     @media (min-width: breakpoint.$m) {
       font-size: ms.step(-1);
@@ -185,10 +187,9 @@ $line-height-md: 1.5;
   .essentialArticles {
     padding: ms.step(2) ms.step(0);
 
-    h2 {
+    header {
       border-top: 4px solid colors.$gray_lighter;
       padding: ms.step(2) 0;
-      
     }
 
     .essentialArticles__container {
@@ -206,14 +207,15 @@ $line-height-md: 1.5;
     }
 
     .essentialArticles__item {
-      border-width: 1px;
+      border-width: 2px;
       border-style: solid;
       border-color: colors.$gray_light;
       display: grid;
-      
       grid-row-gap: 0;
       padding: ms.step(0);
       border-radius: sizes.$radius_medium;
+      text-decoration: none;
+      color: inherit;
 
       @media (min-width: breakpoint.$m) {
         grid-template-rows: subgrid;
@@ -231,8 +233,7 @@ $line-height-md: 1.5;
       }
 
       a {
-        text-decoration: none;
-        color: inherit;
+        
       }
 
       &:hover {
@@ -284,10 +285,6 @@ $line-height-md: 1.5;
 
     &:nth-of-type(6) {
       color: colors.$primary_brand_dark;
-    }
-
-    &:not(:first-of-type) {
-      // margin-left: ms.step(0);
     }
   }
 

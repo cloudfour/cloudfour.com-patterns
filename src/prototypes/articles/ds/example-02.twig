@@ -1,6 +1,6 @@
 <div id="prototype-ds02-articles-example">
 
-  <div class="articles">
+  <section class="articles">
     {% for article in feed.items|slice(0, 9) %}
       <article class="articles__item{% if loop.first %} u-full-width-sm{% endif %}">
         
@@ -41,26 +41,26 @@
           <p class="articles__description">
             {{article.summary}}
           </p>
-          {# <footer>
-            
-            {% embed '../../../objects/embed/embed.twig' with {class:
-            "articles__authorImg"} %}
-              {% block content %}
-                <a href="{{article.author.url}}">
-                  <img class="" src="{{article.author.avatar}}" alt="">
-                </a>
-              {% endblock %}
-            {% endembed %}
-          </footer> #}
+
         {% if loop.first %}
         </div>
         {% endif %}
       </article>
     {% endfor %}
-  </div>
+  </section>
 
-  <div class="essentialArticles">
-    <h2>Essentials</h2>
+  <section class="essentialArticles">
+    <header>
+      <h2>Essentials</h2>
+      <p>
+        A collection of frequently-cited posts.
+      </p>
+      <p>
+        You may also browse some of our most popular post categories, such as <a
+        href="#">responsive images</a>, <a href="#">performance</a>, <a
+        href="#">design</a>, <a href="#">development</a> and <a href="#">CSS</a>.
+      </p>
+    </header>
     <div class="essentialArticles__container">
       {% for article in feed.items|slice(0, 9) %}
       <a href="#" class="essentialArticles__item">
@@ -84,9 +84,9 @@
       </a>
       {% endfor %}
     </div>
-  </div>
+  </section>
 
-  <div class="articles__navigation">
+  {# <section class="articles__navigation">
     <h2>Explore Topics</h2>
     <div class="o-container--prose">
       <div class="o-container__content">
@@ -130,5 +130,6 @@
         </ul>
       </div>
     </div>
-  </div>
+  </section> #}
+
 </div>

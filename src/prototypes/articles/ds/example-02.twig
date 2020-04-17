@@ -2,7 +2,7 @@
 
   <div class="articles">
     {% for article in feed.items|slice(0, 9) %}
-      <article class="articles__item">
+      <article class="articles__item{% if loop.first %} u-full-width-sm{% endif %}">
         
         {% if article.image %}
           {% embed '../../../objects/embed/embed.twig' with {
@@ -22,7 +22,9 @@
           {% endembed %}
         {% endif %}
 
+        {% if loop.first %}
         <div class="articles__info">
+        {% endif %}
           <header class="articles__header">
             <p>
               <a class="articles__author" href="{{article.author.url}}">
@@ -50,7 +52,9 @@
               {% endblock %}
             {% endembed %}
           </footer> #}
+        {% if loop.first %}
         </div>
+        {% endif %}
       </article>
     {% endfor %}
   </div>
@@ -59,62 +63,72 @@
     <h2>Essentials</h2>
     <div class="essentialArticles__container">
       {% for article in feed.items|slice(0, 9) %}
-        <div class="essentialArticles__item">
-          <p>
-            <a class="articles__author" href="{{article.author.url}}">
-              {{article.author.name}}
-            </a>
-          </p>
-          <h3>
-            {{article.title}}
-          </h3>
+      <a href="#" class="essentialArticles__item">
+        {# < class=""> #}
+          <div>
+            <p>
+              <div class="articles__author" href="{{article.author.url}}">
+                {{article.author.name}}
+              </div>
+            </p>
+            <h3>
+              <div class="articles__headerLink" href="{{article.url}}">
+                {{article.title}}
+              </div>
+            </h3>
+          </div>
           <p class="articles__description">
             {{article.summary}}
           </p>
-        </div>
+        {# </a> #}
+      </a>
       {% endfor %}
     </div>
   </div>
 
   <div class="articles__navigation">
     <h2>Explore Topics</h2>
-    <ul class="articles__navigationList">
-      <li class="articles__navigationListItem">
-        <a class="articles__navigationListLink" href="#">
-          <div>11</div>
-          <div>Responsive Images</div>
-        </a>
-      </li>
-      <li class="articles__navigationListItem">
-        <a class="articles__navigationListLink" href="#">
-          <div>7</div>
-          <div>Performance</div>
-        </a>
-      </li>
-      <li class="articles__navigationListItem">
-        <a class="articles__navigationListLink" href="#">
-          <div>13</div>
-          <div>Design</div>
-        </a>
-      </li>
-      <li class="articles__navigationListItem">
-        <a class="articles__navigationListLink" href="#">
-          <div>23</div>
-          <div>Development</div>
-        </a>
-      </li>
-      <li class="articles__navigationListItem">
-        <a class="articles__navigationListLink" href="#">
-          <div>97</div>
-          <div>SVGs</div>
-        </a>
-      </li>
-      <li class="articles__navigationListItem">
-        <a class="articles__navigationListLink" href="#">
-          <div>34</div>
-          <div>CSS</div>
-        </a>
-      </li>
-    </ul>
+    <div class="o-container--prose">
+      <div class="o-container__content">
+        <ul class="articles__navigationList">
+          <li class="articles__navigationListItem">
+            <a class="articles__navigationListLink" href="#">
+              <div>11</div>
+              <div>Responsive Images</div>
+            </a>
+          </li>
+          <li class="articles__navigationListItem">
+            <a class="articles__navigationListLink" href="#">
+              <div>7</div>
+              <div>Performance</div>
+            </a>
+          </li>
+          <li class="articles__navigationListItem">
+            <a class="articles__navigationListLink" href="#">
+              <div>13</div>
+              <div>Design</div>
+            </a>
+          </li>
+          <li class="articles__navigationListItem">
+            <a class="articles__navigationListLink" href="#">
+              <div>23</div>
+              <div>Development</div>
+            </a>
+          </li>
+          <li class="articles__navigationListItem">
+            <a class="articles__navigationListLink" href="#">
+              <div>97</div>
+              <div>SVGs</div>
+            </a>
+          </li>
+          <li class="articles__navigationListItem">
+            <a class="articles__navigationListLink" href="#">
+              <div>34</div>
+              <div>CSS</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

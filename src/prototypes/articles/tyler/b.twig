@@ -1,0 +1,112 @@
+<div id="prototype-tyler-b">
+  {% embed '../../../objects/container/container.twig' %}
+    {% block content %}
+      <div class="articles">
+        {% for article in feed.items|slice(0,9) %}
+          <article class="article
+            {% if article.image %}article--with-image{% endif %}">
+            <div class="article__content">
+              <header class="article__header">
+                <h2 class="article__heading">
+                  <a class="article__link" href="{{article.url}}">
+                    {{article.title}}
+                  </a>
+                </h2>
+              </header>
+              <p class="article__summary">
+                {% if article.summary|length > 140 %}
+                  {{article.summary|slice(0, 140)}}…
+                {% else %}
+                  {{article.summary}}
+                {% endif %}
+              </p>
+              <div class="article__meta">
+                <div class="article__avatar">
+                  {% embed '../../../objects/embed/embed.twig' with {
+                      class: 'o-embed--square u-rounded-full'
+                    } %}
+                    {% block content %}
+                      <img src="{{article.author.avatar}}" alt="">
+                    {% endblock %}
+                  {% endembed %}
+                </div>
+                <p class="article__author">{{article.author.name}}</p>
+                <p class="article__date">
+                  {% if loop.first %}
+                    <svg class="c-icon c-icon--inline" viewBox="0 0 24 24">
+                      <polygon points="12 0.5 15.57 7.74 23.57 8.9 17.78 14.54 19.15 22.5 12 18.74 4.85 22.5 6.22 14.54 0.43 8.9 8.43 7.74 12 0.5"/>
+                    </svg>
+                    <span>Featured</span>
+                  {% else %}
+                    {{article.date_published|replace({'Z': ''})|date('F j, Y')}}
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+            <div class="article__image">
+              {% embed '../../../objects/embed/embed.twig' with {
+                  class: 'o-embed--wide u-rounded'
+                } %}
+                {% block content %}
+                  <img src="{{article.image|default('https://cloudfour.com/wp-content/uploads/2016/07/home-goals.svg')}}" alt="">
+                {% endblock %}
+              {% endembed %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+      <div class="pagimination">
+        <div class="pagimination__pages">
+          {% for i in 1..5 %}
+            {% if loop.first %}
+              <span>{{i}}</span>
+            {% else %}
+              <a href="#">{{i}}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <a class="pagimination__control" href="#">
+          {% include '../../../assets/icons/arrow-right.svg.twig' with {
+            class: 'o-icon o-icon--inline'
+          } %}
+        </a>
+      </div>
+      <div class="linkages">
+        <div class="linkage">
+          <h2 class="linkage__heading">Essentials</h2>
+          <p class="linkage__summary">Frequently-cited posts we’re particularly proud of.</p>
+          <ul class="essentials">
+            {% for article in essentials %}
+              <li>
+                <a class="essential" href="{{article.url}}">
+                  {{article.title}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="linkage">
+          <h2 class="linkage__heading">Topics</h2>
+          <ul class="topics">
+            {% for topic in topics|slice(0,10) %}
+              <li>
+                <a class="hello-dotty" href="#">
+                  <span>{{topic.title}}</span>
+                  <span>{{topic.count}}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          <p class="linkage__more">
+            <a class="more-link" href="#">
+              All topics
+              {% include '../../../assets/icons/arrow-right.svg.twig' with {
+                class: 'c-icon c-icon--inline'
+              } %}
+            </a>
+          </p>
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+</div>

@@ -1,0 +1,203 @@
+@use "../../../design-tokens/breakpoint.yml";
+@use "../../../design-tokens/motion.yml";
+@use "../../../design-tokens/colors.yml";
+@use "../../../design-tokens/sizes.yml";
+@use "../../../design-tokens/font.yml";
+@use "../../../mixins/ms";
+
+/**
+ * Wrap entire prototype in selector to prevent CSS leakage.
+ *
+ * @see https://github.com/storybookjs/storybook/issues/729
+ */
+
+#articles-danielle-a {
+  p, h2, h3 {
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+
+  .o-container {
+    padding: calc(#{ms.step(0)} + 2vw);
+  }
+
+  .articles {
+    display: grid;
+    grid-gap: ms.step(2);
+
+    @media (min-width: breakpoint.$m) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: breakpoint.$xl) {
+      grid-template-columns: 1fr;
+      grid-gap: ms.step(4);
+    }
+  }
+
+  .card {
+    align-content: start;
+    display: grid;
+    grid-gap: ms.step(0);
+    position: relative;
+
+
+    @media (min-width: breakpoint.$xl) {
+      align-items: center;
+      grid-gap: ms.step(2);
+      grid-template-columns: 1fr 2fr;
+
+      &:first-child {
+        grid-template-columns: 2fr 1fr;
+
+        .card__link {
+          font-size: ms.step(3);
+        }
+      }
+    }
+  }
+
+  .card__image {
+
+    @media (min-width: breakpoint.$xl) {
+      grid-column: 1/2;
+    }
+  }
+
+  .card__content {
+    display: grid;
+    grid-gap: ms.step(-3);
+
+    @media (min-width: breakpoint.$xl) {
+      grid-column: 2/3;
+    }
+  }
+
+  .card__link,
+  .essentials__link {
+    color: colors.$primary-brand-dark;
+    text-decoration: none;
+    transition: color motion.$speed-quick motion.$ease-out;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: colors.$primary-brand;
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+
+  .card__image {
+    opacity: 1;
+    transition: opacity motion.$speed-quick motion.$ease-out;
+  }
+
+  .card:hover .card__image {
+    opacity: 0.85;
+  }
+
+  .author {
+    color: colors.$text-dark-muted;
+  }
+
+  /**
+   * Essentials
+   */
+
+  .essentials__content {
+    border-top: sizes.$edge-large solid colors.$gray-light;
+    display: grid;
+    grid-gap: ms.step(2);
+    margin-top: ms.step(0);
+    padding-top: ms.step(2);
+
+    @media (min-width: breakpoint.$m) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: breakpoint.$xl) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .essentials__item {
+    align-content: start;
+    display: grid;
+    grid-gap: ms.step(-3);
+    position: relative;
+  }
+
+  /**
+   * Topics
+   */
+
+  .topics__content {
+    border-top: sizes.$edge-large solid colors.$gray-light;
+    margin-top: ms.step(0);
+    padding-top: ms.step(2);
+  }
+
+  .topics__list {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(#{ms.step(-2)} * -1);
+    padding: 0;
+  }
+
+  .topics__item {
+    margin: ms.step(-2);
+    position: relative;
+  }
+
+
+  .topics__link {
+    background-color: colors.$text-light-emphasis;
+    border: sizes.$edge-small solid colors.$primary-brand;
+    display: block;
+    padding: ms.step(-5) ms.step(-2);
+    text-decoration: none;
+    transition:
+      color motion.$speed-quick motion.$ease-out,
+      background-color motion.$speed-quick motion.$ease-out;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: colors.$primary-brand;
+      color: colors.$text-light-emphasis;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+
+  .more__link {
+    &:not(:hover) {
+      text-decoration: none;
+    }
+  }
+
+}
+

@@ -1,0 +1,80 @@
+<div id="articles-danielle-b">
+  {% embed '../../../objects/container/container.twig' %}
+    {% block content %}
+      <div class="articles">
+        {% for article in feed.items %}
+          {% if article.image %}
+            <article class="article">
+              <div class="article__image">
+                {% embed '../../../objects/embed/embed.twig' with {
+                    class: 'o-embed--wide'
+                  } %}
+                  {% block content %}
+                    <img src="{{article.image}}" alt="">
+                  {% endblock %}
+                {% endembed %}
+              </div>
+              <div class="article__content">
+                <header class="article__header">
+                  <h2>
+                    <a class="article__link" href="{{article.url}}">
+                      {{article.title}}
+                    </a>
+                  </h2>
+                </header>
+                <p>{{article.summary}}</p>
+                <p class="author">{{article.author.name}}</p>
+              </div>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endblock %}
+  {% endembed %}
+  {% embed '../../../objects/container/container.twig' %}
+    {% block content %}
+      <div class="essentials">
+        <h2 class="essentials__heading">Essentials</h2>
+        <p class="essentials__summary">Frequently-cited posts we’re particularly proud of.</p>
+        <div class="essentials__content">
+          {% for story in essentials %}
+            <div class="essentials__item">
+              <h3>
+                <a class="essentials__link" href="{{story.url}}">
+                  {{story.title}}
+                </a>
+              </h3>
+              {% if story.summary|length > 140 %}
+                  {{story.summary|slice(0, 140)}}…
+                {% else %}
+                  {{story.summary}}
+                {% endif %}
+              <p class="author">{{story.author}}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+  {% embed '../../../objects/container/container.twig' %}
+    {% block content %}
+      <div class="topics">
+        <h2 class="topics__heading">Topics</h2>
+        <div class="topics__content">
+          <ul class="topics__list">
+            {% for topic in topics|slice(0,9) %}
+              <li class="topics__item">
+                <a class="topics__link" href="#">
+                  <span>{{topic.title}}</span>
+                </a>
+              </li>
+            {% endfor %}
+            <li>
+              <a class="more__link" href="#">All topics</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+</div>

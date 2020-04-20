@@ -3,8 +3,8 @@
     {% block content %}
       <div class="articles">
         {% for article in feed.items %}
-          <article class="card">
           {% if article.image %}
+            <article class="card">
               <div class="card__image">
                 {% embed '../../../objects/embed/embed.twig' with {
                     class: 'o-embed--wide'
@@ -14,19 +14,19 @@
                   {% endblock %}
                 {% endembed %}
               </div>
-            {% endif %}
-            <div class="card__content">
-              <header class="card__header">
-                <h2>
-                  <a class="card__link" href="{{article.url}}">
-                    {{article.title}}
-                  </a>
-                </h2>
-              </header>
-              <p>{{article.summary}}</p>
-              <p class="author">{{article.author.name}}</p>
-            </div>
-          </article>
+              <div class="card__content">
+                <header class="card__header">
+                  <h2>
+                    <a class="card__link" href="{{article.url}}">
+                      {{article.title}}
+                    </a>
+                  </h2>
+                </header>
+                <p>{{article.summary}}</p>
+                <p class="author">{{article.author.name}}</p>
+              </div>
+            </article>
+          {% endif %}
         {% endfor %}
       </div>
     {% endblock %}

@@ -22,8 +22,8 @@
                     </a>
                   </h2>
                 </header>
+                <p class="author">{{article.author.name}} | {{article.date_published|replace({'Z': ''})|date('F j, Y')}}</p>
                 <p>{{article.summary}}</p>
-                <p class="author">{{article.author.name}}</p>
               </div>
             </article>
           {% endif %}
@@ -44,12 +44,12 @@
                   {{story.title}}
                 </a>
               </h3>
+              <p class="author">{{story.author}} | April 20, 2020</p>
               {% if story.summary|length > 140 %}
                   {{story.summary|slice(0, 140)}}…
                 {% else %}
                   {{story.summary}}
                 {% endif %}
-              <p class="author">{{story.author}}</p>
             </div>
           {% endfor %}
         </div>

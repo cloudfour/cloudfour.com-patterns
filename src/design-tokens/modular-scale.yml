@@ -17,7 +17,14 @@ aliases:
   major_twelfth: 3
   double_octave: 4
 props:
-  ratio:
+  - name: ratio
     value: '{!major_third}'
     type: float
-    category: modular_scale
+  - name: minimum_step
+    value: -6
+    type: integer
+  - name: maximum_step
+    value: 10
+    type: integer
+global:
+  category: modular_scale

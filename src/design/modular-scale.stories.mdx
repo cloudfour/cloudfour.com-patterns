@@ -1,0 +1,56 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as modularScaleTokens from '../design-tokens/modular-scale.yml';
+const sizeRows = [];
+for (
+  let i = modularScaleTokens.minimumStep;
+  i <= modularScaleTokens.maximumStep;
+  i++
+) {
+  // `toFixed` keeps the values from extending past two decimal points.
+  // The leading `+` keeps values from having decimal points where they don't
+  // need them, so `1.00` becomes `1`.
+  const size = `${Number((modularScaleTokens.ratio**i).toFixed(2))}em`;
+  const row = (
+    <tr>
+      <td>{i}</td>
+      <td>{size}</td>
+      <td style={{ width: '90%' }}>
+        <div
+          style={{
+            background: 'currentColor',
+            height: '1em',
+            opacity: 0.66,
+            width: size,
+          }}
+        ></div>
+      </td>
+    </tr>
+  );
+  sizeRows.push(row);
+}
+
+<Meta title="Design/Modular Scale" />
+
+# Modular Scale
+
+Most typographic and whitespace measurements in our patterns are based on steps of [our modular scale](/?path=/docs/design-tokens-modular-scale--page). This has several benefits for text-heavy projects like ours:
+
+- Encourages designers to think in terms of relative proportion rather than hard-set sizes, which makes patterns more versatile in responsive designs.
+- Minimizes loss of text alignment in complex layouts.
+- Avoids the need to define every step of a scale individually.
+- Ensures the relationship between successive steps is predictable and clear.
+
+To learn more about modular scales, we recommend reading [More Meaningful Typography](https://alistapart.com/article/more-meaningful-typography/) by Tim Brown.
+
+## Sizes
+
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Size</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>{sizeRows}</tbody>
+</table>

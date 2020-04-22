@@ -4,8 +4,8 @@
   margin-top: sizes.$rhythm-space;
 }
 
-.o-rhythm--minimal > * + * {
-  margin-top: sizes.$rhythm-space-minimal;
+.o-rhythm--compact > * + * {
+  margin-top: sizes.$rhythm-space-compact;
 }
 
 .o-rhythm--condensed > * + * {

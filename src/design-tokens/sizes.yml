@@ -55,7 +55,7 @@ props:
     value: 2
     type: modular/em
     category: sizing
-  - name: rhythm_space_minimal
+  - name: rhythm_space_compact
     value: -6
     type: modular/em
     category: rhythm

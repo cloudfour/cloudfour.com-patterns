@@ -7,9 +7,9 @@ for (
   i++
 ) {
   // `toFixed` keeps the values from extending past two decimal points.
-  // The leading `+` keeps values from having decimal points where they don't
-  // need them, so `1.00` becomes `1`.
-  const size = `${Number((modularScaleTokens.ratio**i).toFixed(2))}em`;
+  // The `Number` constructor prevents unnecessary decimals from displaying,
+  // for example `1.00` instead of `1`.
+  const size = `${Number((modularScaleTokens.ratio ** i).toFixed(2))}em`;
   const row = (
     <tr>
       <td>{i}</td>

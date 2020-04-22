@@ -1,4 +1,5 @@
 const { resolve } = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
@@ -28,7 +29,12 @@ module.exports = {
       {
         test: /\.s[ca]ss$/,
         use: [
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: true,
+            },
+          },
           {
             loader: 'css-loader',
             options: {
@@ -77,6 +83,8 @@ module.exports = {
         use: '@svgr/webpack',
       }
     );
+
+    config.plugins.push(new MiniCssExtractPlugin());
 
     return config;
   },

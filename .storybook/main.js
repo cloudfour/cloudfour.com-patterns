@@ -30,7 +30,7 @@ module.exports = {
         test: /\.s[ca]ss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: MiniCssExtractPlugin.loader, // @see https://github.com/webpack-contrib/style-loader/issues/303#issuecomment-581168870
             options: {
               hmr: true,
             },

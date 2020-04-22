@@ -32,18 +32,25 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              sourceMap: true,
               // Lets CSS loader know there are two loaders left that may be
               // handling imports.
               // @see https://github.com/webpack-contrib/css-loader#importloaders
               importLoaders: 2,
             },
           },
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
           {
             loader: 'sass-loader',
             options: {
               // Dart Sass is easier to install than Node Sass
               implementation: require('sass'),
+              sourceMap: true,
               sassOptions: {
                 importer: [
                   require('../glob-sass-importer'),

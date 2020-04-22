@@ -34,6 +34,27 @@ a {
 }
 
 /**
+ * Remove default spacing from block elements we plan on redefining with our
+ * own classes and structure.
+ */
+
+blockquote,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+p,
+pre,
+ul {
+  margin: 0;
+}
+
+/**
  * 1. Block display is usually what we want
  * 2. Remove strange space-below when inline
  * 3. Responsive by default

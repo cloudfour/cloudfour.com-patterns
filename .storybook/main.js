@@ -91,8 +91,6 @@ module.exports = {
 
     config.plugins.push(new MiniCssExtractPlugin());
 
-    console.log(config.devtool);
-
     return config;
   },
 };

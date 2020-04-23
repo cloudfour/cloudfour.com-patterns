@@ -73,6 +73,7 @@
     "remark-preset-lint-recommended": "4.0.0",
     "remark-preset-prettier": "0.4.0",
     "require-dir": "1.2.0",
+    "resolve-url-loader": "^3.1.1",
     "rollup": "2.7.2",
     "rollup-plugin-terser": "5.3.0",
     "sass": "1.26.3",

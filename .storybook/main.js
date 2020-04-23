@@ -15,6 +15,7 @@ module.exports = {
     'storybook-addon-paddings',
   ],
   webpackFinal: async (config) => {
+    const isDev = config.mode === 'development';
     // Remove default SVG processing from default config.
     // @see https://github.com/storybookjs/storybook/issues/5708#issuecomment-515384927
     config.module.rules = config.module.rules.map((data) => {
@@ -24,6 +25,10 @@ module.exports = {
       return data;
     });
 
+    if (!isDev) {
+      config.devtool = 'source-map';
+    }
+
     // Push new rules
     config.module.rules.push(
       {
@@ -32,7 +37,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader, // @see https://github.com/webpack-contrib/style-loader/issues/303#issuecomment-581168870
             options: {
-              hmr: config.mode === 'development',
+              hmr: isDev,
             },
           },
           {
@@ -84,12 +89,9 @@ module.exports = {
       }
     );
 
-    config.plugins.push(
-      new MiniCssExtractPlugin({
-        filename: '[name].css',
-        chunkFilename: '[id].css',
-      })
-    );
+    config.plugins.push(new MiniCssExtractPlugin());
+
+    console.log(config.devtool);
 
     return config;
   },

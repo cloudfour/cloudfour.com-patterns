@@ -1,0 +1,54 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import articleDemo from './demo/article.twig';
+import listDemo from './demo/list.twig';
+import introDemo from './demo/intro.twig';
+import sectionsDemo from './demo/sections.twig';
+import summaryDemo from './demo/summary.twig';
+
+<Meta title="Objects/Rhythm" />
+
+# Rhythm
+
+The `o-rhythm` class applies [consistent vertical spacing between child elements](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/).
+
+The default spacing works great for medium-to-long text content:
+
+<Preview>
+  <Story name="Default" height="300px">
+    {introDemo}
+  </Story>
+</Preview>
+
+## Modifiers
+
+For shorter summary content, use the `o-rhythm--condensed` modifier to tighten things up a bit:
+
+<Preview>
+  <Story name="Condensed" height="300px">
+    {summaryDemo}
+  </Story>
+</Preview>
+
+`o-rhythm--compact` is best for shorter content chunks that just need a _pinch_ more space:
+
+<Preview>
+  <Story name="Compact" height="200px">
+    {listDemo}
+  </Story>
+</Preview>
+
+While `o-rhythm--generous` is intended for separating distinct content chunks with more whitespace:
+
+<Preview>
+  <Story name="Generous" height="300px">
+    {sectionsDemo}
+  </Story>
+</Preview>
+
+## Heading Modifiers
+
+The `o-rhythm--generous-headings` modifier helps differentiate sections of articles (or similarly long prose content) by adding more whitespace before headings than other elements.
+
+<Preview>
+  <Story name="Generous Headings">{articleDemo}</Story>
+</Preview>

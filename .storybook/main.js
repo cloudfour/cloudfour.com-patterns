@@ -26,8 +26,8 @@ module.exports = {
     });
 
     /**
-     * For development, leave the default 'cheap-module-source-map', as it's faster and works
-     * For the build, using the default does not work correctly, but this option appears to
+     * For development, leave the default 'cheap-module-source-map', as it's faster and works.
+     * For the build, using the default does not work correctly, but this option appears to.
      * @see https://webpack.js.org/configuration/devtool/
      */
     if (!isDev) {
@@ -40,7 +40,8 @@ module.exports = {
         test: /\.s[ca]ss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader, // @see https://github.com/webpack-contrib/style-loader/issues/303#issuecomment-581168870
+            // @see https://github.com/webpack-contrib/style-loader/issues/303#issuecomment-581168870
+            loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: isDev,
             },

@@ -32,13 +32,14 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader, // @see https://github.com/webpack-contrib/style-loader/issues/303#issuecomment-581168870
             options: {
-              hmr: true,
+              hmr: config.mode === 'development',
             },
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: true,
+              url: false,
               // Lets CSS loader know there are two loaders left that may be
               // handling imports.
               // @see https://github.com/webpack-contrib/css-loader#importloaders

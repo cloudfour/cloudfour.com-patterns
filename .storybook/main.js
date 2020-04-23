@@ -25,8 +25,11 @@ module.exports = {
       return data;
     });
 
-    // For development, leave the default 'cheap-module-source-map', as it's faster and works
-    // For the build, using the default does not work correctly, but this option appears to
+    /**
+     * For development, leave the default 'cheap-module-source-map', as it's faster and works
+     * For the build, using the default does not work correctly, but this option appears to
+     * @see https://webpack.js.org/configuration/devtool/
+     */
     if (!isDev) {
       config.devtool = 'source-map';
     }

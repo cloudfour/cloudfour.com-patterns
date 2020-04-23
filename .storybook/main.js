@@ -39,7 +39,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-              url: false,
               // Lets CSS loader know there are two loaders left that may be
               // handling imports.
               // @see https://github.com/webpack-contrib/css-loader#importloaders
@@ -85,7 +84,12 @@ module.exports = {
       }
     );
 
-    config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins.push(
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      })
+    );
 
     return config;
   },

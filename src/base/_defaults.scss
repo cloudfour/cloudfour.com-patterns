@@ -13,16 +13,46 @@
 }
 
 /**
+ * Remove default spacing from elements. We'll be managing these directly at a
+ * layout or component level.
+ *
+ * Element list derived from browser default stylesheets.
+ *
+ * @see https://stackoverflow.com/a/3980775/5175805
+ */
+
+blockquote,
+body,
+button,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+ol,
+p,
+pre,
+select,
+textarea,
+ul {
+  margin: 0;
+}
+
+/**
  * 1. Prevents custom background colors, iframes, etc. from making page content
  *    unreadable.
  * 2. 100% black can appear somewhat harsh against white.
- * 3. Remove white space surrounding page.
  */
 
 body {
   background-color: #fff; /* 1 */
   color: colors.$text-dark; /* 2 */
-  margin: 0; /* 3 */
 }
 
 /**

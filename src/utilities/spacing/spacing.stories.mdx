@@ -1,0 +1,42 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, number } from '@storybook/addon-knobs';
+import {
+  minimumStep,
+  maximumStep,
+} from '../../design-tokens/modular-scale.yml';
+import directionsDemo from './demo/directions.twig';
+import './demo/styles.scss';
+
+<Meta title="Utilities/Spacing" decorators={[withKnobs]} />
+
+# Spacing
+
+TODO
+
+<Preview>
+  <Story name="Margin">
+    {directionsDemo({
+      name: 'space',
+      step: number('Step', 0, {
+        range: true,
+        min: minimumStep,
+        max: maximumStep,
+        step: 1,
+      }),
+    })}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Padding">
+    {directionsDemo({
+      name: 'pad',
+      step: number('Step', 0, {
+        range: true,
+        min: minimumStep,
+        max: maximumStep,
+        step: 1,
+      }),
+    })}
+  </Story>
+</Preview>

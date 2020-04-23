@@ -1,0 +1,22 @@
+{% if step < 0 %}
+  {% set step = 'n' ~ step|abs %}
+{% endif %}
+
+{% embed '../../../objects/rhythm/rhythm.twig' with {
+  class: 'demo-u-' ~ name ~ '-directions'
+} %}
+  {% block content %}
+    {% for direction in ['', '-block', '-block-start', '-block-end', '-inline', '-inline-start', '-inline-end'] %}
+      {% set class = 'u-' ~ name ~ direction ~ '-' ~ step %}
+      {% if name == 'pad' %}
+        <div class="{{class}}">
+          <div>{{class}}</div>
+        </div>
+      {% else %}
+        <div>
+          <div class="{{class}}">{{class}}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

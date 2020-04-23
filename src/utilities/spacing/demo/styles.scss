@@ -1,0 +1,33 @@
+@use '../../../design-tokens/colors.yml';
+@use '../../../design-tokens/sizes.yml';
+@use '../../../mixins/ms';
+
+.demo-u-space-directions {
+  div {
+    border-radius: sizes.$radius-medium;
+  }
+
+  & > div {
+    background: colors.$gray-light;
+    overflow: hidden;
+  }
+
+  [class*='u-space'] {
+    background: colors.$text-light-emphasis;
+    border: sizes.$edge-medium solid colors.$gray;
+    padding: ms.step(-1);
+  }
+}
+
+.demo-u-pad-directions {
+  [class*='u-pad'] {
+    background: colors.$gray-light;
+    border: sizes.$edge-medium solid colors.$gray;
+    border-radius: sizes.$radius-medium;
+
+    div {
+      background: colors.$text-light-emphasis;
+      border-radius: inherit;
+    }
+  }
+}

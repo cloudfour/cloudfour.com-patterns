@@ -1,0 +1,108 @@
+@use '../../design-tokens/modular-scale.yml';
+@use '../../mixins/ms';
+@use 'sass:math';
+
+@mixin direction-utilities($property, $name, $value) {
+  $value: $value !important;
+
+  @if $property != margin and $property != padding {
+    @error 'Unknown direction utility property #{$property}.';
+  }
+
+  &-#{$name} {
+    @if $property == margin {
+      margin: $value;
+    } @else {
+      padding: $value;
+    }
+  }
+
+  &-block-#{$name} {
+    @if $property == margin {
+      margin-block: $value;
+    } @else {
+      padding-block: $value;
+    }
+  }
+
+  &-block-start-#{$name} {
+    @if $property == margin {
+      margin-block-start: $value;
+    } @else {
+      padding-block-start: $value;
+    }
+  }
+
+  &-block-end-#{$name} {
+    @if $property == margin {
+      margin-block-end: $value;
+    } @else {
+      padding-block-end: $value;
+    }
+  }
+
+  &-inline-#{$name} {
+    @if $property == margin {
+      margin-inline: $value;
+    } @else {
+      padding-inline: $value;
+    }
+  }
+
+  &-inline-start-#{$name} {
+    @if $property == margin {
+      margin-inline-start: $value;
+    } @else {
+      padding-inline-start: $value;
+    }
+  }
+
+  &-inline-end-#{$name} {
+    @if $property == margin {
+      margin-inline-end: $value;
+    } @else {
+      padding-inline-end: $value;
+    }
+  }
+}
+
+@mixin scale-utilities(
+  $property,
+  $minimum-step: modular-scale.$minimum-step,
+  $maximum-step: modular-scale.$maximum-step
+) {
+  @if $property == margin {
+    @include direction-utilities(
+      $property: $property,
+      $name: auto,
+      $value: auto
+    );
+  }
+
+  @for $step
+    from modular-scale.$minimum-step
+    through modular-scale.$maximum-step
+  {
+    $name: math.abs($step);
+
+    @if $step < 0 {
+      $name: 'n#{$name}';
+    }
+
+    @include direction-utilities(
+      $property: $property,
+      $name: $name,
+      $value: ms.step($step)
+    );
+  }
+
+  @include direction-utilities($property: $property, $name: none, $value: 0);
+}
+
+.u-space {
+  @include scale-utilities($property: margin);
+}
+
+.u-pad {
+  @include scale-utilities($property: padding);
+}

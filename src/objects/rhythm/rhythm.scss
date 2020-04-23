@@ -1,8 +1,21 @@
 @use '../../design-tokens/sizes.yml';
 
+/**
+ * This pattern makes heavy use of Heydon Pickering's "lobotomized owl"
+ * selectors. By adding `margin-top` to adjacent elements, we avoid impacting
+ * the layout of the container itself (which would complicate alignment of
+ * adjacent columns).
+ *
+ * @see https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
+ */
+
 .o-rhythm > * + * {
   margin-top: sizes.$rhythm-space;
 }
+
+/**
+ * General spacing modifiers
+ */
 
 .o-rhythm--compact > * + * {
   margin-top: sizes.$rhythm-space-compact;
@@ -15,6 +28,10 @@
 .o-rhythm--generous > * + * {
   margin-top: sizes.$rhythm-space-generous;
 }
+
+/**
+ * Heading modifiers
+ */
 
 .o-rhythm--generous-headings {
   & > * + h1,

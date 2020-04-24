@@ -33,11 +33,15 @@
   font-weight: font.$weight-semibold;
   height: sizes.$control-height; /* 3 */
   line-height: normal;
+
   /* @TODO - restore original, below */
+
   /* padding: sizes.$control-pad-vertical sizes.$control-pad-horizontal; */
+
   /* @TODO - remove */
   padding-block: sizes.$control-pad-vertical;
   padding-inline: sizes.$control-pad-horizontal;
+
   /* @TODO - end remove */
   position: relative;
   text-align: center;

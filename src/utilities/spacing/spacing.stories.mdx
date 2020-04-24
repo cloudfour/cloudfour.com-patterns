@@ -11,13 +11,46 @@ import './demo/styles.scss';
 
 # Spacing
 
-TODO
+Every effort should be made to rely on the whitespace built in to existing object and component patterns, but there are times where that may not suffice:
+
+- Adjustments in service of specific content.
+- Layout tweaks that improve visual alignment for [our unreliable eyes](https://en.wikipedia.org/wiki/Optical_illusion).
+- Rapid prototyping.
+
+In those cases, whitespace utilities may be used.
+
+## Logical Properties
+
+All of our utilities use [logical properties](https://www.w3.org/TR/css-logical-1/) instead of specific directions [in supported browsers](https://caniuse.com/#feat=css-logical-props) to simplify potential localization projects.
+
+The following table maps the traditional physical property for `direction: ltr` and `writing-mode: horizontal-tb` to its equivalent logical property:
+
+| Physical Property | Logical Property |
+| ----------------- | ---------------- |
+| `top`             | `block-start`    |
+| `bottom`          | `block-end`      |
+| `left`            | `inline-start`   |
+| `right`           | `inline-end`     |
+
+## Margin
+
+The following utilities apply space _outside_ the element:
+
+- `u-space-{amount}` adds `margin` to all sides.
+- `u-space-block-{amount}` adds `margin` to the top and bottom for horizontal writing modes.
+- `u-space-block-start-{amount}`
+- `u-space-block-end-{amount}`
+- `u-space-inline-{amount}` adds `margin` to the left and right for left-to-right directions.
+- `u-space-inline-start-{amount}`
+- `u-space-inline-end-{amount}`
+
+`{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page), `auto` or `none`.
 
 <Preview>
-  <Story name="Margin">
+  <Story name="Margin" height="320px">
     {directionsDemo({
       name: 'space',
-      step: number('Step', 0, {
+      step: number('Step', 1, {
         range: true,
         min: minimumStep,
         max: maximumStep,
@@ -27,11 +60,25 @@ TODO
   </Story>
 </Preview>
 
+## Padding
+
+The following utilities pad the _inside_ of the element:
+
+- `u-pad-{amount}` adds `padding` to all sides.
+- `u-pad-block-{amount}` adds `padding` to the top and bottom for horizontal writing modes.
+- `u-pad-block-start-{amount}`
+- `u-pad-block-end-{amount}`
+- `u-pad-inline-{amount}` adds `padding` to the left and right for left-to-right directions.
+- `u-pad-inline-start-{amount}`
+- `u-pad-inline-end-{amount}`
+
+`{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page) or `none`.
+
 <Preview>
-  <Story name="Padding">
+  <Story name="Padding" height="320px">
     {directionsDemo({
       name: 'pad',
-      step: number('Step', 0, {
+      step: number('Step', 1, {
         range: true,
         min: minimumStep,
         max: maximumStep,

@@ -61,17 +61,6 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
-              // @see https://github.com/csstools/postcss-preset-env/blob/master/INSTALL.md#webpack
-              ident: 'postcss',
-              plugins: () => [
-                /**
-                 * Enables Stage 2 options, by default.
-                 * This includes logical properties and values.
-                 * @see https://preset-env.cssdb.org/features#logical-properties-and-values
-                 * @see https://github.com/csstools/postcss-preset-env#stage
-                 */
-                postcssPresetEnv(),
-              ],
             },
           },
           {

@@ -1,9 +1,10 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, number } from '@storybook/addon-knobs';
+import { withKnobs, radios, number } from '@storybook/addon-knobs';
 import {
   minimumStep,
   maximumStep,
 } from '../../design-tokens/modular-scale.yml';
+import logicalPropertiesDemo from './demo/logical-properties.twig';
 import directionsDemo from './demo/directions.twig';
 import './demo/styles.scss';
 
@@ -11,17 +12,33 @@ import './demo/styles.scss';
 
 # Spacing
 
-Every effort should be made to rely on the whitespace built in to existing object and component patterns, but there are times where that may not suffice:
+While we do our best to predict whitespace needs within the context of our layout objects and components, certain situations are difficult to account for:
 
-- Adjustments in service of specific content.
-- Layout tweaks that improve visual alignment for [our unreliable eyes](https://en.wikipedia.org/wiki/Optical_illusion).
-- Rapid prototyping.
+- Specific article or page content may require unique spacing.
+- [Our unreliable eyes](https://en.wikipedia.org/wiki/Optical_illusion) may prefer alignment tweaks that defy mathematics: For example, circles may appear more visually balanced when they extend past grid lines.
+- Rapid prototypes.
 
-In those cases, whitespace utilities may be used.
+Spacing utilities exist for these use cases.
 
 ## Logical Properties
 
 All of our utilities use [logical properties](https://www.w3.org/TR/css-logical-1/) instead of specific directions [in supported browsers](https://caniuse.com/#feat=css-logical-props) to simplify potential localization projects.
+
+Observe how the direction of the same utility classes change depending on the page's [direction](https://developer.mozilla.org/en-US/docs/Web/CSS/direction) and [writing mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode):
+
+<Preview>
+  <Story name="Logical Properties" height="420px">
+    {logicalPropertiesDemo({
+      name: radios('Utility', ['space', 'pad'], 'space'),
+      step: number('Step', 1, {
+        range: true,
+        min: minimumStep,
+        max: maximumStep,
+        step: 1,
+      }),
+    })}
+  </Story>
+</Preview>
 
 The following table maps the traditional physical property for `direction: ltr` and `writing-mode: horizontal-tb` to its equivalent logical property:
 

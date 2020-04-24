@@ -1,0 +1,27 @@
+{% set directions = ['ltr', 'rtl'] %}
+{% set writing_modes = ['horizontal-tb', 'vertical-lr', 'vertical-rl'] %}
+{% if step < 0 %}
+  {% set step = 'n' ~ step|abs %}
+{% endif %}
+
+<div class="demo-u-{{name}}-logical-properties">
+  {% for writing_mode in writing_modes %}
+    {% for direction in directions %}
+      {% set class = 'u-' ~ name ~ '-block-start-' ~ step ~ ' u-' ~ name ~ '-inline-start-' ~ step %}
+      {% set style = 'direction: ' ~ direction ~ '; writing-mode: ' ~ writing_mode ~ ';' %}
+      {% if name == 'pad' %}
+        <div class="{{class}}" style="{{style}}">
+          <div>
+            {{direction}}, {{writing_mode}}
+          </div>
+        </div>
+      {% else %}
+        <div style="{{style}}">
+          <div class="{{class}}">
+            {{direction}}, {{writing_mode}}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>

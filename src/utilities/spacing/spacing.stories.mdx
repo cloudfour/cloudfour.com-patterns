@@ -49,6 +49,34 @@ The following table maps the traditional physical property for `direction: ltr` 
 | `left`            | `inline-start`   |
 | `right`           | `inline-end`     |
 
+## Padding
+
+The following utilities pad the _inside_ of the element:
+
+- `u-pad-{amount}` adds `padding` to all sides.
+- `u-pad-block-{amount}` adds `padding` to the top and bottom for horizontal writing modes.
+- `u-pad-block-start-{amount}`
+- `u-pad-block-end-{amount}`
+- `u-pad-inline-{amount}` adds `padding` to the left and right for left-to-right directions.
+- `u-pad-inline-start-{amount}`
+- `u-pad-inline-end-{amount}`
+
+`{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page) or `none`.
+
+<Preview>
+  <Story name="Padding" height="320px">
+    {directionsDemo({
+      name: 'pad',
+      step: number('Step', 1, {
+        range: true,
+        min: minimumStep,
+        max: maximumStep,
+        step: 1,
+      }),
+    })}
+  </Story>
+</Preview>
+
 ## Margin
 
 The following utilities apply space _outside_ the element:
@@ -77,30 +105,4 @@ The following utilities apply space _outside_ the element:
   </Story>
 </Preview>
 
-## Padding
-
-The following utilities pad the _inside_ of the element:
-
-- `u-pad-{amount}` adds `padding` to all sides.
-- `u-pad-block-{amount}` adds `padding` to the top and bottom for horizontal writing modes.
-- `u-pad-block-start-{amount}`
-- `u-pad-block-end-{amount}`
-- `u-pad-inline-{amount}` adds `padding` to the left and right for left-to-right directions.
-- `u-pad-inline-start-{amount}`
-- `u-pad-inline-end-{amount}`
-
-`{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page) or `none`.
-
-<Preview>
-  <Story name="Padding" height="320px">
-    {directionsDemo({
-      name: 'pad',
-      step: number('Step', 1, {
-        range: true,
-        min: minimumStep,
-        max: maximumStep,
-        step: 1,
-      }),
-    })}
-  </Story>
-</Preview>
+To add consistent spacing between adjacent block elements, see [the rhythm object](/?path=/docs/objects-rhythm--default-story).

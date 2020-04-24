@@ -1,6 +1,5 @@
 const { resolve } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.

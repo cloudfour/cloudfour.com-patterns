@@ -106,3 +106,26 @@ The following utilities apply space _outside_ the element:
 </Preview>
 
 To add consistent spacing between adjacent block elements, see [the rhythm object](/?path=/docs/objects-rhythm--default-story).
+
+## Negative Margin
+
+The following utilities _pull_ an element one direction or another by applying a _negative_ `margin` value:
+
+- `u-pull-{amount}` subtracts `margin` from all sides.
+- `u-pull-block-{amount}` subtracts `margin` from the top and bottom for horizontal writing modes.
+- `u-pull-block-start-{amount}`
+- `u-pull-block-end-{amount}`
+- `u-pull-inline-{amount}` subtracts `margin` from the left and right for left-to-right directions.
+- `u-pull-inline-start-{amount}`
+- `u-pull-inline-end-{amount}`
+
+`{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page).
+
+<Preview>
+  <Story name="Negative Margin" height="320px">
+    {directionsDemo({
+      name: 'pull',
+      step: 1,
+    })}
+  </Story>
+</Preview>

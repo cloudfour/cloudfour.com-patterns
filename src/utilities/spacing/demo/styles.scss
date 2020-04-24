@@ -35,6 +35,27 @@
   }
 }
 
+.demo-u-pull-directions {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    border-radius: sizes.$radius-medium;
+  }
+
+  & > div {
+    background: colors.$gray-light;
+    padding: ms.step(-1);
+  }
+
+  [class*='u-pull'] {
+    background: colors.$text-light-emphasis;
+    border: sizes.$edge-medium solid colors.$gray;
+    opacity: 0.66;
+    padding: ms.step(-1);
+  }
+}
+
 .demo-u-pad-logical-properties,
 .demo-u-space-logical-properties {
   display: grid;

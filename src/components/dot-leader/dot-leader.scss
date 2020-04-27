@@ -1,5 +1,9 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/font.yml';
+@use '../../design-tokens/opacity.yml';
+
 $dot-character: '\2024'; // Unicode: ONE-DOT-LEADER
-$dot-count: 200;
+$dot-count: 250;
 $dot-content: '';
 
 @for $i from 1 through $dot-count {
@@ -7,15 +11,33 @@ $dot-content: '';
 }
 
 .c-dot-leader {
-  display: grid;
-  grid-gap: 1ch;
-  grid-template-columns: min-content 1fr min-content;
+  display: flex;
+  text-decoration: none;
   white-space: nowrap;
 
-  &::after {
-    content: $dot-content;
-    grid-column: 2;
-    grid-row: 1;
-    overflow-x: hidden;
+  @supports (display: grid) {
+    display: grid;
+    grid-gap: 1ch;
+    grid-template-columns: min-content 1fr min-content;
+  }
+
+  &__start {
+    font-weight: font.$weight-medium;
+  }
+
+  &__between {
+    @supports (display: grid) {
+      opacity: opacity.$muted;
+      overflow: hidden;
+
+      &::after {
+        content: $dot-content;
+      }
+    }
+  }
+
+  &__end {
+    margin-left: auto;
+    text-align: right;
   }
 }

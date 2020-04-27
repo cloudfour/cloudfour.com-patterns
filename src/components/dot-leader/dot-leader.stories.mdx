@@ -1,5 +1,7 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import listDemo from './demo/list.twig';
+import topics from './demo/topics.json';
 import template from './dot-leader.twig';
 
 <Meta title="Components/Dot Leader" decorators={[withKnobs]} />
@@ -8,6 +10,18 @@ import template from './dot-leader.twig';
 
 <Preview>
   <Story name="Single" height="150px">
-    {template}
+    {template({
+      label: text('label', 'Design systems'),
+      count: text('count', 42),
+      href: text('href'),
+      count_noun_single: text('count_noun_single', 'article'),
+      count_noun_plural: text('count_noun_plural', 'articles'),
+    })}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="List" height="300px">
+    {listDemo({ topics })}
   </Story>
 </Preview>

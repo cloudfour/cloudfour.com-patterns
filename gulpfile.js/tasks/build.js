@@ -4,6 +4,7 @@ const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
+const postcssPresetEnv = require('postcss-preset-env');
 
 const rollup = require('rollup');
 const path = require('path');
@@ -28,7 +29,7 @@ const buildSass = () => {
     )
     .pipe(rename({ basename: 'standalone' }))
     .pipe(dest(outDir))
-    .pipe(postcss([cssnano()]))
+    .pipe(postcss([cssnano(), postcssPresetEnv()]))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(outDir));
 };

@@ -1,0 +1,21 @@
+$dot-character: '\2024'; // Unicode: ONE-DOT-LEADER
+$dot-count: 200;
+$dot-content: '';
+
+@for $i from 1 through $dot-count {
+  $dot-content: '#{$dot-content}#{$dot-character}';
+}
+
+.c-dot-leader {
+  display: grid;
+  grid-gap: 1ch;
+  grid-template-columns: min-content 1fr min-content;
+  white-space: nowrap;
+
+  &::after {
+    content: $dot-content;
+    grid-column: 2;
+    grid-row: 1;
+    overflow-x: hidden;
+  }
+}

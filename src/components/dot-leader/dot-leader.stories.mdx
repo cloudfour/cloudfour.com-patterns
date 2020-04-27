@@ -1,0 +1,13 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, text } from '@storybook/addon-knobs';
+import template from './dot-leader.twig';
+
+<Meta title="Components/Dot Leader" decorators={[withKnobs]} />
+
+# Dot Leader
+
+<Preview>
+  <Story name="Single" height="150px">
+    {template}
+  </Story>
+</Preview>

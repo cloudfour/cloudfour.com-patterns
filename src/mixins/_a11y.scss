@@ -1,0 +1,46 @@
+@use 'sass:map';
+
+/**
+ * Visible only to screen readers.
+ *
+ * @see https://css-tricks.com/inclusively-hidden/
+ */
+
+$_sr-only-props: (
+  border: 0,
+  clip: rect(0 0 0 0),
+  clip-path: polygon(0 0, 0 0, 0 0),
+  height: 1px,
+  margin: -1px,
+  overflow: hidden,
+  padding: 0,
+  position: absolute,
+  white-space: nowrap,
+  width: 1px,
+);
+
+@mixin sr-only($important: false) {
+  @if $important {
+    border: map.get($_sr-only-props, 'border') !important;
+    clip: map.get($_sr-only-props, 'clip') !important;
+    clip-path: map.get($_sr-only-props, 'clip-path') !important;
+    height: map.get($_sr-only-props, 'height') !important;
+    margin: map.get($_sr-only-props, 'margin') !important;
+    overflow: map.get($_sr-only-props, 'overflow') !important;
+    padding: map.get($_sr-only-props, 'padding') !important;
+    position: map.get($_sr-only-props, 'position') !important;
+    white-space: map.get($_sr-only-props, 'white-space') !important;
+    width: map.get($_sr-only-props, 'width') !important;
+  } @else {
+    border: map.get($_sr-only-props, 'border');
+    clip: map.get($_sr-only-props, 'clip');
+    clip-path: map.get($_sr-only-props, 'clip-path');
+    height: map.get($_sr-only-props, 'height');
+    margin: map.get($_sr-only-props, 'margin');
+    overflow: map.get($_sr-only-props, 'overflow');
+    padding: map.get($_sr-only-props, 'padding');
+    position: map.get($_sr-only-props, 'position');
+    white-space: map.get($_sr-only-props, 'white-space');
+    width: map.get($_sr-only-props, 'width');
+  }
+}

@@ -1,5 +1,6 @@
 @use "../design-tokens/colors.yml";
 @use "../design-tokens/opacity.yml";
+@use "../design-tokens/sizes.yml";
 @use "../mixins/ms";
 
 /**
@@ -169,6 +170,27 @@ main,
 nav,
 section {
   display: block;
+}
+
+/**
+ * Shared indentation for typographic blocks
+ */
+
+ul,
+ol,
+blockquote {
+  padding-left: sizes.$type-block-indent;
+}
+
+/**
+ * Adjacent children of blockquotes should include some default vertical rhythm.
+ * We use the same design token as the `o-rhythm` pattern for consistency.
+ *
+ * @see https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
+ */
+
+blockquote > * + * {
+  margin-top: sizes.$rhythm-space;
 }
 
 /**

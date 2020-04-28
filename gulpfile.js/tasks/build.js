@@ -3,7 +3,8 @@ const { src, dest, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
-const postcssConfig = require('../../postcss.config');
+const cssnano = require('cssnano');
+
 const rollup = require('rollup');
 const path = require('path');
 const multiEntry = require('@rollup/plugin-multi-entry');
@@ -27,7 +28,7 @@ const buildSass = () => {
     )
     .pipe(rename({ basename: 'standalone' }))
     .pipe(dest(outDir))
-    .pipe(postcss(postcssConfig.plugins))
+    .pipe(postcss([cssnano()]))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(outDir));
 };

@@ -1,5 +1,6 @@
 @use "../design-tokens/colors.yml";
 @use "../design-tokens/opacity.yml";
+@use "../design-tokens/sizes.yml";
 @use "../mixins/ms";
 
 /**
@@ -169,6 +170,15 @@ main,
 nav,
 section {
   display: block;
+}
+
+/**
+ * Adjacent children of blockquotes should inherit parent `margin-top` values
+ * to maintain vertical rhythm.
+ */
+
+blockquote > * + * {
+  margin-top: sizes.$rhythm-space;
 }
 
 /**

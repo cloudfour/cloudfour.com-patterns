@@ -3,7 +3,8 @@
 {% endif %}
 
 {% embed '../../../objects/rhythm/rhythm.twig' with {
-  class: 'demo-u-' ~ name ~ '-directions'
+  class: 'demo-u-' ~ name ~ '-directions',
+  attrs: 'dir="ltr"'
 } %}
   {% block content %}
     {% for direction in ['', '-block', '-block-start', '-block-end', '-inline', '-inline-start', '-inline-end'] %}

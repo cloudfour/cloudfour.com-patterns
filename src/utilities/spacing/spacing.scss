@@ -18,9 +18,9 @@
   }
 
   /**
-    * Ideally we could use the *-block shorthand, but it is not as well
-    * supported in browsers.
-    */
+   * Ideally we could use the *-block shorthand, but it is not as well
+   * supported in browsers.
+   */
   &-block-#{$name} {
     @if $property == margin {
       margin-block-end: $value;
@@ -48,9 +48,9 @@
   }
 
   /**
-    * Ideally we could use the *-inline shorthand, but it is not as well
-    * supported in browsers.
-    */
+   * Ideally we could use the *-inline shorthand, but it is not as well
+   * supported in browsers.
+   */
   &-inline-#{$name} {
     @if $property == margin {
       margin-inline-end: $value;

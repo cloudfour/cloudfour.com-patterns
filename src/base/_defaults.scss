@@ -173,6 +173,16 @@ section {
 }
 
 /**
+ * Shared indentation for typographic blocks
+ */
+
+ul,
+ol,
+blockquote {
+  padding-left: sizes.$type-block-indent;
+}
+
+/**
  * Adjacent children of blockquotes should inherit parent `margin-top` values
  * to maintain vertical rhythm.
  */

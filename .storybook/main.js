@@ -1,6 +1,5 @@
 const { resolve } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const postcssConfig = require('../postcss.config');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
@@ -60,9 +59,7 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
               sourceMap: true,
-              plugins: () => postcssConfig.plugins,
             },
           },
           {

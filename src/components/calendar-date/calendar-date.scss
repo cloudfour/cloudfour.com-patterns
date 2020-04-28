@@ -17,93 +17,93 @@ $radius: sizes.$radius-medium;
   text-align: center;
   user-select: none;
   width: $size;
+}
 
-  /**
-   * 1. These defaults colors are a little drab, but they won't require any
-   *    complex specificity to override across themes, and they will rarely be
-   *    seen unless seasonal modifier classes are omitted.
-   */
+/**
+ * 1. These defaults colors are a little drab, but they won't require any
+ *    complex specificity to override across themes, and they will rarely be
+ *    seen unless seasonal modifier classes are omitted.
+ */
 
-  &__header {
-    align-items: center;
-    background-color: colors.$gray-dark; /* 1 */
-    border: $edge-size solid colors.$gray-darker; /* 1 */
-    border-bottom-width: 0;
-    border-top-left-radius: $radius;
-    border-top-right-radius: $radius;
-    color: colors.$text-light-emphasis;
-    display: flex;
-    flex: none;
-    font-weight: font.$weight-semibold;
-    height: ms.step(3);
-    justify-content: center;
-    text-transform: uppercase;
-  }
+.c-calendar-date__header {
+  align-items: center;
+  background-color: colors.$gray-dark; /* 1 */
+  border: $edge-size solid colors.$gray-darker; /* 1 */
+  border-bottom-width: 0;
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+  color: colors.$text-light-emphasis;
+  display: flex;
+  flex: none;
+  font-weight: font.$weight-semibold;
+  height: ms.step(3);
+  justify-content: center;
+  text-transform: uppercase;
 
   /**
    * Seasonal colors
    */
 
-  &--march &__header,
-  &--april &__header,
-  &--may &__header {
+  .c-calendar-date--march &,
+  .c-calendar-date--april &,
+  .c-calendar-date--may & {
     background-color: colors.$green-dark;
     border-color: colors.$green-darker;
   }
 
-  &--june &__header,
-  &--july &__header,
-  &--august &__header {
+  .c-calendar-date--june &,
+  .c-calendar-date--july &,
+  .c-calendar-date--august & {
     background-color: colors.$fuchsia-dark;
     border-color: colors.$fuchsia-darker;
   }
 
-  &--september &__header,
-  &--october &__header,
-  &--november &__header {
+  .c-calendar-date--september &,
+  .c-calendar-date--october &,
+  .c-calendar-date--november & {
     background-color: colors.$orange-dark;
     border-color: colors.$orange-darker;
   }
 
-  &--december &__header,
-  &--january &__header,
-  &--february &__header {
+  .c-calendar-date--december &,
+  .c-calendar-date--january &,
+  .c-calendar-date--february & {
     background-color: colors.$purple-dark;
     border-color: colors.$purple-darker;
   }
+}
 
-  &__main {
-    align-items: center;
-    background-color: colors.$text-light-emphasis;
-    border: $edge-size solid colors.$gray-light;
-    border-bottom-left-radius: $radius;
-    border-bottom-right-radius: $radius;
-    border-top-width: 0;
-    color: colors.$text-dark;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
+.c-calendar-date__main {
+  align-items: center;
+  background-color: colors.$text-light-emphasis;
+  border: $edge-size solid colors.$gray-light;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-top-width: 0;
+  color: colors.$text-dark;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
 
-    .t-dark & {
-      border-color: colors.$primary-brand-dark;
-    }
+  .t-dark & {
+    border-color: colors.$primary-brand-dark;
   }
+}
 
-  &__day {
-    font-size: ms.step(3);
-  }
+.c-calendar-date__day {
+  font-size: ms.step(3);
+}
 
-  /**
-   * 1. Truncation
-   */
+/**
+ * 1. Truncation
+ */
 
-  &__note {
-    font-size: ms.step(-1);
-    overflow: hidden; /* 1 */
-    padding: 0 sizes.$control-text-inset;
-    text-overflow: ellipsis; /* 1 */
-    white-space: nowrap; /* 1 */
-    width: 100%; /* 1 */
-  }
+.c-calendar-date__note {
+  font-size: ms.step(-1);
+  overflow: hidden; /* 1 */
+  padding: 0 sizes.$control-text-inset;
+  text-overflow: ellipsis; /* 1 */
+  white-space: nowrap; /* 1 */
+  width: 100%; /* 1 */
 }

@@ -62,7 +62,7 @@ module.exports = {
             options: {
               ident: 'postcss',
               sourceMap: true,
-              plugins: () => postcssConfig.plugins
+              plugins: () => postcssConfig.plugins,
             },
           },
           {

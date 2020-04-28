@@ -17,18 +17,18 @@
     }
   }
 
-   /**
+  /**
     * 1. @TODO - Re-evaluate shorthand properties if they become fully supported
     */
   &-block-#{$name} {
     @if $property == margin {
+      margin-block-end: $value;
       // margin-block: $value; /* 1 */
       margin-block-start: $value;
-      margin-block-end: $value;
     } @else {
+      padding-block-end: $value;
       // padding-block: $value; /* 1 */
       padding-block-start: $value;
-      padding-block-end: $value;
     }
   }
 
@@ -48,18 +48,18 @@
     }
   }
 
-   /**
+  /**
     * 1. @TODO - Re-evaluate shorthand properties if they become fully supported
     */
   &-inline-#{$name} {
     @if $property == margin {
+      margin-inline-end: $value;
       // margin-inline: $value; /* 1 */
       margin-inline-start: $value;
-      margin-inline-end: $value;
     } @else {
+      padding-inline-end: $value;
       // padding-inline: $value; /* 1 */
       padding-inline-start: $value;
-      padding-inline-end: $value;
     }
   }
 

@@ -1,0 +1,32 @@
+{% set tag_name = tag_name|default('div') %}
+
+{% if href %}
+  {% set tag_name = 'a' %}
+{% endif %}
+
+{% set inner_tag_name = inner_tag_name|default('span') %}
+{% set start_tag_name = start_tag_name|default(inner_tag_name) %}
+{% set between_tag_name = between_tag_name|default(inner_tag_name) %}
+{% set end_tag_name = end_tag_name|default(inner_tag_name) %}
+
+<{{tag_name}} class="c-dot-leader"
+  {% if tag_name == 'a' %}href="{{href|default('#')}}"{% endif %}>
+  <{{start_tag_name}} class="c-dot-leader__start">
+    {% block start %}
+      {{label|default('Hello world')}}
+    {% endblock %}
+  </{{start_tag_name}}>
+  <{{between_tag_name}} class="c-dot-leader__between" aria-hidden="true"></{{between_tag_name}}>
+  <{{end_tag_name}} class="c-dot-leader__end">
+    {% block end %}
+      {{count|default(0)}}
+      <span class="u-hidden-visually">
+        {% if count == 1 %}
+          {{count_noun_single|default('item')}}
+        {% else %}
+          {{count_noun_plural|default('items')}}
+        {% endif %}
+      </span>
+    {% endblock %}
+  </{{end_tag_name}}>
+</{{tag_name}}>

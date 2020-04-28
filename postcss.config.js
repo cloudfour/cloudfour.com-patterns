@@ -14,9 +14,16 @@ const plugins = [
    * @see https://github.com/csstools/postcss-preset-env/blob/master/INSTALL.md#postcss-cli
    */
   require('postcss-preset-env')({
-    // @TODO, investigate passing a config of { dir: 'ltr' } and see if this can be overridden
     features: {
       'logical-properties-and-values': {
+        /**
+         * @see https://github.com/csstools/postcss-logical#options
+         * Using preserve:true overrides global `dir`.
+         * Setting `dir: 'ltr'` breaks some examples that depend on other `dir` settings.
+         * PostCSS logical properties may also be broken, as `preserve:true`
+         * doesn't seem to affect things like `margin-block-start`. It always
+         * produces only directional output.
+         */
         preserve: true,
       },
     },

@@ -10,6 +10,7 @@
       {% set class = 'u-' ~ name ~ '-block-start-' ~ step ~ ' u-' ~ name ~ '-inline-start-' ~ step %}
       {% set style = 'direction: ' ~ direction ~ '; writing-mode: ' ~ writing_mode ~ ';' %}
       {% if name == 'pad' %}
+        {# This block is not currently output, AFAICT #}
         <div class="demo-example" dir="{{direction}}">
           <div class="{{class}}" style="{{style}}">
             <div>

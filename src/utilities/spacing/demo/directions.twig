@@ -9,11 +9,11 @@
     {% for direction in ['', '-block', '-block-start', '-block-end', '-inline', '-inline-start', '-inline-end'] %}
       {% set class = 'u-' ~ name ~ direction ~ '-' ~ step %}
       {% if name == 'pad' %}
-        <div class="{{class}}">
+        <div class="{{class ~ ' demo-example'}}">
           <div>{{class}}</div>
         </div>
       {% else %}
-        <div>
+        <div class="demo-example">
           <div class="{{class}}">{{class}}</div>
         </div>
       {% endif %}

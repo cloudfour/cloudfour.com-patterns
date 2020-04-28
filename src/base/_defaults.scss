@@ -183,8 +183,10 @@ blockquote {
 }
 
 /**
- * Adjacent children of blockquotes should inherit parent `margin-top` values
- * to maintain vertical rhythm.
+ * Adjacent children of blockquotes should include some default vertical rhythm.
+ * We use the same design token as the `o-rhythm` pattern for consistency.
+ *
+ * @see https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
  */
 
 blockquote > * + * {

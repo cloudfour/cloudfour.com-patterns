@@ -18,15 +18,15 @@
   }
 
   /**
-    * 1. Ideally we could use the *-block shorthand, but it is not as well
-    *    supported in browsers.
+    * Ideally we could use the *-block shorthand, but it is not as well
+    * supported in browsers.
     */
   &-block-#{$name} {
     @if $property == margin {
-      margin-block-end: $value; /* 1 */
+      margin-block-end: $value;
       margin-block-start: $value;
     } @else {
-      padding-block-end: $value; /* 1 */
+      padding-block-end: $value;
       padding-block-start: $value;
     }
   }
@@ -48,15 +48,15 @@
   }
 
   /**
-    * 1. Ideally we could use the *-inline shorthand, but it is not as well
-    *    supported in browsers.
+    * Ideally we could use the *-inline shorthand, but it is not as well
+    * supported in browsers.
     */
   &-inline-#{$name} {
     @if $property == margin {
-      margin-inline-end: $value; /* 1 */
+      margin-inline-end: $value;
       margin-inline-start: $value;
     } @else {
-      padding-inline-end: $value; /* 1 */
+      padding-inline-end: $value;
       padding-inline-start: $value;
     }
   }

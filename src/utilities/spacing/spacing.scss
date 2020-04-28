@@ -18,7 +18,7 @@
   }
 
   /**
-    * 1. Ideally we could use the margin-inline shorthand, but it is not as well
+    * 1. Ideally we could use the *-block shorthand, but it is not as well
     *    supported in browsers.
     */
   &-block-#{$name} {
@@ -48,7 +48,7 @@
   }
 
   /**
-    * 1. Ideally we could use the margin-inline shorthand, but it is not as well
+    * 1. Ideally we could use the *-inline shorthand, but it is not as well
     *    supported in browsers.
     */
   &-inline-#{$name} {

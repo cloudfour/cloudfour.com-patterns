@@ -2,6 +2,11 @@
 @use '../../design-tokens/font.yml';
 @use '../../design-tokens/opacity.yml';
 
+/**
+ * Build pseudo content for "between" element. We do this with text characters
+ * to align most accurately with surrounding text.
+ */
+
 $dot-character: '\2024'; // Unicode: ONE-DOT-LEADER
 $dot-count: 250;
 $dot-content: '';
@@ -23,7 +28,35 @@ $dot-content: '';
 
   &__start {
     font-weight: font.$weight-medium;
+
+    /**
+     * Retain `text-decoration` for hover effect when this element is a child
+     * of a link.
+     */
+
+    a:hover & {
+      text-decoration: underline;
+    }
   }
+
+  &__between,
+  &__end {
+    color: colors.$text-dark;
+
+    .t-dark & {
+      color: colors.$text-light;
+    }
+  }
+
+  /**
+   * In a past iteration of this pattern we used Flexbox, non-breaking spaces
+   * and some other hacks to make this work everywhere. We're now saving a lot
+   * of CSS by using progressive enhancement to only add the dots where grid
+   * is supported.
+   *
+   * Note that it's possible to achieve the dots using pseudo elements, but that
+   * would risk some assistive devices reading this content aloud.
+   */
 
   &__between {
     @supports (display: grid) {
@@ -35,6 +68,11 @@ $dot-content: '';
       }
     }
   }
+
+  /**
+   * If grid layout is not supported, these styles make sure the end value is
+   * still at the end.
+   */
 
   &__end {
     margin-left: auto;

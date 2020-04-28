@@ -8,8 +8,17 @@ import template from './dot-leader.twig';
 
 # Dot Leader
 
+A component that associates a chunk of text with a piece of reference data via a long line of dots, similar to a traditional table of contents or index.
+
+A single dot leader is composed of four elements:
+
+- `c-dot-leader` contains the entire row.
+- `c-dot-leader__start`
+- `c-dot-leader__between` will output dots and should always include `aria-hidden="true"` so that it will not be read aloud by assistive devices.
+- `c-dot-leader__end`
+
 <Preview>
-  <Story name="Single" height="150px">
+  <Story name="Single" height="100px">
     {template({
       label: text('label', 'Design systems'),
       count: text('count', 42),
@@ -20,8 +29,24 @@ import template from './dot-leader.twig';
   </Story>
 </Preview>
 
+If `c-dot-leader` is an `<a>` element, it will gain some additional styles.
+
 <Preview>
-  <Story name="List" height="300px">
+  <Story name="Link" height="100px">
+    {template({
+      label: text('label', 'Design systems'),
+      count: text('count', 42),
+      href: 'https://cloudfour.com/topics/design-systems/',
+      count_noun_single: text('count_noun_single', 'article'),
+      count_noun_plural: text('count_noun_plural', 'articles'),
+    })}
+  </Story>
+</Preview>
+
+Although `c-dot-leader` applies to a single row, the pattern works best as part of a list. The dotted lines clearly associate each column even when content lengths vary.
+
+<Preview>
+  <Story name="List" height="360px">
     {listDemo({ topics })}
   </Story>
 </Preview>

@@ -1,4 +1,5 @@
-<ul class="u-list-{{style_type}}">
+<ul class="u-list-{{style_type}}"
+  {% if style_type == 'none' %}role="list"{% endif %}>
   {% for i in 1..3 %}
     <li>u-list-{{style_type}} {{i}}</li>
   {% endfor %}

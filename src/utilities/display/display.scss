@@ -1,0 +1,9 @@
+@use '../../mixins/a11y';
+
+/**
+ * Hide from everything but assistive devices.
+ */
+
+.u-hidden-visually {
+  @include a11y.sr-only($important: true);
+}

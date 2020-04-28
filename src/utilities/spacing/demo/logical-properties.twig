@@ -10,13 +10,15 @@
       {% set class = 'u-' ~ name ~ '-block-start-' ~ step ~ ' u-' ~ name ~ '-inline-start-' ~ step %}
       {% set style = 'direction: ' ~ direction ~ '; writing-mode: ' ~ writing_mode ~ ';' %}
       {% if name == 'pad' %}
-        <div class="{{class}}" style="{{style}}">
-          <div>
-            {{direction}}, {{writing_mode}}
+        <div class="demo-example" dir="{{direction}}">
+          <div class="{{class}}" style="{{style}}">
+            <div>
+              {{direction}}, {{writing_mode}}
+            </div>
           </div>
         </div>
       {% else %}
-        <div style="{{style}}">
+        <div style="{{style}}" dir="{{direction}}" class="demo-example">
           <div class="{{class}}">
             {{direction}}, {{writing_mode}}
           </div>

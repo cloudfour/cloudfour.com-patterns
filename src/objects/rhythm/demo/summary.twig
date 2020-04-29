@@ -1,0 +1,18 @@
+{% embed '../rhythm.twig' with { class: 'o-rhythm--condensed' } %}
+  {% block content %}
+    <h2>Our goals are audacious.</h2>
+    <p>We believe a small company like ours can have an outsized impact on our customers and the world. We bring this perspective to everything we do.</p>
+    <p>
+      {% embed '../../../components/button/button.twig' with {
+        href: 'https://cloudfour.com/believes/'
+      } only %}
+        {% block content %}
+          What sets us apart
+          {% include '../../../assets/icons/arrow-right.svg.twig' with {
+            class: 'c-icon c-icon--inline'
+          } only %}
+        {% endblock %}
+      {% endembed %}
+    </p>
+  {% endblock %}
+{% endembed %}

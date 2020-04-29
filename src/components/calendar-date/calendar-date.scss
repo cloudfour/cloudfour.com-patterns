@@ -1,0 +1,109 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/font.yml';
+@use '../../design-tokens/sizes.yml';
+@use '../../mixins/ms';
+@use '../../mixins/unit';
+
+$size: ms.step(8);
+$edge-size: sizes.$edge-medium;
+$radius: sizes.$radius-medium;
+
+.c-calendar-date {
+  display: flex;
+  flex-direction: column;
+  font-weight: font.$weight-medium;
+  height: $size;
+  line-height: ms.step(1, 1);
+  text-align: center;
+  user-select: none;
+  width: $size;
+}
+
+/**
+ * 1. These defaults colors are a little drab, but they won't require any
+ *    complex specificity to override across themes, and they will rarely be
+ *    seen unless seasonal modifier classes are omitted.
+ */
+
+.c-calendar-date__header {
+  align-items: center;
+  background-color: colors.$gray-dark; /* 1 */
+  border: $edge-size solid colors.$gray-darker; /* 1 */
+  border-bottom-width: 0;
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+  color: colors.$text-light-emphasis;
+  display: flex;
+  flex: none;
+  font-weight: font.$weight-semibold;
+  height: ms.step(3);
+  justify-content: center;
+  text-transform: uppercase;
+
+  /**
+   * Seasonal colors
+   */
+
+  .c-calendar-date--march &,
+  .c-calendar-date--april &,
+  .c-calendar-date--may & {
+    background-color: colors.$green-dark;
+    border-color: colors.$green-darker;
+  }
+
+  .c-calendar-date--june &,
+  .c-calendar-date--july &,
+  .c-calendar-date--august & {
+    background-color: colors.$fuchsia-dark;
+    border-color: colors.$fuchsia-darker;
+  }
+
+  .c-calendar-date--september &,
+  .c-calendar-date--october &,
+  .c-calendar-date--november & {
+    background-color: colors.$orange-dark;
+    border-color: colors.$orange-darker;
+  }
+
+  .c-calendar-date--december &,
+  .c-calendar-date--january &,
+  .c-calendar-date--february & {
+    background-color: colors.$purple-dark;
+    border-color: colors.$purple-darker;
+  }
+}
+
+.c-calendar-date__main {
+  align-items: center;
+  background-color: colors.$text-light-emphasis;
+  border: $edge-size solid colors.$gray-light;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-top-width: 0;
+  color: colors.$text-dark;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+
+  .t-dark & {
+    border-color: colors.$primary-brand-dark;
+  }
+}
+
+.c-calendar-date__day {
+  font-size: ms.step(3);
+}
+
+/**
+ * 1. Truncation
+ */
+
+.c-calendar-date__note {
+  font-size: ms.step(-1);
+  overflow: hidden; /* 1 */
+  padding: 0 sizes.$control-text-inset;
+  text-overflow: ellipsis; /* 1 */
+  white-space: nowrap; /* 1 */
+  width: 100%; /* 1 */
+}

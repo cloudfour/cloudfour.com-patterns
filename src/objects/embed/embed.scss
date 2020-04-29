@@ -29,6 +29,11 @@ $default-aspect-ratio: aspect-ratio.$square;
        * this syntax for compatibility reasons.
        *
        * @see https://sass-lang.com/documentation/breaking-changes/css-vars
+       *
+       * Note also that while we avoid using Sass to construct BEM selectors,
+       * (see https://github.com/cloudfour/cloudfour.com-patterns/issues/671)
+       * in this case it's approprate, because this mixin could be used
+       * elsewhere, and we'd want it to work under any selector.
        */
 
       &--#{$name} {

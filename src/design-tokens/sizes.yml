@@ -55,3 +55,28 @@ props:
     value: 2
     type: modular/em
     category: sizing
+  - name: type_block_indent
+    comment: Shared indentation for lists, blockquotes, etc.
+    value: 1
+    type: modular/em
+    category: sizing
+  - name: media_gap
+    value: 0
+    type: modular/em
+    category: sizing
+  - name: rhythm_space_compact
+    value: -6
+    type: modular/em
+    category: rhythm
+  - name: rhythm_space_condensed
+    value: -1
+    type: modular/em
+    category: rhythm
+  - name: rhythm_space
+    value: 1
+    type: modular/em
+    category: rhythm
+  - name: rhythm_space_generous
+    value: 3
+    type: modular/em
+    category: rhythm

@@ -1,0 +1,50 @@
+{% embed '../../container/container.twig' with { class: 'o-container--prose' } only %}
+  {% block content %}
+    {% embed '../rhythm.twig' with { class: 'o-rhythm--generous-headings' } only %}
+      {% block content %}
+        <h1>Defining Responsiveness</h1>
+        <p>When people say that something is responsive, what do they mean?</p>
+        <p>I’m not being facetious. I think many of us think we know what is meant, but when you dig deeper, there is disagreement about what it means for something to be responsive.</p>
+        <h2>Responsive web design has a clear definition</h2>
+        <p>To his credit, <a href="http://unstoppablerobotninja.com/">Ethan</a> <a href="http://alistapart.com/article/responsive-web-design/">defined responsive web design</a> clearly with three technical pieces:</p>
+        <ul>
+          <li>Fluid grids</li>
+          <li>Flexible images</li>
+          <li>Media queries</li>
+        </ul>
+        <p>That seems simple enough. But when it comes to defining what is responsive, things get a bit fuzzier.</p>
+        <h2>Is Google Plus responsive?</h2>
+        <p>The best way to understand where the differences of opinion exist is by looking at an real life example: is <a href="http://plus.google.com">Google Plus</a> responsive?</p>
+        {% embed '../../embed/embed.twig' with { class: 'o-embed--wide' } only %}
+          {% block content %}
+            <iframe title="Video: Is Google Plus Responsive?" src="https://www.youtube.com/embed/eEqEj0lWumo?rel=0" width="420" height="315" allowfullscreen></iframe>
+          {% endblock %}
+        {% endembed %}
+        <p>It looks like it might be responsive. The layout varies from one, two or three columns depending on the width of the page. The size of elements on the page change as well.</p>
+        <p>Let’s look at some reasons why Google Plus might not be responsive.</p>
+        <h3>Reason #1: Google Plus is not responsive because it has a separate mobile site</h3>
+        <p>The first time I cited Google Plus as responsive example, I was told that it didn’t qualify as responsive because it doesn’t go all the way down to support small screens.</p>
+        <p>This is silly to me. Nothing in Ethan’s article says that responsive web design has to support any possible screen resolution.</p>
+        <p>We’re perfectly happy calling things responsive designs that have a fixed width past a certain point on wide screens. And we praise the efforts by the BBC, Guardian, People and others that build a responsive mdot site that will eventually replace their main site.</p>
+        <p>So why would the fact that Google Plus doesn’t support small screens preclude it from being considered responsive?</p>
+        <h3>Reason #2: Google Plus doesn’t use media queries</h3>
+        <p>Google Plus isn’t using media queries the way you might expect.</p>
+        <p>As far as I can tell, none of the major layout changes you see in Google Plus are handled by media queries. They are controlled in JavaScript.</p>
+        <p>This is similar to <a href="http://sonspring.com/">Nathan Smith’s</a> <a href="http://adapt.960.gs/">Adaptive.js</a> library which puts breakpoints in JavaScript instead of CSS.</p>
+        <p>So by definition, Google Plus is not a responsive web design. It may look like one, but it doesn’t contain the three technical pieces necessary to be a responsive web design.</p>
+        <p>
+          {% embed '../../../components/button/button.twig' with {
+            href: 'https://cloudfour.com/thinks/defining-responsiveness/'
+          } only %}
+            {% block content %}
+              Full article
+              {% include '../../../assets/icons/arrow-right.svg.twig' with {
+                class: 'c-icon c-icon--inline'
+              } only %}
+            {% endblock %}
+          {% endembed %}
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

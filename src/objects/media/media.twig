@@ -1,0 +1,40 @@
+{% set tag_name = tag_name|default('div') %}
+{% set inner_tag_name = inner_tag_name|default('div') %}
+{% set object_tag_name = object_tag_name|default(inner_tag_name) %}
+{% set content_tag_name = content_tag_name|default(inner_tag_name) %}
+
+{#
+  Capture initial contents of object block
+#}
+{% set object_block %}
+  {% block object %}
+  {% endblock %}
+{% endset %}
+
+{#
+  Detect if it already has an `o-media__object` class. If not, wrap it with a
+  containing element!
+#}
+{% if 'o-media__object' not in object_block %}
+  {% set object_block %}
+    <{{object_tag_name}} class="o-media__object">
+      {{object_block}}
+    </{{object_tag_name}}>
+  {% endset %}
+{% endif %}
+
+{#
+  Vary where `object_block` outputs based on the `reverse_markup` property.
+#}
+<{{tag_name}} class="o-media{% if reverse %} o-media--reverse{% endif %}">
+  {% if not reverse_markup %}
+    {{object_block}}
+  {% endif %}
+  <{{content_tag_name}} class="o-media__content">
+    {% block content %}
+    {% endblock %}
+  </{{content_tag_name}}>
+  {% if reverse_markup %}
+    {{object_block}}
+  {% endif %}
+</{{tag_name}}>

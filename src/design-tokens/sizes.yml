@@ -60,6 +60,10 @@ props:
     value: 1
     type: modular/em
     category: sizing
+  - name: media_gap
+    value: 0
+    type: modular/em
+    category: sizing
   - name: rhythm_space_compact
     value: -6
     type: modular/em

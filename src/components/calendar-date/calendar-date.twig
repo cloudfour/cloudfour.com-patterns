@@ -1,7 +1,7 @@
 {% set datetime = datetime|default('now') %}
 {% set days = days|default(1) %}
 
-<time class="c-calendar-date c-calendar-date--{{datetime|date('F')|lower}}"
+<time class="c-calendar-date c-calendar-date--{{datetime|date('F')|lower}}{% if class %} {{class}}{% endif %}"
   datetime="{{datetime|date('Y-m-d')}}">
   <span class="c-calendar-date__header">
     {{datetime|date('M')}}

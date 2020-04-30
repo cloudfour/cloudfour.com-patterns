@@ -63,7 +63,7 @@ const buildJS = async () => {
   const pathName = 'cloudfour-patterns';
   const globalName = 'cloudfourPatterns';
   // The \0 is used to prevent the module name from being a real module name
-  const virtualRootModule = 'virtual-root-module';
+  const virtualRootModule = '\0virtual-root-module';
   const virtualRootPlugin = () => ({
     name: 'virtual-root-plugin',
     resolveId: (id) => (id === virtualRootModule ? virtualRootModule : null),

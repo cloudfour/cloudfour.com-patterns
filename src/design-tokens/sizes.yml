@@ -65,12 +65,14 @@ props:
     type: modular/em
     category: sizing
   - name: cell_pad_horizontal
-    comment: Used for table cells, ruled lists, etc.
+    comment: |
+      Used for table cells or other repeating content rows.
     value: -3
     type: modular/em
     category: sizing
   - name: cell_pad_vertical
-    comment: Used for table cells, ruled lists, etc.
+    comment: |
+      Used for table cells or other repeating content rows.
     value: -3
     type: modular/em
     category: sizing

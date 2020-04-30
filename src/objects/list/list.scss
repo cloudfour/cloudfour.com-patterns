@@ -1,4 +1,3 @@
-@use '../../design-tokens/colors.yml';
 @use '../../design-tokens/sizes.yml';
 
 /**
@@ -39,18 +38,4 @@
 .o-list--inline > * {
   margin-left: sizes.$list-inline-gap / 2;
   margin-right: sizes.$list-inline-gap / 2;
-}
-
-/**
- * Modifier: Ruled
- */
-
-.o-list--ruled > * + * {
-  border-top: sizes.$edge-small solid colors.$gray-light;
-  margin-top: sizes.$cell-pad-vertical;
-  padding-top: sizes.$cell-pad-vertical;
-
-  .t-dark & {
-    border-top-color: colors.$primary-brand-dark;
-  }
 }

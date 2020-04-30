@@ -1,0 +1,56 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/sizes.yml';
+
+/**
+ * Override browser defaults. Note that this means it's very important to
+ * include `[role="list"]` to prevent disruption of list navigation in Safari
+ * VoiceOver.
+ *
+ * @see https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+ */
+
+.o-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+/**
+ * Modifier: Inline
+ *
+ * By default, this uses negative margins on the sides to account for extra
+ * margin between child elements. This allows child elements to reach the edges
+ * of their parent while maintaining consistent gaps between.
+ *
+ * This would be a _lot_ more elegant if it used the Flexbox-compatible `gap`
+ * property. But unfortunately there is no way to test for that without false
+ * positives as of this writing.
+ *
+ * @see https://medium.com/@schofeld/mind-the-flex-gap-c9cd1b4b35d8
+ * @see https://github.com/w3c/csswg-drafts/issues/3559
+ */
+
+.o-list--inline {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: sizes.$list-inline-gap / -2;
+  margin-right: sizes.$list-inline-gap / -2;
+}
+
+.o-list--inline > * {
+  margin-left: sizes.$list-inline-gap / 2;
+  margin-right: sizes.$list-inline-gap / 2;
+}
+
+/**
+ * Modifier: Ruled
+ */
+
+.o-list--ruled > * + * {
+  border-top: sizes.$edge-small solid colors.$gray-light;
+  margin-top: sizes.$cell-pad-vertical;
+  padding-top: sizes.$cell-pad-vertical;
+
+  .t-dark & {
+    border-top-color: colors.$primary-brand-dark;
+  }
+}

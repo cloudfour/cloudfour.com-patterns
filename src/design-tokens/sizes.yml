@@ -60,6 +60,20 @@ props:
     value: 1
     type: modular/em
     category: sizing
+  - name: list_inline_gap
+    value: 1
+    type: modular/em
+    category: sizing
+  - name: cell_pad_horizontal
+    comment: Used for table cells, ruled lists, etc.
+    value: -3
+    type: modular/em
+    category: sizing
+  - name: cell_pad_vertical
+    comment: Used for table cells, ruled lists, etc.
+    value: -3
+    type: modular/em
+    category: sizing
   - name: media_gap
     value: 0
     type: modular/em

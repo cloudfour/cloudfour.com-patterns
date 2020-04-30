@@ -1,0 +1,81 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/font.yml';
+@use '../../design-tokens/opacity.yml';
+
+/**
+ * Build pseudo content for "between" element. We do this with text characters
+ * to align most accurately with surrounding text.
+ */
+
+$dot-character: '\2024'; // Unicode: ONE-DOT-LEADER
+$dot-count: 250;
+$dot-content: '';
+
+@for $i from 1 through $dot-count {
+  $dot-content: '#{$dot-content}#{$dot-character}';
+}
+
+.c-dot-leader {
+  display: flex;
+  text-decoration: none;
+  white-space: nowrap;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-gap: 1ch;
+    grid-template-columns: min-content 1fr min-content;
+  }
+}
+
+.c-dot-leader__start {
+  font-weight: font.$weight-medium;
+
+  /**
+     * Retain `text-decoration` for hover effect when this element is a child
+     * of a link.
+     */
+
+  a:hover & {
+    text-decoration: underline;
+  }
+}
+
+.c-dot-leader__between,
+.c-dot-leader__end {
+  color: colors.$text-dark;
+
+  .t-dark & {
+    color: colors.$text-light;
+  }
+}
+
+/**
+ * In a past iteration of this pattern we used Flexbox, non-breaking spaces
+ * and some other hacks to make this work everywhere. We're now saving a lot
+ * of CSS by using progressive enhancement to only add the dots where grid
+ * is supported.
+ *
+ * Note that it's possible to achieve the dots using pseudo elements, but that
+ * would risk some assistive devices reading this content aloud.
+ */
+
+.c-dot-leader__between {
+  @supports (display: grid) {
+    opacity: opacity.$muted;
+    overflow: hidden;
+
+    &::after {
+      content: $dot-content;
+    }
+  }
+}
+
+/**
+ * If grid layout is not supported, these styles make sure the end value is
+ * still at the end.
+ */
+
+.c-dot-leader__end {
+  margin-left: auto;
+  text-align: right;
+}

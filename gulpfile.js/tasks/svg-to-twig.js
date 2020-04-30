@@ -30,8 +30,8 @@ const dynamicSvgProps = [
  * Accepts SVG source markup and templatizes root attributes while also adding
  * layout blocks (`before`, `content` and `after`) to its contents.
  *
- * @param {String} src - The source SVG markup.
- * @returns {String}
+ * @param {string} src - The source SVG markup.
+ * @returns {string}
  */
 function templatizeSvgString(src) {
   const svg = ltx.parse(src);

@@ -1,0 +1,52 @@
+@use '../../design-tokens/sizes.yml';
+
+/**
+ * We could use CSS Grid for this pattern and save ourselves some child element
+ * styles, but it's such a simple component that it feels sort of unnecessary to
+ * provide a bunch of fallback CSS.
+ *
+ * 1. Middle-align child elements. This will take effect when the content is
+ *    shorter than the object.
+ */
+
+.o-media {
+  align-items: center; /* 1 */
+  display: flex;
+}
+
+/**
+ * 1. This will take effect when the object is shorter than the content, making
+ *    the whole element appear top-aligned in that case.
+ * 2. Prevent unintended distortion of this element's dimensions.
+ * 3. To encourage a semantic document outline, we decouple this element's
+ *    visual order from its markup order.
+ */
+
+.o-media__object {
+  align-self: flex-start; /* 1 */
+  flex: none; /* 2 */
+  margin-right: sizes.$media-gap;
+  order: -1; /* 3 */
+}
+
+/**
+ * Modifier: Reverse
+ *
+ * Swap gap position and visual order.
+ */
+
+.o-media--reverse .o-media__object {
+  margin-left: sizes.$media-gap;
+  margin-right: 0;
+  order: 1;
+}
+
+/**
+ * Without this style, shorter flex content will not fill the available space.
+ * This can have unexpected consequences if the box is ever made visible via a
+ * background color, border, etc.
+ */
+
+.o-media__content {
+  flex: 1;
+}

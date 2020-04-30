@@ -1,0 +1,25 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import hiddenVisuallyDemo from './demo/hidden-visually.twig';
+
+<Meta title="Utilities/Display" />
+
+# Display
+
+Utilities for specifying the display type of an element.
+
+Contrary to other categories of utilities, there is no shared `display-*` class name prefix. This is for two main reasons:
+
+- It would be confusing for display utilities that do not conform to a known display type (for example, `u-hidden-visually`) to include this segment.
+- Display utilities are more likely to serve as a base for other dependent utility classes. It is more intuitive to have a (currently hypothetical) `u-flex` class and `u-flex-align-items-center` than it would be `u-display-flex` and `u-flex-align-items-center`.
+
+## Hidden Visually
+
+The `u-hidden-visually` class applies a complex set of CSS rules that obscure an element visually but [not from assistive technology like screen readers](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/#showing-additional-content-for-screen-readers).
+
+In this example, the link will include text when read aloud:
+
+<Preview>
+  <Story name="Hidden Visually" height="100px">
+    {hiddenVisuallyDemo}
+  </Story>
+</Preview>

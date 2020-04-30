@@ -21,19 +21,20 @@
   display: flex; /* 1, 2 */
   justify-content: space-between; /* 2 */
   line-height: ms.step(1, 1); /* 3 */
-  padding: ms.step(-8) ms.step(0);
+  padding: ms.step(1) ms.step(0);
 }
 
 .c-message--withClose {
-  padding-right: ms.step(-4);
+  padding-right: ms.step(0);
 }
 
 /**
- * 2. Close icon should be the same color as the parent text color.
- * 3. Easy way to collapse extra whitespace between button edge and icon.
- * 4. Make icon a little larger than the parent text size.
- * 5. Put some space between message and close button.
- * 6. Removes padding so that element maintains consistent spacing with other
+ * 1. Button background-color should inherit the same color as its parent.
+ * 3. Close icon should be the same color as the parent text color.
+ * 4. Easy way to collapse extra whitespace between button edge and icon.
+ * 5. Make icon a little larger than the parent text size.
+ * 6. Put some space between message and close button.
+ * 7. Removes padding so that element maintains consistent spacing with other
  *    inner elments
  */
 
@@ -42,13 +43,13 @@
   border-color: transparent;
   border-radius: sizes.$radius-medium;
   border-style: solid;
-  border-width: sizes.$edge-medium;
-  color: inherit; /* 2 */
+  border-width: 0;
+  color: inherit; /* 4 */
   cursor: pointer;
-  display: flex; /* 3 */
-  font-size: ms.step(1); /* 4 */
-  margin-left: ms.step(1); /* 5 */
-  padding: 0.25rem;
+  display: flex; /* 5 */
+  font-size: ms.step(1); /* 5 */
+  margin-left: ms.step(1); /* 6 */
+  padding: 0; /* 7 */
 
   @include focus.focus-visible {
     box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;

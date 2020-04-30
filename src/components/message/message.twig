@@ -5,18 +5,17 @@
 
 {% set tagName = tagName | default('div') %}
 
-<{{tagName}} class="c-message{% if class %} {{class}}{% endif
-%}">
+<{{tagName}} class="c-message{% if class %} {{class}}{% endif %}">
   {% block content %}
-    <p>
-      {{label | default('Hi, I\'m a message!')}}
-     </p>
+  <p>
+    {{label | default('Hi, I\'m a message!')}}
+  </p>
   {% endblock %}
   {% if includeClose %}
-    <button aria-label="close" class="c-message__close" type="button">
-      {% include '../../assets/icons/close.svg.twig' with {
+  <button aria-label="close" class="c-message__close u-pad-none" type="button">
+    {% include '../../assets/icons/close.svg.twig' with {
         class: 'c-icon'
       } %}
-    </button>
+  </button>
   {% endif %}
 </{{tagName}}>

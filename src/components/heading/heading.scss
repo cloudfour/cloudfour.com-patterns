@@ -1,0 +1,18 @@
+@use '../../mixins/headings';
+@use 'sass:math';
+
+.c-heading {
+  @include headings.level(6);
+}
+
+@for $level from -2 through 3 {
+  $level-segment: math.abs($level);
+
+  @if $level < 0 {
+    $level-segment: 'n#{$level-segment}';
+  }
+
+  .c-heading--level-#{$level-segment} {
+    @include headings.level($level);
+  }
+}

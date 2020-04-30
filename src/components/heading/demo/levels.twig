@@ -1,0 +1,20 @@
+{% embed '../../../objects/rhythm/rhythm.twig' %}
+  {% block content %}
+    {% for i in -2..4 %}
+      {% set level = i %}
+
+      {% if level < 0 %}
+        {% set level = 'n' ~ level|abs %}
+      {% endif %}
+
+      {% set class = 'c-heading--level-' ~ level %}
+
+      <h2 class="c-heading {{class}}">
+        {{class}}
+        {% if i > 0 %}
+          (h{{i}})
+        {% endif %}
+      </h2>
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

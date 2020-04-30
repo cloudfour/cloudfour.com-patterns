@@ -53,6 +53,8 @@
     "@storybook/addon-viewport": "5.3.18",
     "@storybook/html": "5.3.18",
     "@svgr/webpack": "5.4.0",
+    "@typescript-eslint/eslint-plugin": "2.30.0",
+    "@typescript-eslint/parser": "2.30.0",
     "babel-loader": "8.1.0",
     "css-loader": "3.5.3",
     "cssnano": "4.1.10",
@@ -109,11 +111,11 @@
     "check-lint": "run-s check-lint:*",
     "check-lint:prettier": "prettier . --check",
     "check-lint:css": "stylelint '**/*.scss'",
-    "check-lint:js": "eslint . --ext .js,.mdx",
+    "check-lint:js": "eslint . --ext .js,.mdx,.ts,.tsx",
     "lint": "run-s lint:*",
     "lint:prettier": "prettier . --write",
     "lint:css": "stylelint --fix '**/*.scss'",
-    "lint:js": "eslint . --fix --ext .js,.mdx",
+    "lint:js": "eslint . --fix --ext .js,.mdx,.ts,.tsx",
     "prepublishOnly": "npm ci && npm run check-lint && npm run preprocess && npm run build"
   }
 }

@@ -38,7 +38,7 @@ const buildSass = () => {
 
 const extensions = ['.js', '.ts', '.tsx'];
 
-/*
+/**
  * Generates a root entry to be used by rollup and type generation
  * This allows us to create a single bundle that exports every export from every file
  * This is the same approach as @rollup/plugin-multi-entry takes

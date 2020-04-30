@@ -95,7 +95,7 @@ module.exports = {
       },
       {
         test: /\.(ts|tsx)$/,
-        loader: require.resolve('babel-loader'),
+        use: 'babel-loader',
       }
     );
 

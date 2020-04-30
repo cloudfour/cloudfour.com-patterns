@@ -11,6 +11,7 @@
 @mixin font-size($min-width, $max-width, $min-font-size, $max-font-size) {
   $delta-font-size: unit.strip($max-font-size - $min-font-size);
   $delta-width: unit.strip($max-width - $min-width);
+  $min-width-rem: unit.swap($min-width, rem);
 
   & {
     font-size: $min-font-size;
@@ -18,7 +19,7 @@
     @media (min-width: $min-width) {
       font-size: calc(
         #{$min-font-size} + #{$delta-font-size} *
-          ((100vw - #{$min-width}) / #{$delta-width})
+          ((100vw - #{$min-width-rem}) / #{$delta-width})
       );
     }
 

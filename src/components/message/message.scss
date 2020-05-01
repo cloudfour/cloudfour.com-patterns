@@ -31,9 +31,7 @@
 
 .c-message__close {
   background-color: inherit; /* 1 */
-  border-color: transparent;
   border-radius: sizes.$radius-medium;
-  border-style: solid;
   border-width: 0;
   color: inherit; /* 4 */
   cursor: pointer;

@@ -7,10 +7,11 @@
     </p>
   {% endblock %}
   {% if includeClose %}
-    <button aria-label="close" class="c-message__close" type="button">
+    <button class="c-message__close" type="button">
       {% include '../../assets/icons/close.svg.twig' with {
           class: 'c-icon'
         } %}
+      <span class="u-hidden-visually">Close</span>
     </button>
   {% endif %}
 </{{tagName}}>

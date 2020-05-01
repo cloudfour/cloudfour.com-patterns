@@ -27,7 +27,8 @@
       "extends": [
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "eslint-config-prettier/@typescript-eslint" // Disable typescript-eslint rules that conflict with Prettier
       ],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off", // inference is usually useful

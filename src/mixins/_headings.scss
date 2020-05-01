@@ -1,9 +1,10 @@
 @use '../design-tokens/breakpoint.yml';
+@use '../design-tokens/font.yml';
 @use 'fluid';
 @use 'ms';
 
-$_max-level: 3;
-$_fluid-steps: 1;
+$max-level: 3;
+$fluid-steps: 1;
 
 /**
  * Mixin for applying heading styles at a particular level. Accepts an argument
@@ -13,9 +14,9 @@ $_fluid-steps: 1;
  */
 
 @mixin level($level) {
-  @if $level <= $_max-level {
-    $min-step: $level * -1 + $_max-level;
-    $max-step: $min-step + $_fluid-steps;
+  @if $level <= $max-level {
+    $min-step: $level * -1 + $max-level;
+    $max-step: $min-step + $fluid-steps;
 
     @include fluid.font-size(
       breakpoint.$xs,
@@ -29,4 +30,6 @@ $_fluid-steps: 1;
     font-size: inherit;
     line-height: inherit;
   }
+
+  font-weight: font.$weight-bold;
 }

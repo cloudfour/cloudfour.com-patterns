@@ -1,0 +1,78 @@
+{#
+  If a `level` property isn't provided but a `tag_name` is and it is a heading
+  element, we can figure out the intended level from that tag.
+#}
+
+{% if level is empty and tag_name is not empty and tag_name|first == 'h' %}
+  {% set level = tag_name|last|number_format %}
+{% endif %}
+
+{#
+  If a `tag_name` property isn't provided but a `level` is, we construct the
+  `tag_name` from the level.
+#}
+
+{% if tag_name is empty and level is not empty %}
+  {% set tag_name = 'h' ~ max(1, min(level, 6)) %}
+{% endif %}
+
+{#
+  Build the class name based on the level.
+#}
+
+{% set _level_class = 'c-heading' %}
+
+{% if level is not empty %}
+  {% set _level_modifier = ('level-' ~ level)|replace({ '--': '-n' }) %}
+  {% set _level_class = _level_class ~ ' ' ~ _level_class ~ '--' ~ _level_modifier %}
+{% endif %}
+
+{% if class %}
+  {% set _level_class = _level_class ~ ' ' ~ class %}
+{% endif %}
+
+{#
+  Cache the content block, supporting either a block or a `content` property.
+#}
+
+{% set _content %}
+  {% block content %}
+    {{content}}
+  {% endblock %}
+{% endset %}
+
+{#
+  If a `permalink` is desired but no `permalink_id` is specified, we try
+  creating a `permalink_id` from the value of `content`.
+
+  Since Twig lacks a built-in slugify function, this is pretty fragile and
+  should be considered a fallback.
+#}
+
+{% if permalink and not permalink_id and content is not empty %}
+  {% set permalink_id = content|lower|escape('url')|replace({'%20': '-'}) %}
+{% endif %}
+
+{#
+  Permalink heading markup based on this example from accessibility expert
+  Marcy Sutton: http://codepen.io/marcysutton/pen/rLKvgZ
+#}
+
+{% if permalink and permalink_id %}
+  <div class="{{_level_class}}">
+    <a class="c-heading__permalink" href="#{{permalink_id}}">
+      {% include '../../assets/icons/link.svg.twig' with {
+        class: 'c-icon',
+        role: 'presentation'
+      } only %}
+      <span class="u-hidden-visually">Permalink to {{_content}}</span>
+    </a>
+    <{{tag_name}} class="c-heading__element" id="{{permalink_id}}">
+      {{_content}}
+    </{{tag_name}}>
+  </div>
+{% else %}
+  <{{tag_name}} class="{{_level_class}}">
+    {{_content}}
+  </{{tag_name}}>
+{% endif %}

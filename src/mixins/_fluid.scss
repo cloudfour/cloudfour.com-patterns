@@ -1,30 +1,47 @@
 @use "unit";
 
 /**
- * Dynamically adjust font size between a minimum and maximum, starting at a
- * minimum breakpoint width and capping at a maximum.
+ * Mixins and functions that allow for dynamically adjust a CSS property from a
+ * minimum value to a maximum, starting at a minimum breakpoint width and
+ * capping at a maximum.
+ *
+ * Similar to Bootstrap's RFS, except it's mobile-first and only contains the
+ * logic we need.
  *
  * @see https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
  * @see https://betterwebtype.com/articles/2019/05/14/the-state-of-fluid-web-typography/
+ * @see https://github.com/twbs/rfs
  */
 
-@mixin font-size($min-width, $max-width, $min-font-size, $max-font-size) {
-  $delta-font-size: unit.strip($max-font-size - $min-font-size);
+/**
+ * Although the the `calc` statement is only part of the equation, breaking it
+ * into its own function makes it easier to add more fluid mixins in the
+ * future.
+ */
+
+@function fluid-calc($min-width, $max-width, $min, $max) {
+  $delta: unit.strip($max - $min);
   $delta-width: unit.strip($max-width - $min-width);
+  // We use `rem` so the fluidity won't be influenced by parent elements
   $min-width-rem: unit.swap($min-width, rem);
 
-  & {
-    font-size: $min-font-size;
+  @return calc(
+    #{$min} + #{$delta} * ((100vw - #{$min-width-rem}) / #{$delta-width})
+  );
+}
 
-    @media (min-width: $min-width) {
-      font-size: calc(
-        #{$min-font-size} + #{$delta-font-size} *
-          ((100vw - #{$min-width-rem}) / #{$delta-width})
-      );
-    }
+/**
+ * Fluid font-size
+ */
 
-    @media (min-width: $max-width) {
-      font-size: $max-font-size;
-    }
+@mixin font-size($min-width, $max-width, $min, $max) {
+  font-size: $min;
+
+  @media (min-width: $min-width) {
+    font-size: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    font-size: $max;
   }
 }

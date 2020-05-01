@@ -1,20 +1,16 @@
-{% embed '../../../objects/rhythm/rhythm.twig' %}
+{% embed '../../../objects/rhythm/rhythm.twig' with {
+  class: 'o-rhythm--condensed'
+} only %}
   {% block content %}
-    {% for i in -2..4 %}
-      {% set level = i %}
-
-      {% if level < 0 %}
-        {% set level = 'n' ~ level|abs %}
+    {% for i in -2..6 %}
+      {% set class_level = i|abs %}
+      {% if i < 0 %}
+        {% set class_level = 'n' ~ class_level %}
       {% endif %}
-
-      {% set class = 'c-heading--level-' ~ level %}
-
-      <h2 class="c-heading {{class}}">
-        {{class}}
-        {% if i > 0 %}
-          (h{{i}})
-        {% endif %}
-      </h2>
+      {% include '../heading.twig' with {
+        level: i,
+        content: 'c-heading--level-' ~ class_level
+      } only %}
     {% endfor %}
   {% endblock %}
 {% endembed %}

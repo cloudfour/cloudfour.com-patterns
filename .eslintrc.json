@@ -3,7 +3,7 @@
   "globals": {
     "Prism": true
   },
-  "plugins": ["react"],
+  "plugins": ["react", "@typescript-eslint"],
   "settings": {
     "node": {
       "allowModules": [
@@ -16,5 +16,24 @@
   "rules": {
     "padding-line-between-statements": "off",
     "react/jsx-uses-vars": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "eslint-config-prettier/@typescript-eslint" // Disable typescript-eslint rules that conflict with Prettier
+      ],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off", // inference is usually useful
+        "@typescript-eslint/no-unused-vars": "off" // TypeScript itself checks this via the "noUnusedLocals"/"noUnusedParameters" options
+      }
+    }
+  ]
 }

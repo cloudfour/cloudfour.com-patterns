@@ -1,9 +1,7 @@
 @use "../../design-tokens/colors.yml";
 @use "../../mixins/focus";
-@use "../../design-tokens/font.yml";
 @use "../../design-tokens/sizes.yml";
 @use "../../mixins/ms";
-@use "../../mixins/unit";
 
 /**
  * 1. Push message and close button as far apart as possible.

@@ -93,6 +93,8 @@ const buildJS = async () => {
   ]);
 };
 
+// TODO: remove the next line once we have .ts files
+// eslint-disable-next-line no-unused-vars
 const buildTypes = async () => {
   const virtualRootFile = path.join(outDir, 'virtual-root-module.ts');
   await fs.mkdir(outDir, { recursive: true });
@@ -108,7 +110,12 @@ const buildTypes = async () => {
   await fs.unlink(virtualRootFile);
 };
 
-const build = parallel(buildSass, buildJS, buildTypes);
+const build = parallel(
+  buildSass,
+  buildJS
+  // TODO: uncomment the next line once we have .ts files
+  // BuildTypes
+);
 
 // Expose to Gulp
 module.exports = build;

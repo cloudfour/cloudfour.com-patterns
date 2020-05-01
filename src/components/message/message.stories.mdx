@@ -12,7 +12,7 @@ A containing element intended for short, actionable user messages. Originally
 designed to notify the user of offline network connection status.
 
 <Preview>
-  <Story name="Message" height="120px">
+  <Story name="Default" height="120px">
     {messageDemo({
       label: text('Message text'),
       includeClose: boolean('Include close button'),
@@ -25,7 +25,7 @@ designed to notify the user of offline network connection status.
 Most messages should allow users to dismiss them with a close button.
 
 <Preview>
-  <Story name="Message with close" height="120px">
+  <Story name="With Close Button" height="120px">
     {messageWithCloseDemo({
       label: text('Message text'),
       includeClose: true,

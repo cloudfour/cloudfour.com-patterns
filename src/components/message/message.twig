@@ -1,11 +1,13 @@
 {% set tagName = tagName | default('div') %}
 
 <{{tagName}} class="c-message{% if class %} {{class}}{% endif %}">
-  {% block content %}
-    <p>
-      {{label | default('Hi, I\'m a message!')}}
-    </p>
-  {% endblock %}
+  <div class="c-message__content">
+    {% block content %}
+      <p>
+        {{label | default('Hi, I\'m a message!')}}
+      </p>
+    {% endblock %}
+  </div>
   {% if includeClose %}
     <button class="c-message__close" type="button">
       {% include '../../assets/icons/close.svg.twig' with {

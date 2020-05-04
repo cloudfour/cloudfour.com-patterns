@@ -92,8 +92,14 @@ module.exports = {
         // Optimize and process SVGs as React elements for use in documentation
         test: /\.svg$/,
         use: '@svgr/webpack',
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        use: 'babel-loader',
       }
     );
+
+    config.resolve.extensions.push('.ts', '.tsx');
 
     config.plugins.push(new MiniCssExtractPlugin());
 

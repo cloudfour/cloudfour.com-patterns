@@ -17,6 +17,9 @@
     "bem",
     "typography"
   ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cloudfour/cloudfour.com-patterns.git"
@@ -25,6 +28,7 @@
   "unpkg": "./dist/cloudfour-patterns.min.js",
   "module": "./dist/cloudfour-patterns.mjs",
   "exports": "./dist/cloudfour-patterns.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "/dist",
     "/src/**/*.scss",
@@ -39,9 +43,9 @@
     "prismjs": "1.20.0"
   },
   "devDependencies": {
-    "@babel/core": "7.9.0",
+    "@babel/core": "7.9.6",
     "@cloudfour/eslint-plugin": "10.0.0",
-    "@rollup/plugin-multi-entry": "3.0.0",
+    "@rollup/plugin-babel": "5.0.0",
     "@rollup/plugin-node-resolve": "7.1.3",
     "@storybook/addon-a11y": "5.3.18",
     "@storybook/addon-docs": "5.3.18",
@@ -49,10 +53,14 @@
     "@storybook/addon-viewport": "5.3.18",
     "@storybook/html": "5.3.18",
     "@svgr/webpack": "5.4.0",
+    "@typescript-eslint/eslint-plugin": "2.31.0",
+    "@typescript-eslint/parser": "2.31.0",
     "babel-loader": "8.1.0",
     "css-loader": "3.5.3",
     "cssnano": "4.1.10",
+    "dts-bundle-generator": "4.3.0",
     "eslint": "6.8.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-mdx": "1.6.9",
     "eslint-plugin-react": "7.19.0",
     "gulp": "4.0.2",
@@ -73,13 +81,13 @@
     "remark-preset-lint-recommended": "4.0.0",
     "remark-preset-prettier": "0.4.0",
     "require-dir": "1.2.0",
-    "rollup": "2.7.3",
+    "rollup": "2.7.6",
     "rollup-plugin-terser": "5.3.0",
     "sass": "1.26.5",
     "sass-loader": "8.0.2",
     "storybook-addon-paddings": "2.0.2",
     "storybook-addon-themes": "5.4.1",
-    "style-loader": "1.2.0",
+    "style-loader": "1.2.1",
     "stylelint": "13.3.3",
     "stylelint-config-cloudfour": "3.1.2",
     "stylelint-config-prettier": "8.0.1",
@@ -87,7 +95,8 @@
     "through2": "3.0.1",
     "tiny-glob": "0.2.6",
     "twig": "1.15.1",
-    "twigjs-loader": "1.0.1"
+    "twigjs-loader": "1.0.1",
+    "typescript": "3.8.3"
   },
   "scripts": {
     "storybook": "npm run preprocess && run-p watch-preprocess start-storybook",
@@ -98,14 +107,16 @@
     "preprocess:theo-to-mdx": "gulp theo-to-mdx",
     "watch-preprocess": "gulp watch-preprocess",
     "build": "gulp build",
+    "type": "tsc",
+    "type:watch": "tsc --watch",
     "check-lint": "run-s check-lint:*",
     "check-lint:prettier": "prettier . --check",
     "check-lint:css": "stylelint '**/*.scss'",
-    "check-lint:js": "eslint . --ext .js,.mdx",
+    "check-lint:js": "eslint . --ext .js,.mdx,.ts,.tsx",
     "lint": "run-s lint:*",
     "lint:prettier": "prettier . --write",
     "lint:css": "stylelint --fix '**/*.scss'",
-    "lint:js": "eslint . --fix --ext .js,.mdx",
+    "lint:js": "eslint . --fix --ext .js,.mdx,.ts,.tsx",
     "prepublishOnly": "npm ci && npm run check-lint && npm run preprocess && npm run build"
   }
 }

@@ -20,7 +20,7 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  */
 .c-table td,
 .c-table th {
-  padding: ms.step(-3);
+  padding: sizes.$cell-pad-vertical sizes.$cell-pad-horizontal;
 }
 
 /**

@@ -1,11 +1,13 @@
-<ul class="u-list-none u-pad-none">
-  {% for topic in topics|slice(0,10) %}
-    <li>
-      {% include '../dot-leader.twig' with {
-        label: topic.title,
-        count: topic.count,
-        href: 'https://cloudfour.com/thinks/'
-      } %}
-    </li>
-  {% endfor %}
-</ul>
+{% embed '../../../objects/list/list.twig' %}
+  {% block content %}
+    {% for topic in topics|slice(0,10) %}
+      <li>
+        {% include '../dot-leader.twig' with {
+          label: topic.title,
+          count: topic.count,
+          href: 'https://cloudfour.com/thinks/'
+        } only %}
+      </li>
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

@@ -111,7 +111,7 @@
     "type:watch": "tsc --watch",
     "check-lint": "run-s check-lint:*",
     "check-lint:prettier": "prettier . --check",
-    "check-lint:css": "stylelint '**/-*.scss'",
+    "check-lint:css": "stylelint '**/*.scss'",
     "check-lint:js": "eslint . --ext .js,.mdx,.ts,.tsx",
     "lint": "run-s lint:*",
     "lint:prettier": "prettier . --write",

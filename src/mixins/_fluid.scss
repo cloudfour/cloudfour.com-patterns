@@ -16,13 +16,20 @@
 /**
  * Although the `calc` statement is only part of the equation, breaking it into
  * its own function makes it easier to add more fluid mixins in the future.
+ *
+ * 1. `$min-width` and `$max-width` should be in `em` units to avoid cross-
+ *    browser inconsistencies with `rem` units in some browsers. But we need to
+ *    convert the `min-width` value to `rem` so the `calc` won't be influenced
+ *    by the current `font-size`, which would cause the fluid transformation to
+ *    fall out of step with the viewport.
+ *
+ * @see https://zellwk.com/blog/media-query-units/
  */
 
 @function fluid-calc($min-width, $max-width, $min, $max) {
   $delta: unit.strip($max - $min);
   $delta-width: unit.strip($max-width - $min-width);
-  // We use `rem` so the fluidity won't be influenced by parent elements
-  $min-width-rem: unit.swap($min-width, rem);
+  $min-width-rem: unit.swap($min-width, rem); /* 1 */
 
   @return calc(
     #{$min} + #{$delta} * ((100vw - #{$min-width-rem}) / #{$delta-width})

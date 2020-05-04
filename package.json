@@ -43,7 +43,7 @@
     "prismjs": "1.20.0"
   },
   "devDependencies": {
-    "@babel/core": "7.9.0",
+    "@babel/core": "7.9.6",
     "@cloudfour/eslint-plugin": "10.0.0",
     "@rollup/plugin-babel": "5.0.0",
     "@rollup/plugin-node-resolve": "7.1.3",

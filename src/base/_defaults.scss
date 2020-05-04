@@ -127,6 +127,42 @@ pre {
   color: colors.$fuchsia;
 }
 
+*:not(pre):not(a) > kbd {
+  // border: sizes.$edge-small solid colors.$gray-light;
+  // border-radius: sizes.$radius-small;
+  // box-shadow: 0 sizes.$edge-small 0 0 colors.$gray-light;
+  // color: colors.$fuchsia;
+  // display: inline-block;
+  // min-width: ms.step(2);
+  // padding: 0 ms.step(-6);
+  // text-align: center;
+  // background: colors.$gray-lighter;
+  // border: sizes.$edge-small solid colors.$gray-light;
+  // border-radius: sizes.$radius-small;
+  // box-shadow: 0 sizes.$edge-small 0 0 colors.$gray-light;
+  // color: colors.$fuchsia;
+  // display: inline-block;
+  // min-width: ms.step(2);
+  // padding: 0 ms.step(-6);
+  // text-align: center;
+  background: colors.$gray-lighter;
+  border: sizes.$edge-small solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: lienar-gradient(
+    to bottom,
+    transparent,
+    colors.$gray-light
+  );
+  border-radius: sizes.$radius-small;
+  box-shadow: 0 sizes.$edge-small 0 0 colors.$gray-light;
+  color: colors.$fuchsia;
+  display: inline-block;
+  min-width: ms.step(2);
+  padding: 0 ms.step(-6);
+  text-align: center;
+}
+
 /**
  * Diff elements
  */

@@ -1,5 +1,6 @@
 @use "../../design-tokens/colors.yml";
 @use "../../mixins/focus";
+@use "../../design-tokens/motion.yml";
 @use "../../design-tokens/sizes.yml";
 @use "../../mixins/ms";
 
@@ -46,9 +47,13 @@
   }
 }
 
-.c-message__close:hover {
-  .c-icon {
-    transform: scale(0.9);
-    transform-origin: center;
-  }
+.c-message__close-icon {
+  transition-duration: motion.$speed-quick;
+  transition-property: transform;
+  transition-timing-function: motion.$ease-out;
+}
+
+.c-message__close:hover .c-message__close-icon {
+  transform: scale(1.1);
+  transform-origin: center;
 }

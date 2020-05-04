@@ -1,9 +1,9 @@
 @use "unit";
 
 /**
- * Mixins and functions that allow for dynamically adjust a CSS property from a
- * minimum value to a maximum, starting at a minimum breakpoint width and
- * capping at a maximum.
+ * Mixins and functions for dynamically adjusting a CSS property from a minimum
+ * value to a maximum, starting at a minimum breakpoint width and capping at a
+ * maximum breakpoint.
  *
  * Similar to Bootstrap's RFS, except it's mobile-first and only contains the
  * logic we need.
@@ -14,9 +14,8 @@
  */
 
 /**
- * Although the the `calc` statement is only part of the equation, breaking it
- * into its own function makes it easier to add more fluid mixins in the
- * future.
+ * Although the `calc` statement is only part of the equation, breaking it into
+ * its own function makes it easier to add more fluid mixins in the future.
  */
 
 @function fluid-calc($min-width, $max-width, $min, $max) {

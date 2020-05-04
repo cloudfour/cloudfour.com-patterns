@@ -16,7 +16,7 @@ designed to notify the user of offline network connection status.
 <Preview>
   <Story name="Default" height="120px">
     {messageDemo({
-      label: text('Message text'),
+      label: text('label'),
       include_close: boolean('Include close button'),
     })}
   </Story>
@@ -29,7 +29,7 @@ Most messages should allow users to dismiss them with a close button.
 <Preview>
   <Story name="With Close Button" height="120px">
     {messageWithCloseDemo({
-      label: text('Message text'),
+      label: text('label'),
       include_close: true,
     })}
   </Story>

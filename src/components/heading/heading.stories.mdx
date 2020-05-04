@@ -43,7 +43,7 @@ You can control the appearance of a `c-heading` component by including a `c-head
 The `c-heading` class may include a permalink using [a technique from Marcy Sutton ](http://codepen.io/marcysutton/pen/rLKvgZ). Three elements are required:
 
 - `c-heading`: A container, ideally without any semantics (`<div>`).
-- `c-heading__element`: The actual semantic heading element (usually `<h1>` – `<h6>`), including the `id` referenced by `c-heading__permalink`.
+- `c-heading__content`: The actual semantic heading element (usually `<h1>` – `<h6>`), including the `id` referenced by `c-heading__permalink`.
 - `c-heading__permalink`: The `<a>` element that exposes the permalink to the user. This element is kept separate from the actual heading so it won't disrupt a user's ability to navigate via headings.
 
 Note that the layout of this pattern is optimized for [our prose containers](/?path=/docs/objects-container--prose#prose) with generous horizontal whitespace.

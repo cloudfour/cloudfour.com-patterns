@@ -65,7 +65,7 @@ $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
  * to the inner heading to avoid unintended font sizes.
  */
 
-.c-heading__element {
+.c-heading__content {
   font: inherit;
 
   /**

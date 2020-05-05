@@ -1,0 +1,46 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import template from './sky-nav.twig';
+// https://timber.github.io/docs/guides/menus/
+const menu = {
+  items: [
+    {
+      link: '/does',
+      title: 'What We Do',
+      current: true,
+    },
+    {
+      link: '/believes',
+      title: 'Our Approach',
+    },
+    {
+      link: '/made',
+      title: 'Our Work',
+    },
+    {
+      link: '/thinks',
+      title: 'Articles',
+    },
+    {
+      link: '/presents',
+      title: 'Speaking',
+    },
+    {
+      link: '/contributes',
+      title: 'Labs',
+    },
+    {
+      link: '/is',
+      title: 'Team',
+    },
+  ],
+};
+
+<Meta title="Components/Sky Nav" />
+
+# Sky Nav
+
+This will eventually be our primary navigation component. Right now, we're just critiquing some markup updates in terms of their accessibility.
+
+<Preview>
+  <Story name="Markup (WIP)">{template({ menu })}</Story>
+</Preview>

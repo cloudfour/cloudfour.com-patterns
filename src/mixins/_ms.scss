@@ -4,3 +4,13 @@
 @function step($step, $base: 1em, $ratio: modular-scale.$ratio) {
   @return math.pow($ratio, $step) * $base;
 }
+
+@function step-class-segment($step) {
+  $result: math.abs($step);
+
+  @if $step < 0 {
+    $result: 'n#{$result}';
+  }
+
+  @return $result;
+}

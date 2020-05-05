@@ -15,14 +15,18 @@
     color: colors.$text-light-emphasis;
   }
 
-  *:not(pre):not(a) > code {
-    color: inherit;
+  del {
+    opacity: inherit;
+  }
+
+  *:not(pre):not(a) > code,
+  *:not(pre):not(a) > kbd {
+    color: colors.$text-light-emphasis;
   }
 
   *:not(pre):not(a) > kbd {
-    background: colors.$primary-brand-dark;
-    border-color: transparent;
+    background-color: colors.$primary-brand-dark;
+    border-color: colors.$primary-brand-darker;
     box-shadow: 0 sizes.$edge-small 0 0 colors.$primary-brand-darker;
-    color: colors.$text-light-emphasis;
   }
 }

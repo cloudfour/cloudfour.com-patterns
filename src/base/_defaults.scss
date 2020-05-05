@@ -119,46 +119,31 @@ pre {
 }
 
 /**
- * When code elements are not within a preformatted block or a link, we offset
- * their color from surrounding content.
+ * When certain monospace inline elements are not within a preformatted block or
+ * a link, we offset their color from surrounding content.
  */
 
-*:not(pre):not(a) > code {
+*:not(pre):not(a) > code,
+*:not(pre):not(a) > kbd {
   color: colors.$fuchsia;
 }
 
+/**
+ * Some additional styles are added to `kbd` elements because it's fun to
+ * embrace just a little skeuomorphism and make them look like keys. ⌨️
+ *
+ * 1. We use a shadow instead of `border-bottom-width` to apply a bit of depth
+ *    because it won't visually impact the element's rounded corners.
+ * 2. Without a `min-width`, single character keys (which is most of them)
+ *    appear rather skinny and strange.
+ */
+
 *:not(pre):not(a) > kbd {
-  // border: sizes.$edge-small solid colors.$gray-light;
-  // border-radius: sizes.$radius-small;
-  // box-shadow: 0 sizes.$edge-small 0 0 colors.$gray-light;
-  // color: colors.$fuchsia;
-  // display: inline-block;
-  // min-width: ms.step(2);
-  // padding: 0 ms.step(-6);
-  // text-align: center;
-  // background: colors.$gray-lighter;
-  // border: sizes.$edge-small solid colors.$gray-light;
-  // border-radius: sizes.$radius-small;
-  // box-shadow: 0 sizes.$edge-small 0 0 colors.$gray-light;
-  // color: colors.$fuchsia;
-  // display: inline-block;
-  // min-width: ms.step(2);
-  // padding: 0 ms.step(-6);
-  // text-align: center;
-  background: colors.$gray-lighter;
-  border: sizes.$edge-small solid;
-  border-image-slice: 1;
-  border-width: 1px;
-  border-image-source: lienar-gradient(
-    to bottom,
-    transparent,
-    colors.$gray-light
-  );
+  border: sizes.$edge-small solid colors.$gray-light;
   border-radius: sizes.$radius-small;
-  box-shadow: 0 sizes.$edge-small 0 0 colors.$gray-light;
-  color: colors.$fuchsia;
+  box-shadow: 0 sizes.$edge-small 0 0 colors.$gray-light; /* 1 */
   display: inline-block;
-  min-width: ms.step(2);
+  min-width: ms.step(2); /* 2 */
   padding: 0 ms.step(-6);
   text-align: center;
 }

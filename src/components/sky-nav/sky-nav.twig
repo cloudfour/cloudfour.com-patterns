@@ -7,7 +7,12 @@
   https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role
 #}
 <header>
-  <a href="/" title="Return to home">
+  <a href="/"
+    {% if is_home %}
+      aria-current="page"
+    {% else %}
+      title="Return to home"
+    {% endif %}>
     {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
     <span class="u-hidden-visually">Home: Cloud Four</span>
     {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}

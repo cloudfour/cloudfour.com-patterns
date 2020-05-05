@@ -51,11 +51,15 @@
 }
 
 .c-message__close-icon {
-  transition-duration: motion.$speed-quick;
-  transition-property: transform;
-  transition-timing-function: motion.$ease-out;
+  transition: filter motion.$speed-slow motion.$ease-out,
+    transform motion.$speed-quick motion.$ease-out;
 }
 
 .c-message__close:hover .c-message__close-icon {
   transform: scale(1.1);
+}
+
+.c-message__close:active .c-message__close-icon {
+  filter: brightness(80%);
+  transform: scale(0.95);
 }

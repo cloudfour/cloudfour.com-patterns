@@ -1,0 +1,55 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import levelsDemo from './demo/levels.twig';
+import permalinksDemo from './demo/permalinks.twig';
+
+<Meta title="Components/Heading" />
+
+# Heading
+
+It's important for accessibility and for search engines that page sections include helpful heading elements in a logical, descending order ([more info](https://dequeuniversity.com/assets/html/jquery-summit/html5/slides/headings.html)). But there are times when [our default `<h1>` through `<h6>` styles](/?path=/docs/design-typography--headings) may not be enough:
+
+- The most appropriate heading element may look too small or too large visually.
+- You may want to apply heading styles to a different element: A short introductory `<p>`, a `<legend>`, etc.
+- Longer pages may benefit from additional features added to headings, such as permalinks.
+
+The `c-heading` component class addresses these scenarios by applying heading styles for the desired heading level, with a few bonus features not possible via heading elements alone.
+
+## Level Modifiers
+
+You can control the appearance of a `c-heading` component by including a `c-heading--level-{amount}` modifier, where `{amount}` is a heading level. For example, `c-heading--level-2` will make the element look like our default `<h2>`.
+
+`c-heading` also supports _larger_ levels than `<h1>` for top-level banners and page titles:
+
+| Level | Heading | Modifier              |
+| ----- | ------- | --------------------- |
+| -2    | –       | `c-heading--level-n2` |
+| -1    | –       | `c-heading--level-n1` |
+| 0     | –       | `c-heading--level-0`  |
+| 1     | `<h1>`  | `c-heading--level-1`  |
+| 2     | `<h2>`  | `c-heading--level-2`  |
+| 3     | `<h3>`  | `c-heading--level-3`  |
+| 4     | `<h4>`  | `c-heading--level-4`  |
+| 5     | `<h5>`  | `c-heading--level-5`  |
+| 6     | `<h6>`  | `c-heading--level-6`  |
+
+<Preview>
+  <Story name="Levels" height="475px">
+    {levelsDemo}
+  </Story>
+</Preview>
+
+## Permalinks
+
+The `c-heading` class may include a permalink using [a technique from Marcy Sutton ](http://codepen.io/marcysutton/pen/rLKvgZ). Three elements are required:
+
+- `c-heading`: A container, ideally without any semantics (`<div>`).
+- `c-heading__content`: The actual semantic heading element (usually `<h1>` – `<h6>`), including the `id` referenced by `c-heading__permalink`.
+- `c-heading__permalink`: The `<a>` element that exposes the permalink to the user. This element is kept separate from the actual heading so it won't disrupt a user's ability to navigate via headings.
+
+Note that the layout of this pattern is optimized for [our prose containers](/?path=/docs/objects-container--prose#prose) with generous horizontal whitespace.
+
+<Preview>
+  <Story name="Permalinks" height="300px">
+    {permalinksDemo}
+  </Story>
+</Preview>

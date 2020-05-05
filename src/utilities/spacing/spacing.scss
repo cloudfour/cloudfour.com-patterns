@@ -96,11 +96,7 @@
     from modular-scale.$minimum-step
     through modular-scale.$maximum-step
   {
-    $name: math.abs($step);
-
-    @if $step < 0 {
-      $name: 'n#{$name}';
-    }
+    $name: ms.step-class-segment($step);
 
     @include direction-utilities(
       $property: $property,

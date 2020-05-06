@@ -11,6 +11,10 @@ props:
     value: 0.25rem
     type: relative
     category: sizing
+  - name: radius_small
+    value: 0.125em
+    type: relative
+    category: radius
   - name: radius_medium
     value: 0.25em
     type: relative

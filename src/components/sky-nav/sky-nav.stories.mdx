@@ -1,6 +1,5 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import template from './sky-nav.twig';
-// https://timber.github.io/docs/guides/menus/
 const menu = {
   items: [
     {
@@ -40,6 +39,8 @@ const menu = {
 # Sky Nav
 
 This will eventually be our primary navigation component. Right now, we're just critiquing some markup updates in terms of their accessibility.
+
+We are tentatively using the same template properties as [Timber Menus](https://timber.github.io/docs/guides/menus/).
 
 <Preview>
   <Story name="Markup (WIP)">{template({ menu })}</Story>

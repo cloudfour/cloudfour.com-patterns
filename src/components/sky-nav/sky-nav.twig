@@ -26,7 +26,10 @@
     <span class="u-hidden-visually">Toggle Main</span>
     Menu
   </button>
-  <nav aria-label="Main Menu">
+  <nav aria-labelledby="nav-label">
+    <h2 id="nav-label" class="u-hidden-visually">
+      Site
+    </h2>
     <ul>
       {% for item in menu.items %}
         <li>

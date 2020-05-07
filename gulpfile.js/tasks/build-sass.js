@@ -1,5 +1,5 @@
 const { src, dest } = require('gulp');
-const { outDir } = require('../helpers');
+const outDir = 'dist';
 
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');

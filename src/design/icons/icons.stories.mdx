@@ -1,9 +1,8 @@
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
 import { extname, relative } from 'path';
-import brandElementsDemo from './demo/brand-elements.twig';
 // Import whole directory of icons together
 // @see https://webpack.js.org/guides/dependency-management/#context-module-api
-const iconDir = require.context('../../assets/icons', true, /\.svg$/);
+const iconDir = require.context('../../assets/icons', false, /\.svg$/);
 const iconElements = iconDir.keys().map((key) => {
   const Icon = iconDir(key).default;
   // Retains subdirectory if we want to organize with those in the future
@@ -42,16 +41,6 @@ For icon usage examples, see [the icon object](/?path=/docs/components-icon--bas
 
 # Brand Icons
 
-Our icons are designed to be compact yet friendly. They embrace bold shapes, rounded corners and circular caps. They work well adjacent to text, but should rarely be used on their own to convey meaning.
+This icon set emcompases third-party brand and service icons.
 
-For icon usage examples, see [the icon object](/?path=/docs/components-icon--basic).
-
-<BrandIconGallery>{brandIconElements}</BrandIconGallery>
-
-## Brand Icons Experiement
-
-<Preview>
-  <Story name="Brand Elements" height="400px">
-    {brandElementsDemo}
-  </Story>
-</Preview>
+<IconGallery>{brandIconElements}</IconGallery>

@@ -1,0 +1,14 @@
+{% set tag_name = tag_name|default('ul') %}
+
+{% if tag_name == 'ul' %}
+  {% set role = role|default('list') %}
+{% endif %}
+
+<{{tag_name}} class="o-list{% if class %} {{class}}{% endif %}"
+  {% if role %}role="{{role}}"{% endif %}>
+  {% block content %}
+    {% for item in items %}
+      <li>{{item}}</li>
+    {% endfor %}
+  {% endblock %}
+</{{tag_name}}>

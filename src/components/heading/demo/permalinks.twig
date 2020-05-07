@@ -1,0 +1,23 @@
+{% embed '../../../objects/container/container.twig' with {
+  class: 'o-container--prose'
+} %}
+  {% block content %}
+    {% embed '../../../objects/rhythm/rhythm.twig' with {
+      class: 'o-rhythm--generous'
+    } only %}
+      {% block content %}
+        {% for i in 1..3 %}
+          {% set class_level = i|abs %}
+          {% if i < 0 %}
+            {% set class_level = 'n' ~ class_level %}
+          {% endif %}
+          {% include '../heading.twig' with {
+            level: i,
+            content: 'c-heading--level-' ~ class_level,
+            permalink: true
+          } only %}
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

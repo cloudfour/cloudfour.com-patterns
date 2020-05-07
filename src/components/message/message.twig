@@ -1,0 +1,20 @@
+{% set tagName = tagName | default('div') %}
+
+<{{tagName}} class="c-message{% if class %} {{class}}{% endif %}">
+  <div class="c-message__content">
+    {% block content %}
+      <p>
+        {{label|default('Hi, I\'m a message!')}}
+      </p>
+    {% endblock %}
+  </div>
+  {% if include_close %}
+    <button class="c-message__close" type="button">
+      {% include '../../assets/icons/close.svg.twig' with {
+          class: 'c-icon c-message__close-icon',
+          aria_hidden: true
+        } %}
+      <span class="u-hidden-visually">Close the notification</span>
+    </button>
+  {% endif %}
+</{{tagName}}>

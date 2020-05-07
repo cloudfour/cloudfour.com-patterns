@@ -1,0 +1,133 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/layout.yml';
+@use "../../design-tokens/motion.yml";
+@use '../../design-tokens/opacity.yml';
+@use '../../design-tokens/sizes.yml';
+@use '../../mixins/focus';
+@use '../../mixins/headings';
+@use '../../mixins/ms';
+@use '../../mixins/unit';
+@use 'sass:math';
+
+// Variables that define the size and shape of the (optional) permalink element.
+// 1. The total size of the element.
+// 2. The size of the icon within the element.
+// 3. The element's rounded corners.
+$permalink-size: sizes.$control-height; // 1
+$permalink-icon-size: sizes.$control-icon-size; // 2
+$permalink-radius: sizes.$radius-full; // 3
+
+// We want the permalink's position to change when there is enough room to
+// display a full line of prose _plus_ the permalink. To pull this off, we use
+// the prose width and permalink size (above) to build some component-specific
+// media query breakpoints.
+$min-width-permalink-shift: layout.$max-width-prose + $permalink-size * 4;
+$max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
+
+/**
+ * This containing element may be applied to a heading directly to apply a
+ * heading style, or to a containing element if you want to display a heading
+ * and permalink.
+ *
+ * 1. We default to the lowest heading level supported by HTML5, which forces
+ *    the template designer to specify an intended visual heading level.
+ * 2. Sets up the optional permalink to position itself relative to the
+ *    containing element.
+ */
+
+.c-heading {
+  @include headings.level(6); /* 1 */
+  position: relative; /* 2 */
+}
+
+/**
+ * Level modifiers
+ *
+ * These will apply the styles for a specific heading level.
+ *
+ * We start at `-2` so template designers have three sizes larger than a default
+ * `<h1>` to apply thoughtfully within templates.
+ *
+ * We end at 3 because that is the maximum depth we support with distinct
+ * visual differences.
+ */
+
+@for $level from -2 through headings.$max-level {
+  $level-segment: ms.step-class-segment($level);
+
+  .c-heading--level-#{$level-segment} {
+    @include headings.level($level);
+  }
+}
+
+/**
+ * If `c-heading` is applied to a containing element, this class must be applied
+ * to the inner heading to avoid unintended font sizes.
+ */
+
+.c-heading__content {
+  font: inherit;
+
+  /**
+   * Prevent heading from overlapping permalink until the viewport is wide
+   * enough for the permalink to position itself outside the container.
+   */
+
+  @media (max-width: $max-width-permalink-shift) {
+    padding-right: unit.swap($permalink-size, rem);
+  }
+}
+
+/**
+ * Optional permalink to be included adjacent to the heading itself.
+ *
+ * 1. We define the element's `font-size` using `rem` so its size will remain
+ *    consistent between differently sized headings in the same article.
+ * 2. The link's shape is not visible unless focused, so applying some negative
+ *    offset based on the inner padding makes the link appear better aligned
+ *    with content above and below.
+ *
+ * @see http://codepen.io/marcysutton/pen/rLKvgZ
+ */
+
+.c-heading__permalink {
+  align-items: center;
+  border-radius: $permalink-radius;
+  bottom: 0;
+  display: flex;
+  font-size: unit.swap($permalink-icon-size, rem); /* 1 */
+  height: $permalink-size;
+  justify-content: center;
+  margin: auto;
+  position: absolute;
+  right: ($permalink-size - $permalink-icon-size) / -2; /* 2 */
+  text-decoration: none;
+  top: 0;
+  transition: color motion.$speed-quick motion.$ease-out,
+    opacity motion.$speed-quick motion.$ease-out;
+  width: $permalink-size;
+
+  /**
+   * Above a certain size, we display the icon to the left of the heading but
+   * outside of the container (so it doesn't bump the heading to the right,
+   * which can disrupt the flow of reading the content).
+   */
+
+  @media (min-width: $min-width-permalink-shift) {
+    right: 100%;
+  }
+
+  /**
+   * We use negation selectors to apply the non-hover style so the permalink
+   * inherits any existing theme link styles for free.
+   */
+
+  &:not(:hover):not(:focus):not(:active) {
+    color: inherit;
+    opacity: opacity.$muted;
+  }
+
+  @include focus.focus-visible {
+    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  }
+}

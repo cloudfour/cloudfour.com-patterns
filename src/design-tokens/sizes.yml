@@ -11,6 +11,10 @@ props:
     value: 0.25rem
     type: relative
     category: sizing
+  - name: radius_small
+    value: 0.125em
+    type: relative
+    category: radius
   - name: radius_medium
     value: 0.25em
     type: relative
@@ -58,6 +62,22 @@ props:
   - name: type_block_indent
     comment: Shared indentation for lists, blockquotes, etc.
     value: 1
+    type: modular/em
+    category: sizing
+  - name: list_inline_gap
+    value: 1
+    type: modular/em
+    category: sizing
+  - name: cell_pad_horizontal
+    comment: |
+      Used for table cells or other repeating content rows.
+    value: -3
+    type: modular/em
+    category: sizing
+  - name: cell_pad_vertical
+    comment: |
+      Used for table cells or other repeating content rows.
+    value: -3
     type: modular/em
     category: sizing
   - name: media_gap

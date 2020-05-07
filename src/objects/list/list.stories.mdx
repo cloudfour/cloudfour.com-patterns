@@ -1,0 +1,46 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, array, select, text } from '@storybook/addon-knobs';
+import template from './list.twig';
+const defaultItems = [
+  'Design Tokens',
+  'Objects',
+  'Components',
+  'Scope',
+  'Utilities',
+  'Themes',
+];
+const tagNames = ['ul', 'ol'];
+
+<Meta title="Objects/List" decorators={[withKnobs]} />
+
+# List
+
+The `o-list` object presents list items in a straightforward and unopinionated manner. While it can be applied to any container, it was designed specifically for `<ul>` and `<ol>` elements.
+
+**Important:** Remember to include the `role="list"` attribute on `<ul>` elements using this pattern to avoid [an issue with unstyled lists and Safari/VoiceOver](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html).
+
+By default, `o-list` removes default spacing and list item decorators:
+
+<Preview>
+  <Story name="Default" height="240px">
+    {template({
+      class: text('class'),
+      items: array('items', defaultItems),
+      tag_name: select('tag_name', tagNames),
+    })}
+  </Story>
+</Preview>
+
+## Inline List
+
+The `o-list--inline` modifier arranges items in a horizontal row, wrapping to new lines as needed. This is a good fit for lists of tags or related links:
+
+<Preview>
+  <Story name="Inline" height="100px">
+    {template({
+      class: 'o-list--inline',
+      items: array('items', defaultItems),
+      tag_name: select('tag_name', tagNames),
+    })}
+  </Story>
+</Preview>

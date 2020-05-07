@@ -1,4 +1,5 @@
 @use "../design-tokens/colors.yml";
+@use "../design-tokens/sizes.yml";
 
 .t-dark {
   background-color: colors.$primary-brand;
@@ -14,7 +15,18 @@
     color: colors.$text-light-emphasis;
   }
 
-  *:not(pre):not(a) > code {
-    color: inherit;
+  del {
+    opacity: inherit;
+  }
+
+  *:not(pre):not(a) > code,
+  *:not(pre):not(a) > kbd {
+    color: colors.$text-light-emphasis;
+  }
+
+  *:not(pre):not(a) > kbd {
+    background-color: colors.$primary-brand-dark;
+    border-color: colors.$primary-brand-darker;
+    box-shadow: 0 sizes.$edge-small 0 0 colors.$primary-brand-darker;
   }
 }

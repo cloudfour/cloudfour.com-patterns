@@ -1,0 +1,34 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import messageDemo from './demo/default-message.twig';
+import messageWithCloseDemo from './demo/message-with-close.twig';
+import './message.scss';
+
+<Meta title="Components/Message" decorators={[withKnobs]} />
+
+# Message
+
+A containing element intended for short, actionable user messages. Originally
+designed to notify the user of offline network connection status.
+
+<Preview>
+  <Story name="Default" height="120px">
+    {messageDemo({
+      label: text('Message text'),
+      include_close: boolean('include_close'),
+    })}
+  </Story>
+</Preview>
+
+## Message with close button
+
+Most messages should allow users to dismiss them with a close button.
+
+<Preview>
+  <Story name="With Close Button" height="120px">
+    {messageWithCloseDemo({
+      label: text('Message text'),
+      include_close: true,
+    })}
+  </Story>
+</Preview>

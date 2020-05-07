@@ -1,12 +1,17 @@
 /**
- * Every JavaScript file in the `tasks/` directory will be exported with its
- * basename used as the key. These will then be read by Gulp as individual task
- * definitions.
- *
- * This means running `npx gulp hello-world` will run the task exported by
- * `tasks/hello-world.js` if it exists.
+ * Exposes each Gulp task from other files to Gulp
  *
  * @see https://gulpjs.com/docs/en/getting-started/javascript-and-gulpfiles#splitting-a-gulpfile
  */
 
-module.exports = require('require-dir')('./tasks');
+module.exports = {
+  watchPreprocess: require('./tasks/watch-preprocess'),
+  theoToMDX: require('./tasks/theo-to-mdx'),
+  svgToTwig: require('./tasks/svg-to-twig'),
+  buildSass: require('./tasks/build-sass'),
+  buildJS: require('./tasks/build-scripts').buildJS,
+  // BuildTypes: require('./tasks/build-scripts').buildTypes,
+  // This is currently an empty function, because the buildTypes task fails if there are no types to build
+  // Once we add TS files with types, the empty function should be removed, and the above line should be un-commented
+  buildTypes: (done) => done(),
+};

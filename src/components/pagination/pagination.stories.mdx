@@ -1,0 +1,20 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, number } from '@storybook/addon-knobs';
+import mockPaginationData from './demo/mock-pagination-data.js';
+import template from './pagination.twig';
+
+<Meta title="Components/Pagination" decorators={[withKnobs]} />
+
+# Pagination
+
+<Preview>
+  <Story name="WIP">
+    {template({
+      pagination: mockPaginationData({
+        current: number('current', 1),
+        midSize: number('mid_size', 2),
+        total: number('Total Pages', 36),
+      }),
+    })}
+  </Story>
+</Preview>

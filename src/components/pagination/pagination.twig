@@ -1,0 +1,30 @@
+<nav class="c-pagination" aria-labelledby="pagination-label">
+  <h2 id="pagination-label" class="u-hidden-visually">Pagination</h2>
+  <ul class="c-pagination__items" role="list">
+    {% for page in pagination.pages %}
+      <li class="c-pagination__item">
+        {% if page.current %}
+          <a class="c-pagination__action" href="#page-{{page.name}}" aria-current="page">
+            <span class="u-hidden-visually">Page</span>
+            <span class="c-pagination__number">{{page.title}}</span>
+          </a>
+        {% elseif page.name == pagination.prev.name %}
+          <a class="c-pagination__action is-previous" href="{{page.link}}">
+            <span class="u-hidden-visually">Previous: Page</span>
+            <span class="c-pagination__number">{{page.title}}</span>
+          </a>
+        {% elseif page.name == pagination.next.name %}
+          <a class="c-pagination__action is-next" href="{{page.link}}">
+            <span class="u-hidden-visually">Next: Page</span>
+            <span class="c-pagination__number">{{page.title}}</span>
+          </a>
+        {% else %}
+          <a class="c-pagination__action" href="{{page.link}}">
+            <span class="u-hidden-visually">Page</span>
+            <span class="c-pagination__number">{{page.title}}</span>
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

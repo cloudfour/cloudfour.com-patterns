@@ -20,16 +20,9 @@ export default function mockPaginationData({
   midSize = 2,
   total = 36,
 } = {}) {
-  const data = {
-    current,
-    total,
-    // Using underscore to mimic Timber/Twig/WordPress convention
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    mid_size: midSize,
-    prev: current > 1 && mockPageData(current - 1, current),
-    next: current < total && mockPageData(current + 1, current),
-    pages: [],
-  };
+  const prev = current > 1 && mockPageData(current - 1, current);
+  const next = current < total && mockPageData(current + 1, current);
+  const pages: object[] = [];
   let start = current - midSize;
   let end = current + midSize;
 
@@ -45,8 +38,17 @@ export default function mockPaginationData({
   end = Math.min(total, end);
 
   for (let i = start; i <= end; i++) {
-    data.pages.push(mockPageData(i, current));
+    pages.push(mockPageData(i, current));
   }
 
-  return data;
+  return {
+    // Using underscore to mimic Timber/Twig/WordPress convention
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    mid_size: midSize,
+    current,
+    total,
+    prev,
+    next,
+    pages,
+  };
 }

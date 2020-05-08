@@ -1,5 +1,9 @@
 {
   "extends": ["group:recommended", "group:monorepos"],
   "reviewers": ["team:dev"],
-  "rangeStrategy": "pin"
+  "rangeStrategy": "pin",
+  "node": {
+    "supportPolicy": ["active"],
+    "rangeStrategy": "bump"
+  }
 }

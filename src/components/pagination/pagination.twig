@@ -1,10 +1,13 @@
-<nav class="c-pagination" aria-labelledby="pagination-label">
-  <h2 id="pagination-label" class="u-hidden-visually">Pagination</h2>
+{% set label_tag_name = label_tag_name|default('h2') %}
+{% set label_id = label_id|default('pagination-label') %}
+
+<nav class="c-pagination" aria-labelledby="{{label_id}}">
+  <{{label_tag_name}} id="{{label_id}}" class="u-hidden-visually">Pagination</{{label_tag_name}}>
   <ul class="c-pagination__items" role="list">
     {% for page in pagination.pages %}
       <li class="c-pagination__item">
         {% if page.current %}
-          <a class="c-pagination__action" href="#page-{{page.name}}" aria-current="page">
+          <a class="c-pagination__action" href="{{page.link}}" aria-current="page">
             <span class="u-hidden-visually">Page</span>
             <span class="c-pagination__number">{{page.title}}</span>
           </a>

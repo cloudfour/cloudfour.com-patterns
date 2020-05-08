@@ -7,14 +7,55 @@ import template from './pagination.twig';
 
 # Pagination
 
+Displays a horizontal list of page number links, including extra affordances for those representing the "previous" and "next" pages.
+
+The component supports variable amounts of page numbers and will adjust its layout accordingly. For best results on small screens, we recommend a maximum link count of 5.
+
+As the viewport widens, individual numbers may drift awkwardly far apart. You can prevent this by wrapping the component in [a container](/?path=/docs/objects-container--basic).
+
 <Preview>
-  <Story name="WIP">
+  <Story name="Example" height="100px">
     {template({
       pagination: mockPaginationData({
-        current: number('current', 1),
+        current: number('current', 2),
         midSize: number('mid_size', 2),
         total: number('Total Pages', 36),
       }),
     })}
   </Story>
 </Preview>
+
+## Elements
+
+- `c-pagination`: A containing `<nav>` element.
+- `c-pagination__items`: A `<ul>` containing the page links.
+- `c-pagination__item`: An individual list item.
+- `c-pagination__action`: The link (or possibly in the future, button) that navigates to the page.
+- `c-pagination__number`: Wrapper for the page number within `c-pagination__action`.
+
+## Action States
+
+In addition to the usual hover, active and focus states, `c-pagination__action` supports three more:
+
+- An `aria-current` attribute (typically with a value of `page`) to identify the current page action.
+- `is-previous` or `is-next` classes to identify the _previous_ or _next_ page action.
+
+## Accessibility
+
+Like all navigation patterns, pagination is potentially fraught with accessibility issues. Here's what we've done to make this component more inclusive:
+
+- The outer `<nav>` element clearly identifies this component as navigation to assistive devices.
+- Said element includes an `aria-labelledby` attribute, which maps to the ID of a [visually hidden](/iframe.html?id=utilities-display--hidden-visually&viewMode=docs#hidden-visually) heading element within. We use `aria-labelledby` instead of `aria-label` to improve [compatibility with translation tools](https://heydonworks.com/article/aria-label-is-a-xenophobe/).
+- The `<ul>` element containing list items includes a `role="list"` attribute to avoid [an issue in Safari/VoiceOver](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html).
+- All page actions include [visually hidden text for context](https://www.a11ymatters.com/pattern/pagination/#2--labeling-the-navigation-links) ("Page 4" instead of simply "4").
+- The current page action is identified using [the `aria-current` attribute](https://tink.uk/using-the-aria-current-attribute/).
+- It is common to output multiple links for "previous" and "next" for styling purposes, but we've avoided that so no page number is read aloud multiple times.
+
+## Template Properties
+
+The Twig template expects to receive a `pagination` object with the same structure as [`posts.pagination` in Timber](https://timber.github.io/docs/guides/pagination/), streamlining integration with WordPress projects that use that plugin.
+
+It also introduces properties to control the accessible label:
+
+- `label_id`: ID for the accessible label. Defaults to `pagination-label`. Must be unique per page.
+- `label_tag_name`: Tag for the accessible label. Defaults to `h2`, but should be adjusted depending on current document outline.

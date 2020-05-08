@@ -6,19 +6,13 @@
  */
 
 function mockPageData(page = 1, current = 1) {
-  const data = {
+  return {
     title: page,
     text: page,
     name: page,
+    current: page === current,
+    link: page !== current && `#page-${page}`,
   };
-
-  if (page === current) {
-    data.current = true;
-  } else {
-    data.link = `#page-${page}`;
-  }
-
-  return data;
 }
 
 export default function mockPaginationData({
@@ -26,7 +20,16 @@ export default function mockPaginationData({
   midSize = 2,
   total = 36,
 } = {}) {
-  const data = { current, total, mid_size: midSize, pages: [] };
+  const data = {
+    current,
+    total,
+    // Using underscore to mimic Timber/Twig/WordPress convention
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    mid_size: midSize,
+    prev: current > 1 && mockPageData(current - 1, current),
+    next: current < total && mockPageData(current + 1, current),
+    pages: [],
+  };
   let start = current - midSize;
   let end = current + midSize;
 
@@ -43,14 +46,6 @@ export default function mockPaginationData({
 
   for (let i = start; i <= end; i++) {
     data.pages.push(mockPageData(i, current));
-  }
-
-  if (current > 1) {
-    data.prev = mockPageData(current - 1, current);
-  }
-
-  if (current < total) {
-    data.next = mockPageData(current + 1, current);
   }
 
   return data;

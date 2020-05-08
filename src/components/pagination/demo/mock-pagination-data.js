@@ -1,3 +1,10 @@
+/**
+ * These functions mimic the structure of WordPress's pagination objects.
+ *
+ * @see https://developer.wordpress.org/reference/functions/paginate_links/
+ * @see https://timber.github.io/docs/guides/pagination/
+ */
+
 function mockPageData(page = 1, current = 1) {
   const data = {
     title: page,

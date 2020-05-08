@@ -6,23 +6,65 @@
 @use '../../mixins/ms';
 @use '../../mixins/unit';
 
+// Defines the hit area for actionable elements, specifically the height of
+// links and the width/height of "previous" and "next" affordances.
 $action-size: sizes.$control-height;
+
+// Amount of padding within action elements. Used to minimize visual competition
+// between actions and direction affordances.
+$action-pad: ms.step(-6);
+
+// Default dimensions for a small affordance used to indicate different states
+// of individual pages. The dimensions change slightly for the current state
+// indicator. We use edge tokens because the indicator feels similar in visual
+// appearance to a border or outline.
 $indicator-height: sizes.$edge-medium;
 $indicator-width: ms.step(-1);
 $indicator-height-current: sizes.$edge-large;
 $indicator-width-current: $indicator-height-current;
 
+/**
+ * We have no styles to apply to the root `c-pagination` class, but we don't
+ * want to encourage usage of this component _without_ a containing `<nav>`
+ * element for accessibility, so we kick off our styles one element deep.
+ * Perhaps in the future the extra containing element will come in handy for
+ * modifiers and such?
+ */
+
+/**
+ * List containing page links
+ *
+ * 1. Arrange children horizontally.
+ * 2. Override default list styles. It's important that this element have
+ *    `role="list"` set to avoid accessibility issues in Safari/VoiceOver.
+ * 3. Setting this allows us to position "previous" and "next" affordances
+ *    of individual items relative to this container.
+ *
+ * @see https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+ */
+
 .c-pagination__items {
-  display: flex;
-  list-style: none;
-  padding-left: 0;
-  position: relative;
+  display: flex; /* 1 */
+  list-style: none; /* 2 */
+  padding-left: 0; /* 2 */
+  position: relative; /* 3 */
 }
+
+/**
+ * We initialize the list's pseudo elements so they will reserve space for the
+ * "previous" and "next" affordances.
+ */
 
 .c-pagination__items::before,
 .c-pagination__items::after {
   content: '';
 }
+
+/**
+ * Make the pseudo elements _and_ list items occupy equal amounts of space.
+ * This gives us nice, even spacing without having to know the exact number of
+ * items beforehand.
+ */
 
 .c-pagination__items::before,
 .c-pagination__items::after,
@@ -30,16 +72,38 @@ $indicator-width-current: $indicator-height-current;
   flex: 100%;
 }
 
+/**
+ * The element that navigates to a page. Currently only intended for links, but
+ * in the future this could be extended to support `<button>` if we wanted.
+ *
+ * It's important to avoid setting `position` on this element or we'll disrupt
+ * our ability to position "previous" and "next" affordances without requiring
+ * redundant elements.
+ */
+
 .c-pagination__action {
+  align-items: center;
   display: flex;
   height: $action-size;
-  padding: ms.step(-6);
+  justify-content: center;
   text-decoration: none;
+  user-select: none;
 }
+
+/**
+ * The current state should inherit the parent element's text color to appear
+ * just a bit muted.
+ */
 
 .c-pagination__action[aria-current] {
   color: inherit;
 }
+
+/**
+ * When an action element has `is-previous` or `is-next` state classes applied,
+ * we absolute-position pseudo elements that provide extra "previous" and "next"
+ * affordances without requiring any additional markup.
+ */
 
 .c-pagination__action.is-previous::before,
 .c-pagination__action.is-next::after {
@@ -64,6 +128,13 @@ $indicator-width-current: $indicator-height-current;
   }
 }
 
+/**
+ * These affordances have similar hover and active states to buttons. We apply
+ * these styles relative to the action state (rather than the pseudo element)
+ * so hovering over a page number will _also_ trigger the animation on the
+ * affordance, which helps enforce the action being considered.
+ */
+
 .c-pagination__action.is-previous:hover::before,
 .c-pagination__action.is-next:hover::after {
   filter: brightness(110%);
@@ -75,6 +146,10 @@ $indicator-width-current: $indicator-height-current;
   filter: brightness(80%);
   transform: scale(0.95);
 }
+
+/**
+ * Direction-specific icons and positioning
+ */
 
 .c-pagination__action.is-previous::before {
   background-image: svg-load(
@@ -106,17 +181,35 @@ $indicator-width-current: $indicator-height-current;
   }
 }
 
+/**
+ * The inner number element gives us a means of positioning indicator pseudo
+ * elements relative to the action content without disrupting the "previous"
+ * and "next" affordances.
+ *
+ * 1. Constrain the focus ring (not visible initially) to a circle slightly
+ *    smaller than the "previous" and "next" affordances.
+ * 2. Fixes an issue where Chrome renders the digits a pixel or two higher
+ *    than in other browsers.
+ * 3. The aforementioned means of positioning the indicator pseudo element.
+ */
+
 .c-pagination__number {
   align-items: center;
-  border-radius: sizes.$radius-medium;
+  border-radius: sizes.$radius-full; /* 1 */
   display: flex;
   font-weight: font.$weight-medium;
+  height: ($action-size - $action-pad * 2); /* 1 */
   justify-content: center;
-  line-height: ms.step(0, 1);
-  position: relative;
-  text-align: center;
-  width: 100%;
+  line-height: ms.step(0, 1); /* 2 */
+  max-width: ($action-size - $action-pad * 2); /* 1 */
+  position: relative; /* 3 */
+  width: 100%; /* 1 */
 }
+
+/**
+ * When keyboard navigation is detected on the containing action, apply a
+ * focus ring similar to other components to the number element.
+ */
 
 .c-pagination__action {
   @include focus.focus-visible {
@@ -126,6 +219,13 @@ $indicator-width-current: $indicator-height-current;
   }
 }
 
+/**
+ * Hover and current indicators
+ *
+ * 1. Might seem odd compared to `bottom: 0`, but this places the affordance
+ *    within the action padding, which feels nicely balanced.
+ */
+
 .c-pagination__number::after {
   background: currentColor;
   border-radius: sizes.$radius-full;
@@ -133,24 +233,31 @@ $indicator-width-current: $indicator-height-current;
   height: $indicator-height;
   left: 0;
   margin: auto;
-  opacity: 0;
   position: absolute;
   right: 0;
-  top: 100%;
-  transform: scaleX(
-    unit.strip($indicator-height) / unit.strip($indicator-width)
-  );
+  top: 100%; /* 1 */
   transition-duration: motion.$speed-quick;
   transition-property: opacity, transform;
   transition-timing-function: motion.$ease-out;
   width: $indicator-width;
+
+  /**
+   * Unless the containing action is the current page or is being hovered,
+   * set this element to its initial animation state.
+   */
+
+  .c-pagination__action:not(:hover):not([aria-current]) & {
+    opacity: 0;
+    transform: scaleX(
+      unit.strip($indicator-height) / unit.strip($indicator-width)
+    );
+  }
 }
 
-.c-pagination__action:hover .c-pagination__number::after,
-.c-pagination__action[aria-current] .c-pagination__number::after {
-  opacity: 1;
-  transform: none;
-}
+/**
+ * Apply unique dimensions to the current state so it feels more like a
+ * pagination dot, as seen in many app interfaces.
+ */
 
 .c-pagination__action[aria-current] .c-pagination__number::after {
   height: $indicator-height-current;

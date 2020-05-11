@@ -11,9 +11,12 @@
   <a href="/" {% if is_home %} aria-current="page"{% endif %}>
     {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
     <span class="u-hidden-visually">Home: Cloud Four</span>
-    {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #} {%
-    include '../../assets/brand/logo.svg.twig' with { width: '80', height: '80',
-    focusable: 'false' } only %}
+    {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
+    {% include '../../assets/brand/logo.svg.twig' with { 
+      width: '80',
+      height: '80',
+      focusable: 'false' 
+    } only %}
   </a>
   <button type="button">
     <span class="u-hidden-visually">Toggle Main</span>

@@ -26,25 +26,27 @@
     <h2 id="menu-label" class="u-hidden-visually">
       Main Menu
     </h2>
-    {# Preemptively adding `role="list"` since we will be removing list styles
-    via CSS https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html #}
+    {#
+      Preemptively adding `role="list"` since we will be removing list styles
+      via CSS https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+    #}
     <ul role="list">
       {% for item in menu.items %}
-      <li>
-        <a
-          href="{{ item.link }}"
-          {%
-          if
-          item.current
-          %}
-          aria-current="page"
-          {%
-          endif
-          %}
-        >
-          {{ item.title }}
-        </a>
-      </li>
+        <li>
+          <a
+            href="{{ item.link }}"
+            {%
+            if
+            item.current
+            %}
+            aria-current="page"
+            {%
+            endif
+            %}
+          >
+            {{ item.title }}
+          </a>
+        </li>
       {% endfor %}
     </ul>
   </nav>

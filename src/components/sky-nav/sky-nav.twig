@@ -3,12 +3,12 @@
   Skip to main content
 </a>
 
-{# 
+{#
   This may require `role="banner"` if nested in something other than `body`.
   https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role
 #}
 <header>
-  <a href="/" {% if is_home %} aria-current="page"{% endif %}>
+  <a href="/"{% if is_home %} aria-current="page"{% endif %}>
     {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
     <span class="u-hidden-visually">Home: Cloud Four</span>
     {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}

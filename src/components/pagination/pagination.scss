@@ -137,14 +137,14 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__action.is-previous:hover::before,
 .c-pagination__action.is-next:hover::after {
-  filter: brightness(110%);
-  transform: scale(1.05);
+  filter: brightness(motion.$control-brighten);
+  transform: scale(motion.$control-grow);
 }
 
 .c-pagination__action.is-previous:active::before,
 .c-pagination__action.is-next:active::after {
-  filter: brightness(80%);
-  transform: scale(0.95);
+  filter: brightness(motion.$control-dim);
+  transform: scale(motion.$control-shrink);
 }
 
 /**

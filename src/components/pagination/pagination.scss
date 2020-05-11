@@ -252,14 +252,14 @@ $indicator-width-current: $indicator-height-current;
       unit.strip($indicator-height) / unit.strip($indicator-width)
     );
   }
-}
 
-/**
- * Apply unique dimensions to the current state so it feels more like a
- * pagination dot, as seen in many app interfaces.
- */
+  /**
+  * Apply unique dimensions to the current state so it feels more like a
+  * pagination dot, as seen in many app interfaces.
+  */
 
-.c-pagination__action[aria-current] .c-pagination__number::after {
-  height: $indicator-height-current;
-  width: $indicator-width-current;
+  .c-pagination__action[aria-current] & {
+    height: $indicator-height-current;
+    width: $indicator-width-current;
+  }
 }

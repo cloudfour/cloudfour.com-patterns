@@ -34,8 +34,8 @@
     <ul role="list">
       {% for item in menu.items %}
         <li>
-          <a href="{{ item.link }}"{% if item.current %} aria-current="page" {% endif %}>
-            {{ item.title }}
+          <a href="{{item.link}}"{% if item.current %} aria-current="page"{% endif %}>
+            {{item.title}}
           </a>
         </li>
       {% endfor %}

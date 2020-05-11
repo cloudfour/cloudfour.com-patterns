@@ -1,3 +1,20 @@
 imports:
   - './_easing.yml'
   - './_speed.yml'
+props:
+  - name: control-grow
+    value: 1.05
+    type: effect
+    category: scale
+  - name: control-shrink
+    value: 0.95
+    type: effect
+    category: scale
+  - name: control-brighten
+    value: 110%
+    type: effect
+    category: brightness
+  - name: control-dim
+    value: 80%
+    type: effect
+    category: brightness

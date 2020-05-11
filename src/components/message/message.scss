@@ -54,10 +54,10 @@
 }
 
 .c-message__close:hover .c-message__close-icon {
-  transform: scale(1.1);
+  transform: scale(motion.$control-grow);
 }
 
 .c-message__close:active .c-message__close-icon {
-  filter: brightness(80%);
-  transform: scale(0.95);
+  filter: brightness(motion.$control-dim);
+  transform: scale(motion.$control-shrink);
 }

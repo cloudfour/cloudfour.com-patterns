@@ -2,7 +2,7 @@ import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
 import { extname, relative } from 'path';
 // Import whole directory of icons together
 // @see https://webpack.js.org/guides/dependency-management/#context-module-api
-const iconDir = require.context('../assets/icons', true, /\.svg$/);
+const iconDir = require.context('../../assets/icons', false, /\.svg$/);
 const iconElements = iconDir.keys().map((key) => {
   const Icon = iconDir(key).default;
   // Retains subdirectory if we want to organize with those in the future
@@ -10,6 +10,23 @@ const iconElements = iconDir.keys().map((key) => {
   return (
     <IconItem name={name}>
       <Icon class="c-icon" />
+    </IconItem>
+  );
+});
+const brandIconDir = require.context(
+  '../../assets/icons/brands',
+  true,
+  /\.svg$/
+);
+// This is duplicated from icons, we may want to consider keeping this logic DRY
+// in a single file in the future.
+const brandIconElements = brandIconDir.keys().map((key) => {
+  const BrandIcon = brandIconDir(key).default;
+  // Retains subdirectory if we want to organize with those in the future
+  const name = relative('.', key).replace(extname(key), '');
+  return (
+    <IconItem name={name}>
+      <BrandIcon class="c-icon" />
     </IconItem>
   );
 });
@@ -23,3 +40,9 @@ Our icons are designed to be compact yet friendly. They embrace bold shapes, rou
 For icon usage examples, see [the icon object](/?path=/docs/components-icon--basic).
 
 <IconGallery>{iconElements}</IconGallery>
+
+# Brand Icons
+
+This icon set encompasses third-party brand and service icons.
+
+<IconGallery>{brandIconElements}</IconGallery>

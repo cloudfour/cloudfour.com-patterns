@@ -67,7 +67,18 @@ $_space-vertical: ms.step(-2, 1rem);
   fill: currentColor;
   height: auto;
   margin: (ms.step(-6) * -1);
+  transition: opacity motion.$speed-slow motion.$ease-out,
+    transform motion.$speed-quick motion.$ease-out;
   width: ms.step(8);
+
+  .c-sky-nav__logo:hover & {
+    transform: scale(motion.$control-grow);
+  }
+
+  .c-sky-nav__logo:active & {
+    opacity: opacity.$muted;
+    transform: scale(motion.$control-shrink);
+  }
 }
 
 .c-sky-nav__logo-outline {
@@ -150,6 +161,8 @@ $_space-vertical: ms.step(-2, 1rem);
   line-height: ms.step(1, 1);
   text-align: center;
   text-decoration: none;
+  transition: opacity motion.$speed-quick motion.$ease-out;
+  user-select: none;
   width: 100%;
 
   @media (max-width: $_max-width-narrow) {
@@ -170,6 +183,10 @@ $_space-vertical: ms.step(-2, 1rem);
 
   @media (min-width: $_min-width-wide) and (max-width: $_max-width-wide) {
     padding: ($_space-vertical / 2) ($_space-horizontal / 2);
+  }
+
+  .c-sky-nav__menu-items:hover &:not(:hover) {
+    opacity: opacity.$muted;
   }
 }
 

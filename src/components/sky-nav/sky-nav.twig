@@ -1,8 +1,13 @@
 <div class="o-container c-sky-nav">
   {# https://webaim.org/techniques/skipnav/ #}
-  <a class="c-sky-nav__skip" href="#main">
-    Skip to main content
-  </a>
+  {% embed '../button/button.twig' with {
+    class: 'c-sky-nav__skip',
+    href: '#main'
+  } only %}
+    {% block content %}
+      Skip to main content
+    {% endblock %}
+  {% endembed %}
   {#
     Requires `role="banner"` if nested in something other than `body`.
     https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role

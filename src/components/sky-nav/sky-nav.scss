@@ -23,33 +23,11 @@ $_space-vertical: ms.step(-2, 1rem);
 }
 
 .c-sky-nav__skip {
-  background: colors.$text-light-emphasis;
-  border: sizes.$edge-medium solid colors.$primary-brand-dark;
-  border-radius: sizes.$radius-medium;
-  box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
-  color: colors.$primary-brand !important;
-  font-weight: font.$weight-semibold;
   left: 50%;
-  margin: auto;
-  outline: 0;
-  padding: sizes.$control-pad-vertical sizes.$control-pad-horizontal;
   position: absolute;
-  text-decoration: none;
-  top: 0;
-  transform: translateX(-50%);
-  white-space: nowrap;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
-
-  @media (max-width: $_max-width-narrow) {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-top-width: 0;
-  }
-
-  @media (min-width: $_min-width-wide) {
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
 
   &:not(:focus) {
     @include a11y.sr-only();

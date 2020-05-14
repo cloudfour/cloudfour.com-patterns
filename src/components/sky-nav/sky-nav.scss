@@ -4,6 +4,7 @@
 @use '../../design-tokens/motion.yml';
 @use '../../design-tokens/opacity.yml';
 @use '../../design-tokens/sizes.yml';
+@use '../../mixins/a11y';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use 'sass:color';
@@ -17,37 +18,54 @@ $_max-width-wide: ($_min-width-nowrap * 16 - 1) / 16;
 $_space-horizontal: ms.step(1, 1rem);
 $_space-vertical: ms.step(-2, 1rem);
 
-// $_action-space-vertical: ms.step(-2);
-// $_action-space-horizontal: ms.step(1);
+.c-sky-nav {
+  position: relative;
+}
 
-// .c-sky-nav {
-//   &,
-//   & *[class*='c-sky-nav'] {
-//     outline: 1px solid cyan;
-//   }
+.c-sky-nav__skip {
+  background: colors.$text-light-emphasis;
+  border: sizes.$edge-medium solid colors.$primary-brand-dark;
+  border-radius: sizes.$radius-medium;
+  box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+  color: colors.$primary-brand !important;
+  font-weight: font.$weight-semibold;
+  left: 50%;
+  margin: auto;
+  outline: 0;
+  padding: sizes.$control-pad-vertical sizes.$control-pad-horizontal;
+  position: absolute;
+  text-decoration: none;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 1;
 
-//   & * *[class*='c-sky-nav'] {
-//     outline-color: magenta;
-//   }
+  @media (max-width: $_max-width-narrow) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-width: 0;
+  }
 
-//   & * * *[class*='c-sky-nav'] {
-//     outline-color: orangered;
-//   }
+  @media (min-width: $_min-width-wide) {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-//   & * * * *[class*='c-sky-nav'] {
-//     outline-color: rebeccapurple;
-//   }
-// }
-
-// [class*='c-sky-nav'] {
-//   outline: 1px solid magenta;
-// }
+  &:not(:focus) {
+    @include a11y.sr-only();
+  }
+}
 
 .c-sky-nav__content {
   display: flex;
+  transition: opacity motion.$speed-quick motion.$ease-out;
 
   @media (max-width: $_max-width-narrow) {
     flex-direction: column-reverse;
+  }
+
+  .c-sky-nav__skip:focus ~ & {
+    opacity: opacity.$muted;
   }
 }
 

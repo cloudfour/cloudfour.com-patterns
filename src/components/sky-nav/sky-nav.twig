@@ -1,14 +1,13 @@
-{# https://webaim.org/techniques/skipnav/ #}
-{# <a href="#main">
-  Skip to main content
-</a> #}
-
-{#
-  This may require `role="banner"` if nested in something other than `body`.
-  https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role
-#}
-<header class="o-container c-sky-nav">
-  <div class="o-container__content c-sky-nav__content">
+<div class="o-container c-sky-nav">
+  {# https://webaim.org/techniques/skipnav/ #}
+  <a class="c-sky-nav__skip" href="#main">
+    Skip to main content
+  </a>
+  {#
+    Requires `role="banner"` if nested in something other than `body`.
+    https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role
+  #}
+  <header class="o-container__content c-sky-nav__content" role="banner">
     <div class="c-sky-nav__masthead">
       <a class="c-sky-nav__logo" href="/"{% if is_home %} aria-current="page"{% endif %}>
         {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
@@ -23,10 +22,14 @@
           <path d="M307.79,99.62A846.59,846.59,0,0,0,208,202.42l72.2-2.8c14.8-41.6,27.6-78.6,33.2-94.8A6,6,0,0,0,307.79,99.62Z"/>
         </svg>
       </a>
-      <button class="c-button c-sky-nav__menu-toggle" type="button">
-        <span class="u-hidden-visually">Toggle Main</span>
-        Menu
-      </button>
+      {% embed '../button/button.twig' with {
+        class: 'c-sky-nav__menu-toggle'
+      } only %}
+        {% block content %}
+          <span class="u-hidden-visually">Toggle Main</span>
+          Menu
+        {% endblock %}
+      {% endembed %}
     </div>
     <nav class="c-sky-nav__menu" aria-labelledby="menu-label">
       <h2 id="menu-label" class="u-hidden-visually">
@@ -53,8 +56,8 @@
         {% endfor %}
       </ul>
     </nav>
-  </div>
-</header>
+  </header>
+</div>
 
 {# <main id="main">
   <h1>Main Content</h1>

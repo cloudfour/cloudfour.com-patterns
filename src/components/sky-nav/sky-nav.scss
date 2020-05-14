@@ -4,6 +4,7 @@
 @use '../../design-tokens/motion.yml';
 @use '../../design-tokens/opacity.yml';
 @use '../../design-tokens/sizes.yml';
+@use '../../mixins/focus';
 @use '../../mixins/ms';
 
 $_min-width-wide: breakpoint.$m;
@@ -63,7 +64,21 @@ $_space-vertical: ms.step(-2, 1rem);
   display: block;
   fill: currentColor;
   height: auto;
-  width: ms.step(7);
+  margin: (ms.step(-6) * -1);
+  width: ms.step(8);
+}
+
+.c-sky-nav__logo-outline {
+  opacity: 0;
+  stroke: colors.$primary-brand-lighter;
+}
+
+.c-sky-nav__logo {
+  @include focus.focus-visible {
+    .c-sky-nav__logo-outline {
+      opacity: 1;
+    }
+  }
 }
 
 .c-sky-nav__menu-toggle {

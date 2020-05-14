@@ -58,6 +58,7 @@ $_space-vertical: ms.step(-2, 1rem);
 }
 
 .c-sky-nav__logo {
+  flex: none;
   padding: $_space-vertical $_space-horizontal;
 }
 
@@ -169,5 +170,19 @@ $_space-vertical: ms.step(-2, 1rem);
 
   @media (min-width: $_min-width-wide) and (max-width: $_max-width-wide) {
     padding: ($_space-vertical / 2) ($_space-horizontal / 2);
+  }
+}
+
+.c-sky-nav__menu-label {
+  border-radius: sizes.$radius-full;
+  margin: (ms.step(-9) * -1) (ms.step(-3) * -1);
+  padding: ms.step(-9) ms.step(-3);
+}
+
+.c-sky-nav__menu-action {
+  @include focus.focus-visible {
+    .c-sky-nav__menu-label {
+      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    }
   }
 }

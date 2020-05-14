@@ -1,28 +1,32 @@
 {# https://webaim.org/techniques/skipnav/ #}
-<a href="#main">
+{# <a href="#main">
   Skip to main content
-</a>
+</a> #}
 
 {#
   This may require `role="banner"` if nested in something other than `body`.
   https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role
 #}
-<header>
-  <a href="/"{% if is_home %} aria-current="page"{% endif %}>
-    {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
-    <span class="u-hidden-visually">Home: Cloud Four</span>
-    {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
-    {% include '../../assets/brand/logo.svg.twig' with { 
-      width: '80',
-      height: '80',
-      focusable: 'false'
-    } only %}
-  </a>
-  <button type="button">
-    <span class="u-hidden-visually">Toggle Main</span>
-    Menu
-  </button>
-  <nav aria-labelledby="menu-label">
+<header class="c-sky-nav">
+  <div class="c-sky-nav__masthead">
+    <a class="c-sky-nav__logo" href="/"{% if is_home %} aria-current="page"{% endif %}>
+      {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
+      <span class="u-hidden-visually">Home: Cloud Four</span>
+      {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
+      {% include '../../assets/brand/logo.svg.twig' with {
+        class: 'c-sky-nav__logo-object',
+        width: '24',
+        height: '18',
+        viewBox: '0 3 24 18',
+        focusable: 'false'
+      } only %}
+    </a>
+    <button class="c-button c-sky-nav__menu-toggle" type="button">
+      <span class="u-hidden-visually">Toggle Main</span>
+      Menu
+    </button>
+  </div>
+  <nav class="c-sky-nav__menu" aria-labelledby="menu-label">
     <h2 id="menu-label" class="u-hidden-visually">
       Main Menu
     </h2>
@@ -31,10 +35,14 @@
       via CSS
       https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
     #}
-    <ul role="list">
+    <ul class="c-sky-nav__menu-items" role="list">
       {% for item in menu.items %}
-        <li>
-          <a href="{{item.link}}"{% if item.current %} aria-current="page"{% endif %}>
+        <li class="c-sky-nav__menu-item">
+          <a class="c-sky-nav__menu-action"
+            href="{{item.link}}"
+            {% if item.current %}
+              aria-current="page"
+            {% endif %}>
             {{item.title}}
           </a>
         </li>
@@ -43,7 +51,7 @@
   </nav>
 </header>
 
-<main id="main">
+{# <main id="main">
   <h1>Main Content</h1>
   <p>This is where the actual page content would go.</p>
-</main>
+</main> #}

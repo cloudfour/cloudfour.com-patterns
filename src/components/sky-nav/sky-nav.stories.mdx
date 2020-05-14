@@ -43,5 +43,7 @@ This will eventually be our primary navigation component. Right now, we're just 
 We are tentatively using the same template properties as [Timber Menus](https://timber.github.io/docs/guides/menus/).
 
 <Preview>
-  <Story name="Markup (WIP)">{template({ menu })}</Story>
+  <Story name="Markup (WIP)" parameters={{ paddings: { disabled: true } }}>
+    {template({ menu })}
+  </Story>
 </Preview>

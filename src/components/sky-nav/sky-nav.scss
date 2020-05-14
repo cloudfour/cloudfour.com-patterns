@@ -6,6 +6,7 @@
 @use '../../design-tokens/sizes.yml';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
+@use 'sass:color';
 
 $_min-width-wide: breakpoint.$m;
 $_min-width-nowrap: breakpoint.$l;
@@ -92,6 +93,16 @@ $_space-vertical: ms.step(-2, 1rem);
 .c-sky-nav__menu {
   flex: 1;
 
+  @media (max-width: $_max-width-narrow) {
+    .t-dark & {
+      background-image: linear-gradient(
+        to bottom,
+        colors.$primary-brand-dark,
+        color.change(colors.$primary-brand-dark, $alpha: 0)
+      );
+    }
+  }
+
   @media (min-width: $_min-width-wide) {
     display: flex;
   }
@@ -141,7 +152,15 @@ $_space-vertical: ms.step(-2, 1rem);
   width: 100%;
 
   @media (max-width: $_max-width-narrow) {
+    border-bottom: sizes.$edge-small solid colors.$gray-light;
     padding: $_space-vertical $_space-horizontal;
+
+    .t-dark & {
+      border-bottom-color: color.change(
+        colors.$primary-brand-darker,
+        $alpha: 0.5
+      );
+    }
   }
 
   @media (min-width: $_min-width-wide) {

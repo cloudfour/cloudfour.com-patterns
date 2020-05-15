@@ -9,79 +9,154 @@
 @use '../../mixins/ms';
 @use 'sass:color';
 
+// Minimum viewport width where links are exposed
 $_min-width-wide: breakpoint.$m;
+// Minimum viewport width where links are no longer multi-line
 $_min-width-nowrap: breakpoint.$l;
-
+// Maximum viewport width where links are stacked and hidden initially
 $_max-width-narrow: ($_min-width-wide * 16 - 1) / 16;
+// Maximum viewport width where links are multi-line
 $_max-width-wide: ($_min-width-nowrap * 16 - 1) / 16;
 
+// Whitespace used for gaps, padding and margin
+// (These use `rem` so they will be consistent throughout the component)
 $_space-horizontal: ms.step(1, 1rem);
 $_space-vertical: ms.step(-2, 1rem);
 
+// Padding applied to labels, used for focus outlines
+$_label-pad-horizontal: ms.step(-3);
+$_label-pad-vertical: ms.step(-9);
+
+/**
+ * Allow child elements to position themselves relative to the container.
+ */
 .c-sky-nav {
   position: relative;
 }
 
+/**
+ * "Skip to main content" link, most likely applied to a `c-button` component.
+ *
+ * 1. Center atop the rest of the menu content.
+ * 2. Keep above links that come later in the source order.
+ */
 .c-sky-nav__skip {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  left: 50%; /* 1 */
+  position: absolute; /* 1 */
+  top: 50%; /* 1 */
+  transform: translate(-50%, -50%); /* 1 */
+  z-index: 1; /* 2 */
 
+  /**
+   * Only expose the link to screen readers until it is focused.
+   */
   &:not(:focus) {
     @include a11y.sr-only();
   }
 }
 
+/**
+ * Containing element for most nav content.
+ *
+ * 1. The transition is needed for "skip to main content" focus effect.
+ */
 .c-sky-nav__content {
   display: flex;
-  transition: opacity motion.$speed-quick motion.$ease-out;
+  transition: opacity motion.$speed-quick motion.$ease-out; /* 1 */
 
+  /**
+   * At narrow sizes, display content in reverse order so that the menu contents
+   * will show up first when visible. This sets us up for the "look up to the
+   * sky" effect when visible.
+   */
   @media (max-width: $_max-width-narrow) {
     flex-direction: column-reverse;
   }
 
+  /**
+   * Fade the nav content when the skip link is visible. This helps visually
+   * identify the content that will be skipped and helps the link stand out a
+   * little.
+   */
   .c-sky-nav__skip:focus ~ & {
     opacity: opacity.$muted;
   }
 }
 
+/**
+ * Containing element for the logo and menu toggle.
+ */
 .c-sky-nav__masthead {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
 
+/**
+ * The logo link element.
+ *
+ * 1. Prevents Flexbox squashing when menu items overflow.
+ * 2. We apply whitespace to this element directly so its hit area is larger
+ *    than it would be if whitespace were applied to the parent element.
+ */
 .c-sky-nav__logo {
-  flex: none;
-  padding: $_space-vertical $_space-horizontal;
+  flex: none; /* 1 */
+  padding: $_space-vertical $_space-horizontal; /* 2 */
 }
 
+/**
+ * The image asset (assumed to be an SVG) within the logo element.
+ *
+ * 1. Get rid of extra bottom space if this is left as an `inline-block`.
+ * 2. Because the logo isn't rectangular, we apply a bit of negative margin all
+ *    around for visual balance. We could subtract this value from the container
+ *    padding, but it felt easier to understand the scope of the change to me
+ *    from this element. (Though now I'm second-guessing myself...)
+ */
 .c-sky-nav__logo-object {
-  display: block;
+  display: block; /* 1 */
   fill: currentColor;
   height: auto;
-  margin: (ms.step(-6) * -1);
+  margin: (ms.step(-6) * -1); /* 2 */
   transition: opacity motion.$speed-slow motion.$ease-out,
     transform motion.$speed-quick motion.$ease-out;
   width: ms.step(8);
 
+  /**
+   * When the containing logo is hovered, scale up this element. Scaling this
+   * element instead of the parent helps avoid any accidental overflow or
+   * scrollbars.
+   */
   .c-sky-nav__logo:hover & {
     transform: scale(motion.$control-grow);
   }
 
+  /**
+   * Similar to the hover effect, except we use `opacity` to convey some depth.
+   * This is similar to the use of `filter` in the `c-button` component, except
+   * `filter` would desaturate the logo too much in this case.
+   */
   .c-sky-nav__logo:active & {
     opacity: opacity.$muted;
     transform: scale(motion.$control-shrink);
   }
 }
 
+/**
+ * An outline within the logo SVG we use to enhance its focus state.
+ *
+ * 1. Invisible by default. We could also use `visibility`, but that can be
+ *    less reliable to update and offers no performance benefits.
+ * 2. Outline color matches our buttons, inputs, etc.
+ */
 .c-sky-nav__logo-outline {
-  opacity: 0;
-  stroke: colors.$primary-brand-lighter;
+  opacity: 0; /* 1 */
+  stroke: colors.$primary-brand-lighter; /* 2 */
 }
 
+/**
+ * Expose the outline when the logo element has keyboard focus.
+ */
 .c-sky-nav__logo {
   @include focus.focus-visible {
     .c-sky-nav__logo-outline {
@@ -90,19 +165,42 @@ $_space-vertical: ms.step(-2, 1rem);
   }
 }
 
+/**
+ * The element that toggles the menu visibility at narrow widths.
+ *
+ * 1. This prevents us having to set and then override padding on the masthead
+ *    container for this one element.
+ */
 .c-sky-nav__menu-toggle {
-  margin-right: $_space-horizontal;
+  margin-right: $_space-horizontal; /* 1 */
 
+  /**
+   * Hide once the menu contents are always exposed.
+   */
   @media (min-width: $_min-width-wide) {
     display: none;
   }
 }
 
+/**
+ * Container for the list of menu links, presumably a `<nav>` element.
+ *
+ * 1. Fill available space even when contents don't require it.
+ */
 .c-sky-nav__menu {
-  flex: 1;
+  flex: 1; /* 1 */
 
-  @media (max-width: $_max-width-narrow) {
-    .t-dark & {
+  /**
+   * When these links are displayed as a stack and the dark theme is applied,
+   * darken the background as if you're looking deeper into the sky up toward
+   * spaaaaaaaaaaaace 🚀
+   *
+   * Fun fact: An earlier version of this design included twinkling stars,
+   * but they significantly decreased performance! They also made the text a
+   * little harder to read.
+   */
+  .t-dark & {
+    @media (max-width: $_max-width-narrow) {
       background-image: linear-gradient(
         to bottom,
         colors.$primary-brand-dark,
@@ -111,56 +209,121 @@ $_space-vertical: ms.step(-2, 1rem);
     }
   }
 
+  /**
+   * Once the items are arranged horizontally, we want the links therein to
+   * occupy as much height as possible. The simplest way to do that without
+   * setting a hard `height` is to make each container along the way a Flexbox.
+   */
   @media (min-width: $_min-width-wide) {
     display: flex;
   }
 
+  /**
+   * Adjustments for when items are arranged horizontally but without enough
+   * room to fit on a single row.
+   *
+   * 1. Right-align the menu items.
+   * 2. Constrain the width. This helps discourage orphans. (Cruel, I know.)
+   * 3. We apply half whitespace to this container, with the other half on the
+   *    actions themselves. This allows them to flow from one row to the next
+   *    without worrying about double whitespace or whitespace assigned to
+   *    the incorrect edge.
+   */
   @media (min-width: $_min-width-wide) and (max-width: $_max-width-wide) {
-    margin-left: auto;
-    max-width: 100% / 3 * 2;
-    padding: ($_space-vertical / 2) ($_space-horizontal / 2);
+    margin-left: auto; /* 1 */
+    max-width: 100% / 3 * 2; /* 2 */
+    padding: ($_space-vertical / 2) ($_space-horizontal / 2); /* 3 */
   }
 
+  /**
+   * When this element is wide enough to show items on a single row, the only
+   * whitespace we keep around is a bit on the rightmost side so the last
+   * element feels balanced in comparison to those to its left.
+   */
   @media (min-width: $_min-width-nowrap) {
     padding-right: ($_space-horizontal / 2);
   }
 }
 
+/**
+ * The `<ul>` element containing the actual menu items.
+ *
+ * 1. Override list defaults. To avoid issues in Safari/VoiceOver, be sure to
+ *    include `role="list"` on the element itself!
+ *
+ * @see https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+ */
 .c-sky-nav__menu-items {
-  list-style: none;
-  padding-left: 0;
+  list-style: none; /* 1 */
+  padding-left: 0; /* 1 */
 
+  /**
+   * When the layout is wide enough to expose these items…
+   *
+   * 1. Display them horizontally.
+   * 2. Fill the available space, even if it isn't necessary for the content.
+   * 3. If the content wraps or for some reason is not all the way filled, we
+   *    should right-align it.
+   */
   @media (min-width: $_min-width-wide) {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
+    display: flex; /* 1 */
+    flex: 1; /* 2 */
+    justify-content: flex-end; /* 3 */
   }
 
+  /**
+   * Before we're able to show all the items on one line, we allow them to wrap
+   * to a new line.
+   */
   @media (min-width: $_min-width-wide) and (max-width: $_max-width-wide) {
     flex-wrap: wrap;
   }
 }
 
+/**
+ * The `<li>` containing the menu action.
+ *
+ * 1. Continuing the process of setting `display: flex` on elements that began
+ *    with `c-sky-nav__menu` to retain stretchy heights.
+ */
 .c-sky-nav__menu-item {
-  display: flex;
+  display: flex; /* 1 */
 
+  /**
+   * Occupy available space but not more than the content demands relative to
+   * other items. Unlike `flex: 1`, this does not attempt to occupy the same
+   * amount of space as siblings: Longer items will get more space than shorter
+   * ones.
+   */
   @media (min-width: $_min-width-nowrap) {
     flex: 1 1 auto;
   }
 }
 
+/**
+ * The link element within the menu, though we name it `-action` just in case
+ * there's a future use case for applying these styles to a different
+ * interactive element (like a button).
+ *
+ * 1. Center contents horizontally, vertically and if text happens to break.
+ * 2. Fill available height and width.
+ * 3. Prevent accidental text selection.
+ */
 .c-sky-nav__menu-action {
-  align-items: center;
-  display: flex;
+  align-items: center; /* 1 */
+  display: flex; /* 2 */
   font-size: ms.step(1);
-  justify-content: center;
+  justify-content: center; /* 1 */
   line-height: ms.step(1, 1);
-  text-align: center;
+  text-align: center; /* 1 */
   text-decoration: none;
   transition: opacity motion.$speed-quick motion.$ease-out;
-  user-select: none;
-  width: 100%;
+  user-select: none; /* 3 */
+  width: 100%; /* 2 */
 
+  /**
+   * Displayed as a ruled stack on narrow screens
+   */
   @media (max-width: $_max-width-narrow) {
     border-bottom: sizes.$edge-small solid colors.$gray-light;
     padding: $_space-vertical $_space-horizontal;
@@ -173,25 +336,50 @@ $_space-vertical: ms.step(-2, 1rem);
     }
   }
 
+  /**
+   * Prevent text wrapping on wider screens where the items themselves are
+   * allowed to wrap.
+   */
   @media (min-width: $_min-width-wide) {
     white-space: nowrap;
   }
 
+  /**
+   * When the items are arranged horizontally but may break onto new lines,
+   * we apply half the whitespace to these actions. (The other half was applied
+   * to `c-sky-nav__menu`.)
+   */
   @media (min-width: $_min-width-wide) and (max-width: $_max-width-wide) {
     padding: ($_space-vertical / 2) ($_space-horizontal / 2);
   }
 
+  /**
+   * On wide screens, items that are not being hovered "dim" slightly
+   */
   .c-sky-nav__menu-items:hover &:not(:hover) {
-    opacity: opacity.$muted;
+    @media (min-width: $_min-width-wide) {
+      opacity: opacity.$muted;
+    }
   }
 }
 
+/**
+ * The label element is nested in the action so the focus outline may be applied
+ * to a smaller area, which gives us a clearer association with the focusable
+ * content.
+ *
+ * 1. We apply half the padding of this element as negative margin to avoid
+ *    impacting whitespace of parent elements.
+ */
 .c-sky-nav__menu-label {
   border-radius: sizes.$radius-full;
-  margin: (ms.step(-9) * -1) (ms.step(-3) * -1);
-  padding: ms.step(-9) ms.step(-3);
+  margin: ($_label-pad-vertical * -1) ($_label-pad-horizontal * -1); /* 1 */
+  padding: $_label-pad-vertical $_label-pad-horizontal;
 }
 
+/**
+ * Apply outline to label when actions are focused by keyboard.
+ */
 .c-sky-nav__menu-action {
   @include focus.focus-visible {
     .c-sky-nav__menu-label {

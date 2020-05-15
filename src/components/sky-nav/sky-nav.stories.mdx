@@ -62,3 +62,11 @@ As the primary navigation element for our site, it's imperative we think through
 - The current page action is identified using [the `aria-current` attribute](https://tink.uk/using-the-aria-current-attribute/).
 
 ## Template Properties
+
+The Twig template expects to receive an `items` array with the same structure as [`menu.items` in Timber](https://timber.github.io/docs/guides/menus/), streamlining integration with WordPress projects that use that plugin.
+
+It supports these additional properties:
+
+- `include_main_demo`: If `true`, an example `<main>` element will display below the component. This is a (hopefully temporary) fix for [a mysterious issue in Twig.js](https://github.com/twigjs/twig.js/issues/262).
+- `is_home`: If `true`, the logo link will have its `aria-current` attribute set to `page`.
+- `main_id`: The ID of the main content, used to link to said ID from `c-sky-nav__skip` and for the demo if present. Defaults to `main`.

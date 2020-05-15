@@ -9,10 +9,6 @@ import template from './sky-nav.twig';
 
 # Sky Nav
 
-<!-- This will eventually be our primary navigation component. Right now, we're just critiquing some markup updates in terms of their accessibility.
-
-We are tentatively using the same template properties as [Timber Menus](https://timber.github.io/docs/guides/menus/). -->
-
 **Note:** This component is currently a work in progress.
 
 Our primary navigation component, intended for the very top of a page layout. Its layout and behavior depends on the viewport width:
@@ -24,7 +20,7 @@ Our primary navigation component, intended for the very top of a page layout. It
 The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--dark):
 
 <Preview>
-  <Story name="Dark" height="150px" parameters={{ themes: { disable: true } }}>
+  <Story name="Dark" height="200px" parameters={{ themes: { disable: true } }}>
     {template({ class: 't-dark', include_main_demo: true, menu })}
   </Story>
 </Preview>
@@ -32,13 +28,37 @@ The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--d
 But it works without a theme, too, just in case:
 
 <Preview>
-  <Story name="Light" height="150px">
+  <Story name="Light" height="200px">
     {template({ include_main_demo: true, menu })}
   </Story>
 </Preview>
 
 ## Elements
 
+- `c-sky-nav`: A containing `<div>` element.
+- `c-sky-nav__skip`: A link to the main content area, visibly hidden until focus. Works great with [our `c-button` pattern](/?path=/docs/components-button--elements).
+- `c-sky-nav__content`: A `<header>` element representing the actual menu contents.
+- `c-sky-nav__masthead`: Containing element for the logo and menu toggle.
+- `c-sky-nav__logo`: A link to the homepage containing our logo as an inline SVG.
+- `c-sky-nav__logo-object`: The `<svg>` element itself.
+- `c-sky-nav__logo-outline`: A path within the SVG representing the focus outline.
+- `c-sky-nav__menu-toggle`: Control that toggles the menu visibility on small screens. Another great fit for `c-button`.
+- `c-sky-nav__menu`: A `<nav>` element containing the list of menu items.
+- `c-sky-nav__menu-items`: A `<ul>` containing menu items.
+- `c-sky-nav__menu-item`: An individual `<li>` containing a menu action.
+- `c-sky-nav__menu-action`: Represents a single interactive option within the menu, most likely a link.
+- `c-sky-nav_-menu-label`: Wrapper for the action's text content. Used as a hook for focus styles.
+
 ## Accessibility
+
+As the primary navigation element for our site, it's imperative we think through the accessibility implications of this component. Here are a few specific considerations we've made so far:
+
+- All interactive elements contain specially designed focus outlines. This is especially important since some browser's default outlines virtually disappear against our blue!
+- The "skip to main content" link precedes the header and navigation elements and can be used to skip them entirely. It is visually hidden until focus but always detectable by screen readers.
+- The `<header>` element includes a `role` attribute of `banner` because [it is not a direct child of the `<body>` element](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role).
+- The logo link fallback text and `<nav>` heading are defined using [visually hidden](/?path=/docs/utilities-display--hidden-visually) elements rather than attributes to improve [compatibility with translation tools](https://heydonworks.com/article/aria-label-is-a-xenophobe/).
+- The logo SVG has its `focusable` attribute set to `false` to avoid [an IE issue with SVGs nested in focusable elements](http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4).
+- The list of menu items has a `role` attribute of `list` to avoid [an issue in Safari/VoiceOver](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html).
+- The current page action is identified using [the `aria-current` attribute](https://tink.uk/using-the-aria-current-attribute/).
 
 ## Template Properties

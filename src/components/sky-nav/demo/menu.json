@@ -1,0 +1,11 @@
+{
+  "items": [
+    { "link": "/does", "title": "What We Do", "current": true },
+    { "link": "/believes", "title": "Our Approach" },
+    { "link": "/made", "title": "Our Work" },
+    { "link": "/thinks", "title": "Articles" },
+    { "link": "/presents", "title": "Speaking" },
+    { "link": "/contributes", "title": "Labs" },
+    { "link": "/is", "title": "Team" }
+  ]
+}

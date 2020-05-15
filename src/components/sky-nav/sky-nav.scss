@@ -1,22 +1,24 @@
 @use '../../design-tokens/breakpoint.yml';
 @use '../../design-tokens/colors.yml';
 @use '../../design-tokens/font.yml';
+@use '../../design-tokens/layout.yml';
 @use '../../design-tokens/motion.yml';
 @use '../../design-tokens/opacity.yml';
 @use '../../design-tokens/sizes.yml';
 @use '../../mixins/a11y';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
+@use '../../mixins/unit';
 @use 'sass:color';
 
 // Minimum viewport width where links are exposed
-$_min-width-wide: breakpoint.$m;
+$_breakpoint-wide: breakpoint.$m;
 // Minimum viewport width where links are no longer multi-line
-$_min-width-nowrap: breakpoint.$l;
+$_breakpoint-nowrap: breakpoint.$l;
 // Maximum viewport width where links are stacked and hidden initially
-$_max-width-narrow: ($_min-width-wide * 16 - 1) / 16;
+$_breakpoint-narrow-max: ($_breakpoint-wide * 16 - 1) / 16;
 // Maximum viewport width where links are multi-line
-$_max-width-wide: ($_min-width-nowrap * 16 - 1) / 16;
+$_breakpoint-wide-max: ($_breakpoint-nowrap * 16 - 1) / 16;
 
 // Whitespace used for gaps, padding and margin
 // (These use `rem` so they will be consistent throughout the component)
@@ -26,6 +28,10 @@ $_space-vertical: ms.step(-2, 1rem);
 // Padding applied to labels, used for focus outlines
 $_label-pad-horizontal: ms.step(-3);
 $_label-pad-vertical: ms.step(-9);
+
+// Use the widest standard layout `max-width` plus buffer for horizontal space
+$_max-width: #{unit.strip(layout.$max-width-spread) +
+  unit.strip($_space-horizontal * 2)}em;
 
 /**
  * Allow child elements to position themselves relative to the container.
@@ -37,15 +43,27 @@ $_label-pad-vertical: ms.step(-9);
 /**
  * "Skip to main content" link, most likely applied to a `c-button` component.
  *
- * 1. Center atop the rest of the menu content.
- * 2. Keep above links that come later in the source order.
+ * 1. Keep links that come later in the source order below this link when
+ *    visible.
  */
 .c-sky-nav__skip {
-  left: 50%; /* 1 */
-  position: absolute; /* 1 */
-  top: 50%; /* 1 */
-  transform: translate(-50%, -50%); /* 1 */
-  z-index: 1; /* 2 */
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  white-space: nowrap;
+  z-index: 1; /* 1 */
+
+  /**
+   * We want to encourage use of `c-button` with this component, but that
+   * pattern's `transform` effects may conflict with this one's positioning.
+   * To counteract this, we make sure to apply the positioning for mouse effect
+   * states.
+   */
+  &,
+  &:hover,
+  &:active {
+    transform: translate(-50%, -50%);
+  }
 
   /**
    * Only expose the link to screen readers until it is focused.
@@ -62,6 +80,8 @@ $_label-pad-vertical: ms.step(-9);
  */
 .c-sky-nav__content {
   display: flex;
+  margin: 0 auto;
+  max-width: $_max-width;
   transition: opacity motion.$speed-quick motion.$ease-out; /* 1 */
 
   /**
@@ -69,7 +89,7 @@ $_label-pad-vertical: ms.step(-9);
    * will show up first when visible. This sets us up for the "look up to the
    * sky" effect when visible.
    */
-  @media (max-width: $_max-width-narrow) {
+  @media (max-width: $_breakpoint-narrow-max) {
     flex-direction: column-reverse;
   }
 
@@ -177,7 +197,7 @@ $_label-pad-vertical: ms.step(-9);
   /**
    * Hide once the menu contents are always exposed.
    */
-  @media (min-width: $_min-width-wide) {
+  @media (min-width: $_breakpoint-wide) {
     display: none;
   }
 }
@@ -200,7 +220,7 @@ $_label-pad-vertical: ms.step(-9);
    * little harder to read.
    */
   .t-dark & {
-    @media (max-width: $_max-width-narrow) {
+    @media (max-width: $_breakpoint-narrow-max) {
       background-image: linear-gradient(
         to bottom,
         colors.$primary-brand-dark,
@@ -214,7 +234,7 @@ $_label-pad-vertical: ms.step(-9);
    * occupy as much height as possible. The simplest way to do that without
    * setting a hard `height` is to make each container along the way a Flexbox.
    */
-  @media (min-width: $_min-width-wide) {
+  @media (min-width: $_breakpoint-wide) {
     display: flex;
   }
 
@@ -229,7 +249,7 @@ $_label-pad-vertical: ms.step(-9);
    *    without worrying about double whitespace or whitespace assigned to
    *    the incorrect edge.
    */
-  @media (min-width: $_min-width-wide) and (max-width: $_max-width-wide) {
+  @media (min-width: $_breakpoint-wide) and (max-width: $_breakpoint-wide-max) {
     margin-left: auto; /* 1 */
     max-width: 100% / 3 * 2; /* 2 */
     padding: ($_space-vertical / 2) ($_space-horizontal / 2); /* 3 */
@@ -240,7 +260,7 @@ $_label-pad-vertical: ms.step(-9);
    * whitespace we keep around is a bit on the rightmost side so the last
    * element feels balanced in comparison to those to its left.
    */
-  @media (min-width: $_min-width-nowrap) {
+  @media (min-width: $_breakpoint-nowrap) {
     padding-right: ($_space-horizontal / 2);
   }
 }
@@ -265,7 +285,7 @@ $_label-pad-vertical: ms.step(-9);
    * 3. If the content wraps or for some reason is not all the way filled, we
    *    should right-align it.
    */
-  @media (min-width: $_min-width-wide) {
+  @media (min-width: $_breakpoint-wide) {
     display: flex; /* 1 */
     flex: 1; /* 2 */
     justify-content: flex-end; /* 3 */
@@ -275,7 +295,7 @@ $_label-pad-vertical: ms.step(-9);
    * Before we're able to show all the items on one line, we allow them to wrap
    * to a new line.
    */
-  @media (min-width: $_min-width-wide) and (max-width: $_max-width-wide) {
+  @media (min-width: $_breakpoint-wide) and (max-width: $_breakpoint-wide-max) {
     flex-wrap: wrap;
   }
 }
@@ -295,7 +315,7 @@ $_label-pad-vertical: ms.step(-9);
    * amount of space as siblings: Longer items will get more space than shorter
    * ones.
    */
-  @media (min-width: $_min-width-nowrap) {
+  @media (min-width: $_breakpoint-nowrap) {
     flex: 1 1 auto;
   }
 }
@@ -324,7 +344,7 @@ $_label-pad-vertical: ms.step(-9);
   /**
    * Displayed as a ruled stack on narrow screens
    */
-  @media (max-width: $_max-width-narrow) {
+  @media (max-width: $_breakpoint-narrow-max) {
     border-bottom: sizes.$edge-small solid colors.$gray-light;
     padding: $_space-vertical $_space-horizontal;
 
@@ -340,7 +360,7 @@ $_label-pad-vertical: ms.step(-9);
    * Prevent text wrapping on wider screens where the items themselves are
    * allowed to wrap.
    */
-  @media (min-width: $_min-width-wide) {
+  @media (min-width: $_breakpoint-wide) {
     white-space: nowrap;
   }
 
@@ -349,7 +369,7 @@ $_label-pad-vertical: ms.step(-9);
    * we apply half the whitespace to these actions. (The other half was applied
    * to `c-sky-nav__menu`.)
    */
-  @media (min-width: $_min-width-wide) and (max-width: $_max-width-wide) {
+  @media (min-width: $_breakpoint-wide) and (max-width: $_breakpoint-wide-max) {
     padding: ($_space-vertical / 2) ($_space-horizontal / 2);
   }
 
@@ -357,7 +377,7 @@ $_label-pad-vertical: ms.step(-9);
    * On wide screens, items that are not being hovered "dim" slightly
    */
   .c-sky-nav__menu-items:hover &:not(:hover) {
-    @media (min-width: $_min-width-wide) {
+    @media (min-width: $_breakpoint-wide) {
       opacity: opacity.$muted;
     }
   }

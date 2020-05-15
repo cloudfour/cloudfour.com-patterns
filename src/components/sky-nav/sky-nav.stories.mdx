@@ -34,16 +34,43 @@ const menu = {
   ],
 };
 
-<Meta title="Components/Sky Nav" />
+<Meta
+  title="Components/Sky Nav"
+  parameters={{ paddings: { disabled: true } }}
+/>
 
 # Sky Nav
 
-This will eventually be our primary navigation component. Right now, we're just critiquing some markup updates in terms of their accessibility.
+<!-- This will eventually be our primary navigation component. Right now, we're just critiquing some markup updates in terms of their accessibility.
 
-We are tentatively using the same template properties as [Timber Menus](https://timber.github.io/docs/guides/menus/).
+We are tentatively using the same template properties as [Timber Menus](https://timber.github.io/docs/guides/menus/). -->
+
+**Note:** This component is currently a work in progress.
+
+Our primary navigation component, intended for the very top of a page layout. Its layout and behavior depends on the viewport width:
+
+- By default, menu items are hidden until toggled. They are revealed _above_ the brand and toggle, as if looking upward toward the sky.
+- In wider viewports, menu items are visible by default. They are displayed on multiple rows as needed.
+- At even wider viewports, the menu items are displayed in a single row.
+
+The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--dark):
 
 <Preview>
-  <Story name="Markup (WIP)" parameters={{ paddings: { disabled: true } }}>
-    {template({ menu })}
+  <Story name="Dark" height="150px" parameters={{ themes: { disable: true } }}>
+    {template({ class: 't-dark', include_main_demo: true, menu })}
   </Story>
 </Preview>
+
+But it works without a theme, too, just in case:
+
+<Preview>
+  <Story name="Light" height="150px">
+    {template({ include_main_demo: true, menu })}
+  </Story>
+</Preview>
+
+## Elements
+
+## Accessibility
+
+## Template Properties

@@ -37,7 +37,7 @@
 }
 
 /**
- * Fluid font-size
+ * Fluid properties
  */
 
 @mixin font-size($min-width, $max-width, $min, $max) {
@@ -49,5 +49,22 @@
 
   @media (min-width: $max-width) {
     font-size: $max;
+  }
+}
+
+@mixin padding-block($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    padding-block-end: $min;
+    padding-block-start: $min;
+  }
+
+  @media (min-width: $min-width) {
+    padding-block-end: fluid-calc($min-width, $max-width, $min, $max);
+    padding-block-start: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    padding-block-end: $max;
+    padding-block-start: $max;
   }
 }

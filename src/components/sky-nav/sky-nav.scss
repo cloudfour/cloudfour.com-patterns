@@ -6,6 +6,7 @@
 @use '../../design-tokens/opacity.yml';
 @use '../../design-tokens/sizes.yml';
 @use '../../mixins/a11y';
+@use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
@@ -15,6 +16,9 @@
 $_breakpoint-wide: breakpoint.$m;
 // Minimum viewport width where links are no longer multi-line
 $_breakpoint-nowrap: breakpoint.$l;
+// Viewport where vertical expansion maxes out
+$_breakpoint-grow-max: breakpoint.$xxl;
+
 // Maximum viewport width where links are stacked and hidden initially
 $_breakpoint-narrow-max: ($_breakpoint-wide * 16 - 1) / 16;
 // Maximum viewport width where links are multi-line
@@ -25,6 +29,10 @@ $_breakpoint-wide-max: ($_breakpoint-nowrap * 16 - 1) / 16;
 $_space-horizontal: ms.step(1, 1rem);
 $_space-vertical: ms.step(-2, 1rem);
 
+// Additional space to apply fluidly at larger breakpoints
+$_grow-vertical-min: ms.step(-2, 1rem);
+$_grow-vertical-max: ms.step(0, 1rem);
+
 // Padding applied to labels, used for focus outlines
 $_label-pad-horizontal: ms.step(-3);
 $_label-pad-vertical: ms.step(-9);
@@ -34,10 +42,21 @@ $_max-width: #{unit.strip(layout.$max-width-spread) +
   unit.strip($_space-horizontal * 2)}em;
 
 /**
- * Allow child elements to position themselves relative to the container.
+ * 1. Allow child elements to position themselves relative to the container.
  */
 .c-sky-nav {
-  position: relative;
+  position: relative; /* 1 */
+
+  /**
+   * Fluidly add more vertical whitespace as the viewport width increases
+   */
+  @include fluid.padding-block(
+    $_breakpoint-wide,
+    $_breakpoint-grow-max,
+    $_grow-vertical-min,
+    $_grow-vertical-max,
+    false
+  );
 }
 
 /**

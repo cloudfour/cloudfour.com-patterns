@@ -37,14 +37,18 @@ You can also add `c-input` to `<select>` elements, in which case you’ll get a 
 
 ## Elastic textarea
 
-Add `js-ElasticTextarea` to a `<textarea>` element to have it expand as the user types more than will fit.
+Add `js-elastic-textarea` to a `<textarea>` element to have it expand as the user types more than will fit.
 
 If the `rows` attribute is set, it will be used as the minimum height.
 
 <Preview>
   <Story name="Elastic Textarea" height="200px">
     {textDemo({
-      type: select('type', ['text', 'email', 'search', 'date', 'textarea'], 'textarea'),
+      type: select(
+        'type',
+        ['text', 'email', 'search', 'date', 'textarea'],
+        'textarea'
+      ),
       value: text('value', 'a\nb\nc\nd\ne'),
       placeholder: text('placeholder', 'Placeholder text…'),
       id: text('id', 'demo-elastic'),

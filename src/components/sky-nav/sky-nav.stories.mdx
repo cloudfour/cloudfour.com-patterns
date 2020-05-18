@@ -55,7 +55,6 @@ As the primary navigation element for our site, it's imperative we think through
 
 - All interactive elements contain specially designed focus outlines. This is especially important since some browser's default outlines virtually disappear against our blue!
 - The "skip to main content" link precedes the header and navigation elements and can be used to skip them entirely. It is visually hidden until focus but always detectable by screen readers.
-- The `<header>` element includes a `role` attribute of `banner` because [it is not a direct child of the `<body>` element](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role).
 - The logo link fallback text and `<nav>` heading are defined using [visually hidden](/?path=/docs/utilities-display--hidden-visually) elements rather than attributes to improve [compatibility with translation tools](https://heydonworks.com/article/aria-label-is-a-xenophobe/).
 - The logo SVG has its `focusable` attribute set to `false` to avoid [an IE issue with SVGs nested in focusable elements](http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4).
 - The list of menu items has a `role` attribute of `list` to avoid [an issue in Safari/VoiceOver](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html).
@@ -68,5 +67,6 @@ The Twig template expects to receive an `items` array with the same structure as
 It supports these additional properties:
 
 - `include_main_demo`: If `true`, an example `<main>` element will display below the component. This is a (hopefully temporary) fix for [a mysterious issue in Twig.js](https://github.com/twigjs/twig.js/issues/262).
+- `include_role`: If `true`, the `<header>` element will include a `role` attribute set to `banner`. This should not be necessary unless this component is nested in an `article`, `aside`, `main`, `nav` or `section` ([more info](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/banner.html)).
 - `is_home`: If `true`, the logo link will have its `aria-current` attribute set to `page`.
 - `main_id`: The ID of the main content, used to link to said ID from `c-sky-nav__skip` and for the demo if present. Defaults to `main`.

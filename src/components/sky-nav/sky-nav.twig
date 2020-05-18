@@ -12,10 +12,12 @@
     {% endblock %}
   {% endembed %}
   {#
-    Requires `role="banner"` if nested in something other than `body`.
+    Requires `role="banner"` if nested in a sectioning element other than
+    `body`, including `article`, `aside`, `main`, `nav` or `section`.
+    https://www.w3.org/TR/wai-aria-practices/examples/landmarks/banner.html
     https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role
   #}
-  <header class="c-sky-nav__content" role="banner">
+  <header class="c-sky-nav__content"{% if include_role %} role="banner"{% endif %}>
     <div class="c-sky-nav__masthead">
       <a class="c-sky-nav__logo" href="/"{% if is_home %} aria-current="page"{% endif %}>
         {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}

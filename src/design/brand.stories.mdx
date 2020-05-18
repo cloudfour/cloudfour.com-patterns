@@ -1,24 +1,18 @@
-import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
-import { extname, relative } from 'path';
-// Import whole directory of icons together
-// @see https://webpack.js.org/guides/dependency-management/#context-module-api
-const logoDir = require.context('../assets/brand', true, /\.svg$/);
-const logoElements = logoDir.keys().map((key) => {
-  const Logo = logoDir(key).default;
-  // Retains subdirectory if we want to organize with those in the future
-  const name = relative('.', key).replace(extname(key), '');
-  return (
-    <IconItem name={name}>
-      <Logo class="c-icon" />
-    </IconItem>
-  );
-});
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+// Importing a `.svg` directly, results in a failed build and importing
+// the `.svg.twig` file causes linting errors (since they are not tracked).
+// Therefore, we must track a twig file to satisfy CI.
+import brandLogo from './demo/logo.twig';
 
 <Meta title="Design/Brand" />
 
 # Logo
 
-Cloud Four logo in SVG format. The logo color can be modified via the CSS
+Cloud Four logo in SVG format. The logo fill color can be modified via the CSS
 `color` property.
 
-<IconGallery>{logoElements}</IconGallery>
+<Preview>
+  <Story name="Logo" height="175px">
+    {brandLogo}
+  </Story>
+</Preview>

@@ -4,7 +4,7 @@ import { useEffect } from '@storybook/client-api';
 import textDemo from './demo/example.twig';
 import selectDemo from './demo/select.twig';
 import './demo/styles.scss';
-import { elasticTextarea } from './input.ts';
+import { createElasticTextarea } from './input.ts';
 
 <Meta title="Components/Input" decorators={[withKnobs]} />
 
@@ -43,18 +43,27 @@ Add `js-elastic-textarea` to a `<textarea>` element to have it expand as the use
 If the `rows` attribute is set, it will be used as the minimum height.
 
 <Preview>
-  <Story name="Elastic Textarea Demo" height="200px">
+  <Story name="Elastic Textarea" height="200px">
     {() => {
       /*
        * Use storybook hooks to trigger JS after story renders
        * @see https://github.com/storybookjs/storybook/issues/7786
        */
       useEffect(() => {
-        const elasticTextareas = document.querySelectorAll(
+        // Select all the elastic textarea elements
+        const elasticTextareaNodeList = document.querySelectorAll(
           '.js-elastic-textarea'
         );
-        elasticTextareas.forEach(() => {
-          elasticTextarea('YO!');
+        // Run the create function on each element, save as array
+        const elasticTextareaArray = [...elasticTextareaNodeList].map(
+          (textarea) => {
+            return createElasticTextarea(textarea);
+          }
+        );
+        // Destroy the elastic text areas
+        // TODO: remove this once validated this works
+        elasticTextareaArray.forEach((textarea) => {
+          textarea.destroy();
         });
       }, []);
       return textDemo({

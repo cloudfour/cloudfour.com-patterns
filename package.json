@@ -63,7 +63,7 @@
     "eslint": "7.0.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-mdx": "1.6.9",
-    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react": "7.20.0",
     "gulp": "4.0.2",
     "gulp-postcss": "8.0.0",
     "gulp-prettier": "3.0.0",

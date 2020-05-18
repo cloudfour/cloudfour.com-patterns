@@ -24,3 +24,7 @@ You can add the pattern library package as a dependency to your JavaScript appli
 ```
 npm install @cloudfour/patterns
 ```
+
+## Contributing
+
+To learn how to run this project locally, modify existing patterns, or create new ones, please see the [contribution guidelines for this project](CONTRIBUTING.md).

@@ -27,4 +27,4 @@ npm install @cloudfour/patterns
 
 ## Contributing
 
-Please see the [contribution guidelines for this project](CONTRIBUTING.md).
+To learn how to run this project locally, modify existing patterns, or create new ones, please see the [contribution guidelines for this project](CONTRIBUTING.md).

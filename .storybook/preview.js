@@ -47,7 +47,7 @@ const orderedCategories = [
   'Components',
   'Themes',
   'Utilities',
-  'Third-Party',
+  'Vendors',
   'Prototypes',
 ];
 

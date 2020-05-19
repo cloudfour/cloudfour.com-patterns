@@ -1,47 +1,72 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import menu from './demo/menu.json';
 import template from './sky-nav.twig';
-const menu = {
-  items: [
-    {
-      link: '/does',
-      title: 'What We Do',
-      current: true,
-    },
-    {
-      link: '/believes',
-      title: 'Our Approach',
-    },
-    {
-      link: '/made',
-      title: 'Our Work',
-    },
-    {
-      link: '/thinks',
-      title: 'Articles',
-    },
-    {
-      link: '/presents',
-      title: 'Speaking',
-    },
-    {
-      link: '/contributes',
-      title: 'Labs',
-    },
-    {
-      link: '/is',
-      title: 'Team',
-    },
-  ],
-};
 
-<Meta title="Components/Sky Nav" />
+<Meta
+  title="Components/Sky Nav"
+  parameters={{ paddings: { disabled: true } }}
+/>
 
 # Sky Nav
 
-This will eventually be our primary navigation component. Right now, we're just critiquing some markup updates in terms of their accessibility.
+**Note:** This component is currently a work in progress.
 
-We are tentatively using the same template properties as [Timber Menus](https://timber.github.io/docs/guides/menus/).
+Our primary navigation component, intended for the very top of a page layout. Its layout and behavior depends on the viewport width:
+
+- By default, menu items are hidden until toggled. They are revealed _above_ the brand and toggle, as if looking upward toward the sky.
+- In wider viewports, menu items are visible by default. They are displayed on multiple rows as needed.
+- At even wider viewports, the menu items are displayed in a single row.
+
+The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--dark):
 
 <Preview>
-  <Story name="Markup (WIP)">{template({ menu })}</Story>
+  <Story name="Dark" height="200px" parameters={{ themes: { disable: true } }}>
+    {template({ class: 't-dark', include_main_demo: true, menu })}
+  </Story>
 </Preview>
+
+But it works without a theme, too, just in case:
+
+<Preview>
+  <Story name="Light" height="200px">
+    {template({ include_main_demo: true, menu })}
+  </Story>
+</Preview>
+
+## Elements
+
+- `c-sky-nav`: A containing `<div>` element.
+- `c-sky-nav__skip`: A link to the main content area, visibly hidden until focus. Works great with [our `c-button` pattern](/?path=/docs/components-button--elements).
+- `c-sky-nav__content`: A `<header>` element representing the actual menu contents.
+- `c-sky-nav__masthead`: Containing element for the logo and menu toggle.
+- `c-sky-nav__logo`: A link to the homepage containing our logo as an inline SVG.
+- `c-sky-nav__logo-object`: The `<svg>` element itself.
+- `c-sky-nav__logo-outline`: A path within the SVG representing the focus outline.
+- `c-sky-nav__menu-toggle`: Control that toggles the menu visibility on small screens. Another great fit for `c-button`.
+- `c-sky-nav__menu`: A `<nav>` element containing the list of menu items.
+- `c-sky-nav__menu-items`: A `<ul>` containing menu items.
+- `c-sky-nav__menu-item`: An individual `<li>` containing a menu action.
+- `c-sky-nav__menu-action`: Represents a single interactive option within the menu, most likely a link.
+- `c-sky-nav_-menu-label`: Wrapper for the action's text content. Used as a hook for focus styles.
+
+## Accessibility
+
+As the primary navigation element for our site, it's imperative we think through the accessibility implications of this component. Here are a few specific considerations we've made so far:
+
+- All interactive elements contain specially designed focus outlines. This is especially important since some browser's default outlines virtually disappear against our blue!
+- The "skip to main content" link precedes the header and navigation elements and can be used to skip them entirely. It is visually hidden until focus but always detectable by screen readers.
+- The logo link fallback text and `<nav>` heading are defined using [visually hidden](/?path=/docs/utilities-display--hidden-visually) elements rather than attributes to improve [compatibility with translation tools](https://heydonworks.com/article/aria-label-is-a-xenophobe/).
+- The logo SVG has its `focusable` attribute set to `false` to avoid [an IE issue with SVGs nested in focusable elements](http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4).
+- The list of menu items has a `role` attribute of `list` to avoid [an issue in Safari/VoiceOver](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html).
+- The current page action is identified using [the `aria-current` attribute](https://tink.uk/using-the-aria-current-attribute/).
+
+## Template Properties
+
+The Twig template expects to receive an `items` array with the same structure as [`menu.items` in Timber](https://timber.github.io/docs/guides/menus/), streamlining integration with WordPress projects that use that plugin.
+
+It supports these additional properties:
+
+- `include_main_demo`: If `true`, an example `<main>` element will display below the component. This is a (hopefully temporary) fix for [a mysterious issue in Twig.js](https://github.com/twigjs/twig.js/issues/262).
+- `include_role`: If `true`, the `<header>` element will include a `role` attribute set to `banner`. This should not be necessary unless this component is nested in an `article`, `aside`, `main`, `nav` or `section` ([more info](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/banner.html)).
+- `is_home`: If `true`, the logo link will have its `aria-current` attribute set to `page`.
+- `main_id`: The ID of the main content, used to link to said ID from `c-sky-nav__skip` and for the demo if present. Defaults to `main`.

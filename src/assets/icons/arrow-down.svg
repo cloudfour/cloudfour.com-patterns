@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-  <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="rotate(90 12 12)">
-    <polyline points="15 5 22 12 15 19"/>
-    <line x1="20" y1="12" x2="2" y2="12"/>
+  <g fill="none" stroke-width="4" stroke-linecap="round"
+     stroke-linejoin="round">
+    <polyline points="18.3 14.7 12 21 5.7 14.7"/>
+    <line x1="12" y1="19.2" x2="12" y2="3"/>
   </g>
 </svg>

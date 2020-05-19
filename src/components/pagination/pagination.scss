@@ -154,14 +154,14 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__action.is-previous::before {
   background-image: svg-load(
     'icons/arrow-left.svg',
-    color=colors.$primary-brand
+    stroke=colors.$primary-brand
   );
   left: 0;
 
   .t-dark & {
     background-image: svg-load(
       'icons/arrow-left.svg',
-      color=colors.$text-light-emphasis
+      stroke=colors.$text-light-emphasis
     );
   }
 }
@@ -169,14 +169,14 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__action.is-next::after {
   background-image: svg-load(
     'icons/arrow-right.svg',
-    color=colors.$primary-brand
+    stroke=colors.$primary-brand
   );
   right: 0;
 
   .t-dark & {
     background-image: svg-load(
       'icons/arrow-right.svg',
-      color=colors.$text-light-emphasis
+      stroke=colors.$text-light-emphasis
     );
   }
 }

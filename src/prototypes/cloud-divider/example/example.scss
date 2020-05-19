@@ -1,0 +1,95 @@
+@use "../../../design-tokens/breakpoint.yml";
+@use "../../../mixins/ms";
+
+/**
+ * Wrap entire prototype in selector to prevent CSS leakage.
+ *
+ * @see https://github.com/storybookjs/storybook/issues/729
+ */
+
+#prototype-clouds {
+  .clouds {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    overflow: hidden;
+
+    .side {
+      align-items: flex-end;
+      display: flex;
+      flex: 1;
+      justify-content: flex-start;
+      margin-bottom: -0.5em;
+      max-width: 25em;
+
+      @media (min-width: breakpoint.$m) {
+        margin-bottom: -1em;
+      }
+    }
+
+    .left {
+      flex-direction: row;
+      margin-right: -4%;
+
+      @media (min-width: breakpoint.$m) {
+        margin-right: 0;
+      }
+
+      .cloud:first-of-type {
+        margin-left: -6%;
+        width: 60%;
+      }
+
+      .cloud:nth-of-type(2) {
+        margin-bottom: -0.25em;
+        margin-left: -15%;
+        width: 40%;
+      }
+
+      .cloud:last-of-type {
+        margin-left: -5%;
+        width: 25%;
+      }
+    }
+
+    .right {
+      flex-direction: row-reverse;
+      margin-left: -4%;
+
+      @media (min-width: breakpoint.$m) {
+        margin-left: 0;
+      }
+
+      .cloud:first-of-type {
+        margin-bottom: -0.15em;
+        margin-right: -8%;
+        width: 60%;
+      }
+
+      .cloud:nth-of-type(2) {
+        margin-right: -15%;
+        margin-top: -0.2em;
+        width: 42%;
+      }
+
+      .cloud:last-of-type {
+        margin-right: -8%;
+        width: 20%;
+      }
+    }
+
+    .top {
+      z-index: 300;
+    }
+
+    .middle {
+      z-index: 200;
+    }
+
+    .back {
+      z-index: 100;
+    }
+  }
+}

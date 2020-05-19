@@ -8,7 +8,7 @@
  */
 
 #prototype-clouds {
-  .clouds {
+  .p-clouds {
     align-items: flex-end;
     display: flex;
     flex-direction: row;
@@ -16,7 +16,7 @@
     margin-bottom: 2em;
     overflow: hidden;
 
-    .side {
+    .p-clouds__side {
       align-items: flex-end;
       display: flex;
       flex: 1;
@@ -29,7 +29,7 @@
       }
     }
 
-    .left {
+    .p-clouds__side--left {
       flex-direction: row;
       margin-right: -4%;
 
@@ -37,24 +37,24 @@
         margin-right: 0;
       }
 
-      .cloud:first-of-type {
+      .p-cloud:first-of-type {
         margin-left: -6%;
         width: 60%;
       }
 
-      .cloud:nth-of-type(2) {
+      .p-cloud:nth-of-type(2) {
         margin-bottom: -0.25em;
         margin-left: -15%;
         width: 40%;
       }
 
-      .cloud:last-of-type {
+      .p-cloud:last-of-type {
         margin-left: -5%;
         width: 25%;
       }
     }
 
-    .right {
+    .p-clouds__side--right {
       flex-direction: row-reverse;
       margin-left: -4%;
 
@@ -62,33 +62,33 @@
         margin-left: 0;
       }
 
-      .cloud:first-of-type {
+      .p-cloud:first-of-type {
         margin-bottom: -0.15em;
         margin-right: -8%;
         width: 60%;
       }
 
-      .cloud:nth-of-type(2) {
+      .p-cloud:nth-of-type(2) {
         margin-right: -15%;
         margin-top: -0.2em;
         width: 42%;
       }
 
-      .cloud:last-of-type {
+      .p-cloud:last-of-type {
         margin-right: -8%;
         width: 20%;
       }
     }
 
-    .top {
+    .p-top {
       z-index: 300;
     }
 
-    .middle {
+    .p-middle {
       z-index: 200;
     }
 
-    .back {
+    .p-back {
       z-index: 100;
     }
   }

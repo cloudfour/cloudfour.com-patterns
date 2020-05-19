@@ -13,6 +13,7 @@
     'size',
     'min',
     'max',
+    'rows',
     'step'] %}
     {% set attribute_value = attribute(_context, attribute_name) %}
     {% if attribute_value %}{{attribute_name}}="{{attribute_value}}"{% endif %}

@@ -60,16 +60,9 @@ If the `rows` attribute is set, it will be used as the minimum height.
         const elasticTextareaNodeList = document.querySelectorAll(
           '.js-elastic-textarea'
         );
-        // Run the create function on each element, save as array
-        const elasticTextareaArray = [...elasticTextareaNodeList].map(
-          (textarea) => {
-            return createElasticTextarea(textarea);
-          }
-        );
-        // Destroy the elastic text areas
-        // TODO: remove this once validated this works
-        elasticTextareaArray.forEach((textarea) => {
-          textarea.destroy();
+        // Run the create function on each element
+        [...elasticTextareaNodeList].map((textarea) => {
+          return createElasticTextarea(textarea);
         });
       }, []);
       return textDemo({

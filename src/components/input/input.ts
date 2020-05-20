@@ -3,18 +3,18 @@
  *
  * Increases the `rows` attribute of a `textarea` until it no longer scrolls.
  *
- * @param {HTMLTextAreaElement} element - the target `textarea` element
+ * @param {HTMLTextAreaElement} textarea - the target `textarea` element
  */
-const growElasticTextArea = (element: HTMLTextAreaElement) => {
-  const minRows = Number(element.dataset.minRows);
-  let rows = Number(element.getAttribute('rows')) || minRows;
-  let isScrolling = element.scrollHeight > element.clientHeight;
+const growElasticTextArea = (textarea: HTMLTextAreaElement) => {
+  const minRows = Number(textarea.dataset.minRows);
+  let rows = Number(textarea.getAttribute('rows')) || minRows;
+  let isScrolling = textarea.scrollHeight > textarea.clientHeight;
 
   // Grow until we stop scrolling
   while (isScrolling) {
     rows += 1;
-    element.setAttribute('rows', String(rows));
-    isScrolling = element.scrollHeight > element.clientHeight;
+    textarea.setAttribute('rows', String(rows));
+    isScrolling = textarea.scrollHeight > textarea.clientHeight;
   }
 };
 
@@ -23,22 +23,22 @@ const growElasticTextArea = (element: HTMLTextAreaElement) => {
  *
  * Decreases the `rows` attribute of a `textarea` until it begins scrolling.
  *
- * @param {HTMLTextAreaElement} element - the target `textarea` element
+ * @param {HTMLTextAreaElement} textarea - the target `textarea` element
  */
-const shrinkElasticTextArea = (element: HTMLTextAreaElement) => {
-  const minRows = Number(element.dataset.minRows);
-  let rows = Number(element.getAttribute('rows')) || minRows;
-  let isScrolling = element.scrollHeight > element.clientHeight;
+const shrinkElasticTextArea = (textarea: HTMLTextAreaElement) => {
+  const minRows = Number(textarea.dataset.minRows);
+  let rows = Number(textarea.getAttribute('rows')) || minRows;
+  let isScrolling = textarea.scrollHeight > textarea.clientHeight;
 
   // Shrink until we hit the minimum rows or start scrolling
   for (let i = rows; i >= minRows; i--) {
     rows = i;
-    element.setAttribute('rows', String(Math.max(rows, minRows)));
-    isScrolling = element.scrollHeight > element.clientHeight;
+    textarea.setAttribute('rows', String(Math.max(rows, minRows)));
+    isScrolling = textarea.scrollHeight > textarea.clientHeight;
 
     // If we're scrolling, then we shrank too much, so grow a bit and stop
     if (isScrolling) {
-      growElasticTextArea(element);
+      growElasticTextArea(textarea);
       break;
     }
   }
@@ -50,24 +50,24 @@ const shrinkElasticTextArea = (element: HTMLTextAreaElement) => {
  * When a textarea is updated, compares the new value to the previous value
  * (from a dataset attribute) to determine whether to grow or shrink.
  *
- * @param {HTMLTextAreaElement} element - the target `textarea` element
+ * @param {Event} event - the input event on the target `textarea`
  */
-const updateElasticTextArea = ({ target }: { target: HTMLTextAreaElement }) => {
-  console.log('UPDATE ELASTIC TEXT AREA', typeof target);
-  const lastValue = target.dataset.lastValue || '';
-  const newValue = target.value;
+const updateElasticTextArea = (event: Event) => {
+  const textarea = event.target as HTMLTextAreaElement;
+  const lastValue = textarea.dataset.lastValue || '';
+  const newValue = textarea.value;
 
   // Check whether to grow or shrink
   if (newValue.length > lastValue.length) {
     console.log('GROW');
-    growElasticTextArea(target);
+    growElasticTextArea(textarea);
   } else {
     console.log('SHRINK');
-    shrinkElasticTextArea(target);
+    shrinkElasticTextArea(textarea);
   }
 
   // Save the new value for comparing
-  target.dataset.lastValue = newValue;
+  textarea.dataset.lastValue = newValue;
 };
 
 /**
@@ -78,30 +78,28 @@ const updateElasticTextArea = ({ target }: { target: HTMLTextAreaElement }) => {
  * an event listener. Returns an object containing the `destroy()` method to
  * remove the event listener.
  *
- * @param {HTMLTextAreaElement} element - the target `textarea` element
+ * @param {HTMLTextAreaElement} textarea - the target `textarea` element
  * @returns {object} object containing a `destroy()` method
  */
-export const createElasticTextarea = (element: HTMLTextAreaElement) => {
-  console.log('CREATE ELASTIC TEXTAREA');
-
+export const createElasticTextarea = (textarea: HTMLTextAreaElement) => {
   // Save the current value for comparing
-  element.dataset.lastValue = element.value || '';
+  textarea.dataset.lastValue = textarea.value || '';
 
   // Set the minimum rows to the initial `rows` value or 2
-  element.dataset.minRows = element.getAttribute('rows') || '2';
+  textarea.dataset.minRows = textarea.getAttribute('rows') || '2';
 
   // Add an event listener to run the update function after input events
-  element.addEventListener('input', updateElasticTextArea);
+  textarea.addEventListener('input', updateElasticTextArea);
 
   // Fire an input event to set the initial size correctly
-  element.dispatchEvent(new Event('input'));
+  textarea.dispatchEvent(new Event('input'));
 
   // Return an object with the destroy method
   // so users can remove the event listener if needed
   return {
     destroy() {
       console.log('DESTROY ELASTIC TEXTAREA');
-      element.removeEventListener('input', updateElasticTextArea);
+      textarea.removeEventListener('input', updateElasticTextArea);
     },
   };
 };

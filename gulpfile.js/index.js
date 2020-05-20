@@ -10,8 +10,5 @@ module.exports = {
   svgToTwig: require('./tasks/svg-to-twig'),
   buildSass: require('./tasks/build-sass'),
   buildJS: require('./tasks/build-scripts').buildJS,
-  // BuildTypes: require('./tasks/build-scripts').buildTypes,
-  // This is currently an empty function, because the buildTypes task fails if there are no types to build
-  // Once we add TS files with types, the empty function should be removed, and the above line should be un-commented
   buildTypes: require('./tasks/build-scripts').buildTypes,
 };

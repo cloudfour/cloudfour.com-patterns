@@ -50,6 +50,12 @@ const shrinkElasticTextArea = (textarea: HTMLTextAreaElement) => {
  * When a textarea is updated, compares the new value to the previous value
  * (from a dataset attribute) to determine whether to grow or shrink.
  *
+ * Note: Ideally we'd destructure `event.target` from the parameters and declare
+ * the type directly, since we don't care about the rest of the `event` object.
+ * Unfortunately, that caused some TS problems. If someone finds a solution,
+ * we should update this function to take `{target}` as the only parameter.
+ * @see https://stackoverflow.com/a/28900856/4898045
+ *
  * @param {Event} event - the input event on the target `textarea`
  */
 const updateElasticTextArea = (event: Event) => {

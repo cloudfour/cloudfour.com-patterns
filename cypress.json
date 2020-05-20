@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
+  "testFiles": "**/*.cypress.ts",
+  "experimentalComponentTesting": true,
+  "componentFolder": "src",
+  "supportFile": "cypress/support/index.ts",
+  "video": false
+}

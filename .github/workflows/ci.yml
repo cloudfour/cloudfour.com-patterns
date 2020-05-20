@@ -70,3 +70,12 @@ jobs:
         run: npm run preprocess
       - name: Run Build
         run: npm run build
+
+  test:
+    cypress-run:
+      runs-on: ubuntu-16.04 # https://github.com/cypress-io/github-action#important - there is a warning here, if it gets removed, this can switch to ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v1
+        - name: Cypress run
+          uses: cypress-io/github-action@v1 # (Includes npm install)

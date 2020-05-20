@@ -59,10 +59,8 @@ const updateElasticTextArea = (event: Event) => {
 
   // Check whether to grow or shrink
   if (newValue.length > lastValue.length) {
-    console.log('GROW');
     growElasticTextArea(textarea);
   } else {
-    console.log('SHRINK');
     shrinkElasticTextArea(textarea);
   }
 
@@ -98,7 +96,6 @@ export const createElasticTextarea = (textarea: HTMLTextAreaElement) => {
   // so users can remove the event listener if needed
   return {
     destroy() {
-      console.log('DESTROY ELASTIC TEXTAREA');
       textarea.removeEventListener('input', updateElasticTextArea);
     },
   };

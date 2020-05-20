@@ -97,15 +97,18 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   // Fire an input event to set the initial size correctly
   textarea.dispatchEvent(new Event('input'));
 
+  /**
+   * Destroy Elastic TextArea
+   *
+   * Removes the event listener from the textarea
+   */
+  const destroy = () => {
+    textarea.removeEventListener('input', updateElasticTextArea);
+  };
+
   // Return an object with the destroy method
   // so users can remove the event listener if needed
   return {
-    /**
-     * Destroy Elastic TextArea
-     * Removes the event listener from the textarea
-     */
-    destroy() {
-      textarea.removeEventListener('input', updateElasticTextArea);
-    },
+    destroy,
   };
 };

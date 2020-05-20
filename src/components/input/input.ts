@@ -85,7 +85,7 @@ const updateElasticTextArea = (event: Event) => {
  * @param {HTMLTextAreaElement} textarea - the target `textarea` element
  * @returns {object} object containing a `destroy()` method
  */
-export const createElasticTextarea = (textarea: HTMLTextAreaElement) => {
+export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   // Save the current value for comparing
   textarea.dataset.lastValue = textarea.value || '';
 

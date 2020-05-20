@@ -10,7 +10,7 @@ import { useEffect } from '@storybook/client-api';
 import textDemo from './demo/example.twig';
 import selectDemo from './demo/select.twig';
 import './demo/styles.scss';
-import { createElasticTextarea } from './input.ts';
+import { createElasticTextArea } from './input.ts';
 
 <Meta title="Components/Input" decorators={[withKnobs]} />
 
@@ -44,26 +44,26 @@ You can also add `c-input` to `<select>` elements, in which case you’ll get a 
 
 ## Elastic textarea
 
-Add `js-elastic-textarea` to a `<textarea>` element to have it expand as the user types more than will fit.
+Add `js-elastic-textarea` to a `<textarea>` element\* to have it expand as the user types more than will fit.
 
 If the `rows` attribute is set, it will be used as the minimum height.
 
-TODO: Add JS Documentation!!!
+<p>
+  <small>* see also the JavaScript usage notes below</small>
+</p>
 
 <Preview>
-  <Story name="Elastic Textarea" height="200px">
+  <Story name="Elastic Textarea" height="350px">
     {() => {
       // Use storybook hooks to trigger JS after story renders
       // @see https://github.com/storybookjs/storybook/issues/7786
       useEffect(() => {
-        // Select all the elastic textarea elements
-        const elasticTextareaNodeList = document.querySelectorAll(
-          '.js-elastic-textarea'
+        // Select all elastic textarea elements, run create function on each
+        [...document.querySelectorAll('.js-elastic-textarea')].map(
+          (textarea) => {
+            return createElasticTextArea(textarea);
+          }
         );
-        // Run the create function on each element
-        [...elasticTextareaNodeList].map((textarea) => {
-          return createElasticTextarea(textarea);
-        });
       }, []);
       return textDemo({
         type: select(
@@ -80,3 +80,25 @@ TODO: Add JS Documentation!!!
     }}
   </Story>
 </Preview>
+
+### JavaScript Usage
+
+Once you have added the `js-elastic-textarea` class to your `textarea` element, you'll also need to add some JavaScript that runs after the page loads, like so:
+
+```js
+// Select all elastic textarea elements, run create function on each
+const elasticTextAreas = [
+  ...document.querySelectorAll('.js-elastic-textarea'),
+].map((textarea) => {
+  return createElasticTextArea(textarea);
+});
+```
+
+The `createElasticTextArea` function adds an event listener to the `textarea`, allowing it to respond to user input by growing or shrinking as needed. It returns an object containing a `destroy()` method, if you need to remove the event listener.
+
+```js
+// Remove event listeners from the elastic text areas
+elasticTextAreas.forEach((textarea) => {
+  textarea.destroy();
+});
+```

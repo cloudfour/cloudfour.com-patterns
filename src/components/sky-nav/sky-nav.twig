@@ -1,49 +1,85 @@
-{# https://webaim.org/techniques/skipnav/ #}
-<a href="#main">
-  Skip to main content
-</a>
+{% set main_id = main_id|default('main') %}
+{% set _main_href = '#' ~ main_id %}
+
+<div class="c-sky-nav{% if class %} {{class}}{% endif %}">
+  {# https://webaim.org/techniques/skipnav/ #}
+  {% embed '../button/button.twig' with {
+    class: 'c-sky-nav__skip',
+    href: _main_href
+  } only %}
+    {% block content %}
+      Skip to main content
+    {% endblock %}
+  {% endembed %}
+  {#
+    Requires `role="banner"` if nested in a sectioning element other than
+    `body`, including `article`, `aside`, `main`, `nav` or `section`.
+    https://www.w3.org/TR/wai-aria-practices/examples/landmarks/banner.html
+    https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role
+  #}
+  <header class="c-sky-nav__content"{% if include_role %} role="banner"{% endif %}>
+    <div class="c-sky-nav__masthead">
+      <a class="c-sky-nav__logo" href="/"{% if is_home %} aria-current="page"{% endif %}>
+        {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
+        <span class="u-hidden-visually">Home: Cloud Four</span>
+        {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
+        <svg class="c-sky-nav__logo-object"
+          width="72" height="54" viewBox="0 0 540 405"
+          focusable="false">
+          <path class="c-sky-nav__logo-outline" d="M522,222.27c0-56.15-29.26-86.06-53.77-101.27a143.05,143.05,0,0,0-47-18.32,136.88,136.88,0,0,0-38.78-40.13,172.65,172.65,0,0,0-45.52-21.86,225,225,0,0,0-65.42-10.32c-1.68,0-2.82,0-3.33.05-33.55,0-63.06,5.63-87.72,16.67-20.21,9-37.2,21.71-50.48,37.64a126.67,126.67,0,0,0-25.32,48.67,168.25,168.25,0,0,0-39.44,22.17C34.32,179.13,18,210.4,18,246c0,50.48,26.12,88.79,75.52,110.79,34.93,15.54,69.42,17.44,72.62,17.59,1,.06,5.12.31,11.63.31,21.17,0,74.58-2.73,126.06-27.23a105.14,105.14,0,0,0,56.7,16.43c1.41,0,2.85,0,4.26-.08s2.92.09,4.37.09a103.41,103.41,0,0,0,68.15-25.51C473,331.32,499,309.12,512.47,274A147.44,147.44,0,0,0,522,222.27Z" fill="none" stroke-miterlimit="10" stroke-width="24"/>
+          <path d="M165,264.82a87.23,87.23,0,0,1-38.2-45.8,37.25,37.25,0,0,1,10.4-20c9.6-11,121.4-132.6,168.8-153.4a233.3,233.3,0,0,0-37.6-3.2c-140,0-153.4,100-153.4,100s-85,26-85,103.6c0,111,136.8,116.4,136.8,116.4a307,307,0,0,0,43.2-1.6,25.81,25.81,0,0,0,17.8-14.2c8.2-20,20-51.8,31.6-85.2C214,263.62,170,265.82,165,264.82Z"/>
+          <path d="M510,222.42c0-98.2-96.2-108.8-96.2-108.8a122.12,122.12,0,0,0-42.8-44c-8.6,30.6-30.8,112.2-32,127.6h33.6s5.4,0,4,6.6c-3.2,15-11.6,51.6-29.6,52.8l-23.6,1.4c-6.6,27-13.6,55.2-18.6,75.6a94,94,0,0,0,60,18.2,91.81,91.81,0,0,0,67-24.6C512.79,313.62,510,222.42,510,222.42Z"/>
+          <path d="M307.79,99.62A846.59,846.59,0,0,0,208,202.42l72.2-2.8c14.8-41.6,27.6-78.6,33.2-94.8A6,6,0,0,0,307.79,99.62Z"/>
+        </svg>
+      </a>
+      {% embed '../button/button.twig' with {
+        class: 'c-sky-nav__menu-toggle'
+      } only %}
+        {% block content %}
+          <span class="u-hidden-visually">Toggle Main</span>
+          Menu
+        {% endblock %}
+      {% endembed %}
+    </div>
+    <nav class="c-sky-nav__menu" aria-labelledby="menu-label">
+      <h2 id="menu-label" class="u-hidden-visually">
+        Main Menu
+      </h2>
+      {#
+        Preemptively adding `role="list"` since we will be removing list styles
+        via CSS
+        https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+      #}
+      <ul class="c-sky-nav__menu-items" role="list">
+        {% for item in menu.items %}
+          <li class="c-sky-nav__menu-item">
+            <a class="c-sky-nav__menu-action"
+              href="{{item.link}}"
+              {% if item.current %}
+                aria-current="page"
+              {% endif %}>
+              <span class="c-sky-nav__menu-label">
+                {{item.title}}
+              </span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+</div>
 
 {#
-  This may require `role="banner"` if nested in something other than `body`.
-  https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_Role
-#}
-<header>
-  <a href="/"{% if is_home %} aria-current="page"{% endif %}>
-    {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
-    <span class="u-hidden-visually">Home: Cloud Four</span>
-    {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
-    {% include '../../assets/brand/logo.svg.twig' with { 
-      width: '80',
-      height: '80',
-      focusable: 'false'
-    } only %}
-  </a>
-  <button type="button">
-    <span class="u-hidden-visually">Toggle Main</span>
-    Menu
-  </button>
-  <nav aria-labelledby="menu-label">
-    <h2 id="menu-label" class="u-hidden-visually">
-      Main Menu
-    </h2>
-    {#
-      Preemptively adding `role="list"` since we will be removing list styles
-      via CSS
-      https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
-    #}
-    <ul role="list">
-      {% for item in menu.items %}
-        <li>
-          <a href="{{item.link}}"{% if item.current %} aria-current="page"{% endif %}>
-            {{item.title}}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
-</header>
+  For some reason Twig.js really doesn't like including this template in a demo,
+  showing errors related to extending inline templates that don't make sense
+  given this template's content.
 
-<main id="main">
-  <h1>Main Content</h1>
-  <p>This is where the actual page content would go.</p>
-</main>
+  @see https://github.com/twigjs/twig.js/issues/262
+#}
+{% if include_main_demo %}
+  <main class="o-container u-pad-1" id="{{main_id}}">
+    <div class="o-container__content">
+      <p>Hello world! This is the main content.</p>
+    </div>
+  </main>
+{% endif %}

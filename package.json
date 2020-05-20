@@ -96,7 +96,7 @@
     "tiny-glob": "0.2.6",
     "twig": "1.15.1",
     "twigjs-loader": "1.0.1",
-    "typescript": "3.9.2"
+    "typescript": "3.9.3"
   },
   "scripts": {
     "storybook": "npm run preprocess && run-p watch-preprocess start-storybook",

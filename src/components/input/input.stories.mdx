@@ -53,10 +53,8 @@ TODO: Add JS Documentation!!!
 <Preview>
   <Story name="Elastic Textarea" height="200px">
     {() => {
-      /*
-       * Use storybook hooks to trigger JS after story renders
-       * @see https://github.com/storybookjs/storybook/issues/7786
-       */
+      // Use storybook hooks to trigger JS after story renders
+      // @see https://github.com/storybookjs/storybook/issues/7786
       useEffect(() => {
         // Select all the elastic textarea elements
         const elasticTextareaNodeList = document.querySelectorAll(

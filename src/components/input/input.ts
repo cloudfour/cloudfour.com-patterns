@@ -3,7 +3,7 @@
  *
  * Increases the `rows` attribute of a `textarea` until it no longer scrolls.
  *
- * @param {HTMLTextAreaElement} textarea - the target `textarea` element
+ * @param textarea - the target `textarea` element
  */
 const growElasticTextArea = (textarea: HTMLTextAreaElement) => {
   const minRows = Number(textarea.dataset.minRows);
@@ -23,7 +23,7 @@ const growElasticTextArea = (textarea: HTMLTextAreaElement) => {
  *
  * Decreases the `rows` attribute of a `textarea` until it begins scrolling.
  *
- * @param {HTMLTextAreaElement} textarea - the target `textarea` element
+ * @param textarea - the target `textarea` element
  */
 const shrinkElasticTextArea = (textarea: HTMLTextAreaElement) => {
   const minRows = Number(textarea.dataset.minRows);
@@ -56,7 +56,7 @@ const shrinkElasticTextArea = (textarea: HTMLTextAreaElement) => {
  * we should update this function to take `{target}` as the only parameter.
  * @see https://stackoverflow.com/a/28900856/4898045
  *
- * @param {Event} event - the input event on the target `textarea`
+ * @param event - the input event on the target `textarea`
  */
 const updateElasticTextArea = (event: Event) => {
   const textarea = event.target as HTMLTextAreaElement;
@@ -82,8 +82,7 @@ const updateElasticTextArea = (event: Event) => {
  * an event listener. Returns an object containing the `destroy()` method to
  * remove the event listener.
  *
- * @param {HTMLTextAreaElement} textarea - the target `textarea` element
- * @returns {object} object containing a `destroy()` method
+ * @param textarea - the target `textarea` element
  */
 export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   // Save the current value for comparing
@@ -101,6 +100,10 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   // Return an object with the destroy method
   // so users can remove the event listener if needed
   return {
+    /**
+     * Destroy Elastic TextArea
+     * Removes the event listener from the textarea
+     */
     destroy() {
       textarea.removeEventListener('input', updateElasticTextArea);
     },

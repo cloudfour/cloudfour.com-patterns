@@ -44,7 +44,7 @@ You can also add `c-input` to `<select>` elements, in which case you’ll get a 
 
 ## Elastic textarea
 
-Add `js-elastic-textarea` to a `<textarea>` element (and follow the [JS usage notes](#javascript-usage)) to have it expand as the user types more than will fit.
+Add the `c-input--elastic` modifier class to a `<textarea>` element (and follow the [JS usage notes](#javascript-usage)) to have it expand as the user types more than will fit.
 
 If the `rows` attribute is set, it will be used as the minimum height.
 
@@ -66,7 +66,7 @@ If the `rows` attribute is set, it will be used as the minimum height.
         placeholder: text('placeholder', 'Placeholder text…'),
         rows: number('rows', '2'),
         id: text('id', 'demo-elastic'),
-        class: text('class', 'js-elastic-textarea'),
+        class: text('class', 'c-input--elastic js-elastic-textarea'),
       });
     }}
   </Story>
@@ -74,7 +74,11 @@ If the `rows` attribute is set, it will be used as the minimum height.
 
 ### JavaScript Usage
 
-Once you have added the `js-elastic-textarea` class to your `textarea` element, you'll also need to add some JavaScript that runs after the page loads, like so:
+You'll need to use JavaScript to select and initialize all the elastic textareas on the page.
+
+Note: As a best practice, [you should avoid binding your CSS and JS onto the same class in your HTML](https://cssguidelin.es/#javascript-hooks). As a result, we recommend adding an additional JS-specific class. It could be anything, but we're using `js-elastic-textarea` for this example.
+
+Once you have added the `js-elastic-textarea` class to your `textarea` elements, you'll also need to add some JavaScript that runs after the page loads, like so:
 
 ```js
 // Select all elastic textarea elements, run create function on each
@@ -85,7 +89,9 @@ const elasticTextAreas = [
 });
 ```
 
-The `createElasticTextArea` function adds an event listener to the `textarea`, allowing it to respond to user input by growing or shrinking as needed. It returns an object containing a `destroy()` method, if you need to remove the event listener.
+The `createElasticTextArea` function adds an event listener to each `textarea`, allowing it to respond to user input by growing or shrinking as needed.
+
+It also returns an object containing a `destroy()` method, if you need to remove the event listener.
 
 ```js
 // Remove event listeners from the elastic text areas

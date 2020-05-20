@@ -52,10 +52,17 @@
   }
 
   /**
-   * Multi-line types get their height from the `rows` attribute
+   * Multi-line types should be taller
    */
 
   @at-root textarea#{&} {
+    height: sizes.$control-height-multiline;
+  }
+
+  /**
+   * Elastic Inputs get their height from javascript.
+   */
+  &.c-input--elastic {
     height: auto;
   }
 

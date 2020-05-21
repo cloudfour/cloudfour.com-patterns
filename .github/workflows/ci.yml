@@ -79,6 +79,8 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
         run: npm ci
+      - name: Run Build (necessary for including css file in cypress tests)
+        run: npm run build
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:

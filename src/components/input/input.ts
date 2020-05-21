@@ -57,8 +57,8 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   // Initialize the textarea with elastic behavior
   textarea.addEventListener('input', update);
 
-  // Fire an input event to set the initial size correctly
-  textarea.dispatchEvent(new Event('input'));
+  // Run the update method to set the initial size correctly
+  update();
 
   // Return a public API for consumers of this component
   return {

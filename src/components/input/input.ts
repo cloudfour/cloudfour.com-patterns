@@ -6,13 +6,10 @@
  * `textarea` is scrolling or not. Returns an object containing a `destroy()`
  * method to remove the event listener.
  *
- * 1. Sanity check to prevent an infinite loop if the textarea has a fixed height
- *    @see https://github.com/cloudfour/cloudfour.com-patterns/pull/716#discussion_r428349375
- *
  * @param textarea - the target `textarea` element
  */
 export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
-  const maxRows = 500; // 1
+  const maxRows = 500; // Used to prevent infinite loop if textarea has fixed height
   const minRows = Number(textarea.getAttribute('rows')) || 2;
   let rows = Number(textarea.getAttribute('rows')) || minRows;
   let isScrolling = false;
@@ -54,15 +51,17 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
     }
   };
 
-  /** Remove the event listener from the textarea */
+  /** Allow users to remove the event listener from the textarea */
   const destroy = () => textarea.removeEventListener('input', update);
 
-  // 1. Add an event listener to run the update function after input events
+  // Initialize the textarea with elastic behavior
   textarea.addEventListener('input', update);
 
-  // 2. Fire an input event to set the initial size correctly
+  // Fire an input event to set the initial size correctly
   textarea.dispatchEvent(new Event('input'));
 
-  // 3. Return an object with the destroy method to remove the event listener
-  return { destroy };
+  // Return a public API for consumers of this component
+  return {
+    destroy,
+  };
 };

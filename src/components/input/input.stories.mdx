@@ -57,18 +57,12 @@ If the `rows` attribute is set, it will be used as the minimum height.
         createElasticTextArea(document.querySelector('.js-elastic-textarea'));
       }, []);
       return textDemo({
-        type: select(
-          'type',
-          ['text', 'email', 'search', 'date', 'textarea'],
-          'textarea'
-        ),
-        value: text(
-          'value',
-          'We are a small, versatile team who care passionately about the web. We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school.'
-        ),
-        placeholder: text('placeholder', 'Placeholder text…'),
+        type: 'textarea',
+        value:
+          'We are a small, versatile team who care passionately about the web. We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school.',
+        placeholder: 'Placeholder text…',
         rows: number('rows', '2'),
-        id: text('id', 'demo-elastic'),
+        id: 'demo-elastic',
         class: text('class', 'c-input--elastic js-elastic-textarea'),
       });
     }}

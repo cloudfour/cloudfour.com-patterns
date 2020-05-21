@@ -12,27 +12,30 @@
 export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   const minRows = Number(textarea.getAttribute('rows')) || 2;
   let rows = Number(textarea.getAttribute('rows')) || minRows;
-  let isScrolling = textarea.scrollHeight > textarea.clientHeight;
+  let isScrolling = false;
   let lastValue = textarea.value || '';
   console.log('CREATE ELASTIC TEXTAREA', isScrolling, rows, minRows);
+
+  /** Check if the textarea is currently scrolling */
+  const checkScrolling = () => textarea.scrollHeight > textarea.clientHeight;
 
   /** Grow until the textarea stops scrolling */
   const grow = () => {
     console.log('GROW', isScrolling);
     while (isScrolling) {
-      rows += 1;
+      rows++;
       textarea.setAttribute('rows', String(rows));
-      isScrolling = textarea.scrollHeight > textarea.clientHeight;
+      isScrolling = checkScrolling();
     }
   };
 
   /** Shrink until the textarea matches the minimum rows or starts scrolling */
   const shrink = () => {
     console.log('SHRINK', isScrolling, rows, minRows);
-    for (let i = rows; i >= minRows; i--) {
-      rows = i;
+    while (!isScrolling && rows > minRows) {
+      rows--;
       textarea.setAttribute('rows', String(Math.max(rows, minRows)));
-      isScrolling = textarea.scrollHeight > textarea.clientHeight;
+      isScrolling = checkScrolling();
 
       // If we're scrolling, then we shrank too much, so grow a bit and stop
       if (isScrolling) {
@@ -45,7 +48,7 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   /** Decide whether to grow or shrink the textarea */
   const update = () => {
     const newValue = textarea.value;
-    isScrolling = textarea.scrollHeight > textarea.clientHeight;
+    isScrolling = checkScrolling();
     console.log('UPDATE', isScrolling);
 
     // Check whether to grow or shrink

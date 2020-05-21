@@ -1,5 +1,5 @@
 import textInputHTML from './input.twig';
-import { createElasticTextArea } from './input';
+import { createElasticTextArea } from './elastic-textarea';
 
 import { render } from '../../../cypress/cypress-render-component';
 

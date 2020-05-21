@@ -60,6 +60,13 @@
   }
 
   /**
+   * Elastic Inputs get their height from javascript.
+   */
+  &.c-input--elastic {
+    height: auto;
+  }
+
+  /**
    * Types that disclose additional options should have an icon
    *
    * 1. Setting the background size to `100%` avoids a strange background shift

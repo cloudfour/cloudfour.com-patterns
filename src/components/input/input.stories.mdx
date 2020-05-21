@@ -84,6 +84,11 @@ const elasticTextAreas = [
 ].map((textarea) => {
   return createElasticTextArea(textarea);
 });
+
+// Or, if you only have one elastic textarea on the page
+const elasticTextArea = createElasticTextArea(
+  document.querySelector('.js-elastic-textarea')
+);
 ```
 
 The `createElasticTextArea` function adds an event listener to each `textarea`, allowing it to respond to user input by growing or shrinking as needed.
@@ -91,8 +96,11 @@ The `createElasticTextArea` function adds an event listener to each `textarea`, 
 It also returns an object containing a `destroy()` method, if you need to remove the event listener.
 
 ```js
-// Remove event listeners from the elastic text areas
+// Remove event listeners from all elastic text areas
 elasticTextAreas.forEach((textarea) => {
   textarea.destroy();
 });
+
+// Or, if you only have one elastic textarea on the page
+elasticTextArea.destroy();
 ```

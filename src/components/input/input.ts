@@ -1,28 +1,28 @@
 /**
  * Create Elastic TextArea
  *
- * TODO: update description
- * Given a textarea, adds dataset attributes for the existing value and the
- * minimum number of rows, for use in the update function, which is added to
- * an event listener. Returns an object containing the `destroy()` method to
- * remove the event listener.
+ * Adds an event listener to a `textarea` elment that responds to input events
+ * by either increasing or decreasing the `rows` attribute based on whether the
+ * `textarea` is scrolling or not. Returns an object containing a `destroy()`
+ * method to remove the event listener.
+ *
+ * 1. Sanity check to prevent an infinite loop if the textarea has a fixed height
+ *    @see https://github.com/cloudfour/cloudfour.com-patterns/pull/716#discussion_r428349375
  *
  * @param textarea - the target `textarea` element
  */
 export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
+  const maxRows = 500; // 1
   const minRows = Number(textarea.getAttribute('rows')) || 2;
   let rows = Number(textarea.getAttribute('rows')) || minRows;
   let isScrolling = false;
-  let lastValue = textarea.value || '';
-  console.log('CREATE ELASTIC TEXTAREA', isScrolling, rows, minRows);
 
   /** Check if the textarea is currently scrolling */
   const checkScrolling = () => textarea.scrollHeight > textarea.clientHeight;
 
   /** Grow until the textarea stops scrolling */
   const grow = () => {
-    console.log('GROW', isScrolling);
-    while (isScrolling) {
+    while (isScrolling && rows < maxRows) {
       rows++;
       textarea.setAttribute('rows', String(rows));
       isScrolling = checkScrolling();
@@ -31,13 +31,11 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
 
   /** Shrink until the textarea matches the minimum rows or starts scrolling */
   const shrink = () => {
-    console.log('SHRINK', isScrolling, rows, minRows);
     while (!isScrolling && rows > minRows) {
       rows--;
       textarea.setAttribute('rows', String(Math.max(rows, minRows)));
       isScrolling = checkScrolling();
 
-      // If we're scrolling, then we shrank too much, so grow a bit and stop
       if (isScrolling) {
         grow();
         break;
@@ -47,26 +45,17 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
 
   /** Decide whether to grow or shrink the textarea */
   const update = () => {
-    const newValue = textarea.value;
     isScrolling = checkScrolling();
-    console.log('UPDATE', isScrolling);
 
-    // Check whether to grow or shrink
-    if (newValue.length > lastValue.length) {
+    if (isScrolling) {
       grow();
     } else {
       shrink();
     }
-
-    // Save the new value for comparing
-    lastValue = newValue;
   };
 
   /** Remove the event listener from the textarea */
-  const destroy = () => {
-    console.log('DESTROY');
-    textarea.removeEventListener('input', update);
-  };
+  const destroy = () => textarea.removeEventListener('input', update);
 
   // 1. Add an event listener to run the update function after input events
   textarea.addEventListener('input', update);
@@ -75,7 +64,5 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   textarea.dispatchEvent(new Event('input'));
 
   // 3. Return an object with the destroy method to remove the event listener
-  return {
-    destroy,
-  };
+  return { destroy };
 };

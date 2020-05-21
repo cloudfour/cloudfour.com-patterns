@@ -15,14 +15,14 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   let isScrolling = false;
 
   /** Check if the textarea is currently scrolling */
-  const checkScrolling = () => textarea.scrollHeight > textarea.clientHeight;
+  const getIsScrolling = () => textarea.scrollHeight > textarea.clientHeight;
 
   /** Grow until the textarea stops scrolling */
   const grow = () => {
     while (isScrolling && rows < maxRows) {
       rows++;
       textarea.setAttribute('rows', String(rows));
-      isScrolling = checkScrolling();
+      isScrolling = getIsScrolling();
     }
   };
 
@@ -31,7 +31,7 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
     while (!isScrolling && rows > minRows) {
       rows--;
       textarea.setAttribute('rows', String(Math.max(rows, minRows)));
-      isScrolling = checkScrolling();
+      isScrolling = getIsScrolling();
 
       if (isScrolling) {
         grow();
@@ -42,7 +42,7 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
 
   /** Decide whether to grow or shrink the textarea */
   const update = () => {
-    isScrolling = checkScrolling();
+    isScrolling = getIsScrolling();
 
     if (isScrolling) {
       grow();
@@ -51,7 +51,7 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
     }
   };
 
-  /** Allow users to remove the event listener from the textarea */
+  /** As part of the public API, allow users to remove the event listener */
   const destroy = () => textarea.removeEventListener('input', update);
 
   // Initialize the textarea with elastic behavior

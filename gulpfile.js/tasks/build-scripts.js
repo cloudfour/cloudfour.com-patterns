@@ -1,6 +1,6 @@
 const rollup = require('rollup');
 const path = require('path');
-const nodeResolve = require('@rollup/plugin-node-resolve');
+const nodeResolve = require('@rollup/plugin-node-resolve').default;
 const { terser } = require('rollup-plugin-terser');
 const { getBabelInputPlugin } = require('@rollup/plugin-babel');
 const fs = require('fs').promises;

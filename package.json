@@ -47,7 +47,7 @@
     "@cloudfour/eslint-plugin": "11.0.0",
     "@cypress/browserify-preprocessor": "2.2.4",
     "@rollup/plugin-babel": "5.0.2",
-    "@rollup/plugin-node-resolve": "7.1.3",
+    "@rollup/plugin-node-resolve": "8.0.0",
     "@storybook/addon-a11y": "5.3.18",
     "@storybook/addon-docs": "5.3.18",
     "@storybook/addon-knobs": "5.3.18",

@@ -1,0 +1,15 @@
+@use "../../mixins/button";
+@use "../../design-tokens/colors.yml";
+
+/**
+ * Applies our button styles to buttons generated via Gutenberg blocks.
+ */
+
+.wp-block-button {
+  @include button.default;
+}
+
+.wp-block-button__link {
+  color: colors.$text-light-emphasis;
+  text-decoration: none;
+}

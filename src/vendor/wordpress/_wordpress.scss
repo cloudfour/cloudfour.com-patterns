@@ -1,7 +1,5 @@
 @use "../../mixins/button";
-@use "../../mixins/focus";
 @use "../../design-tokens/colors.yml";
-@use "../../design-tokens/sizes.yml";
 
 /**
  * Gutenberg block: Button
@@ -10,17 +8,13 @@
 
 .wp-block-button {
   @include button.default;
-
-  @include focus.focus-visible {
-    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
-  }
 }
 
 .wp-block-button.is-style-fill {
   /**
-   * The level specificity of this selector will override inline border  
+   * The specificity of this selector will override inline border  
    * styles added by the button block editor and prevents unwanted modifications
-   * to border radius and color.
+   * to border radius and text color.
    */
 
   & .wp-block-button__link {
@@ -39,20 +33,15 @@
   color: colors.$text-light-emphasis;
   padding: initial; /* 1 */
   text-decoration: none;
-
-  &:focus {
-    box-shadow: 0 0 0 0.25rem #8abfff;
-    outline: 0;
-  }
 }
 
 .wp-block-button.is-style-outline {
   @include button.secondary;
 
   /**
-   * The level specificity of this selector will override inline border  
+   * The specificity of this selector will override inline border  
    * styles added by the button block editor and prevents unwanted modifications
-   * to border radius and color.
+   * to border radius and text color.
    */
 
   & .wp-block-button__link {

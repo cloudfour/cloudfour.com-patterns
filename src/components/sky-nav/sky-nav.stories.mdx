@@ -1,6 +1,8 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { useEffect } from '@storybook/client-api';
 import menu from './demo/menu.json';
 import template from './sky-nav.twig';
+import { createSkyNav } from './sky-nav.ts';
 
 <Meta
   title="Components/Sky Nav"
@@ -21,7 +23,14 @@ The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--d
 
 <Preview>
   <Story name="Dark" height="200px" parameters={{ themes: { disable: true } }}>
-    {template({ class: 't-dark', include_main_demo: true, menu })}
+    {() => {
+      // Use storybook hooks to trigger JS after story renders
+      // @see https://github.com/storybookjs/storybook/issues/7786
+      useEffect(() => {
+        createSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
+      }, []);
+      return template({ class: 't-dark', include_main_demo: true, menu });
+    }}
   </Story>
 </Preview>
 

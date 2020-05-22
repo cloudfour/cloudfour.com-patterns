@@ -211,7 +211,9 @@ $_max-width: #{unit.strip(layout.$max-width-spread) +
  *    container for this one element.
  */
 .c-sky-nav__menu-toggle {
-  margin-right: $_space-horizontal; /* 1 */
+  bottom: 0;
+  position: absolute;
+  right: $_space-horizontal; /* 1 */
 
   /**
    * Hide once the menu contents are always exposed.

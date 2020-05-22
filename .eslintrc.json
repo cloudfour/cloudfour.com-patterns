@@ -31,8 +31,15 @@
         "eslint-config-prettier/@typescript-eslint" // Disable typescript-eslint rules that conflict with Prettier
       ],
       "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off", // inference is usually useful
+        "@typescript-eslint/explicit-module-boundary-types": "off", // inference is usually useful, even for module boundaries
         "@typescript-eslint/no-unused-vars": "off", // TypeScript itself checks this via the "noUnusedLocals"/"noUnusedParameters" options
+        "@typescript-eslint/ban-ts-comment": [
+          "error",
+          { "ts-expect-error": false }
+        ], // Allow @ts-expect-error
+
+        "@typescript-eslint/prefer-optional-chain": "error",
+
         "@cloudfour/jsdoc/require-param-type": "off", // We don't want to have a type in the JSDoc block, just in the actual parameters
         "@cloudfour/jsdoc/require-returns-type": "off" // Same deal
       }

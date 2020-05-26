@@ -1,0 +1,87 @@
+@use "../design-tokens/colors.yml";
+@use "../design-tokens/font.yml";
+@use "../design-tokens/sizes.yml";
+@use "../mixins/ms";
+
+$table-border-color: colors.$gray-light;
+$table-border-thin: sizes.$edge_small solid $table-border-color;
+$table-border-thick: sizes.$edge_medium solid $table-border-color;
+
+/**
+ * Our base table component
+ *
+ * Since tables require specific markup using the BEM element class names can
+ * quickly become overwhelming. We make an exception from our BEM rules to
+ * directly style elements within `.c-table`s.
+ */
+
+/**
+ * Table cells and headers share padding
+ */
+@mixin table-element {
+  padding: sizes.$cell-pad-vertical sizes.$cell-pad-horizontal;
+}
+
+/**
+ * Table headings are semibold to stand out as labels
+ */
+@mixin table-heading {
+  font-weight: font.$weight-semibold;
+}
+
+/**
+ * Table headers and footers are separated from the table body with strokes.
+ */
+@mixin table-head {
+  border-bottom: $table-border-thick;
+}
+
+@mixin table-foot {
+  border-top: $table-border-thick;
+}
+
+@mixin table-caption {
+  caption-side: bottom;
+  color: colors.$gray-dark;
+  font-size: ms.step(-1);
+  font-style: italic;
+  padding: ms.step(-1) 0;
+}
+
+/**
+ * Table rows can be styled in a couple ways.
+ * This is achieved by adding a class to the table itself.
+ */
+@mixin table-ruled {
+  border-bottom: $table-border-thin;
+}
+
+@mixin table-striped {
+  background-color: colors.$gray-lighter;
+}
+
+/**
+ * The `.c-table--numeric` modifier applies a few stylistic changes to make
+ * tables with numeric data easier to read and understand.
+ */
+
+/**
+ * When comparing numeric table cells, it's easier if the ones, tens, hundreds,
+ * etc. columns are lines up.
+ *
+ * 1. Right align cells so the "ones" column lines up on the right side
+ * 2. Make numbers equal width so the columns line up
+ * 3. Optionally right align row headings. This keeps headings closer to the
+ *    content they label and in some cases improves scannability.
+ */
+@mixin table-numeric {
+  text-align: right; /* 1 */
+
+  & td {
+    font-variant-numeric: tabular-nums; /* 2 */
+  }
+
+  & [scope='row'] {
+    text-align: right;
+  }
+}

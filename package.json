@@ -45,6 +45,7 @@
   "devDependencies": {
     "@babel/core": "7.9.6",
     "@cloudfour/eslint-plugin": "11.0.0",
+    "@cypress/browserify-preprocessor": "2.2.4",
     "@rollup/plugin-babel": "5.0.2",
     "@rollup/plugin-node-resolve": "8.0.0",
     "@storybook/addon-a11y": "5.3.19",
@@ -53,11 +54,14 @@
     "@storybook/addon-viewport": "5.3.19",
     "@storybook/html": "5.3.19",
     "@svgr/webpack": "5.4.0",
+    "@testing-library/cypress": "6.0.0",
     "@typescript-eslint/eslint-plugin": "3.0.0",
     "@typescript-eslint/parser": "3.0.0",
     "babel-loader": "8.1.0",
+    "browserify-transform-tools": "1.7.0",
     "css-loader": "3.5.3",
     "cssnano": "4.1.10",
+    "cypress": "4.6.0",
     "dts-bundle-generator": "4.3.0",
     "eliminate": "1.1.2",
     "eslint": "7.1.0",
@@ -81,6 +85,7 @@
     "prettier": "2.0.5",
     "remark-preset-lint-recommended": "4.0.0",
     "remark-preset-prettier": "0.4.0",
+    "resolve": "1.17.0",
     "rollup": "2.10.9",
     "rollup-plugin-terser": "6.1.0",
     "sass": "1.26.5",
@@ -121,6 +126,8 @@
     "lint:prettier": "prettier . --write",
     "lint:css": "stylelint --fix '**/*.scss'",
     "lint:js": "eslint . --fix --ext .js,.mdx,.ts,.tsx",
+    "test": "cypress run",
+    "test:open": "cypress open",
     "prepublishOnly": "npm ci && npm run check-lint && npm run preprocess && npm run build"
   }
 }

@@ -40,6 +40,7 @@
 
         "@typescript-eslint/prefer-optional-chain": "error", // Optional chaining syntax is shorter+clearer than alternatives
 
+        "@cloudfour/node/no-missing-import": "off", // TS handles checking this
         "@cloudfour/jsdoc/require-param-type": "off", // We don't want to have a type in the JSDoc block, just in the actual parameters
         "@cloudfour/jsdoc/require-returns-type": "off" // Same deal
       }

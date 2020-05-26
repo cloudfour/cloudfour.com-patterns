@@ -12,6 +12,7 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   const maxRows = 500; // Used to prevent infinite loop if textarea has fixed height
   const minRows = Number(textarea.getAttribute('rows')) || 2;
   let rows = Number(textarea.getAttribute('rows')) || minRows;
+  textarea.setAttribute('rows', String(rows));
   let isScrolling = false;
 
   /** Check if the textarea is currently scrolling */

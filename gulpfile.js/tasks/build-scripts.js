@@ -19,9 +19,11 @@ const extensions = ['.js', '.ts', '.tsx'];
  * Being used both for rollup and for the type generation
  */
 const createVirtualRootEntry = async () => {
-  const files = await glob(
-    `src/{objects,components}/**/*{${extensions.join(',')}}`
-  );
+  const files = (
+    await glob(`src/{objects,components}/**/*{${extensions.join(',')}}`)
+  )
+    // Don't include Cypress test files in the build
+    .filter((f) => !f.endsWith('.cypress.ts'));
   return files
     .map((f) => {
       const absolutePathWithoutExtension = path

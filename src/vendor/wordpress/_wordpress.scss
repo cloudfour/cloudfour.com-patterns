@@ -11,8 +11,8 @@
   flex-wrap: wrap;
 
   & * {
-    padding: sizes.$edge_large;
     margin: sizes.$edge_large / -4;
+    padding: sizes.$edge_large;
   }
 }
 

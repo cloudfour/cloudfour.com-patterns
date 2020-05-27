@@ -1,7 +1,7 @@
 @use "../design-tokens/colors.yml";
 @use "../design-tokens/font.yml";
 @use "../design-tokens/sizes.yml";
-@use "../mixins/ms";
+@use "./ms";
 
 $table-border-color: colors.$gray-light;
 $table-border-thin: sizes.$edge_small solid $table-border-color;
@@ -18,29 +18,29 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
 /**
  * Table cells and headers share padding
  */
-@mixin table-element {
+@mixin t-container {
   padding: sizes.$cell-pad-vertical sizes.$cell-pad-horizontal;
 }
 
 /**
  * Table headings are semibold to stand out as labels
  */
-@mixin table-heading {
+@mixin t-heading {
   font-weight: font.$weight-semibold;
 }
 
 /**
  * Table headers and footers are separated from the table body with strokes.
  */
-@mixin table-head {
+@mixin t-head {
   border-bottom: $table-border-thick;
 }
 
-@mixin table-foot {
+@mixin t-foot {
   border-top: $table-border-thick;
 }
 
-@mixin table-caption {
+@mixin t-caption {
   caption-side: bottom;
   color: colors.$gray-dark;
   font-size: ms.step(-1);
@@ -52,11 +52,11 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * Table rows can be styled in a couple ways.
  * This is achieved by adding a class to the table itself.
  */
-@mixin table-ruled {
+@mixin t-ruled {
   border-bottom: $table-border-thin;
 }
 
-@mixin table-striped {
+@mixin t-striped {
   background-color: colors.$gray-lighter;
 }
 
@@ -74,7 +74,7 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * 3. Optionally right align row headings. This keeps headings closer to the
  *    content they label and in some cases improves scannability.
  */
-@mixin table-numeric {
+@mixin t-numeric {
   text-align: right; /* 1 */
 
   & td {

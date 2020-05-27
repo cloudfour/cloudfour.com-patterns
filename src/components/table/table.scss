@@ -2,33 +2,33 @@
 
 .c-table td,
 .c-table th {
-  @include table-element;
+  @include table.t-container;
 }
 
 .c-table th {
-  @include table-heading;
+  @include table.t-heading;
 }
 
 .c-table thead {
-  @include table-head;
+  @include table.t-head;
 }
 
 .c-table tfoot {
-  @include table-foot;
+  @include table.t-foot;
 }
 
 .c-table caption {
-  @include table-caption;
+  @include table.t-caption;
 }
 
 .c-table--ruled tbody tr {
-  @include table-ruled;
+  @include table.t-ruled;
 }
 
 .c-table--striped tbody tr:nth-of-type(2n - 1) {
-  @include table-striped;
+  @include table.t-striped;
 }
 
 .c-table--numeric {
-  @include table-numeric;
+  @include table.t-numeric;
 }

@@ -6,17 +6,45 @@
  * Applies our pattern library styles to buttons generated via Gutenberg blocks.
  */
 
+$rhythm-space-generous: sizes.$rhythm_space_generous;
+$list-inline-gap: sizes.$list_inline_gap;
+
+/**
+ * 1. Align buttons with outer parent
+ * 2. Complete half-gaps left by buttons
+ */
+
 .wp-block-buttons {
   display: flex;
   flex-wrap: wrap;
+  margin: $list-inline-gap * -1;
+  padding: $list-inline-gap / 2;
 
-  & * {
-    margin: sizes.$edge_large / -4;
-    padding: sizes.$edge_large;
+  /**
+   * If this has content before, assume it is prose content and add back
+   * some margin.
+   */
+  &:not(:first-child) {
+    margin-top: $rhythm-space-generous - $list-inline-gap;
+  }
+
+  /**
+   * If this has content after, assume it is prose content and add back
+   * some margin.
+   */
+  &:not(:last-child) {
+    margin-bottom: $rhythm-space-generous - $list-inline-gap;
   }
 }
 
+/**
+ * 1. Prevent inherited display flex styling from crushing layout
+ * 2. Add half-gaps (will add up to full gutters)
+ */
 .wp-block-button {
+  flex: none; /* 1 */
+  padding: $list-inline-gap / 2; /* 2 */
+
   .wp-block-button__link {
     @include button.default;
   }

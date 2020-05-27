@@ -4,14 +4,17 @@
 /**
  * Gutenberg block: Button
  * Applies our pattern library styles to buttons generated via Gutenberg blocks.
- *
- * 1. The block editor allows editors to adjust button border radius. This style
- *    is applied via an inline style on the `wp-block-button__link` element. In
- *    order to prevent unwanted border-radius we apply an `!important` tag.
  */
 
 .wp-block-button {
   display: inline-block;
+
+  /**
+   * 1. The block editor allows editors to adjust button border-radius. This
+   *    style is applied via an inline style on the `wp-block-button__link`
+   *    element. In order to prevent unwanted border-radius, we apply an
+   *    `!important` tag here.
+   */
 
   .wp-block-button__link {
     @include button.default;

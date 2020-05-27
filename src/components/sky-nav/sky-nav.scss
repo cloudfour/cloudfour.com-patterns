@@ -207,13 +207,15 @@ $_max-width: #{unit.strip(layout.$max-width-spread) +
 /**
  * The element that toggles the menu visibility at narrow widths.
  *
- * 1. This prevents us having to set and then override padding on the masthead
+ * 1. Vertical positioning is handled by JS because it's easier to grab the
+ *    height of the header bar from there.
+ * 2. This prevents us having to set and then override padding on the masthead
  *    container for this one element.
  */
 .c-sky-nav__menu-toggle {
   bottom: 0;
-  position: absolute;
-  right: $_space-horizontal; /* 1 */
+  position: absolute; /* 1 */
+  right: $_space-horizontal; /* 2 */
 
   /**
    * Hide once the menu contents are always exposed.

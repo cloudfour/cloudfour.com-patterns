@@ -7,18 +7,8 @@
  */
 
 .wp-block-button {
-  display: inline-block;
-
-  /**
-   * 1. The block editor allows editors to adjust button border-radius. This
-   *    style is applied via an inline style on the `wp-block-button__link`
-   *    element. In order to prevent unwanted border-radius, we apply an
-   *    `!important` tag here.
-   */
-
   .wp-block-button__link {
     @include button.default;
-    border-radius: sizes.$radius-medium !important; /* 1 */
   }
 
   &.is-style-outline .wp-block-button__link {

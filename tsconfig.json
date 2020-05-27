@@ -12,7 +12,8 @@
     "allowJs": true,
     "checkJs": true,
     "types": ["cypress", "@types/testing-library__cypress", "node"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   "include": ["src", "cypress"],
   "exclude": ["src/prototypes"]

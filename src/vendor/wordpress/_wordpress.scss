@@ -6,6 +6,16 @@
  * Applies our pattern library styles to buttons generated via Gutenberg blocks.
  */
 
+.wp-block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  & * {
+    padding: sizes.$edge_large;
+    margin: sizes.$edge_large / -4;
+  }
+}
+
 .wp-block-button {
   .wp-block-button__link {
     @include button.default;

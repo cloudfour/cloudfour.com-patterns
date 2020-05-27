@@ -5,3 +5,28 @@
  * Gutenberg block: Table
  * Applies our pattern library styles to tables generated via Gutenberg blocks.
  */
+
+.wp-block-table table td,
+.wp-block table th {
+  @include table.t-container;
+}
+
+.wp-block-table table th {
+  @include table.t-heading;
+}
+
+.wp-block-table table thead {
+  @include table.t-head;
+}
+
+.wp-block-table table tfoot {
+  @include table.t-foot;
+}
+
+.wp-block-table table caption {
+  @include table.t-caption;
+}
+
+.wp-block-table .c-table--striped tbody tr:nth-of-type(2n - 1) {
+  @include table.t-striped;
+}

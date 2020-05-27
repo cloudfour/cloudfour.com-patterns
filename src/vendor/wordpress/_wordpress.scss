@@ -15,7 +15,7 @@
 
   .wp-block-button__link {
     @include button.default;
-    border-radius: sizes.$radius-medium !important;
+    border-radius: sizes.$radius-medium !important; /* 1 */
   }
 
   &.is-style-outline .wp-block-button__link {

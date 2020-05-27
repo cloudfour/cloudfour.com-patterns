@@ -1,5 +1,5 @@
 @use "../../mixins/button";
-@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/sizes.yml";
 
 /**
  * Gutenberg block: Button
@@ -7,46 +7,14 @@
  */
 
 .wp-block-button {
-  @include button.default;
-}
+  display: inline-block;
 
-.wp-block-button.is-style-fill {
-  /**
-   * The specificity of this selector will override inline border  
-   * styles added by the button block editor and prevents unwanted modifications
-   * to border radius and text color.
-   */
-
-  & .wp-block-button__link {
-    background-color: inherit;
-    border: 0;
-    color: inherit;
+  .wp-block-button__link {
+    @include button.default;
+    border-radius: sizes.$radius-medium !important;
   }
-}
 
-/**
- * 1. Removes unwanted padding applied to default Gutenberg block buttons  
- */
-
-.wp-block-button__link {
-  background-color: inherit;
-  color: colors.$text-light-emphasis;
-  padding: initial; /* 1 */
-  text-decoration: none;
-}
-
-.wp-block-button.is-style-outline {
-  @include button.secondary;
-
-  /**
-   * The specificity of this selector will override inline border  
-   * styles added by the button block editor and prevents unwanted modifications
-   * to border radius and text color.
-   */
-
-  & .wp-block-button__link {
-    background-color: inherit;
-    border: 0;
-    color: inherit;
+  &.is-style-outline .wp-block-button__link {
+    @include button.secondary;
   }
 }

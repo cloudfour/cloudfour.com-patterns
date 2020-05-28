@@ -6,6 +6,10 @@
  * Applies our pattern library styles to tables generated via Gutenberg blocks.
  */
 
+/**
+ * Default table
+ */
+
 .wp-block-table table td,
 .wp-block table th {
   @include table.t-container;
@@ -27,7 +31,9 @@
   @include table.t-caption;
 }
 
-// Striped table
+/**
+ * Striped table
+ */
 .wp-block-table.is-style-stripes {
   border-bottom: 0;
 
@@ -36,7 +42,9 @@
   }
 }
 
-// Numeric table
+/**
+ * Numeric table
+ */
 .wp-block-table.c-table--numeric table {
   @include table.t-numeric;
 }

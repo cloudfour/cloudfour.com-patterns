@@ -6,7 +6,7 @@ const createStyleSheetIfMissing = () => {
   const stylesheet = document.createElement('style');
   stylesheet.classList.add('cloudfour-cypress-stylesheet');
   document.head.append(stylesheet);
-  cy.readFile('./dist/standalone.css').then((contents) => {
+  cy.readFile('./dist/standalone.css').then((contents: string) => {
     stylesheet.textContent = contents;
   });
 };

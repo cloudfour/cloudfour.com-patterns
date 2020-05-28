@@ -46,7 +46,7 @@ export default function mockPaginationData({
   // If this isn't the last page, mock the next page data
   const next = current < total && mockPageData(current + 1, current);
   // Create an array to store the sequential page data objects
-  const pages: object[] = [];
+  const pages = [];
   // The first page to include
   let start = current - midSize;
   // The last page to include
@@ -76,7 +76,6 @@ export default function mockPaginationData({
 
   return {
     // Using underscore to mimic Timber/Twig/WordPress convention
-    // eslint-disable-next-line @typescript-eslint/camelcase
     mid_size: midSize,
     current,
     total,

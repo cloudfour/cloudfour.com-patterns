@@ -12,7 +12,7 @@
   {% set _tableClass = _tableClass ~ ' c-table--striped' %}
 {% endif %}
 
-{% embed '../table.twig' with { tableClass: _tableClass } %}
+{% embed '@cloudfour/patterns/components/table/table.twig' with { tableClass: _tableClass } %}
 
   {% if hasCaption %}
     {% block caption %}

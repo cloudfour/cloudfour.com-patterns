@@ -2,6 +2,6 @@
   We could use `{% block content %}` but Twig.js complains when nested in
   Storybook for some reason... 🤔
 #}
-{% include '../button.twig' with { label: 'Default' } %}
-{% include '../button.twig' with { label: 'Secondary', class: 'c-button--secondary' } %}
-{% include '../button.twig' with { label: 'Tertiary', class: 'c-button--tertiary' } %}
+{% include '@cloudfour/patterns/components/button/button.twig' with { label: 'Default' } %}
+{% include '@cloudfour/patterns/components/button/button.twig' with { label: 'Secondary', class: 'c-button--secondary' } %}
+{% include '@cloudfour/patterns/components/button/button.twig' with { label: 'Tertiary', class: 'c-button--tertiary' } %}

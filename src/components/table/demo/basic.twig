@@ -14,14 +14,14 @@
 
 {% embed '@cloudfour/patterns/components/table/table.twig' with { tableClass: _tableClass } %}
 
-  {% if hasCaption %}
-    {% block caption %}
-      Comparing popular Cloud Four projects on GitHub.
-    {% endblock %}
-  {% endif %}
+  {% block caption %}
+    {% if hasCaption %}
+        Comparing popular Cloud Four projects on GitHub.
+    {% endif %}
+  {% endblock %}
 
-  {% if hasHeader %}
-    {% block header %}
+  {% block header %}
+    {% if hasHeader %}
       <tr>
         <th></th>
         <th scope="col">Stars</th>
@@ -29,8 +29,8 @@
         <th scope="col">Watchers</th>
         <th scope="col">Issues</th>
       </tr>
-    {% endblock %}
-  {% endif %}
+    {% endif %}
+  {% endblock %}
 
   {% block body %}
     {% for row in tableData %}
@@ -52,8 +52,8 @@
     {% endfor %}
   {% endblock %}
 
-  {% if hasFooter %}
-    {% block footer %}
+  {% block footer %}
+    {% if hasFooter %}
       <tr>
         <th scope="row">Total:</th>
         <td>2125</td>
@@ -61,6 +61,6 @@
         <td>2125</td>
         <td>245</td>
       </tr>
-    {% endblock %}
-  {% endif %}
+    {% endif %}
+  {% endblock %}
 {% endembed %}

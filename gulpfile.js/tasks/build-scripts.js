@@ -20,7 +20,7 @@ const extensions = ['.js', '.ts', '.tsx'];
  */
 const createVirtualRootEntry = async () => {
   const files = (
-    await glob(`src/{objects,components}/**/*{${extensions.join(',')}}`)
+    await glob(`src/{objects,components}/*/*{${extensions.join(',')}}`)
   )
     // Don't include Cypress test files in the build
     .filter((f) => !f.endsWith('.cypress.ts'));

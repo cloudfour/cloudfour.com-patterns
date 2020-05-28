@@ -4,7 +4,7 @@ const webpackPreprocessor = require('@cypress/webpack-preprocessor');
 const {
   twingEnvironmentPlugin,
   twingOptions,
-} = require('../../twing-environment-webpack-plugin');
+} = require('../../twing/environment-webpack-plugin');
 
 const getWebpackOptions = async () => ({
   mode: 'development',

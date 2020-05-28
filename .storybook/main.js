@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {
   twingEnvironmentPlugin,
   twingOptions,
-} = require('../twing-environment-webpack-plugin');
+} = require('../twing/environment-webpack-plugin');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.

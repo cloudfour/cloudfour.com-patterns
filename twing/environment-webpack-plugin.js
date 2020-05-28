@@ -1,7 +1,7 @@
 const VirtualModulesPlugin = require('webpack-virtual-modules');
 const glob = require('tiny-glob');
 
-const twingEnvironmentNodePath = require.resolve('./twing-environment');
+const twingEnvironmentNodePath = require.resolve('./environment');
 
 /**
  * Creates a virtual webpack module so that webpack bundles all twig files into the bundle.
@@ -14,7 +14,7 @@ const setupTwingEnvironment = async () => {
       const newName = f.replace(/^src\//g, '@cloudfour/');
       return `${JSON.stringify(
         newName
-      )}: require("!!raw-loader!./${f}").default`;
+      )}: require("!!raw-loader!../${f}").default`;
     })
     .join(',\n');
 

@@ -1,5 +1,9 @@
 const { resolve } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var VirtualModulesPlugin = require('webpack-virtual-modules');
+const glob = require('tiny-glob');
+const path = require('path');
+const fs = require('fs');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
@@ -81,7 +85,12 @@ module.exports = {
       },
       {
         test: /\.twig$/,
-        use: 'twigjs-loader',
+        use: {
+          loader: 'twing-loader',
+          options: {
+            environmentModulePath: require.resolve('../twig-environment'),
+          },
+        },
       },
       {
         // Import Theo design tokens as JS objects
@@ -100,9 +109,38 @@ module.exports = {
     );
 
     config.resolve.extensions.push('.ts', '.tsx');
+    // config.resolve.alias[
+    //   require.resolve('../twig-environment')
+    // ] = require.resolve('../twig-environment-client-side');
 
     config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins.push(
+      new VirtualModulesPlugin(await setupTwingEnvironment())
+    );
 
     return config;
   },
+};
+
+const setupTwingEnvironment = async () => {
+  const files = await glob('src/**/*.twig', { cwd: process.cwd() });
+
+  const preloadedFiles = files
+    .map((f) => {
+      const newName = f.replace(/^src\//g, '@cloudfour/patterns/');
+      return `${JSON.stringify(
+        newName
+      )}: require("!!raw-loader!./${f}").default`;
+    })
+    .join(',\n');
+
+  const output = `
+  const { TwingEnvironment, TwingLoaderArray } = require('twing');
+
+  const files = { ${preloadedFiles} }
+
+  module.exports = new TwingEnvironment(new TwingLoaderArray(files));
+
+  `;
+  return { [require.resolve('../twig-environment')]: output };
 };

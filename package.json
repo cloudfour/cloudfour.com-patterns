@@ -83,6 +83,7 @@
     "postcss-inline-svg": "4.1.0",
     "postcss-loader": "3.0.0",
     "prettier": "2.0.5",
+    "raw-loader": "4.0.1",
     "remark-preset-lint-recommended": "4.0.0",
     "remark-preset-prettier": "0.4.0",
     "resolve": "1.17.0",
@@ -99,9 +100,11 @@
     "theo": "8.1.5",
     "through2": "3.0.1",
     "tiny-glob": "0.2.6",
-    "twig": "1.15.1",
     "twigjs-loader": "1.0.1",
-    "typescript": "3.9.3"
+    "twing": "3.1.1",
+    "twing-loader": "3.0.1",
+    "typescript": "3.9.3",
+    "webpack-virtual-modules": "0.2.2"
   },
   "scripts": {
     "storybook": "npm run preprocess && run-p watch-preprocess start-storybook",

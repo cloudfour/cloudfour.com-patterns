@@ -510,7 +510,7 @@ the parent wrapper, for controlling zebra-striping on alternate rows.
 Another control optionally adds the `has-fixed-layout` class to the `table` element.
 
 <Preview>
-  <Story name="core/table" height="700px">
+  <Story name="core/table" height="920px">
     {`<h2>Default Table</h2>
     <figure class="wp-block-table is-style-default">
         <table class="has-fixed-layout">
@@ -549,7 +549,44 @@ Another control optionally adds the `has-fixed-layout` class to the `table` elem
         <figcaption>A caption can be added but is not rendered as a caption element</figcaption>
       </figure>
       <h2>Striped Table</h2>
-    <figure class="wp-block-table is-style-stripes">
+      <figure class="wp-block-table is-style-stripes">
+        <table class="has-fixed-layout">
+          <thead>
+            <tr>
+              <th class="has-text-align-right" data-align="right">Heading 1</th>
+              <th class="has-text-align-right" data-align="right">Heading 2</th>
+              <th class="has-text-align-right" data-align="right">Heading 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+            </tr>
+          </tfoot>
+        </table>
+        <figcaption>A caption can be added but is not rendered as a caption element</figcaption>
+      </figure>
+      <h2>Numeric Table</h2>
+      <figure class="wp-block-table c-table--numeric">
         <table class="has-fixed-layout">
           <thead>
             <tr>

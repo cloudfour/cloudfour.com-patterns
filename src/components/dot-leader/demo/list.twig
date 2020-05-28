@@ -1,8 +1,8 @@
-{% embed '@cloudfour/patterns/objects/list/list.twig' %}
+{% embed '@cloudfour/objects/list/list.twig' %}
   {% block content %}
     {% for topic in topics|slice(0,10) %}
       <li>
-        {% include '@cloudfour/patterns/components/dot-leader/dot-leader.twig' with {
+        {% include '@cloudfour/components/dot-leader/dot-leader.twig' with {
           label: topic.title,
           count: topic.count,
           href: 'https://cloudfour.com/thinks/'

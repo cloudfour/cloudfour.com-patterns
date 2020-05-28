@@ -1,8 +1,8 @@
-{% embed '@cloudfour/patterns/objects/container/container.twig' with {
+{% embed '@cloudfour/objects/container/container.twig' with {
   class: 'o-container--prose'
 } %}
   {% block content %}
-    {% embed '@cloudfour/patterns/objects/rhythm/rhythm.twig' with {
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
       class: 'o-rhythm--generous'
     } only %}
       {% block content %}
@@ -11,7 +11,7 @@
           {% if i < 0 %}
             {% set class_level = 'n' ~ class_level %}
           {% endif %}
-          {% include '@cloudfour/patterns/components/heading/heading.twig' with {
+          {% include '@cloudfour/components/heading/heading.twig' with {
             level: i,
             content: 'c-heading--level-' ~ class_level,
             permalink: true

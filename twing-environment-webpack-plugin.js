@@ -11,7 +11,7 @@ const setupTwingEnvironment = async () => {
 
   const preloadedFiles = files
     .map((f) => {
-      const newName = f.replace(/^src\//g, '@cloudfour/patterns/');
+      const newName = f.replace(/^src\//g, '@cloudfour/');
       return `${JSON.stringify(
         newName
       )}: require("!!raw-loader!./${f}").default`;

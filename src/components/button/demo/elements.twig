@@ -1,7 +1,7 @@
 {# Don't allow href knob to change this example's tag #}
-{% embed '@cloudfour/patterns/components/button/button.twig' with { href: false } %}
+{% embed '@cloudfour/components/button/button.twig' with { href: false } %}
   {% block content %}Button{% endblock %}
 {% endembed %}
-{% embed '@cloudfour/patterns/components/button/button.twig' with { tagName: 'a' } %}
+{% embed '@cloudfour/components/button/button.twig' with { tagName: 'a' } %}
   {% block content %}Link{% endblock %}
 {% endembed %}

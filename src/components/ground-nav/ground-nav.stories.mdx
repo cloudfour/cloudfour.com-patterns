@@ -1,0 +1,68 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, text } from '@storybook/addon-knobs';
+import skyNavMenu from '../sky-nav/demo/menu.json';
+import groundNavMenu from './demo/menu.json';
+import organization from './demo/organization.json';
+import social from './demo/social.json';
+import template from './ground-nav.twig';
+const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
+const actionId = 'action';
+const organizationId = 'organization';
+
+<Meta title="Components/Ground Nav" decorators={[withKnobs]} />
+
+# Ground Nav
+
+**Note:** This component is currently a work in progress.
+
+<Preview>
+  <Story name="Cloud Four">
+    {template({
+      menu,
+      social,
+      action: {
+        leadIn: text('leadIn', 'Let’s discuss your project!', actionId),
+        title: text('title', 'Email us', actionId),
+        link: text('link', 'mailto:info@cloudfour.com', actionId),
+      },
+      organization: {
+        name: text('name', organization.name, 'organization'),
+        address: {
+          streetAddress: text(
+            'address.streetAddress',
+            organization.address.streetAddress,
+            organizationId
+          ),
+          addressLocality: text(
+            'address.addressLocality',
+            organization.address.addressLocality,
+            organizationId
+          ),
+          addressRegion: text(
+            'address.addressRegion',
+            organization.address.addressRegion,
+            organizationId
+          ),
+          postalCode: text(
+            'address.postalCode',
+            organization.address.postalCode,
+            organizationId
+          ),
+          addressCountry: text(
+            'address.addressCountry',
+            organization.address.addressCountry,
+            organizationId
+          ),
+        },
+        email: text('email', organization.email, organizationId),
+        telephone: text('telephone', organization.telephone, organizationId),
+        url: text('url', organization.url, organizationId),
+        foundingDate: text(
+          'foundingDate',
+          organization.foundingDate,
+          organizationId
+        ),
+      },
+    })}
+  </Story>
+</Preview>

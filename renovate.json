@@ -2,8 +2,10 @@
   "extends": ["group:recommended", "group:monorepos"],
   "reviewers": ["team:dev"],
   "rangeStrategy": "pin",
-  "node": {
-    "supportPolicy": ["active"],
-    "rangeStrategy": "bump"
-  }
+  "packageRules": [
+    {
+      "packageNames": ["node"],
+      "enabled": false
+    }
+  ]
 }

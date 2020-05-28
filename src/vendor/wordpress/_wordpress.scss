@@ -27,6 +27,17 @@
   @include table.t-caption;
 }
 
-.wp-block-table .c-table--striped tbody tr:nth-of-type(2n - 1) {
+// Striped table
+.wp-block-table.is-style-stripes tbody tr:nth-of-type(2n - 1) {
   @include table.t-striped;
+}
+
+// Ruled table
+.wp-block-table .c-table--ruled tbody tr {
+  @include table.t-ruled;
+}
+
+// Numeric table
+.wp-block-table.c-table--numeric table {
+  @include table.t-numeric;
 }

@@ -16,13 +16,18 @@
     margin-bottom: 2em;
     overflow: hidden;
 
+    @media (min-width: breakpoint.$xl) {
+      margin-top: -5em;
+      padding-top: 5em;
+    }
+
     .p-clouds__side {
       align-items: flex-end;
       display: flex;
       flex: 1;
       justify-content: flex-start;
       margin-bottom: -0.5em;
-      max-width: 25em;
+
 
       @media (min-width: breakpoint.$m) {
         margin-bottom: -1em;
@@ -32,23 +37,24 @@
     .p-clouds__side--left {
       flex-direction: row;
       margin-right: -4%;
+      max-width: 25em;
 
       @media (min-width: breakpoint.$m) {
         margin-right: 0;
       }
 
-      .p-cloud:first-of-type {
+      .p-cloud.p-top {
         margin-left: -6%;
         width: 60%;
       }
 
-      .p-cloud:nth-of-type(2) {
+      .p-cloud.p-middle {
         margin-bottom: -0.25em;
         margin-left: -15%;
         width: 40%;
       }
 
-      .p-cloud:last-of-type {
+      .p-cloud.p-back {
         margin-left: -5%;
         width: 25%;
       }
@@ -57,30 +63,32 @@
     .p-clouds__side--right {
       flex-direction: row-reverse;
       margin-left: -4%;
+      max-width: 25em;
 
       @media (min-width: breakpoint.$m) {
         margin-left: 0;
       }
 
-      .p-cloud:first-of-type {
+      .p-cloud.p-top {
         margin-bottom: -0.15em;
         margin-right: -8%;
         width: 60%;
       }
 
-      .p-cloud:nth-of-type(2) {
+      .p-cloud.p-middle {
         margin-right: -15%;
         margin-top: -0.2em;
         width: 42%;
       }
 
-      .p-cloud:last-of-type {
+      .p-cloud.p-back {
         margin-right: -8%;
         width: 20%;
       }
     }
 
-    .p-top {
+    .p-top,
+    .p-bigboi {
       z-index: 300;
     }
 
@@ -90,6 +98,122 @@
 
     .p-back {
       z-index: 100;
+    }
+  }
+
+  .o-container--hero {
+    background-image: url('/clouds/clouds-hero-sm.svg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 60% auto;
+    padding: 3em 1em 3em 1em;
+
+    @media (min-width: breakpoint.$m) {
+      background-image: url('/clouds/clouds-hero.svg');
+      background-size: 30% auto;
+      padding: 2em 1em;
+    }
+
+    @media (min-width: breakpoint.$xl) {
+      padding: 4em 1em;
+    }
+
+    .o-container__content {
+      max-width: breakpoint.$l;
+    }
+  }
+
+  .u-textGrow3 {
+    font-size: 3em;
+  }
+
+  .u-hidden {
+    display: none;
+  }
+
+  @media (min-width: breakpoint.$xl) {
+    .u-xl-block {
+      display: block;
+    }
+
+    .u-xl-hidden {
+      display: none;
+    }
+  }
+
+  .Grid {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .Grid--withGutter > .Grid-cell {
+    padding: 0 .625rem;
+  }
+
+  .Grid--alignMiddle {
+    align-items: center;
+  }
+
+  .Grid--alignEnd {
+    align-items: flex-end;
+  }
+
+  .Grid-cell {
+    flex-basis: 100%;
+  }
+
+  .p-hero__image {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 16rem;
+    width: calc(200% / 3);
+  }
+
+  .u-sm-sizeFill {
+    @media (min-width: breakpoint.$s) {
+      flex: 1 1 0% !important;
+      flex-basis: 0% !important;
+    }
+  }
+
+  .u-sm-sizeFit {
+    @media (min-width: breakpoint.$s) {
+      flex-basis: auto !important;
+      width: auto !important;
+    }
+  }
+
+  .u-md-size1of2 {
+    @media (min-width: breakpoint.$m) {
+      flex-basis: auto !important;
+      width: 50%;
+    }
+  }
+
+  .u-md-size1of3 {
+    @media (min-width: breakpoint.$m) {
+      flex-basis: auto !important;
+      width:  calc(100% / 3);
+    }
+  }
+
+  .u-md-size2of3 {
+    @media (min-width: breakpoint.$m) {
+      flex-basis: auto !important;
+      width:  calc(200% / 3);
+    }
+  }
+
+  .u-md-flexOrderLast {
+    @media (min-width: breakpoint.$m) {
+      order: 1;
+    }
+  }
+
+  .u-lg-size1of2 {
+    @media (min-width: breakpoint.$l) {
+      flex-basis: auto !important;
+      width: 50%;
     }
   }
 }

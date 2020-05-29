@@ -27,6 +27,8 @@ const getVirtualFile = async () => {
 /** Webpack will call this file in node, the `code` property is the code that gets added to the bundle */
 module.exports = async () => {
   return {
+    // This is not cached
+    // But that is ok, because tiny-glob has its own cache and string concatanation is fast
     code: await getVirtualFile(),
   };
 };

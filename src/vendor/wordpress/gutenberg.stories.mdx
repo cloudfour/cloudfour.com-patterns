@@ -506,13 +506,11 @@ A caption input renders a `figcaption` element within the wrapper and below the
 `table` element.
 
 Right, left, or center alignment of cell content can be set at the column level,
-and adds a `has-text-align-` class to each affected cell.
+and adds a `has-text-align-` class to each affected cell. Another control optionally adds the `has-fixed-layout` class to the `table` element.
 
 The default WP styles controls allow for one of two classes, `is-style-default` or `is-style-stripes`. When selected, these classes are applied to the parent wrapper, for controlling zebra-striping on alternate rows.
 
-Additionally, the Advanced → Additional CSS Classes input can be used to generated ruled and numeric tables by adding `c-table--ruled` and/or `c-table--numeric`. This will add the additional classes to the `<figure>` element, which differs from how our `c-table` pattern is set up, but the styled outcome will be the same.
-
-Another control optionally adds the `has-fixed-layout` class to the `table` element.
+Additionally, the Advanced → Additional CSS Classes input can be used to generate ruled and numeric tables by adding `c-table--ruled` and/or `c-table--numeric`. These additional classes will be added to the `<figure>` element, which differs from how our `c-table` pattern is set up, but the styled outcome will be the same.
 
 <Preview>
   <Story name="core/table">

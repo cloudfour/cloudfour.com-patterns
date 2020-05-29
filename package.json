@@ -76,6 +76,7 @@
     "gulp-sass": "4.1.0",
     "gulp-svgmin": "2.2.0",
     "gulp-theo": "2.0.1",
+    "html-to-react": "1.4.3",
     "js-yaml": "3.14.0",
     "lodash": "4.17.15",
     "ltx": "2.9.2",

@@ -1,7 +1,10 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import demo from './demo/fill-canvas.twig';
 
-<Meta title="Themes" />
+<Meta
+  title="Themes"
+  parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
+/>
 
 # Themes
 
@@ -14,11 +17,5 @@ While selector depth is best kept to a minimum, it's permissible to style object
 `t-dark` is intended primarily for page headers.
 
 <Preview>
-  <Story
-    name="Dark"
-    height="200px"
-    parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
-  >
-    {demo({ theme: 'dark' })}
-  </Story>
+  <Story name="Dark">{demo({ theme: 'dark' })}</Story>
 </Preview>

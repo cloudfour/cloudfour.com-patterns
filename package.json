@@ -44,8 +44,9 @@
   },
   "devDependencies": {
     "@babel/core": "7.10.0",
+    "@babel/preset-env": "7.10.1",
     "@cloudfour/eslint-plugin": "11.0.0",
-    "@cypress/browserify-preprocessor": "3.0.0",
+    "@cypress/webpack-preprocessor": "5.4.1",
     "@rollup/plugin-babel": "5.0.2",
     "@rollup/plugin-node-resolve": "8.0.0",
     "@storybook/addon-a11y": "5.3.19",
@@ -84,10 +85,11 @@
     "postcss-inline-svg": "4.1.0",
     "postcss-loader": "3.0.0",
     "prettier": "2.0.5",
+    "raw-loader": "4.0.1",
     "remark-preset-lint-recommended": "4.0.0",
     "remark-preset-prettier": "0.4.0",
     "resolve": "1.17.0",
-    "rollup": "2.10.9",
+    "rollup": "2.11.2",
     "rollup-plugin-terser": "6.1.0",
     "sass": "1.26.5",
     "sass-loader": "8.0.2",
@@ -100,9 +102,11 @@
     "theo": "8.1.5",
     "through2": "3.0.1",
     "tiny-glob": "0.2.6",
-    "twig": "1.15.1",
-    "twigjs-loader": "1.0.1",
-    "typescript": "3.9.3"
+    "twing": "3.1.1",
+    "twing-loader": "3.0.1",
+    "typescript": "3.9.3",
+    "val-loader": "2.1.1",
+    "webpack": "4.43.0"
   },
   "scripts": {
     "storybook": "npm run preprocess && run-p watch-preprocess start-storybook",

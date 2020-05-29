@@ -1,6 +1,6 @@
-{% embed '../../container/container.twig' with { class: 'o-container--prose' } only %}
+{% embed '@cloudfour/objects/container/container.twig' with { class: 'o-container--prose' } only %}
   {% block content %}
-    {% embed '../rhythm.twig' with { class: 'o-rhythm--generous-headings' } only %}
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with { class: 'o-rhythm--generous-headings' } only %}
       {% block content %}
         <h1>Defining Responsiveness</h1>
         <p>When people say that something is responsive, what do they mean?</p>
@@ -15,7 +15,7 @@
         <p>That seems simple enough. But when it comes to defining what is responsive, things get a bit fuzzier.</p>
         <h2>Is Google Plus responsive?</h2>
         <p>The best way to understand where the differences of opinion exist is by looking at an real life example: is <a href="http://plus.google.com">Google Plus</a> responsive?</p>
-        {% embed '../../embed/embed.twig' with { class: 'o-embed--wide' } only %}
+        {% embed '@cloudfour/objects/embed/embed.twig' with { class: 'o-embed--wide' } only %}
           {% block content %}
             <iframe title="Video: Is Google Plus Responsive?" src="https://www.youtube.com/embed/eEqEj0lWumo?rel=0" width="420" height="315" allowfullscreen></iframe>
           {% endblock %}
@@ -33,12 +33,12 @@
         <p>This is similar to <a href="http://sonspring.com/">Nathan Smith’s</a> <a href="http://adapt.960.gs/">Adaptive.js</a> library which puts breakpoints in JavaScript instead of CSS.</p>
         <p>So by definition, Google Plus is not a responsive web design. It may look like one, but it doesn’t contain the three technical pieces necessary to be a responsive web design.</p>
         <p>
-          {% embed '../../../components/button/button.twig' with {
+          {% embed '@cloudfour/components/button/button.twig' with {
             href: 'https://cloudfour.com/thinks/defining-responsiveness/'
           } only %}
             {% block content %}
               Full article
-              {% include '../../../assets/icons/arrow-right.svg.twig' with {
+              {% include '@cloudfour/assets/icons/arrow-right.svg.twig' with {
                 class: 'c-icon c-icon--inline'
               } only %}
             {% endblock %}

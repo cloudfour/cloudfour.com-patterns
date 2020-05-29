@@ -5,7 +5,7 @@
 <div class="o-embed{% if class %} {{class}}{% endif %}"
   {% if style %}
     style="
-      {%- for rule in style|split(';') if rule|length -%}
+      {%- for rule in style|split(';')|filter(rule => rule|length) -%}
         {{rule}}{% if not loop.last %};{% endif %}
       {%- endfor -%}"
   {% endif %}>

@@ -1,22 +1,27 @@
 {# https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Contentinfo_role #}
 <footer>
+  {% with action %}
   <h2>
-    {{action.leadIn}}
+    {{leadIn}}
   </h2>
   <p>
-    {% embed '../button/button.twig' with {
-      href: action.link,
-      label: action.title
+    {% embed '@cloudfour/components/button/button.twig' with {
+      href: link,
+      label: title,
+      _ground_nav_icon: icon
     } only %}
       {% block content %}
-        {% include '../../assets/icons/envelope.svg.twig' with {
-          class: 'c-icon c-icon--inline',
-          focusable: 'false'
-        } only %}
+        {% if _ground_nav_icon %}
+          {% include '@cloudfour/assets/icons/' ~ _ground_nav_icon ~ '.svg.twig' with {
+            class: 'c-icon c-icon--inline',
+            focusable: 'false'
+          } only %}
+        {% endif %}
         {{label}}
       {% endblock %}
     {% endembed %}
   </p>
+  {% endwith %}
 
   <h2 class="u-hidden-visually">
     Contact info
@@ -49,8 +54,7 @@
           {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
           <span class="u-hidden-visually">{{item.title}}</span>
           {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
-          {# TODO: Use '../../assets/icons/brands/' ~ item.icon ~ '.svg.twig' for icon #}
-          {% include '../../assets/icons/link.svg.twig' with {
+          {% include ['@cloudfour/assets/icons/' ~ item.icon ~ '.svg.twig', '@cloudfour/assets/icons/link.svg.twig'] with {
             class: 'c-icon',
             focusable: 'false'
           } only %}

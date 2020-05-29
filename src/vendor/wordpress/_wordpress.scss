@@ -1,5 +1,59 @@
-@use "../../mixins/table";
 @use "../../design-tokens/colors.yml";
+@use "../../design-tokens/sizes.yml";
+@use "../../mixins/button";
+@use "../../mixins/table";
+
+/**
+ * Gutenberg block: Button
+ * Applies our pattern library styles to buttons generated via Gutenberg blocks.
+ */
+
+$wp-button-gap: sizes.$list-inline-gap;
+
+/**
+ * 1. Align buttons with outer parent
+ * 2. Complete half-gaps left by buttons
+ */
+
+.wp-block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin: $wp-button-gap * -1;
+  padding: $wp-button-gap / 2;
+
+  /**
+   * If this has content before, assume it is prose content and add back
+   * some margin.
+   */
+  &:not(:first-child) {
+    margin-top: sizes.$rhythm-space-generous - $wp-button-gap;
+  }
+
+  /**
+   * If this has content after, assume it is prose content and add back
+   * some margin.
+   */
+  &:not(:last-child) {
+    margin-bottom: sizes.$rhythm-space-generous - $wp-button-gap;
+  }
+}
+
+/**
+ * 1. Prevent inherited display flex styling from crushing layout
+ * 2. Add half-gaps (will add up to full gutters)
+ */
+.wp-block-button {
+  flex: none; /* 1 */
+  padding: $wp-button-gap / 2; /* 2 */
+
+  .wp-block-button__link {
+    @include button.default;
+  }
+
+  &.is-style-outline .wp-block-button__link {
+    @include button.secondary;
+  }
+}
 
 /**
  * Gutenberg block: Table

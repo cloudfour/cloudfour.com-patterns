@@ -26,7 +26,7 @@ This pattern is composed of three elements:
 - `o-media__content` for the wrapping content (typically text). This content will appear middle-aligned with the object until it exceeds the object's height, at which point it will appear top-aligned.
 
 <Preview>
-  <Story name="Image" height="150px">
+  <Story name="Image">
     {imageDemo({
       imgSrc: meganProfileImage,
       text: text('text', exampleText),
@@ -41,7 +41,7 @@ This pattern is composed of three elements:
 The order of `o-media__object` and `o-media__content` will not affect this pattern's visual appearance. To display the object on the right, use the `o-media--reverse` modifier.
 
 <Preview>
-  <Story name="Image Reversed" height="150px">
+  <Story name="Image Reversed">
     {imageDemo({
       imgSrc: meganProfileImage,
       text: text('text', exampleText),
@@ -56,9 +56,7 @@ The order of `o-media__object` and `o-media__content` will not affect this patte
 In this example, `o-media` is applied to a `<label>` element, `o-media__object` to [a Checkbox component](/?path=/docs/components-checkbox--enabled), and `o-media__content` to a `<span>`.
 
 <Preview>
-  <Story name="Checkbox Label" height="100px">
-    {checkboxDemo}
-  </Story>
+  <Story name="Checkbox Label">{checkboxDemo}</Story>
 </Preview>
 
 ## Event Summary
@@ -66,7 +64,5 @@ In this example, `o-media` is applied to a `<label>` element, `o-media__object` 
 In this example, the object is [a Calendar Date component](/?path=/docs/components-calendar-date--basic). Even though it's included _after_ the heading to promote a sensible document outline, it still visually precedes the content.
 
 <Preview>
-  <Story name="Event Summary" height="150px">
-    {calendarDateDemo}
-  </Story>
+  <Story name="Event Summary">{calendarDateDemo}</Story>
 </Preview>

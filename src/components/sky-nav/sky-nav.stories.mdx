@@ -2,9 +2,14 @@ import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 import menu from './demo/menu.json';
 import template from './sky-nav.twig';
 
+<!--
+Inline stories disabled so media queries will behave as expected within
+embedded examples.
+-->
+
 <Meta
   title="Components/Sky Nav"
-  parameters={{ paddings: { disabled: true } }}
+  parameters={{ docs: { inlineStories: false }, paddings: { disabled: true } }}
 />
 
 # Sky Nav

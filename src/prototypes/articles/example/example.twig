@@ -13,7 +13,7 @@
           {{article.date_published|replace({'Z': ''})|date('F j, Y')}}
         </p>
         {% if article.image %}
-          {% embed '../../../objects/embed/embed.twig' with {
+          {% embed '@cloudfour/objects/embed/embed.twig' with {
               class: 'o-embed--wide'
             } %}
             {% block content %}
@@ -30,7 +30,7 @@
               {{article.author.name}}
             </a>
           </p>
-          {% embed '../../../objects/embed/embed.twig' %}
+          {% embed '@cloudfour/objects/embed/embed.twig' %}
             {% block content %}
               <img src="{{article.author.avatar}}" alt="">
             {% endblock %}

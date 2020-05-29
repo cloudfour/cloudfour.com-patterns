@@ -18,7 +18,7 @@ A single dot leader is composed of four elements:
 - `c-dot-leader__end`
 
 <Preview>
-  <Story name="Single" height="100px">
+  <Story name="Single">
     {template({
       label: text('label', 'Design systems'),
       count: text('count', 42),
@@ -32,7 +32,7 @@ A single dot leader is composed of four elements:
 If `c-dot-leader` is an `<a>` element, it will gain some additional styles.
 
 <Preview>
-  <Story name="Link" height="100px">
+  <Story name="Link">
     {template({
       label: text('label', 'Design systems'),
       count: text('count', 42),
@@ -46,7 +46,5 @@ If `c-dot-leader` is an `<a>` element, it will gain some additional styles.
 Although `c-dot-leader` applies to a single row, the pattern works best as part of [a list object](/?path=/docs/objects-list--default-story). The dotted lines clearly associate each column even when content lengths vary.
 
 <Preview>
-  <Story name="List" height="360px">
-    {listDemo({ topics })}
-  </Story>
+  <Story name="List">{listDemo({ topics })}</Story>
 </Preview>

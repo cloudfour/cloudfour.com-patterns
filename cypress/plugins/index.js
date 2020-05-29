@@ -2,21 +2,17 @@
 
 const webpackPreprocessor = require('@cypress/webpack-preprocessor');
 const {
-  twingEnvironmentPlugin,
-  twingOptions,
-} = require('../../twing/environment-webpack-plugin');
+  alias,
+  twingLoader,
+  valLoader,
+} = require('../../twing/webpack-options');
 
 const getWebpackOptions = async () => ({
   mode: 'development',
   module: {
     rules: [
-      {
-        test: /\.twig$/,
-        use: {
-          loader: 'twing-loader',
-          options: twingOptions,
-        },
-      },
+      twingLoader,
+      valLoader,
       {
         test: /\.(ts|tsx)$/,
         use: 'babel-loader',
@@ -25,8 +21,8 @@ const getWebpackOptions = async () => ({
   },
   resolve: {
     extensions: ['.mjs', '.js', '.ts', '.tsx'],
+    alias,
   },
-  plugins: [await twingEnvironmentPlugin()],
 });
 
 module.exports = async (on, config) => {

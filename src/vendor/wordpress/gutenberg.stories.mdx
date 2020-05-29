@@ -43,7 +43,7 @@ The audio block wraps an `audio` and optional `figcaption` element in a layout
 container.
 
 <Preview>
-  <Story name="core/audio" height="150px">{`
+  <Story name="core/audio">{`
     <figure class="wp-block-audio type">
       <audio controls="" src="/media/piano.ogg"></audio>
       <figcaption>My audio clip</figcaption>
@@ -62,7 +62,7 @@ Controls allow each button to have custom text color, background color or gradie
 and border radius.
 
 <Preview>
-  <Story name="core/button" height="100px">
+  <Story name="core/button">
     {`<div class="wp-block-buttons">
         <div class="wp-block-button is-style-fill">
           <a class="wp-block-button__link" href="#">
@@ -84,7 +84,7 @@ The code block adds the class `wp-block-code` to a `pre` tag wrapping content in
 `code` tags.
 
 <Preview>
-  <Story name="core/code" height="500px">
+  <Story name="core/code">
     {codeBlockDemo({
       language: 'javascript',
     })}
@@ -102,7 +102,7 @@ declaration. Therefore, it's assumed that the `.wp-block-columns` wrapper must b
 set to `display: flex`.
 
 <Preview>
-  <Story name="core/columns" height="350px">
+  <Story name="core/columns">
     {`<div class="wp-block-columns">
         <div class="wp-block-column" style="flex-basis:37.5%">
           <p>
@@ -146,7 +146,7 @@ The text overlay inside the cover block its own `div` wrapper with a class of
 `wp-block_cover__inner-container`.
 
 <Preview>
-  <Story name="core/cover" height="350px">
+  <Story name="core/cover">
     {`<div
         class="wp-block-cover has-background-dim-40 has-background-dim has-parallax"
         style="background-image:url(/media/Windbuchencom.jpg);background-color:#065174"
@@ -163,7 +163,7 @@ The text overlay inside the cover block its own `div` wrapper with a class of
 ### Cover - Video Variant
 
 <Preview>
-  <Story name="core/cover/video" height="550px">
+  <Story name="core/cover/video">
     {`<div class="wp-block-cover has-background-dim">
         <div class="vsc-controller" data-vscid="y4nfjhbvo">
         </div>
@@ -197,7 +197,7 @@ Adding a caption in the editor includes a `figcaption` element before the closin
 `figure` tag.
 
 <Preview>
-  <Story name="core/embed" height="300px">
+  <Story name="core/embed">
     {`<figure
         class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-wp-themes-com"
       >
@@ -241,7 +241,7 @@ This block creates a `div` with class `wp-block-file`, which wraps one or two
 as a button, adding the class `wp-block-file__button`.
 
 <Preview>
-  <Story name="core/file" height="100px">
+  <Story name="core/file">
     {`<div class="wp-block-file">
         <a href="/media/Squares.jpg"
           rel="noreferrer noopener" target="_blank">
@@ -275,7 +275,7 @@ items are not wrapped in links.
 Adding a caption creates a `figcaption` element before the closing wrapper tag.
 
 <Preview>
-  <Story name="core/gallery" height="500px">
+  <Story name="core/gallery">
     {`<figure class="wp-block-gallery columns-2 is-cropped">
         <ul class="blocks-gallery-grid">
           <li class="blocks-gallery-item">
@@ -325,7 +325,7 @@ will inherit from the group block wrapper, but otherwise they will retain their
 own styles.
 
 <Preview>
-  <Story name="core/group" height="350px">
+  <Story name="core/group">
     {`<div class="wp-block-group has-background" style="background-color:#ccc">
         <div class="wp-block-group__inner-container">
           <p style="color:#cf2e2e" class="has-text-color has-large-font-size">One.</p>
@@ -362,7 +362,7 @@ Adding caption text to the image generates a `figcaption` element before the clo
 wrapper tag.
 
 <Preview>
-  <Story name="core/image" height="500px">
+  <Story name="core/image">
     {`<figure class="wp-block-image size-large is-style-default">
         <img
           src="/media/MtBlanc1.jpg"
@@ -397,7 +397,7 @@ padding) class.
 Another control toggles the class `is-stacked-on-mobile`.
 
 <Preview>
-  <Story name="core/media-text" height="650px">
+  <Story name="core/media-text">
     {`<div class="wp-block-media-text alignwide is-stacked-on-mobile has-media-on-the-right is-vertically-aligned-center has-background has-subtle-background-background-color">
         <figure class="wp-block-media-text__media">
           <img src="/media/Biologia_Centrali-Americana_-_Cantorchilus_semibadius_1902.jpg" alt="" />
@@ -417,7 +417,7 @@ class.
 
 <Preview>
   {/* eslint-disable no-useless-escape */}
-  <Story name="core/preformatted" height="350px">
+  <Story name="core/preformatted">
     {`<pre class="wp-block-preformatted">
        ___________________________
      < I'm an expert in my field. >
@@ -443,7 +443,7 @@ text `color`. A styles control adds one of two wrapper classes, `is-style-defaul
 applied only if the solid color background is toggled on.
 
 <Preview>
-  <Story name="core/pullquote" height="200px">
+  <Story name="core/pullquote">
     {`<figure class="wp-block-pullquote has-background is-style-solid-color" style="background-color:#dcd7ca">
         <blockquote class="has-text-color has-accent-color">
           <p>One of the hardest things to do in technology is disrupt yourself.</p>
@@ -459,7 +459,7 @@ The quote block adds class of `wp-block-quote` directly to a `blockquote` elemen
 It has a control to add an optional `is-style-large` class.
 
 <Preview>
-  <Story name="core/quote" height="150px">
+  <Story name="core/quote">
     {`<blockquote class="wp-block-quote is-style-large">
         <p>In quoting others, we cite ourselves.</p>
         <cite>Julio Cortázar</cite>
@@ -477,7 +477,7 @@ The color controls, if used, can add both `has-text-color` and `has-background`
 classes, as well as modifier classes for predefined color choices.
 
 <Preview>
-  <Story name="core/separator" height="100px">
+  <Story name="core/separator">
     {`<hr class="wp-block-separator has-text-color has-background has-subtle-background-background-color has-subtle-background-color is-style-wide">`}
   </Story>
 </Preview>
@@ -487,7 +487,7 @@ classes, as well as modifier classes for predefined color choices.
 The spacer block is a `div` with a class of `wp-block-spacer`.
 
 <Preview>
-  <Story name="core/spacer" height="225px">
+  <Story name="core/spacer">
     {`<p>Content before spacer.</p>
         <div
           style="height:50px"
@@ -514,7 +514,7 @@ the parent wrapper, for controlling zebra-striping on alternate rows.
 Another control optionally adds the `has-fixed-layout` class to the `table` element.
 
 <Preview>
-  <Story name="core/table" height="250px">
+  <Story name="core/table">
     {`<figure class="wp-block-table is-style-stripes">
         <table class="has-fixed-layout">
           <thead>
@@ -560,7 +560,7 @@ Another control optionally adds the `has-fixed-layout` class to the `table` elem
 The verse block adds the `wp-block-verse` class to a `pre` element.
 
 <Preview>
-  <Story name="core/verse" height="300px">
+  <Story name="core/verse">
     {`<pre class="wp-block-verse">WHAT was he doing, the great god Pan,<br>    Down in the reeds by the river?<br>Spreading ruin and scattering ban,<br>Splashing and paddling with hoofs of a goat,<br>And breaking the golden lilies afloat<br>    With the dragon-fly on the river.</pre>`}
   </Story>
 </Preview>

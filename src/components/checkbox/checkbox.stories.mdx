@@ -3,7 +3,16 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import withLabelDemo from './demo/with-label.twig';
 import './demo/styles.scss';
 
-<Meta title="Components/Checkbox" decorators={[withKnobs]} />
+<!--
+Inline stories disabled because when the same input element is rendered with
+different settings within the same file, React syncs all their properties.
+-->
+
+<Meta
+  title="Components/Checkbox"
+  decorators={[withKnobs]}
+  parameters={{ docs: { inlineStories: false } }}
+/>
 
 # Checkbox
 

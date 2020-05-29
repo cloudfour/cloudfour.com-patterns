@@ -12,6 +12,11 @@ import selectDemo from './demo/select.twig';
 import './demo/styles.scss';
 import { createElasticTextArea } from './elastic-textarea.ts';
 
+<!--
+Inline stories disabled because when the same input element is rendered with
+different settings within the same file, React syncs all their properties.
+-->
+
 <Meta
   title="Components/Input"
   decorators={[withKnobs]}

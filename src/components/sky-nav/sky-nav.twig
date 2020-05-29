@@ -3,7 +3,7 @@
 
 <div class="c-sky-nav{% if class %} {{class}}{% endif %}">
   {# https://webaim.org/techniques/skipnav/ #}
-  {% embed '../button/button.twig' with {
+  {% embed '@cloudfour/components/button/button.twig' with {
     class: 'c-sky-nav__skip',
     href: _main_href
   } only %}
@@ -32,7 +32,7 @@
           <path d="M307.79,99.62A846.59,846.59,0,0,0,208,202.42l72.2-2.8c14.8-41.6,27.6-78.6,33.2-94.8A6,6,0,0,0,307.79,99.62Z"/>
         </svg>
       </a>
-      {% embed '../button/button.twig' with {
+      {% embed '@cloudfour/components/button/button.twig' with {
         class: 'c-sky-nav__menu-toggle'
       } only %}
         {% block content %}

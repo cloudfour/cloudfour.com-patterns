@@ -46,7 +46,6 @@
     "@babel/core": "7.10.0",
     "@babel/preset-env": "7.10.1",
     "@cloudfour/eslint-plugin": "11.0.0",
-    "@cypress/browserify-preprocessor": "3.0.0",
     "@cypress/webpack-preprocessor": "5.4.1",
     "@rollup/plugin-babel": "5.0.2",
     "@rollup/plugin-node-resolve": "8.0.0",

@@ -1,5 +1,6 @@
 const { resolve } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { twingLoader, valLoader, alias } = require('../twing/webpack-options');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
@@ -79,10 +80,8 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.twig$/,
-        use: 'twigjs-loader',
-      },
+      twingLoader,
+      valLoader,
       {
         // Import Theo design tokens as JS objects
         test: /\.ya?ml$/,
@@ -98,6 +97,8 @@ module.exports = {
         use: 'babel-loader',
       }
     );
+
+    Object.assign(config.resolve.alias, alias);
 
     config.resolve.extensions.push('.ts', '.tsx');
 

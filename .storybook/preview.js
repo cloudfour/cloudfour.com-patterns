@@ -1,5 +1,6 @@
 import { addDecorator, addParameters } from '@storybook/html';
 import { withA11y } from '@storybook/addon-a11y';
+import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
 import * as breakpoints from '../src/design-tokens/breakpoint.yml';
@@ -104,5 +105,19 @@ addParameters({
       ...breakpointViewports,
       ...INITIAL_VIEWPORTS,
     },
+  },
+});
+
+// Add Docs support for inlining plain HTML stories
+// @see https://github.com/storybookjs/storybook/blob/v5.3.19/addons/docs/docs/docspage.md#inline-stories-vs-iframe-stories
+
+// Initialize the parser
+const htmlToReactParser = new Parser();
+
+// Add the function to Docs settings
+addParameters({
+  docs: {
+    inlineStories: true,
+    prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
   },
 });

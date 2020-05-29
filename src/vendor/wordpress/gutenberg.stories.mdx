@@ -53,8 +53,7 @@ container.
 
 ## Button
 
-The button block adds call-to-action-style links to a post. Container elements provide
-layout.
+The button block adds call-to-action-style links to a post. When multiple buttons are added the `wp-block-buttons` container controls layout.
 
 If chosen, a button can have only an outline (no fill color), which adds the `is-style-outline`
 class on the `.wp-block-button` element.
@@ -65,9 +64,14 @@ and border radius.
 <Preview>
   <Story name="core/button">
     {`<div class="wp-block-buttons">
-        <div class="wp-block-button">
-          <a class="wp-block-button__link" href="https:/end wp-themes.com/twentytwenty/" style="border-radius:50px" target="_blank" rel="noopener noreferrer">
+        <div class="wp-block-button is-style-fill">
+          <a class="wp-block-button__link" href="#">
             Button
+          </a>
+        </div>
+        <div class="wp-block-button is-style-outline">
+          <a class="wp-block-button__link" href="#">
+            Outlined button
           </a>
         </div>
     </div>`}

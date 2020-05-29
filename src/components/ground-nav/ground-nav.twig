@@ -1,4 +1,15 @@
-{# https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Contentinfo_role #}
+{% set kudos %}
+  {% block kudos %}{% endblock %}
+{% endset %}
+
+{% set legal %}
+  {% block legal %}
+    <p>
+      © {{organization.foundingDate|date('Y')}}–{{'now'|date('Y')}} {{organization.name}}
+    </p>
+  {% endblock %}
+{% endset %}
+
 <footer>
   {% with action %}
   <h2>
@@ -83,16 +94,14 @@
   </nav>
 
   {% if kudos %}
-    <p>
+    <div>
       {{kudos}}
-    </p>
+    </div>
   {% endif %}
 
-  <p>
-    {% if legal %}
+  {% if legal %}
+    <div>
       {{legal}}
-    {% else %}
-      © {{organization.foundingDate|date('Y')}}–{{'now'|date('Y')}} {{organization.name}}
-    {% endif %}
-  </p>
+    </div>
+  {% endif %}
 </footer>

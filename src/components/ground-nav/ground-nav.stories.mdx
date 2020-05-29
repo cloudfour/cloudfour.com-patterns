@@ -5,15 +5,27 @@ import groundNavMenu from './demo/menu.json';
 import organization from './demo/organization.json';
 import social from './demo/social.json';
 import template from './ground-nav.twig';
+import pwaStatsDemo from './demo/pwa-stats.twig';
 const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
 const actionId = 'action';
 const organizationId = 'organization';
 
-<Meta title="Components/Ground Nav" decorators={[withKnobs]} />
+<!--
+Inline stories disabled so media queries will behave as expected within
+embedded examples.
+-->
+
+<Meta
+  title="Components/Ground Nav"
+  decorators={[withKnobs]}
+  parameters={{ docs: { inlineStories: false } }}
+/>
 
 # Ground Nav
 
 **Note:** This component is currently a work in progress.
+
+The yin to [Sky Nav](/?path=/docs/components-sky-nav--dark)'s yang, the Ground Nav sits at the bottom of all our pages. It includes a call to action, contact information, an expanded navigation menu for lost users and any legal copy.
 
 <Preview>
   <Story name="Cloud Four">
@@ -64,8 +76,91 @@ const organizationId = 'organization';
           organizationId
         ),
       },
-      kudos: text('kudos'),
-      legal: text('legal'),
     })}
   </Story>
 </Preview>
+
+The menu’s contents may differ between projects. This example is based on the footer of our [PWA Stats](https://www.pwastats.com/) resource.
+
+<Preview>
+  <Story name="PWA Stats">
+    {pwaStatsDemo({
+      menu,
+      social,
+      action: {
+        leadIn: text('leadIn', 'Help us build this resource!', actionId),
+        title: text('title', 'Contribute a story', actionId),
+        link: text(
+          'link',
+          'https://github.com/cloudfour/pwastats/issues/new?title=Submission:+New+Story',
+          actionId
+        ),
+        icon: text('icon', 'brands/github', actionId),
+      },
+      organization: {
+        name: text('name', organization.name, 'organization'),
+        address: {
+          streetAddress: text(
+            'address.streetAddress',
+            organization.address.streetAddress,
+            organizationId
+          ),
+          addressLocality: text(
+            'address.addressLocality',
+            organization.address.addressLocality,
+            organizationId
+          ),
+          addressRegion: text(
+            'address.addressRegion',
+            organization.address.addressRegion,
+            organizationId
+          ),
+          postalCode: text(
+            'address.postalCode',
+            organization.address.postalCode,
+            organizationId
+          ),
+          addressCountry: text(
+            'address.addressCountry',
+            organization.address.addressCountry,
+            organizationId
+          ),
+        },
+        email: text('email', organization.email, organizationId),
+        telephone: text('telephone', organization.telephone, organizationId),
+        url: text('url', organization.url, organizationId),
+        foundingDate: text(
+          'foundingDate',
+          organization.foundingDate,
+          organizationId
+        ),
+      },
+    })}
+  </Story>
+</Preview>
+
+## Accessibility
+
+Stay tuned!
+
+## Template Properties
+
+- `action`: Object containing settings for the "call to action" section.
+  - `leadIn`: The heading text that precedes the button.
+  - `title`: The title of the action link. Named `title` for consistency with menus.
+  - `link`: The URL for the action link. Named `link` for consistency with menus.
+  - `icon`: Optional key to one of [our icons](/?path=/docs/design-icons--page) for display in the link.
+- `organization`: Object containing Cloud Four details for contact information and copyright. Structure and property names are based on the [the Organization schema](https://schema.org/Organization).
+  - `name`
+  - `address`
+    - `streetAddress`
+    - `addressLocality` (city)
+    - `addressRegion` (state)
+    - `postalCode` (zip)
+    - `addressCountry`
+  - `email`
+  - `telephone`
+  - `url`
+  - `foundingDate`: Used for start date of default legal content.
+- `menu`: An object containing navigation menu `items` to iterate over in the same structure as that expected by [Timber menus](https://timber.github.io/docs/guides/menus/).
+- `social`: The same structure as `menu` but for social links. Each item must also contain an `icon` property corresponding to a key from [our icon library](/?path=/docs/design-icons--page).

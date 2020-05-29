@@ -65,7 +65,7 @@ $wp-button-gap: sizes.$list-inline-gap;
  */
 
 .wp-block-table table td,
-.wp-block table th {
+.wp-block-table table th {
   @include table.t-container;
 }
 

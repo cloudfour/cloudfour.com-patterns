@@ -117,6 +117,7 @@ const htmlToReactParser = new Parser();
 // Add the function to Docs settings
 addParameters({
   docs: {
+    inlineStories: true,
     prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
   },
 });

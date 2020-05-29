@@ -3,7 +3,11 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import withLabelDemo from './demo/with-label.twig';
 import './demo/styles.scss';
 
-<Meta title="Components/Checkbox" decorators={[withKnobs]} />
+<Meta
+  title="Components/Checkbox"
+  decorators={[withKnobs]}
+  parameters={{ docs: { inlineStories: false } }}
+/>
 
 # Checkbox
 

@@ -11,7 +11,7 @@ import stylesDarkDemo from './demo/styles-dark.twig';
 The `c-button` class may be applied to button and link elements. The button appears filled by default so that the actionable element is clearly distinguished from surrounding text.
 
 <Preview>
-  <Story name="Elements" height="100px">
+  <Story name="Elements">
     {elementsDemo({
       href: text('href', null),
       type: select('type', ['', 'button', 'submit']),
@@ -25,7 +25,7 @@ The `c-button` class may be applied to button and link elements. The button appe
 Some buttons may not require as much emphasis as others. The `c-button--secondary` and `c-button--tertiary` modifiers reflect lesser importance with reduced contrast.
 
 <Preview>
-  <Story name="Styles" height="100px">
+  <Story name="Styles">
     {stylesDemo({
       href: text('href', null),
       type: select('type', ['', 'button', 'submit']),
@@ -39,7 +39,6 @@ All the above visual styles will appear slightly different within [our dark them
 <Preview>
   <Story
     name="Styles (Dark)"
-    height="100px"
     parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
   >
     {stylesDarkDemo({

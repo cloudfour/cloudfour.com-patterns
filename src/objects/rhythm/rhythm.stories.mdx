@@ -14,9 +14,7 @@ The `o-rhythm` class applies [consistent vertical spacing between child elements
 The default spacing works great for medium-to-long text content:
 
 <Preview>
-  <Story name="Default" height="300px">
-    {introDemo}
-  </Story>
+  <Story name="Default">{introDemo}</Story>
 </Preview>
 
 ## Modifiers
@@ -24,25 +22,19 @@ The default spacing works great for medium-to-long text content:
 For shorter summary content, use the `o-rhythm--condensed` modifier to tighten things up a bit:
 
 <Preview>
-  <Story name="Condensed" height="300px">
-    {summaryDemo}
-  </Story>
+  <Story name="Condensed">{summaryDemo}</Story>
 </Preview>
 
 `o-rhythm--compact` is best for shorter content chunks that just need a _pinch_ more space:
 
 <Preview>
-  <Story name="Compact" height="200px">
-    {listDemo}
-  </Story>
+  <Story name="Compact">{listDemo}</Story>
 </Preview>
 
 While `o-rhythm--generous` is intended for separating distinct content chunks with more whitespace:
 
 <Preview>
-  <Story name="Generous" height="300px">
-    {sectionsDemo}
-  </Story>
+  <Story name="Generous">{sectionsDemo}</Story>
 </Preview>
 
 ## Heading Modifiers
@@ -50,5 +42,7 @@ While `o-rhythm--generous` is intended for separating distinct content chunks wi
 The `o-rhythm--generous-headings` modifier helps differentiate sections of articles (or similarly long prose content) by adding more whitespace before headings than other elements.
 
 <Preview>
-  <Story name="Generous Headings">{articleDemo}</Story>
+  <Story name="Generous Headings" inline={false}>
+    {articleDemo}
+  </Story>
 </Preview>

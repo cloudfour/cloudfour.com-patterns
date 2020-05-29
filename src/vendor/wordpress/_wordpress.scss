@@ -101,4 +101,8 @@ $wp-button-gap: sizes.$list-inline-gap;
  */
 .wp-block-table.c-table--numeric table {
   @include table.t-numeric;
+
+  & th {
+    text-align: right;
+  }
 }

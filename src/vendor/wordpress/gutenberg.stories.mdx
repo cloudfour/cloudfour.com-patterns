@@ -508,8 +508,9 @@ A caption input renders a `figcaption` element within the wrapper and below the
 Right, left, or center alignment of cell content can be set at the column level,
 and adds a `has-text-align-` class to each affected cell.
 
-Styles controls add one of 2 classes, `is-style-default` or `is-style-stripes` to
-the parent wrapper, for controlling zebra-striping on alternate rows.
+The default WP styles controls allow for one of two classes, `is-style-default` or `is-style-stripes`. When selected, these classes are applied to the parent wrapper, for controlling zebra-striping on alternate rows.
+
+Additionally, the Advanced → Additional CSS Classes input can be used to generated ruled and numeric tables by adding `c-table--ruled` and/or `c-table--numeric`. This will add the additional classes to the `<figure>` element, which differs from how our `c-table` pattern is set up, but the styled outcome will be the same.
 
 Another control optionally adds the `has-fixed-layout` class to the `table` element.
 
@@ -517,6 +518,43 @@ Another control optionally adds the `has-fixed-layout` class to the `table` elem
   <Story name="core/table">
     {`<h2>Default Table</h2>
     <figure class="wp-block-table is-style-default">
+        <table class="has-fixed-layout">
+          <thead>
+            <tr>
+              <th class="has-text-align-right" data-align="right">Heading 1</th>
+              <th class="has-text-align-right" data-align="right">Heading 2</th>
+              <th class="has-text-align-right" data-align="right">Heading 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+            <tr>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+              <td class="has-text-align-right" data-align="right">content</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+              <td class="has-text-align-right" data-align="right">Footer</td>
+            </tr>
+          </tfoot>
+        </table>
+        <figcaption>A caption can be added but is not rendered as a caption element</figcaption>
+      </figure>
+      <h2>Ruled Table</h2>
+      <figure class="wp-block-table is-style-default c-table--ruled">
         <table class="has-fixed-layout">
           <thead>
             <tr>

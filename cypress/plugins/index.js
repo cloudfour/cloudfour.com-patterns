@@ -7,7 +7,7 @@ const {
   valLoader,
 } = require('../../twing/webpack-options');
 
-const getWebpackOptions = async () => ({
+const webpackOptions = {
   mode: 'development',
   module: {
     rules: [
@@ -23,9 +23,8 @@ const getWebpackOptions = async () => ({
     extensions: ['.mjs', '.js', '.ts', '.tsx'],
     alias,
   },
-});
+};
 
 module.exports = async (on, config) => {
-  const webpackOptions = await getWebpackOptions();
   on('file:preprocessor', webpackPreprocessor({ webpackOptions }));
 };

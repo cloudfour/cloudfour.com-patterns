@@ -10,11 +10,11 @@ bill-to: &id001
       Suite #292
     city: Royal Oak
     state: MI
-    postal  : 48046
+    postal: 48046
 ship-to: *id001
 product:
   - sku: BL394D
-    quantity : 4
+    quantity: 4
     description: Basketball
     price: 450.00
   - sku: BL4438H
@@ -23,7 +23,3 @@ product:
     price: 2392.00
 tax: 251.42
 total: 4443.52
-comments:
-  Late afternoon is best.
-  Backup contact is Nancy
-  Billsmer @ 338-4338.

@@ -14,39 +14,4 @@ class InlineSvg {
       $this->svg = simplexml_load_string( '<svg></svg>' );
     }
   }
-
-  public function setAttribute( $name, $value ) {
-    $attributes = $this->svg->attributes();
-
-    if ( empty( $attributes->$name ) ) {
-      $this->svg->addAttribute( $name, $value );
-    } else {
-      $attributes->$name = $value;
-    }
-  }
-
-  public function setAttributes( $attributes = array() ) {
-    foreach ( $attributes as $name => $value ) {
-      $this->setAttribute( $name, $value );
-    }
-  }
-
-  public function prepend( $content = '' ) {
-    if (!empty($content)) {
-      $xml_string = (string) $this;
-      $xml_string = preg_replace( '/<svg(.*)>/U', '<svg$1>' . trim( $content ), $xml_string, 1 );
-      $this->svg = simplexml_load_string($xml_string);
-    }
-  }
-
-  public function __toString() {
-    // Convert to string
-    $xml_string = $this->svg->asXML();
-    // Strip xmlns attributes
-    $xml_string = preg_replace( '/ xmlns[^=]*="[^"]*"/i', '', $xml_string );
-    // Include only the root element
-    $xml_string = preg_replace( '|^.*(<svg.*</svg>).*$|Us', '$1', $xml_string );
-
-    return $xml_string;
-  }
 }

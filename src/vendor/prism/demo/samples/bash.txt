@@ -1,0 +1,3 @@
+npm i --save @11ty/eleventy
+touch index.md subpage.md
+npx @11ty/eleventy --serve

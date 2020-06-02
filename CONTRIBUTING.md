@@ -42,7 +42,7 @@ cloudfour.com-patterns
 1. `git checkout v-next`
 2. `git pull`
 3. Make sure you have a clean working tree (`git status` should show no changes)
-4. `git checkout release-X.Y.Z` Where `X.Y.Z` is the version number you're about to release.
+4. `git checkout -b release-X.Y.Z` - Create a new release branch, where `X.Y.Z` is the version number you're about to release.
 5. `npm version [major | minor | patch]` - This will bump the version number in `package.json` and `package-lock.json`. e.g., `npm version minor` to bump from `1.1.0` to `1.2.0`.
 6. `git push` your branch.
 7. Make a PR, get it approved, and merge your changes to `v-next`.

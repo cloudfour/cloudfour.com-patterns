@@ -42,7 +42,7 @@ cloudfour.com-patterns
 1. `git checkout v-next`
 2. `git pull`
 3. Make sure you have a clean working tree (`git status` should show no changes)
-4. `npm version` - This will bump the version number in `package.json` and `package-lock.json`
+4. `npm version [major | minor | patch]` - This will bump the version number in `package.json` and `package-lock.json`. e.g., `npm version minor` to bump from `1.1.0` to `1.2.0`.
 5. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
 
 You can run `npm publish --dry-run` to see everything that _would_ happen during publish, without actually publishing to the npm registry.

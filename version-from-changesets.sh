@@ -36,8 +36,8 @@ git stash pop
 # Now all of the changes are ready to be committed:
 # [package.json, package-lock.json, CHANGELOG.md, .changeset/**]
 
-git config --local user.email "action@github.com"
-git config --local user.name "GitHub Action"
+git config --local user.email "github-actions[bot]@users.noreply.github.com"
+git config --local user.name "GitHub Actions Bot"
 
 git add -A
 git commit -m "Release ${NEW_VERSION}"

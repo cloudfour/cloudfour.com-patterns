@@ -45,6 +45,7 @@
   "devDependencies": {
     "@babel/core": "7.10.2",
     "@babel/preset-env": "7.10.2",
+    "@changesets/cli": "2.8.0",
     "@cloudfour/eslint-plugin": "11.0.0",
     "@cypress/webpack-preprocessor": "5.4.1",
     "@rollup/plugin-babel": "5.0.2",
@@ -134,6 +135,7 @@
     "lint:js": "eslint . --fix --ext .js,.mdx,.ts,.tsx",
     "test": "cypress run",
     "test:open": "cypress open",
+    "version-from-changesets": "./version-from-changesets.sh",
     "prepublishOnly": "npm ci && npm run check-lint && npm run preprocess && npm run build"
   }
 }

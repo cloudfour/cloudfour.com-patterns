@@ -1,8 +1,9 @@
 name: Changesets
 
-on: [push]
-branches:
-  - changesets # TODO: v-next only
+on:
+  push:
+    branches:
+      - changesets # TODO: v-next only
 
 jobs:
   changesets:

@@ -239,12 +239,20 @@ as a button, adding the class `wp-block-file__button`.
 <Preview>
   <Story name="core/file">
     {`<div class="wp-block-file">
-        <a href="/media/Squares.jpg"
-          rel="noreferrer noopener" target="_blank">
-            Open in new tab
-        </a>
+        <p>
+          Link to <a href="/media/Squares.jpg"
+            rel="noreferrer noopener" target="_blank">
+              open file
+          </a> in new tab
+        </p>
+        <br/>
         <a href="/media/Squares.jpg"
           class="wp-block-file__button"
+          download="">
+            Download file
+        </a>
+        <a href="/media/Squares.jpg"
+          class="wp-block-file__button c-button--secondary"
           download="">
             Download file
         </a>

@@ -1,0 +1,63 @@
+import { Story, Meta } from '@storybook/addon-docs/blocks';
+import { useEffect } from '@storybook/client-api';
+import { basename, extname } from 'path';
+import sampleDemo from './demo/sample.twig';
+import '../../vendor/prism/config.js';
+// Load samples directory as "raw" text
+const samplesDir = require.context('!!raw-loader!./demo/samples', false);
+// Initialize an object to store sample content in
+const samples = {};
+// For each sample, fetch its content and build an object for our template
+samplesDir.keys().forEach((key) => {
+  const filename = basename(key);
+  const ext = extname(key);
+  const name = filename.replace(ext, '');
+  const content = samplesDir(key).default;
+  samples[name] = { filename, name, ext, content };
+});
+
+<Meta
+  title="Vendor/Prism"
+  decorators={[
+    (storyFn) => {
+      useEffect(() => Prism.highlightAll());
+      return storyFn();
+    },
+  ]}
+/>
+
+# Prism
+
+Our CSS includes a custom [Prism](https://prismjs.com/index.html) theme to support syntax highlighting for code samples.
+
+## Supported Languages
+
+<Story name="Bash, Shell">{sampleDemo(samples.bash)}</Story>
+
+<Story name="CSS">{sampleDemo(samples.css)}</Story>
+
+<Story name="Handlebars">{sampleDemo(samples.handlebars)}</Story>
+
+<Story name="JavaScript">{sampleDemo(samples.js)}</Story>
+
+<Story name="JSON">{sampleDemo(samples.json)}</Story>
+
+<Story name="Liquid">{sampleDemo(samples.liquid)}</Story>
+
+<Story name="Markup, HTML">{sampleDemo(samples.markup)}</Story>
+
+<Story name="PHP">{sampleDemo(samples.php)}</Story>
+
+<Story name="React JSX">{sampleDemo(samples.jsx)}</Story>
+
+<Story name="React TSX">{sampleDemo(samples.tsx)}</Story>
+
+<Story name="Sass (SCSS)">{sampleDemo(samples.scss)}</Story>
+
+<Story name="TOML">{sampleDemo(samples.toml)}</Story>
+
+<Story name="Twig">{sampleDemo(samples.twig)}</Story>
+
+<Story name="TypeScript">{sampleDemo(samples.typescript)}</Story>
+
+<Story name="YAML">{sampleDemo(samples.yaml)}</Story>

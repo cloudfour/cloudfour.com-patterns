@@ -4,7 +4,7 @@
 set -e
 
 # Update package.json with new version, combine all the changesets files into the changelog
-changesets version
+./node_modules/.bin/changeset version
 
 NEW_VERSION=$(cat package.json | jq -r ".version")
 

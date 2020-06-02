@@ -7,6 +7,10 @@
   padding-bottom: calc(24 / 16em * 1.25);
 }
 
+.Sky--clouds::after {
+  transform: rotate(35deg);
+}
+
 @media (min-width: 1337px) {
   p > b > a {
     content: 'Terrible selector! :(';

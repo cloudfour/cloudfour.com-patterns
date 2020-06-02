@@ -1,5 +1,5 @@
 ---
-'@cloudfour/patterns': minor
+'@calebeby/cloudfour-patterns-tmp': minor
 ---
 
 test

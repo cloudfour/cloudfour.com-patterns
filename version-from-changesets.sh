@@ -6,6 +6,7 @@ set -e
 # Update package.json with new version, combine all the changesets files into the changelog
 ./node_modules/.bin/changeset version
 
+# Retrieve the new version from the package.json
 NEW_VERSION=$(cat package.json | jq -r ".version")
 
 # changesets version does not update package-lock.json. npm version does.

@@ -13,7 +13,7 @@ jobs:
         with:
           # Fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
-           # Don't set the GITHUB_TOKEN variable
+          # Don't set the GITHUB_TOKEN variable
           persist-credentials: false
       - name: Use Node.js 12
         uses: actions/setup-node@v1

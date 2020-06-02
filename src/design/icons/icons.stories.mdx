@@ -25,7 +25,7 @@ const brandIconElements = brandIconDir.keys().map((key) => {
   // Retains subdirectory if we want to organize with those in the future
   const name = relative('.', key).replace(extname(key), '');
   return (
-    <IconItem name={name}>
+    <IconItem name={`brands/${name}`}>
       <BrandIcon class="c-icon" />
     </IconItem>
   );

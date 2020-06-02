@@ -2,7 +2,7 @@ name: Changesets
 
 on: [push]
 branches:
-  - v-next
+  - changesets # TODO: v-next only
 
 jobs:
   changesets:
@@ -12,21 +12,25 @@ jobs:
         with:
           # Fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
+           # Don't set the GITHUB_TOKEN variable
+          persist-credentials: false
       - name: Use Node.js 12
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
         run: CYPRESS_INSTALL_BINARY=0 npm ci
       - name: Run Preprocess
         run: npm run preprocess
       - name: Run Build
         run: npm run build
-      - name: Bump version + changelog
-        run: npx changesets version
+      - name: Bump version + changelog (creates commit + tag)
+        run: ./version-from-changesets.sh
+      - name: Push release commit + tag
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true
+      - name: Publish to npm
+        run: npx changeset publish

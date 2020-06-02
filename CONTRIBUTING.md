@@ -42,8 +42,14 @@ cloudfour.com-patterns
 1. `git checkout v-next`
 2. `git pull`
 3. Make sure you have a clean working tree (`git status` should show no changes)
-4. `npm version` - This will bump the version number in `package.json` and `package-lock.json`
-5. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
+4. `git checkout -b release-X.Y.Z` - Create a new release branch, where `X.Y.Z` is the version number you're about to release.
+5. `npm version [major | minor | patch]` - This will bump the version number in `package.json` and `package-lock.json`. e.g., `npm version minor` to bump from `1.1.0` to `1.2.0`.
+6. `git push` your branch.
+7. Make a PR, get it approved, and merge your changes to `v-next`.
+8. `git checkout v-next`
+9. `git pull`
+10. Make sure you have a clean working tree (`git status` should show no changes)
+11. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
 
 You can run `npm publish --dry-run` to see everything that _would_ happen during publish, without actually publishing to the npm registry.
 

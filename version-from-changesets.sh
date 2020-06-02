@@ -3,8 +3,19 @@
 # Exit if anything fails
 set -e
 
+if [ -n "$(git status --porcelain)" ]; then 
+  echo "working tree must be clean, it is not:"
+  git status
+  exit 1
+fi
+
 # Update package.json with new version, combine all the changesets files into the changelog
 ./node_modules/.bin/changeset version
+
+if [ -z "$(git status --porcelain)" ]; then 
+  echo "No new version, exiting"
+  exit 0
+fi
 
 # Retrieve the new version from the package.json
 NEW_VERSION=$(cat package.json | jq -r ".version")

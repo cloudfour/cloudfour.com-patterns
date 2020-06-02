@@ -23,8 +23,10 @@
     } only %}
       {% block content %}
         {% if _ground_nav_icon %}
-          {% include '@cloudfour/assets/icons/' ~ _ground_nav_icon ~ '.svg.twig' with {
-            class: 'c-icon c-icon--inline',
+          {% include '@cloudfour/components/icon/icon.twig' with {
+            name: _ground_nav_icon,
+            fallback: 'link',
+            inline: true,
             focusable: 'false'
           } only %}
         {% endif %}
@@ -65,8 +67,9 @@
           {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
           <span class="u-hidden-visually">{{item.title}}</span>
           {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
-          {% include ['@cloudfour/assets/icons/' ~ item.icon ~ '.svg.twig', '@cloudfour/assets/icons/link.svg.twig'] with {
-            class: 'c-icon',
+          {% include '@cloudfour/components/icon/icon.twig' with {
+            name: item.icon,
+            fallback: 'link',
             focusable: 'false'
           } only %}
         </a>

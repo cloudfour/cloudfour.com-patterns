@@ -8,9 +8,17 @@ set -e
 
 NEW_VERSION=$(cat package.json | jq -r ".version")
 
-# changesets version does not update package-lock.json or create a commit, or create a tag. npm version does all of those
-# npm version requires clean working tree, so changes are stashed
+# changesets version does not update package-lock.json. npm version does.
+# npm version requires clean working tree, so changes are stashed and then reapplied
 git stash
-npm version "${NEW_VERSION}"
+npm version "${NEW_VERSION}" --git-tag-version=false
 git stash pop
 
+# Now all of the changes are ready to be committed:
+# [package.json, package-lock.json, CHANGELOG.md, .changeset/**]
+
+# git config --local user.email "action@github.com"
+# git config --local user.name "GitHub Action"
+
+git add -A
+git commit -m "Release ${NEW_VERSION}"

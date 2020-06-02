@@ -32,5 +32,6 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           tags: true
+          branch: changesets # TODO: v-next
       - name: Publish to npm
         run: npx changeset publish

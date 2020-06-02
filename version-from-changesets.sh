@@ -30,6 +30,9 @@ git stash
 npm version "${NEW_VERSION}" --git-tag-version=false
 git stash pop
 
+# Generated changelog doesn't match formatting, causing lint error
+./node_modules/.bin/prettier --write CHANGELOG.md
+
 # Now all of the changes are ready to be committed:
 # [package.json, package-lock.json, CHANGELOG.md, .changeset/**]
 

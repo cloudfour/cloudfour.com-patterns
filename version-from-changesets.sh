@@ -9,7 +9,11 @@ set -e
 NEW_VERSION=$(cat package.json | jq -r ".version")
 
 # changesets version does not update package-lock.json. npm version does.
-# npm version requires clean working tree, so changes are stashed and then reapplied
+# npm version requires clean working tree,
+# so changes to changelog + changesets are stashed and then reapplied
+
+# Undo changes to package.json before stashing. They will be re-done by npm version
+git checkout -- package.json
 git stash
 npm version "${NEW_VERSION}" --git-tag-version=false
 git stash pop

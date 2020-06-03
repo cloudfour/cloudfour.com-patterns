@@ -2,6 +2,7 @@ import { addDecorator, addParameters } from '@storybook/html';
 import { withA11y } from '@storybook/addon-a11y';
 import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
+import { withHTML } from '@whitespace/storybook-addon-html/html';
 import * as colors from '../src/design-tokens/colors.yml';
 import * as breakpoints from '../src/design-tokens/breakpoint.yml';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
@@ -12,6 +13,9 @@ import './preview.scss';
 
 // Accessibility testing via aXe
 addDecorator(withA11y);
+
+// Add HTML tab with output source
+addDecorator(withHTML);
 
 // Theme selection from stories
 const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];

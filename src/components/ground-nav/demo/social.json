@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "link": "https://twitter.com/cloudfour",
+      "title": "Follow us on Twitter",
+      "icon": "brands/twitter"
+    },
+    {
+      "link": "https://github.com/cloudfour",
+      "title": "Find us on GitHub",
+      "icon": "brands/github"
+    },
+    {
+      "link": "https://www.instagram.com/cloudfourpdx/",
+      "title": "Follow us on Instagram",
+      "icon": "brands/instagram"
+    },
+    {
+      "link": "https://www.linkedin.com/company/cloud-four",
+      "title": "Follow us on LinkedIn",
+      "icon": "brands/linkedin"
+    }
+  ]
+}

@@ -37,19 +37,32 @@ cloudfour.com-patterns
 └── package.json          # Project info and dependencies
 ```
 
+## Changelog entries
+
+Before you submit a PR, if that PR has changes that will affect consumers of this package, you should run `npx changeset` on your branch. It will ask you [the scope of your changes](https://semver.org/#summary), and it will ask you to describe them.
+
+If you forget to run `npx changelog`, changeset-bot will pester you in your PR. It will provide a link you can use to create the changesets file from the GitHub interface.
+
 ## Publishing to npm
 
+This process happens automatically after any PR with a changeset is merged to v-next.
+
+## Manually publishing to npm
+
+This is generally not necessary, but in case you need to manually publish a version:
+
 1. `git checkout v-next`
-2. `git pull`
-3. Make sure you have a clean working tree (`git status` should show no changes)
-4. `git checkout -b release-X.Y.Z` - Create a new release branch, where `X.Y.Z` is the version number you're about to release.
-5. `npm version [major | minor | patch]` - This will bump the version number in `package.json` and `package-lock.json`. e.g., `npm version minor` to bump from `1.1.0` to `1.2.0`.
-6. `git push` your branch.
-7. Make a PR, get it approved, and merge your changes to `v-next`.
-8. `git checkout v-next`
-9. `git pull`
-10. Make sure you have a clean working tree (`git status` should show no changes)
-11. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
+1. `git pull`
+1. Make sure you have a clean working tree (`git status` should show no changes)
+1. `git checkout -b release-X.Y.Z` - Create a new release branch, where `X.Y.Z` is the version number you're about to release.
+1. `npm version [major | minor | patch]` - This will bump the version number in `package.json` and `package-lock.json`. e.g., `npm version minor` to bump from `1.1.0` to `1.2.0`.
+1. `git push` your branch.
+1. Make a PR, get it approved, and merge your changes to `v-next`.
+1. `git checkout v-next`
+1. `git pull`
+1. Make sure you have a clean working tree (`git status` should show no changes)
+1. Reinstall dependencies and run build: `npm ci && npm run preprocess && npm run build`
+1. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
 
 You can run `npm publish --dry-run` to see everything that _would_ happen during publish, without actually publishing to the npm registry.
 

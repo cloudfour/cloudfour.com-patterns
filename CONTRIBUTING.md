@@ -37,7 +37,19 @@ cloudfour.com-patterns
 └── package.json          # Project info and dependencies
 ```
 
+## Changelog entries
+
+Before you submit a PR, if that PR has changes that will affect consumers of this package, you should run `npx changeset` on your branch. It will ask you [the scope of your changes](https://semver.org/#summary), and it will ask you to describe them.
+
+If you forget to run `npx changelog`, changeset-bot will pester you in your PR. It will provide a link you can use to create the changesets file from the GitHub interface.
+
 ## Publishing to npm
+
+This process happens automatically after any PR with a changeset is merged to v-next.
+
+## Manually publishing to npm
+
+This is generally not necessary, but in case you need to manually publish a version:
 
 1. `git checkout v-next`
 2. `git pull`

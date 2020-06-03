@@ -27,10 +27,12 @@ jobs:
         run: npm run build
       - name: Bump version + changelog (creates commit + tag)
         run: ./version-from-changesets.sh
-      - name: Publish to npm + create git tag
-        run: npx changeset publish
+      - name: Set npm token
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to npm + create git tag
+        run: npx changeset publish
       - name: Push release commit + tag
         uses: ad-m/github-push-action@v0.6.0
         with:

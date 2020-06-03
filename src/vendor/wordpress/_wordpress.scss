@@ -60,29 +60,47 @@ $wp-button-gap: sizes.$list-inline-gap;
  * Applies our pattern library styles to gutenberg file download blocks.
  */
 
+/**
+ * 1. Prevents stacked file buttons from collapsing on each other. 
+ */
+
 .wp-block-file {
   + .wp-block-file {
-    margin-top: $wp-button-gap;
+    margin-top: $wp-button-gap; /* 1 */
   }
+
+  /**
+   * 1. Prevents default WP styling from modifying buttons opacity.  
+   */
 
   .wp-block-file__button,
   a:not(.wp-block-file__button) {
     @include button.default;
-    opacity: inherit !important;
+    opacity: inherit !important; /* 1 */
   }
+
+  /**
+   * 1. Prevents default WP styling from modifying buttons opacity and
+   *    text color.  
+   */
 
   &.c-button--secondary .wp-block-file__button,
   &.c-button--secondary :not(.wp-block-file__button) {
     @include button.secondary;
-    color: inherit !important;
-    opacity: inherit !important;
+    color: inherit !important; /* 1 */
+    opacity: inherit !important; /* 1 */
   }
+
+  /**
+   * 1. Prevents default WP styling from modifying buttons opacity and
+   *    text color.  
+   */
 
   &.c-button--tertiary .wp-block-file__button,
   &.c-button--tertiary :not(.wp-block-file_button) {
     @include button.tertiary;
-    color: inherit !important;
-    opacity: inherit !important;
+    color: inherit !important; /* 1 */
+    opacity: inherit !important; /* 1 */
   }
 }
 

@@ -14,6 +14,7 @@ module.exports = {
     // Community addons
     'storybook-addon-themes',
     'storybook-addon-paddings',
+    '@whitespace/storybook-addon-html/register',
   ],
   webpackFinal: async (config) => {
     const isDev = config.mode === 'development';

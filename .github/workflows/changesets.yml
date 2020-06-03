@@ -3,7 +3,7 @@ name: Changesets
 on:
   push:
     branches:
-      - changesets # TODO: v-next only
+      - v-next
 
 jobs:
   changesets:
@@ -38,4 +38,4 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           tags: true
-          branch: changesets # TODO: v-next
+          branch: v-next

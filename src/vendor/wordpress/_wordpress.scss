@@ -61,18 +61,29 @@ $wp-button-gap: sizes.$list-inline-gap;
  */
 
 .wp-block-file {
-}
-
-.wp-block-file__button {
-  @include button.default;
-
-  & + .wp-block-file__button {
-    margin-left: $wp-button-gap;
+  + .wp-block-file {
+    margin-top: $wp-button-gap;
   }
-}
 
-.wp-block-file__button.c-button--secondary {
-  @include button.secondary;
+  .wp-block-file__button,
+  a:not(.wp-block-file__button) {
+    @include button.default;
+    opacity: inherit !important;
+  }
+
+  &.c-button--secondary .wp-block-file__button,
+  &.c-button--secondary :not(.wp-block-file__button) {
+    @include button.secondary;
+    color: inherit !important;
+    opacity: inherit !important;
+  }
+
+  &.c-button--tertiary .wp-block-file__button,
+  &.c-button--tertiary :not(.wp-block-file_button) {
+    @include button.tertiary;
+    color: inherit !important;
+    opacity: inherit !important;
+  }
 }
 
 /**

@@ -134,7 +134,6 @@
     "lint:css": "stylelint --fix '**/*.scss'",
     "lint:js": "eslint . --fix --ext .js,.mdx,.ts,.tsx",
     "test": "cypress run",
-    "test:open": "cypress open",
-    "prepublishOnly": "npm ci && npm run check-lint && npm run preprocess && npm run build"
+    "test:open": "cypress open"
   }
 }

@@ -232,26 +232,25 @@ Adding a caption in the editor includes a `figcaption` element before the closin
 
 The file block allows downloading or opening media or page attachment content.
 
-This block creates a `div` with class `wp-block-file`, which wraps a single
-`a` element. Links can either be configured to download the linked media or or open in a new tab. If this ()
+This block creates a parent `div` with a `wp-block-file` class name, which wraps a single `a` element. The Gutenberg editor allows file downloads to be displayed as buttons (`wp-block-file__button`) or text-only links. Our CSS styles both configurations as [buttons](/?path=/docs/components-button--elements).
 
-, the second of which (toggled in the editor) is meant to be styled
-as a button, adding the class `wp-block-file__button`.
+The `c-button--secondary` and `c-button-tertiary` class names can be added to the file block's "Advanced → Additional CSS class(es)" input, to output additional button styles.
+
+Be aware that the Gutenberg "Show download button" is what adds the `download` attribute to the `<a>` element.
 
 <Preview>
   <Story name="core/file">
     {`<div class="wp-block-file">
-        <a href="#" class="wp-block-file__button" download="">Download</a>
-      </div>
-      <div class="wp-block-file c-button--secondary">
         <a href="#" class="wp-block-file__button" download="">
-          Download outlined button
+          Primary file download
         </a>
       </div>
-      <div class="wp-block-file">
-        <a href="#">default download link</a>
+      <div class="wp-block-file c-button--secondary">
+        <a href="">Secondary file download</a>
       </div>
-    `}
+      <div class="wp-block-file c-button--tertiary">
+        <a href="#">Tertiary file download</a>
+      </div>`}
   </Story>
 </Preview>
 

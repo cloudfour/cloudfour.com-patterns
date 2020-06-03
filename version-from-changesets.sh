@@ -41,4 +41,3 @@ git config --local user.name "GitHub Actions Bot"
 
 git add -A
 git commit -m "Release ${NEW_VERSION}"
-git tag "v${NEW_VERSION}"

@@ -52,17 +52,17 @@ This process happens automatically after any PR with a changeset is merged to v-
 This is generally not necessary, but in case you need to manually publish a version:
 
 1. `git checkout v-next`
-2. `git pull`
-3. Make sure you have a clean working tree (`git status` should show no changes)
-4. `git checkout -b release-X.Y.Z` - Create a new release branch, where `X.Y.Z` is the version number you're about to release.
-5. Reinstall dependencies and run build: `npm ci && npm run preprocess && npm run build`
-6. `npm version [major | minor | patch]` - This will bump the version number in `package.json` and `package-lock.json`. e.g., `npm version minor` to bump from `1.1.0` to `1.2.0`.
-7. `git push` your branch.
-8. Make a PR, get it approved, and merge your changes to `v-next`.
-9. `git checkout v-next`
-10. `git pull`
-11. Make sure you have a clean working tree (`git status` should show no changes)
-12. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
+1. `git pull`
+1. Make sure you have a clean working tree (`git status` should show no changes)
+1. `git checkout -b release-X.Y.Z` - Create a new release branch, where `X.Y.Z` is the version number you're about to release.
+1. `npm version [major | minor | patch]` - This will bump the version number in `package.json` and `package-lock.json`. e.g., `npm version minor` to bump from `1.1.0` to `1.2.0`.
+1. `git push` your branch.
+1. Make a PR, get it approved, and merge your changes to `v-next`.
+1. `git checkout v-next`
+1. `git pull`
+1. Make sure you have a clean working tree (`git status` should show no changes)
+1. Reinstall dependencies and run build: `npm ci && npm run preprocess && npm run build`
+1. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
 
 You can run `npm publish --dry-run` to see everything that _would_ happen during publish, without actually publishing to the npm registry.
 

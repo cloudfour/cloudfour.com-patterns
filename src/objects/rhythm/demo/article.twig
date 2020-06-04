@@ -38,8 +38,9 @@
           } only %}
             {% block content %}
               Full article
-              {% include '@cloudfour/assets/icons/arrow-right.svg.twig' with {
-                class: 'c-icon c-icon--inline'
+              {% include '@cloudfour/components/icon/icon.twig' with {
+                name: 'arrow-right',
+                inline: true
               } only %}
             {% endblock %}
           {% endembed %}

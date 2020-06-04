@@ -1,6 +1,8 @@
-@use '../../mixins/embed';
-@use "../../mixins/button";
+@use "../../design-tokens/colors.yml";
 @use "../../design-tokens/sizes.yml";
+@use "../../mixins/button";
+@use '../../mixins/embed';
+@use "../../mixins/table";
 
 /**
  * Gutenberg block: Button
@@ -66,5 +68,52 @@ $wp-button-gap: sizes.$list-inline-gap;
 
   &.size-large {
     --aspect-ratio: 1.7777777778;
+  }
+}
+
+/**
+ * Default table
+ */
+
+.wp-block-table table td,
+.wp-block-table table th {
+  @include table.t-container;
+}
+
+.wp-block-table table th {
+  @include table.t-heading;
+}
+
+.wp-block-table table thead {
+  @include table.t-head;
+}
+
+.wp-block-table table tfoot {
+  @include table.t-foot;
+}
+
+.wp-block-table table caption {
+  @include table.t-caption;
+}
+
+/**
+ * Striped table
+ */
+.wp-block-table.is-style-stripes {
+  border-bottom: 0;
+
+  & tbody tr:nth-of-type(2n - 1) {
+    @include table.t-striped;
+  }
+}
+
+/**
+ * Numeric table
+ */
+.wp-block-table.c-table--numeric table {
+  @include table.t-numeric;
+
+  & th {
+    text-align: right;
   }
 }

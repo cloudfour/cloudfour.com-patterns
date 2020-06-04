@@ -1,0 +1,14 @@
+{
+  "name": "Cloud Four, Inc.",
+  "address": {
+    "streetAddress": "510 SW 3rd Ave, Suite 420",
+    "addressLocality": "Portland",
+    "addressRegion": "Oregon",
+    "postalCode": "97204",
+    "addressCountry": "USA"
+  },
+  "email": "info@cloudfour.com",
+  "telephone": "+1 (503) 290-1090",
+  "url": "https://cloudfour.com/",
+  "foundingDate": "2007-12-13"
+}

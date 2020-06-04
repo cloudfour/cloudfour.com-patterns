@@ -1,0 +1,41 @@
+name: Changesets
+
+on:
+  push:
+    branches:
+      - v-next
+
+jobs:
+  changesets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # Fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+          # Don't set the GITHUB_TOKEN variable
+          persist-credentials: false
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install Dependencies
+        run: CYPRESS_INSTALL_BINARY=0 npm ci
+      - name: Run Preprocess
+        run: npm run preprocess
+      - name: Run Build
+        run: npm run build
+      - name: Bump version + changelog (creates commit + tag)
+        run: ./version-from-changesets.sh
+      - name: Set npm token
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to npm + create git tag
+        run: npx changeset publish
+      - name: Push release commit + tag
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          tags: true
+          branch: v-next

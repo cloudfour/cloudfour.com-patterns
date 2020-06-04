@@ -1,2 +1,5 @@
 # Ignore all files in the prototypes directory
 /src/prototypes/**/*
+
+# Ignore syntax highlighting examples
+/src/vendor/prism/demo/samples/**/*

@@ -242,14 +242,27 @@ Be aware that the Gutenberg "Show download button" is what adds the `download` a
   <Story name="core/file">
     {`<div class="wp-block-file">
         <a href="#" class="wp-block-file__button" download="">
-          Primary file download
+          Primary file download button
+        </a>
+      </div>
+      <div class="wp-block-file">
+        <a href="#">
+          Primary file download link
         </a>
       </div>
       <div class="wp-block-file c-button--secondary">
-        <a href="">Secondary file download</a>
+        <a href="#" class="wp-block-file__button" download="">
+          Secondary file download button
+        </a>
+      </div>
+      <div class="wp-block-file c-button--secondary">
+        <a href="">Secondary file download link</a>
       </div>
       <div class="wp-block-file c-button--tertiary">
-        <a href="#">Tertiary file download</a>
+        <a href="#" class="wp-block-file__button" download="">Tertiary file download button</a>
+      </div>
+      <div class="wp-block-file c-button--tertiary">
+        <a href="#">Tertiary file download link</a>
       </div>`}
   </Story>
 </Preview>

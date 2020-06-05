@@ -74,7 +74,7 @@ $wp-button-gap: sizes.$list-inline-gap;
    */
 
   .wp-block-file__button,
-  a:not(.wp-block-file__button) {
+  :not(.wp-block-file__button) {
     @include button.default;
     opacity: inherit !important; /* 1 */
   }
@@ -84,11 +84,12 @@ $wp-button-gap: sizes.$list-inline-gap;
    *    text color.  
    */
 
-  &.c-button--secondary .wp-block-file__button,
-  &.c-button--secondary :not(.wp-block-file__button) {
-    @include button.secondary;
-    color: inherit !important; /* 1 */
-    opacity: inherit !important; /* 1 */
+  &.c-button--secondary {
+    .wp-block-file__button,
+    * {
+      @include button.secondary;
+      color: inherit !important; /* 1 */
+    }
   }
 
   /**
@@ -96,11 +97,12 @@ $wp-button-gap: sizes.$list-inline-gap;
    *    text color.  
    */
 
-  &.c-button--tertiary .wp-block-file__button,
-  &.c-button--tertiary :not(.wp-block-file_button) {
-    @include button.tertiary;
-    color: inherit !important; /* 1 */
-    opacity: inherit !important; /* 1 */
+  &.c-button--tertiary {
+    .wp-block-file__button,
+    * {
+      @include button.tertiary;
+      color: inherit !important; /* 1 */
+    }
   }
 }
 

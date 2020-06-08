@@ -95,7 +95,7 @@
     "resolve": "1.17.0",
     "rollup": "2.15.0",
     "rollup-plugin-terser": "6.1.0",
-    "sass": "1.26.7",
+    "sass": "1.26.8",
     "sass-loader": "8.0.2",
     "storybook-addon-paddings": "2.0.2",
     "storybook-addon-themes": "5.4.1",

@@ -128,6 +128,7 @@ function mdxStoriesFormat(result) {
   const file = result.getIn(['meta', 'file']);
   const filename = basename(file);
   const slug = basename(filename, extname(filename));
+  const objectName = camelCase(slug);
   const title = startCase(slug);
   const props = result.get('props').toJS();
   const firstProp = props[0];
@@ -150,8 +151,10 @@ $example: ${slug}.$${firstNameSass}; // => ${firstProp.value}
 \`\`\`
 
 \`\`\`javascript
-import { ${firstNameJs} } from 'path/to/${filename}';
-console.log(${firstNameJs}); // => ${firstProp.value}
+import * as ${objectName} from 'path/to/${filename}';
+console.log(${objectName}.${firstNameJs}); // => ${JSON.stringify(
+    firstProp.value
+  )}
 \`\`\`
 
 ${mdxCategories.join('\n\n')}`.trim();

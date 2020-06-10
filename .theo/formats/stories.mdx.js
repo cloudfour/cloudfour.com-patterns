@@ -1,4 +1,5 @@
 const groupBy = require('lodash/groupBy');
+const camelCase = require('lodash/camelCase');
 const kebabCase = require('lodash/kebabCase');
 const startCase = require('lodash/startCase');
 const { basename, extname } = require('path');
@@ -129,6 +130,9 @@ function mdxStoriesFormat(result) {
   const slug = basename(filename, extname(filename));
   const title = startCase(slug);
   const props = result.get('props').toJS();
+  const firstProp = props[0];
+  const firstNameSass = kebabCase(firstProp.name);
+  const firstNameJs = camelCase(firstProp.name);
   const categories = groupBy(props, 'category');
   const mdxCategories = Object.keys(categories).map((category) =>
     categoryToMdx(category, categories[category])
@@ -142,7 +146,12 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 \`\`\`scss
 @use 'path/to/${filename}';
-$example: ${slug}.$${kebabCase(props[0].name)}; // => ${props[0].value}
+$example: ${slug}.$${firstNameSass}; // => ${firstProp.value}
+\`\`\`
+
+\`\`\`javascript
+import { ${firstNameJs} } from 'path/to/${filename}';
+console.log(${firstNameJs}); // => ${firstProp.value}
 \`\`\`
 
 ${mdxCategories.join('\n\n')}`.trim();

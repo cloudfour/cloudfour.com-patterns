@@ -33,6 +33,7 @@
       "rules": {
         "@typescript-eslint/explicit-module-boundary-types": "off", // inference is usually useful, even for module boundaries
         "@typescript-eslint/no-unused-vars": "off", // TypeScript itself checks this via the "noUnusedLocals"/"noUnusedParameters" options
+        "@typescript-eslint/no-unsafe-member-access": "off", // Makes importing from Theo token files troublesome
         "@typescript-eslint/ban-ts-comment": [
           "error",
           { "ts-expect-error": false }

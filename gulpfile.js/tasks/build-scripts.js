@@ -3,6 +3,7 @@ const path = require('path');
 const nodeResolve = require('@rollup/plugin-node-resolve').default;
 const { terser } = require('rollup-plugin-terser');
 const { getBabelInputPlugin } = require('@rollup/plugin-babel');
+const { theoPlugin } = require('../../.theo/rollup-plugin');
 const fs = require('fs').promises;
 const tsGenerator = require('dts-bundle-generator');
 const glob = require('tiny-glob');
@@ -50,6 +51,7 @@ const buildJS = async () => {
       virtualRootPlugin(),
       getBabelInputPlugin({ extensions, babelHelpers: 'bundled' }),
       nodeResolve({ extensions }),
+      theoPlugin(),
     ],
   });
   await Promise.all([

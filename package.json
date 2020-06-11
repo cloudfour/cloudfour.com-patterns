@@ -118,7 +118,7 @@
     "build-storybook": "npm run preprocess && build-storybook -s static",
     "preprocess": "run-p preprocess:*",
     "preprocess:svg-to-twig": "gulp svgToTwig",
-    "preprocess:theo-to-mdx": "gulp theoToMDX",
+    "preprocess:theo": "gulp theo",
     "watch-preprocess": "gulp watchPreprocess",
     "build:js": "gulp buildJS",
     "build:types": "gulp buildTypes",

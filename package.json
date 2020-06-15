@@ -123,7 +123,7 @@
     "build:js": "gulp buildJS",
     "build:types": "gulp buildTypes",
     "build:sass": "gulp buildSass",
-    "build": "npm run clean && run-p build:*",
+    "build": "run-s clean preprocess && run-p build:*",
     "clean": "eliminate dist",
     "type": "tsc",
     "type:watch": "tsc --watch",

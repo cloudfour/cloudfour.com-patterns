@@ -146,13 +146,11 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 # ${title}
 
 \`\`\`scss
-@use 'path/to/design-tokens/${filename}';
+@use "../../design-tokens/${filename}";
 $example: ${slug}.${firstProp.sassName}; // => ${firstProp.value}
 \`\`\`
 \`\`\`javascript
-import { ${
-    firstProp.jsName
-  } } from 'path/to/design-tokens/generated/${slug}.js';
+import { ${firstProp.jsName} } from '../../design-tokens/generated/${slug}.js';
 console.log(${firstProp.jsName}); // => ${firstProp.jsonValue}
 \`\`\`
 

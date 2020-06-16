@@ -1,4 +1,5 @@
 const groupBy = require('lodash/groupBy');
+const camelCase = require('lodash/camelCase');
 const kebabCase = require('lodash/kebabCase');
 const startCase = require('lodash/startCase');
 const { basename, extname } = require('path');
@@ -129,6 +130,10 @@ function mdxStoriesFormat(result) {
   const slug = basename(filename, extname(filename));
   const title = startCase(slug);
   const props = result.get('props').toJS();
+  const firstProp = props[0];
+  firstProp.sassName = `$${kebabCase(firstProp.name)}`;
+  firstProp.jsName = camelCase(firstProp.name);
+  firstProp.jsonValue = JSON.stringify(firstProp.value);
   const categories = groupBy(props, 'category');
   const mdxCategories = Object.keys(categories).map((category) =>
     categoryToMdx(category, categories[category])
@@ -141,8 +146,12 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 # ${title}
 
 \`\`\`scss
-@use 'path/to/${filename}';
-$example: ${slug}.$${kebabCase(props[0].name)}; // => ${props[0].value}
+@use "../../design-tokens/${filename}";
+$example: ${slug}.${firstProp.sassName}; // => ${firstProp.value}
+\`\`\`
+\`\`\`javascript
+import { ${firstProp.jsName} } from '../../design-tokens/generated/${slug}.js';
+console.log(${firstProp.jsName}); // => ${firstProp.jsonValue}
 \`\`\`
 
 ${mdxCategories.join('\n\n')}`.trim();

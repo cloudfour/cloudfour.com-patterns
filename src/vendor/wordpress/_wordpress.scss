@@ -70,45 +70,34 @@ $wp-button-gap: sizes.$list-inline-gap;
   }
 
   /**
-   * This style block goes against our CSS best practices and includes an `<a>`
-   * tag element as a selector. Without this the `@wordpress/block-library` 
-   * styles will override our desired visual output in Storybook previews
-   *
-   * If we don't include `:not(.wp-block-file__button)` here and opt for `*`  
-   * instead, this selector is not specific enough to enforce the desired 
-   * styles, and style rules from the `@wordpress/block-library` override 
-   * various properties.
-   * 
-   * 1. Prevents default WP styling from modifying buttons opacity.  
+   * 1. Prevents default WP styling from modifying buttons opacity on hover.
    */
 
   .wp-block-file__button,
-  :not(.wp-block-file__button) {
+  * {
     @include button.default;
     opacity: inherit !important; /* 1 */
   }
 
   /**
-   * 1. Prevents default WP styling from modifying buttons opacity and
-   *    text color.  
+   * 1. Prevents default WP styling from modifying button text color on hover
    */
 
   &.c-button--secondary {
     .wp-block-file__button,
-    :not(.wp-block-file__button) {
+    * {
       @include button.secondary;
       color: inherit !important; /* 1 */
     }
   }
 
   /**
-   * 1. Prevents default WP styling from modifying buttons opacity and
-   *    text color.  
+   * 1. Prevents default WP styling from modifying button text color on hover
    */
 
   &.c-button--tertiary {
     .wp-block-file__button,
-    :not(.wp-block-file__button) {
+    * {
       @include button.tertiary;
       color: inherit !important; /* 1 */
     }

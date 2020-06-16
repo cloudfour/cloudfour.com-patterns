@@ -16,5 +16,9 @@
     "skipLibCheck": true
   },
   "include": ["src", "cypress"],
-  "exclude": ["src/prototypes", "src/vendor/prism/demo/samples"]
+  "exclude": [
+    "src/prototypes",
+    "src/vendor/prism/demo/samples",
+    "src/design-tokens/generated"
+  ]
 }

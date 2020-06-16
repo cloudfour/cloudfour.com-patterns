@@ -1,6 +1,7 @@
 # Build directories
 dist
 storybook-static
+ts-dist
 
 # Auto-generated templatized SVG files
 /src/assets/**/*.twig

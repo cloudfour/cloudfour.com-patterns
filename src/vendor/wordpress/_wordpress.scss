@@ -70,6 +70,13 @@ $wp-button-gap: sizes.$list-inline-gap;
   }
 
   /**
+   * The following three selectors target a class name _and_ a universal 
+   * selector (*). This is intentional because the Gutenberg file block can
+   * generate two different elements, a file-link and a file-button and we
+   * want to style both of them with the same visual appearance and
+   * characteristics. We could easily have chosen `:not(.wp-block-file__button)`
+   * but opted for less characters.
+   * 
    * 1. Prevents default WP styling from modifying buttons opacity on hover.
    */
 

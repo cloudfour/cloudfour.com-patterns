@@ -232,22 +232,40 @@ Adding a caption in the editor includes a `figcaption` element before the closin
 
 The file block allows downloading or opening media or page attachment content.
 
-This block creates a `div` with class `wp-block-file`, which wraps one or two
-`a` elements, the second of which (toggled in the editor) is meant to be styled
-as a button, adding the class `wp-block-file__button`.
+This block creates a parent `div` with a `wp-block-file` class name, which
+wraps a single `a` element. The Gutenberg editor allows file downloads to be
+displayed as buttons (`wp-block-file__button`) or text-only links. Our CSS
+styles both configurations as [buttons](/?path=/docs/components-button--elements).
+
+The `c-button--secondary` and `c-button-tertiary` class names can be added to the file block's "Advanced → Additional CSS class(es)" input, to output additional button styles.
+
+Be aware that the Gutenberg "Show download button" is what adds the `download` attribute to the `<a>` element.
 
 <Preview>
   <Story name="core/file">
     {`<div class="wp-block-file">
-        <a href="/media/Squares.jpg"
-          rel="noreferrer noopener" target="_blank">
-            Open in new tab
+        <a href="#" class="wp-block-file__button" download="">
+          Primary file download button
         </a>
-        <a href="/media/Squares.jpg"
-          class="wp-block-file__button"
-          download="">
-            Download file
+      </div>
+      <div class="wp-block-file">
+        <a href="#">
+          Primary file download link
         </a>
+      </div>
+      <div class="wp-block-file c-button--secondary">
+        <a href="#" class="wp-block-file__button" download="">
+          Secondary file download button
+        </a>
+      </div>
+      <div class="wp-block-file c-button--secondary">
+        <a href="">Secondary file download link</a>
+      </div>
+      <div class="wp-block-file c-button--tertiary">
+        <a href="#" class="wp-block-file__button" download="">Tertiary file download button</a>
+      </div>
+      <div class="wp-block-file c-button--tertiary">
+        <a href="#">Tertiary file download link</a>
       </div>`}
   </Story>
 </Preview>

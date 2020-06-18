@@ -57,6 +57,62 @@ $wp-button-gap: sizes.$list-inline-gap;
 }
 
 /**
+ * Gutenberg block: File download button
+ * Applies our pattern library styles to gutenberg file download blocks.
+ */
+
+.wp-block-file {
+  /**
+   * 1. Prevents stacked file buttons from collapsing on each other. 
+   */
+
+  + .wp-block-file {
+    margin-top: $wp-button-gap; /* 1 */
+  }
+
+  /**
+   * The following three selectors target a class name _and_ a universal 
+   * selector (*). This is intentional because the Gutenberg file block can
+   * generate two different elements, a file-link and a file-button and we
+   * want to style both of them with the same visual appearance and
+   * characteristics. We could easily have chosen `:not(.wp-block-file__button)`
+   * but opted for less characters.
+   * 
+   * 1. Prevents default WP styling from modifying buttons opacity on hover.
+   */
+
+  .wp-block-file__button,
+  * {
+    @include button.default;
+    opacity: inherit !important; /* 1 */
+  }
+
+  /**
+   * 1. Prevents default WP styling from modifying button text color on hover
+   */
+
+  &.c-button--secondary {
+    .wp-block-file__button,
+    * {
+      @include button.secondary;
+      color: inherit !important; /* 1 */
+    }
+  }
+
+  /**
+   * 1. Prevents default WP styling from modifying button text color on hover
+   */
+
+  &.c-button--tertiary {
+    .wp-block-file__button,
+    * {
+      @include button.tertiary;
+      color: inherit !important; /* 1 */
+    }
+  }
+}
+
+/**
  * Gutenberg block: Image
  * Applies our pattern library styles for `o-embed` to images inserted via
  * Gutenberg blocks.
@@ -70,6 +126,11 @@ $wp-button-gap: sizes.$list-inline-gap;
     --aspect-ratio: 1.7777777778;
   }
 }
+
+/**
+ * Gutenberg block: Table
+ * Applies our pattern library styles to tables generated via Gutenberg blocks.
+ */
 
 /**
  * Default table

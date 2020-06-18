@@ -5,8 +5,6 @@ props:
     value: 4/3
   - name: wide
     value: 16/9
-  - name: large
-    value: 16\9
   - name: cinema
     value: 2
 global:

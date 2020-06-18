@@ -1,7 +1,6 @@
 @use "../../design-tokens/colors.yml";
 @use "../../design-tokens/sizes.yml";
 @use "../../mixins/button";
-@use '../../mixins/embed';
 @use "../../mixins/table";
 
 /**
@@ -114,16 +113,12 @@ $wp-button-gap: sizes.$list-inline-gap;
 
 /**
  * Gutenberg block: Image
- * Applies our pattern library styles for `o-embed` to images inserted via
- * Gutenberg blocks.
+ * Styles for images inserted via Gutenberg blocks.
  */
 
 .wp-block-image {
-  @include embed.object-fallback;
-  @include embed.object;
-
-  &.size-large {
-    --aspect-ratio: 1.7777777778;
+  .aligncenter {
+    width: 100%;
   }
 }
 

@@ -112,25 +112,6 @@ $wp-button-gap: sizes.$list-inline-gap;
 }
 
 /**
- * Gutenberg block: Image
- * Styles for images inserted via Gutenberg blocks.
- * 
- * 1. Since we are applying margin-top to CMS content via our staggerItems
- *    utilities, the default margin-bottom value on Gutenberg image blocks is
- *    unnecessary, so we remove it here.
- * 2. Setting a width of 100% prevents resized and centered images from breaking
- *    layout when placed after a right-aligned image in a post.
- */
-
-.wp-block-image {
-  margin-bottom: 0; /* 1 */
-
-  .aligncenter {
-    width: 100%; /* 2 */
-  }
-}
-
-/**
  * Gutenberg block: Table
  * Applies our pattern library styles to tables generated via Gutenberg blocks.
  */

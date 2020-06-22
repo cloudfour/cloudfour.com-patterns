@@ -119,7 +119,7 @@ $wp-button-gap: sizes.$list-inline-gap;
  *    utilities, the default margin-bottom value on Gutenberg image blocks is
  *    unnecessary, so we remove it here.
  * 2. Setting a width of 100% prevents resized and centered images from breaking
- *    layout when placed after a right-aligned image in a post
+ *    layout when placed after a right-aligned image in a post.
  */
 
 .wp-block-image {

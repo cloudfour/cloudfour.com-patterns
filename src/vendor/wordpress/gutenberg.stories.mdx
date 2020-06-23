@@ -365,15 +365,19 @@ The image block is wrapped in a `figure` element with the `wp-block-image` class
 
 Inputs are available to set `alt` text, `width`, and `height` attributes.
 
-Controls set either the `is-style-default` (no masking) or `is-style-circle-mask`
-class on the wrapper element. One of these classes is always present.
+Controls set either the `is-style-default` (no masking) or `is-style-circle-mask` class on the wrapper element. One of these classes is always present.
 
 Additional controls can add wrapper classes based on generated `srcset` options:
 `size-full`, `size-large`, `size-medium`, or `size-thumbnail`. Further resizing
 adds the `is-resized` class to the wrapper.
 
-Adding caption text to the image generates a `figcaption` element before the closing
-wrapper tag.
+Adding caption text to the image generates a `figcaption` element before the
+closing wrapper tag.
+
+`u-pull-inline-{amount}` class names from our [negative
+margin](/?path=/docs/utilities-spacing--negative-margin) utility classes can
+be added to the additional css section of the image block to extend the left and
+right edges of images beyond their parent prose container.
 
 <Preview>
   <Story name="core/image">

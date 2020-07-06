@@ -89,7 +89,7 @@
     "postcss-loader": "3.0.0",
     "prettier": "2.0.5",
     "raw-loader": "4.0.1",
-    "remark-preset-lint-recommended": "4.0.0",
+    "remark-preset-lint-recommended": "4.0.1",
     "remark-preset-prettier": "0.4.0",
     "resolve": "1.17.0",
     "rollup": "2.18.1",

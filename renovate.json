@@ -1,5 +1,5 @@
 {
-  "extends": ["group:recommended", "group:monorepos"],
+  "extends": ["group:recommended", "group:monorepos", ":automergeMinor"],
   "reviewers": ["team:dev"],
   "rangeStrategy": "pin",
   "packageRules": [

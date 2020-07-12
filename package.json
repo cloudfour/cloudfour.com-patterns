@@ -48,7 +48,7 @@
     "@changesets/cli": "2.9.2",
     "@cloudfour/eslint-plugin": "11.0.0",
     "@cypress/webpack-preprocessor": "5.4.1",
-    "@rollup/plugin-babel": "5.0.4",
+    "@rollup/plugin-babel": "5.1.0",
     "@rollup/plugin-node-resolve": "8.1.0",
     "@storybook/addon-a11y": "5.3.19",
     "@storybook/addon-docs": "5.3.19",

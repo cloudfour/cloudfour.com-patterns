@@ -1,67 +1,11 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - v-next
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-      - name: Install Dependencies
-        run: CYPRESS_INSTALL_BINARY=0 npm ci
-      - name: Run Lint
-        run: npm run check-lint
-
-  type:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-      - name: Install Dependencies
-        run: CYPRESS_INSTALL_BINARY=0 npm ci
-      - name: Run Type Checker
-        run: npm run type
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-      - name: Install Dependencies
-        run: CYPRESS_INSTALL_BINARY=0 npm ci
-      - name: Run Preprocess
-        run: npm run preprocess
-      - name: Run Build
-        run: npm run build
-
   test:
     runs-on: ubuntu-latest
     steps:
@@ -79,9 +23,15 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
         run: npm ci
-      - name: Run Build (necessary for including css file in cypress tests)
+      - name: Run Lint
+        run: npm run check-lint
+      - name: Run Type Checker
+        run: npm run type
+      - name: Run Preprocess
+        run: npm run preprocess
+      - name: Run Build
         run: npm run build
-      - name: Cypress run
+      - name: Run Test
         uses: cypress-io/github-action@v1
         with:
           install: false

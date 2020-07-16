@@ -108,7 +108,7 @@
     "tiny-glob": "0.2.6",
     "twing": "3.1.1",
     "twing-loader": "3.0.1",
-    "typescript": "3.9.6",
+    "typescript": "3.9.7",
     "val-loader": "2.1.1",
     "webpack": "4.43.0"
   },

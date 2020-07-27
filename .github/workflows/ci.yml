@@ -57,8 +57,25 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
         run: CYPRESS_INSTALL_BINARY=0 npm ci
-      - name: Run Preprocess
-        run: npm run preprocess
+      - name: Run Build
+        run: npm run build
+
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: Install Dependencies
+        run: CYPRESS_INSTALL_BINARY=0 npm ci
       - name: Run Build
         run: npm run build
 

@@ -110,7 +110,7 @@
     "twing-loader": "3.0.1",
     "typescript": "3.9.7",
     "val-loader": "2.1.1",
-    "webpack": "4.44.0"
+    "webpack": "4.44.1"
   },
   "scripts": {
     "storybook": "npm run preprocess && run-p watch-preprocess start-storybook",

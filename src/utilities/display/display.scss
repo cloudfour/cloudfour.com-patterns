@@ -1,4 +1,6 @@
+@use '../../design-tokens/breakpoint.yml';
 @use '../../mixins/a11y';
+@use '../../mixins/display';
 
 /**
  * Hide from everything but assistive devices.
@@ -6,4 +8,34 @@
 
 .u-hidden-visually {
   @include a11y.sr-only($important: true);
+}
+
+@include display.hidden();
+
+@media (min-width: breakpoint.$xs) {
+  @include display.hidden(xs);
+}
+
+@media (min-width: breakpoint.$s) {
+  @include display.hidden(s);
+}
+
+@media (min-width: breakpoint.$m) {
+  @include display.hidden(m);
+}
+
+@media (min-width: breakpoint.$l) {
+  @include display.hidden(l);
+}
+
+@media (min-width: breakpoint.$\xl) {
+  @include display.hidden(xl);
+}
+
+@media (min-width: breakpoint.$xxl) {
+  @include display.hidden(xxl);
+}
+
+@media (min-width: breakpoint.$xxxl) {
+  @include display.hidden(xxxl);
 }

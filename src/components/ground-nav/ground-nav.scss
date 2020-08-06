@@ -21,6 +21,10 @@ $_divider-color: colors.$gray-light;
   padding: $_space;
 }
 
+.c-ground-nav__content-inner > * + * {
+  margin-top: $_space;
+}
+
 .c-ground-nav__action-title {
   margin-top: $_space;
 }
@@ -29,12 +33,13 @@ $_divider-color: colors.$gray-light;
   background-color: colors.$gray-lighter;
 }
 
-.c-ground-nav__content > * + * {
-  margin-top: $_space;
+.c-ground-nav__organization {
+  margin-top: 0;
 }
 
-.c-ground-nav__contact {
-  margin-top: 0;
+.c-ground-nav__organization-name {
+  font-style: normal;
+  font-weight: font.$weight-bold;
 }
 
 .c-ground-nav__social-action {
@@ -50,6 +55,7 @@ $_divider-color: colors.$gray-light;
   background-color: $_divider-color;
   border-style: none;
   height: $_divider-height;
+  width: 100%;
 }
 
 .c-ground-nav__copyright {
@@ -62,13 +68,71 @@ $_divider-color: colors.$gray-light;
 
 @supports (display: grid) {
 
-  .c-ground-nav__content {
+  .c-ground-nav__content-inner {
     display: grid;
     grid-gap: $_space;
+
+    @media (min-width: breakpoint.$m) {
+      grid-template-areas:
+        "organization menu"
+        "social social"
+        "divider divider"
+        "copyright copyright";
+    }
+
+    @media (min-width: breakpoint.$l) {
+      grid-template-areas:
+        "organization menu social"
+        "copyright copyright copyright";
+    }
   }
 
-  .c-ground-nav__content > * + * {
+  .c-ground-nav__content-inner > * + * {
     margin-top: 0;
   }
 
+  .c-ground-nav__organization {
+    @media (min-width: breakpoint.$m) {
+      grid-area: organization;
+    }
+  }
+
+  .c-ground-nav__menu {
+    @media (min-width: breakpoint.$m) {
+      grid-area: menu;
+    }
+  }
+
+  .c-ground-nav__social {
+    @media (min-width: breakpoint.$m) {
+      grid-area: social;
+    }
+
+    @media (min-width: breakpoint.$l) {
+      justify-self: end;
+    }
+  }
+
+  .c-ground-nav__divider {
+    @media (min-width: breakpoint.$m) {
+      grid-area: divider;
+    }
+  }
+
+  .c-ground-nav__copyright {
+    @media (min-width: breakpoint.$m) {
+      grid-area: copyright;
+    }
+
+    @media (min-width: breakpoint.$l) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .c-ground-nav__copyright > * + * {
+    @media (min-width: breakpoint.$l) {
+      margin-top: 0;
+    }
+  }
 }

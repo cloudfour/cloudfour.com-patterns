@@ -115,8 +115,8 @@ $wp-button-gap: sizes.$list-inline-gap;
  *    unnecessary, so we remove it here.
  * 2. Setting a width of 100% prevents resized and centered images from breaking
  *    layout when placed after a right-aligned image in a post.
- * 3. Applies an opinionated wide image setting that allows a element to spill
- *    slightly outsides it's container.
+ * 3. Applies an opinionated wide-image setting that allows an image element to
+ *    spill slightly outsides it's container.
  */
 .wp-block-image {
   margin-bottom: 0; /* 1 */

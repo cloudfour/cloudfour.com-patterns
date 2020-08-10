@@ -120,6 +120,7 @@ $wp-button-gap: sizes.$list-inline-gap;
  */
 .wp-block-image {
   margin-bottom: 0; /* 1 */
+  position: relative;
 
   &.aligncenter {
     width: 100%; /* 2 */
@@ -130,7 +131,6 @@ $wp-button-gap: sizes.$list-inline-gap;
       left: 50%;
       margin-left: -50vw;
       margin-right: -50vw;
-      position: relative;
       right: 50%;
       width: 100vw;
     }
@@ -139,7 +139,6 @@ $wp-button-gap: sizes.$list-inline-gap;
   &.alignwide {
     @media (min-width: breakpoint.$m) {
       left: -6vw; /* 3 */
-      position: relative;
       width: calc(100% + 12vw); /* 3 */
     }
   }

@@ -21,12 +21,41 @@ $_divider-color: colors.$gray-light;
   padding: $_space;
 }
 
+.c-ground-nav__action-inner {
+  position: relative;
+
+  @media (min-width: breakpoint.$l) {
+    align-items: center;
+    display: flex;
+  }
+}
+
+.c-ground-nav__action-illustration {
+  bottom: calc(-1 * 1.25rem);
+  position: absolute;
+  right: calc(-1 * 1.25rem);
+  width: 40%;
+
+  @media (min-width: breakpoint.$s) {
+    width: 30%;
+  }
+
+  @media (min-width: breakpoint.$m) {
+    right: 0;
+    width: 25%;
+  }
+}
+
 .c-ground-nav__content-inner > * + * {
   margin-top: $_space;
 }
 
 .c-ground-nav__action-title {
   margin-top: $_space;
+
+  @media (min-width: breakpoint.$l) {
+    margin: $_space;
+  }
 }
 
 .c-ground-nav__content {

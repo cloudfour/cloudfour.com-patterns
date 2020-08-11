@@ -127,24 +127,17 @@ $wp-button-gap: sizes.$list-inline-gap;
   }
 
   &.alignfull {
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    right: 50%;
-    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
   }
 
   &.alignwide {
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    right: 50%;
-    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
     @media (min-width: breakpoint.$l) {
       left: calc(12vw / -2); /* 3 */
       margin-left: auto;
       margin-right: auto;
-      right: auto;
       width: calc(100% + 12vw); /* 3 */
     }
   }

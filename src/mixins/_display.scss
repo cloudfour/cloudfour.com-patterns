@@ -1,5 +1,4 @@
 @mixin hidden($suffix: null) {
-
   @if ($suffix != null) {
     $suffix: \@#{$suffix};
   }
@@ -7,5 +6,4 @@
   .u-hidden#{$suffix} {
     display: none;
   }
-
 }

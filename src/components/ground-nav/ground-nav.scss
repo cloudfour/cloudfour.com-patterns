@@ -149,16 +149,16 @@ $_ground-nav-divider-color: colors.$gray-light;
      */
     @media (min-width: breakpoint.$m) {
       grid-template-areas:
-        "organization menu"
-        "social social"
-        "divider divider"
-        "copyright copyright";
+        'organization menu'
+        'social social'
+        'divider divider'
+        'copyright copyright';
     }
 
     @media (min-width: breakpoint.$l) {
       grid-template-areas:
-        "organization menu social"
-        "copyright copyright copyright";
+        'organization menu social'
+        'copyright copyright copyright';
     }
   }
 

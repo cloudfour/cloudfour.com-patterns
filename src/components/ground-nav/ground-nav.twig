@@ -72,22 +72,24 @@
         </address>
       {% endwith %}
       {# https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html #}
-      <ul class="c-ground-nav__social o-list o-list--inline" role="list">
-        {% for item in social.items %}
-          <li class="class="c-ground-nav__social-item">
-            <a class="c-ground-nav__social-action" href="{{item.link}}">
-              {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
-              <span class="u-hidden-visually">{{item.title}}</span>
-              {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
-              {% include '@cloudfour/components/icon/icon.twig' with {
-                name: item.icon,
-                fallback: 'link',
-                focusable: 'false'
-              } only %}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
+      <div class="c-ground-nav__social">
+        <ul class="c-ground-nav__social-list o-list o-list--inline" role="list">
+          {% for item in social.items %}
+            <li class="class="c-ground-nav__social-item">
+              <a class="c-ground-nav__social-action" href="{{item.link}}">
+                {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
+                <span class="u-hidden-visually">{{item.title}}</span>
+                {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  name: item.icon,
+                  fallback: 'link',
+                  focusable: 'false'
+                } only %}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
 
       <hr class="c-ground-nav__divider u-hidden@m">
 

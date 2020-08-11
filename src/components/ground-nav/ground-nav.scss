@@ -1,24 +1,20 @@
 @use '../../design-tokens/breakpoint.yml';
 @use '../../design-tokens/colors.yml';
 @use '../../design-tokens/font.yml';
-@use '../../design-tokens/layout.yml';
-@use '../../design-tokens/motion.yml';
-@use '../../design-tokens/opacity.yml';
-@use '../../design-tokens/sizes.yml';
-@use '../../mixins/a11y';
-@use '../../mixins/fluid';
-@use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
-@use 'sass:color';
 
-$_space: ms.step(1, 1rem);
-$_divider-height: 3px;
-$_divider-color: colors.$gray-light;
+// Whitespace used for gaps, padding and margin
+// (It uses `rem` so space will be consistent throughout the component)
+$_ground-nav-space: ms.step(1, 1rem);
+// Negative value used to reduce the space around elements as well as position elements.
+$_ground-nav-negative-space: #{unit.strip($_ground-nav-space) * -1}rem;
+$_ground-nav-divider-height: 3px;
+$_ground-nav-divider-color: colors.$gray-light;
 
 .c-ground-nav__action,
 .c-ground-nav__content {
-  padding: $_space;
+  padding: $_ground-nav-space;
 }
 
 .c-ground-nav__action-inner {
@@ -30,10 +26,15 @@ $_divider-color: colors.$gray-light;
   }
 }
 
+/**
+ * Using `position: absolute` so that the illustration aligned
+ * to the footer content.
+ */
+
 .c-ground-nav__action-illustration {
-  bottom: calc(-1 * 1.25rem);
+  bottom: $_ground-nav-negative-space;
   position: absolute;
-  right: calc(-1 * 1.25rem);
+  right: $_ground-nav-negative-space;
   width: 40%;
 
   @media (min-width: breakpoint.$s) {
@@ -46,15 +47,38 @@ $_divider-color: colors.$gray-light;
   }
 }
 
-.c-ground-nav__content-inner > * + * {
-  margin-top: $_space;
+/**
+ * Fallback for browsers that don't support grid.
+ */
+.c-ground-nav__content-inner {
+  @media (min-width: breakpoint.$m) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: $_ground-nav-negative-space;
+  }
 }
 
-.c-ground-nav__action-title {
-  margin-top: $_space;
+/**
+ * 1. Creates vertical space between elements.
+ * 2. Adds horizontal space when elements are side by side.
+ */
+.c-ground-nav__content-inner > * + * {
+  margin-top: $_ground-nav-space; /* 1 */
 
   @media (min-width: breakpoint.$l) {
-    margin: $_space;
+    margin: $_ground-nav-space; /* 2 */
+  }
+}
+
+/**
+ * 1. Creates space between the action lead in and action title.
+ * 2. Adds horizontal space when these elements are side by side.
+ */
+.c-ground-nav__action-title {
+  margin-top: $_ground-nav-space; /* 1 */
+
+  @media (min-width: breakpoint.$l) {
+    margin: $_ground-nav-space; /* 2 */
   }
 }
 
@@ -62,8 +86,14 @@ $_divider-color: colors.$gray-light;
   background-color: colors.$gray-lighter;
 }
 
+/**
+ * Removes `margin-top` so the organization information is aligned with
+ * the other footer elements
+ */
 .c-ground-nav__organization {
-  margin-top: 0;
+  @media (max-width: breakpoint.$l) {
+    margin-top: 0;
+  }
 }
 
 .c-ground-nav__organization-name {
@@ -75,15 +105,18 @@ $_divider-color: colors.$gray-light;
   font-size: ms.step(2);
 }
 
+/**
+ * Divides the menu into 2 columns.
+ */
 .c-ground-nav__menu-items {
-  column-gap: $_space;
+  column-gap: $_ground-nav-space;
   columns: 2;
 }
 
 .c-ground-nav__divider {
-  background-color: $_divider-color;
+  background-color: $_ground-nav-divider-color;
   border-style: none;
-  height: $_divider-height;
+  height: $_ground-nav-divider-height;
   width: 100%;
 }
 
@@ -91,16 +124,29 @@ $_divider-color: colors.$gray-light;
   font-size: ms.step(-1);
 }
 
+/**
+ * The content in this section may be different depending on where
+ * where the component is being used. This creates vertical space
+ * between elements when there is more than one element.
+ */
 .c-ground-nav__copyright > * + * {
-  margin-top: $_space;
+  margin-top: $_ground-nav-space;
 }
 
+/**
+ * We use CSS grid when supported by the browser.
+ */
 @supports (display: grid) {
-
   .c-ground-nav__content-inner {
     display: grid;
-    grid-gap: $_space;
+    grid-gap: $_ground-nav-space;
+    margin: 0 auto;
 
+    /**
+     * The visual order of the footer content is different than the
+     * semantic order. We use grid areas to easily place content
+     * within the grid.
+     */
     @media (min-width: breakpoint.$m) {
       grid-template-areas:
         "organization menu"
@@ -116,8 +162,12 @@ $_divider-color: colors.$gray-light;
     }
   }
 
+  /**
+   * Removes the margin used by our fallback design. Grid allows us to
+   * use `grid-gap` to create consistent space between elements.
+   */
   .c-ground-nav__content-inner > * + * {
-    margin-top: 0;
+    margin: 0;
   }
 
   .c-ground-nav__organization {
@@ -153,15 +203,23 @@ $_divider-color: colors.$gray-light;
       grid-area: copyright;
     }
 
+    /**
+     * 1. When there are multiple elements in this section, they
+     *    are display side by side.
+     */
     @media (min-width: breakpoint.$l) {
-      display: flex;
+      display: flex; /* 1 */
       justify-content: flex-end;
     }
   }
 
+  /**
+     * 1. Removes `margin-top` when elements in this section are
+     *    side by side.
+     */
   .c-ground-nav__copyright > * + * {
     @media (min-width: breakpoint.$l) {
-      margin-top: 0;
+      margin-top: 0; /* 1 */
     }
   }
 }

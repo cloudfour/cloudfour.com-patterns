@@ -57,7 +57,7 @@
     "feature.js": "^1.0.0",
     "gsap": "^1.18.5",
     "moment": "^2.10.6",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.21.0",
     "suitcss-base": "^2.0.0",
     "suitcss-components-arrange": "^1.1.1",
     "suitcss-components-button": "^5.0.0",

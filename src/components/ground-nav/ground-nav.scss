@@ -39,11 +39,11 @@ $_ground-nav-divider-color: colors.$gray-light;
   width: 40%;
 
   @media (min-width: breakpoint.$m) {
+    right: 0;
     width: calc(100% / 3);
   }
 
   @media (min-width: breakpoint.$l) {
-    right: 0;
     width: 25%;
   }
 }

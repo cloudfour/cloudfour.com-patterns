@@ -126,6 +126,10 @@ $wp-button-gap: sizes.$list-inline-gap;
     width: 100%;
   }
 
+  /**
+   * Releases a full-width child element from its limited width container
+   * @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
+   */
   &.alignfull {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);

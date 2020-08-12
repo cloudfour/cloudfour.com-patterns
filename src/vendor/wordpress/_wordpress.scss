@@ -119,11 +119,11 @@ $wp-button-gap: sizes.$list-inline-gap;
   position: relative;
 
   /**
-   * 1. Setting a width of `100%` prevents resized and centered images from
-   *    breaking layout when placed after a right-aligned image in a post.
+   * Setting a width of `100%` prevents resized and centered images from
+   * breaking layout when placed after a right-aligned image in a post.
    */
   &.aligncenter {
-    width: 100%; /* 1 */
+    width: 100%;
   }
 
   &.alignfull {

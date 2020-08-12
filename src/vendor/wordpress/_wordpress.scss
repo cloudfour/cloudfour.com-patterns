@@ -113,17 +113,17 @@ $wp-button-gap: sizes.$list-inline-gap;
  * 1. Since we are applying `margin-top` to CMS content via our staggerItems
  *    utility, the default `margin-bottom` value on Gutenberg image blocks is
  *    unnecessary, so we remove it here.
- * 2. Setting a width of 100% prevents resized and centered images from breaking
- *    layout when placed after a right-aligned image in a post.
- * 3. Applies an opinionated wide-image setting that allows an image element to
- *    spill slightly outsides its container at larger viewports.
  */
 .wp-block-image {
   margin-bottom: 0; /* 1 */
   position: relative;
 
+  /**
+   * 1. Setting a width of `100%` prevents resized and centered images from
+   *    breaking layout when placed after a right-aligned image in a post.
+   */
   &.aligncenter {
-    width: 100%; /* 2 */
+    width: 100%; /* 1 */
   }
 
   &.alignfull {
@@ -131,14 +131,18 @@ $wp-button-gap: sizes.$list-inline-gap;
     margin-right: calc(-50vw + 50%);
   }
 
+  /*
+   * 1. Applies an opinionated wide-image width that allows an image element to
+   *    spill slightly outsides its container at larger viewports.
+   */
   &.alignwide {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     @media (min-width: breakpoint.$l) {
-      left: calc(12vw / -2); /* 3 */
+      left: calc(12vw / -2); /* 1 */
       margin-left: auto;
       margin-right: auto;
-      width: calc(100% + 12vw); /* 3 */
+      width: calc(100% + 12vw); /* 1 */
     }
   }
 }

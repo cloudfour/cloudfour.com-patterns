@@ -8,8 +8,8 @@ const alignmentClasses = {
   Center: 'aligncenter',
   Right: 'alignright',
   Full: 'alignfull',
-  Wide: 'alignwide'
-}
+  Wide: 'alignwide',
+};
 
 <Meta title="Vendor/WordPress/Gutenberg" decorators={[withKnobs]} />
 
@@ -386,8 +386,8 @@ closing wrapper tag.
 
 <Preview>
   <Story name="core/image">
-    { blockImageDemo({
-      class: select('alignment class', alignmentClasses, null)
+    {blockImageDemo({
+      class: select('alignment class', alignmentClasses, null),
     })}
   </Story>
 </Preview>

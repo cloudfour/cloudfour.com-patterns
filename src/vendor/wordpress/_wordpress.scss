@@ -110,8 +110,8 @@ $wp-button-gap: sizes.$list-inline-gap;
  * Gutenberg block: Image
  * Styles for images inserted via Gutenberg blocks.
  *
- * 1. Since we are applying `margin-top` to CMS content via our staggerItems
- *    utility, the default `margin-bottom` value on Gutenberg image blocks is
+ * 1. Since we are applying `margin-top` to CMS content via our o-rhythm
+ *    pattern, the default `margin-bottom` value on Gutenberg image blocks is
  *    unnecessary, so we remove it here.
  */
 .wp-block-image {
@@ -146,6 +146,14 @@ $wp-button-gap: sizes.$list-inline-gap;
       margin-left: -6vw; /* 1 */
       margin-right: -6vw; /* 1 */
     }
+  }
+
+  /* Since we are applying `margin-top` to CMS content via our o-rhythm
+   * pattern, the default `margin-bottom` value on Gutenberg figcaption
+   * elements is unnecessary, so we remove it here.
+   */
+  figcaption {
+    margin-bottom: 0;
   }
 }
 

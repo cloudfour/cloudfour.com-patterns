@@ -1,7 +1,17 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import codeBlockDemo from '../../design/typography/demo/code-block.twig';
+import blockImageDemo from './demo/image.twig';
+const alignmentClasses = {
+  None: null,
+  Left: 'alignleft',
+  Center: 'aligncenter',
+  Right: 'alignright',
+  Full: 'alignfull',
+  Wide: 'alignwide'
+}
 
-<Meta title="Vendor/WordPress/Gutenberg" />
+<Meta title="Vendor/WordPress/Gutenberg" decorators={[withKnobs]} />
 
 # WordPress Gutenberg Blocks
 
@@ -376,19 +386,9 @@ closing wrapper tag.
 
 <Preview>
   <Story name="core/image">
-    {`<figure class="wp-block-image size-large is-style-default">
-        <img
-          src="/media/MtBlanc1.jpg"
-          alt="Mont Blanc"
-          class="wp-image-130"
-          srcset="
-            /media/MtBlanc1.jpg         500w,
-            /media/MtBlanc1-300x225.jpg 300w
-          "
-          sizes="(max-width: 500px) 100vw, 500px"
-        />
-        <figcaption>Mont Blanc appears—still, snowy, and serene.</figcaption>
-      </figure>`}
+    { blockImageDemo({
+      class: select('alignment class', alignmentClasses, null)
+    })}
   </Story>
 </Preview>
 

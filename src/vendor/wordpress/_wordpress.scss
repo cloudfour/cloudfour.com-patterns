@@ -143,10 +143,8 @@ $wp-button-gap: sizes.$list-inline-gap;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     @media (min-width: breakpoint.$l) {
-      left: calc(12vw / -2); /* 1 */
-      margin-left: auto;
-      margin-right: auto;
-      width: calc(100% + 12vw); /* 1 */
+      margin-left: -6vw; /* 1 */
+      margin-right: -6vw; /* 1 */
     }
   }
 }

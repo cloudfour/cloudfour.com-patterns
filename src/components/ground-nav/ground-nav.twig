@@ -11,11 +11,6 @@
 {% endset %}
 
 <footer class="c-ground-nav">
-  <div class="o-container u-pad-1">
-    <div class="o-container__content">
-      <hr class="c-ground-nav__divider">
-    </div>
-  </div>
   {% with action %}
   <div class="c-ground-nav__action o-container">
     <div class="o-container__content c-ground-nav__action-inner">
@@ -41,7 +36,6 @@
           {% endblock %}
         {% endembed %}
       </p>
-      <img src="/portland.svg" alt="Portland Oregon skyline" class="c-ground-nav__action-illustration">
     </div>
   </div>
   {% endwith %}
@@ -91,8 +85,6 @@
         </ul>
       </div>
 
-      <hr class="c-ground-nav__divider u-hidden@m">
-
       <nav class="c-ground-nav__menu" aria-labelledby="footer-menu-label">
         <h2 id="footer-menu-label" class="u-hidden-visually">
           Extended Menu
@@ -113,9 +105,7 @@
         </ul>
       </nav>
 
-      <hr class="c-ground-nav__divider u-hidden@l">
-
-      <div class="c-ground-nav__copyright">
+      <div class="c-ground-nav__byline">
         {% if kudos %}
           {{kudos}}
         {% endif %}

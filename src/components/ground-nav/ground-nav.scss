@@ -9,8 +9,9 @@
 $_ground-nav-space: ms.step(1, 1rem);
 // Negative value used to reduce the space around elements as well as position elements.
 $_ground-nav-negative-space: #{unit.strip($_ground-nav-space) * -1}rem;
-$_ground-nav-divider-height: 3px;
-$_ground-nav-divider-color: colors.$gray-light;
+$_ground-nav-border-width: 3px;
+$_ground-nav-border-style: solid;
+$_ground-nav-border-color: colors.$gray-light;
 
 .c-ground-nav__action,
 .c-ground-nav__content {
@@ -32,21 +33,21 @@ $_ground-nav-divider-color: colors.$gray-light;
  * of the illustration so that it doesn't get too large.
  */
 
-.c-ground-nav__action-illustration {
-  bottom: $_ground-nav-negative-space;
-  position: absolute;
-  right: $_ground-nav-negative-space;
-  width: 40%;
+// .c-ground-nav__action-illustration {
+//   bottom: $_ground-nav-negative-space;
+//   position: absolute;
+//   right: $_ground-nav-negative-space;
+//   width: 40%;
 
-  @media (min-width: breakpoint.$m) {
-    right: 0;
-    width: calc(100% / 3);
-  }
+//   @media (min-width: breakpoint.$m) {
+//     right: 0;
+//     width: calc(100% / 3);
+//   }
 
-  @media (min-width: breakpoint.$l) {
-    width: 25%;
-  }
-}
+//   @media (min-width: breakpoint.$l) {
+//     width: 25%;
+//   }
+// }
 
 .c-ground-nav__content {
   background-color: colors.$gray-lighter;
@@ -110,9 +111,14 @@ $_ground-nav-divider-color: colors.$gray-light;
  */
 
 .c-ground-nav__menu {
+  border-top: $_ground-nav-border-width $_ground-nav-border-style $_ground-nav-border-color;
+  padding-top: $_ground-nav-space;
+
   @media (min-width: breakpoint.$m) {
+    border-top: none;
     left: 40%;
     margin-top: 0;
+    padding-top: 0;
     position: absolute;
     top: 0;
   }
@@ -131,26 +137,20 @@ $_ground-nav-divider-color: colors.$gray-light;
 }
 
 /**
- * Sets the size and color of the `hr` element.
- */
-.c-ground-nav__divider {
-  background-color: $_ground-nav-divider-color;
-  border-style: none;
-  height: $_ground-nav-divider-height;
-  width: 100%;
-}
-
-/**
  * The content in this section may be different depending on where
  * where the component is being used. When there are multiple elements
  * in section, they are displayed side by side on large screens.
 */
-.c-ground-nav__copyright {
+.c-ground-nav__byline {
+  border-top: $_ground-nav-border-width $_ground-nav-border-style $_ground-nav-border-color;
   font-size: ms.step(-1);
+  padding-top: $_ground-nav-space;
 
   @media (min-width: breakpoint.$l) {
+    border-top: none;
     display: flex;
     justify-content: flex-end;
+    padding-top: 0;
   }
 }
 
@@ -159,7 +159,7 @@ $_ground-nav-divider-color: colors.$gray-light;
  *    than one element.
  * 2. Removes `margin-top` when elements are side by side.
  */
-.c-ground-nav__copyright > * + * {
+.c-ground-nav__byline > * + * {
   margin-top: $_ground-nav-space; /* 1 */
 
   @media (min-width: breakpoint.$l) {
@@ -186,13 +186,13 @@ $_ground-nav-divider-color: colors.$gray-light;
         'organization menu'
         'social social'
         'divider divider'
-        'copyright copyright';
+        'byline byline';
     }
 
     @media (min-width: breakpoint.$l) {
       grid-template-areas:
         'organization menu social'
-        'copyright copyright copyright';
+        'byline byline byline';
     }
   }
 
@@ -236,9 +236,9 @@ $_ground-nav-divider-color: colors.$gray-light;
     }
   }
 
-  .c-ground-nav__copyright {
+  .c-ground-nav__byline {
     @media (min-width: breakpoint.$m) {
-      grid-area: copyright;
+      grid-area: byline;
     }
   }
 }

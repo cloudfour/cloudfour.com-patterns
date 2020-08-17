@@ -49,7 +49,7 @@
     "@cloudfour/eslint-plugin": "12.0.0",
     "@cypress/webpack-preprocessor": "5.4.4",
     "@rollup/plugin-babel": "5.2.0",
-    "@rollup/plugin-node-resolve": "8.4.0",
+    "@rollup/plugin-node-resolve": "9.0.0",
     "@storybook/addon-a11y": "5.3.19",
     "@storybook/addon-docs": "5.3.19",
     "@storybook/addon-knobs": "5.3.19",

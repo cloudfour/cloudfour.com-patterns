@@ -31,7 +31,7 @@ $_ground-nav-border-color: colors.$gray-light;
  * 1. Creates space between the action lead in and action title.
  * 2. Adds horizontal space when these elements are side by side.
  */
- .c-ground-nav__action-title {
+.c-ground-nav__action-title {
   margin-top: $_ground-nav-space; /* 1 */
 
   @media (min-width: breakpoint.$l) {
@@ -111,7 +111,8 @@ $_ground-nav-border-color: colors.$gray-light;
  */
 
 .c-ground-nav__menu {
-  border-top: $_ground-nav-border-width $_ground-nav-border-style $_ground-nav-border-color;
+  border-top: $_ground-nav-border-width $_ground-nav-border-style
+    $_ground-nav-border-color;
   padding-top: $_ground-nav-space;
 
   @media (min-width: breakpoint.$m) {
@@ -142,7 +143,8 @@ $_ground-nav-border-color: colors.$gray-light;
  * in section, they are displayed side by side on large screens.
 */
 .c-ground-nav__byline {
-  border-top: $_ground-nav-border-width $_ground-nav-border-style $_ground-nav-border-color;
+  border-top: $_ground-nav-border-width $_ground-nav-border-style
+    $_ground-nav-border-color;
   font-size: ms.step(-1);
   padding-top: $_ground-nav-space;
 

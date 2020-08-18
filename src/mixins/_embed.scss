@@ -92,7 +92,7 @@ $default-aspect-ratio: aspect-ratio.$square;
  * aspect-ratio instead of adding additional modifier classes.
  */
 
-@mixin object($ratio:#{$default-aspect-ratio}) {
+@mixin object($ratio: #{$default-aspect-ratio}) {
   @supports (--custom: property) {
     /**
      * Here's where the magic happens! 🦄

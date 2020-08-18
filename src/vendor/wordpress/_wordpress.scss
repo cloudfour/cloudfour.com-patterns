@@ -62,6 +62,38 @@ $wp-button-gap: sizes.$list-inline-gap;
  * Applies our pattern library styles to gutenberg embeded blocks
  */
 
+.wp-block-embed {
+
+  &.alignleft {
+    float: left;
+    margin-right: 1em;
+  }
+
+  &.alignright {
+    float: right;
+    margin-left: 1em;
+  }
+
+  &.alignfull {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+
+  /*
+   * 1. Applies an opinionated wide-image width that allows an image element to
+   *    spill slightly outsides its container at larger viewports.
+   */
+  &.alignwide {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    @media (min-width: breakpoint.$l) {
+      margin-left: -6vw; /* 1 */
+      margin-right: -6vw; /* 1 */
+    }
+  }
+
+}
+
 .wp-block-embed__wrapper {
   @include embed.object-fallback;
   @include embed.object(aspect-ratio.$wide);

@@ -84,20 +84,28 @@ $default-aspect-ratio: aspect-ratio.$square;
   }
 }
 
-@mixin object {
+/**
+ * We declare a "default value" for our mixin's `$aspect-ratio` argument so
+ * it may be used (as expected) without passing any arguments. This allows us
+ * to override the "default" aspect ratio for use cases like WordPress
+ * Gutenberg blocks, where it may be more desirable to redefine the default
+ * aspect-ratio instead of adding additional modifier classes
+ */
+
+@mixin object($aspect-ratio:#{$default-aspect-ratio}) {
   @supports (--custom: property) {
     /**
-   * Here's where the magic happens! 🦄
-   *
-   * 1. We default to a square aspect ratio. This is suitable for icons, profile
-   *    images, etc. It's also the simplest default.
-   * 2. Required for rounded corners to work as expected. We could apply this
-   *    by default, but then circular rounding would appear elliptical in older
-   *    browsers.
-   * 3. Required to absolute-position child elements.
-   */
+     * Here's where the magic happens! 🦄
+     *
+     * 1. We default to a square aspect ratio. This is suitable for icons,
+     *    profile images, etc. It's also the simplest default.
+     * 2. Required for rounded corners to work as expected. We could apply this
+     *    by default, but then circular rounding would appear elliptical in
+     *    older browsers.
+     * 3. Required to absolute-position child elements.
+    */
 
-    --aspect-ratio: #{$default-aspect-ratio}; /* 1 */
+    --aspect-ratio: #{$aspect-ratio}; /* 1 */
     overflow: hidden; /* 2 */
     position: relative; /* 3 */
 

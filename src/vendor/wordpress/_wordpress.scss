@@ -90,7 +90,6 @@ $wp-button-gap: sizes.$list-inline-gap;
  */
 
 .wp-block-embed {
-
   &.o-embed--square .wp-block-embed__wrapper {
     --aspect-ratio: #{aspect-ratio.$square};
   }

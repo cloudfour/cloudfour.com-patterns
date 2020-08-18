@@ -102,7 +102,7 @@ $_ground-nav-border-color: colors.$gray-light;
   }
 }
 
-.c-ground-nav__social-action {
+.c-ground-nav__social-icon {
   font-size: ms.step(2);
 }
 
@@ -187,7 +187,6 @@ $_ground-nav-border-color: colors.$gray-light;
       grid-template-areas:
         'organization menu'
         'social social'
-        'divider divider'
         'byline byline';
     }
 
@@ -229,12 +228,6 @@ $_ground-nav-border-color: colors.$gray-light;
 
     @media (min-width: breakpoint.$l) {
       justify-self: end;
-    }
-  }
-
-  .c-ground-nav__divider {
-    @media (min-width: breakpoint.$m) {
-      grid-area: divider;
     }
   }
 

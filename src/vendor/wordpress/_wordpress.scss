@@ -1,4 +1,5 @@
-@use '../../design-tokens/aspect-ratio.yml';
+@use 'sass:meta';
+@use "../../design-tokens/aspect-ratio.yml";
 @use "../../design-tokens/breakpoint.yml";
 @use "../../design-tokens/colors.yml";
 @use "../../design-tokens/sizes.yml";
@@ -89,16 +90,27 @@ $wp-button-gap: sizes.$list-inline-gap;
  */
 
 .wp-block-embed {
-  // @todo use design token values instead of `1em`
+
+  &.o-embed--square .wp-block-embed__wrapper {
+    --aspect-ratio: #{aspect-ratio.$square};
+  }
+
+  &.o-embed--full .wp-block-embed__wrapper {
+    --aspect-ratio: #{aspect-ratio.$full};
+  }
+
+  &.o-embed--cinema .wp-block-embed__wrapper {
+    --aspect-ratio: #{aspect-ratio.$cinema};
+  }
+
   &.alignleft {
     float: left;
-    margin-right: 1em;
+    margin-right: #{sizes.$rhythm-space};
   }
 
   &.alignright {
-    // @todo use design token values instead of `1em`
     float: right;
-    margin-left: 1em;
+    margin-left: #{sizes.$rhythm-space};
   }
 }
 

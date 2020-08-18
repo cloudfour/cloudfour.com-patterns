@@ -85,14 +85,14 @@ $default-aspect-ratio: aspect-ratio.$square;
 }
 
 /**
- * We declare a "default value" for our mixin's `$aspect-ratio` argument so
+ * We declare a "default value" for our mixin's `$ratio` argument so
  * it may be used (as expected) without passing any arguments. This allows us
- * to override the "default" aspect ratio for use cases like WordPress
+ * to override the "default" aspect ratio for use cases such as WordPress
  * Gutenberg blocks, where it may be more desirable to redefine the default
- * aspect-ratio instead of adding additional modifier classes
+ * aspect-ratio instead of adding additional modifier classes.
  */
 
-@mixin object($aspect-ratio:#{$default-aspect-ratio}) {
+@mixin object($ratio:#{$default-aspect-ratio}) {
   @supports (--custom: property) {
     /**
      * Here's where the magic happens! 🦄
@@ -105,7 +105,7 @@ $default-aspect-ratio: aspect-ratio.$square;
      * 3. Required to absolute-position child elements.
     */
 
-    --aspect-ratio: #{$aspect-ratio}; /* 1 */
+    --aspect-ratio: #{$ratio}; /* 1 */
     overflow: hidden; /* 2 */
     position: relative; /* 3 */
 

@@ -88,7 +88,7 @@ $default-aspect-ratio: aspect-ratio.$square;
  * We declare a "default value" for our mixin's `$ratio` argument so
  * it may be used without passing any arguments. This allows us
  * to override the "default" aspect ratio for use cases such as WordPress
- * Gutenberg blocks, where it may be more desirable to redefine the default
+ * Gutenberg blocks, where it may be more desirable to re-define the default
  * aspect-ratio instead of adding additional modifier classes.
  */
 

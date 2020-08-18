@@ -1,7 +1,17 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import codeBlockDemo from '../../design/typography/demo/code-block.twig';
+import blockImageDemo from './demo/image.twig';
+const alignmentClasses = {
+  None: '',
+  Left: 'alignleft',
+  Center: 'aligncenter',
+  Right: 'alignright',
+  Full: 'alignfull',
+  Wide: 'alignwide',
+};
 
-<Meta title="Vendor/WordPress/Gutenberg" />
+<Meta title="Vendor/WordPress/Gutenberg" decorators={[withKnobs]} />
 
 # WordPress Gutenberg Blocks
 
@@ -365,31 +375,20 @@ The image block is wrapped in a `figure` element with the `wp-block-image` class
 
 Inputs are available to set `alt` text, `width`, and `height` attributes.
 
-Controls set either the `is-style-default` (no masking) or `is-style-circle-mask`
-class on the wrapper element. One of these classes is always present.
+Controls set either the `is-style-default` (no masking) or `is-style-circle-mask` class on the wrapper element. One of these classes is always present.
 
 Additional controls can add wrapper classes based on generated `srcset` options:
 `size-full`, `size-large`, `size-medium`, or `size-thumbnail`. Further resizing
 adds the `is-resized` class to the wrapper.
 
-Adding caption text to the image generates a `figcaption` element before the closing
-wrapper tag.
+Adding caption text to the image generates a `figcaption` element before the
+closing wrapper tag.
 
 <Preview>
   <Story name="core/image">
-    {`<figure class="wp-block-image size-large is-style-default">
-        <img
-          src="/media/MtBlanc1.jpg"
-          alt="Mont Blanc"
-          class="wp-image-130"
-          srcset="
-            /media/MtBlanc1.jpg         500w,
-            /media/MtBlanc1-300x225.jpg 300w
-          "
-          sizes="(max-width: 500px) 100vw, 500px"
-        />
-        <figcaption>Mont Blanc appears—still, snowy, and serene.</figcaption>
-      </figure>`}
+    {blockImageDemo({
+      class: select('alignment', alignmentClasses, null),
+    })}
   </Story>
 </Preview>
 

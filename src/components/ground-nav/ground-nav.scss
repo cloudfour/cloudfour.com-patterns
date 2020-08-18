@@ -28,26 +28,38 @@ $_ground-nav-border-color: colors.$gray-light;
 }
 
 /**
+ * 1. Creates space between the action lead in and action title.
+ * 2. Adds horizontal space when these elements are side by side.
+ */
+ .c-ground-nav__action-title {
+  margin-top: $_ground-nav-space; /* 1 */
+
+  @media (min-width: breakpoint.$l) {
+    margin: ms.step(4) $_ground-nav-space; /* 2 */
+  }
+}
+
+/**
  * The illustration is aligned with the footer content.
  * As the screen size increases, we decrease the size
  * of the illustration so that it doesn't get too large.
  */
 
-// .c-ground-nav__action-illustration {
-//   bottom: $_ground-nav-negative-space;
-//   position: absolute;
-//   right: $_ground-nav-negative-space;
-//   width: 40%;
+.c-ground-nav__action-illustration {
+  bottom: $_ground-nav-negative-space;
+  position: absolute;
+  right: $_ground-nav-negative-space;
+  width: 40%;
 
-//   @media (min-width: breakpoint.$m) {
-//     right: 0;
-//     width: calc(100% / 3);
-//   }
+  @media (min-width: breakpoint.$m) {
+    right: 0;
+    width: calc(100% / 3);
+  }
 
-//   @media (min-width: breakpoint.$l) {
-//     width: 25%;
-//   }
-// }
+  @media (min-width: breakpoint.$l) {
+    width: 25%;
+  }
+}
 
 .c-ground-nav__content {
   background-color: colors.$gray-lighter;
@@ -62,18 +74,6 @@ $_ground-nav-border-color: colors.$gray-light;
  */
 .c-ground-nav__content-inner > * + * {
   margin-top: $_ground-nav-space;
-}
-
-/**
- * 1. Creates space between the action lead in and action title.
- * 2. Adds horizontal space when these elements are side by side.
- */
-.c-ground-nav__action-title {
-  margin-top: $_ground-nav-space; /* 1 */
-
-  @media (min-width: breakpoint.$l) {
-    margin: $_ground-nav-space; /* 2 */
-  }
 }
 
 /**

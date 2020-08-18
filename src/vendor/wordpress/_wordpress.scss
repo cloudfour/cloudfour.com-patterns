@@ -7,6 +7,32 @@
 @use "../../mixins/table";
 
 /**
+ * Custom alignment styles for Gutenberg blocks
+ */
+
+@mixin fullwidth {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.alignfull {
+  @include fullwidth;
+}
+
+/**
+ * 1. Applies an opinionated wide-image width that allows an image element to
+ *    spill slightly outsides its container at larger viewports.
+ */
+
+.alignwide {
+  @include fullwidth;
+  @media (min-width: breakpoint.$l) {
+    margin-left: -6vw; /* 1 */
+    margin-right: -6vw; /* 1 */
+  }
+}
+
+/**
  * Gutenberg block: Button
  * Applies our pattern library styles to buttons generated via Gutenberg blocks.
  */
@@ -63,35 +89,17 @@ $wp-button-gap: sizes.$list-inline-gap;
  */
 
 .wp-block-embed {
-
+  // @todo use design token values instead of `1em`
   &.alignleft {
     float: left;
     margin-right: 1em;
   }
 
   &.alignright {
+    // @todo use design token values instead of `1em`
     float: right;
     margin-left: 1em;
   }
-
-  &.alignfull {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-  }
-
-  /*
-   * 1. Applies an opinionated wide-image width that allows an image element to
-   *    spill slightly outsides its container at larger viewports.
-   */
-  &.alignwide {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    @media (min-width: breakpoint.$l) {
-      margin-left: -6vw; /* 1 */
-      margin-right: -6vw; /* 1 */
-    }
-  }
-
 }
 
 .wp-block-embed__wrapper {
@@ -168,28 +176,6 @@ $wp-button-gap: sizes.$list-inline-gap;
    */
   &.aligncenter {
     width: 100%;
-  }
-
-  /**
-   * Releases a full-width child element from its limited width container
-   * @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
-   */
-  &.alignfull {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-  }
-
-  /*
-   * 1. Applies an opinionated wide-image width that allows an image element to
-   *    spill slightly outsides its container at larger viewports.
-   */
-  &.alignwide {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    @media (min-width: breakpoint.$l) {
-      margin-left: -6vw; /* 1 */
-      margin-right: -6vw; /* 1 */
-    }
   }
 
   /* Since we are applying `margin-top` to CMS content via our o-rhythm

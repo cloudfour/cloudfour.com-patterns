@@ -1,3 +1,5 @@
+@use "../../design-tokens/colors.yml";
+
 #favicon-demoWrapper {
   background-color: white;
   padding: 0.5em;
@@ -5,6 +7,6 @@
 
 @media (prefers-color-scheme: dark) {
   #favicon-demoWrapper {
-    background-color: black;
+    background-color: colors.$primary_brand;
   }
 }

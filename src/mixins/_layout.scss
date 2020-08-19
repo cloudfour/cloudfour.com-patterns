@@ -1,0 +1,9 @@
+/**
+ * Enables an element to extend the full width of the available viewport by of
+ * releasing a child element from its fixed-width container
+ */
+
+@mixin fullwidth {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}

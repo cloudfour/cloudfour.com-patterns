@@ -2,6 +2,7 @@
 @use "../../design-tokens/breakpoint.yml";
 @use "../../design-tokens/colors.yml";
 @use "../../design-tokens/sizes.yml";
+@use "../../mixins/layout";
 @use "../../mixins/button";
 @use '../../mixins/embed';
 @use "../../mixins/table";
@@ -10,13 +11,8 @@
  * Custom alignment styles for Gutenberg blocks
  */
 
-@mixin fullwidth {
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-}
-
 .alignfull {
-  @include fullwidth;
+  @include layout.fullwidth;
 }
 
 /**
@@ -25,7 +21,7 @@
  */
 
 .alignwide {
-  @include fullwidth;
+  @include layout.fullwidth;
   @media (min-width: breakpoint.$l) {
     margin-left: -6vw; /* 1 */
     margin-right: -6vw; /* 1 */

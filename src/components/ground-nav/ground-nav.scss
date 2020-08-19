@@ -94,8 +94,15 @@ $_ground-nav-border-color: colors.$gray-light;
  */
 
 .c-ground-nav__social {
+  @media (min-width: breakpoint.$m) {
+    border-bottom: $_ground-nav-border-width $_ground-nav-border-style
+      $_ground-nav-border-color;
+    padding-bottom: $_ground-nav-space;
+  }
   @media (min-width: breakpoint.$l) {
+    border-bottom: none;
     margin-top: 0;
+    padding-bottom: 0;
     position: absolute;
     right: 0;
     top: 0;
@@ -111,15 +118,17 @@ $_ground-nav-border-color: colors.$gray-light;
  */
 
 .c-ground-nav__menu {
+  border-bottom: $_ground-nav-border-width $_ground-nav-border-style
+    $_ground-nav-border-color;
   border-top: $_ground-nav-border-width $_ground-nav-border-style
     $_ground-nav-border-color;
-  padding-top: $_ground-nav-space;
+  padding: $_ground-nav-space 0;
 
   @media (min-width: breakpoint.$m) {
-    border-top: none;
+    border: none;
     left: 40%;
     margin-top: 0;
-    padding-top: 0;
+    padding: 0;
     position: absolute;
     top: 0;
   }
@@ -137,103 +146,117 @@ $_ground-nav-border-color: colors.$gray-light;
   columns: 2;
 }
 
+.c-ground-nav__kudos,
+.c-ground-nav__legal {
+  font-size: ms.step(-1);
+}
+
+.c-ground-nav__legal {
+  @media (min-width: breakpoint.$l) {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
 /**
  * The content in this section may be different depending on where
  * where the component is being used. When there are multiple elements
  * in section, they are displayed side by side on large screens.
 */
-.c-ground-nav__byline {
-  border-top: $_ground-nav-border-width $_ground-nav-border-style
-    $_ground-nav-border-color;
-  font-size: ms.step(-1);
-  padding-top: $_ground-nav-space;
 
-  @media (min-width: breakpoint.$l) {
-    border-top: none;
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 0;
-  }
-}
+// /**
+//  * We use CSS grid when supported by the browser.
+//  */
+// @supports (display: grid) {
+//   .c-ground-nav__content-inner {
+//     display: grid;
+//     grid-gap: $_ground-nav-space;
+//     margin: 0 auto;
 
-/**
- * 1. Creates vertical space between elements when there is more
- *    than one element.
- * 2. Removes `margin-top` when elements are side by side.
- */
-.c-ground-nav__byline > * + * {
-  margin-top: $_ground-nav-space; /* 1 */
+//     /**
+//      * As the screen size increases, the number of columns increases.
+//      * Instead of making all the columns the same size, we use `minmax`
+//      * for one of the columns to make sure the content in this section
+//      * doesn't have any line breaks, but can still grow as horizontal
+//      * space allows.
+//      */
+//     @media (min-width: breakpoint.$m) {
+//       grid-template-columns: 1fr minmax(max-content, 1fr);
+//     }
 
-  @media (min-width: breakpoint.$l) {
-    margin-top: 0; /* 2 */
-  }
-}
+//     @media (min-width: breakpoint.$l) {
+//       grid-template-columns: 1fr minmax(max-content, 1fr) 1fr;
+//     }
+//   }
 
-/**
- * We use CSS grid when supported by the browser.
- */
-@supports (display: grid) {
-  .c-ground-nav__content-inner {
-    display: grid;
-    grid-gap: $_ground-nav-space;
-    margin: 0 auto;
+//   /**
+//    * Removes the margin used by our fallback design. Grid allows us to
+//    * use `grid-gap` to create consistent space between elements.
+//    */
+//   .c-ground-nav__content-inner > * + * {
+//     margin: 0;
+//   }
 
-    /**
-     * The visual order of the footer content is different than the
-     * semantic order. We use grid areas to easily place content
-     * within the grid.
-     */
-    @media (min-width: breakpoint.$m) {
-      grid-template-areas:
-        'organization menu'
-        'social social'
-        'byline byline';
-    }
+//   /**
+//    * The visual order of the footer content is different than the
+//    * semantic order. We explicitly define where content should
+//    * be placed within the grid.
+//    */
+//   .c-ground-nav__organization {
+//     @media (min-width: breakpoint.$m) {
+//       grid-column: 1/2;
+//       grid-row: 1/3;
+//     }
+//   }
 
-    @media (min-width: breakpoint.$l) {
-      grid-template-areas:
-        'organization menu social'
-        'byline byline byline';
-    }
-  }
+//   /**
+//    * The fallback design uses absolute positioning. We change it
+//    * to `static` so that we can place the menu in the grid.
+//    */
+//   .c-ground-nav__menu {
+//     position: static;
 
-  /**
-   * Removes the margin used by our fallback design. Grid allows us to
-   * use `grid-gap` to create consistent space between elements.
-   */
-  .c-ground-nav__content-inner > * + * {
-    margin: 0;
-  }
+//     @media (min-width: breakpoint.$m) {
+//       grid-column: 2/3;
+//       grid-row: 1/3;
+//     }
+//   }
 
-  .c-ground-nav__organization {
-    @media (min-width: breakpoint.$m) {
-      grid-area: organization;
-    }
-  }
+//   /**
+//    * The fallback design uses absolute positioning. We change it
+//    * to `static` so that we can place the social icons in the grid.
+//    */
+//   .c-ground-nav__social {
+//     position: static;
 
-  .c-ground-nav__menu {
-    position: static;
+//     @media (min-width: breakpoint.$m) {
+//       grid-column: 1/3;
+//     }
 
-    @media (min-width: breakpoint.$m) {
-      grid-area: menu;
-    }
-  }
+//     @media (min-width: breakpoint.$l) {
+//       grid-column: 3/4;
+//       grid-row: 1/2;
+//       justify-self: end;
+//     }
+//   }
 
-  .c-ground-nav__social {
-    position: static;
+//   .c-ground-nav__kudos {
+//     @media (min-width: breakpoint.$m) {
+//       grid-column: 1/3;
+//     }
+//   }
 
-    @media (min-width: breakpoint.$m) {
-      grid-area: social;
-    }
+//   /**
+//    * The fallback design uses absolute positioning. We change it
+//    * to `static` so that we can place the legal content in the grid.
+//    */
+//   .c-ground-nav__legal {
+//     position: static;
 
-    @media (min-width: breakpoint.$l) {
-      justify-self: end;
-    }
-  }
-
-  .c-ground-nav__byline {
-    @media (min-width: breakpoint.$m) {
-      grid-area: byline;
-    }
-  }
-}
+//     @media (min-width: breakpoint.$l) {
+//       align-self: end;
+//       justify-self: end;
+//     }
+//   }
+// }

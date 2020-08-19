@@ -4,7 +4,7 @@
 
 {% set legal %}
   {% block legal %}
-    <p>
+    <p class="c-ground-nav__legal">
       © {{organization.foundingDate|date('Y')}}–{{'now'|date('Y')}} {{organization.name}}
     </p>
   {% endblock %}
@@ -108,15 +108,14 @@
         </ul>
       </nav>
 
-      <div class="c-ground-nav__byline">
-        {% if kudos %}
-          {{kudos}}
-        {% endif %}
+      {% if kudos %}
+        {{kudos}}
+      {% endif %}
 
-        {% if legal %}
-          {{legal}}
-        {% endif %}
-      </div>
+      {% if legal %}
+        {{legal}}
+      {% endif %}
+
     </div>
   </div>
 </footer>

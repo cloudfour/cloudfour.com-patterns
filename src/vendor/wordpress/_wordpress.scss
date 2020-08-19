@@ -99,12 +99,12 @@ $wp-button-gap: sizes.$list-inline-gap;
 
   &.alignleft {
     float: left;
-    margin-right: #{sizes.$rhythm-space};
+    margin-right: #{sizes.$spacing-horizontal};
   }
 
   &.alignright {
     float: right;
-    margin-left: #{sizes.$rhythm-space};
+    margin-left: #{sizes.$spacing-horizontal};
   }
 }
 

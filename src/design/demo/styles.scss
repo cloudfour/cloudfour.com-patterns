@@ -1,0 +1,10 @@
+#favicon-demoWrapper {
+  background-color: white;
+  padding: 0.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+  #favicon-demoWrapper {
+    background-color: black;
+  }
+}

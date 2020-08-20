@@ -1,6 +1,7 @@
 @use '../../design-tokens/breakpoint.yml';
 @use '../../design-tokens/colors.yml';
 @use '../../design-tokens/font.yml';
+@use "../../design-tokens/sizes.yml";
 @use '../../mixins/ms';
 @use '../../mixins/unit';
 
@@ -8,8 +9,8 @@
 // (It uses `rem` so space will be consistent throughout the component)
 $_ground-nav-space: ms.step(1, 1rem);
 // Negative value used to reduce the space around elements as well as position elements.
-$_ground-nav-negative-space: #{unit.strip($_ground-nav-space) * -1}rem;
-$_ground-nav-border-width: 3px;
+$_ground-nav-negative-space: ($_ground-nav-space * -1);
+$_ground-nav-border-width: sizes.$edge-medium;
 $_ground-nav-border-style: solid;
 $_ground-nav-border-color: colors.$gray-light;
 
@@ -165,98 +166,98 @@ $_ground-nav-border-color: colors.$gray-light;
  * in section, they are displayed side by side on large screens.
 */
 
-// /**
-//  * We use CSS grid when supported by the browser.
-//  */
-// @supports (display: grid) {
-//   .c-ground-nav__content-inner {
-//     display: grid;
-//     grid-gap: $_ground-nav-space;
-//     margin: 0 auto;
+/**
+ * We use CSS grid when supported by the browser.
+ */
+@supports (display: grid) {
+  .c-ground-nav__content-inner {
+    display: grid;
+    grid-gap: $_ground-nav-space;
+    margin: 0 auto;
 
-//     /**
-//      * As the screen size increases, the number of columns increases.
-//      * Instead of making all the columns the same size, we use `minmax`
-//      * for one of the columns to make sure the content in this section
-//      * doesn't have any line breaks, but can still grow as horizontal
-//      * space allows.
-//      */
-//     @media (min-width: breakpoint.$m) {
-//       grid-template-columns: 1fr minmax(max-content, 1fr);
-//     }
+    /**
+     * As the screen size increases, the number of columns increases.
+     * Instead of making all the columns the same size, we use `minmax`
+     * for one of the columns to make sure the content in this section
+     * doesn't have any line breaks, but can still grow as horizontal
+     * space allows.
+     */
+    @media (min-width: breakpoint.$m) {
+      grid-template-columns: 1fr minmax(max-content, 1fr);
+    }
 
-//     @media (min-width: breakpoint.$l) {
-//       grid-template-columns: 1fr minmax(max-content, 1fr) 1fr;
-//     }
-//   }
+    @media (min-width: breakpoint.$l) {
+      grid-template-columns: 1fr minmax(max-content, 1fr) 1fr;
+    }
+  }
 
-//   /**
-//    * Removes the margin used by our fallback design. Grid allows us to
-//    * use `grid-gap` to create consistent space between elements.
-//    */
-//   .c-ground-nav__content-inner > * + * {
-//     margin: 0;
-//   }
+  /**
+   * Removes the margin used by our fallback design. Grid allows us to
+   * use `grid-gap` to create consistent space between elements.
+   */
+  .c-ground-nav__content-inner > * + * {
+    margin: 0;
+  }
 
-//   /**
-//    * The visual order of the footer content is different than the
-//    * semantic order. We explicitly define where content should
-//    * be placed within the grid.
-//    */
-//   .c-ground-nav__organization {
-//     @media (min-width: breakpoint.$m) {
-//       grid-column: 1/2;
-//       grid-row: 1/3;
-//     }
-//   }
+  /**
+   * The visual order of the footer content is different than the
+   * semantic order. We explicitly define where content should
+   * be placed within the grid.
+   */
+  .c-ground-nav__organization {
+    @media (min-width: breakpoint.$m) {
+      grid-column: 1/2;
+      grid-row: 1/3;
+    }
+  }
 
-//   /**
-//    * The fallback design uses absolute positioning. We change it
-//    * to `static` so that we can place the menu in the grid.
-//    */
-//   .c-ground-nav__menu {
-//     position: static;
+  /**
+   * The fallback design uses absolute positioning. We change it
+   * to `static` so that we can place the menu in the grid.
+   */
+  .c-ground-nav__menu {
+    position: static;
 
-//     @media (min-width: breakpoint.$m) {
-//       grid-column: 2/3;
-//       grid-row: 1/3;
-//     }
-//   }
+    @media (min-width: breakpoint.$m) {
+      grid-column: 2/3;
+      grid-row: 1/3;
+    }
+  }
 
-//   /**
-//    * The fallback design uses absolute positioning. We change it
-//    * to `static` so that we can place the social icons in the grid.
-//    */
-//   .c-ground-nav__social {
-//     position: static;
+  /**
+   * The fallback design uses absolute positioning. We change it
+   * to `static` so that we can place the social icons in the grid.
+   */
+  .c-ground-nav__social {
+    position: static;
 
-//     @media (min-width: breakpoint.$m) {
-//       grid-column: 1/3;
-//     }
+    @media (min-width: breakpoint.$m) {
+      grid-column: 1/3;
+    }
 
-//     @media (min-width: breakpoint.$l) {
-//       grid-column: 3/4;
-//       grid-row: 1/2;
-//       justify-self: end;
-//     }
-//   }
+    @media (min-width: breakpoint.$l) {
+      grid-column: 3/4;
+      grid-row: 1/2;
+      justify-self: end;
+    }
+  }
 
-//   .c-ground-nav__kudos {
-//     @media (min-width: breakpoint.$m) {
-//       grid-column: 1/3;
-//     }
-//   }
+  .c-ground-nav__kudos {
+    @media (min-width: breakpoint.$m) {
+      grid-column: 1/3;
+    }
+  }
 
-//   /**
-//    * The fallback design uses absolute positioning. We change it
-//    * to `static` so that we can place the legal content in the grid.
-//    */
-//   .c-ground-nav__legal {
-//     position: static;
+  /**
+   * The fallback design uses absolute positioning. We change it
+   * to `static` so that we can place the legal content in the grid.
+   */
+  .c-ground-nav__legal {
+    position: static;
 
-//     @media (min-width: breakpoint.$l) {
-//       align-self: end;
-//       justify-self: end;
-//     }
-//   }
-// }
+    @media (min-width: breakpoint.$l) {
+      align-self: end;
+      justify-self: end;
+    }
+  }
+}

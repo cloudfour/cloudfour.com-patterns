@@ -66,12 +66,8 @@ $_ground-nav-border-color: colors.$gray-light;
   background-color: colors.$gray-lighter;
 }
 
-.c-ground-nav__content-inner {
-  position: relative;
-}
-
 /**
- * Creates vertical space between elements.
+ * Creates vertical space between elements when grid isn't supported.
  */
 .c-ground-nav__content-inner > * + * {
   margin-top: $_ground-nav-space;
@@ -90,33 +86,9 @@ $_ground-nav-border-color: colors.$gray-light;
   font-weight: font.$weight-bold;
 }
 
-/**
- * Fallback style for browsers that don't support CSS grid.
- */
-
-.c-ground-nav__social {
-  @media (min-width: breakpoint.$m) {
-    border-bottom: $_ground-nav-border-width $_ground-nav-border-style
-      $_ground-nav-border-color;
-    padding-bottom: $_ground-nav-space;
-  }
-  @media (min-width: breakpoint.$l) {
-    border-bottom: none;
-    margin-top: 0;
-    padding-bottom: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-}
-
 .c-ground-nav__social-icon {
   font-size: ms.step(2);
 }
-
-/**
- * Fallback style for browsers that don't support CSS grid.
- */
 
 .c-ground-nav__menu {
   border-bottom: $_ground-nav-border-width $_ground-nav-border-style
@@ -124,19 +96,6 @@ $_ground-nav-border-color: colors.$gray-light;
   border-top: $_ground-nav-border-width $_ground-nav-border-style
     $_ground-nav-border-color;
   padding: $_ground-nav-space 0;
-
-  @media (min-width: breakpoint.$m) {
-    border: none;
-    left: 40%;
-    margin-top: 0;
-    padding: 0;
-    position: absolute;
-    top: 0;
-  }
-
-  @media (min-width: breakpoint.$l) {
-    left: calc(100% / 3);
-  }
 }
 
 /**
@@ -151,20 +110,6 @@ $_ground-nav-border-color: colors.$gray-light;
 .c-ground-nav__legal {
   font-size: ms.step(-1);
 }
-
-.c-ground-nav__legal {
-  @media (min-width: breakpoint.$l) {
-    bottom: 0;
-    position: absolute;
-    right: 0;
-  }
-}
-
-/**
- * The content in this section may be different depending on where
- * where the component is being used. When there are multiple elements
- * in section, they are displayed side by side on large screens.
-*/
 
 /**
  * We use CSS grid when supported by the browser.
@@ -211,34 +156,29 @@ $_ground-nav-border-color: colors.$gray-light;
     }
   }
 
-  /**
-   * The fallback design uses absolute positioning. We change it
-   * to `static` so that we can place the menu in the grid.
-   */
   .c-ground-nav__menu {
-    position: static;
-
     @media (min-width: breakpoint.$m) {
+      border: none;
       grid-column: 2/3;
       grid-row: 1/3;
+      padding: 0;
     }
   }
 
-  /**
-   * The fallback design uses absolute positioning. We change it
-   * to `static` so that we can place the social icons in the grid.
-   */
   .c-ground-nav__social {
-    position: static;
-
     @media (min-width: breakpoint.$m) {
+      border-bottom: $_ground-nav-border-width $_ground-nav-border-style
+        $_ground-nav-border-color;
       grid-column: 1/3;
+      padding-bottom: $_ground-nav-space;
     }
 
     @media (min-width: breakpoint.$l) {
+      border-bottom: none;
       grid-column: 3/4;
       grid-row: 1/2;
       justify-self: end;
+      padding-bottom: 0;
     }
   }
 
@@ -248,13 +188,7 @@ $_ground-nav-border-color: colors.$gray-light;
     }
   }
 
-  /**
-   * The fallback design uses absolute positioning. We change it
-   * to `static` so that we can place the legal content in the grid.
-   */
   .c-ground-nav__legal {
-    position: static;
-
     @media (min-width: breakpoint.$l) {
       align-self: end;
       justify-self: end;

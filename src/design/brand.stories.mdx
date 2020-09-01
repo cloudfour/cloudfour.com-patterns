@@ -3,6 +3,7 @@ import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
 // the `.svg.twig` file causes linting errors (since they are not tracked).
 // Therefore, we must track a twig file to satisfy CI.
 import brandLogo from './demo/logo.twig';
+import brandFavicon from './demo/favicon.twig';
 
 <Meta title="Design/Brand" />
 
@@ -14,5 +15,18 @@ Cloud Four logo in SVG format. The logo fill color can be modified via the CSS
 <Preview>
   <Story name="Logo" height="175px">
     {brandLogo}
+  </Story>
+</Preview>
+
+# Favicon
+
+Our favicon is provided in an svg format with an ico fallback. Because the
+favicon may appear on a dark or light background depending on browser or mode,
+we've added a white stroke around the logo mark. We also include a Safari pinned
+tab svg icon.
+
+<Preview>
+  <Story name="Favicon" height="175px">
+    {brandFavicon}
   </Story>
 </Preview>

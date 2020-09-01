@@ -1,0 +1,30 @@
+<div
+  class="demo-container o-rhythm"
+  style="max-width: 40rem; margin: 0 auto; padding: 0 1.25rem"
+>
+  <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
+  {%
+    if class == 'alignleft' or class == 'aligncenter' or class == 'alignright'
+  %}
+    <div class="wp-block-image">
+  {% endif %}
+    <figure class="{% if class == 'alignfull' or class == 'alignwide' or class == '' %}wp-block-image {% endif %}size-large is-style-default {{class}}">
+      <img
+        src="/media/MtBlanc1.jpg"
+        alt="Mont Blanc"
+        class="wp-image-130"
+        srcset="
+          /media/MtBlanc1.jpg         500w,
+          /media/MtBlanc1-300x225.jpg 300w
+        "
+        sizes="(max-width: 500px) 100vw, 500px"
+      />
+      <figcaption>Mont Blanc appears—still, snowy, and serene.</figcaption>
+    </figure>
+  {%
+    if class == 'alignleft' or class == 'aligncenter' or class == 'alignright'
+  %}
+    </div>
+  {% endif %}
+  <p>Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+</div>

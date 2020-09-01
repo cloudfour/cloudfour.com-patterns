@@ -1,16 +1,21 @@
 import { addDecorator, addParameters } from '@storybook/html';
 import { withA11y } from '@storybook/addon-a11y';
+import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
+import { withHTML } from '@whitespace/storybook-addon-html/html';
 import * as colors from '../src/design-tokens/colors.yml';
 import * as breakpoints from '../src/design-tokens/breakpoint.yml';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ratio } from '../src/design-tokens/modular-scale.yml';
 import 'focus-visible';
-import '../src/index.scss';
+import '../src/index-with-dependencies.scss';
 import './preview.scss';
 
 // Accessibility testing via aXe
 addDecorator(withA11y);
+
+// Add HTML tab with output source
+addDecorator(withHTML);
 
 // Theme selection from stories
 const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
@@ -104,5 +109,19 @@ addParameters({
       ...breakpointViewports,
       ...INITIAL_VIEWPORTS,
     },
+  },
+});
+
+// Add Docs support for inlining plain HTML stories
+// @see https://github.com/storybookjs/storybook/blob/v5.3.19/addons/docs/docs/docspage.md#inline-stories-vs-iframe-stories
+
+// Initialize the parser
+const htmlToReactParser = new Parser();
+
+// Add the function to Docs settings
+addParameters({
+  docs: {
+    inlineStories: true,
+    prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
   },
 });

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# This is a comment
+
+for (( i=0;i<$ELEMENTS;i++)); do
+  echo ${ARRAY[${i}]}
+done
+while read LINE; do
+  ARRAY[$count]=$LINE
+  ((count++))
+done
+if [ -d $directory ]; then
+  echo "Directory exists"
+else
+  echo "Directory does not exists"
+fi
+
+crontab -l -u USER | grep -v 'YOUR JOB COMMAND or PATTERN' | crontab -u USER -
+
+git pull origin master

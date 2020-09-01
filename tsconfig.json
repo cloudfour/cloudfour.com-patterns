@@ -8,12 +8,17 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "declaration": true,
-    "noEmit": true,
+    "outDir": "ts-dist",
+    "emitDeclarationOnly": true,
     "allowJs": true,
     "checkJs": true,
     "types": ["cypress", "@types/testing-library__cypress", "node"],
     "skipLibCheck": true
   },
   "include": ["src", "cypress"],
-  "exclude": ["src/prototypes"]
+  "exclude": [
+    "src/prototypes",
+    "src/vendor/prism/demo/samples",
+    "src/design-tokens/generated"
+  ]
 }

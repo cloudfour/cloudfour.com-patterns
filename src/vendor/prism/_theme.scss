@@ -10,49 +10,60 @@
  */
 
 .token {
-  &.punctuation,
-  &.comment,
-  &.prolog,
-  &.doctype,
   &.cdata,
-  .language-json &.operator {
+  &.comment,
+  &.doctype,
+  &.prolog,
+  &.punctuation {
     color: colors.$text-light;
     opacity: opacity.$muted;
   }
 
-  &.property,
-  &.keyword,
-  &.interpolation-punctuation {
-    color: colors.$primary-brand-lighter;
-  }
-
-  &.constant,
-  &.attr-value,
-  &.selector,
-  &.class-name,
-  .language-js &.string,
-  .language-javascript &.string {
-    color: colors.$green-lighter;
-  }
-
-  &.rule,
-  &.tag,
-  &.regex,
-  &.number,
-  &.boolean,
-  &.function {
-    color: colors.$fuchsia-lighter;
-  }
-
-  &.variable,
   &.attr-name,
-  &.operator {
+  &.boolean,
+  &.builtin,
+  &.constant,
+  &.number,
+  &.selector,
+  &.variable,
+  .language-liquid &.property,
+  .language-twig &.property {
     color: colors.$orange-lighter;
   }
 
-  &.important,
+  &.attr-value,
+  &.plain-text,
+  &.string,
+  &.url {
+    color: colors.$green-lighter;
+  }
+
+  &.entity,
+  &.function,
+  &.parameter,
+  &.tag,
+  .language-liquid &.operator + &.property,
+  .language-twig &.operator + &.property {
+    color: colors.$fuchsia-lighter;
+  }
+
+  &.class-name,
+  &.rule,
+  &.important {
+    color: colors.$purple-lighter;
+  }
+
+  &.block,
+  &.key,
+  &.keyword,
+  &.operator,
+  &.property,
+  &.regex {
+    color: colors.$primary-brand-lighter;
+  }
+
   &.bold {
-    color: colors.$text-light-emphasis;
+    font-weight: font.$weight-semibold;
   }
 
   &.italic {

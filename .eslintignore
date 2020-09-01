@@ -1,4 +1,5 @@
 /dist
+/ts-dist
 /src/design-tokens/generated
 /storybook-static
 
@@ -7,3 +8,6 @@
 # If we ignore directories there's no way to unignore `stories` files in them.
 /src/prototypes/**/*.*
 !/src/prototypes/**/*.stories.*
+
+# Ignore syntax highlighting examples
+/src/vendor/prism/demo/samples

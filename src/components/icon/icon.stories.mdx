@@ -1,8 +1,9 @@
 import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import basicDemo from './demo/basic.twig';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import template from './icon.twig';
 import inlineDemo from './demo/inline.twig';
 
-<Meta title="Components/Icon" />
+<Meta title="Components/Icon" decorators={[withKnobs]} />
 
 # Icon
 
@@ -11,8 +12,13 @@ The `c-icon` class causes an SVG element to inherit its size and default color f
 For a list of available icons, visit [the Icons page](/?path=/docs/design-icons--page).
 
 <Preview>
-  <Story name="Basic" height="100px">
-    {basicDemo()}
+  <Story name="Basic">
+    {template({
+      name: text('name', 'heart'),
+      fallback: text('fallback'),
+      inline: boolean('inline'),
+      class: text('class'),
+    })}
   </Story>
 </Preview>
 
@@ -21,7 +27,25 @@ For a list of available icons, visit [the Icons page](/?path=/docs/design-icons-
 Icons without a flex or grid container may appear [slightly low in comparison to adjacent text](https://cloudfour.com/thinks/some-imaginary-css/#align-to-typeface-median). The `c-icon--inline` modifier applies a slight positioning adjustment to account for this.
 
 <Preview>
-  <Story name="Inline" height="100px">
-    {inlineDemo()}
-  </Story>
+  <Story name="Inline">{inlineDemo}</Story>
 </Preview>
+
+## Template Properties
+
+The component template supports the following unique properties:
+
+- `name`: The name of the intended icon [in our library](/?path=/docs/design-icons--page).
+- `fallback`: The name of an icon to display if the first doesn't exist. Useful if you are displaying unique icons based on dynamic content. Defaults to `close`.
+- `inline`: When `true`, the inline modifier will be applied.
+- `class`: Will append to `c-icon` and any other modifier classes.
+
+Additional SVG properties will be passed to the Twig template for the asset itself:
+
+```twig
+{% include '@cloudfour/components/icon/icon.twig' with {
+  name: 'heart',
+  inline: true,
+  viewBox: '-12 -12 48 48',
+  aria_hidden: 'true'
+} %}
+```

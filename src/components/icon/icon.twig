@@ -1,0 +1,20 @@
+{% set fallback = fallback|default('close') %}
+
+{% set _dir = '@cloudfour/assets/icons/' %}
+{% set _ext = '.svg.twig' %}
+{% set _path = _dir ~ name ~ _ext %}
+{% set _fallback_path = _dir ~ fallback ~ _ext %}
+
+{% set _class = 'c-icon' %}
+
+{% if inline %}
+  {% set _class = _class ~ ' c-icon--inline' %}
+{% endif %}
+
+{% if class %}
+  {% set _class = _class ~ ' ' ~ class %}
+{% endif %}
+
+{% include [ _path, _fallback_path ] with {
+  class: _class,
+} %}

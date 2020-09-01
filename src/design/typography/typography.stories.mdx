@@ -1,6 +1,4 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
-import { withKnobs, select } from '@storybook/addon-knobs';
-import { useEffect } from '@storybook/client-api';
 import headingsDemo from './demo/headings.twig';
 import paragraphsDemo from './demo/paragraphs.twig';
 import blockquoteDemo from './demo/blockquote.twig';
@@ -11,9 +9,8 @@ import codeBlockDemo from './demo/code-block.twig';
 import inlineElementsDemo from './demo/inline-elements.twig';
 import figureDemo from './demo/figure.twig';
 import figureImage from './demo/tiny-web-stacks.png';
-import '../../vendor/prism/config.js';
 
-<Meta title="Design/Typography" decorators={[withKnobs]} />
+<Meta title="Design/Typography" />
 
 # Typography
 
@@ -22,59 +19,32 @@ This section is currently a work in progress.
 ## Specimens
 
 <Preview>
-  <Story name="Headings" height="400px">
-    {headingsDemo}
-  </Story>
+  <Story name="Headings">{headingsDemo}</Story>
 </Preview>
 
 <Preview>
-  <Story name="Paragraphs" height="200px">
-    {paragraphsDemo}
-  </Story>
+  <Story name="Paragraphs">{paragraphsDemo}</Story>
 </Preview>
 
 Blockquote children get some default spacing. For finer control of this spacing, use [the rhythm object](/?path=/docs/objects-rhythm--default-story).
 
 <Preview>
-  <Story name="Blockquote" height="300px">
-    {blockquoteDemo}
-  </Story>
+  <Story name="Blockquote">{blockquoteDemo}</Story>
 </Preview>
 
 <Preview>
-  <Story name="Unordered List" height="200px">
-    {unorderedListDemo}
-  </Story>
-  <Story name="Ordered List" height="200px">
-    {orderedListDemo}
-  </Story>
+  <Story name="Unordered List">{unorderedListDemo}</Story>
+  <Story name="Ordered List">{orderedListDemo}</Story>
 </Preview>
 
 <Preview>
-  <Story name="Description List" height="200px">
-    {descriptionListDemo}
-  </Story>
+  <Story name="Description List">{descriptionListDemo}</Story>
 </Preview>
 
-Syntax highlighting is done via [Prism](https://prismjs.com/) because it's extremely lightweight compared to other highlighting libraries.
+A default code block element is demonstrated below. To see this pattern with syntax highlighting applied, refer to [our Prism theme](/?path=/docs/vendor-prism--css).
 
 <Preview>
-  <Story name="Code Block" height="250px">
-    {() => {
-      /**
-       * The `useEffect` function is necessary because of loading order of
-       * Storybook stories relative to JavaScript. This is very poorly
-       * documented!
-       *
-       * @see https://github.com/storybookjs/storybook/pull/7791
-       * @see https://github.com/storybookjs/storybook/issues/7786#issuecomment-547207581
-       */
-      useEffect(() => Prism.highlightAll());
-      return codeBlockDemo({
-        language: select('language', ['', 'html', 'css', 'javascript'], 'html'),
-      });
-    }}
-  </Story>
+  <Story name="Code Block">{codeBlockDemo}</Story>
 </Preview>
 
 <Preview>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="200" viewBox="0 0 450 200">
+  <g>
+    <rect x="4" y="60" width="125" height="140" fill="#dae2e8"/>
+    <rect x="4" y="170" width="125" height="30" fill="#f2f5f7"/>
+    <rect x="0" y="60" width="129" height="15" fill="#dae2e8"/>
+    <rect x="4" y="75" width="125" height="3" fill="#c0cfd8"/>
+  </g>
+  <g>
+    <rect x="233.1" y="30" width="98" height="170" fill="#dae2e8"/>
+    <rect x="233.1" y="40" width="98" height="3" fill="#c0cfd8"/>
+  </g>
+  <g>
+    <rect x="330.6" y="60.5" width="91.8" height="139.1" fill="#dae2e8"/>
+    <rect x="358.6" y="69.5" width="13.5" height="23.8" fill="#c0cfd8"/>
+    <rect x="380.8" y="69.5" width="13.5" height="23.8" fill="#c0cfd8"/>
+    <rect x="403" y="69.5" width="13.5" height="23.8" fill="#c0cfd8"/>
+    <rect x="380.8" y="101.9" width="13.5" height="23.8" fill="#c0cfd8"/>
+    <rect x="403" y="101.9" width="13.5" height="23.8" fill="#c0cfd8"/>
+  </g>
+  <g>
+    <rect x="129.1" y="0" width="104" height="200" fill="#a4cdff"/>
+    <rect x="139.1" y="10" width="22.7" height="54.7" fill="#72adfc"/>
+    <rect x="169.8" y="10" width="22.7" height="54.7" fill="#72adfc"/>
+    <rect x="200.5" y="10" width="22.7" height="54.7" fill="#72adfc"/>
+    <rect x="139.1" y="72.7" width="22.7" height="54.7" fill="#72adfc"/>
+    <rect x="169.8" y="72.7" width="22.7" height="54.7" fill="#72adfc"/>
+    <rect x="200.5" y="72.7" width="22.7" height="54.7" fill="#72adfc"/>
+    <rect x="139.1" y="140.2" width="17.4" height="49.8" fill="#72adfc"/>
+    <rect x="169.8" y="135.3" width="22.7" height="54.7" fill="#72adfc"/>
+    <rect x="200.5" y="135.3" width="22.7" height="54.7" fill="#72adfc"/>
+  </g>
+  <polygon points="250.8,200 336.5,0 422.2,200" fill="#71f4ae"/>
+  <g>
+    <polygon points="198.1,200 249.2,80.7 300.3,200" fill="#2cdd90"/>
+    <line x1="249.2" y1="136" x2="249.2" y2="200" fill="none" stroke="#f2f5f7" stroke-width="5"/>
+    <line x1="249.2" y1="161.8" x2="266.5" y2="147.9" fill="none" stroke="#f2f5f7" stroke-width="5"/>
+    <line x1="249.2" y1="179.8" x2="266.5" y2="165.9" fill="none" stroke="#f2f5f7" stroke-width="5"/>
+    <line x1="231.8" y1="156.9" x2="249.2" y2="170.8" fill="none" stroke="#f2f5f7" stroke-width="5"/>
+  </g>
+  <g>
+    <polygon points="52.4,200 120.6,41 188.7,200" fill="#2cdd90"/>
+    <line x1="120.6" y1="105.8" x2="120.6" y2="200" fill="none" stroke="#f2f5f7" stroke-width="5"/>
+    <line x1="120.6" y1="141.1" x2="144.1" y2="122.3" fill="none" stroke="#f2f5f7" stroke-width="5"/>
+    <line x1="120.6" y1="164.7" x2="144.1" y2="145.8" fill="none" stroke="#f2f5f7" stroke-width="5"/>
+    <line x1="97" y1="134.1" x2="120.6" y2="152.9" fill="none" stroke="#f2f5f7" stroke-width="5"/>
+  </g>
+  <g>
+    <rect x="320" y="118" width="129.9" height="82" fill="#72adfc"/>
+    <rect x="320" y="118" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="320.2" y="184.4" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="320.2" y="135.6" width="23.9" height="46.7" fill="#a4cdff"/>
+    <rect x="346.5" y="118" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="346.7" y="184.4" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="346.7" y="135.6" width="23.9" height="46.7" fill="#a4cdff"/>
+    <rect x="373" y="118" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="373.1" y="184.4" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="373.1" y="135.6" width="23.9" height="46.7" fill="#a4cdff"/>
+    <rect x="399.5" y="118" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="399.6" y="184.4" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="399.6" y="135.6" width="23.9" height="46.7" fill="#a4cdff"/>
+    <rect x="426" y="118" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="426.1" y="184.4" width="23.9" height="15.6" fill="#a4cdff"/>
+    <rect x="426.1" y="135.6" width="23.9" height="46.7" fill="#a4cdff"/>
+    <rect x="320.1" y="118" width="129.9" height="6" fill="#5596f8"/>
+    <rect x="320" y="108" width="130" height="10" fill="#72adfc"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+$font-stack: sans-serif;
+$primary-color: #333;
+
+@mixin reset-type() {
+  color: $primary-color;
+  font: 100% $font-stack;
+}
+
+.example {
+  @include reset-type();
+}

@@ -27,7 +27,7 @@ All of our utilities use [logical properties](https://www.w3.org/TR/css-logical-
 Observe how the direction of the same utility classes change depending on the page's [direction](https://developer.mozilla.org/en-US/docs/Web/CSS/direction) and [writing mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode):
 
 <Preview>
-  <Story name="Logical Properties" height="420px">
+  <Story name="Logical Properties">
     {logicalPropertiesDemo({
       name: radios('Utility', ['space', 'pad'], 'space'),
       step: number('Step', 1, {
@@ -64,7 +64,7 @@ The following utilities pad the _inside_ of the element:
 `{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page) or `none`.
 
 <Preview>
-  <Story name="Padding" height="320px">
+  <Story name="Padding">
     {directionsDemo({
       name: 'pad',
       step: number('Step', 1, {
@@ -92,7 +92,7 @@ The following utilities apply space _outside_ the element:
 `{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page), `auto` or `none`.
 
 <Preview>
-  <Story name="Margin" height="320px">
+  <Story name="Margin">
     {directionsDemo({
       name: 'space',
       step: number('Step', 1, {
@@ -122,7 +122,7 @@ The following utilities _pull_ an element one direction or another by applying a
 `{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page).
 
 <Preview>
-  <Story name="Negative Margin" height="320px">
+  <Story name="Negative Margin">
     {directionsDemo({
       name: 'pull',
       step: 1,

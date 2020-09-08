@@ -7,9 +7,5 @@
       "packageNames": ["node"],
       "enabled": false
     }
-  ],
-  "prConcurrentLimit": 5,
-  "schedule": ["before 9am on monday"],
-  "stabilityDays": 3,
-  "dependencyDashboard": true
+  ]
 }

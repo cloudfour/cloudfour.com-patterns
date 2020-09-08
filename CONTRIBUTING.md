@@ -12,6 +12,10 @@ Thanks for contributing to the Cloud Four Pattern Library!
 - `npm run build` — Builds CSS+JS for npm package
 - `npm run build-storybook` — Creates a static storybook site build, for example for publishing the pattern library to Netlify
 
+## Testing
+
+Note that tests will fail if you have not built the project. If you see tests failing with errors like "file not found in `dist` folder", try running `npm run build` and then re-run the tests.
+
 ## Project Structure
 
 ```

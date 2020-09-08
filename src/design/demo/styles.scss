@@ -1,0 +1,34 @@
+.demo-tabs {
+  align-items: flex-start;
+  background: #222;
+  display: flex;
+  flex-direction: row;
+  list-style:none;
+  margin: 1em 0;
+  padding: 0.3em 0.3em 0;
+  .demo-tab {
+    align-items: center;
+    border: 1px solid rgba(200, 200, 200, 0.4);
+    border-radius: 0.2em 0.2em 0 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8em;
+    margin-right: 2px;
+    padding: 0.3em 0.5em;
+  }
+  .demo-tabDark {
+    background: #37373d;
+    color: #fff;
+  }
+  .demo-tabMedium {
+    background: #dfe1e5;
+  }
+  .demo-tabLight {
+    background: #fff;
+  }
+  svg {
+    height: 16px;
+    margin-right: 5px;
+    width: 16px;
+  }
+}

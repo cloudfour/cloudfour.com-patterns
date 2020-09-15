@@ -46,7 +46,7 @@
     "@babel/core": "7.11.5",
     "@babel/preset-env": "7.11.5",
     "@changesets/cli": "2.10.2",
-    "@cloudfour/eslint-plugin": "12.0.0",
+    "@cloudfour/eslint-plugin": "14.0.0",
     "@cypress/webpack-preprocessor": "5.4.5",
     "@rollup/plugin-babel": "5.2.0",
     "@rollup/plugin-node-resolve": "9.0.0",

@@ -58,7 +58,7 @@
     "@svgr/webpack": "5.4.0",
     "@testing-library/cypress": "6.0.1",
     "@types/prismjs": "1.16.1",
-    "@whitespace/storybook-addon-html": "1.2.4",
+    "@whitespace/storybook-addon-html": "2.0.1",
     "@wordpress/block-library": "2.22.7",
     "babel-loader": "8.1.0",
     "browserify-transform-tools": "1.7.0",

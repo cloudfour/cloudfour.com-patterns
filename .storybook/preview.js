@@ -38,22 +38,19 @@ const orderedCategories = [
   'Design Tokens',
   'Objects',
   'Components',
-  'Themes',
   'Utilities',
   'Vendor',
   'Prototypes',
 ];
 
 /**
- * Compares two stories and sorts by category, according to a predefined order
- * @param {String[]} categories - Array of categories to use for sorting. Order of
- * items in the array determines the top-level menu sorting order.
- * @returns {(a: StoryItem, b: StoryItem) => (0 | 1 | -1)} - Sorts two stories based on
- * the order of the passed-in array of categories
+ * Compares two stories and sorts by category, according to the predefined order
+ * @param {StoryItem} a
+ * @param {StoryItem} b
  */
-const storySort = (categories) => (a, b) => {
-  const indexA = categories.indexOf(getStoryCategory(a));
-  const indexB = categories.indexOf(getStoryCategory(b));
+const storySort = (a, b) => {
+  const indexA = orderedCategories.indexOf(getStoryCategory(a));
+  const indexB = orderedCategories.indexOf(getStoryCategory(b));
   return indexA === indexB ? 0 : indexA > indexB ? 1 : -1;
 };
 
@@ -89,9 +86,7 @@ export const parameters = {
   // Theme selection from stories
   themes: [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }],
   // Sort stories according to preferred top-level settings
-  options: {
-    storySort: storySort(orderedCategories),
-  },
+  options: { storySort },
   docs: {
     // Docs support for inlining plain HTML stories
     // https://github.com/storybookjs/storybook/blob/v6.0.21/addons/docs/docs/docspage.md#inline-stories-vs-iframe-stories

@@ -4,7 +4,7 @@ const { twingLoader, valLoader, alias } = require('../twing/webpack-options');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
-  stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.(js|mdx)'],
+  stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.@(js|mdx)'],
   addons: [
     // Core addons
     '@storybook/addon-a11y/register',

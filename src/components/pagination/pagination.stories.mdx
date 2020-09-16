@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, number } from '@storybook/addon-knobs';
 import mockPaginationData from './demo/mock-pagination-data.js';
 import template from './pagination.twig';
@@ -13,7 +13,7 @@ The component supports variable amounts of page numbers and will adjust its layo
 
 As the viewport widens, individual numbers may drift awkwardly far apart. You can prevent this by wrapping the component in [a container](/?path=/docs/objects-container--basic).
 
-<Preview>
+<Canvas>
   <Story name="Example">
     {template({
       pagination: mockPaginationData({
@@ -23,7 +23,7 @@ As the viewport widens, individual numbers may drift awkwardly far apart. You ca
       }),
     })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Elements
 

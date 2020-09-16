@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import levelsDemo from './demo/levels.twig';
 import permalinksDemo from './demo/permalinks.twig';
 
@@ -32,9 +32,9 @@ You can control the appearance of a `c-heading` component by including a `c-head
 | 5     | `<h5>`  | `c-heading--level-5`  |
 | 6     | `<h6>`  | `c-heading--level-6`  |
 
-<Preview>
+<Canvas>
   <Story name="Levels">{levelsDemo}</Story>
-</Preview>
+</Canvas>
 
 ## Permalinks
 
@@ -51,8 +51,8 @@ This example isn't inlined so any media queries affecting the container will
 behave as expected.
 -->
 
-<Preview>
+<Canvas>
   <Story name="Permalinks" height="300px" inline={false}>
     {permalinksDemo}
   </Story>
-</Preview>
+</Canvas>

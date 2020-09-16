@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import codeBlockDemo from '../../design/typography/demo/code-block.twig';
 import blockImageDemo from './demo/image.twig';
@@ -52,14 +52,14 @@ If user-defined colors are chosen, instead, inline styles will set `color` and/o
 The audio block wraps an `audio` and optional `figcaption` element in a layout
 container.
 
-<Preview>
+<Canvas>
   <Story name="core/audio">{`
     <figure class="wp-block-audio type">
       <audio controls="" src="/media/piano.ogg"></audio>
       <figcaption>My audio clip</figcaption>
     </figure>
   `}</Story>
-</Preview>
+</Canvas>
 
 ## Button
 
@@ -71,7 +71,7 @@ class on the `.wp-block-button` element.
 Controls allow each button to have custom text color, background color or gradient,
 and border radius.
 
-<Preview>
+<Canvas>
   <Story name="core/button">
     {`<div class="wp-block-buttons">
         <div class="wp-block-button is-style-fill">
@@ -86,16 +86,16 @@ and border radius.
         </div>
     </div>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Code
 
 The code block adds the class `wp-block-code` to a `pre` tag wrapping content inside
 `code` tags.
 
-<Preview>
+<Canvas>
   <Story name="core/code">{codeBlockDemo}</Story>
-</Preview>
+</Canvas>
 
 ## Columns
 
@@ -107,7 +107,7 @@ Controls set up the sizing of columns by adding an inline style with a `flex-bas
 declaration. Therefore, it's assumed that the `.wp-block-columns` wrapper must be
 set to `display: flex`.
 
-<Preview>
+<Canvas>
   <Story name="core/columns">
     {`<div class="wp-block-columns">
         <div class="wp-block-column" style="flex-basis:37.5%">
@@ -133,7 +133,7 @@ set to `display: flex`.
         </div>
       </div>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Cover
 
@@ -151,7 +151,7 @@ the class `has-parallax`.
 The text overlay inside the cover block its own `div` wrapper with a class of
 `wp-block_cover__inner-container`.
 
-<Preview>
+<Canvas>
   <Story name="core/cover">
     {`<div
         class="wp-block-cover has-background-dim-40 has-background-dim has-parallax"
@@ -164,11 +164,11 @@ The text overlay inside the cover block its own `div` wrapper with a class of
         </div>
       </div>`}
   </Story>
-</Preview>
+</Canvas>
 
 ### Cover - Video Variant
 
-<Preview>
+<Canvas>
   <Story name="core/cover/video">
     {`<div class="wp-block-cover has-background-dim">
         <div class="vsc-controller" data-vscid="y4nfjhbvo">
@@ -189,7 +189,7 @@ The text overlay inside the cover block its own `div` wrapper with a class of
         </div>
       </div>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Embed
 
@@ -202,7 +202,7 @@ content and adding `is-type-embedType-embed`, `wp-block-embed-embedType` and
 Adding a caption in the editor includes a `figcaption` element before the closing
 `figure` tag.
 
-<Preview>
+<Canvas>
   <Story name="core/embed">
     {`<figure
         class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-wp-themes-com"
@@ -236,7 +236,7 @@ Adding a caption in the editor includes a `figcaption` element before the closin
         </div>
       </figure>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## File
 
@@ -251,7 +251,7 @@ The `c-button--secondary` and `c-button-tertiary` class names can be added to th
 
 Be aware that the Gutenberg "Show download button" is what adds the `download` attribute to the `<a>` element.
 
-<Preview>
+<Canvas>
   <Story name="core/file">
     {`<div class="wp-block-file">
         <a href="#" class="wp-block-file__button" download="">
@@ -278,7 +278,7 @@ Be aware that the Gutenberg "Show download button" is what adds the `download` a
         <a href="#">Tertiary file download link</a>
       </div>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Gallery (images)
 
@@ -298,7 +298,7 @@ items are not wrapped in links.
 
 Adding a caption creates a `figcaption` element before the closing wrapper tag.
 
-<Preview>
+<Canvas>
   <Story name="core/gallery">
     {`<figure class="wp-block-gallery columns-2 is-cropped">
         <ul class="blocks-gallery-grid">
@@ -330,7 +330,7 @@ Adding a caption creates a `figcaption` element before the closing wrapper tag.
         <figcaption class="blocks-gallery-caption">A gallery caption</figcaption>
       </figure>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Group
 
@@ -348,7 +348,7 @@ By default, grouped blocks that don't set their own `background-color` and `colo
 will inherit from the group block wrapper, but otherwise they will retain their
 own styles.
 
-<Preview>
+<Canvas>
   <Story name="core/group">
     {`<div class="wp-block-group has-background" style="background-color:#ccc">
         <div class="wp-block-group__inner-container">
@@ -367,7 +367,7 @@ own styles.
         </div>
       </div>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Image
 
@@ -384,13 +384,13 @@ adds the `is-resized` class to the wrapper.
 Adding caption text to the image generates a `figcaption` element before the
 closing wrapper tag.
 
-<Preview>
+<Canvas>
   <Story name="core/image">
     {blockImageDemo({
       class: select('alignment', alignmentClasses, null),
     })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Media-Text
 
@@ -409,7 +409,7 @@ padding) class.
 
 Another control toggles the class `is-stacked-on-mobile`.
 
-<Preview>
+<Canvas>
   <Story name="core/media-text">
     {`<div class="wp-block-media-text alignwide is-stacked-on-mobile has-media-on-the-right is-vertically-aligned-center has-background has-subtle-background-background-color">
         <figure class="wp-block-media-text__media">
@@ -421,14 +421,14 @@ Another control toggles the class `is-stacked-on-mobile`.
         </div>
       </div>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Preformatted
 
 The preformatted block allows theming of content within `pre` tags using the `wp-block-preformatted`
 class.
 
-<Preview>
+<Canvas>
   {/* eslint-disable no-useless-escape */}
   <Story name="core/preformatted">
     {`<pre class="wp-block-preformatted">
@@ -443,7 +443,7 @@ class.
       </pre>`}
   </Story>
   {/* eslint-enable no-useless-escape */}
-</Preview>
+</Canvas>
 
 ## Pullquote
 
@@ -455,7 +455,7 @@ text `color`. A styles control adds one of two wrapper classes, `is-style-defaul
 `is-style-solid-color`. By default, any user-selected `background-color` will be
 applied only if the solid color background is toggled on.
 
-<Preview>
+<Canvas>
   <Story name="core/pullquote">
     {`<figure class="wp-block-pullquote has-background is-style-solid-color" style="background-color:#dcd7ca">
         <blockquote class="has-text-color has-accent-color">
@@ -464,21 +464,21 @@ applied only if the solid color background is toggled on.
         </blockquote>
       </figure>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Quote
 
 The quote block adds class of `wp-block-quote` directly to a `blockquote` element.
 It has a control to add an optional `is-style-large` class.
 
-<Preview>
+<Canvas>
   <Story name="core/quote">
     {`<blockquote class="wp-block-quote is-style-large">
         <p>In quoting others, we cite ourselves.</p>
         <cite>Julio Cortázar</cite>
       </blockquote>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Separator
 
@@ -489,17 +489,17 @@ Styles controls add `is-style-default`, `is-style-wide` or `is-style-dots` class
 The color controls, if used, can add both `has-text-color` and `has-background`
 classes, as well as modifier classes for predefined color choices.
 
-<Preview>
+<Canvas>
   <Story name="core/separator">
     {`<hr class="wp-block-separator has-text-color has-background has-subtle-background-background-color has-subtle-background-color is-style-wide">`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Spacer
 
 The spacer block is a `div` with a class of `wp-block-spacer`.
 
-<Preview>
+<Canvas>
   <Story name="core/spacer">
     {`<p>Content before spacer.</p>
         <div
@@ -509,7 +509,7 @@ The spacer block is a `div` with a class of `wp-block-spacer`.
         ></div>
       <p>Content after spacer.</p>`}
   </Story>
-</Preview>
+</Canvas>
 
 ## Table
 
@@ -525,7 +525,7 @@ The default WP styles controls allow for one of two classes, `is-style-default` 
 
 Additionally, the Advanced → Additional CSS Classes input can be used to generate ruled and numeric tables by adding `c-table--ruled` and/or `c-table--numeric`. These additional classes will be added to the `<figure>` element, which differs from how our `c-table` pattern is set up, but the styled outcome will be the same.
 
-<Preview>
+<Canvas>
   <Story name="core/table">
     {`<h2>Default Table</h2>
     <figure class="wp-block-table is-style-default">
@@ -677,14 +677,14 @@ Additionally, the Advanced → Additional CSS Classes input can be used to gener
       </figure>
       `}
   </Story>
-</Preview>
+</Canvas>
 
 ## Verse
 
 The verse block adds the `wp-block-verse` class to a `pre` element.
 
-<Preview>
+<Canvas>
   <Story name="core/verse">
     {`<pre class="wp-block-verse">WHAT was he doing, the great god Pan,<br>    Down in the reeds by the river?<br>Spreading ruin and scattering ban,<br>Splashing and paddling with hoofs of a goat,<br>And breaking the golden lilies afloat<br>    With the dragon-fly on the river.</pre>`}
   </Story>
-</Preview>
+</Canvas>

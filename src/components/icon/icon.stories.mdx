@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import template from './icon.twig';
 import inlineDemo from './demo/inline.twig';
@@ -11,7 +11,7 @@ The `c-icon` class causes an SVG element to inherit its size and default color f
 
 For a list of available icons, visit [the Icons page](/?path=/docs/design-icons--page).
 
-<Preview>
+<Canvas>
   <Story name="Basic">
     {template({
       name: text('name', 'heart'),
@@ -20,15 +20,15 @@ For a list of available icons, visit [the Icons page](/?path=/docs/design-icons-
       class: text('class'),
     })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Modifier: Inline
 
 Icons without a flex or grid container may appear [slightly low in comparison to adjacent text](https://cloudfour.com/thinks/some-imaginary-css/#align-to-typeface-median). The `c-icon--inline` modifier applies a slight positioning adjustment to account for this.
 
-<Preview>
+<Canvas>
   <Story name="Inline">{inlineDemo}</Story>
-</Preview>
+</Canvas>
 
 ## Template Properties
 

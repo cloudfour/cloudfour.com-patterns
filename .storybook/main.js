@@ -4,10 +4,10 @@ const { twingLoader, valLoader, alias } = require('../twing/webpack-options');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
-  stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.(js|mdx)'],
+  stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.@(js|mdx)'],
   addons: [
     // Core addons
-    '@storybook/addon-a11y/register',
+    '@storybook/addon-a11y',
     '@storybook/addon-docs',
     '@storybook/addon-knobs/register',
     '@storybook/addon-viewport/register',
@@ -92,16 +92,10 @@ module.exports = {
         // Optimize and process SVGs as React elements for use in documentation
         test: /\.svg$/,
         use: '@svgr/webpack',
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        use: 'babel-loader',
       }
     );
 
     Object.assign(config.resolve.alias, alias);
-
-    config.resolve.extensions.push('.ts', '.tsx');
 
     config.plugins.push(new MiniCssExtractPlugin());
 

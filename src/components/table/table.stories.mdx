@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
 import data from './demo/data.json';
@@ -10,7 +10,7 @@ import data from './demo/data.json';
 The `c-table` class applies default styling to HTML `table` elements.
 A table can optionally have a header, a footer, and a caption.
 
-<Preview>
+<Canvas>
   <Story name="Basic">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
@@ -22,13 +22,13 @@ A table can optionally have a header, a footer, and a caption.
       tableData: data,
     })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Ruled Table
 
 The `c-table--ruled` modifier adds horizontal rules in between table rows.
 
-<Preview>
+<Canvas>
   <Story name="Ruled">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
@@ -40,13 +40,13 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
       tableData: data,
     })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Striped Table
 
 The `c-table--striped` modifier adds alternating background colors to table rows.
 
-<Preview>
+<Canvas>
   <Story name="Striped">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
@@ -58,7 +58,7 @@ The `c-table--striped` modifier adds alternating background colors to table rows
       tableData: data,
     })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Numeric Data
 
@@ -70,7 +70,7 @@ compare cells across a column.
 
 These changes can be achieved by adding c-table--numeric to the table.
 
-<Preview>
+<Canvas>
   <Story name="Numeric Data">
     {basicDemo({
       hasHeader: boolean('Include Header', true),
@@ -82,4 +82,4 @@ These changes can be achieved by adding c-table--numeric to the table.
       tableData: data,
     })}
   </Story>
-</Preview>
+</Canvas>

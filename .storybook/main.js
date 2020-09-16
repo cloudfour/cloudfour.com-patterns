@@ -7,7 +7,7 @@ module.exports = {
   stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.@(js|mdx)'],
   addons: [
     // Core addons
-    '@storybook/addon-a11y/register',
+    '@storybook/addon-a11y',
     '@storybook/addon-docs',
     '@storybook/addon-knobs/register',
     '@storybook/addon-viewport/register',

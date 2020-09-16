@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import demo from './demo/fill-canvas.twig';
 
 <Meta
@@ -16,6 +16,6 @@ While selector depth is best kept to a minimum, it's permissible to style object
 
 `t-dark` is intended primarily for page headers.
 
-<Preview>
+<Canvas>
   <Story name="Dark">{demo({ theme: 'dark' })}</Story>
-</Preview>
+</Canvas>

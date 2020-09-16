@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import articleDemo from './demo/article.twig';
 import listDemo from './demo/list.twig';
 import introDemo from './demo/intro.twig';
@@ -13,29 +13,29 @@ The `o-rhythm` class applies [consistent vertical spacing between child elements
 
 The default spacing works great for medium-to-long text content:
 
-<Preview>
+<Canvas>
   <Story name="Default">{introDemo}</Story>
-</Preview>
+</Canvas>
 
 ## Modifiers
 
 For shorter summary content, use the `o-rhythm--condensed` modifier to tighten things up a bit:
 
-<Preview>
+<Canvas>
   <Story name="Condensed">{summaryDemo}</Story>
-</Preview>
+</Canvas>
 
 `o-rhythm--compact` is best for shorter content chunks that just need a _pinch_ more space:
 
-<Preview>
+<Canvas>
   <Story name="Compact">{listDemo}</Story>
-</Preview>
+</Canvas>
 
 While `o-rhythm--generous` is intended for separating distinct content chunks with more whitespace:
 
-<Preview>
+<Canvas>
   <Story name="Generous">{sectionsDemo}</Story>
-</Preview>
+</Canvas>
 
 ## Heading Modifiers
 
@@ -46,8 +46,8 @@ This example isn't inlined so any media queries affecting the container will
 behave as expected.
 -->
 
-<Preview>
+<Canvas>
   <Story name="Generous Headings" inline={false}>
     {articleDemo}
   </Story>
-</Preview>
+</Canvas>

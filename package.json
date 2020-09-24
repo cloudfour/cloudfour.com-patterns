@@ -45,7 +45,7 @@
   "devDependencies": {
     "@babel/core": "7.11.6",
     "@babel/preset-env": "7.11.5",
-    "@changesets/cli": "2.10.2",
+    "@changesets/cli": "2.10.3",
     "@cloudfour/eslint-plugin": "14.0.0",
     "@cypress/webpack-preprocessor": "5.4.5",
     "@rollup/plugin-babel": "5.2.1",

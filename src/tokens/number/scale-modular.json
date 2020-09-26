@@ -1,0 +1,28 @@
+{
+  "number": {
+    "scale": {
+      "modular": {
+        "minor_second": { "value": "1.067" },
+        "major_second": { "value": "1.125" },
+        "minor_third": { "value": "1.2" },
+        "major_third": { "value": "1.25" },
+        "perfect_fourth": { "value": "1.333" },
+        "augmented_fourth": { "value": "1.414" },
+        "perfect_fifth": { "value": "1.5" },
+        "minor_sixth": { "value": "1.6" },
+        "golden_section": { "value": "1.618" },
+        "major_sixth": { "value": "1.667" },
+        "minor_seventh": { "value": "1.778" },
+        "major_seventh": { "value": "1.875" },
+        "octave": { "value": "2" },
+        "major_tenth": { "value": "2.5" },
+        "major_eleventh": { "value": "2.667" },
+        "major_twelfth": { "value": "3" },
+        "double_octave": { "value": "4" },
+        "ratio": { "value": "{number.scale.modular.major_third.value}" },
+        "minimum_step": { "value": "-6" },
+        "maximum_step": { "value": "10" }
+      }
+    }
+  }
+}

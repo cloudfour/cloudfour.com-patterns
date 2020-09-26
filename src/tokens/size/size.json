@@ -1,0 +1,11 @@
+{
+  "size": {
+    "xs": { "value": "20em" },
+    "s": { "value": "30em" },
+    "m": { "value": "40em" },
+    "l": { "value": "60em" },
+    "xl": { "value": "80em" },
+    "xxl": { "value": "100em" },
+    "xxxl": { "value": "120em" }
+  }
+}

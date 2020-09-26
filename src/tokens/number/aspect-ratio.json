@@ -1,0 +1,10 @@
+{
+  "number": {
+    "aspect_ratio": {
+      "square": { "value": "1" },
+      "full": { "value": "4/3" },
+      "wide": { "value": "16/9" },
+      "cinema": { "value": "2" }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "number": {
+    "scale": {
+      "control_grow": { "value": "1.05" },
+      "control_shrink": { "value": "0.95" }
+    }
+  }
+}

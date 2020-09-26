@@ -1,0 +1,8 @@
+{
+  "size": {
+    "max_width": {
+      "prose": { "value": "{size.m.value}" },
+      "spread": { "value": "{size.xl.value}" }
+    }
+  }
+}

@@ -3,3 +3,6 @@
 
 # Ignore syntax highlighting examples
 /src/vendor/prism/demo/samples/**/*
+
+# Generated files
+/src/compiled

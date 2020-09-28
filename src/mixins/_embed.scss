@@ -1,13 +1,13 @@
 @use 'sass:meta';
-@use '../design-tokens/aspect-ratio.yml';
-@use '../design-tokens/breakpoint.yml';
+@use "../compiled/scss/aspect-ratios";
+@use "../compiled/scss/breakpoints";
 
 /**
  * We define the default ratio up-front to avoid outputting unnecessary modifier
  * classes for it.
  */
 
-$default-aspect-ratio: aspect-ratio.$square;
+$default-aspect-ratio: aspect-ratios.$number-aspect-ratio-square;
 
 /* stylelint-disable suitcss/custom-property-no-outside-root */
 
@@ -22,7 +22,7 @@ $default-aspect-ratio: aspect-ratio.$square;
  */
 
 @mixin aspect-ratio-modifiers() {
-  @each $name, $ratio in meta.module-variables('aspect-ratio') {
+  @each $name, $ratio in meta.module-variables('aspect-ratios') {
     @if $ratio != $default-aspect-ratio {
       /**
        * Sass will not compile variables applied to custom properties without
@@ -41,9 +41,9 @@ $default-aspect-ratio: aspect-ratio.$square;
       }
     }
   }
-  @each $suffix, $breakpoint in meta.module-variables('breakpoint') {
+  @each $suffix, $breakpoint in meta.module-variables('breakpoints') {
     @media (min-width: $breakpoint) {
-      @each $name, $ratio in meta.module-variables('aspect-ratio') {
+      @each $name, $ratio in meta.module-variables('aspect-ratios') {
         /**
          * The backslash in the selector is required for the `@` character.
          *

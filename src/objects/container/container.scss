@@ -1,4 +1,4 @@
-@use "../../design-tokens/layout.yml";
+@use "../../compiled/scss/tokens";
 
 /**
  * There are no default styles for `o-container`. It acts as a wrapper so that
@@ -8,7 +8,7 @@
 
 .o-container__content {
   margin: 0 auto;
-  max-width: layout.$max_width_spread;
+  max-width: tokens.$size-max-width-spread;
 }
 
 /**
@@ -17,6 +17,6 @@
 
 .o-container--prose {
   .o-container__content {
-    max-width: layout.$max_width_prose;
+    max-width: tokens.$size-max-width-prose;
   }
 }

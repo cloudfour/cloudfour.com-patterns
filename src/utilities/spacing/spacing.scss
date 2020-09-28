@@ -1,6 +1,6 @@
-@use '../../design-tokens/modular-scale.yml';
-@use '../../mixins/ms';
 @use 'sass:math';
+@use "../../compiled/scss/tokens";
+@use '../../mixins/ms';
 
 @mixin direction-utilities($property, $name, $value) {
   $value: $value !important;

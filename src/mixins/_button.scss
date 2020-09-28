@@ -1,7 +1,4 @@
-@use "../design-tokens/colors.yml";
-@use "../design-tokens/font.yml";
-@use "../design-tokens/motion.yml";
-@use "../design-tokens/sizes.yml";
+@use "../compiled/scss/tokens";
 @use "./focus";
 @use "./ms";
 @use "./unit";
@@ -20,25 +17,26 @@
  */
 
 @mixin default {
-  background: colors.$primary-brand;
-  border-color: colors.$primary-brand-dark;
-  border-radius: sizes.$radius-medium;
+  background: tokens.$color-brand-primary;
+  border-color: tokens.$color-brand-primary-dark;
+  border-radius: tokens.$size-border-radius-medium;
   border-style: solid;
-  border-width: sizes.$edge-medium;
-  color: colors.$text-light-emphasis;
+  border-width: tokens.$size-edge-medium;
+  color: tokens.$color-text-light-emphasis;
   cursor: pointer; /* 1 */
   display: inline-block;
   font: inherit; /* 2 */
   font-style: normal;
-  font-weight: font.$weight-semibold;
-  height: sizes.$control-height; /* 3 */
+  font-weight: tokens.$number-font-weight-semibold;
+  height: tokens.$size-height-control-default; /* 3 */
   line-height: normal;
-  padding: sizes.$control-pad-vertical sizes.$control-pad-horizontal;
+  padding: tokens.$size-padding-control-vertical
+    tokens.$size-padding-control-horizontal;
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: filter motion.$speed-slow motion.$ease-out,
-    transform motion.$speed-quick motion.$ease-out;
+  transition: filter tokens.$time-transition-slow tokens.$ease-out,
+    transform tokens.$time-transition-quick tokens.$ease-out;
   user-select: none;
 
   /**
@@ -47,13 +45,13 @@
    */
 
   &:hover {
-    filter: brightness(motion.$control-brighten);
-    transform: scale(motion.$control-grow);
+    filter: brightness(tokens.$number-brightness-control-brighten);
+    transform: scale(tokens.$number-scale-effect-grow);
   }
 
   &:active {
-    filter: brightness(motion.$control-dim);
-    transform: scale(motion.$control-shrink);
+    filter: brightness(tokens.$number-brightness-control-dim);
+    transform: scale(tokens.$number-scale-effect-shrink);
   }
 
   &:disabled {
@@ -64,12 +62,13 @@
   }
 
   @include focus.focus-visible {
-    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    box-shadow: 0 0 0 tokens.$size-edge-large
+      tokens.$color-brand-primary-lighter;
   }
 
   .t-dark & {
-    background-color: colors.$primary-brand-dark;
-    border-color: colors.$primary-brand-darker;
+    background-color: tokens.$color-brand-primary-dark;
+    border-color: tokens.$color-brand-primary-darker;
   }
 }
 
@@ -78,8 +77,8 @@
  */
 
 @mixin secondary {
-  border-color: colors.$primary-brand-light;
-  color: colors.$primary-brand;
+  border-color: tokens.$color-brand-primary-light;
+  color: tokens.$color-brand-primary;
 
   &,
   .t-dark & {
@@ -87,8 +86,8 @@
   }
 
   .t-dark & {
-    border-color: colors.$primary-brand-dark;
-    color: colors.$text-light-emphasis;
+    border-color: tokens.$color-brand-primary-dark;
+    color: tokens.$color-text-light-emphasis;
   }
 }
 
@@ -97,7 +96,7 @@
  */
 
 @mixin tertiary {
-  color: colors.$primary-brand;
+  color: tokens.$color-brand-primary;
 
   &,
   .t-dark & {
@@ -106,6 +105,6 @@
   }
 
   .t-dark & {
-    color: colors.$text-light-emphasis;
+    color: tokens.$color-text-light-emphasis;
   }
 }

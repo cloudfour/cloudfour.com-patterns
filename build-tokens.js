@@ -12,6 +12,16 @@ const styleDictionaryConfig = {
           destination: '_tokens.scss',
           format: 'scss/variables',
         },
+        {
+          destination: '_aspect-ratios.scss',
+          format: 'scss/variables',
+          filter: { attributes: { category: 'number', type: 'aspect_ratio' } },
+        },
+        {
+          destination: '_breakpoints.scss',
+          format: 'scss/variables',
+          filter: { attributes: { category: 'size', type: 'breakpoint' } },
+        },
       ],
     },
     js: {

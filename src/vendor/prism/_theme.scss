@@ -1,7 +1,5 @@
 @use "sass:color";
-@use "../../design-tokens/colors.yml";
-@use "../../design-tokens/font.yml";
-@use "../../design-tokens/opacity.yml";
+@use "../../compiled/scss/tokens";
 
 /**
  * Cloud Four theme for Prism syntax highlighting.
@@ -15,8 +13,8 @@
   &.doctype,
   &.prolog,
   &.punctuation {
-    color: colors.$text-light;
-    opacity: opacity.$muted;
+    color: tokens.$color-text-light;
+    opacity: tokens.$number-opacity-muted;
   }
 
   &.attr-name,
@@ -28,14 +26,14 @@
   &.variable,
   .language-liquid &.property,
   .language-twig &.property {
-    color: colors.$orange-lighter;
+    color: tokens.$color-base-orange-lighter;
   }
 
   &.attr-value,
   &.plain-text,
   &.string,
   &.url {
-    color: colors.$green-lighter;
+    color: tokens.$color-base-green-lighter;
   }
 
   &.entity,
@@ -44,13 +42,13 @@
   &.tag,
   .language-liquid &.operator + &.property,
   .language-twig &.operator + &.property {
-    color: colors.$fuchsia-lighter;
+    color: tokens.$color-base-fuchsia-lighter;
   }
 
   &.class-name,
   &.rule,
   &.important {
-    color: colors.$purple-lighter;
+    color: tokens.$color-base-purple-lighter;
   }
 
   &.block,
@@ -59,11 +57,11 @@
   &.operator,
   &.property,
   &.regex {
-    color: colors.$primary-brand-lighter;
+    color: tokens.$color-brand-primary-lighter;
   }
 
   &.bold {
-    font-weight: font.$weight-semibold;
+    font-weight: tokens.$number-font-weight-semibold;
   }
 
   &.italic {

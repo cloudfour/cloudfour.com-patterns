@@ -1,16 +1,10 @@
-@use '../../design-tokens/breakpoint.yml';
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/font.yml';
-@use '../../design-tokens/layout.yml';
-@use '../../design-tokens/motion.yml';
-@use '../../design-tokens/opacity.yml';
-@use '../../design-tokens/sizes.yml';
+@use 'sass:color';
+@use "../../compiled/scss/tokens";
 @use '../../mixins/a11y';
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
-@use 'sass:color';
 
 // Minimum viewport width where links are exposed
 $_breakpoint-wide: tokens.$size-breakpoint-m;
@@ -101,7 +95,7 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
   display: flex;
   margin: 0 auto;
   max-width: $_max-width;
-  transition: opacity motion.$speed-quick motion.$ease-out; /* 1 */
+  transition: opacity tokens.$time-transition-quick tokens.$ease-out; /* 1 */
 
   /**
    * At narrow sizes, display content in reverse order so that the menu contents
@@ -118,7 +112,7 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
    * little.
    */
   .c-sky-nav__skip:focus ~ & {
-    opacity: opacity.$muted;
+    opacity: tokens.$number-opacity-muted;
   }
 }
 
@@ -157,8 +151,8 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
   fill: currentColor;
   height: auto;
   margin: (ms.step(-6) * -1); /* 2 */
-  transition: opacity motion.$speed-slow motion.$ease-out,
-    transform motion.$speed-quick motion.$ease-out;
+  transition: opacity tokens.$time-transition-slow tokens.$ease-out,
+    transform tokens.$time-transition-quick tokens.$ease-out;
   width: ms.step(8);
 
   /**
@@ -167,7 +161,7 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
    * scrollbars.
    */
   .c-sky-nav__logo:hover & {
-    transform: scale(motion.$control-grow);
+    transform: scale(tokens.$number-scale-effect-grow);
   }
 
   /**
@@ -176,8 +170,8 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
    * `filter` would desaturate the logo too much in this case.
    */
   .c-sky-nav__logo:active & {
-    opacity: opacity.$muted;
-    transform: scale(motion.$control-shrink);
+    opacity: tokens.$number-opacity-muted;
+    transform: scale(tokens.$number-scale-effect-shrink);
   }
 }
 
@@ -190,7 +184,7 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
  */
 .c-sky-nav__logo-outline {
   opacity: 0; /* 1 */
-  stroke: colors.$primary-brand-lighter; /* 2 */
+  stroke: tokens.$color-brand-primary-lighter; /* 2 */
 }
 
 /**
@@ -242,8 +236,8 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
     @media (max-width: $_breakpoint-narrow-max) {
       background-image: linear-gradient(
         to bottom,
-        colors.$primary-brand-dark,
-        color.change(colors.$primary-brand-dark, $alpha: 0)
+        tokens.$color-brand-primary-dark,
+        color.change(tokens.$color-brand-primary-dark, $alpha: 0)
       );
     }
   }
@@ -356,7 +350,7 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
   line-height: ms.step(1, 1);
   text-align: center; /* 1 */
   text-decoration: none;
-  transition: opacity motion.$speed-quick motion.$ease-out;
+  transition: opacity tokens.$time-transition-quick tokens.$ease-out;
   user-select: none; /* 3 */
   width: 100%; /* 2 */
 
@@ -364,12 +358,12 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
    * Displayed as a ruled stack on narrow screens
    */
   @media (max-width: $_breakpoint-narrow-max) {
-    border-bottom: sizes.$edge-small solid colors.$gray-light;
+    border-bottom: tokens.$size-edge-small solid tokens.$color-base-gray-light;
     padding: $_space-vertical $_space-horizontal;
 
     .t-dark & {
       border-bottom-color: color.change(
-        colors.$primary-brand-darker,
+        tokens.$color-brand-primary-darker,
         $alpha: 0.5
       );
     }
@@ -397,7 +391,7 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
    */
   .c-sky-nav__menu-items:hover &:not(:hover) {
     @media (min-width: $_breakpoint-wide) {
-      opacity: opacity.$muted;
+      opacity: tokens.$number-opacity-muted;
     }
   }
 }
@@ -411,7 +405,7 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
  *    impacting whitespace of parent elements.
  */
 .c-sky-nav__menu-label {
-  border-radius: sizes.$radius-full;
+  border-radius: tokens.$size-border-radius-full;
   margin: ($_label-pad-vertical * -1) ($_label-pad-horizontal * -1); /* 1 */
   padding: $_label-pad-vertical $_label-pad-horizontal;
 }
@@ -422,7 +416,8 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
 .c-sky-nav__menu-action {
   @include focus.focus-visible {
     .c-sky-nav__menu-label {
-      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+      box-shadow: 0 0 0 tokens.$size-edge-large
+        tokens.$color-brand-primary-lighter;
     }
   }
 }

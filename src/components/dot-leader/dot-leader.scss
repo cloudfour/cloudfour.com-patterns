@@ -1,6 +1,4 @@
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/font.yml';
-@use '../../design-tokens/opacity.yml';
+@use "../../compiled/scss/tokens";
 
 /**
  * Build pseudo content for "between" element. We do this with text characters
@@ -28,7 +26,7 @@ $dot-content: '';
 }
 
 .c-dot-leader__start {
-  font-weight: font.$weight-medium;
+  font-weight: tokens.$number-font-weight-medium;
 
   /**
      * Retain `text-decoration` for hover effect when this element is a child
@@ -42,10 +40,10 @@ $dot-content: '';
 
 .c-dot-leader__between,
 .c-dot-leader__end {
-  color: colors.$text-dark;
+  color: tokens.$color-text-dark;
 
   .t-dark & {
-    color: colors.$text-light;
+    color: tokens.$color-text-light;
   }
 }
 
@@ -61,7 +59,7 @@ $dot-content: '';
 
 .c-dot-leader__between {
   @supports (display: grid) {
-    opacity: opacity.$muted;
+    opacity: tokens.$number-opacity-muted;
     overflow: hidden;
 
     &::after {

@@ -1,7 +1,5 @@
-@use "../../design-tokens/colors.yml";
+@use "../../compiled/scss/tokens";
 @use "../../mixins/focus";
-@use "../../design-tokens/motion.yml";
-@use "../../design-tokens/sizes.yml";
 @use "../../mixins/ms";
 
 /**
@@ -11,8 +9,8 @@
  */
 
 .c-message {
-  background-color: colors.$gray-lighter;
-  color: colors.$text-dark;
+  background-color: tokens.$color-base-gray-lighter;
+  color: tokens.$color-text-dark;
   display: flex; /* 1 */
   justify-content: space-between; /* 1 */
   line-height: ms.step(1, 1); /* 2 */
@@ -34,7 +32,7 @@
 .c-message__close {
   align-items: center;
   background-color: inherit; /* 1 */
-  border-radius: sizes.$radius-medium;
+  border-radius: tokens.$size-border-radius-medium;
   border-width: 0;
   color: inherit; /* 1 */
   cursor: pointer;
@@ -44,20 +42,21 @@
   padding: 0 ms.step(1);
 
   @include focus.focus-visible {
-    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    box-shadow: 0 0 0 tokens.$size-edge-large
+      tokens.$color-brand-primary-lighter;
   }
 }
 
 .c-message__close-icon {
-  transition: filter motion.$speed-slow motion.$ease-out,
-    transform motion.$speed-quick motion.$ease-out;
+  transition: filter tokens.$time-transition-slow tokens.$ease-out,
+    transform tokens.$time-transition-quick tokens.$ease-out;
 }
 
 .c-message__close:hover .c-message__close-icon {
-  transform: scale(motion.$control-grow);
+  transform: scale(tokens.$number-scale-effect-grow);
 }
 
 .c-message__close:active .c-message__close-icon {
-  filter: brightness(motion.$control-dim);
-  transform: scale(motion.$control-shrink);
+  filter: brightness(tokens.$number-brightness-control-dim);
+  transform: scale(tokens.$number-scale-effect-shrink);
 }

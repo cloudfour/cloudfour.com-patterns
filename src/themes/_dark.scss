@@ -1,9 +1,8 @@
-@use "../design-tokens/colors.yml";
-@use "../design-tokens/sizes.yml";
+@use "../compiled/scss/tokens";
 
 .t-dark {
-  background-color: colors.$primary-brand;
-  color: colors.$text-light;
+  background-color: tokens.$color-brand-primary;
+  color: tokens.$color-text-light;
 
   h1,
   h2,
@@ -12,7 +11,7 @@
   h5,
   h6,
   a {
-    color: colors.$text-light-emphasis;
+    color: tokens.$color-text-light-emphasis;
   }
 
   del {
@@ -21,12 +20,12 @@
 
   *:not(pre):not(a) > code,
   *:not(pre):not(a) > kbd {
-    color: colors.$text-light-emphasis;
+    color: tokens.$color-text-light-emphasis;
   }
 
   *:not(pre):not(a) > kbd {
-    background-color: colors.$primary-brand-dark;
-    border-color: colors.$primary-brand-darker;
-    box-shadow: 0 sizes.$edge-small 0 0 colors.$primary-brand-darker;
+    background-color: tokens.$color-brand-primary-dark;
+    border-color: tokens.$color-brand-primary-darker;
+    box-shadow: 0 tokens.$size-edge-small 0 0 tokens.$color-brand-primary-darker;
   }
 }

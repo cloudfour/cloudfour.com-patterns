@@ -1,14 +1,11 @@
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/font.yml';
-@use '../../design-tokens/motion.yml';
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/scss/tokens";
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
 
 // Defines the hit area for actionable elements, specifically the height of
 // links and the width/height of "previous" and "next" affordances.
-$action-size: sizes.$control-height;
+$action-size: tokens.$size-height-control-default;
 
 // Amount of padding within action elements. Used to minimize visual competition
 // between actions and direction affordances.
@@ -18,9 +15,9 @@ $action-pad: ms.step(-6);
 // of individual pages. The dimensions change slightly for the current state
 // indicator. We use edge tokens because the indicator feels similar in visual
 // appearance to a border or outline.
-$indicator-height: sizes.$edge-medium;
+$indicator-height: tokens.$size-edge-medium;
 $indicator-width: ms.step(-1);
-$indicator-height-current: sizes.$edge-large;
+$indicator-height-current: tokens.$size-edge-large;
 $indicator-width-current: $indicator-height-current;
 
 /**
@@ -109,21 +106,21 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__action.is-next::after {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: sizes.$control-icon-size;
-  border: sizes.$edge-small solid colors.$gray-light;
-  border-radius: sizes.$radius-full;
+  background-size: tokens.$size-square-control-icon;
+  border: tokens.$size-edge-small solid tokens.$color-base-gray-light;
+  border-radius: tokens.$size-border-radius-full;
   bottom: 0;
   content: '';
   height: $action-size;
   margin: auto;
   position: absolute;
   top: 0;
-  transition: filter motion.$speed-slow motion.$ease-out,
-    transform motion.$speed-quick motion.$ease-out;
+  transition: filter tokens.$time-transition-slow tokens.$ease-out,
+    transform tokens.$time-transition-quick tokens.$ease-out;
   width: $action-size;
 
   .t-dark & {
-    background-color: colors.$primary-brand-dark;
+    background-color: tokens.$color-brand-primary-dark;
     border-color: transparent;
   }
 }
@@ -137,14 +134,14 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__action.is-previous:hover::before,
 .c-pagination__action.is-next:hover::after {
-  filter: brightness(motion.$control-brighten);
-  transform: scale(motion.$control-grow);
+  filter: brightness(tokens.$number-brightness-control-brighten);
+  transform: scale(tokens.$number-scale-effect-grow);
 }
 
 .c-pagination__action.is-previous:active::before,
 .c-pagination__action.is-next:active::after {
-  filter: brightness(motion.$control-dim);
-  transform: scale(motion.$control-shrink);
+  filter: brightness(tokens.$number-brightness-control-dim);
+  transform: scale(tokens.$number-scale-effect-shrink);
 }
 
 /**
@@ -154,14 +151,14 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__action.is-previous::before {
   background-image: svg-load(
     'icons/arrow-left.svg',
-    stroke=colors.$primary-brand
+    stroke=tokens.$color-brand-primary
   );
   left: 0;
 
   .t-dark & {
     background-image: svg-load(
       'icons/arrow-left.svg',
-      stroke=colors.$text-light-emphasis
+      stroke=tokens.$color-text-light-emphasis
     );
   }
 }
@@ -169,14 +166,14 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__action.is-next::after {
   background-image: svg-load(
     'icons/arrow-right.svg',
-    stroke=colors.$primary-brand
+    stroke=tokens.$color-brand-primary
   );
   right: 0;
 
   .t-dark & {
     background-image: svg-load(
       'icons/arrow-right.svg',
-      stroke=colors.$text-light-emphasis
+      stroke=tokens.$color-text-light-emphasis
     );
   }
 }
@@ -195,9 +192,9 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__number {
   align-items: center;
-  border-radius: sizes.$radius-full; /* 1 */
+  border-radius: tokens.$size-border-radius-full; /* 1 */
   display: flex;
-  font-weight: font.$weight-medium;
+  font-weight: tokens.$number-font-weight-medium;
   height: ($action-size - $action-pad * 2); /* 1 */
   justify-content: center;
   line-height: ms.step(0, 1); /* 2 */
@@ -214,7 +211,8 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__action {
   @include focus.focus-visible {
     .c-pagination__number {
-      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+      box-shadow: 0 0 0 tokens.$size-edge-large
+        tokens.$color-brand-primary-lighter;
     }
   }
 }
@@ -228,7 +226,7 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__number::after {
   background: currentColor;
-  border-radius: sizes.$radius-full;
+  border-radius: tokens.$size-border-radius-full;
   content: '';
   height: $indicator-height;
   left: 0;
@@ -236,9 +234,9 @@ $indicator-width-current: $indicator-height-current;
   position: absolute;
   right: 0;
   top: 100%; /* 1 */
-  transition-duration: motion.$speed-quick;
+  transition-duration: tokens.$time-transition-quick;
   transition-property: opacity, transform;
-  transition-timing-function: motion.$ease-out;
+  transition-timing-function: tokens.$ease-out;
   width: $indicator-width;
 
   /**

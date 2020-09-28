@@ -1,17 +1,15 @@
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/font.yml';
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/scss/tokens";
 @use '../../mixins/ms';
 @use '../../mixins/unit';
 
 $size: ms.step(8);
-$edge-size: sizes.$edge-medium;
-$radius: sizes.$radius-medium;
+$edge-size: tokens.$size-edge-medium;
+$radius: tokens.$size-border-radius-medium;
 
 .c-calendar-date {
   display: flex;
   flex-direction: column;
-  font-weight: font.$weight-medium;
+  font-weight: tokens.$number-font-weight-medium;
   height: $size;
   line-height: ms.step(1, 1);
   text-align: center;
@@ -27,15 +25,15 @@ $radius: sizes.$radius-medium;
 
 .c-calendar-date__header {
   align-items: center;
-  background-color: colors.$gray-dark; /* 1 */
-  border: $edge-size solid colors.$gray-darker; /* 1 */
+  background-color: tokens.$color-base-gray-dark; /* 1 */
+  border: $edge-size solid tokens.$color-base-gray-darker; /* 1 */
   border-bottom-width: 0;
   border-top-left-radius: $radius;
   border-top-right-radius: $radius;
-  color: colors.$text-light-emphasis;
+  color: tokens.$color-text-light-emphasis;
   display: flex;
   flex: none;
-  font-weight: font.$weight-semibold;
+  font-weight: tokens.$number-font-weight-semibold;
   height: ms.step(3);
   justify-content: center;
   text-transform: uppercase;
@@ -47,47 +45,47 @@ $radius: sizes.$radius-medium;
   .c-calendar-date--march &,
   .c-calendar-date--april &,
   .c-calendar-date--may & {
-    background-color: colors.$green-dark;
-    border-color: colors.$green-darker;
+    background-color: tokens.$color-base-green-dark;
+    border-color: tokens.$color-base-green-darker;
   }
 
   .c-calendar-date--june &,
   .c-calendar-date--july &,
   .c-calendar-date--august & {
-    background-color: colors.$fuchsia-dark;
-    border-color: colors.$fuchsia-darker;
+    background-color: tokens.$color-base-fuchsia-dark;
+    border-color: tokens.$color-base-fuchsia-darker;
   }
 
   .c-calendar-date--september &,
   .c-calendar-date--october &,
   .c-calendar-date--november & {
-    background-color: colors.$orange-dark;
-    border-color: colors.$orange-darker;
+    background-color: tokens.$color-base-orange-dark;
+    border-color: tokens.$color-base-orange-darker;
   }
 
   .c-calendar-date--december &,
   .c-calendar-date--january &,
   .c-calendar-date--february & {
-    background-color: colors.$purple-dark;
-    border-color: colors.$purple-darker;
+    background-color: tokens.$color-base-purple-dark;
+    border-color: tokens.$color-base-purple-darker;
   }
 }
 
 .c-calendar-date__main {
   align-items: center;
-  background-color: colors.$text-light-emphasis;
-  border: $edge-size solid colors.$gray-light;
+  background-color: tokens.$color-text-light-emphasis;
+  border: $edge-size solid tokens.$color-base-gray-light;
   border-bottom-left-radius: $radius;
   border-bottom-right-radius: $radius;
   border-top-width: 0;
-  color: colors.$text-dark;
+  color: tokens.$color-text-dark;
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: center;
 
   .t-dark & {
-    border-color: colors.$primary-brand-dark;
+    border-color: tokens.$color-brand-primary-dark;
   }
 }
 
@@ -102,7 +100,7 @@ $radius: sizes.$radius-medium;
 .c-calendar-date__note {
   font-size: ms.step(-1);
   overflow: hidden; /* 1 */
-  padding: 0 sizes.$control-text-inset;
+  padding: 0 tokens.$size-spacing-control-text-inset;
   text-overflow: ellipsis; /* 1 */
   white-space: nowrap; /* 1 */
   width: 100%; /* 1 */

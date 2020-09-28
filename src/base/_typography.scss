@@ -1,6 +1,5 @@
 @use "_fonts";
-@use "../design-tokens/font.yml";
-@use "../design-tokens/breakpoint.yml";
+@use "../compiled/scss/tokens";
 @use "../mixins/fluid";
 @use "../mixins/headings";
 @use "../mixins/ms";

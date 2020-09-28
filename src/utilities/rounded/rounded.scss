@@ -1,11 +1,11 @@
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/scss/tokens";
 
 .u-rounded {
-  border-radius: sizes.$radius-medium !important;
+  border-radius: tokens.$size-border-radius-medium !important;
 }
 
 .u-rounded-full {
-  border-radius: sizes.$radius-full !important;
+  border-radius: tokens.$size-border-radius-full !important;
 }
 
 .u-rounded-none {

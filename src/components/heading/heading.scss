@@ -1,21 +1,17 @@
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/layout.yml';
-@use "../../design-tokens/motion.yml";
-@use '../../design-tokens/opacity.yml';
-@use '../../design-tokens/sizes.yml';
+@use 'sass:math';
+@use "../../compiled/scss/tokens";
 @use '../../mixins/focus';
 @use '../../mixins/headings';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
-@use 'sass:math';
 
 // Variables that define the size and shape of the (optional) permalink element.
 // 1. The total size of the element.
 // 2. The size of the icon within the element.
 // 3. The element's rounded corners.
-$permalink-size: sizes.$control-height; // 1
-$permalink-icon-size: sizes.$control-icon-size; // 2
-$permalink-radius: sizes.$radius-full; // 3
+$permalink-size: tokens.$size-height-control-default; // 1
+$permalink-icon-size: tokens.$size-square-control-icon; // 2
+$permalink-radius: tokens.$size-border-radius-full; // 3
 
 // We want the permalink's position to change when there is enough room to
 // display a full line of prose _plus_ the permalink. To pull this off, we use
@@ -103,8 +99,8 @@ $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
   right: ($permalink-size - $permalink-icon-size) / -2; /* 2 */
   text-decoration: none;
   top: 0;
-  transition: color motion.$speed-quick motion.$ease-out,
-    opacity motion.$speed-quick motion.$ease-out;
+  transition: color tokens.$time-transition-quick tokens.$ease-out,
+    opacity tokens.$time-transition-quick tokens.$ease-out;
   width: $permalink-size;
 
   /**
@@ -124,10 +120,11 @@ $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
 
   &:not(:hover):not(:focus):not(:active) {
     color: inherit;
-    opacity: opacity.$muted;
+    opacity: tokens.$number-opacity-muted;
   }
 
   @include focus.focus-visible {
-    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    box-shadow: 0 0 0 tokens.$size-edge-large
+      tokens.$color-brand-primary-lighter;
   }
 }

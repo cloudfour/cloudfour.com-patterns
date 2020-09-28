@@ -21,7 +21,7 @@ $permalink-radius: sizes.$radius-full; // 3
 // display a full line of prose _plus_ the permalink. To pull this off, we use
 // the prose width and permalink size (above) to build some component-specific
 // media query breakpoints.
-$min-width-permalink-shift: layout.$max-width-prose + $permalink-size * 4;
+$min-width-permalink-shift: tokens.$size-max-width-prose + $permalink-size * 4;
 $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
 
 /**

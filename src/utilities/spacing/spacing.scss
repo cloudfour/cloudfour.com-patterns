@@ -80,8 +80,8 @@
 
 @mixin scale-utilities(
   $property,
-  $minimum-step: modular-scale.$minimum-step,
-  $maximum-step: modular-scale.$maximum-step,
+  $minimum-step: tokens.$number-scale-modular-minimum-step,
+  $maximum-step: tokens.$number-scale-modular-maximum-step,
   $base: 1em
 ) {
   @if $property == margin {
@@ -93,8 +93,8 @@
   }
 
   @for $step
-    from modular-scale.$minimum-step
-    through modular-scale.$maximum-step
+    from tokens.$number-scale-modular-minimum-step
+    through tokens.$number-scale-modular-maximum-step
   {
     $name: ms.step-class-segment($step);
 

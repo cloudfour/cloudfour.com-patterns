@@ -9,7 +9,7 @@
 }
 
 .demo-input-basic--single-line {
-  @media (min-width: breakpoint.$m) {
+  @media (min-width: tokens.$size-breakpoint-m) {
     grid-template-columns: auto 1fr auto;
   }
 }

@@ -22,7 +22,7 @@ $_ground-nav-border-color: colors.$gray-light;
 .c-ground-nav__action-inner {
   position: relative;
 
-  @media (min-width: breakpoint.$l) {
+  @media (min-width: tokens.$size-breakpoint-l) {
     align-items: center;
     display: flex;
   }
@@ -35,7 +35,7 @@ $_ground-nav-border-color: colors.$gray-light;
 .c-ground-nav__action-title {
   margin-top: $_ground-nav-space; /* 1 */
 
-  @media (min-width: breakpoint.$l) {
+  @media (min-width: tokens.$size-breakpoint-l) {
     margin: ms.step(4) $_ground-nav-space; /* 2 */
   }
 }
@@ -52,12 +52,12 @@ $_ground-nav-border-color: colors.$gray-light;
   right: $_ground-nav-negative-space;
   width: 40%;
 
-  @media (min-width: breakpoint.$m) {
+  @media (min-width: tokens.$size-breakpoint-m) {
     right: 0;
     width: calc(100% / 3);
   }
 
-  @media (min-width: breakpoint.$l) {
+  @media (min-width: tokens.$size-breakpoint-l) {
     width: 25%;
   }
 }
@@ -126,11 +126,11 @@ $_ground-nav-border-color: colors.$gray-light;
      * doesn't have any line breaks, but can still grow as horizontal
      * space allows.
      */
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       grid-template-columns: 1fr minmax(max-content, 1fr);
     }
 
-    @media (min-width: breakpoint.$l) {
+    @media (min-width: tokens.$size-breakpoint-l) {
       grid-template-columns: 1fr minmax(max-content, 1fr) 1fr;
     }
   }
@@ -149,14 +149,14 @@ $_ground-nav-border-color: colors.$gray-light;
    * be placed within the grid.
    */
   .c-ground-nav__organization {
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       grid-column: 1/2;
       grid-row: 1/3;
     }
   }
 
   .c-ground-nav__menu {
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       border: none;
       grid-column: 2/3;
       grid-row: 1/3;
@@ -165,14 +165,14 @@ $_ground-nav-border-color: colors.$gray-light;
   }
 
   .c-ground-nav__social {
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       border-bottom: $_ground-nav-border-width $_ground-nav-border-style
         $_ground-nav-border-color;
       grid-column: 1/3;
       padding-bottom: $_ground-nav-space;
     }
 
-    @media (min-width: breakpoint.$l) {
+    @media (min-width: tokens.$size-breakpoint-l) {
       border-bottom: none;
       grid-column: 3/4;
       grid-row: 1/2;
@@ -182,13 +182,13 @@ $_ground-nav-border-color: colors.$gray-light;
   }
 
   .c-ground-nav__kudos {
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       grid-column: 1/3;
     }
   }
 
   .c-ground-nav__legal {
-    @media (min-width: breakpoint.$l) {
+    @media (min-width: tokens.$size-breakpoint-l) {
       align-self: end;
       justify-self: end;
     }

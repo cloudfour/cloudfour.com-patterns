@@ -13,11 +13,11 @@
 @use 'sass:color';
 
 // Minimum viewport width where links are exposed
-$_breakpoint-wide: breakpoint.$m;
+$_breakpoint-wide: tokens.$size-breakpoint-m;
 // Minimum viewport width where links are no longer multi-line
-$_breakpoint-nowrap: breakpoint.$l;
+$_breakpoint-nowrap: tokens.$size-breakpoint-l;
 // Viewport where vertical expansion maxes out
-$_breakpoint-grow-max: breakpoint.$xxl;
+$_breakpoint-grow-max: tokens.$size-breakpoint-xxl;
 
 // Maximum viewport width where links are stacked and hidden initially
 $_breakpoint-narrow-max: ($_breakpoint-wide * 16 - 1) / 16;
@@ -38,7 +38,7 @@ $_label-pad-horizontal: ms.step(-3);
 $_label-pad-vertical: ms.step(-9);
 
 // Use the widest standard layout `max-width` plus buffer for horizontal space
-$_max-width: #{unit.strip(layout.$max-width-spread) +
+$_max-width: #{unit.strip(tokens.$size-max-width-spread) +
   unit.strip($_space-horizontal * 2)}em;
 
 /**

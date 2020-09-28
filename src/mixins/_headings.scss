@@ -19,8 +19,8 @@ $fluid-steps: 1;
     $max-step: $min-step + $fluid-steps;
 
     @include fluid.font-size(
-      breakpoint.$xs,
-      breakpoint.$l,
+      tokens.$size-breakpoint-xs,
+      tokens.$size-breakpoint-l,
       ms.step($min-step),
       ms.step($max-step)
     );

@@ -1,7 +1,7 @@
 @use "sass:math";
 @use "../design-tokens/modular-scale.yml";
 
-@function step($step, $base: 1em, $ratio: modular-scale.$ratio) {
+@function step($step, $base: 1em, $ratio: tokens.$number-scale-modular-ratio) {
   @return math.pow($ratio, $step) * $base;
 }
 

@@ -70,7 +70,7 @@ for (let i = -3; i <= 6; i++) {
 // Create viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).map((name) => {
   return {
-    name: `breakpoint.$${name}`,
+    name: `tokens.$size-breakpoint-${name}`,
     styles: {
       width: breakpoints[name],
       // Account for padding and border around viewport preview

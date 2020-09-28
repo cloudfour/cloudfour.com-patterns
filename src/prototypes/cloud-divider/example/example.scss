@@ -16,7 +16,7 @@
     margin-bottom: 2em;
     overflow: hidden;
 
-    @media (min-width: breakpoint.$xl) {
+    @media (min-width: tokens.$size-breakpoint-xl) {
       margin-top: -5em;
       padding-top: 5em;
     }
@@ -29,7 +29,7 @@
       margin-bottom: -0.5em;
 
 
-      @media (min-width: breakpoint.$m) {
+      @media (min-width: tokens.$size-breakpoint-m) {
         margin-bottom: -1em;
       }
     }
@@ -39,7 +39,7 @@
       margin-right: -4%;
       max-width: 25em;
 
-      @media (min-width: breakpoint.$m) {
+      @media (min-width: tokens.$size-breakpoint-m) {
         margin-right: 0;
       }
 
@@ -65,7 +65,7 @@
       margin-left: -4%;
       max-width: 25em;
 
-      @media (min-width: breakpoint.$m) {
+      @media (min-width: tokens.$size-breakpoint-m) {
         margin-left: 0;
       }
 
@@ -108,18 +108,18 @@
     background-size: 60% auto;
     padding: 3em 1em 3em 1em;
 
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       background-image: url('/clouds/clouds-hero.svg');
       background-size: 30% auto;
       padding: 2em 1em;
     }
 
-    @media (min-width: breakpoint.$xl) {
+    @media (min-width: tokens.$size-breakpoint-xl) {
       padding: 4em 1em;
     }
 
     .o-container__content {
-      max-width: breakpoint.$l;
+      max-width: tokens.$size-breakpoint-l;
     }
   }
 
@@ -131,7 +131,7 @@
     display: none;
   }
 
-  @media (min-width: breakpoint.$xl) {
+  @media (min-width: tokens.$size-breakpoint-xl) {
     .u-xl-block {
       display: block;
     }
@@ -170,48 +170,48 @@
   }
 
   .u-sm-sizeFill {
-    @media (min-width: breakpoint.$s) {
+    @media (min-width: tokens.$size-breakpoint-s) {
       flex: 1 1 0% !important;
       flex-basis: 0% !important;
     }
   }
 
   .u-sm-sizeFit {
-    @media (min-width: breakpoint.$s) {
+    @media (min-width: tokens.$size-breakpoint-s) {
       flex-basis: auto !important;
       width: auto !important;
     }
   }
 
   .u-md-size1of2 {
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       flex-basis: auto !important;
       width: 50%;
     }
   }
 
   .u-md-size1of3 {
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       flex-basis: auto !important;
       width:  calc(100% / 3);
     }
   }
 
   .u-md-size2of3 {
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       flex-basis: auto !important;
       width:  calc(200% / 3);
     }
   }
 
   .u-md-flexOrderLast {
-    @media (min-width: breakpoint.$m) {
+    @media (min-width: tokens.$size-breakpoint-m) {
       order: 1;
     }
   }
 
   .u-lg-size1of2 {
-    @media (min-width: breakpoint.$l) {
+    @media (min-width: tokens.$size-breakpoint-l) {
       flex-basis: auto !important;
       width: 50%;
     }

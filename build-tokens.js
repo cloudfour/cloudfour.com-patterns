@@ -4,16 +4,6 @@ const styleDictionaryConfig = {
   log: 'warn',
   source: ['src/tokens/**/*.+(js|json)'],
   platforms: {
-    web: {
-      transformGroup: 'custom/transform-group/css',
-      buildPath: 'src/compiled/css/',
-      files: [
-        {
-          destination: 'tokens.css',
-          format: 'css/variables',
-        },
-      ],
-    },
     scss: {
       transformGroup: 'custom/transform-group/css',
       buildPath: 'src/compiled/scss/',
@@ -32,11 +22,6 @@ const styleDictionaryConfig = {
           destination: 'tokens.json',
           format: 'json',
         },
-        // {
-        //   destination: 'breakpoints.js',
-        //   format: 'javascript/module',
-        //   filter: { attributes: { category: 'size', type: 'breakpoint' } },
-        // },
       ],
     },
   },

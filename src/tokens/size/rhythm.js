@@ -1,11 +1,12 @@
-// Const ratio = parseFloat({number.scale.modular.ratio.value}, 10);
-
-// console.log('ratio', ratio);
+const { modularEm } = require('../../scripts/modular-scale');
 
 module.exports = {
   size: {
     rhythm: {
-      // Compact: { value: `${parseFloat(-6) ** ratio}em` },
+      compact: { value: modularEm(-6) },
+      condensed: { value: modularEm(-1) },
+      default: { value: modularEm(1) },
+      generous: { value: modularEm(3) },
     },
   },
 };

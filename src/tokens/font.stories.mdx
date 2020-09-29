@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/js/tokens';
+const generateTokenTable = (props) => {
+  const propsArray = Object.values(props);
+  const hasComments = propsArray.filter((p) => Boolean(p.comment)).length > 0;
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th style={{ width: '10%' }}>Name</th>
+          <th>Value</th>
+          {hasComments && <th>Comment</th>}
+        </tr>
+      </thead>
+      <tbody>
+        {propsArray.map((prop) => {
+          const isFontFamily =
+            prop.attributes.category === 'font' &&
+            prop.attributes.type === 'family';
+          const fontFamilies = [];
+          if (isFontFamily) {
+            // Create an array for each of the fonts in the family string
+            const fonts = prop.value.split(',');
+            // For each font string we create, we are going to remove the first font
+            // element using `shift`. This allows each segment to be previewed along
+            // with its remaining fallbacks.
+            while (fonts.length) {
+              const divStyle = {
+                fontFamily: fonts.join(','),
+              };
+              const fontFamilyName = fonts.shift().trim();
+              fontFamilies.push(
+                <span key={fontFamilyName} style={divStyle}>
+                  {fontFamilyName},{' '}
+                </span>
+              );
+            }
+          }
+          return (
+            <tr key={prop.name}>
+              <td>
+                <code>${prop.name}</code>
+              </td>
+              <td>{isFontFamily ? fontFamilies : <code>{prop.value}</code>}</td>
+              {hasComments && <td>{prop.comment}</td>}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
+const fontFamilyTable = generateTokenTable(tokens.font.family);
+const fontWeightTable = generateTokenTable(tokens.number.font_weight);
+
+<Meta title="Design/Tokens/Font" />
+
+# Font
+
+```scss
+@use "../../compiled/scss/tokens";
+$example: tokens.$font-family-sans; // => 'Source Sans Pro Variable', Tahoma, 'Helvetica Neue', Helvetica, Arial, sans-serif
+```
+
+```javascript
+import tokens from '../../compiled/js/tokens';
+console.log(tokens.font.family.sans.value); // => "'Source Sans Pro Variable', Tahoma, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+```
+
+## Font Family
+
+<>{fontFamilyTable}</>
+
+## Font Weight
+
+<>{fontWeightTable}</>

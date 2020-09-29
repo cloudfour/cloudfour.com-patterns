@@ -8,8 +8,14 @@ module.exports = {
         vertical: { value: modularEm(-4) },
       },
       cell: {
-        horizontal: { value: modularEm(-3) },
-        vertical: { value: modularEm(-3) },
+        horizontal: {
+          value: modularEm(-3),
+          comment: 'Used for table cells or other repeating content rows.',
+        },
+        vertical: {
+          value: modularEm(-3),
+          comment: 'Used for table cells or other repeating content rows.',
+        },
       },
     },
   },

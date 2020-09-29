@@ -32,6 +32,11 @@ const styleDictionaryConfig = {
           destination: 'tokens.js',
           format: 'javascript/module',
         },
+        {
+          destination: 'size-tokens.js',
+          format: 'custom/format/js/flat',
+          filter: { attributes: { category: 'size' } },
+        },
       ],
     },
   },
@@ -46,6 +51,22 @@ const styleDictionaryConfig = {
 StyleDictionary.registerTransformGroup({
   name: 'custom/transform-group/css',
   transforms: ['attribute/cti', 'name/cti/kebab', 'color/css'],
+});
+
+/**
+ * Custom Format: JS Flat
+ * This custom format is based on `json/flat` but modified to return a JS module
+ * containing a `value` and `comment` (if one exists).
+ */
+StyleDictionary.registerFormat({
+  name: 'custom/format/js/flat',
+  formatter(dictionary) {
+    const tokens = {};
+    dictionary.allProperties.forEach((prop) => {
+      tokens[prop.name] = prop;
+    });
+    return `module.exports = ${JSON.stringify(tokens, null, '  ')}`;
+  },
 });
 
 // APPLY THE CONFIGURATION

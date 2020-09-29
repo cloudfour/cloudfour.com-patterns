@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/js/tokens';
+const maxWidths = tokens.size.max_width;
+const maxWidthRows = Object.keys(maxWidths).map((key) => {
+  const { name, value } = maxWidths[key];
+  return (
+    <tr key={name}>
+      <td>
+        <code>${name}</code>
+      </td>
+      <td>
+        <code>{value}</code>
+      </td>
+    </tr>
+  );
+});
+
+<Meta title="Design/Tokens/Layout" />
+
+# Layout
+
+```scss
+@use "../../compiled/scss/tokens";
+$example: tokens.$size-max-width-prose; // => 40em
+```
+
+```javascript
+import tokens from '../../compiled/js/tokens';
+console.log(tokens.size.max_width.prose.value); // => 40em
+```
+
+## Max Width
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: '10%' }}>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>{maxWidthRows}</tbody>
+</table>

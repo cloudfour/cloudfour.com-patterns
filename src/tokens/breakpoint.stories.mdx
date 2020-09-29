@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/js/tokens';
+const breakpoints = tokens.size.breakpoint;
+const breakpointRows = Object.keys(breakpoints).map((key) => {
+  const { name, value } = breakpoints[key];
+  return (
+    <tr key={name}>
+      <td>
+        <code>${name}</code>
+      </td>
+      <td>
+        <code>{value}</code>
+      </td>
+    </tr>
+  );
+});
+
+<Meta title="Design/Tokens/Breakpoint" />
+
+# Breakpoint
+
+```scss
+@use "../../compiled/scss/tokens";
+$example: tokens.$size-breakpoint-xs; // => 20em
+```
+
+```javascript
+import tokens from '../../compiled/js/tokens';
+console.log(tokens.size.breakpoint.xs.value); // => "20em"
+```
+
+## Media Query
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>{breakpointRows}</tbody>
+</table>

@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/js/tokens';
+const generateTokenTable = (props) => {
+  const propsArray = Object.values(props);
+  const hasComments = propsArray.filter((p) => Boolean(p.comment)).length > 0;
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th style={{ width: '10%' }}>Name</th>
+          <th>Value</th>
+          {hasComments && <th>Comment</th>}
+        </tr>
+      </thead>
+      <tbody>
+        {propsArray.map((prop) => {
+          return (
+            <tr key={prop.name}>
+              <td>
+                <code>${prop.name}</code>
+              </td>
+              <td>
+                <code>{prop.value}</code>
+              </td>
+              {hasComments && <td>{prop.comment}</td>}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
+const easeTable = generateTokenTable(tokens.ease);
+const speedTable = generateTokenTable(tokens.time.transition);
+const scaleTable = generateTokenTable(tokens.number.scale.effect);
+const brightnessTable = generateTokenTable(tokens.number.brightness.control);
+
+<Meta title="Design/Tokens/Motion" />
+
+# Motion
+
+```scss
+@use "../../compiled/scss/tokens";
+$example: tokens.$ease-in-out; // => cubic-bezier(0.455, 0.03, 0.515, 0.955)
+```
+
+```javascript
+import tokens from '../../compiled/js/tokens';
+console.log(tokens.ease.in_out.value); // => "cubic-bezier(0.455, 0.03, 0.515, 0.955)"
+```
+
+## Easing
+
+<>{easeTable}</>
+
+## Speed
+
+<>{speedTable}</>
+
+## Scale
+
+<>{scaleTable}</>
+
+## Brightness
+
+<>{brightnessTable}</>

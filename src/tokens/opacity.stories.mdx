@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/js/tokens';
+const opacities = tokens.number.opacity;
+console.log(opacities);
+const opacityRows = Object.keys(opacities).map((key) => {
+  const { name, value } = opacities[key];
+  return (
+    <tr key={name}>
+      <td>
+        <code>${name}</code>
+      </td>
+      <td>
+        <code>{value}</code>
+      </td>
+    </tr>
+  );
+});
+
+<Meta title="Design/Tokens/Opacity" />
+
+# Opacity
+
+```scss
+@use "../../compiled/scss/tokens";
+$example: tokens.$number-opacity-muted; // => 0.65
+```
+
+```javascript
+import tokens from '../../compiled/js/tokens';
+console.log(tokens.number.opacity.muted.value); // => 0.65
+```
+
+## Opacity
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: '10%' }}>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>{opacityRows}</tbody>
+</table>

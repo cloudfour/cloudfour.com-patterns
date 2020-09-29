@@ -8,7 +8,10 @@ module.exports = {
         icon_inset: { value: modularEm(-3) },
       },
       type: {
-        block_indent: { value: modularEm(1) },
+        block_indent: {
+          value: modularEm(1),
+          comment: 'Shared indentation for lists, blockquotes, etc.',
+        },
       },
       list: {
         inline_gap: { value: modularEm(1) },

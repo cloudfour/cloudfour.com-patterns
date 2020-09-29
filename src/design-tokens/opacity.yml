@@ -1,6 +1,0 @@
-props:
-  - name: muted
-    value: 0.65
-global:
-  type: opacity
-  category: opacity

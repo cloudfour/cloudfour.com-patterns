@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/js/tokens';
+const aspectRatios = tokens.number.aspect_ratio;
+const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
+  const { name, value } = aspectRatios[key];
+  return (
+    <tr key={name}>
+      <td>
+        <code>${name}</code>
+      </td>
+      <td>
+        <code>{value}</code>
+      </td>
+    </tr>
+  );
+});
+
+<Meta title="Design/Tokens/Aspect Ratio" />
+
+# Aspect Ratio
+
+```scss
+@use "../../compiled/scss/tokens";
+$example: tokens.$number-aspect-ratio-square; // => 1
+```
+
+```javascript
+import tokens from '../../compiled/js/tokens';
+console.log(tokens.number.aspect_ratio.square.value); // => 1
+```
+
+## Ratio
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: '10%' }}>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>{aspectRatioRows}</tbody>
+</table>

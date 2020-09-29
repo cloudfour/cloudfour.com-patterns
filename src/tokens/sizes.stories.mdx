@@ -1,0 +1,73 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/js/tokens';
+import sizeTokens from '../compiled/js/size-tokens'; // Flattened tokens object
+const generateTokenTable = (props) => {
+  const propsArray = Object.values(props);
+  const hasComments = propsArray.filter((p) => Boolean(p.comment)).length > 0;
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th style={{ width: '10%' }}>Name</th>
+          <th>Value</th>
+          {hasComments && <th>Comment</th>}
+        </tr>
+      </thead>
+      <tbody>
+        {propsArray.map((prop) => {
+          return (
+            <tr key={prop.name}>
+              <td>
+                <code>${prop.name}</code>
+              </td>
+              <td>
+                <code>{prop.value}</code>
+              </td>
+              {hasComments && <td>{prop.comment}</td>}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
+/**
+ * We want a list of all size tokens that haven't already been documented.
+ * We grab a flattened list of tokens so we don't have to worry about tokens
+ * existing at different depths, filter the types we've already dealth with,
+ * and return the remainder as a new object.
+ */
+const ignoreTypes = ['border', 'breakpoint', 'max_width', 'rhythm'];
+const filteredSizeTable = generateTokenTable(
+  Object.keys(sizeTokens)
+    .filter((key) => !ignoreTypes.includes(sizeTokens[key].attributes.type))
+    .map((key) => sizeTokens[key])
+);
+const borderRadiusTable = generateTokenTable(tokens.size.border.radius);
+const rhythmTable = generateTokenTable(tokens.size.rhythm);
+
+<Meta title="Design/Tokens/Sizes" />
+
+# Sizes
+
+```scss
+@use "../../compiled/scss/tokens";
+$example: tokens.$size-edge-small; // =>  0.0625rem
+```
+
+```javascript
+import tokens from '../../compiled/js/tokens';
+console.log(tokens.size.edge.small.value); // => " 0.0625rem"
+```
+
+## Sizing
+
+<>{filteredSizeTable}</>
+
+## Radius
+
+<>{borderRadiusTable}</>
+
+## Rhythm
+
+<>{rhythmTable}</>

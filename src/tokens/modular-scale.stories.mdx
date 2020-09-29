@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/js/tokens';
+const modularScale = tokens.number.scale.modular;
+const modularScaleRows = Object.keys(modularScale).map((key) => {
+  const { name, value } = modularScale[key];
+  return (
+    <tr key={name}>
+      <td>
+        <code>${name}</code>
+      </td>
+      <td>
+        <code>{value}</code>
+      </td>
+    </tr>
+  );
+});
+
+<Meta title="Design/Tokens/Modular Scale" />
+
+# Modular Scale
+
+```scss
+@use "../../compiled/scss/tokens";
+$example: tokens.$number-scale-modular-ratio; // => 1.25
+```
+
+```javascript
+import tokens from '../../compiled/js/tokens';
+console.log(tokens.number.scale.modular.ratio.value); // => 1.25
+```
+
+## Modular Scale
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: '10%' }}>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>{modularScaleRows}</tbody>
+</table>

@@ -1,5 +1,4 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, array, select, text } from '@storybook/addon-knobs';
 import template from './list.twig';
 const defaultItems = [
   'Design Tokens',
@@ -11,7 +10,7 @@ const defaultItems = [
 ];
 const tagNames = ['ul', 'ol'];
 
-<Meta title="Objects/List" decorators={[withKnobs]} />
+<Meta title="Objects/List" />
 
 # List
 
@@ -22,12 +21,19 @@ The `o-list` object presents list items in a straightforward and unopinionated m
 By default, `o-list` removes default spacing and list item decorators:
 
 <Canvas>
-  <Story name="Default">
-    {template({
-      class: text('class'),
-      items: array('items', defaultItems),
-      tag_name: select('tag_name', tagNames),
-    })}
+  <Story
+    name="Default"
+    argTypes={{
+      class: { type: { name: 'string' } },
+      items: { type: { name: 'array' }, defaultValue: defaultItems },
+      tag_name: {
+        type: { name: 'enum' },
+        control: { type: 'inline-radio', options: tagNames },
+        defaultValue: tagNames[0],
+      },
+    }}
+  >
+    {(args) => template(args)}
   </Story>
 </Canvas>
 
@@ -36,11 +42,18 @@ By default, `o-list` removes default spacing and list item decorators:
 The `o-list--inline` modifier arranges items in a horizontal row, wrapping to new lines as needed. This is a good fit for lists of tags or related links:
 
 <Canvas>
-  <Story name="Inline">
-    {template({
-      class: 'o-list--inline',
-      items: array('items', defaultItems),
-      tag_name: select('tag_name', tagNames),
-    })}
+  <Story
+    name="Inline"
+    argTypes={{
+      class: { type: { name: 'string' }, defaultValue: 'o-list--inline' },
+      items: { type: { name: 'array' }, defaultValue: defaultItems },
+      tag_name: {
+        type: { name: 'enum' },
+        control: { type: 'inline-radio', options: tagNames },
+        defaultValue: tagNames[0],
+      },
+    }}
+  >
+    {(args) => template(args)}
   </Story>
 </Canvas>

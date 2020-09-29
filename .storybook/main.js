@@ -11,6 +11,7 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-knobs/register',
     '@storybook/addon-viewport/register',
+    '@storybook/addon-controls',
     // Community addons
     'storybook-addon-themes',
     'storybook-addon-paddings',

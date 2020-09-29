@@ -1,5 +1,4 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, text } from '@storybook/addon-knobs';
 import skyNavMenu from '../sky-nav/demo/menu.json';
 import groundNavMenu from './demo/menu.json';
 import organization from './demo/organization.json';
@@ -9,6 +8,58 @@ import pwaStatsDemo from './demo/pwa-stats.twig';
 const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
 const actionId = 'action';
 const organizationId = 'organization';
+const defaultArgTypes = {
+  buttonLeadIn: {
+    type: { name: 'string' },
+    defaultValue: 'Let’s discuss your project!',
+  },
+  buttonTitle: { type: { name: 'string' }, defaultValue: 'Email us' },
+  buttonLink: {
+    type: { name: 'string' },
+    defaultValue: 'mailto:info@cloudfour.com',
+  },
+  buttonIcon: { type: { name: 'string' }, defaultValue: 'envelope' },
+  organizationName: {
+    type: { name: 'string' },
+    defaultValue: organization.name,
+  },
+  organizationStreetAddress: {
+    type: { name: 'string' },
+    defaultValue: organization.address.streetAddress,
+  },
+  organizationAddressLocality: {
+    type: { name: 'string' },
+    defaultValue: organization.address.addressLocality,
+  },
+  organizationAddressRegion: {
+    type: { name: 'string' },
+    defaultValue: organization.address.addressRegion,
+  },
+  organizationPostalCode: {
+    type: { name: 'string' },
+    defaultValue: organization.address.postalCode,
+  },
+  organizationAddressCountry: {
+    type: { name: 'string' },
+    defaultValue: organization.address.addressCountry,
+  },
+  organizationEmail: {
+    type: { name: 'string' },
+    defaultValue: organization.email,
+  },
+  organizationTelephone: {
+    type: { name: 'string' },
+    defaultValue: organization.telephone,
+  },
+  organizationUrl: {
+    type: { name: 'string' },
+    defaultValue: organization.url,
+  },
+  organizationFoundingDate: {
+    type: { name: 'string' },
+    defaultValue: organization.foundingDate,
+  },
+};
 
 <!--
 Inline stories disabled so media queries will behave as expected within
@@ -17,7 +68,6 @@ embedded examples.
 
 <Meta
   title="Components/Ground Nav"
-  decorators={[withKnobs]}
   parameters={{ docs: { inlineStories: false }, paddings: { disabled: true } }}
 />
 
@@ -28,114 +78,92 @@ embedded examples.
 The yin to [Sky Nav](/?path=/docs/components-sky-nav--dark)'s yang, the Ground Nav sits at the bottom of all our pages. It includes a call to action, contact information, an expanded navigation menu for lost users and any legal copy.
 
 <Canvas>
-  <Story name="Cloud Four">
-    {template({
-      menu,
-      social,
-      action: {
-        leadIn: text('leadIn', 'Let’s discuss your project!', actionId),
-        title: text('title', 'Email us', actionId),
-        link: text('link', 'mailto:info@cloudfour.com', actionId),
-        icon: text('icon', 'envelope', actionId),
-      },
-      organization: {
-        name: text('name', organization.name, 'organization'),
-        address: {
-          streetAddress: text(
-            'address.streetAddress',
-            organization.address.streetAddress,
-            organizationId
-          ),
-          addressLocality: text(
-            'address.addressLocality',
-            organization.address.addressLocality,
-            organizationId
-          ),
-          addressRegion: text(
-            'address.addressRegion',
-            organization.address.addressRegion,
-            organizationId
-          ),
-          postalCode: text(
-            'address.postalCode',
-            organization.address.postalCode,
-            organizationId
-          ),
-          addressCountry: text(
-            'address.addressCountry',
-            organization.address.addressCountry,
-            organizationId
-          ),
+  <Story
+    name="Cloud Four"
+    // Currently storybook doesn't have support for nested or grouped args
+    // So for now we are just making them all top-level
+    // https://github.com/storybookjs/storybook/issues/11525
+    // https://github.com/storybookjs/storybook/issues/10979
+    argTypes={defaultArgTypes}
+  >
+    {(args) =>
+      template({
+        menu,
+        social,
+        action: {
+          leadIn: args.buttonLeadIn,
+          title: args.buttonTitle,
+          link: args.buttonLink,
+          icon: args.buttonIcon,
         },
-        email: text('email', organization.email, organizationId),
-        telephone: text('telephone', organization.telephone, organizationId),
-        url: text('url', organization.url, organizationId),
-        foundingDate: text(
-          'foundingDate',
-          organization.foundingDate,
-          organizationId
-        ),
-      },
-    })}
+        organization: {
+          name: args.organizationName,
+          address: {
+            streetAddress: args.organizationStreetAddress,
+            addressLocality: args.organizationAddressLocality,
+            addressRegion: args.organizationAddressRegion,
+            postalCode: args.organizationPostalCode,
+            addressCountry: args.organizationAddressCountry,
+          },
+          email: args.organizationEmail,
+          telephone: args.organizationTelephone,
+          url: args.organizationUrl,
+          foundingDate: args.organizationFoundingDate,
+        },
+      })
+    }
   </Story>
 </Canvas>
 
 The menu’s contents may differ between projects. This example is based on the footer of our [PWA Stats](https://www.pwastats.com/) resource.
 
 <Canvas>
-  <Story name="PWA Stats">
-    {pwaStatsDemo({
-      menu,
-      social,
-      action: {
-        leadIn: text('leadIn', 'Help us build this resource!', actionId),
-        title: text('title', 'Contribute a story', actionId),
-        link: text(
-          'link',
+  <Story
+    name="PWA Stats"
+    argTypes={{
+      ...defaultArgTypes,
+      buttonLeadIn: {
+        type: { name: 'string' },
+        defaultValue: 'Help us build this resource!',
+      },
+      buttonTitle: {
+        type: { name: 'string' },
+        defaultValue: 'Contribute a story',
+      },
+      buttonLink: {
+        type: { name: 'string' },
+        defaultValue:
           'https://github.com/cloudfour/pwastats/issues/new?title=Submission:+New+Story',
-          actionId
-        ),
-        icon: text('icon', 'brands/github', actionId),
       },
-      organization: {
-        name: text('name', organization.name, 'organization'),
-        address: {
-          streetAddress: text(
-            'address.streetAddress',
-            organization.address.streetAddress,
-            organizationId
-          ),
-          addressLocality: text(
-            'address.addressLocality',
-            organization.address.addressLocality,
-            organizationId
-          ),
-          addressRegion: text(
-            'address.addressRegion',
-            organization.address.addressRegion,
-            organizationId
-          ),
-          postalCode: text(
-            'address.postalCode',
-            organization.address.postalCode,
-            organizationId
-          ),
-          addressCountry: text(
-            'address.addressCountry',
-            organization.address.addressCountry,
-            organizationId
-          ),
+      buttonIcon: { type: { name: 'string' }, defaultValue: 'brands/github' },
+    }}
+  >
+    {(args) =>
+      pwaStatsDemo({
+        menu,
+        social,
+        action: {
+          leadIn: args.buttonLeadIn,
+          title: args.buttonTitle,
+          link: args.buttonLink,
+          icon: args.buttonIcon,
         },
-        email: text('email', organization.email, organizationId),
-        telephone: text('telephone', organization.telephone, organizationId),
-        url: text('url', organization.url, organizationId),
-        foundingDate: text(
-          'foundingDate',
-          organization.foundingDate,
-          organizationId
-        ),
-      },
-    })}
+        organization: {
+          name: args.organizationName,
+          address: {
+            streetAddress: args.organizationStreetAddress,
+            addressLocality: args.organizationAddressLocality,
+            addressRegion: args.organizationAddressRegion,
+            postalCode: args.organizationPostalCode,
+            addressCountry: args.organizationAddressCountry,
+          },
+          email: args.organizationEmail,
+          telephone: args.organizationTelephone,
+          url: args.organizationUrl,
+          foundingDate: args.organizationFoundingDate,
+        },
+      })
+    }
   </Story>
 </Canvas>
 

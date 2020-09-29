@@ -1,5 +1,4 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
 
 <!--
@@ -9,7 +8,6 @@ embedded examples.
 
 <Meta
   title="Objects/Container"
-  decorators={[withKnobs]}
   parameters={{ docs: { inlineStories: false } }}
 />
 
@@ -18,10 +16,14 @@ embedded examples.
 Containers are helpful for layouts, they provide a maximum width and center content on large screens. Margins and/or padding should be applied to the outer container `o-container` to keep content centered.
 
 <Canvas>
-  <Story name="Basic" height="300px">
-    {basicDemo({
-      prose: boolean('Prose', false),
-    })}
+  <Story
+    name="Basic"
+    height="300px"
+    argTypes={{
+      prose: { type: { name: 'boolean', required: true }, defaultValue: false },
+    }}
+  >
+    {(args) => basicDemo(args)}
   </Story>
 </Canvas>
 
@@ -30,9 +32,13 @@ Containers are helpful for layouts, they provide a maximum width and center cont
 The `--prose` modifier is intended to be used with content that mostly consists of text, like an article. It helps improve readability by limiting line length.
 
 <Canvas>
-  <Story name="Prose" height="300px">
-    {basicDemo({
-      prose: boolean('Prose', true),
-    })}
+  <Story
+    name="Prose"
+    height="300px"
+    argTypes={{
+      prose: { type: { name: 'boolean', required: true }, defaultValue: true },
+    }}
+  >
+    {(args) => basicDemo(args)}
   </Story>
 </Canvas>

@@ -1,4 +1,5 @@
 @use 'sass:meta';
+@use 'sass:string';
 @use "../compiled/scss/aspect-ratios";
 @use "../compiled/scss/breakpoints";
 
@@ -23,6 +24,7 @@ $default-aspect-ratio: aspect-ratios.$number-aspect-ratio-square;
 
 @mixin aspect-ratio-modifiers() {
   @each $name, $ratio in meta.module-variables('aspect-ratios') {
+    $trimmed-name: string.slice($name, 21);
     @if $ratio != $default-aspect-ratio {
       /**
        * Sass will not compile variables applied to custom properties without
@@ -36,14 +38,17 @@ $default-aspect-ratio: aspect-ratios.$number-aspect-ratio-square;
        * elsewhere, and we'd want it to work under any selector.
        */
 
-      &--#{$name} {
+      &--#{$trimmed-name} {
         --aspect-ratio: #{$ratio};
       }
     }
   }
   @each $suffix, $breakpoint in meta.module-variables('breakpoints') {
+    $trimmed-suffix: string.slice($suffix, 17);
     @media (min-width: $breakpoint) {
       @each $name, $ratio in meta.module-variables('aspect-ratios') {
+        $trimmed-name: string.slice($name, 21);
+
         /**
          * The backslash in the selector is required for the `@` character.
          *
@@ -51,7 +56,7 @@ $default-aspect-ratio: aspect-ratios.$number-aspect-ratio-square;
          *    every alternative I explored took a lot more code.
          */
 
-        &--#{$name}\@#{$suffix} {
+        &--#{$trimmed-name}\@#{$trimmed-suffix} {
           --aspect-ratio: #{$ratio}; /* 1 */
         }
       }

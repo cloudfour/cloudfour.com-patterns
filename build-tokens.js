@@ -29,8 +29,8 @@ const styleDictionaryConfig = {
       buildPath: 'src/compiled/js/',
       files: [
         {
-          destination: 'tokens.json',
-          format: 'json',
+          destination: 'tokens.js',
+          format: 'javascript/module',
         },
       ],
     },

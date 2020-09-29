@@ -71,11 +71,7 @@ module.exports = {
               implementation: require('sass'),
               sourceMap: true,
               sassOptions: {
-                importer: [
-                  require('../glob-sass-importer'),
-                  // Import Theo design tokens as SCSS variables
-                  require('../.theo/sass-importer'),
-                ],
+                importer: [require('../glob-sass-importer')],
               },
             },
           },
@@ -83,11 +79,6 @@ module.exports = {
       },
       twingLoader,
       valLoader,
-      {
-        // Import Theo design tokens as JS objects
-        test: /\.ya?ml$/,
-        use: resolve(__dirname, '../.theo/webpack-loader.js'),
-      },
       {
         // Optimize and process SVGs as React elements for use in documentation
         test: /\.svg$/,

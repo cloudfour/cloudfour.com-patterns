@@ -5,4 +5,5 @@
 /src/vendor/prism/demo/samples/**/*
 
 # Generated files
+/src/design-tokens/generated
 /src/compiled

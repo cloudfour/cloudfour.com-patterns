@@ -1,5 +1,6 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
-import * as brandTokens from '../design-tokens/colors.yml';
+import tokens from '../compiled/js/tokens';
+const colors = tokens.color;
 
 <Meta title="Design/Colors" />
 
@@ -10,12 +11,12 @@ import * as brandTokens from '../design-tokens/colors.yml';
 These are our core colors. Blue is our primary brand color and is used by many elements like buttons, links, backgrounds, and illustrations.
 
 <ColorPalette>
-  <ColorItem title="$primary-brand" colors={[brandTokens.primaryBrand]} />
+  <ColorItem title="$primary-brand" colors={[colors.brand.primary.value]} />
   <ColorItem
     title="$primary-brand-darker"
-    colors={[brandTokens.primaryBrandDarker]}
+    colors={[colors.brand.primary_darker.value]}
   />
-  <ColorItem title="$gray-lighter" colors={[brandTokens.grayLighter]} />
+  <ColorItem title="$gray-lighter" colors={[colors.base.gray_lighter.value]} />
 </ColorPalette>
 
 ## Secondary Colors
@@ -23,10 +24,10 @@ These are our core colors. Blue is our primary brand color and is used by many e
 Our secondary palette consists of green, purple, fuchsia, and orange. These colors are meant to highlight and compliment our primary brand colors.
 
 <ColorPalette>
-  <ColorItem title="$green" colors={[brandTokens.green]} />
-  <ColorItem title="$purple" colors={[brandTokens.purple]} />
-  <ColorItem title="$fuchsia" colors={[brandTokens.fuchsia]} />
-  <ColorItem title="$orange" colors={[brandTokens.orange]} />
+  <ColorItem title="$green" colors={[colors.base.green.value]} />
+  <ColorItem title="$purple" colors={[colors.base.purple.value]} />
+  <ColorItem title="$fuchsia" colors={[colors.base.fuchsia.value]} />
+  <ColorItem title="$orange" colors={[colors.base.orange.value]} />
 </ColorPalette>
 
 ## Extended Color Palette
@@ -39,61 +40,61 @@ The extended palette is intended to be ever evolving, it offers an additional ra
   <ColorItem
     title="$primary-brand-*"
     colors={[
-      brandTokens.primaryBrandLighter,
-      brandTokens.primaryBrandLight,
-      brandTokens.primaryBrand,
-      brandTokens.primaryBrandDark,
-      brandTokens.primaryBrandDarker,
+      colors.brand.primary_lighter.value,
+      colors.brand.primary_light.value,
+      colors.brand.primary.value,
+      colors.brand.primary_dark.value,
+      colors.brand.primary_darker.value,
     ]}
   />
   <ColorItem
     title="$green-*"
     colors={[
-      brandTokens.greenLighter,
-      brandTokens.greenLight,
-      brandTokens.green,
-      brandTokens.greenDark,
-      brandTokens.greenDarker,
+      colors.base.green_lighter.value,
+      colors.base.green_light.value,
+      colors.base.green.value,
+      colors.base.green_dark.value,
+      colors.base.green_darker.value,
     ]}
   />
   <ColorItem
     title="$purple-*"
     colors={[
-      brandTokens.purpleLighter,
-      brandTokens.purpleLight,
-      brandTokens.purple,
-      brandTokens.purpleDark,
-      brandTokens.purpleDarker,
+      colors.base.purple_lighter.value,
+      colors.base.purple_light.value,
+      colors.base.purple.value,
+      colors.base.purple_dark.value,
+      colors.base.purple_darker.value,
     ]}
   />
   <ColorItem
     title="$fuchsia-*"
     colors={[
-      brandTokens.fuchsiaLighter,
-      brandTokens.fuchsiaLight,
-      brandTokens.fuchsia,
-      brandTokens.fuchsiaDark,
-      brandTokens.fuchsiaDarker,
+      colors.base.fuchsia_lighter.value,
+      colors.base.fuchsia_light.value,
+      colors.base.fuchsia.value,
+      colors.base.fuchsia_dark.value,
+      colors.base.fuchsia_darker.value,
     ]}
   />
   <ColorItem
     title="$orange-*"
     colors={[
-      brandTokens.orangeLighter,
-      brandTokens.orangeLight,
-      brandTokens.orange,
-      brandTokens.orangeDark,
-      brandTokens.orangeDarker,
+      colors.base.orange_lighter.value,
+      colors.base.orange_light.value,
+      colors.base.orange.value,
+      colors.base.orange_dark.value,
+      colors.base.orange_darker.value,
     ]}
   />
   <ColorItem
     title="$gray-*"
     colors={[
-      brandTokens.grayLighter,
-      brandTokens.grayLight,
-      brandTokens.gray,
-      brandTokens.grayDark,
-      brandTokens.grayDarker,
+      colors.base.gray_lighter.value,
+      colors.base.gray_light.value,
+      colors.base.gray.value,
+      colors.base.gray_dark.value,
+      colors.base.gray_darker.value,
     ]}
   />
 </ColorPalette>
@@ -106,21 +107,21 @@ We design and build with accessibility in mind. Color contrast for text should m
   <ColorItem
     title="$text-dark"
     subtitle="Accessible on white and lightest gray."
-    colors={[brandTokens.textDark]}
+    colors={[colors.text.dark.value]}
   />
   <ColorItem
     title="$text-light"
     subtitle="Accessible on primary brand color."
-    colors={[brandTokens.textLight]}
+    colors={[colors.text.light.value]}
   />
   <ColorItem
     title="$text-light-emphasis"
     subtitle="Accessible on primary brand color, useful for buttons and headings."
-    colors={[brandTokens.textLightEmphasis]}
+    colors={[colors.text.light_emphasis.value]}
   />
   <ColorItem
     title="$text-action"
     subtitle="Accessible on white and lighter-gray."
-    colors={[brandTokens.textAction]}
+    colors={[colors.text.action.value]}
   />
 </ColorPalette>

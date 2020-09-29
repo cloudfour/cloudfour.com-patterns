@@ -19,6 +19,8 @@
   "exclude": [
     "src/prototypes",
     "src/vendor/prism/demo/samples",
-    "src/design-tokens/generated"
+    "src/design-tokens/generated",
+    "src/tokens",
+    "src/compiled"
   ]
 }

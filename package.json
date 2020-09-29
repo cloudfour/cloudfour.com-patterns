@@ -51,7 +51,7 @@
     "@rollup/plugin-babel": "5.2.1",
     "@rollup/plugin-node-resolve": "9.0.0",
     "@storybook/addon-a11y": "6.0.21",
-    "@storybook/addon-controls": "^6.0.21",
+    "@storybook/addon-controls": "6.0.21",
     "@storybook/addon-docs": "6.0.21",
     "@storybook/addon-viewport": "6.0.21",
     "@storybook/html": "6.0.21",

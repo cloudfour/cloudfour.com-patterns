@@ -11,6 +11,19 @@ const imgSizeOptions = {
   max: 256,
   step: 1,
 };
+const argTypes = {
+  imgSrc: {
+    type: { name: 'string', required: true },
+    defaultValue: meganProfileImage,
+  },
+  text: { type: { name: 'string' }, defaultValue: exampleText },
+  imgSize: {
+    type: { name: 'number' },
+    control: imgSizeOptions,
+    defaultValue: 64,
+  },
+  reverse: { type: { name: 'boolean' }, defaultValue: false },
+};
 
 <Meta title="Objects/Media" />
 
@@ -25,22 +38,7 @@ This pattern is composed of three elements:
 - `o-media__content` for the wrapping content (typically text). This content will appear middle-aligned with the object until it exceeds the object's height, at which point it will appear top-aligned.
 
 <Canvas>
-  <Story
-    name="Image"
-    argTypes={{
-      imgSrc: {
-        type: { name: 'string', required: true },
-        defaultValue: meganProfileImage,
-      },
-      text: { type: { name: 'string' }, defaultValue: exampleText },
-      imgSize: {
-        type: { name: 'number' },
-        control: imgSizeOptions,
-        defaultValue: 64,
-      },
-      reverse: { type: { name: 'boolean' }, defaultValue: false },
-    }}
-  >
+  <Story name="Image" argTypes={argTypes}>
     {(args) => imageDemo(args)}
   </Story>
 </Canvas>
@@ -53,16 +51,7 @@ The order of `o-media__object` and `o-media__content` will not affect this patte
   <Story
     name="Image Reversed"
     argTypes={{
-      imgSrc: {
-        type: { name: 'string', required: true },
-        defaultValue: meganProfileImage,
-      },
-      text: { type: { name: 'string' }, defaultValue: exampleText },
-      imgSize: {
-        type: { name: 'number' },
-        control: imgSizeOptions,
-        defaultValue: 64,
-      },
+      ...argTypes,
       reverse: { type: { name: 'boolean' }, defaultValue: true },
     }}
   >

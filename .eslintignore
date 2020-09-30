@@ -1,6 +1,5 @@
 /dist
 /ts-dist
-/src/design-tokens/generated
 /src/compiled
 /storybook-static
 

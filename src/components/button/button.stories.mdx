@@ -2,6 +2,15 @@ import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import elementsDemo from './demo/elements.twig';
 import stylesDemo from './demo/styles.twig';
 import stylesDarkDemo from './demo/styles-dark.twig';
+const argTypes = {
+  href: { type: { name: 'string' } },
+  type: {
+    type: { name: 'enum' },
+    control: { type: 'inline-radio', options: ['button', 'submit'] },
+    defaultValue: 'button',
+  },
+  disabled: { type: { name: 'boolean' }, defaultValue: false },
+};
 
 <Meta title="Components/Button" />
 
@@ -10,18 +19,7 @@ import stylesDarkDemo from './demo/styles-dark.twig';
 The `c-button` class may be applied to button and link elements. The button appears filled by default so that the actionable element is clearly distinguished from surrounding text.
 
 <Canvas>
-  <Story
-    name="Elements"
-    argTypes={{
-      href: { type: { name: 'string' } },
-      type: {
-        type: { name: 'enum' },
-        control: { type: 'select', options: ['button', 'submit'] },
-        defaultValue: 'button',
-      },
-      disabled: { type: { name: 'boolean' }, defaultValue: false },
-    }}
-  >
+  <Story name="Elements" argTypes={argTypes}>
     {(args) => elementsDemo(args)}
   </Story>
 </Canvas>
@@ -31,18 +29,7 @@ The `c-button` class may be applied to button and link elements. The button appe
 Some buttons may not require as much emphasis as others. The `c-button--secondary` and `c-button--tertiary` modifiers reflect lesser importance with reduced contrast.
 
 <Canvas>
-  <Story
-    name="Styles"
-    argTypes={{
-      href: { type: { name: 'string' } },
-      type: {
-        type: { name: 'enum' },
-        control: { type: 'select', options: ['button', 'submit'] },
-        defaultValue: 'button',
-      },
-      disabled: { type: { name: 'boolean' }, defaultValue: false },
-    }}
-  >
+  <Story name="Styles" argTypes={argTypes}>
     {(args) => stylesDemo(args)}
   </Story>
 </Canvas>
@@ -53,15 +40,7 @@ All the above visual styles will appear slightly different within [our dark them
   <Story
     name="Styles (Dark)"
     parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
-    argTypes={{
-      href: { type: { name: 'string' } },
-      type: {
-        type: { name: 'enum' },
-        control: { type: 'select', options: ['button', 'submit'] },
-        defaultValue: 'button',
-      },
-      disabled: { type: { name: 'boolean' }, defaultValue: false },
-    }}
+    argTypes={argTypes}
   >
     {(args) => stylesDarkDemo(args)}
   </Story>

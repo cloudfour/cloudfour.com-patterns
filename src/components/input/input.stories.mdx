@@ -1,11 +1,4 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import {
-  withKnobs,
-  text,
-  number,
-  boolean,
-  select,
-} from '@storybook/addon-knobs';
 import { useEffect } from '@storybook/client-api';
 import textDemo from './demo/example.twig';
 import selectDemo from './demo/select.twig';
@@ -19,7 +12,6 @@ different settings within the same file, React syncs all their properties.
 
 <Meta
   title="Components/Input"
-  decorators={[withKnobs]}
   parameters={{ docs: { inlineStories: false } }}
 />
 
@@ -28,26 +20,44 @@ different settings within the same file, React syncs all their properties.
 The `c-input` class styles text and text-like form elements in a consistent way. It works great with an adjacent [button component](/?path=/story/components-button--elements).
 
 <Canvas>
-  <Story name="Text Elements" height="200px">
-    {textDemo({
-      type: select('type', ['text', 'email', 'search', 'date', 'textarea']),
-      value: text('value'),
-      placeholder: text('placeholder', 'Placeholder text…'),
-      id: text('id', 'demo-input'),
-      readonly: boolean('readonly'),
-      disabled: boolean('disabled'),
-    })}
+  <Story
+    name="Text Elements"
+    height="200px"
+    argTypes={{
+      type: {
+        type: { name: 'enum' },
+        defaultValue: 'text',
+        control: {
+          type: 'select',
+          options: ['text', 'email', 'search', 'date', 'textarea'],
+        },
+      },
+      value: { type: { name: 'string' } },
+      placeholder: {
+        type: { name: 'string' },
+        defaultValue: 'Placeholder text…',
+      },
+      id: { type: { name: 'string' }, defaultValue: 'demo-input' },
+      readonly: { type: { name: 'boolean' }, defaultValue: false },
+      disabled: { type: { name: 'boolean' }, defaultValue: false },
+    }}
+  >
+    {(args) => textDemo(args)}
   </Story>
 </Canvas>
 
 You can also add `c-input` to `<select>` elements, in which case you’ll get a nifty iconographic affordance. The `multiple` attribute is not supported.
 
 <Canvas>
-  <Story name="Select Element" height="200px">
-    {selectDemo({
-      id: text('id', 'demo-select'),
-      disabled: boolean('disabled'),
-    })}
+  <Story
+    name="Select Element"
+    height="200px"
+    argTypes={{
+      id: { type: { name: 'string' }, defaultValue: 'demo-input' },
+      disabled: { type: { name: 'boolean' }, defaultValue: false },
+    }}
+  >
+    {(args) => selectDemo(args)}
   </Story>
 </Canvas>
 
@@ -58,8 +68,18 @@ Add the `c-input--elastic` modifier class to a `<textarea>` element and follow t
 If the `rows` attribute is set, it will be used as the minimum height.
 
 <Canvas>
-  <Story name="Elastic Textarea" height="350px">
-    {() => {
+  <Story
+    name="Elastic Textarea"
+    height="350px"
+    argTypes={{
+      rows: { type: { name: 'number' }, defaultValue: 2 },
+      class: {
+        type: { name: 'string' },
+        defaultValue: 'c-input--elastic js-elastic-textarea',
+      },
+    }}
+  >
+    {(args) => {
       // Use storybook hooks to trigger JS after story renders
       // @see https://github.com/storybookjs/storybook/issues/7786
       useEffect(() => {
@@ -70,9 +90,9 @@ If the `rows` attribute is set, it will be used as the minimum height.
         value:
           'We are a small, versatile team who care passionately about the web. We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school.',
         placeholder: 'Placeholder text…',
-        rows: number('rows', '2'),
         id: 'demo-elastic',
-        class: text('class', 'c-input--elastic js-elastic-textarea'),
+        rows: args.rows,
+        class: args.class,
       });
     }}
   </Story>

@@ -1,5 +1,4 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean, text, number } from '@storybook/addon-knobs';
 import calendarDateDemo from './demo/calendar-date.twig';
 import checkboxDemo from './demo/checkbox.twig';
 import imageDemo from './demo/image.twig';
@@ -7,13 +6,28 @@ import meganProfileImage from './demo/megan.png';
 const exampleText =
   'One of the things that is really clear to us (and that we hear often from our clients) is that the way we engage with our clients is unique. In fact, bringing clients in early and often to our process is one of our specialties at Cloud Four.';
 const imgSizeOptions = {
-  range: true,
+  type: 'range',
   min: 24,
   max: 256,
   step: 1,
 };
 
-<Meta title="Objects/Media" decorators={[withKnobs]} />
+<Meta
+  title="Objects/Media"
+  argTypes={{
+    imgSrc: {
+      type: { name: 'string', required: true },
+      defaultValue: meganProfileImage,
+    },
+    text: { type: { name: 'string' }, defaultValue: exampleText },
+    imgSize: {
+      type: { name: 'number' },
+      control: imgSizeOptions,
+      defaultValue: 64,
+    },
+    reverse: { type: { name: 'boolean' }, defaultValue: false },
+  }}
+/>
 
 # Media
 
@@ -26,14 +40,7 @@ This pattern is composed of three elements:
 - `o-media__content` for the wrapping content (typically text). This content will appear middle-aligned with the object until it exceeds the object's height, at which point it will appear top-aligned.
 
 <Canvas>
-  <Story name="Image">
-    {imageDemo({
-      imgSrc: meganProfileImage,
-      text: text('text', exampleText),
-      imgSize: number('image size', 64, imgSizeOptions),
-      reverse: boolean('reverse'),
-    })}
-  </Story>
+  <Story name="Image">{(args) => imageDemo(args)}</Story>
 </Canvas>
 
 ## Reverse Order
@@ -41,13 +48,8 @@ This pattern is composed of three elements:
 The order of `o-media__object` and `o-media__content` will not affect this pattern's visual appearance. To display the object on the right, use the `o-media--reverse` modifier.
 
 <Canvas>
-  <Story name="Image Reversed">
-    {imageDemo({
-      imgSrc: meganProfileImage,
-      text: text('text', exampleText),
-      imgSize: number('image size', 64, imgSizeOptions),
-      reverse: true,
-    })}
+  <Story name="Image Reversed" args={{ reverse: true }}>
+    {(args) => imageDemo(args)}
   </Story>
 </Canvas>
 

@@ -1,6 +1,10 @@
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { twingLoader, valLoader, alias } = require('../twing/webpack-options');
+const {
+  twingLoader,
+  valLoader,
+  alias: twingAlias,
+} = require('../twing/webpack-options');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
@@ -20,11 +24,11 @@ module.exports = {
     const isDev = config.mode === 'development';
     // Remove default SVG processing from default config.
     // @see https://github.com/storybookjs/storybook/issues/5708#issuecomment-515384927
-    config.module.rules = config.module.rules.map((data) => {
-      if (/svg\|/.test(String(data.test))) {
-        data.test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/;
+    config.module.rules = config.module.rules.map((rule) => {
+      if (/svg\|/.test(String(rule.test))) {
+        rule.test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/;
       }
-      return data;
+      return rule;
     });
 
     /**
@@ -91,11 +95,26 @@ module.exports = {
       {
         // Optimize and process SVGs as React elements for use in documentation
         test: /\.svg$/,
+        issuer: {
+          // If we do `url('___.svg')` in a CSS file, we don't want a react component to get inlined
+          exclude: [/.css$/, /.scss$/],
+        },
         use: '@svgr/webpack',
+      },
+      {
+        test: /\.svg$/,
+        issuer: {
+          // If we do `url('___.svg')` in a CSS file, we don't want a react component to get inlined
+          include: [/.css$/, /.scss$/],
+        },
+        use: 'file-loader',
       }
     );
 
-    Object.assign(config.resolve.alias, alias);
+    Object.assign(config.resolve.alias, twingAlias);
+    // Allow resolving `static/*` paths so relative paths don't have to be used
+    // This is used for url() paths in CSS
+    config.resolve.alias['static'] = join(__dirname, '..', 'static');
 
     config.plugins.push(new MiniCssExtractPlugin());
 

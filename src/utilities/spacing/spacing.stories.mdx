@@ -6,6 +6,11 @@ import {
 import logicalPropertiesDemo from './demo/logical-properties.twig';
 import directionsDemo from './demo/directions.twig';
 import './demo/styles.scss';
+const stepArg = {
+  type: { name: 'number' },
+  control: { type: 'range', min: minimumStep, max: maximumStep, step: 1 },
+  defaultValue: 1,
+};
 
 <Meta title="Utilities/Spacing" />
 
@@ -34,11 +39,7 @@ Observe how the direction of the same utility classes change depending on the pa
         control: { type: 'inline-radio', options: ['space', 'pad'] },
         defaultValue: 'space',
       },
-      step: {
-        type: { name: 'number' },
-        control: { type: 'range', min: minimumStep, max: maximumStep, step: 1 },
-        defaultValue: 1,
-      },
+      step: stepArg,
     }}
   >
     {(args) => logicalPropertiesDemo(args)}
@@ -69,16 +70,7 @@ The following utilities pad the _inside_ of the element:
 `{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page) or `none`.
 
 <Canvas>
-  <Story
-    name="Padding"
-    argTypes={{
-      step: {
-        type: { name: 'number' },
-        control: { type: 'range', min: minimumStep, max: maximumStep, step: 1 },
-        defaultValue: 1,
-      },
-    }}
-  >
+  <Story name="Padding" argTypes={{ step: stepArg }}>
     {(args) => directionsDemo({ name: 'pad', ...args })}
   </Story>
 </Canvas>
@@ -98,16 +90,7 @@ The following utilities apply space _outside_ the element:
 `{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page), `auto` or `none`.
 
 <Canvas>
-  <Story
-    name="Margin"
-    argTypes={{
-      step: {
-        type: { name: 'number' },
-        control: { type: 'range', min: minimumStep, max: maximumStep, step: 1 },
-        defaultValue: 1,
-      },
-    }}
-  >
+  <Story name="Margin" argTypes={{ step: stepArg }}>
     {(args) => directionsDemo({ name: 'space', ...args })}
   </Story>
 </Canvas>

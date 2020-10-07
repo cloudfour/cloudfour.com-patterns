@@ -10,7 +10,18 @@ const defaultItems = [
 ];
 const tagNames = ['ul', 'ol'];
 
-<Meta title="Objects/List" />
+<Meta
+  title="Objects/List"
+  argTypes={{
+    class: { type: { name: 'string' } },
+    items: { type: { name: 'array' }, defaultValue: defaultItems },
+    tag_name: {
+      type: { name: 'enum' },
+      control: { type: 'inline-radio', options: tagNames },
+      defaultValue: tagNames[0],
+    },
+  }}
+/>
 
 # List
 
@@ -21,20 +32,7 @@ The `o-list` object presents list items in a straightforward and unopinionated m
 By default, `o-list` removes default spacing and list item decorators:
 
 <Canvas>
-  <Story
-    name="Default"
-    argTypes={{
-      class: { type: { name: 'string' } },
-      items: { type: { name: 'array' }, defaultValue: defaultItems },
-      tag_name: {
-        type: { name: 'enum' },
-        control: { type: 'inline-radio', options: tagNames },
-        defaultValue: tagNames[0],
-      },
-    }}
-  >
-    {(args) => template(args)}
-  </Story>
+  <Story name="Default">{(args) => template(args)}</Story>
 </Canvas>
 
 ## Inline List
@@ -42,18 +40,7 @@ By default, `o-list` removes default spacing and list item decorators:
 The `o-list--inline` modifier arranges items in a horizontal row, wrapping to new lines as needed. This is a good fit for lists of tags or related links:
 
 <Canvas>
-  <Story
-    name="Inline"
-    argTypes={{
-      class: { type: { name: 'string' }, defaultValue: 'o-list--inline' },
-      items: { type: { name: 'array' }, defaultValue: defaultItems },
-      tag_name: {
-        type: { name: 'enum' },
-        control: { type: 'inline-radio', options: tagNames },
-        defaultValue: tagNames[0],
-      },
-    }}
-  >
+  <Story name="Inline" args={{ class: 'o-list--inline' }}>
     {(args) => template(args)}
   </Story>
 </Canvas>

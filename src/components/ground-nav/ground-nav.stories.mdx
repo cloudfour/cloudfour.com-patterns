@@ -118,22 +118,13 @@ The menu’s contents may differ between projects. This example is based on the 
 <Canvas>
   <Story
     name="PWA Stats"
-    argTypes={{
-      ...defaultArgTypes,
-      buttonLeadIn: {
-        type: { name: 'string' },
-        defaultValue: 'Help us build this resource!',
-      },
-      buttonTitle: {
-        type: { name: 'string' },
-        defaultValue: 'Contribute a story',
-      },
-      buttonLink: {
-        type: { name: 'string' },
-        defaultValue:
-          'https://github.com/cloudfour/pwastats/issues/new?title=Submission:+New+Story',
-      },
-      buttonIcon: { type: { name: 'string' }, defaultValue: 'brands/github' },
+    argTypes={defaultArgTypes}
+    args={{
+      buttonLeadIn: 'Help us build this resource!',
+      buttonTitle: 'Contribute a story',
+      buttonLink:
+        'https://github.com/cloudfour/pwastats/issues/new?title=Submission:+New+Story',
+      buttonIcon: 'brands/github',
     }}
   >
     {(args) =>

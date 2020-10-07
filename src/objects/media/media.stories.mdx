@@ -11,21 +11,23 @@ const imgSizeOptions = {
   max: 256,
   step: 1,
 };
-const argTypes = {
-  imgSrc: {
-    type: { name: 'string', required: true },
-    defaultValue: meganProfileImage,
-  },
-  text: { type: { name: 'string' }, defaultValue: exampleText },
-  imgSize: {
-    type: { name: 'number' },
-    control: imgSizeOptions,
-    defaultValue: 64,
-  },
-  reverse: { type: { name: 'boolean' }, defaultValue: false },
-};
 
-<Meta title="Objects/Media" />
+<Meta
+  title="Objects/Media"
+  argTypes={{
+    imgSrc: {
+      type: { name: 'string', required: true },
+      defaultValue: meganProfileImage,
+    },
+    text: { type: { name: 'string' }, defaultValue: exampleText },
+    imgSize: {
+      type: { name: 'number' },
+      control: imgSizeOptions,
+      defaultValue: 64,
+    },
+    reverse: { type: { name: 'boolean' }, defaultValue: false },
+  }}
+/>
 
 # Media
 
@@ -38,9 +40,7 @@ This pattern is composed of three elements:
 - `o-media__content` for the wrapping content (typically text). This content will appear middle-aligned with the object until it exceeds the object's height, at which point it will appear top-aligned.
 
 <Canvas>
-  <Story name="Image" argTypes={argTypes}>
-    {(args) => imageDemo(args)}
-  </Story>
+  <Story name="Image">{(args) => imageDemo(args)}</Story>
 </Canvas>
 
 ## Reverse Order
@@ -48,13 +48,7 @@ This pattern is composed of three elements:
 The order of `o-media__object` and `o-media__content` will not affect this pattern's visual appearance. To display the object on the right, use the `o-media--reverse` modifier.
 
 <Canvas>
-  <Story
-    name="Image Reversed"
-    argTypes={{
-      ...argTypes,
-      reverse: { type: { name: 'boolean' }, defaultValue: true },
-    }}
-  >
+  <Story name="Image Reversed" args={{ reverse: true }}>
     {(args) => imageDemo(args)}
   </Story>
 </Canvas>

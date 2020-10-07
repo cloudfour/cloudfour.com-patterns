@@ -2,26 +2,26 @@ import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import elementsDemo from './demo/elements.twig';
 import stylesDemo from './demo/styles.twig';
 import stylesDarkDemo from './demo/styles-dark.twig';
-const argTypes = {
-  href: { type: { name: 'string' } },
-  type: {
-    type: { name: 'enum' },
-    control: { type: 'inline-radio', options: ['button', 'submit'] },
-    defaultValue: 'button',
-  },
-  disabled: { type: { name: 'boolean' }, defaultValue: false },
-};
 
-<Meta title="Components/Button" />
+<Meta
+  title="Components/Button"
+  argTypes={{
+    href: { type: { name: 'string' } },
+    type: {
+      type: { name: 'enum' },
+      control: { type: 'inline-radio', options: ['button', 'submit'] },
+      defaultValue: 'button',
+    },
+    disabled: { type: { name: 'boolean' }, defaultValue: false },
+  }}
+/>
 
 # Button
 
 The `c-button` class may be applied to button and link elements. The button appears filled by default so that the actionable element is clearly distinguished from surrounding text.
 
 <Canvas>
-  <Story name="Elements" argTypes={argTypes}>
-    {(args) => elementsDemo(args)}
-  </Story>
+  <Story name="Elements">{(args) => elementsDemo(args)}</Story>
 </Canvas>
 
 ## Styles
@@ -29,9 +29,7 @@ The `c-button` class may be applied to button and link elements. The button appe
 Some buttons may not require as much emphasis as others. The `c-button--secondary` and `c-button--tertiary` modifiers reflect lesser importance with reduced contrast.
 
 <Canvas>
-  <Story name="Styles" argTypes={argTypes}>
-    {(args) => stylesDemo(args)}
-  </Story>
+  <Story name="Styles">{(args) => stylesDemo(args)}</Story>
 </Canvas>
 
 All the above visual styles will appear slightly different within [our dark theme](/?path=/docs/themes--dark). These versions retain their visual emphasis relative to one another while remaining visually distinct from form inputs.
@@ -40,7 +38,6 @@ All the above visual styles will appear slightly different within [our dark them
   <Story
     name="Styles (Dark)"
     parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
-    argTypes={argTypes}
   >
     {(args) => stylesDarkDemo(args)}
   </Story>

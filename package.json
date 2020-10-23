@@ -133,6 +133,8 @@
     "lint:css": "stylelint --fix '**/*.scss'",
     "lint:js": "eslint . --fix",
     "test": "cypress run",
-    "test:open": "cypress open"
+    "test:open": "cypress open",
+    "version": "changeset version && prettier --write .",
+    "release": "npm run build && changeset publish"
   }
 }

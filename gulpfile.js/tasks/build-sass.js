@@ -18,6 +18,7 @@ const buildSass = () => {
         ],
       }).on('error', sass.logError)
     )
+    .pipe(postcss())
     .pipe(rename({ basename: 'standalone' }))
     .pipe(dest(outDir))
     .pipe(postcss([cssnano()]))

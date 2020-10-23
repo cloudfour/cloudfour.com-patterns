@@ -22,14 +22,6 @@ module.exports = {
   ],
   webpackFinal: async (config) => {
     const isDev = config.mode === 'development';
-    // Remove default SVG processing from default config.
-    // @see https://github.com/storybookjs/storybook/issues/5708#issuecomment-515384927
-    config.module.rules = config.module.rules.map((rule) => {
-      if (/svg\|/.test(String(rule.test))) {
-        rule.test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/;
-      }
-      return rule;
-    });
 
     /**
      * For development, leave the default 'cheap-module-source-map', as it's faster and works.
@@ -91,23 +83,6 @@ module.exports = {
         // Import Theo design tokens as JS objects
         test: /\.ya?ml$/,
         use: resolve(__dirname, '../.theo/webpack-loader.js'),
-      },
-      {
-        // Optimize and process SVGs as React elements for use in documentation
-        test: /\.svg$/,
-        issuer: {
-          // If we do `url('___.svg')` in a CSS file, we don't want a react component to get inlined
-          exclude: [/.css$/, /.scss$/],
-        },
-        use: '@svgr/webpack',
-      },
-      {
-        test: /\.svg$/,
-        issuer: {
-          // If we do `url('___.svg')` in a CSS file, we don't want a react component to get inlined
-          include: [/.css$/, /.scss$/],
-        },
-        use: 'file-loader',
       }
     );
 

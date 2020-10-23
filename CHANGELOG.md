@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 0.2.1
+
+### Patch Changes
+
+- 97da320: Fix for missing SVGs in compiled CSS
+
 ## 0.3.0
 
 ### Minor Changes

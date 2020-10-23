@@ -1,7 +1,10 @@
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
 import { extname, relative } from 'path';
 // Import whole directory of icons together
+// Using inline loaders to confine SVG to React transform to this doc
 // @see https://webpack.js.org/guides/dependency-management/#context-module-api
+// @see https://webpack.js.org/concepts/loaders/#configuration
+// @see https://react-svgr.com/docs/webpack/
 const iconDir = require.context(
   '!!@svgr/webpack!../../assets/icons',
   false,

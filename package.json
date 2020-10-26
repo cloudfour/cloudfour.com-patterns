@@ -68,7 +68,7 @@
     "eliminate": "1.1.2",
     "eslint": "7.11.0",
     "eslint-plugin-mdx": "1.8.2",
-    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-react": "7.21.5",
     "gulp": "4.0.2",
     "gulp-postcss": "8.0.0",
     "gulp-prettier": "3.0.0",

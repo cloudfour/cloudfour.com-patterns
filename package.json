@@ -39,7 +39,7 @@
     "!src/index.scss"
   ],
   "dependencies": {
-    "focus-visible": "5.1.0",
+    "focus-visible": "5.2.0",
     "prismjs": "1.21.0"
   },
   "devDependencies": {

@@ -11,7 +11,7 @@
 {% endset %}
 
 <footer class="c-ground-nav">
-  {% with action %}
+  {% with action|default({}) %}
   <div class="c-ground-nav__action o-container">
     <div class="o-container__content c-ground-nav__action-inner">
       <h2 class="c-ground-nav__action-lead-in">
@@ -48,12 +48,12 @@
         Contact info
       </h2>
       {# https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address #}
-      {% with organization %}
+      {% with organization|default({}) %}
         <address class="c-ground-nav__organization">
           <a href="{{url}}" class="c-ground-nav__organization-name">
             {{name}}
           </a><br>
-          {% with address %}
+          {% with address|default({}) %}
             {{streetAddress}}<br>
             {{addressLocality}}, {{addressRegion}} {{postalCode}} {{addressCountry}}<br>
           {% endwith %}
@@ -95,7 +95,7 @@
         {# https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html #}
         <ul class="c-ground-nav__menu-items o-list" role="list">
           {% for item in menu.items %}
-            <li class="class="c-ground-nav__menu-item">
+            <li class="c-ground-nav__menu-item">
               <a class="c-ground-nav__menu-action"
                 href="{{item.link}}"
                 {% if item.current %}

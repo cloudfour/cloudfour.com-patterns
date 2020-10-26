@@ -11,12 +11,12 @@
             <span class="u-hidden-visually">Page</span>
             <span class="c-pagination__number">{{page.title}}</span>
           </a>
-        {% elseif page.name == pagination.prev.name %}
+        {% elseif page.link == pagination.prev.link %}
           <a class="c-pagination__action is-previous" href="{{page.link}}">
             <span class="u-hidden-visually">Previous: Page</span>
             <span class="c-pagination__number">{{page.title}}</span>
           </a>
-        {% elseif page.name == pagination.next.name %}
+        {% elseif page.link == pagination.next.link %}
           <a class="c-pagination__action is-next" href="{{page.link}}">
             <span class="u-hidden-visually">Next: Page</span>
             <span class="c-pagination__number">{{page.title}}</span>

@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 0.3.2
+
+### Patch Changes
+
+- [`849dcfc`](https://github.com/cloudfour/cloudfour.com-patterns/commit/849dcfcc2c1968e7b1f853a3d01ce901ee36da77) [#991](https://github.com/cloudfour/cloudfour.com-patterns/pull/991) Thanks [@tylersticka](https://github.com/tylersticka)! - Reduced errors when Ground Nav has incomplete data
+
+* [`dc39b08`](https://github.com/cloudfour/cloudfour.com-patterns/commit/dc39b088dc1b9eb05dcf91a086a0067f0c2324ed) [#990](https://github.com/cloudfour/cloudfour.com-patterns/pull/990) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix pagination next/previous issue in Timber
+
 ## 0.3.1
 
 ### Patch Changes

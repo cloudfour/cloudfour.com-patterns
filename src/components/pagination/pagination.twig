@@ -11,21 +11,26 @@
             <span class="u-hidden-visually">Page</span>
             <span class="c-pagination__number">{{page.title}}</span>
           </a>
-        {% elseif page.link == pagination.prev.link %}
+        {% elseif page.link and page.link == pagination.prev.link %}
           <a class="c-pagination__action is-previous" href="{{page.link}}">
             <span class="u-hidden-visually">Previous: Page</span>
             <span class="c-pagination__number">{{page.title}}</span>
           </a>
-        {% elseif page.link == pagination.next.link %}
+        {% elseif page.link and page.link == pagination.next.link %}
           <a class="c-pagination__action is-next" href="{{page.link}}">
             <span class="u-hidden-visually">Next: Page</span>
             <span class="c-pagination__number">{{page.title}}</span>
           </a>
-        {% else %}
+        {% elseif page.link %}
           <a class="c-pagination__action" href="{{page.link}}">
             <span class="u-hidden-visually">Page</span>
             <span class="c-pagination__number">{{page.title}}</span>
           </a>
+        {% else %}
+          {# Fallback for non-link pages like ellipsis gaps for first/last pages #}
+          <span class="c-pagination__action">
+            {{page.title}}
+          </span>
         {% endif %}
       </li>
     {% endfor %}

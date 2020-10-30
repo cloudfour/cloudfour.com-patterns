@@ -1,0 +1,35 @@
+@use "../../design-tokens/colors.yml";
+
+.c-cloud-cover {
+  background-color: colors.$gray-lighter;
+  background-image: svg-load(
+      'clouds/large.svg',
+      fill=colors.$text-light-emphasis,
+      width= '320',
+      height= '300',
+      viewBox= '0 0 320 300'
+    ),
+    svg-load(
+      'clouds/medium.svg',
+      fill=colors.$primary-brand-lighter,
+      width= '480',
+      height= '220',
+      viewBox= '0 0 480 220'
+    ),
+    svg-load(
+      'clouds/small.svg',
+      fill=colors.$primary-brand-light,
+      width= '580',
+      height= '140',
+      viewBox= '0 0 580 140'
+    );
+  background-position: bottom right, bottom right, bottom right;
+  background-repeat: no-repeat;
+  background-size: 30vmin auto, 45vmin auto, 54vmin auto;
+  min-height: 75vh;
+
+  &.t-dark,
+  .t-dark & {
+    background-color: colors.$primary-brand;
+  }
+}

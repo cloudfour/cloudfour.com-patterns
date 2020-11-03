@@ -1,7 +1,7 @@
 @use "../../design-tokens/colors.yml";
 
 .c-cloud-cover {
-  background-color: colors.$gray-lighter;
+  align-items: center;
   background-image: svg-load(
       'clouds/large.svg',
       fill=colors.$text-light-emphasis,
@@ -26,10 +26,7 @@
   background-position: bottom right, bottom right, bottom right;
   background-repeat: no-repeat;
   background-size: 30vmin auto, 45vmin auto, 54vmin auto;
-  min-height: 75vh;
-
-  &.t-dark,
-  .t-dark & {
-    background-color: colors.$primary-brand;
-  }
+  display: flex;
+  min-height: 66vh;
+  padding: 25vmin 0;
 }

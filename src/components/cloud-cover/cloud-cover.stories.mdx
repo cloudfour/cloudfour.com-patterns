@@ -1,17 +1,21 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import template from './cloud-cover.twig';
+import darkDemo from './demo/dark.twig';
 
 <Meta
   title="Components/Cloud Cover"
-  parameters={{ docs: { inlineStories: false }, paddings: { disabled: true } }}
+  parameters={{
+    docs: { inlineStories: false },
+    paddings: { disabled: true },
+    themes: { disable: true },
+  }}
 />
 
 # Cloud Cover
 
-TODO
+A containing element for introductory page content, for example a heading and subtitle. The clouds offer a whimsical, illustrative element to help transition from the page title and [Sky Nav](/?path=/docs/components-sky-nav--dark) to the main body content.
 
 <Canvas>
-  <Story name="WIP" height="200px">
-    {template()}
+  <Story name="Dark" height="400px">
+    {darkDemo()}
   </Story>
 </Canvas>

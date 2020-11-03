@@ -2,6 +2,14 @@
 
 .c-cloud-cover {
   align-items: center;
+  display: flex;
+  min-height: 66vh;
+  overflow: hidden;
+  padding: 20vh 0;
+  position: relative;
+}
+
+.c-cloud-cover::after {
   background-image: svg-load(
       'clouds/large.svg',
       fill=colors.$text-light-emphasis,
@@ -25,8 +33,12 @@
     );
   background-position: bottom right, bottom right, bottom right;
   background-repeat: no-repeat;
-  background-size: 30vmin auto, 45vmin auto, 54vmin auto;
-  display: flex;
-  min-height: 66vh;
-  padding: 25vmin 0;
+  background-size: auto 100%, auto (220 / 300 * 100%), auto (140 / 300 * 100%);
+  bottom: 0;
+  content: '';
+  height: calc(15% + 5vw);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 100%;
 }

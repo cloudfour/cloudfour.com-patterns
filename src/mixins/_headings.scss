@@ -25,7 +25,11 @@ $fluid-steps: 1;
       ms.step($max-step)
     );
 
-    line-height: ms.step(1, 1);
+    @if $level < 1 {
+      line-height: ms.step(0, 1);
+    } @else {
+      line-height: ms.step(1, 1);
+    }
   } @else {
     font-size: inherit;
     line-height: inherit;

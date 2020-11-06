@@ -1,4 +1,11 @@
-<div class="c-cloud-cover{% if class %} {{class}}{% endif %}">
-  {% block content %}
-  {% endblock %}
+{% set _content %}{{block('content')}}{% endset %}
+
+<div class="c-cloud-cover{% if class %} {{class}}{% endif %} t-dark">
+  {% embed '@cloudfour/objects/container/container.twig' with {
+    class: 'o-container--pad-inline'
+  } %}
+    {% block content %}
+      {{_content}}
+    {% endblock %}
+  {% endembed %}
 </div>

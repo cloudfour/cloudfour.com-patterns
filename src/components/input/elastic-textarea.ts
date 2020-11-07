@@ -9,32 +9,41 @@
  * @param textarea - the target `textarea` element
  */
 export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
-  const maxRows = 500; // Used to prevent infinite loop if textarea has fixed height
   const minRows = Number(textarea.getAttribute('rows')) || 2;
   let rows = Number(textarea.getAttribute('rows')) || minRows;
   textarea.setAttribute('rows', String(rows));
-  let isScrolling = false;
 
   /** Check if the textarea is currently scrolling */
-  const getIsScrolling = () => textarea.scrollHeight > textarea.clientHeight;
+  const isScrolling = () => textarea.scrollHeight > textarea.clientHeight;
 
   /** Grow until the textarea stops scrolling */
   const grow = () => {
-    while (isScrolling && rows < maxRows) {
+    // Store initial height of textarea
+    let previousHeight = textarea.clientHeight;
+
+    while (isScrolling()) {
       rows++;
       textarea.setAttribute('rows', String(rows));
-      isScrolling = getIsScrolling();
+
+      // Get height after rows change is made
+      const newHeight = textarea.clientHeight;
+
+      // If the height hasn't changed, break the loop
+      // This sanity check is to prevent an infinite loop in IE11
+      if (newHeight === previousHeight) break;
+
+      // Store the updated height for the next comparison and proceed
+      previousHeight = newHeight;
     }
   };
 
   /** Shrink until the textarea matches the minimum rows or starts scrolling */
   const shrink = () => {
-    while (!isScrolling && rows > minRows) {
+    while (!isScrolling() && rows > minRows) {
       rows--;
       textarea.setAttribute('rows', String(Math.max(rows, minRows)));
-      isScrolling = getIsScrolling();
 
-      if (isScrolling) {
+      if (isScrolling()) {
         grow();
         break;
       }
@@ -43,9 +52,7 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
 
   /** Decide whether to grow or shrink the textarea */
   const update = () => {
-    isScrolling = getIsScrolling();
-
-    if (isScrolling) {
+    if (isScrolling()) {
       grow();
     } else {
       shrink();

@@ -50,7 +50,7 @@
     "@cloudfour/eslint-plugin": "14.0.0",
     "@cypress/webpack-preprocessor": "5.4.10",
     "@rollup/plugin-babel": "5.2.1",
-    "@rollup/plugin-node-resolve": "9.0.0",
+    "@rollup/plugin-node-resolve": "10.0.0",
     "@storybook/addon-a11y": "6.0.28",
     "@storybook/addon-controls": "6.0.28",
     "@storybook/addon-docs": "6.0.28",

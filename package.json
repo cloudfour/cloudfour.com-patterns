@@ -46,7 +46,7 @@
     "@babel/core": "7.12.3",
     "@babel/preset-env": "7.12.1",
     "@changesets/changelog-github": "0.2.7",
-    "@changesets/cli": "2.11.1",
+    "@changesets/cli": "2.11.2",
     "@cloudfour/eslint-plugin": "14.0.0",
     "@cypress/webpack-preprocessor": "5.4.8",
     "@rollup/plugin-babel": "5.2.1",

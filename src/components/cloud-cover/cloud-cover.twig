@@ -5,11 +5,12 @@
         {% block content %}
         {% endblock %}
       </div>
-      <div class="c-cloud-cover__scene">
-        {% block scene %}
-          <img src="https://cloudfour.com/wp-content/themes/cloudfour/static/toolkit/images/sky-what_we_do.svg" alt="">
-        {% endblock %}
-      </div>
+      {% if block('scene') is defined %}
+        <div class="c-cloud-cover__scene">
+          {% block scene %}
+          {% endblock %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>

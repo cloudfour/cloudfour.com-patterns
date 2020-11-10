@@ -1,11 +1,15 @@
-{% set _content %}{{block('content')}}{% endset %}
-
-<div class="c-cloud-cover{% if class %} {{class}}{% endif %} t-dark">
-  {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'o-container--pad-inline'
-  } %}
-    {% block content %}
-      {{_content}}
-    {% endblock %}
-  {% endembed %}
+<div class="c-cloud-cover t-dark">
+  <div class="o-container o-container--pad-inline c-cloud-cover__container">
+    <div class="o-container__content c-cloud-cover__inner">
+      <div class="c-cloud-cover__content">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <div class="c-cloud-cover__scene">
+        {% block scene %}
+          <img src="https://cloudfour.com/wp-content/themes/cloudfour/static/toolkit/images/sky-what_we_do.svg" alt="">
+        {% endblock %}
+      </div>
+    </div>
+  </div>
 </div>

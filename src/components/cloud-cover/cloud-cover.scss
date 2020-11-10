@@ -2,21 +2,33 @@
 @use "../../design-tokens/layout.yml";
 @use "../../mixins/ms";
 
+$cloud-height: calc(14vh + 4vw);
+$cloud-half-height: calc(7vh + 2vw);
+
 .c-cloud-cover {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, calc(7vh + 2vw)) 1fr repeat(2, calc(7vh + 2vw));
+  position: relative;
 }
 
+.c-cloud-cover::before,
 .c-cloud-cover::after {
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: $cloud-height;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 100%;
+
+  @media (orientation: landscape) {
+    width: 50%;
+  }
+}
+
+.c-cloud-cover::before {
   background-image: svg-load(
-      'clouds/large.svg',
-      fill=colors.$text-light-emphasis,
-      width= '320',
-      height= '300',
-      viewBox= '0 0 320 300'
-    ),
-    svg-load(
       'clouds/medium.svg',
       fill=colors.$primary-brand-lighter,
       width= '480',
@@ -30,55 +42,82 @@
       height= '140',
       viewBox= '0 0 580 140'
     );
-  background-position: bottom right, bottom right, bottom right;
-  background-repeat: no-repeat;
-  background-size: auto 100%, auto (220 / 300 * 100%), auto (140 / 300 * 100%);
-  content: '';
-  display: block;
-  grid-column: 1 / span 2;
-  grid-row: 4 / span 2;
-  height: 100%;
-  pointer-events: none;
-  width: 100%;
+  background-size: auto (220 / 300 * 100%), auto (140 / 300 * 100%);
+}
 
-  @media (orientation: landscape) {
-    grid-column: 2;
-  }
+.c-cloud-cover::after {
+  background-image: svg-load(
+    'clouds/large.svg',
+    fill=colors.$text-light-emphasis,
+    width= '320',
+    height= '300',
+    viewBox= '0 0 320 300'
+  );
+  background-position: bottom right;
+  background-size: auto 100%;
+  z-index: 2;
 }
 
 .c-cloud-cover__container {
-  align-self: center;
-  grid-column: 1 / span 2;
-  grid-row: 2 / span 2;
-
-  @media (orientation: landscape) {
-    grid-row: 2 / span 3;
-  }
+  position: relative;
+  z-index: 1;
 }
 
 .c-cloud-cover__inner {
   align-items: center;
   display: grid;
-  grid-gap: ms.step(1);
   grid-template-areas:
-    'scene scene'
-    'content content';
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr auto;
+    '.'
+    'scene'
+    'content'
+    '.';
+  grid-template-rows:
+    $cloud-half-height
+    repeat(2, auto)
+    $cloud-height;
 
   @media (orientation: landscape) {
     grid-template-areas:
+      '. .'
+      '. scene'
       'content scene'
-      'content scene';
+      '. scene'
+      '. .';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:
+      repeat(2, $cloud-half-height)
+      1fr
+      repeat(2, $cloud-half-height);
+  }
+
+  .c-cloud-cover--horizon-scene & {
+    grid-template-areas:
+      '.'
+      'content'
+      'scene'
+      'scene';
+
+    @media (orientation: landscape) {
+      grid-template-areas:
+        '. .'
+        '. scene'
+        'content scene'
+        '. scene'
+        '. scene';
+    }
   }
 }
 
 .c-cloud-cover__content {
   grid-area: content;
+  padding: ms.step(1) 0;
 }
 
 .c-cloud-cover__scene {
   grid-area: scene;
   justify-self: center;
-  z-index: 1;
+
+  .c-cloud-cover--horizon-scene & {
+    align-self: end;
+  }
 }

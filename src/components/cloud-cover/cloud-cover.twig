@@ -1,3 +1,6 @@
+{% set _extra_block %}{% block extra %}{% endblock %}{% endset %}
+{% set _scene_block %}{% block scene %}{% endblock %}{% endset %}
+
 <div class="
   c-cloud-cover
   t-dark
@@ -12,35 +15,15 @@
         {% block content %}
         {% endblock %}
       </div>
-      {% if block('extra') is defined %}
+      {% if _extra_block is not empty %}
         <div class="c-cloud-cover__extra">
-          {% block extra %}
-          {% endblock %}
+          {{_extra_block}}
         </div>
-      {% endif %}
-      {% if block('scene') is defined %}
+      {% elseif _scene_block is not empty %}
         <div class="c-cloud-cover__scene">
-          {% block scene %}
-          {% endblock %}
+          {{_scene_block}}
         </div>
       {% endif %}
     </div>
   </div>
 </div>
-
-{# <div class="c-cloud-cover t-dark">
-  <div class="o-container o-container--pad-inline c-cloud-cover__container">
-    <div class="o-container__content c-cloud-cover__inner">
-      <div class="c-cloud-cover__content">
-        {% block content %}
-        {% endblock %}
-      </div>
-      {% if block('scene') is defined %}
-        <div class="c-cloud-cover__scene">
-          {% block scene %}
-          {% endblock %}
-        </div>
-      {% endif %}
-    </div>
-  </div>
-</div> #}

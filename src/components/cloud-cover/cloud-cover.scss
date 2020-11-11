@@ -1,3 +1,4 @@
+@use "../../design-tokens/breakpoint.yml";
 @use "../../design-tokens/colors.yml";
 @use "../../mixins/ms";
 
@@ -22,7 +23,7 @@ $gap: ms.step(1);
   right: 0;
   width: 100%;
 
-  @media (orientation: landscape) {
+  @media (width >= breakpoint.$m) {
     width: 50%;
   }
 }
@@ -61,6 +62,7 @@ $gap: ms.step(1);
 .c-cloud-cover__inner {
   align-items: center;
   display: grid;
+  grid-column-gap: $gap;
   grid-template-areas:
     '.'
     'scene'
@@ -74,7 +76,7 @@ $gap: ms.step(1);
   position: relative;
   z-index: 1;
 
-  @media (orientation: landscape) {
+  @media (width >= breakpoint.$m) {
     grid-template-areas:
       '. .'
       '. scene'
@@ -90,7 +92,7 @@ $gap: ms.step(1);
 }
 
 .c-cloud-cover--horizon-scene .c-cloud-cover__inner {
-  @media (orientation: portrait) {
+  @media (width < breakpoint.$m) {
     grid-template-areas:
       '.'
       'content'
@@ -107,7 +109,7 @@ $gap: ms.step(1);
 .c-cloud-cover__extra {
   grid-area: extra;
 
-  @media (orientation: portrait) {
+  @media (width < breakpoint.$m) {
     margin-top: $gap;
   }
 }
@@ -116,11 +118,11 @@ $gap: ms.step(1);
   grid-area: scene;
   justify-self: center;
 
-  @media (orientation: portrait) {
+  @media (width < breakpoint.$m) {
     margin-bottom: $gap;
   }
 
-  @media (orientation: landscape) {
+  @media (width >= breakpoint.$m) {
     grid-row-end: span 3;
   }
 }
@@ -129,7 +131,11 @@ $gap: ms.step(1);
   align-self: end;
   margin-bottom: 0;
 
-  @media (orientation: landscape) {
+  @media (width < breakpoint.$m) {
+    margin-top: $gap;
+  }
+
+  @media (width >= breakpoint.$m) {
     grid-row-end: span 4;
   }
 }

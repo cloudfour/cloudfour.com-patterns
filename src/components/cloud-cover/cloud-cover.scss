@@ -7,6 +7,7 @@ $cloud-half-space: calc(7vh + 2vw);
 $gap: ms.step(1);
 
 .c-cloud-cover {
+  overflow: hidden;
   position: relative;
 }
 
@@ -14,7 +15,7 @@ $gap: ms.step(1);
 .c-cloud-cover::after {
   background-position: bottom right;
   background-repeat: no-repeat;
-  bottom: 0;
+  bottom: -1px;
   content: '';
   display: block;
   height: $cloud-space;

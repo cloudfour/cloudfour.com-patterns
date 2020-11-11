@@ -1,9 +1,8 @@
 @use "../../design-tokens/colors.yml";
-@use "../../design-tokens/layout.yml";
 @use "../../mixins/ms";
 
-$cloud-height: calc(14vh + 4vw);
-$cloud-half-height: calc(7vh + 2vw);
+$cloud-space: calc(14vh + 4vw);
+$cloud-half-space: calc(7vh + 2vw);
 $gap: ms.step(1);
 
 .c-cloud-cover {
@@ -17,7 +16,7 @@ $gap: ms.step(1);
   bottom: 0;
   content: '';
   display: block;
-  height: $cloud-height;
+  height: $cloud-space;
   pointer-events: none;
   position: absolute;
   right: 0;
@@ -69,9 +68,9 @@ $gap: ms.step(1);
     'extra'
     '.';
   grid-template-rows:
-    $cloud-half-height
+    $cloud-half-space
     repeat(3, auto)
-    $cloud-height;
+    $cloud-space;
   position: relative;
   z-index: 1;
 
@@ -84,9 +83,9 @@ $gap: ms.step(1);
       '. .';
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows:
-      repeat(2, $cloud-half-height)
+      repeat(2, $cloud-half-space)
       auto
-      repeat(2, $cloud-half-height);
+      repeat(2, $cloud-half-space);
   }
 }
 

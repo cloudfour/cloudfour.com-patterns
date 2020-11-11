@@ -117,9 +117,9 @@ $gap: ms.step(1);
 
 .c-cloud-cover__scene {
   grid-area: scene;
-  justify-self: center;
 
   @media (width < breakpoint.$m) {
+    justify-self: center;
     margin-bottom: $gap;
   }
 

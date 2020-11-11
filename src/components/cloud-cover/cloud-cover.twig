@@ -1,14 +1,9 @@
 {% set _extra_block %}{% block extra %}{% endblock %}{% endset %}
 {% set _scene_block %}{% block scene %}{% endblock %}{% endset %}
 
-<div class="
-  c-cloud-cover
-  t-dark
-  {{class}}">
+<div class="c-cloud-cover t-dark{% if class %} {{class}}{% endif %}">
   <div class="o-container o-container--pad-inline">
-    <div class="
-      o-container__content
-      c-cloud-cover__inner">
+    <div class="o-container__content c-cloud-cover__inner">
       <div class="c-cloud-cover__content">
         {% block content %}
         {% endblock %}

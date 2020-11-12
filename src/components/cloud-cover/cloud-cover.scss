@@ -2,7 +2,29 @@
 @use "../../design-tokens/colors.yml";
 @use "../../mixins/ms";
 
+/// We can't use `grid-gap` exclusively due to some containers only being present
+/// some of the time, so we re-use this value for `grid-gap` and for `margin`
+/// later on.
+///
+/// @type Number
+/// @access private
+
 $_gap: ms.step(1);
+
+/// The ideal cloud size is a factor of both the viewport width and height, and
+/// we size other elements based on factors of this value. This function returns
+/// that size as a `calc`, optionally with an `$amount` for partial or multiple
+/// instances of that value.
+///
+/// This really wouldn't be necessary if Sass would play nice with a variable
+/// declaration for `(14vh + 4vw)` (without `calc`), but it always tries to
+/// crunch those numbers together.
+///
+/// @param {Number} $amount [1] - Optional multiplier for default space.
+/// @param {Number} $vh [14vh] - Amount of horizontal space in the result.
+/// @param {Number} $vw [14vw] - Amount of vertical space in the result.
+/// @return {Calc}
+/// @access private
 
 @function _cloud-space($amount: 1, $vh: 14vh, $vw: 4vw) {
   @if $amount == 1 {
@@ -12,18 +34,34 @@ $_gap: ms.step(1);
   @return calc((#{$vh} + #{$vw}) * #{$amount});
 }
 
+/**
+ * The topmost containing element for this component. We keep most layout logic
+ * off of this so it can be used with `o-container`.
+ *
+ * 1. This is only required to prevent Safari from showing subpixel artifacts
+ *    at the bottom of bottom-aligned imagery (specifically the clouds).
+ * 2. Allows us to position clouds absolutely relative to this container.
+ */
+
 .c-cloud-cover {
-  overflow: hidden;
-  position: relative;
+  overflow: hidden; /* 1 */
+  position: relative; /* 2 */
 }
+
+/**
+ * The pseudo elements for background and foreground clouds.
+ *
+ * 1. Safari often renders subpixel artifacts on the bottom edge, causing a
+ *    visible line below the clouds. As long as the container has `overflow:
+ *    hidden` set, this should prevent that from being visible.
+ */
 
 .c-cloud-cover::before,
 .c-cloud-cover::after {
   background-position: bottom right;
   background-repeat: no-repeat;
-  bottom: -1px;
+  bottom: -1px; /* 1 */
   content: '';
-  display: block;
   height: _cloud-space();
   pointer-events: none;
   position: absolute;
@@ -34,6 +72,14 @@ $_gap: ms.step(1);
     width: 50%;
   }
 }
+
+/**
+ * The background clouds. We adjust the colors and viewboxes here rather than
+ * in the SVG to give us better control of the style and
+ * composition in this context.
+ *
+ * 1. These sizes correspond to the cloud's proportion to the largest cloud.
+ */
 
 .c-cloud-cover::before {
   background-image: svg-load(
@@ -50,8 +96,12 @@ $_gap: ms.step(1);
       height= '140',
       viewBox= '0 0 580 140'
     );
-  background-size: auto (220 / 300 * 100%), auto (140 / 300 * 100%);
+  background-size: auto (220 / 300 * 100%), auto (140 / 300 * 100%); /* 1 */
 }
+
+/**
+ * The foreground cloud.
+ */
 
 .c-cloud-cover::after {
   background-image: svg-load(
@@ -66,6 +116,17 @@ $_gap: ms.step(1);
   z-index: 2;
 }
 
+/**
+ * This element is where the layout is defined. It's most likely the
+ * `max-width` container (if present), which may already include horizontal
+ * whitespace.
+ *
+ * 1. We use rows instead of padding/margin for whitespace to allow some scenes
+ *    to overlap the clouds.
+ * 2. We want this content to cover the background clouds, but not the
+ *    foreground clouds.
+ */
+
 .c-cloud-cover__inner {
   align-items: center;
   display: grid;
@@ -79,9 +140,15 @@ $_gap: ms.step(1);
   grid-template-rows:
     _cloud-space(0.5)
     repeat(3, auto)
-    _cloud-space();
-  position: relative;
-  z-index: 1;
+    _cloud-space(); /* 1 */
+  position: relative; /* 2 */
+  z-index: 1; /* 2 */
+
+  /**
+   * 1. At larger sizes when the scene imagery occupies the rightmost column,
+   *    we establish rows that are half the height of the clouds to allow more
+   *    overlap.
+   */
 
   @media (width >= breakpoint.$m) {
     grid-template-areas:
@@ -94,9 +161,15 @@ $_gap: ms.step(1);
     grid-template-rows:
       repeat(2, _cloud-space(0.5))
       auto
-      repeat(2, _cloud-space(0.5));
+      repeat(2, _cloud-space(0.5)); /* 1 */
   }
 }
+
+/**
+ * For scenes that are meant to intersect with the horizon, we extend the
+ * scene area to the bottom row. (We have to do things a bit differently at
+ * larger sizes, which you'll see later.)
+ */
 
 .c-cloud-cover--horizon-scene .c-cloud-cover__inner {
   @media (width < breakpoint.$m) {
@@ -109,27 +182,60 @@ $_gap: ms.step(1);
   }
 }
 
+/**
+ * The content container.
+ */
+
 .c-cloud-cover__content {
   grid-area: content;
 }
 
+/**
+ * The optional _extra_ content container, intended for things like forms or
+ * other calls to action.
+ */
+
 .c-cloud-cover__extra {
   grid-area: extra;
+
+  /**
+   * Because we don't want lingering row gaps when there is no extra, we must
+   * use margin to avoid this running up against adjacent content.
+   */
 
   @media (width < breakpoint.$m) {
     margin-top: $_gap;
   }
 }
 
+/**
+ * The optional scene, where any visual objects in the sky will be displayed.
+ *
+ * 1. To avoid content jumps as images load, we'll be absolute-positioning the
+ *    visual objects within this element.
+ * 2. Without this, a cell with only absolute-positioned elements may take up
+ *    zero space.
+ */
+
 .c-cloud-cover__scene {
   grid-area: scene;
-  position: relative;
-  width: 100%;
+  position: relative; /* 1 */
+  width: 100%; /* 2 */
+
+  /**
+   * At smaller breakpoints, we size the scene so that it is always twice as
+   * large as the clouds.
+   */
 
   @media (width < breakpoint.$m) {
     height: _cloud-space(2);
     margin-bottom: $_gap;
   }
+
+  /**
+   * At larger breakpoints, we allow more overlap between the clouds and imagery
+   * and size based on available space.
+   */
 
   @media (width >= breakpoint.$m) {
     grid-row-end: span 3;
@@ -137,33 +243,64 @@ $_gap: ms.step(1);
   }
 }
 
+/**
+ * Scene adjustments for when the scene is intended to intersect with the
+ * horizon.
+ */
+
 .c-cloud-cover--horizon-scene .c-cloud-cover__scene {
-  align-self: end;
-  margin-bottom: 0;
+  /**
+   * At smaller sizes we increase the height to account for the additional
+   * cloud overlap, and swap the edge of the gap (since the content order is
+   * the reverse of the default).
+   */
 
   @media (width < breakpoint.$m) {
     height: _cloud-space(3);
+    margin-bottom: 0;
     margin-top: $_gap;
   }
+
+  /**
+   * At larger sizes all we have to do is increase the row span. We can't rely
+   * on areas alone to do this since the `scene` and `extra` areas overlap.
+   */
 
   @media (width >= breakpoint.$m) {
     grid-row-end: span 4;
   }
 }
 
+/**
+ * The actual object within the scene, for example an `img` or `svg`.
+ *
+ * 1. Cover and fill the entire scene.
+ * 2. Adjust and reposition the image within that container.
+ */
+
 .c-cloud-cover__scene-object {
-  height: 100%;
-  left: 0;
-  object-fit: contain;
-  object-position: center;
-  position: absolute;
-  top: 0;
-  width: 100%;
+  height: 100%; /* 1 */
+  left: 0; /* 1 */
+  object-fit: contain; /* 2 */
+  object-position: center; /* 2 */
+  position: absolute; /* 1 */
+  top: 0; /* 1 */
+  width: 100%; /* 1 */
+
+  /**
+   * At larger sizes, it looks a bit more balanced to start adding more space
+   * to the right rather than on both sides.
+   */
 
   @media (width >= breakpoint.$m) {
     object-position: left center;
   }
 }
+
+/**
+ * When the scene is intended to intersect with the horizon, the object must
+ * be positioned along the bottom.
+ */
 
 .c-cloud-cover--horizon-scene .c-cloud-cover__scene-object {
   object-position: center bottom;

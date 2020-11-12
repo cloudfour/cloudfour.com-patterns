@@ -2,9 +2,17 @@
 @use "../../design-tokens/colors.yml";
 @use "../../mixins/ms";
 
-$cloud-space: calc(14vh + 4vw);
-$cloud-half-space: calc(7vh + 2vw);
 $gap: ms.step(1);
+$cloud-space-vh: 14vh;
+$cloud-space-vw: 4vw;
+
+@function cloud-space($amount: 1) {
+  @if $amount == 1 {
+    @return calc(#{$cloud-space-vh} + #{$cloud-space-vw});
+  }
+
+  @return calc((#{$cloud-space-vh} + #{$cloud-space-vw}) * #{$amount});
+}
 
 .c-cloud-cover {
   overflow: hidden;
@@ -18,7 +26,7 @@ $gap: ms.step(1);
   bottom: -1px;
   content: '';
   display: block;
-  height: $cloud-space;
+  height: cloud-space();
   pointer-events: none;
   position: absolute;
   right: 0;
@@ -71,9 +79,9 @@ $gap: ms.step(1);
     'extra'
     '.';
   grid-template-rows:
-    $cloud-half-space
+    cloud-space(0.5)
     repeat(3, auto)
-    $cloud-space;
+    cloud-space();
   position: relative;
   z-index: 1;
 
@@ -86,9 +94,9 @@ $gap: ms.step(1);
       '. .';
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows:
-      repeat(2, $cloud-half-space)
+      repeat(2, cloud-space(0.5))
       auto
-      repeat(2, $cloud-half-space);
+      repeat(2, cloud-space(0.5));
   }
 }
 
@@ -117,26 +125,59 @@ $gap: ms.step(1);
 
 .c-cloud-cover__scene {
   grid-area: scene;
+  // height: cloud-space(2);
+  position: relative;
+  width: 100%;
 
   @media (width < breakpoint.$m) {
-    justify-self: center;
+    // justify-self: center;
+    height: cloud-space(2);
     margin-bottom: $gap;
+    // padding-top: (100% * 9/16);
   }
 
   @media (width >= breakpoint.$m) {
     grid-row-end: span 3;
+    height: 100%;
   }
 }
 
 .c-cloud-cover--horizon-scene .c-cloud-cover__scene {
   align-self: end;
+  // height: cloud-space(3);
   margin-bottom: 0;
 
   @media (width < breakpoint.$m) {
+    height: cloud-space(3);
     margin-top: $gap;
+    // padding-top: (100% * 1/1);
   }
 
   @media (width >= breakpoint.$m) {
     grid-row-end: span 4;
+    // height: cloud-space(2.5);
+  }
+}
+
+.c-cloud-cover__scene-object {
+  // display: none;
+  height: 100%;
+  left: 0;
+  object-fit: contain;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  @media (width >= breakpoint.$m) {
+    object-position: left center;
+  }
+}
+
+.c-cloud-cover--horizon-scene .c-cloud-cover__scene-object {
+  object-position: center bottom;
+
+  @media (width >= breakpoint.$m) {
+    object-position: left bottom;
   }
 }

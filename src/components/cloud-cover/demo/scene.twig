@@ -21,6 +21,14 @@
     {% endembed %}
   {% endblock %}
   {% block scene %}
-    <img src="https://cloudfour.com/wp-content/themes/cloudfour/static/toolkit/images/sky-what_we_do.svg" alt="">
+    <img class="c-cloud-cover__scene-object" src="{{image}}" alt="Example">
+    {# {% embed '@cloudfour/objects/embed/embed.twig' with {
+      aspect_ratio: '34/25',
+      class: 'c-cloud-cover__embed'
+    } %}
+      {% block content %}
+        <img src="{{image}}" alt="Example">
+      {% endblock %}
+    {% endembed %} #}
   {% endblock %}
 {% endembed %}

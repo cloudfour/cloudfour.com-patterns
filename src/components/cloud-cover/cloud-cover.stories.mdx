@@ -24,11 +24,17 @@ A containing element for introductory page content, for example a heading and su
   </Story>
 </Canvas>
 
+## Scenes
+
+The cloud cover may optionally contain a "scene" containing a visual object, most likely an `img` or `svg` element. By default, the scene will float in the sky.
+
 <Canvas>
   <Story name="Scene" height="400px">
     {sceneDemo({ image: robotImage })}
   </Story>
 </Canvas>
+
+The `c-cloud-cover--horizon-scene` modifier applies an alternate composition ideal for scenes intended to intersect the "horizon line" (bottom) of the cloud cover.
 
 <Canvas>
   <Story name="Horizon Scene" height="400px">
@@ -36,8 +42,17 @@ A containing element for introductory page content, for example a heading and su
   </Story>
 </Canvas>
 
+## Extra Content
+
+You can also include supporting elements like newsletter sign-up forms, notification opt-ins or other calls to action in an adjacent cell. Note that it is not possible to show extra content _and_ a scene at the same time.
+
 <Canvas>
   <Story name="Extra Content" height="400px">
     {extraDemo()}
   </Story>
 </Canvas>
+
+## Coming Soon
+
+- Graceful fallback for browsers that don't support CSS Grid Layout.
+- Most likely adjustments based on actual usage in theme.

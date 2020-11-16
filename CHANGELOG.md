@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 0.4.0
+
+### Minor Changes
+
+- [`366fc2a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/366fc2a71a952e5c4f0220e69e6af424398b4d10) [#1027](https://github.com/cloudfour/cloudfour.com-patterns/pull/1027) Thanks [@tylersticka](https://github.com/tylersticka)! - Add standard padding modifiers for container object
+
+* [`366fc2a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/366fc2a71a952e5c4f0220e69e6af424398b4d10) [#1027](https://github.com/cloudfour/cloudfour.com-patterns/pull/1027) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Cloud Cover component
+
+- [`ef67b15`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ef67b1558a226f9d21babf12095aedb81ca23682) [#1016](https://github.com/cloudfour/cloudfour.com-patterns/pull/1016) Thanks [@spaceninja](https://github.com/spaceninja)! - Code refactor of the elastic textarea javascript results in a slight performance improvement for IE11.
+
+### Patch Changes
+
+- [`26f9306`](https://github.com/cloudfour/cloudfour.com-patterns/commit/26f930617e895ffe6ce044d15ac9996b83262059) [#1005](https://github.com/cloudfour/cloudfour.com-patterns/pull/1005) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix for non-link pagination items
+
 ## 0.3.2
 
 ### Patch Changes

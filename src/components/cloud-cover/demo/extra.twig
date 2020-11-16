@@ -1,0 +1,26 @@
+{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
+  {% block content %}
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+      class: 'o-rhythm--condensed'
+    } only %}
+      {% block content %}
+        {% include '@cloudfour/components/heading/heading.twig' with {
+          level: -2,
+          content: 'What We Do'
+        } only %}
+        <p>
+          We
+          {% include '@cloudfour/components/icon/icon.twig' with {
+            name: 'heart',
+            inline: true
+          } only %}
+          <span class="u-hidden-visually">love</span>
+          solving tough puzzles through design and&nbsp;code.
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+  {% block extra %}
+    <p>(Imagine a nifty newsletter signup form here 👀)</p>
+  {% endblock %}
+{% endembed %}

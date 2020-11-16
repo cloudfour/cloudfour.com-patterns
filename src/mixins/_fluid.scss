@@ -52,6 +52,20 @@
   }
 }
 
+@mixin padding($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    padding: $min;
+  }
+
+  @media (min-width: $min-width) {
+    padding: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    padding: $max;
+  }
+}
+
 @mixin padding-block($min-width, $max-width, $min, $max, $include-min: true) {
   @if $include-min {
     padding-block-end: $min;
@@ -66,5 +80,22 @@
   @media (min-width: $max-width) {
     padding-block-end: $max;
     padding-block-start: $max;
+  }
+}
+
+@mixin padding-inline($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    padding-inline-end: $min;
+    padding-inline-start: $min;
+  }
+
+  @media (min-width: $min-width) {
+    padding-inline-end: fluid-calc($min-width, $max-width, $min, $max);
+    padding-inline-start: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    padding-inline-end: $max;
+    padding-inline-start: $max;
   }
 }

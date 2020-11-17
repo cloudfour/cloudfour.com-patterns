@@ -1,0 +1,29 @@
+/**
+ * Page container
+ *
+ * Attempts to fill the available area (assuming `height: 100%` is correctly
+ * applied to all parent elements) and keeps the footer at the bottom of that
+ * area.
+ *
+ * @see https://css-tricks.com/couple-takes-sticky-footer/#there-is-grid
+ */
+
+.o-page {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100%;
+}
+
+/**
+ * These classes aren't strictly required, but they keep the HTML source a
+ * little easier to read while also supporting swapping of source order if
+ * that's ever something that content calls for.
+ */
+
+.o-page__content {
+  grid-row: 1;
+}
+
+.o-page__footer {
+  grid-row: 2;
+}

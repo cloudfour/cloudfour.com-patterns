@@ -46,6 +46,18 @@ ul {
 }
 
 /**
+ * Forces the viewport to be filled. Necessary for the footer to "stick" to the
+ * bottom of short pages.
+ *
+ * @see https://css-tricks.com/couple-takes-sticky-footer/#there-is-grid
+ */
+
+html,
+body {
+  height: 100%;
+}
+
+/**
  * 1. Prevents custom background colors, iframes, etc. from making page content
  *    unreadable.
  * 2. 100% black can appear somewhat harsh against white.

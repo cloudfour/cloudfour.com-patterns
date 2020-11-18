@@ -1,5 +1,17 @@
 # @cloudfour/patterns
 
+## 0.5.0
+
+### Minor Changes
+
+- [`8aef4fe`](https://github.com/cloudfour/cloudfour.com-patterns/commit/8aef4fe5857a8f28dc760b463311b83bceb4d9ce) [#1043](https://github.com/cloudfour/cloudfour.com-patterns/pull/1043) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Page object for "sticky" page footers
+
+### Patch Changes
+
+- [`28ff9c1`](https://github.com/cloudfour/cloudfour.com-patterns/commit/28ff9c1d95569220016b9cce286024cc9c896105) [#1040](https://github.com/cloudfour/cloudfour.com-patterns/pull/1040) Thanks [@tylersticka](https://github.com/tylersticka)! - Remove unnecessary theme prop from container which would conflict with Timber/WordPress prop of same name
+
+* [`819eef4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/819eef4e5eb8d36d1dfc3765ea0801745a485b93) [#1042](https://github.com/cloudfour/cloudfour.com-patterns/pull/1042) Thanks [@tylersticka](https://github.com/tylersticka)! - Make Ground Nav component whitespace consistent with Container object
+
 ## 0.4.0
 
 ### Minor Changes

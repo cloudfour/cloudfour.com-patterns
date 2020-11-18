@@ -40,9 +40,6 @@ module.exports = {
           {
             // @see https://github.com/webpack-contrib/style-loader/issues/303#issuecomment-581168870
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDev,
-            },
           },
           {
             loader: 'css-loader',

@@ -52,6 +52,48 @@
   }
 }
 
+@mixin grid-gap($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    grid-gap: $min;
+  }
+
+  @media (min-width: $min-width) {
+    grid-gap: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    grid-gap: $max;
+  }
+}
+
+@mixin grid-column-gap($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    grid-column-gap: $min;
+  }
+
+  @media (min-width: $min-width) {
+    grid-column-gap: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    grid-column-gap: $max;
+  }
+}
+
+@mixin grid-row-gap($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    grid-row-gap: $min;
+  }
+
+  @media (min-width: $min-width) {
+    grid-row-gap: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    grid-row-gap: $max;
+  }
+}
+
 @mixin padding($min-width, $max-width, $min, $max, $include-min: true) {
   @if $include-min {
     padding: $min;

@@ -25,7 +25,6 @@ const coverDemoStory = (args) => coverDemo(demoProps(args));
   title="Components/Card"
   argTypes={{
     href: { type: { name: 'string' } },
-    contained: { type: { name: 'boolean' } },
     horizontal: {
       type: { name: 'string' },
       control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
@@ -59,7 +58,7 @@ const coverDemoStory = (args) => coverDemo(demoProps(args));
 </Canvas>
 
 <Canvas>
-  <Story name="Horizontal" args={{ href: '#', horizontal: '@l' }}>
+  <Story name="Horizontal" args={{ href: '#', horizontal: '@m' }}>
     {coverDemoStory.bind({})}
   </Story>
 </Canvas>

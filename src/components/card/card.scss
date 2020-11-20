@@ -9,7 +9,8 @@
 @use '../../mixins/headings';
 @use '../../mixins/ms';
 
-$_row-gap: ms.step(0, 1rem);
+$_cover-gap: ms.step(1, 1rem);
+$_content-gap: ms.step(-1, 1rem);
 $_focus-overflow: (sizes.$edge-large * -1);
 
 .c-card {
@@ -60,6 +61,10 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
 .c-card__header {
   grid-area: header;
+
+  &:not(:last-child) {
+    margin-bottom: $_content-gap;
+  }
 }
 
 .c-card__heading {
@@ -100,7 +105,7 @@ $_focus-overflow: (sizes.$edge-large * -1);
   }
 
   &:not(:only-child) {
-    margin-bottom: $_row-gap;
+    margin-bottom: $_cover-gap;
 
     .c-card--horizontal\@m & {
       @media (width >= breakpoint.$m) {
@@ -133,12 +138,8 @@ $_focus-overflow: (sizes.$edge-large * -1);
 .c-card__content {
   grid-area: content;
 
-  &:not(:first-child) {
-    margin-top: $_row-gap;
-  }
-
   &:not(:last-child) {
-    margin-bottom: $_row-gap;
+    margin-bottom: $_content-gap;
   }
 }
 

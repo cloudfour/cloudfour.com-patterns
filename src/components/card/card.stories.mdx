@@ -1,29 +1,34 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import simpleDemo from './demo/simple.twig';
-import headingDemo from './demo/heading.twig';
-import footerDemo from './demo/footer.twig';
-import coverDemo from './demo/cover.twig';
-const demoProps = (args) => {
+import singleDemo from './demo/single.twig';
+const singleDemoStory = (args) => {
   const props = {
     href: args.href,
   };
   const modifiers = [];
+  if (args.show.length > 0) {
+    args.show.forEach((block) => {
+      props[`show_${block}`] = true;
+    });
+  }
   if (args.horizontal !== 'none') {
     modifiers.push(`horizontal${args.horizontal}`);
   }
   if (modifiers.length) {
     props.class = modifiers.map((modifier) => `c-card--${modifier}`).join(' ');
   }
-  return props;
+  return singleDemo(props);
 };
-const simpleDemoStory = (args) => simpleDemo(demoProps(args));
-const headingDemoStory = (args) => headingDemo(demoProps(args));
-const footerDemoStory = (args) => footerDemo(demoProps(args));
-const coverDemoStory = (args) => coverDemo(demoProps(args));
 
 <Meta
   title="Components/Card"
   argTypes={{
+    show: {
+      control: {
+        type: 'inline-check',
+        options: ['heading', 'cover', 'content', 'footer'],
+      },
+      defaultValue: ['heading', 'cover', 'content', 'footer'],
+    },
     href: { type: { name: 'string' } },
     horizontal: {
       type: { name: 'string' },
@@ -36,29 +41,26 @@ const coverDemoStory = (args) => coverDemo(demoProps(args));
 # Card
 
 <Canvas>
-  <Story name="Simple">{simpleDemoStory.bind({})}</Story>
+  <Story
+    name="Content Blocks"
+    args={{ show: ['heading', 'content', 'footer'] }}
+  >
+    {singleDemoStory.bind({})}
+  </Story>
 </Canvas>
 
 <Canvas>
-  <Story name="Heading">{headingDemoStory.bind({})}</Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Footer">{footerDemoStory.bind({})}</Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Cover">{coverDemoStory.bind({})}</Story>
+  <Story name="Cover Image">{singleDemoStory.bind({})}</Story>
 </Canvas>
 
 <Canvas>
   <Story name="Link" args={{ href: '#' }}>
-    {coverDemoStory.bind({})}
+    {singleDemoStory.bind({})}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name="Horizontal" args={{ href: '#', horizontal: '@m' }}>
-    {coverDemoStory.bind({})}
+    {singleDemoStory.bind({})}
   </Story>
 </Canvas>

@@ -1,73 +1,133 @@
+@use '../../design-tokens/aspect-ratio.yml';
 @use '../../design-tokens/breakpoint.yml';
 @use '../../design-tokens/colors.yml';
+@use '../../design-tokens/motion.yml';
 @use '../../design-tokens/sizes.yml';
+@use '../../mixins/embed';
 @use '../../mixins/fluid';
+@use '../../mixins/focus';
+@use '../../mixins/headings';
 @use '../../mixins/ms';
 
-$_row-gap: ms.step(0);
+$_row-gap: ms.step(0, 1rem);
+$_focus-overflow: (sizes.$edge-large * -1);
 
 .c-card {
   display: grid;
+  grid-template-areas:
+    'cover'
+    'header'
+    'content'
+    'footer';
+  grid-template-rows: minmax(0, auto) minmax(0, auto) 1fr minmax(0, auto);
+  position: relative;
   @include fluid.grid-column-gap(
     breakpoint.$s,
     breakpoint.$xl,
     ms.step(1, 1rem),
     ms.step(3, 1rem)
   );
-  grid-template-areas:
-    'object'
-    'header'
-    'content'
-    'footer';
-  grid-template-rows: auto auto 1fr auto;
-  position: relative;
 }
 
-.c-card--horizontal {
+@mixin _horizontal {
   grid-template-areas:
-    'object object .'
-    'object object header'
-    'object object content'
-    'object object footer'
-    'object object .';
+    'cover cover .'
+    'cover cover header'
+    'cover cover content'
+    'cover cover footer'
+    'cover cover .';
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr repeat(3, auto) 1fr;
+  grid-template-rows: 1fr repeat(3, minmax(0, auto)) 1fr;
+}
+
+.c-card--horizontal\@m {
+  @media (width >= breakpoint.$m) {
+    @include _horizontal();
+  }
+}
+
+.c-card--horizontal\@l {
+  @media (width >= breakpoint.$l) {
+    @include _horizontal();
+  }
+}
+
+.c-card--horizontal\@xl {
+  @media (width >= breakpoint.$xl) {
+    @include _horizontal();
+  }
 }
 
 .c-card__header {
   grid-area: header;
 }
 
-.c-card__object {
-  border-radius: sizes.$radius-medium;
-  grid-area: object;
-  overflow: hidden;
-  position: relative;
+.c-card__heading {
+  @include headings.level(2);
+}
 
-  .c-card__header ~ & {
-    margin-bottom: $_row-gap;
+.c-card__link {
+  &:not(:hover) {
+    text-decoration: none;
+  }
 
-    .c-card--horizontal & {
-      margin-bottom: 0;
+  &::after {
+    border-radius: sizes.$radius-medium;
+    bottom: $_focus-overflow;
+    content: '';
+    left: $_focus-overflow;
+    position: absolute;
+    right: $_focus-overflow;
+    top: $_focus-overflow;
+    z-index: 1;
+  }
+
+  @include focus.focus-visible {
+    &::after {
+      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
     }
   }
 }
 
-.c-card__object::before {
-  content: '';
-  display: block;
-  padding-bottom: (100% / (16/9));
+.c-card__cover {
+  background-color: colors.$gray-lighter;
+  border-radius: sizes.$radius-medium;
+  grid-area: cover;
+  @include embed.object(aspect-ratio.$wide);
+
+  .t-dark & {
+    background-color: colors.$primary-brand-dark;
+  }
+
+  &:not(:only-child) {
+    margin-bottom: $_row-gap;
+
+    .c-card--horizontal\@m & {
+      @media (width >= breakpoint.$m) {
+        margin-bottom: 0;
+      }
+    }
+
+    .c-card--horizontal\@l & {
+      @media (width >= breakpoint.$l) {
+        margin-bottom: 0;
+      }
+    }
+
+    .c-card--horizontal\@xl & {
+      @media (width >= breakpoint.$xl) {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
-.c-card__object > *,
-.c-card__object > picture > img {
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  object-position: center;
-  position: absolute;
-  top: 0;
-  width: 100%;
+.c-card__cover > * {
+  transition: transform motion.$speed-prompt motion.$ease-out;
+
+  .c-card--with-link:hover & {
+    transform: scale(1.025);
+  }
 }
 
 .c-card__content {
@@ -76,12 +136,12 @@ $_row-gap: ms.step(0);
   &:not(:first-child) {
     margin-top: $_row-gap;
   }
+
+  &:not(:last-child) {
+    margin-bottom: $_row-gap;
+  }
 }
 
 .c-card__footer {
   grid-area: footer;
-
-  &:not(:first-child) {
-    margin-top: $_row-gap;
-  }
 }

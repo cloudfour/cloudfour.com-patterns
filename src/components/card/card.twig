@@ -5,14 +5,12 @@
 {% set heading_level = heading_level|default(2) %}
 
 {% set _heading_block %}{% block heading %}{% endblock %}{% endset %}
-{% set _object_block %}{% block object %}{% endblock %}{% endset %}
+{% set _cover_block %}{% block cover %}{% endblock %}{% endset %}
+{% set _content_block %}{% block content %}{% endblock %}{% endset %}
 {% set _footer_block %}{% block footer %}{% endblock %}{% endset %}
 
 <{{tag_name}} class="
   c-card
-  {% if _heading_block is not empty %}c-card--with-header{% endif %}
-  {% if _object_block is not empty %}c-card--with-object{% endif %}
-  {% if _footer_block is not empty %}c-card--with-footer{% endif %}
   {% if href %}c-card--with-link{% endif %}
   {% if class %}{{class}}{% endif %}">
 
@@ -30,17 +28,17 @@
     </{{header_tag_name}}>
   {% endif %}
 
-  {% if _object_block is not empty %}
-    <div class="c-card__object">
-      {{_object_block}}
+  {% if _cover_block is not empty %}
+    <div class="c-card__cover">
+      {{_cover_block}}
     </div>
   {% endif %}
 
-  <div class="c-card__content">
-    {% block content %}
-      <p>Hello world</p>
-    {% endblock %}
-  </div>
+  {% if _content_block is not empty %}
+    <div class="c-card__content">
+      {{_content_block}}
+    </div>
+  {% endif %}
 
   {% if _footer_block is not empty %}
     <{{footer_tag_name}} class="c-card__footer">

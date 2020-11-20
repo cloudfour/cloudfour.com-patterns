@@ -13,7 +13,7 @@ const singleDemoStory = (args) => {
   if (args.horizontal !== 'none') {
     modifiers.push(`horizontal${args.horizontal}`);
   }
-  if (modifiers.length) {
+  if (modifiers.length > 0) {
     props.class = modifiers.map((modifier) => `c-card--${modifier}`).join(' ');
   }
   return singleDemo(props);

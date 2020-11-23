@@ -60,7 +60,7 @@
     "@testing-library/cypress": "7.0.1",
     "@types/prismjs": "1.16.2",
     "@whitespace/storybook-addon-html": "2.0.1",
-    "@wordpress/block-library": "2.26.3",
+    "@wordpress/block-library": "2.26.4",
     "babel-loader": "8.2.1",
     "browserify-transform-tools": "1.7.0",
     "css-loader": "5.0.1",

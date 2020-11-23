@@ -21,7 +21,7 @@ $default-aspect-ratio: aspect-ratio.$square;
  * design token file.
  */
 
-@mixin aspect-ratio-modifiers() {
+@mixin aspect-ratio-modifiers($default-aspect-ratio: $default-aspect-ratio) {
   @each $name, $ratio in meta.module-variables('aspect-ratio') {
     @if $ratio != $default-aspect-ratio {
       /**
@@ -84,7 +84,7 @@ $default-aspect-ratio: aspect-ratio.$square;
   }
 }
 
-@mixin object {
+@mixin object($default-aspect-ratio: $default-aspect-ratio) {
   @supports (--custom: property) {
     /**
    * Here's where the magic happens! 🦄

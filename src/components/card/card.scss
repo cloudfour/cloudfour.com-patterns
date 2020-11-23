@@ -1,0 +1,268 @@
+@use '../../design-tokens/aspect-ratio.yml';
+@use '../../design-tokens/breakpoint.yml';
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/motion.yml';
+@use '../../design-tokens/sizes.yml';
+@use '../../mixins/embed';
+@use '../../mixins/fluid';
+@use '../../mixins/focus';
+@use '../../mixins/headings';
+@use '../../mixins/ms';
+
+/// We can't use `grid-gap` exclusively due to some containers only being
+/// present some of the time, so we re-use this value to define the space
+/// between chunks of content.
+///
+/// @type Number
+/// @access private
+
+$_content-gap: ms.step(-1, 1rem);
+
+/// We add more space between the cover and text elements simply because it
+/// feels better visually.
+///
+/// @type Number
+/// @access private
+
+$_cover-gap: ms.step(1, 1rem);
+
+/// The focus outline feels a little snug directly on the outer edge, but we
+/// don't want to extend _too_ far out for fear of colliding with adjacent
+/// content. Doubling the size of the focus edge felt like a nice compromise.
+///
+/// @type Number
+/// @access private
+
+$_focus-overflow: (sizes.$edge-large * -1);
+
+/**
+ * The main card container
+ *
+ * 1. We use `minmax(0, auto)` to prevent these rows from displaying in some
+ *    browsers even if their elements are nonexistent.
+ * 2. This allows our `c-card__link` pseudo element to position itself relative
+ *    to this container.
+ * 3. We define our column gap here instead of in the `c-card--horizontal`
+ *    modifiers so we don't have to define it within multiple media queries.
+ *
+ * @todo Coordinate column gap with eventual card grid object.
+ */
+
+.c-card {
+  display: grid;
+  grid-template-areas:
+    'cover'
+    'header'
+    'content'
+    'footer';
+  grid-template-rows: minmax(0, auto) minmax(0, auto) 1fr minmax(0, auto); /* 1 */
+  position: relative; /* 2 */
+  @include fluid.grid-column-gap(
+    breakpoint.$s,
+    breakpoint.$xl,
+    ms.step(1, 1rem),
+    ms.step(3, 1rem)
+  ); /* 3 */
+}
+
+/// Defines horizontal modifier styles for re-use within media queries to keep
+/// things DRY.
+///
+/// We define the layout as three columns instead of `2fr 1fr` so that the
+/// gaps will line up with three-column elements below. The `fr` rows on the
+/// ends keep the content rows vertically centered.
+///
+/// @todo Coordinate this with the eventual card grid object.
+/// @access private
+
+@mixin _horizontal {
+  grid-template-areas:
+    'cover cover .'
+    'cover cover header'
+    'cover cover content'
+    'cover cover footer'
+    'cover cover .';
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr repeat(3, minmax(0, auto)) 1fr;
+}
+
+/**
+ * Responsive horizontal modifiers
+ */
+
+.c-card--horizontal\@m {
+  @media (width >= breakpoint.$m) {
+    @include _horizontal();
+  }
+}
+
+.c-card--horizontal\@l {
+  @media (width >= breakpoint.$l) {
+    @include _horizontal();
+  }
+}
+
+.c-card--horizontal\@xl {
+  @media (width >= breakpoint.$xl) {
+    @include _horizontal();
+  }
+}
+
+/**
+ * Header area
+ *
+ * This exists separately from the heading to encourage the use of the `header`
+ * element within an `article`.
+ */
+
+.c-card__header {
+  grid-area: header;
+
+  /**
+   * If there's content after this, add margin below. This gets a little weird
+   * if only a cover and header are shown, but I think that will be uncommon
+   * enough to make this a fair solution.
+   */
+
+  &:not(:last-child) {
+    margin-bottom: $_content-gap;
+  }
+}
+
+/**
+ * We style the heading regardless of level to encourage using the most
+ * appropriate semantic heading level for the document outline.
+ */
+
+.c-card__heading {
+  @include headings.level(2);
+}
+
+/**
+ * This is the primary link, presumed but not required to be within the heading.
+ */
+
+.c-card__link {
+  /**
+   * Only show the underline on hover.
+   */
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
+
+  /**
+   * Cover the entire card with an absolute positioned pseudo element. This
+   * is easier to use for assistive devices than a block-level link or multiple
+   * redundant links and requires no JavaScript. It does sacrifice ease of text
+   * selection, but that shouldn't be a huge issue if a `Card` is linking to
+   * more information.
+   */
+
+  &::after {
+    border-radius: sizes.$radius-medium;
+    bottom: $_focus-overflow;
+    content: '';
+    left: $_focus-overflow;
+    position: absolute;
+    right: $_focus-overflow;
+    top: $_focus-overflow;
+    z-index: 1;
+  }
+
+  /**
+   * Keyboard focus styles take inspiration from buttons and similar elements
+   */
+
+  @include focus.focus-visible {
+    &::after {
+      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    }
+  }
+}
+
+/**
+ * Cover area
+ *
+ * 1. In case the image is missing or slow to load.
+ * 2. We re-use the embed object's styles instead of allowing the embed object
+ *    to be included directly so that the horizontal layout will squash more
+ *    gracefully. This also lets us apply more opinionated interaction effects
+ *    because we can assume more about the content therein.
+ */
+
+.c-card__cover {
+  background-color: colors.$gray-lighter; /* 1 */
+  border-radius: sizes.$radius-medium;
+  grid-area: cover;
+  @include embed.object(aspect-ratio.$wide); /* 2 */
+
+  /**
+   * Use a different background color for the dark theme.
+   */
+
+  .t-dark & {
+    background-color: colors.$primary-brand-dark;
+  }
+
+  /**
+   * Since this element is always visually on top, we can assume it needs a
+   * bottom margin _unless_ it's an only child. Unfortunately we need to
+   * override this for the horizontal modifier.
+   */
+
+  &:not(:only-child) {
+    margin-bottom: $_cover-gap;
+
+    .c-card--horizontal\@m & {
+      @media (width >= breakpoint.$m) {
+        margin-bottom: 0;
+      }
+    }
+
+    .c-card--horizontal\@l & {
+      @media (width >= breakpoint.$l) {
+        margin-bottom: 0;
+      }
+    }
+
+    .c-card--horizontal\@xl & {
+      @media (width >= breakpoint.$xl) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/**
+ * Hover effect for when the card contains a link. The image appears to zoom in
+ * a very slight amount.
+ */
+
+.c-card__cover > * {
+  transition: transform motion.$speed-prompt motion.$ease-out;
+
+  .c-card--with-link:hover & {
+    transform: scale(1.025);
+  }
+}
+
+/**
+ * Content area. Not especially exciting.
+ */
+
+.c-card__content {
+  grid-area: content;
+
+  &:not(:last-child) {
+    margin-bottom: $_content-gap;
+  }
+}
+
+/**
+ * Footer area. Wooooooo.
+ */
+
+.c-card__footer {
+  grid-area: footer;
+}

@@ -1,0 +1,22 @@
+{% embed '@cloudfour/components/card/card.twig' %}
+  {% block heading %}
+    {%- if show_heading -%}
+      Lorem ipsum dolor sit amet
+    {%- endif -%}
+  {% endblock %}
+  {% block cover %}
+    {%- if show_cover -%}
+      <img src="https://placeimg.com/800/450/animals" alt="">
+    {%- endif -%}
+  {% endblock %}
+  {% block content %}
+    {%- if show_content -%}
+      <p>Consectetur adipiscing elit. Fusce tempor ut ex nec scelerisque. Quisque dui tortor, tempus et tempor in, rhoncus eu massa. Vestibulum dolor erat, vestibulum eget velit eu, dignissim hendrerit tortor.</p>
+    {%- endif -%}
+  {% endblock %}
+  {% block footer %}
+    {%- if show_footer -%}
+      <p>{{'now'|date('M j, Y')}}</p>
+    {%- endif -%}
+  {% endblock %}
+{% endembed %}

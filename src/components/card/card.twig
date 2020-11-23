@@ -1,0 +1,49 @@
+{% set tag_name = tag_name|default('article') %}
+{% set header_tag_name = header_tag_name|default('header') %}
+{% set footer_tag_name = footer_tag_name|default('footer') %}
+
+{% set heading_level = heading_level|default(2) %}
+
+{% set _heading_block %}{% block heading %}{% endblock %}{% endset %}
+{% set _cover_block %}{% block cover %}{% endblock %}{% endset %}
+{% set _content_block %}{% block content %}{% endblock %}{% endset %}
+{% set _footer_block %}{% block footer %}{% endblock %}{% endset %}
+
+<{{tag_name}} class="
+  c-card
+  {% if href %}c-card--with-link{% endif %}
+  {% if class %}{{class}}{% endif %}">
+
+  {% if _heading_block is not empty %}
+    <{{header_tag_name}} class="c-card__header">
+      <h{{heading_level}} class="c-card__heading">
+        {% if href %}
+          <a href="{{href}}" class="c-card__link">
+            {{_heading_block}}
+          </a>
+        {% else %}
+          {{_heading_block}}
+        {% endif %}
+      </h{{heading_level}}>
+    </{{header_tag_name}}>
+  {% endif %}
+
+  {% if _cover_block is not empty %}
+    <div class="c-card__cover">
+      {{_cover_block}}
+    </div>
+  {% endif %}
+
+  {% if _content_block is not empty %}
+    <div class="c-card__content">
+      {{_content_block}}
+    </div>
+  {% endif %}
+
+  {% if _footer_block is not empty %}
+    <{{footer_tag_name}} class="c-card__footer">
+      {{_footer_block}}
+    </{{footer_tag_name}}>
+  {% endif %}
+
+</{{tag_name}}>

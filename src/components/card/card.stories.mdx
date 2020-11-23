@@ -1,0 +1,96 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import singleDemo from './demo/single.twig';
+const singleDemoStory = (args) => {
+  const props = {
+    href: args.href,
+  };
+  const modifiers = [];
+  if (args.show.length > 0) {
+    args.show.forEach((block) => {
+      props[`show_${block}`] = true;
+    });
+  }
+  if (args.horizontal !== 'none') {
+    modifiers.push(`horizontal${args.horizontal}`);
+  }
+  if (modifiers.length > 0) {
+    props.class = modifiers.map((modifier) => `c-card--${modifier}`).join(' ');
+  }
+  return singleDemo(props);
+};
+
+<Meta
+  title="Components/Card"
+  argTypes={{
+    show: {
+      control: {
+        type: 'inline-check',
+        options: ['heading', 'cover', 'content', 'footer'],
+      },
+      defaultValue: ['heading', 'cover', 'content', 'footer'],
+    },
+    href: { type: { name: 'string' } },
+    horizontal: {
+      type: { name: 'string' },
+      control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
+      defaultValue: 'none',
+    },
+  }}
+/>
+
+# Card
+
+A card contains content and optionally an action summarizing a single piece of content, for example an article, talk or case study.
+
+The Twig template supports three main blocks (all optional):
+
+- `heading`: The contents of the heading. The heading level may be customized using the `heading_level` property.
+- `content`: The main card content.
+- `footer`: Information about the author or additional supporting content for the card.
+
+<Canvas>
+  <Story
+    name="Content Blocks"
+    args={{ show: ['heading', 'content', 'footer'] }}
+  >
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
+## With link
+
+If an `href` property is provided, the `heading` (if present) will include a link that encompasses the entire card.
+
+<Canvas>
+  <Story
+    name="Link"
+    args={{ href: '#', show: ['heading', 'content', 'footer'] }}
+  >
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
+## With cover
+
+An optional `cover` block may be provided containing an image or other visual object. This will display using our `wide` [aspect ratio token](/?path=/story/design-tokens-aspect-ratio--page), and includes an effect on hover if the card includes an `href` (see above).
+
+<Canvas>
+  <Story name="Cover Image" args={{ href: '#' }}>
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
+## Horizontal
+
+If a card with a cover is meant to occupy its full container width, it may be preferable to display it horizontally at larger [breakpoints](/?path=/docs/design-tokens-breakpoint--page). The `c-card--horizontal@m`, `c-card--horizontal@l` and `c-card--horizontal@xl` modifier classes will do that from their respective breakpoints.
+
+<Canvas>
+  <Story name="Horizontal" args={{ href: '#', horizontal: '@m' }}>
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
+## Coming soon
+
+- Progressive enhancement based on CSS Grid support
+- Contained and themed cards for PWA Stats use case

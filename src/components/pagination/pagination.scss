@@ -107,10 +107,11 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__action.is-previous::before,
 .c-pagination__action.is-next::after {
+  background-color: var(--theme-color-background-pagination-control);
   background-position: center;
   background-repeat: no-repeat;
   background-size: sizes.$control-icon-size;
-  border: sizes.$edge-small solid colors.$gray-light;
+  border: sizes.$edge-small solid var(--theme-color-border-pagination-control);
   border-radius: sizes.$radius-full;
   bottom: 0;
   content: '';
@@ -121,11 +122,6 @@ $indicator-width-current: $indicator-height-current;
   transition: filter motion.$speed-slow motion.$ease-out,
     transform motion.$speed-quick motion.$ease-out;
   width: $action-size;
-
-  .t-dark & {
-    background-color: colors.$primary-brand-dark;
-    border-color: transparent;
-  }
 }
 
 /**
@@ -152,11 +148,20 @@ $indicator-width-current: $indicator-height-current;
  */
 
 .c-pagination__action.is-previous::before {
-  background-image: svg-load(
-    'icons/arrow-left.svg',
-    stroke=colors.$primary-brand
-  );
   left: 0;
+
+  /**
+   * Inline SVGs aren't aware of custom properties, so we have to do a bit
+   * of theming trickery here
+   */
+
+  &,
+  .t-light & {
+    background-image: svg-load(
+      'icons/arrow-left.svg',
+      stroke=colors.$primary-brand
+    );
+  }
 
   .t-dark & {
     background-image: svg-load(
@@ -167,11 +172,20 @@ $indicator-width-current: $indicator-height-current;
 }
 
 .c-pagination__action.is-next::after {
-  background-image: svg-load(
-    'icons/arrow-right.svg',
-    stroke=colors.$primary-brand
-  );
   right: 0;
+
+  /**
+   * Inline SVGs aren't aware of custom properties, so we have to do a bit
+   * of theming trickery here
+   */
+
+  &,
+  .t-light & {
+    background-image: svg-load(
+      'icons/arrow-right.svg',
+      stroke=colors.$primary-brand
+    );
+  }
 
   .t-dark & {
     background-image: svg-load(

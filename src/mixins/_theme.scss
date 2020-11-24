@@ -17,6 +17,7 @@
 @mixin light-props {
   --theme-color-background-base: #{colors.$text-light-emphasis};
   --theme-color-background-kbd: transparent;
+  --theme-color-border-calendar-date: #{colors.$gray-light};
   --theme-color-border-kbd: #{colors.$gray-light};
   --theme-color-text-base: #{colors.$text-dark};
   --theme-color-text-code: #{colors.$fuchsia};
@@ -29,6 +30,7 @@
 @mixin dark-props {
   --theme-color-background-base: #{colors.$primary-brand};
   --theme-color-background-kbd: #{colors.$primary-brand-dark};
+  --theme-color-border-calendar-date: #{colors.$primary-brand-dark};
   --theme-color-border-kbd: #{colors.$primary-brand-darker};
   --theme-color-text-base: #{colors.$text-light};
   --theme-color-text-code: var(--theme-color-text-emphasis);

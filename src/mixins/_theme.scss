@@ -1,0 +1,50 @@
+@use "../design-tokens/colors.yml";
+@use "../design-tokens/opacity.yml";
+@use "../design-tokens/sizes.yml";
+
+/// Establish the minimal rules needed for a theme's root element, specifically
+/// a `background-color` and default text color. Without this, the theme root
+/// won't be visually offset from its parent and its contents may not be very
+/// readable.
+///
+/// @output `background-color` and `color` rules
+@mixin rules() {
+  background-color: var(--theme-color-background-base);
+  color: var(--theme-color-text-base);
+}
+
+/// @output Custom properties with light theme defaults
+@mixin light-props {
+  --theme-color-background-base: #{colors.$text-light-emphasis};
+  --theme-color-background-kbd: transparent;
+  --theme-color-border-kbd: #{colors.$gray-light};
+  --theme-color-text-base: #{colors.$text-dark};
+  --theme-color-text-code: #{colors.$fuchsia};
+  --theme-color-text-emphasis: var(--theme-color-text-base);
+  --theme-color-text-action: #{colors.$text-action};
+  --theme-opacity-del: #{opacity.$muted};
+}
+
+/// @output Custom properties with dark theme defaults
+@mixin dark-props {
+  --theme-color-background-base: #{colors.$primary-brand};
+  --theme-color-background-kbd: #{colors.$primary-brand-dark};
+  --theme-color-border-kbd: #{colors.$primary-brand-darker};
+  --theme-color-text-base: #{colors.$text-light};
+  --theme-color-text-code: var(--theme-color-text-emphasis);
+  --theme-color-text-emphasis: #{colors.$text-light-emphasis};
+  --theme-color-text-action: var(--theme-color-text-emphasis);
+  --theme-opacity-del: inherit;
+}
+
+/// Shorthand for including light properties and theme rules at once
+@mixin light {
+  @include light-props;
+  @include rules;
+}
+
+/// Shorthand for including dark properties and theme rules at once
+@mixin dark {
+  @include dark-props;
+  @include rules;
+}

@@ -1,0 +1,9 @@
+@use "../mixins/theme";
+
+.t-light {
+  @include theme.light();
+}
+
+.t-dark {
+  @include theme.dark();
+}

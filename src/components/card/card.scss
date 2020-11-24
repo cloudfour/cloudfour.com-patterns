@@ -192,18 +192,10 @@ $_focus-overflow: (sizes.$edge-large * -1);
  */
 
 .c-card__cover {
-  background-color: colors.$gray-lighter; /* 1 */
+  background-color: var(--theme-color-background-secondary); /* 1 */
   border-radius: sizes.$radius-medium;
   grid-area: cover;
   @include embed.object(aspect-ratio.$wide); /* 2 */
-
-  /**
-   * Use a different background color for the dark theme.
-   */
-
-  .t-dark & {
-    background-color: colors.$primary-brand-dark;
-  }
 
   /**
    * Since this element is always visually on top, we can assume it needs a

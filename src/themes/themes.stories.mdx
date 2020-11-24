@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import demo from './demo/fill-canvas.twig';
+import demo from './demo/theme.twig';
 
 <Meta
   title="Design/Themes"
@@ -8,14 +8,14 @@ import demo from './demo/fill-canvas.twig';
 
 # Themes
 
-Themes may be applied to a containing element to dramatically change that content's appearance. Theme classes are always prefixed by `t-`.
+Themes may be applied to a containing element to dramatically change that content's appearance. Theme classes are always prefixed by `t-`. Theme differences are toggled via [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to support nesting without selector conflicts.
 
-While selector depth is best kept to a minimum, it's permissible to style objects and components differently within a theme class. If you find you are working _against_ a theme class a lot, it may be a sign that you really need a whole new pattern and modifier (instead of just a themed variation).
-
-## Dark
-
-`t-dark` is intended primarily for page headers.
+The default theme is "light" and is applied to the document `:root` by default. The `t-dark` class may be applied to child elements. The `t-light` class may be applied to switch _back_ to the "light" theme from within a dark container.
 
 <Canvas>
   <Story name="Dark">{demo({ theme: 'dark' })}</Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Light">{demo({ theme: 'light' })}</Story>
 </Canvas>

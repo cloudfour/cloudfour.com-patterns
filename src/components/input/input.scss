@@ -92,11 +92,7 @@
 
   &:hover:not(:disabled):not([readonly]) {
     background-color: colors.$text-light-emphasis;
-    border-color: colors.$primary-brand;
-
-    .t-dark & {
-      border-color: currentColor;
-    }
+    border-color: var(--theme-color-border-input-hover);
   }
 
   /**
@@ -117,14 +113,9 @@
   }
 
   &:disabled {
-    background-color: colors.$gray-light;
-    border-color: colors.$gray;
+    background-color: var(--theme-color-background-input-disabled);
+    border-color: var(--theme-color-border-input-disabled);
     cursor: not-allowed;
-
-    .t-dark & {
-      background-color: colors.$primary-brand-lighter;
-      border-color: colors.$primary-brand-dark;
-    }
   }
 
   /**

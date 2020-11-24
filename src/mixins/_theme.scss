@@ -24,6 +24,11 @@
   --theme-color-border-input-hover: #{colors.$primary-brand};
   --theme-color-border-kbd: #{colors.$gray-light};
   --theme-color-text-base: #{colors.$text-dark};
+  --theme-color-text-checkbox-checked-hover: var(
+    --theme-color-text-checkbox-hover
+  );
+  --theme-color-text-checkbox-disabled: #{colors.$gray-dark};
+  --theme-color-text-checkbox-hover: #{colors.$primary-brand};
   --theme-color-text-code: #{colors.$fuchsia};
   --theme-color-text-emphasis: var(--theme-color-text-base);
   --theme-color-text-action: #{colors.$text-action};
@@ -41,6 +46,9 @@
   --theme-color-border-input-hover: currentColor;
   --theme-color-border-kbd: #{colors.$primary-brand-darker};
   --theme-color-text-base: #{colors.$text-light};
+  --theme-color-text-checkbox-checked-hover: #{colors.$primary-brand-darker};
+  --theme-color-text-checkbox-disabled: #{colors.$text-light};
+  --theme-color-text-checkbox-hover: #{colors.$text-dark};
   --theme-color-text-code: var(--theme-color-text-emphasis);
   --theme-color-text-emphasis: #{colors.$text-light-emphasis};
   --theme-color-text-action: var(--theme-color-text-emphasis);

@@ -75,11 +75,7 @@
 
     &:hover {
       background-color: colors.$text-light-emphasis;
-      color: colors.$primary-brand;
-
-      .t-dark & {
-        color: colors.$text-dark;
-      }
+      color: var(--theme-color-text-checkbox-hover);
     }
 
     /**
@@ -98,8 +94,8 @@
         transform: scale(1);
       }
 
-      .t-dark &:hover {
-        color: colors.$primary-brand-darker;
+      &:hover {
+        color: var(--theme-color-text-checkbox-checked-hover);
       }
     }
 
@@ -125,21 +121,22 @@
     &:disabled {
       background-color: transparent; /* 1 */
       border-style: dashed; /* 1 */
-      color: colors.$gray-dark; /* 2 */
+      color: var(--theme-color-text-checkbox-disabled); /* 2 */
       cursor: not-allowed;
 
-      /**
-       * For purely visual consistency with dark theme disabled inputs we would
-       * use `$primary-brand-lighter`, but that will not have enough contrast
-       * on its own in this context.
-       */
-
-      .t-dark & {
-        color: colors.$text-light;
-      }
-
       &::after {
-        background-image: svg-load('icons/check.svg', stroke=colors.$gray-dark);
+        /**
+         * Inline SVGs aren't aware of custom properties, so we have to do a bit
+         * of theming trickery here
+         */
+
+        &,
+        .t-light & {
+          background-image: svg-load(
+            'icons/check.svg',
+            stroke=colors.$gray-dark
+          );
+        }
 
         .t-dark & {
           background-image: svg-load(

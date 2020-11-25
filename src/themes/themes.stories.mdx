@@ -1,21 +1,37 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import demo from './demo/theme.twig';
+const demoStory = (args) => demo(args);
 
 <Meta
   title="Design/Themes"
   parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
+  argTypes={{
+    theme: {
+      type: { name: 'string' },
+      control: { type: 'inline-radio', options: ['light', 'dark'] },
+      defaultValue: 'light',
+    },
+  }}
 />
 
 # Themes
 
-Themes may be applied to a containing element to dramatically change that content's appearance. Theme classes are always prefixed by `t-`. Theme differences are toggled via [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to support nesting without selector conflicts.
+Themes may be applied to a containing element to change that content's appearance. Theme classes are always prefixed by `t-`, for example `t-dark`. The majority of theme differences are toggled via [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), which keeps theme code lean and selector conflicts minimal. Themes may be nested in other themes.
 
-The default theme is "light" and is applied to the document `:root` by default. The `t-dark` class may be applied to child elements. The `t-light` class may be applied to switch _back_ to the "light" theme from within a dark container.
+## Light
+
+The default theme, applied to the document `:root` by default.
 
 <Canvas>
-  <Story name="Dark">{demo({ theme: 'dark' })}</Story>
+  <Story name="Light">{demo.bind({})}</Story>
 </Canvas>
 
+## Dark
+
+Optimized for page intros and headings.
+
 <Canvas>
-  <Story name="Light">{demo({ theme: 'light' })}</Story>
+  <Story name="Dark" args={{ theme: 'dark' }}>
+    {demo.bind({})}
+  </Story>
 </Canvas>

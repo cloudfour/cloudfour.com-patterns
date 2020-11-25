@@ -237,6 +237,9 @@ $_max-width: #{unit.strip(layout.$max-width-spread) +
    * Fun fact: An earlier version of this design included twinkling stars,
    * but they significantly decreased performance! They also made the text a
    * little harder to read.
+   *
+   * @todo Decide if supporting themes for SkyNav is even necessary and, if so,
+   * try to make this work via custom properties.
    */
   .t-dark & {
     @media (max-width: $_breakpoint-narrow-max) {
@@ -366,6 +369,11 @@ $_max-width: #{unit.strip(layout.$max-width-spread) +
   @media (max-width: $_breakpoint-narrow-max) {
     border-bottom: sizes.$edge-small solid colors.$gray-light;
     padding: $_space-vertical $_space-horizontal;
+
+    /**
+     * @todo Decide if supporting themes for SkyNav is even necessary and, if so,
+     * try to make this work via custom properties.
+     */
 
     .t-dark & {
       border-bottom-color: color.change(

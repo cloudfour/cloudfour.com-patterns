@@ -8,7 +8,9 @@
       <h1>t-{{theme}}</h1>
       {% include '@cloudfour/design/typography/demo/inline-elements.twig' only %}
       {% include '@cloudfour/components/button/demo/styles.twig' only %}
-      {% set _card_class = 'c-card--horizontal@m' %}
+      {# TODO: Replacing padding and corner modifiers once card component can
+         handle these variations natively #}
+      {% set _card_class = 'c-card--horizontal@m u-pad-1 u-rounded' %}
       {% if theme == 'light' %}
         {% set _card_class = _card_class ~ ' t-dark' %}
       {% else %}

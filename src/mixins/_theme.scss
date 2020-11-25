@@ -70,7 +70,7 @@
   --theme-color-text-checkbox-hover: #{colors.$text-dark};
   --theme-color-text-code: var(--theme-color-text-emphasis);
   --theme-color-text-emphasis: #{colors.$text-light-emphasis};
-  --theme-opacity-del: inherit;
+  --theme-opacity-del: 1;
 }
 
 /// Shorthand for including light properties and theme rules at once

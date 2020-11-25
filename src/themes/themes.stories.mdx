@@ -23,7 +23,7 @@ Themes may be applied to a containing element to change that content's appearanc
 The default theme, applied to the document `:root` by default.
 
 <Canvas>
-  <Story name="Light">{demo.bind({})}</Story>
+  <Story name="Light">{demoStory.bind({})}</Story>
 </Canvas>
 
 ## Dark
@@ -32,7 +32,7 @@ Optimized for page intros and headings.
 
 <Canvas>
   <Story name="Dark" args={{ theme: 'dark' }}>
-    {demo.bind({})}
+    {demoStory.bind({})}
   </Story>
 </Canvas>
 

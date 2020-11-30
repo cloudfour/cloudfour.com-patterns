@@ -1,0 +1,27 @@
+@use '../../design-tokens/breakpoint.yml';
+@use '../../mixins/fluid';
+@use '../../mixins/ms';
+
+.o-deck {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: [full-start] 1fr [full-end];
+  @include fluid.grid-gap(
+    breakpoint.$s,
+    breakpoint.$xl,
+    ms.step(3, 1rem),
+    ms.step(6, 1rem)
+  );
+
+  @media (width >= breakpoint.$m) {
+    grid-template-columns: [full-start] repeat(2, 1fr) [full-end];
+  }
+
+  @media (width >= breakpoint.$l) {
+    grid-template-columns: [full-start] repeat(3, 1fr) [full-end];
+  }
+}
+
+.o-deck__full {
+  grid-column: full;
+}

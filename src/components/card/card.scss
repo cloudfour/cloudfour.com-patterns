@@ -61,8 +61,8 @@ $_focus-overflow: (sizes.$edge-large * -1);
   @include fluid.grid-column-gap(
     breakpoint.$s,
     breakpoint.$xl,
-    ms.step(1, 1rem),
-    ms.step(3, 1rem)
+    ms.step(3, 1rem),
+    ms.step(6, 1rem)
   ); /* 3 */
 }
 

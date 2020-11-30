@@ -12,13 +12,14 @@ $default-theme: light;
 /// @content
 @mixin props($theme: $default-theme) {
   @if $theme == $default-theme {
-    :root {
+    :root,
+    .t-#{$theme} {
       @content;
     }
-  }
-
-  .t-#{$theme} {
-    @content;
+  } @else {
+    .t-#{$theme} {
+      @content;
+    }
   }
 }
 

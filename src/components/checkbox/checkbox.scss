@@ -149,15 +149,14 @@
          * of theming trickery here
          */
 
-        &,
-        .t-light & {
+        @include theme.styles() {
           background-image: svg-load(
             'icons/check.svg',
             stroke=colors.$gray-dark
           );
         }
 
-        .t-dark & {
+        @include theme.styles(dark) {
           background-image: svg-load(
             'icons/check.svg',
             stroke=colors.$text-light

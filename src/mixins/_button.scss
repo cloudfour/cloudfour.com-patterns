@@ -5,6 +5,29 @@
 @use "./focus";
 @use "./ms";
 @use "./unit";
+@use "./theme";
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-background-button-default: #{colors.$primary-brand};
+  --theme-color-background-button-secondary: transparent;
+  --theme-color-border-button-default: #{colors.$primary-brand-dark};
+  --theme-color-border-button-secondary: #{colors.$primary-brand-light};
+  --theme-color-text-button-secondary: var(--theme-color-text-action);
+  --theme-color-text-button-tertiary: var(--theme-color-text-action);
+}
+
+@include theme.props(dark) {
+  --theme-color-background-button-default: #{colors.$primary-brand-dark};
+  --theme-color-background-button-secondary: transparent;
+  --theme-color-border-button-default: #{colors.$primary-brand-darker};
+  --theme-color-border-button-secondary: #{colors.$primary-brand-dark};
+  --theme-color-text-button-secondary: var(--theme-color-text-action);
+  --theme-color-text-button-tertiary: var(--theme-color-text-action);
+}
 
 /**
  * Button object

@@ -2,6 +2,25 @@
 @use "../../design-tokens/motion.yml";
 @use "../../design-tokens/sizes.yml";
 @use "../../mixins/focus";
+@use "../../mixins/theme";
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-text-checkbox-checked-hover: var(
+    --theme-color-text-checkbox-hover
+  );
+  --theme-color-text-checkbox-disabled: #{colors.$gray-dark};
+  --theme-color-text-checkbox-hover: #{colors.$primary-brand};
+}
+
+@include theme.props(dark) {
+  --theme-color-text-checkbox-checked-hover: #{colors.$primary-brand-darker};
+  --theme-color-text-checkbox-disabled: #{colors.$text-light};
+  --theme-color-text-checkbox-hover: #{colors.$text-dark};
+}
 
 /**
  * 1. This `@supports` query prevents IE11 (and older browsers) from applying

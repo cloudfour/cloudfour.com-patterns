@@ -5,6 +5,7 @@
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
+@use '../../mixins/theme';
 
 // Defines the hit area for actionable elements, specifically the height of
 // links and the width/height of "previous" and "next" affordances.
@@ -22,6 +23,22 @@ $indicator-height: sizes.$edge-medium;
 $indicator-width: ms.step(-1);
 $indicator-height-current: sizes.$edge-large;
 $indicator-width-current: $indicator-height-current;
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-background-pagination-control: transparent;
+  --theme-color-border-pagination-control: #{colors.$gray-light};
+}
+
+@include theme.props(dark) {
+  --theme-color-background-pagination-control: var(
+    --theme-color-background-secondary
+  );
+  --theme-color-border-pagination-control: transparent;
+}
 
 /**
  * We have no styles to apply to the root `c-pagination` class, but we don't

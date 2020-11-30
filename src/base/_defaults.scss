@@ -4,10 +4,6 @@
 @use "../mixins/ms";
 @use "../mixins/theme";
 
-:root {
-  @include theme.light-props();
-}
-
 /**
  * Sensible box model
  */

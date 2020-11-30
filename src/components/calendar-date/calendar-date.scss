@@ -2,11 +2,23 @@
 @use '../../design-tokens/font.yml';
 @use '../../design-tokens/sizes.yml';
 @use '../../mixins/ms';
-@use '../../mixins/unit';
+@use '../../mixins/theme';
 
 $size: ms.step(8);
 $edge-size: sizes.$edge-medium;
 $radius: sizes.$radius-medium;
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-border-calendar-date: #{colors.$gray-light};
+}
+
+@include theme.props(dark) {
+  --theme-color-border-calendar-date: #{colors.$primary-brand-dark};
+}
 
 .c-calendar-date {
   display: flex;

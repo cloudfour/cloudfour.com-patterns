@@ -1,6 +1,23 @@
 @use "../../design-tokens/colors.yml";
 @use "../../design-tokens/motion.yml";
 @use "../../design-tokens/sizes.yml";
+@use "../../mixins/theme";
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-background-input-disabled: #{colors.$gray-light};
+  --theme-color-border-input-disabled: #{colors.$gray};
+  --theme-color-border-input-hover: #{colors.$primary-brand};
+}
+
+@include theme.props(dark) {
+  --theme-color-background-input-disabled: #{colors.$primary-brand-lighter};
+  --theme-color-border-input-disabled: #{colors.$primary-brand-dark};
+  --theme-color-border-input-hover: currentColor;
+}
 
 /**
  * 1. Browsers apply certain default styles unless appearance is set to `none`.

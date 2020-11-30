@@ -43,8 +43,8 @@
     "prismjs": "1.22.0"
   },
   "devDependencies": {
-    "@babel/core": "7.12.3",
-    "@babel/preset-env": "7.12.1",
+    "@babel/core": "7.12.9",
+    "@babel/preset-env": "7.12.7",
     "@changesets/changelog-github": "0.2.7",
     "@changesets/cli": "2.11.2",
     "@cloudfour/eslint-plugin": "15.0.1",
@@ -61,7 +61,7 @@
     "@types/prismjs": "1.16.2",
     "@whitespace/storybook-addon-html": "2.0.1",
     "@wordpress/block-library": "2.26.4",
-    "babel-loader": "8.2.1",
+    "babel-loader": "8.2.2",
     "browserify-transform-tools": "1.7.0",
     "css-loader": "5.0.1",
     "cssnano": "4.1.10",

@@ -23,7 +23,13 @@
               <img src="{{item.thumbnail}}" alt="">
             {% endblock %}
             {% block content %}
-              <p>{{item.description}}</p>
+              <p>
+                {% if item.description|length > 140 %}
+                  {{item.description|slice(0, 140)}}…
+                {% else %}
+                  {{item.description}}
+                {% endif %}
+              </p>
             {% endblock %}
             {% block footer %}
               <p>{{item.author}}</p>

@@ -7,6 +7,7 @@
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/headings';
+@use '../../mixins/media-query';
 @use '../../mixins/ms';
 
 /// We can't use `grid-gap` exclusively due to some containers only being
@@ -65,46 +66,31 @@ $_focus-overflow: (sizes.$edge-large * -1);
   ); /* 3 */
 }
 
-/// Defines horizontal modifier styles for re-use within media queries to keep
-/// things DRY.
-///
-/// We define the layout as three columns instead of `2fr 1fr` so that the
-/// gaps will line up with three-column elements below. The `fr` rows on the
-/// ends keep the content rows vertically centered.
-///
-/// @todo Coordinate this with the eventual card grid object.
-/// @access private
-
-@mixin _horizontal {
-  grid-template-areas:
-    'cover cover .'
-    'cover cover header'
-    'cover cover content'
-    'cover cover footer'
-    'cover cover .';
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr repeat(3, minmax(0, auto)) 1fr;
-}
-
 /**
  * Responsive horizontal modifiers
+ *
+ * 1. We define the layout as three columns instead of `2fr 1fr` so that the
+ *    gaps will line up with three-column elements below.
+ * 2. The `fr` rows on the
+ *    ends keep the content rows vertically centered.
+ *
+ * @todo Coordinate this with the eventual card grid object.
  */
 
-.c-card--horizontal\@m {
-  @media (width >= breakpoint.$m) {
-    @include _horizontal();
-  }
-}
-
-.c-card--horizontal\@l {
-  @media (width >= breakpoint.$l) {
-    @include _horizontal();
-  }
-}
-
-.c-card--horizontal\@xl {
-  @media (width >= breakpoint.$xl) {
-    @include _horizontal();
+.c-card--horizontal {
+  @include media-query.breakpoint-classes(
+    $from: m,
+    $to: xl,
+    $include-default: false
+  ) {
+    grid-template-areas:
+      'cover cover .'
+      'cover cover header'
+      'cover cover content'
+      'cover cover footer'
+      'cover cover .';
+    grid-template-columns: repeat(3, 1fr); /* 1 */
+    grid-template-rows: 1fr repeat(3, minmax(0, auto)) 1fr; /* 2 */
   }
 }
 
@@ -206,22 +192,13 @@ $_focus-overflow: (sizes.$edge-large * -1);
   &:not(:only-child) {
     margin-bottom: $_cover-gap;
 
-    .c-card--horizontal\@m & {
-      @media (width >= breakpoint.$m) {
-        margin-bottom: 0;
-      }
-    }
-
-    .c-card--horizontal\@l & {
-      @media (width >= breakpoint.$l) {
-        margin-bottom: 0;
-      }
-    }
-
-    .c-card--horizontal\@xl & {
-      @media (width >= breakpoint.$xl) {
-        margin-bottom: 0;
-      }
+    @include media-query.breakpoint-parent-classes(
+      $selector: '.c-card--horizontal',
+      $from: m,
+      $to: xl,
+      $include-default: false
+    ) {
+      margin-bottom: 0;
     }
   }
 }

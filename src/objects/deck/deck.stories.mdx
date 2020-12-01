@@ -4,7 +4,26 @@ import articlesDemo from './demo/articles.twig';
 import template from './deck.twig';
 const articlesStory = (args) => articlesDemo({ items: articles, ...args });
 
-<Meta title="Objects/Deck" parameters={{ docs: { inlineStories: false } }} />
+<Meta
+  title="Objects/Deck"
+  parameters={{ docs: { inlineStories: false } }}
+  argTypes={{
+    fullItem: {
+      control: {
+        type: 'range',
+        min: 1,
+        max: articles.length,
+        step: 1,
+      },
+      defaultValue: 1,
+    },
+    fullBreakpoint: {
+      type: { name: 'enum' },
+      control: { type: 'inline-radio', options: ['none', '@m', '@l'] },
+      defaultValue: '@l',
+    },
+  }}
+/>
 
 # Deck
 

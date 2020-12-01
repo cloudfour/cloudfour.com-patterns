@@ -1,22 +1,3 @@
-{% embed '@cloudfour/objects/container/container.twig' with {
-  class: 'o-container--pad'
-} %}
-  {% block content %}
-    <div class="o-deck">
-      {% for i in 1..12 %}
-        {% set _card_class = false %}
-        {% if i == 2 %}
-          {% set _card_class = 'c-card--horizontal@m o-deck__full' %}
-        {% endif %}
-        {% include '@cloudfour/components/card/demo/single.twig' with {
-          show_heading: true,
-          show_cover: true,
-          show_content: true,
-          show_footer: true,
-          href: '#',
-          class: _card_class
-        } only %}
-      {% endfor %}
-    </div>
-  {% endblock %}
-{% endembed %}
+<div class="o-deck">
+  {% block content %}{% endblock %}
+</div>

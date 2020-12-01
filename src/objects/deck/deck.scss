@@ -2,26 +2,46 @@
 @use '../../mixins/fluid';
 @use '../../mixins/ms';
 
+@mixin _template-columns($count: 1) {
+  @if $count > 1 {
+    grid-template-columns: [full-start] repeat(#{$count}, 1fr) [full-end];
+  } @else {
+    grid-template-columns: [full-start] 1fr [full-end];
+  }
+}
+
 .o-deck {
   display: grid;
   grid-auto-flow: dense;
-  grid-template-columns: [full-start] 1fr [full-end];
   @include fluid.grid-gap(
     breakpoint.$s,
     breakpoint.$xl,
     ms.step(3, 1rem),
     ms.step(6, 1rem)
   );
+  @include _template-columns();
 
   @media (width >= breakpoint.$m) {
-    grid-template-columns: [full-start] repeat(2, 1fr) [full-end];
+    @include _template-columns(2);
   }
 
   @media (width >= breakpoint.$l) {
-    grid-template-columns: [full-start] repeat(3, 1fr) [full-end];
+    @include _template-columns(3);
   }
 }
 
 .o-deck__full {
   grid-column: full;
+}
+
+.o-deck__full\@m {
+  @media (width >= breakpoint.$m) {
+    grid-column: full;
+  }
+}
+
+.o-deck__full\@l {
+  @media (width >= breakpoint.$l) {
+    grid-column: full;
+  }
 }

@@ -1,0 +1,33 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad'
+} %}
+  {% block content %}
+    {% embed '@cloudfour/objects/deck/deck.twig' with {
+      class: '',
+    } %}
+      {% block content %}
+        {% for item in items %}
+
+          {% embed '@cloudfour/components/card/card.twig' with {
+            href: item.link
+          } %}
+            {% block heading %}
+              {{item.title}}
+            {% endblock %}
+            {% block cover %}
+              <img src="{{item.thumbnail}}" alt="">
+            {% endblock %}
+            {% block content %}
+              <p>{{item.description}}</p>
+            {% endblock %}
+            {% block footer %}
+              <p>{{item.author}}</p>
+              <p>{{item.pubDate|date('M j, Y')}}</p>
+            {% endblock %}
+          {% endembed %}
+
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

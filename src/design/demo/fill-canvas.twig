@@ -8,7 +8,7 @@
 
   @see https://github.com/tonai/storybook-addon-themes#usage-with-decorator
 #}
-<div{% if theme %} class="t-{{theme}}"{% endif %} style="padding: 1em;">
+<div class="u-pad-1{% if theme %} t-{{theme}}{% endif %}">
   {% block content %}
     <h1>Hello world</h1>
     <p>Progressive web apps <a href="#">simply make sense</a>!</p>

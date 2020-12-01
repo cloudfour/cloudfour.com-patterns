@@ -2,31 +2,23 @@
 @use '../../mixins/fluid';
 @use '../../mixins/ms';
 
-@mixin _template-columns($count: 1) {
-  @if $count > 1 {
-    grid-template-columns: [full-start] repeat(#{$count}, 1fr) [full-end];
-  } @else {
-    grid-template-columns: [full-start] 1fr [full-end];
-  }
-}
-
 .o-deck {
   display: grid;
   grid-auto-flow: dense;
+  grid-template-columns: [full-start] repeat(var(--columns, 1), 1fr) [full-end];
   @include fluid.grid-gap(
     breakpoint.$s,
     breakpoint.$xl,
     ms.step(3, 1rem),
     ms.step(6, 1rem)
   );
-  @include _template-columns();
 
   @media (width >= breakpoint.$m) {
-    @include _template-columns(2);
+    --columns: 2;
   }
 
   @media (width >= breakpoint.$l) {
-    @include _template-columns(3);
+    --columns: 3;
   }
 }
 

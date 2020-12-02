@@ -1,59 +1,29 @@
-@use 'sass:meta';
 @use '../design-tokens/aspect-ratio.yml';
-@use '../design-tokens/breakpoint.yml';
+@use '../mixins/media-query';
+@use 'sass:meta';
 
-/**
- * We define the default ratio up-front to avoid outputting unnecessary modifier
- * classes for it.
- */
-
+/// The default aspect ratio will not be output outside of a media query.
+/// @type Number
 $default-aspect-ratio: aspect-ratio.$square;
 
-/* stylelint-disable suitcss/custom-property-no-outside-root */
+/// Saving a map of aspect ratio values makes it easier to loop through.
+/// @type Map
+$aspect-ratio-map: meta.module-variables('aspect-ratio');
 
-/**
- * Makes ratio modifier classes based on the `aspect-ratio` and `breakpoint`
- * design tokens. Intended to be included from within the base class.
-
- * We iterate over breakpoints before ratios so wider breakpoints will be later
- * in the cascade. If we iterated over aspect ratios first, then a narrower
- * breakpoint would override a wider one if its aspect ratio came first in our
- * design token file.
- */
-
+/// Makes ratio modifier classes based on the `aspect-ratio` and `breakpoint`
+/// design tokens. Intended to be included from within a base class.
+///
+/// @param {String} $default-aspect-ratio [$default-aspect-ratio] - We won't
+/// output this property again outside of a breakpoint since it shouldn't be
+/// necessary.
+/// @output Ratio modifier classes for supported breakpoints.
 @mixin aspect-ratio-modifiers($default-aspect-ratio: $default-aspect-ratio) {
-  @each $name, $ratio in meta.module-variables('aspect-ratio') {
-    @if $ratio != $default-aspect-ratio {
-      /**
-       * Sass will not compile variables applied to custom properties without
-       * this syntax for compatibility reasons.
-       *
-       * @see https://sass-lang.com/documentation/breaking-changes/css-vars
-       *
-       * Note also that while we avoid using Sass to construct BEM selectors,
-       * (see https://github.com/cloudfour/cloudfour.com-patterns/issues/671)
-       * in this case it's approprate, because this mixin could be used
-       * elsewhere, and we'd want it to work under any selector.
-       */
-
-      &--#{$name} {
+  @each $name, $ratio in $aspect-ratio-map {
+    &--#{$name} {
+      @include media-query.breakpoint-classes(
+        $include-default: $ratio != $default-aspect-ratio
+      ) {
         --aspect-ratio: #{$ratio};
-      }
-    }
-  }
-  @each $suffix, $breakpoint in meta.module-variables('breakpoint') {
-    @media (min-width: $breakpoint) {
-      @each $name, $ratio in meta.module-variables('aspect-ratio') {
-        /**
-         * The backslash in the selector is required for the `@` character.
-         *
-         * 1. It's not super DRY to repeat this line twice in the mixin, but
-         *    every alternative I explored took a lot more code.
-         */
-
-        &--#{$name}\@#{$suffix} {
-          --aspect-ratio: #{$ratio}; /* 1 */
-        }
       }
     }
   }
@@ -139,5 +109,3 @@ $default-aspect-ratio: aspect-ratio.$square;
     @include aspect-ratio-modifiers();
   }
 }
-
-/* stylelint-enable */

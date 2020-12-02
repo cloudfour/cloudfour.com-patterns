@@ -1,12 +1,7 @@
 {% embed '@cloudfour/components/event-log/event-log.twig' %}
   {% block content %}
     {% for item in items %}
-      {% embed '@cloudfour/components/event-log/item.twig' with {
-        date: item.date,
-        name: item.name,
-        href: item.link,
-        location: item.location
-      } %}
+      {% embed '@cloudfour/components/event-log/item.twig' with item %}
         {% block extra %}
           {%- if item.links -%}
             {% embed '@cloudfour/objects/list/list.twig' with {
@@ -25,39 +20,6 @@
           {%- endif -%}
         {% endblock %}
       {% endembed %}
-      {# <article class="c-event-log__item">
-        <h3 class="c-event-log__heading">{{item.date}}</h3>
-        <div class="c-event-log__content">
-          <div>
-            {% embed '@cloudfour/objects/list/list.twig' with {
-              tag_name: 'div',
-              class: 'o-list--inline'
-            } %}
-              {% block content %}
-                <p><a href="{{item.link}}">{{item.name}}</a></p>
-                <p>{{item.location}}</p>
-              {% endblock %}
-            {% endembed %}
-          </div>
-          {% if item.links %}
-            <div>
-              {% embed '@cloudfour/objects/list/list.twig' with {
-                class: 'o-list--inline'
-              } %}
-                {% block content %}
-                  {% for link in item.links %}
-                    <li>
-                      <a href="{{link.link}}">
-                        {{link.title}}
-                      </a>
-                    </li>
-                  {% endfor %}
-                {% endblock %}
-              {% endembed %}
-            </div>
-          {% endif %}
-        </div>
-      </article> #}
     {% endfor %}
   {% endblock %}
 {% endembed %}

@@ -1,0 +1,69 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/font.yml';
+@use '../../design-tokens/opacity.yml';
+@use '../../mixins/ms';
+@use '../../mixins/theme';
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-border-event-log-item: #{colors.$gray-light};
+  --theme-opacity-event-log-location: #{opacity.$muted};
+}
+
+@include theme.props(dark) {
+  --theme-color-border-event-log-item: #{colors.$primary-brand-dark};
+  --theme-opacity-event-log-location: 1;
+}
+
+.c-event-log {
+  display: grid;
+  grid-column-gap: ms.step(1, 1rem);
+  grid-template-columns: auto 1fr;
+}
+
+.c-event-log__item {
+  border: 0 solid var(--theme-color-border-event-log-item);
+  display: grid;
+  grid-column: span 2;
+  grid-template-columns: subgrid;
+
+  &:not(:first-child) {
+    border-top-width: 1px;
+    padding-top: ms.step(-1, 1rem);
+  }
+
+  &:not(:last-child) {
+    padding-bottom: ms.step(-1, 1rem);
+  }
+}
+
+.c-event-log__date {
+  font: inherit;
+}
+
+.c-event-log__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.c-event-log__details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c-event-log__name,
+.c-event-log__location {
+  margin-right: 1ch;
+}
+
+.c-event-log__name {
+  font-weight: font.$weight-semibold;
+}
+
+.c-event-log__location {
+  opacity: var(--theme-opacity-event-log-location);
+}

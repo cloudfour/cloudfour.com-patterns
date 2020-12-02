@@ -1,0 +1,66 @@
+[
+  {
+    "date": "Dec 11, 2017",
+    "name": "An Event Apart",
+    "link": "https://aneventapart.com/event/denver-2017",
+    "location": "Denver, CO",
+    "links": [
+      {
+        "title": "Luke Wroblewski's Notes",
+        "link": "https://www.lukew.com/ff/entry.asp?1984"
+      },
+      {
+        "title": "Video",
+        "link": "https://vimeo.com/288220564"
+      }
+    ]
+  },
+  {
+    "date": "Jul 13, 2017",
+    "name": "Portland Digital Summit",
+    "link": "https://portland.digitalsummit.com/agenda/",
+    "location": "Portland, OR"
+  },
+  {
+    "date": "Jul 10, 2017",
+    "name": "An Event Apart",
+    "link": "https://aneventapart.com/event/washington-dc-2017",
+    "location": "Washington, DC"
+  },
+  {
+    "date": "Jun 6, 2017",
+    "name": "PADNUG",
+    "link": "https://www.meetup.com/PADNUG/events/237142614/",
+    "location": "Hillsboro, OR"
+  },
+  {
+    "date": "May 15, 2017",
+    "name": "An Event Apart",
+    "link": "https://aneventapart.com/event/boston-2017",
+    "location": "Boston, MA"
+  },
+  {
+    "date": "Apr 4, 2017",
+    "name": "Smashing Conference",
+    "link": "https://smashingconf.com/",
+    "location": "San Francisco, CA",
+    "links": [
+      {
+        "title": "Video",
+        "link": "https://vimeo.com/214425867"
+      }
+    ]
+  },
+  {
+    "date": "Nov 7, 2016",
+    "name": "Velocity",
+    "link": "http://conferences.oreilly.com/velocity/devops-web-performance-eu",
+    "location": "Amsterdam, NL",
+    "links": [
+      {
+        "title": "Video",
+        "link": "https://www.youtube.com/watch?v=IFuYYrb5EMQ"
+      }
+    ]
+  }
+]

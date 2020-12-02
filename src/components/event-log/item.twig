@@ -1,0 +1,22 @@
+{% set _extra_block %}{% block extra %}{% endblock %}{% endset %}
+
+<article class="c-event-log__item">
+  <h3 class="c-event-log__date">{{date}}</h3>
+  <div class="c-event-log__content">
+    <div class="c-event-log__details">
+      <p class="c-event-log__name">
+        <a href="{{href}}">
+          {{name}}
+        </a>
+      </p>
+      <p class="c-event-log__location">
+        {{location}}
+      </p>
+    </div>
+    {% if _extra_block is not empty %}
+      <div class="c-event-log__extra">
+        {{_extra_block}}
+      </div>
+    {% endif %}
+  </div>
+</article>

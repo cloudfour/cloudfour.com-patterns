@@ -23,24 +23,48 @@ $_breakpoint-wide: breakpoint.$m;
   --theme-opacity-event-log-location: 1;
 }
 
+/**
+ * Main container
+ *
+ * 1. Defining content columns here, which will be referenced by subgrid in the
+ *    items themselves. This will keep the date column nicely sized in supported
+ *    browsers instead of relying on an arbitrary list.
+ */
+
 .c-event-log {
   display: grid;
   grid-column-gap: sizes.$gap-inline-medium;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr; /* 1 */
 }
 
+/**
+ * Individual item container
+ *
+ * 1. Spans the full width of the container.
+ * 2. In browsers that don't support subgrid, we manually define columns. The
+ *    first column width is a "magic number" that looks okay most of the time
+ *    for a date in the format of "Mon D, YYYY".
+ */
+
 .c-event-log__item {
-  border: 0 solid var(--theme-color-border-event-log-item);
   display: grid;
-  grid-column: span 2;
-  grid-template-columns: 8rem 1fr;
+  grid-column: span 2; /* 1 */
+  grid-template-columns: 8rem 1fr; /* 2 */
+
+  /**
+   * If subgrid is supported, use that instead! ✨
+   */
 
   @supports (grid-template-columns: subgrid) {
     grid-template-columns: subgrid;
   }
 
+  /**
+   * Add space and dividing lines between adjacent items
+   */
+
   &:not(:first-child) {
-    border-top-width: 1px;
+    border-top: 1px solid var(--theme-color-border-event-log-item);
     padding-top: sizes.$cell-pad-vertical;
   }
 
@@ -49,9 +73,25 @@ $_breakpoint-wide: breakpoint.$m;
   }
 }
 
+/**
+ * The date should be a heading element for semantics, but we want it to
+ * blend in visually with surrounding text.
+ */
+
 .c-event-log__date {
   font: inherit;
 }
+
+/**
+ * The content container displays its children in a stack by default, but at
+ * larger widths they are displayed in a single line justified across the
+ * available item width.
+ *
+ * We use flexbox for this instead of grid because we want the content to wrap
+ * if it's too long for the available space. We also don't want to use subgrid
+ * because sometimes the width of elements therein feels more unified if it's
+ * content-specific (rather than shared across all items).
+ */
 
 .c-event-log__content {
   @media (width >= $_breakpoint-wide) {
@@ -61,22 +101,52 @@ $_breakpoint-wide: breakpoint.$m;
   }
 }
 
+/**
+ * Details include the title and location
+ *
+ * We want content therein to mimic whatever the layout and wrapping behavior of
+ * the content container is.
+ */
+
 .c-event-log__details {
   display: inherit;
   flex-wrap: inherit;
+
+  /**
+   * It's possible for a long "extras" section to bump into this content
+   * container. Some browsers support `gap` for this, but since we can't test
+   * for Flexbox gap specifically, we have to use regular ol' margin instead.
+   *
+   * We put this on details because if adjacent sections had `margin-left` but
+   * wrapped to a new line, they'd appear incorrectly aligned.
+   */
 
   @media (width >= $_breakpoint-wide) {
     margin-right: sizes.$gap-inline-medium;
   }
 }
 
+/**
+ * Event title
+ */
+
 .c-event-log__title {
   font-weight: font.$weight-semibold;
+
+  /**
+   * We want the title and location to feel a tad more unified than other
+   * columns, so in this case we're just inserting a character space of margin
+   * between them when they're displayed inline.
+   */
 
   @media (width >= $_breakpoint-wide) {
     margin-right: 1ch;
   }
 }
+
+/**
+ * Location should appear a tad more muted and subtle compared to the title.
+ */
 
 .c-event-log__location {
   opacity: var(--theme-opacity-event-log-location);

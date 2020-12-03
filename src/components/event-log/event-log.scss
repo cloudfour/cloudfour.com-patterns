@@ -5,6 +5,8 @@
 @use '../../design-tokens/sizes.yml';
 @use '../../mixins/theme';
 
+/// The breakpoint at which items should attempt to display in a single line.
+/// @access private
 $_breakpoint-wide: breakpoint.$m;
 
 /**
@@ -23,7 +25,7 @@ $_breakpoint-wide: breakpoint.$m;
 
 .c-event-log {
   display: grid;
-  grid-column-gap: sizes.$list-inline-gap;
+  grid-column-gap: sizes.$gap-inline-medium;
   grid-template-columns: auto 1fr;
 }
 
@@ -64,7 +66,7 @@ $_breakpoint-wide: breakpoint.$m;
   flex-wrap: inherit;
 
   @media (width >= $_breakpoint-wide) {
-    margin-right: sizes.$list-inline-gap;
+    margin-right: sizes.$gap-inline-medium;
   }
 }
 

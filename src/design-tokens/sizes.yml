@@ -64,7 +64,15 @@ props:
     value: 1
     type: modular/em
     category: sizing
-  - name: list_inline_gap
+  - name: gap_inline_small
+    comment: |
+      Horizontal/column gap between media object and content, etc.
+    value: 0
+    type: modular/em
+    category: sizing
+  - name: gap_inline_medium
+    comment: |
+      Horizontal/column gap between cells in inline lists, event logs, etc.
     value: 1
     type: modular/em
     category: sizing
@@ -78,10 +86,6 @@ props:
     comment: |
       Used for table cells or other repeating content rows.
     value: -3
-    type: modular/em
-    category: sizing
-  - name: media_gap
-    value: 0
     type: modular/em
     category: sizing
   - name: rhythm_space_compact

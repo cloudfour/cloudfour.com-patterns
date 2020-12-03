@@ -2,12 +2,31 @@ import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import events from './demo/events.json';
 import eventsDemo from './demo/events.twig';
 const eventsDemoStory = (args) => eventsDemo({ items: events, ...args });
-console.log(events);
 
 <Meta title="Components/Event Log" />
 
 # Event Log
 
+Displays a list of event details in chronological order. Designed to show the presentation history for talks, workshops or other events we’ve conducted.
+
+For a less specialized display of tabular data, consider using [Table](/?path=/docs/components-table--basic). For simple string/number pairs, consider [Dot Leader](/?path=/docs/components-dot-leader--list). To display a single or upcoming date, consider using [Calendar Date](/?path=/docs/components-calendar-date--basic) (optionally combined with [Media](/?path=/docs/objects-media--event-summary)).
+
 <Canvas>
   <Story name="Example">{eventsDemoStory.bind({})}</Story>
 </Canvas>
+
+## Template Properties
+
+### Container
+
+- `class`: Append a class to the `c-event-log` element.
+- `content` (Block): The contents of the containing element, presumably items.
+
+### Item
+
+- `date`: A string that is parseable by [Twig's `date` filter](https://twig.symfony.com/doc/3.x/functions/date.html). Used for the date display and for a semantic `time` element.
+- `extras` (Block): Additional supporting content, for example an [inline list](/?path=/docs/objects-list--inline) of related links.
+- `heading_level`: Specifies the level of `h*` element to use. Should be one lower than whatever the preceding section heading is to preserve the document outline. Defaults to `3`.
+- `link`: An external URL for the event.
+- `location`: The location of the event, for example "Portland, OR" or "Online."
+- `title`: The name of the event, for example "An Event Apart."

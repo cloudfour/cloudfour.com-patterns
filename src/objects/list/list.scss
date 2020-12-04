@@ -31,11 +31,11 @@
 .o-list--inline {
   display: flex;
   flex-wrap: wrap;
-  margin-left: sizes.$list-inline-gap / -2;
-  margin-right: sizes.$list-inline-gap / -2;
+  margin-left: sizes.$gap-inline-medium / -2;
+  margin-right: sizes.$gap-inline-medium / -2;
 }
 
 .o-list--inline > * {
-  margin-left: sizes.$list-inline-gap / 2;
-  margin-right: sizes.$list-inline-gap / 2;
+  margin-left: sizes.$gap-inline-medium / 2;
+  margin-right: sizes.$gap-inline-medium / 2;
 }

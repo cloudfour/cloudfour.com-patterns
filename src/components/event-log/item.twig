@@ -1,0 +1,28 @@
+{% set _datetime = date|default('now') %}
+{% set _heading_level = heading_level|default(3) %}
+{% set _extra_block %}{% block extra %}{% endblock %}{% endset %}
+
+<article class="c-event-log__item">
+  <h{{_heading_level}} class="c-event-log__date">
+    <time datetime="{{_datetime|date('Y-m-d')}}">
+      {{_datetime|date('M j, Y')}}
+    </time>
+  </h{{_heading_level}}>
+  <div class="c-event-log__content">
+    <div class="c-event-log__details">
+      <p class="c-event-log__title">
+        <a href="{{link}}">
+          {{title}}
+        </a>
+      </p>
+      <p class="c-event-log__location">
+        {{location}}
+      </p>
+    </div>
+    {% if _extra_block is not empty %}
+      <div class="c-event-log__extra">
+        {{_extra_block}}
+      </div>
+    {% endif %}
+  </div>
+</article>

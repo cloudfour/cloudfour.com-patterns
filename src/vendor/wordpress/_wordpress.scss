@@ -9,7 +9,7 @@
  * Applies our pattern library styles to buttons generated via Gutenberg blocks.
  */
 
-$wp-button-gap: sizes.$list-inline-gap;
+$wp-button-gap: sizes.$gap-inline-medium;
 
 /**
  * 1. Align buttons with outer parent

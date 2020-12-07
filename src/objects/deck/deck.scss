@@ -1,5 +1,6 @@
 @use '../../design-tokens/breakpoint.yml';
 @use '../../mixins/fluid';
+@use '../../mixins/media-query';
 @use '../../mixins/ms';
 
 .o-deck {
@@ -12,28 +13,18 @@
     ms.step(3, 1rem),
     ms.step(6, 1rem)
   );
+}
 
-  @media (width >= breakpoint.$m) {
-    --columns: 2;
-  }
-
-  @media (width >= breakpoint.$l) {
-    --columns: 3;
+@for $i from 2 through 3 {
+  .o-deck--#{$i}-column {
+    @include media-query.breakpoint-classes() {
+      --columns: #{$i};
+    }
   }
 }
 
 .o-deck__full {
-  grid-column: full;
-}
-
-.o-deck__full\@m {
-  @media (width >= breakpoint.$m) {
-    grid-column: full;
-  }
-}
-
-.o-deck__full\@l {
-  @media (width >= breakpoint.$l) {
-    grid-column: full;
+  @include media-query.breakpoint-classes() {
+    grid-column: 1 / -1;
   }
 }

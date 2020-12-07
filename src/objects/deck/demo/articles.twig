@@ -25,7 +25,7 @@
             {% block content %}
               <p>
                 {% if item.description|length > 140 %}
-                  {{item.description|slice(0, 140)}}…
+                  {{item.description|slice(0, 140)|trim}}…
                 {% else %}
                   {{item.description}}
                 {% endif %}

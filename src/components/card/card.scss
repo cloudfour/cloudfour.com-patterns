@@ -69,9 +69,11 @@ $_focus-overflow: (sizes.$edge-large * -1);
 /**
  * Responsive horizontal modifiers
  *
- * 1. We define the layout as three columns instead of `2fr 1fr` so that the
+ * 1. If this is in a multi-column grid layout, this insures it will fill the
+ *    available width.
+ * 2. We define the layout as three columns instead of `2fr 1fr` so that the
  *    gaps will line up with three-column elements below.
- * 2. The `fr` rows on the
+ * 3. The `fr` rows on the
  *    ends keep the content rows vertically centered.
  *
  * @todo Coordinate this with the eventual card grid object.
@@ -83,14 +85,15 @@ $_focus-overflow: (sizes.$edge-large * -1);
     $to: xl,
     $include-default: false
   ) {
+    grid-column: 1 / -1; /* 1 */
     grid-template-areas:
       'cover cover .'
       'cover cover header'
       'cover cover content'
       'cover cover footer'
       'cover cover .';
-    grid-template-columns: repeat(3, 1fr); /* 1 */
-    grid-template-rows: 1fr repeat(3, minmax(0, auto)) 1fr; /* 2 */
+    grid-template-columns: repeat(3, 1fr); /* 2 */
+    grid-template-rows: 1fr repeat(3, minmax(0, auto)) 1fr; /* 3 */
   }
 }
 

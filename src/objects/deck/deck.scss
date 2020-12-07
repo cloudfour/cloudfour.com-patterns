@@ -5,26 +5,26 @@
 
 .o-deck {
   display: grid;
-  grid-auto-flow: dense;
-  grid-template-columns: [full-start] repeat(var(--columns, 1), 1fr) [full-end];
   @include fluid.grid-gap(
     breakpoint.$s,
     breakpoint.$xl,
     ms.step(3, 1rem),
     ms.step(6, 1rem)
   );
+
+  @media (width >= breakpoint.$xs) {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+}
+
+.o-deck--dense {
+  grid-auto-flow: dense;
 }
 
 @for $i from 2 through 3 {
   .o-deck--#{$i}-column {
     @include media-query.breakpoint-classes() {
-      --columns: #{$i};
+      grid-template-columns: repeat(#{$i}, 1fr);
     }
-  }
-}
-
-.o-deck__full {
-  @include media-query.breakpoint-classes() {
-    grid-column: 1 / -1;
   }
 }

@@ -3,12 +3,12 @@
 } %}
   {% block content %}
     {% embed '@cloudfour/objects/deck/deck.twig' with {
-      class: 'o-deck--2-column@m o-deck--3-column@l',
+      class: 'o-deck--3-column@l',
     } %}
       {% block content %}
         {% for item in items %}
           {% if loop.index == fullItem and fullBreakpoint and fullBreakpoint != 'none' %}
-            {% set _card_class = 'o-deck__full' ~ fullBreakpoint ~ ' c-card--horizontal' ~ fullBreakpoint %}
+            {% set _card_class = 'c-card--horizontal' ~ fullBreakpoint %}
           {% else %}
             {% set _card_class = '' %}
           {% endif %}

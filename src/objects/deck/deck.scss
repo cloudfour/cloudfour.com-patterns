@@ -1,24 +1,24 @@
 @use '../../design-tokens/breakpoint.yml';
+@use '../../design-tokens/sizes.yml';
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
-@use '../../mixins/ms';
 
 .o-deck {
   display: grid;
+  grid-auto-flow: dense;
   @include fluid.grid-gap(
     breakpoint.$s,
     breakpoint.$xl,
-    ms.step(3, 1rem),
-    ms.step(6, 1rem)
+    sizes.$gap-fluid-min,
+    sizes.$gap-fluid-max
   );
 
   @media (width >= breakpoint.$xs) {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(#{sizes.$card-column-min}, 1fr)
+    );
   }
-}
-
-.o-deck--dense {
-  grid-auto-flow: dense;
 }
 
 @for $i from 2 through 3 {

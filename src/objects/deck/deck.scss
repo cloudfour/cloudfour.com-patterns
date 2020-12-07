@@ -3,15 +3,29 @@
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
 
+/**
+ * 1. If horizontal items are shown at the wrong column count, they will appear
+ *    to break the grid. This rule keeps items densely packed so it will always
+ *    appear visually correct.
+ */
+
 .o-deck {
   display: grid;
-  grid-auto-flow: dense;
+  grid-auto-flow: dense; /* 1 */
   @include fluid.grid-gap(
     breakpoint.$s,
     breakpoint.$xl,
     sizes.$gap-fluid-min,
     sizes.$gap-fluid-max
   );
+
+  /**
+   * We define a media query for our initial grid so child elements will flex
+   * for viewports smaller than our minimum column size.
+   *
+   * Our use of `auto-fit` means columns will be automatically created as space
+   * allows.
+   */
 
   @media (width >= breakpoint.$xs) {
     grid-template-columns: repeat(
@@ -20,6 +34,14 @@
     );
   }
 }
+
+/**
+ * Responsive column count modifiers
+ *
+ * These modifier classes specify a hard-set column count at a particular
+ * breakpoint. This may be used to limit the column count to a particular
+ * maximum or to coordinate with adjacent elements.
+ */
 
 @for $i from 2 through 3 {
   .o-deck--#{$i}-column {

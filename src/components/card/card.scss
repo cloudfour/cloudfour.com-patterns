@@ -45,8 +45,6 @@ $_focus-overflow: (sizes.$edge-large * -1);
  *    to this container.
  * 3. We define our column gap here instead of in the `c-card--horizontal`
  *    modifiers so we don't have to define it within multiple media queries.
- *
- * @todo Coordinate column gap with eventual card grid object.
  */
 
 .c-card {

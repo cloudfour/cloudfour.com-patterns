@@ -1,44 +1,44 @@
-{% embed '@cloudfour/objects/container/container.twig' with {
-  class: 'o-container--pad'
+{% if columns and columns > 1 and columnsBreakpoint and columnsBreakpoint != 'none' %}
+  {% set _deck_class = 'o-deck--' ~ columns ~ '-column' ~ columnsBreakpoint %}
+{% else %}
+  {% set _deck_class = '' %}
+{% endif %}
+
+{% embed '@cloudfour/objects/deck/deck.twig' with {
+  class: _deck_class,
 } %}
   {% block content %}
-    {% embed '@cloudfour/objects/deck/deck.twig' with {
-      class: 'o-deck--3-column@l',
-    } %}
-      {% block content %}
-        {% for item in items %}
-          {% if loop.index == fullItem and fullBreakpoint and fullBreakpoint != 'none' %}
-            {% set _card_class = 'c-card--horizontal' ~ fullBreakpoint %}
-          {% else %}
-            {% set _card_class = '' %}
-          {% endif %}
-          {% embed '@cloudfour/components/card/card.twig' with {
-            class: _card_class,
-            href: item.link
-          } %}
-            {% block heading %}
-              {{item.title}}
-            {% endblock %}
-            {% block cover %}
-              <img src="{{item.thumbnail}}" alt="">
-            {% endblock %}
-            {% block content %}
-              <p>
-                {% if item.description|length > 140 %}
-                  {{item.description|slice(0, 140)|trim}}…
-                {% else %}
-                  {{item.description}}
-                {% endif %}
-              </p>
-            {% endblock %}
-            {% block footer %}
-              <p>{{item.author}}</p>
-              <p>{{item.pubDate|date('M j, Y')}}</p>
-            {% endblock %}
-          {% endembed %}
+    {% for item in items %}
+      {% if loop.index == horizontalItem and horizontalBreakpoint and horizontalBreakpoint != 'none' %}
+        {% set _card_class = 'c-card--horizontal' ~ horizontalBreakpoint %}
+      {% else %}
+        {% set _card_class = '' %}
+      {% endif %}
+      {% embed '@cloudfour/components/card/card.twig' with {
+        class: _card_class,
+        href: item.link
+      } %}
+        {% block heading %}
+          {{item.title}}
+        {% endblock %}
+        {% block cover %}
+          <img src="{{item.thumbnail}}" alt="">
+        {% endblock %}
+        {% block content %}
+          <p>
+            {% if item.description|length > 140 %}
+              {{item.description|slice(0, 140)|trim}}…
+            {% else %}
+              {{item.description}}
+            {% endif %}
+          </p>
+        {% endblock %}
+        {% block footer %}
+          <p>{{item.author}}</p>
+          <p>{{item.pubDate|date('M j, Y')}}</p>
+        {% endblock %}
+      {% endembed %}
 
-        {% endfor %}
-      {% endblock %}
-    {% endembed %}
+    {% endfor %}
   {% endblock %}
 {% endembed %}

@@ -8,7 +8,24 @@ const articlesStory = (args) => articlesDemo({ items: articles, ...args });
   title="Objects/Deck"
   parameters={{ docs: { inlineStories: false } }}
   argTypes={{
-    fullItem: {
+    columns: {
+      control: {
+        type: 'range',
+        min: 2,
+        max: 3,
+        step: 1,
+      },
+      defaultValue: 3,
+    },
+    columnsBreakpoint: {
+      type: { name: 'string' },
+      control: {
+        type: 'inline-radio',
+        options: ['none', '@s', '@m', '@l', '@xl'],
+      },
+      defaultValue: 'none',
+    },
+    horizontalItem: {
       control: {
         type: 'range',
         min: 1,
@@ -17,10 +34,10 @@ const articlesStory = (args) => articlesDemo({ items: articles, ...args });
       },
       defaultValue: 1,
     },
-    fullBreakpoint: {
-      type: { name: 'enum' },
-      control: { type: 'inline-radio', options: ['none', '@m', '@l'] },
-      defaultValue: '@l',
+    horizontalBreakpoint: {
+      type: { name: 'string' },
+      control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
+      defaultValue: 'none',
     },
   }}
 />
@@ -29,10 +46,51 @@ const articlesStory = (args) => articlesDemo({ items: articles, ...args });
 
 What do you call a group of multiple [Cards](/?path=/docs/components-card--content-blocks)?
 
-A stack! Wait, no, that implies verticality.
+A “stack” of cards? Sure, but that may imply verticality…
 
-A deck! Yeah, that's the ticket!
+How about a “deck” of cards?
+
+By default, the `o-deck` class will use CSS Grid Layout to arrange child elements in a grid with generous whitespace. Additional columns will appear automatically as space allows.
 
 <Canvas>
-  <Story name="Example">{articlesStory.bind({})}</Story>
+  <Story name="Basic" height="400px">
+    {articlesStory.bind({})}
+  </Story>
+</Canvas>
+
+## Specifying Columns
+
+While automatic columns are convenient, there are times when a specific column count is desired. For example, you may want to limit a design to three columns at larger breakpoints to align with adjacent elements.
+
+To do this, add a modifier class in the format of `o-deck--X-column@Y`, where `X` is the desired column count (from 2 to 3) and `Y` is the desired [breakpoint](/?path=/docs/design-tokens-breakpoint--page) (from `s` to `xl`). In this example, we force the grid to display three columns starting from the `m` breakpoint.
+
+<Canvas>
+  <Story
+    name="Columns"
+    height="400px"
+    args={{
+      columns: 3,
+      columnsBreakpoint: '@m',
+    }}
+  >
+    {articlesStory.bind({})}
+  </Story>
+</Canvas>
+
+## With Horizontal Cards
+
+[Horizontal cards](/?path=/docs/components-card--content-blocks#horizontal) will automatically span all available columns.
+
+<Canvas>
+  <Story
+    name="Horizontal Card"
+    height="500px"
+    args={{
+      columns: 3,
+      columnsBreakpoint: '@l',
+      horizontalBreakpoint: '@m',
+    }}
+  >
+    {articlesStory.bind({})}
+  </Story>
 </Canvas>

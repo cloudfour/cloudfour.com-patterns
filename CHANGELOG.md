@@ -1,5 +1,17 @@
 # @cloudfour/patterns
 
+## 0.6.0
+
+### Minor Changes
+
+- [`90fae26`](https://github.com/cloudfour/cloudfour.com-patterns/commit/90fae2626781080d2953364bb0910c140270f304) [#1065](https://github.com/cloudfour/cloudfour.com-patterns/pull/1065) Thanks [@tylersticka](https://github.com/tylersticka)! - Adds Event Log component
+
+* [`57b3d83`](https://github.com/cloudfour/cloudfour.com-patterns/commit/57b3d833237995c5f936b3b0ad857072711ea247) [#1056](https://github.com/cloudfour/cloudfour.com-patterns/pull/1056) Thanks [@tylersticka](https://github.com/tylersticka)! - Add light theme and nested theme support
+
+- [`26509ca`](https://github.com/cloudfour/cloudfour.com-patterns/commit/26509caee96023ae3a0fed7dce50f2d0158bb4e6) [#1044](https://github.com/cloudfour/cloudfour.com-patterns/pull/1044) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Card component
+
+* [`6bad210`](https://github.com/cloudfour/cloudfour.com-patterns/commit/6bad210c6a9df5992ead43c60bb05f5e0f2e4efa) [#1075](https://github.com/cloudfour/cloudfour.com-patterns/pull/1075) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Deck layout object
+
 ## 0.5.0
 
 ### Minor Changes

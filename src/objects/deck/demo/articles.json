@@ -1,0 +1,137 @@
+[
+  {
+    "title": "Building Flexible Components With Transparency",
+    "pubDate": "2020-11-19 17:28:54",
+    "link": "https://cloudfour.com/thinks/building-flexible-components-with-transparency/",
+    "guid": "https://cloudfour.com/?p=6017",
+    "author": "Paul Hebert",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/11/transparent-flexible.png",
+    "description": "By adding a touch of transparency, we can design components that automatically adapt to their backgrounds."
+  },
+  {
+    "title": "A GitHub Action for automated deployment to WP Engine",
+    "pubDate": "2020-11-17 08:30:14",
+    "link": "https://cloudfour.com/thinks/a-github-action-for-automated-deployment-to-wp-engine/",
+    "guid": "https://cloudfour.com/?p=5945",
+    "author": "Emerson Loustau",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/06/SpongeBob-SquarePants-Nervous-Sweating.gif",
+    "description": "We recently set up a GitHub Action to automatically upload our site updates to WP Engine whenever we push to a specific branch. we suspect other teams might find it useful, too."
+  },
+  {
+    "title": "Perfectly Broken Code",
+    "pubDate": "2020-10-30 08:00:21",
+    "link": "https://cloudfour.com/thinks/perfectly-broken-code/",
+    "guid": "https://cloudfour.com/?p=5898",
+    "author": "Gerardo Rodriguez",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/10/perfectly-broken-code-preview-2.png",
+    "description": "Join me in exploring a recent experience where I started with flawed logic (without realizing it) and the steps I took to fix my bug. Let’s experience some broken code together. 🎉"
+  },
+  {
+    "title": "Designers, Design Systems and Finding Our Focus",
+    "pubDate": "2020-10-19 15:44:36",
+    "link": "https://cloudfour.com/thinks/designers-design-systems-and-finding-our-focus/",
+    "guid": "https://cloudfour.com/?p=5944",
+    "author": "Tyler Sticka",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/10/focus-areas-r2.png",
+    "description": "For many designers, the process of finding one's place within a design system can be surprisingly tough."
+  },
+  {
+    "title": "Styling Complex Labels",
+    "pubDate": "2020-09-02 09:00:06",
+    "link": "https://cloudfour.com/thinks/styling-complex-labels/",
+    "guid": "https://cloudfour.com/?p=5959",
+    "author": "Danielle Romo",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/07/custom-label.png",
+    "description": "Consider the common pattern of selecting a pricing plan for a hypothetical service. To make a selection, users need to know the name of the plan, the price, and its features. But if we include all of those details, it gets hard to read: Each option’s plan information is included in a label. To improve […]"
+  },
+  {
+    "title": "Performance is an issue of equity",
+    "pubDate": "2020-08-11 18:28:00",
+    "link": "https://cloudfour.com/thinks/performance-is-an-issue-of-equity/",
+    "guid": "https://cloudfour.com/?p=5981",
+    "author": "Megan Notarte",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/08/perf-equity-r3-alt.png",
+    "description": "Website speed and performance are a question of equity.  Fast and lightweight sites mean that everyone can access your content equally. It’s not only an economic imperative; it’s a moral imperative."
+  },
+  {
+    "title": "Generating complementary gradients with CSS filters",
+    "pubDate": "2020-05-27 15:51:07",
+    "link": "https://cloudfour.com/thinks/generating-complementary-gradients-with-css-filters/",
+    "guid": "https://cloudfour.com/?p=5918",
+    "author": "Paul Hebert",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/05/socks-hero3.png",
+    "description": "CSS filters unlock powerful new opportunities for playing with color. By applying some color theory we can dynamically generate harmonious color combos and gradients. Let's sell some socks!"
+  },
+  {
+    "title": "CSS Animation Timelines: Building a Rube Goldberg Machine",
+    "pubDate": "2020-04-13 15:41:25",
+    "link": "https://cloudfour.com/thinks/css-animation-timelines-building-a-rube-goldberg-machine/",
+    "guid": "https://cloudfour.com/?p=5784",
+    "author": "Paul Hebert",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/04/rgm.gif",
+    "description": "Lately I’ve been using variables to plan out pure CSS timelines for complex animations. I built an SVG and CSS Rube Goldberg machine to put this technique to the test!"
+  },
+  {
+    "title": "Getting Unstuck",
+    "pubDate": "2020-04-03 08:00:06",
+    "link": "https://cloudfour.com/thinks/getting-unstuck/",
+    "guid": "https://cloudfour.com/?p=5752",
+    "author": "Emerson Loustau",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/04/HD.4G.038_10537689444-scaled-e1585787011260.jpg",
+    "description": "Problem-solving is an essential part of software development. Sometimes we get stuck on a particularly baffling problem, and this can feel frustrating and discouraging. The following are some strategies for getting yourself “unstuck.”"
+  },
+  {
+    "title": "Responsive Images the Simple Way",
+    "pubDate": "2020-04-02 17:18:08",
+    "link": "https://cloudfour.com/thinks/responsive-images-the-simple-way/",
+    "guid": "https://cloudfour.com/?p=5773",
+    "author": "Scott Vandehey",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/03/summary.png",
+    "description": "The responsive images spec is fantastic and covers a lot of use cases, but most of the time you’ll only need one: resolution switching using the `srcset` and `sizes` attributes."
+  },
+  {
+    "title": "Navigation for Design Systems and Style Guides",
+    "pubDate": "2020-02-21 16:35:31",
+    "link": "https://cloudfour.com/thinks/navigation-for-design-systems-and-style-guides/",
+    "guid": "https://cloudfour.com/?p=5740",
+    "author": "Danielle Romo",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/02/design-system-navigation.png",
+    "description": "A key part of my job for the past year has been contributing to design systems. To benefit from those contributions though, users need to be able to find them. That’s why it’s not only the content of a design system that’s important but also its usability. Design systems should be easy to navigate, especially..."
+  },
+  {
+    "title": "What Flushing Toilets Taught Me About Web Design",
+    "pubDate": "2020-02-06 16:22:05",
+    "link": "https://cloudfour.com/thinks/what-flushing-toilets-taught-me-about-web-design/",
+    "guid": "https://cloudfour.com/?p=5718",
+    "author": "Paul Hebert",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/02/Sharing-Image.png",
+    "description": " I re-learned an old design lesson from the humble toilet flusher. As new features are added to existing technologies, careful design is required to make their usage clear."
+  },
+  {
+    "title": "Tiny Web Stacks",
+    "pubDate": "2020-02-05 16:47:06",
+    "link": "https://cloudfour.com/thinks/tiny-web-stacks/",
+    "guid": "https://cloudfour.com/?p=5712",
+    "author": "Tyler Sticka",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/02/tiny-web-stacks-r2.png",
+    "description": "When it comes to side projects, micro-sites and one-off experiments, you don't need much to get started."
+  },
+  {
+    "title": "22 Panels That Always Work: Wally Wood’s Legendary Productivity Hack",
+    "pubDate": "2020-01-14 16:49:28",
+    "link": "https://cloudfour.com/thinks/22-panels-that-always-work-wally-woods-legendary-productivity-hack/",
+    "guid": "https://cloudfour.com/?p=5678",
+    "author": "Scott Vandehey",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/01/wallywood22panel1600.jpg",
+    "description": "Comic book artist Wally Wood’s “22 Panels That Always Work” is a legendary bit of productivity hacking. How can you reduce “noodling” in your work?"
+  },
+  {
+    "title": "An HTML attribute potentially worth $4.4M to Chipotle",
+    "pubDate": "2019-09-19 16:57:12",
+    "link": "https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/",
+    "guid": "https://cloudfour.com/?p=5555",
+    "author": "Jason Grigsby",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2019/09/Screen-Shot-2019-09-19-at-9.52.57-AM.png",
+    "description": "My parents are retired. They continue to try to pay for meals. I don't want them to. So we often end up in a competition to see who can pay first. In this case, I knew I had an advantage. My card details were already stored in the browser. I just needed to use autofill..."
+  }
+]

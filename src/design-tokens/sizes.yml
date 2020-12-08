@@ -27,6 +27,12 @@ props:
       trouble of recalculating the stupidly large value.
     type: pixel
     category: radius
+  - name: card_column_min
+    value: 15em
+    comment: |
+      The minimum space to display a default card in a grid.
+    type: relative
+    category: sizing
   - name: control_height
     value: 4
     type: modular/em
@@ -75,6 +81,18 @@ props:
       Horizontal/column gap between cells in inline lists, event logs, etc.
     value: 1
     type: modular/em
+    category: sizing
+  - name: gap_fluid_min
+    comment: |
+      Minimum size of a large content gap, for example gutters between cards.
+    value: 3
+    type: modular/rem
+    category: sizing
+  - name: gap_fluid_max
+    comment: |
+      Maximum size of a large content gap, for example gutters between cards.
+    value: 6
+    type: modular/rem
     category: sizing
   - name: cell_pad_horizontal
     comment: |

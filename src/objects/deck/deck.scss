@@ -7,6 +7,8 @@
  * 1. If horizontal items are shown at the wrong column count, they will appear
  *    to break the grid. This rule keeps items densely packed so it will always
  *    appear visually correct.
+ *
+ * @todo Use progressive enhancement so older browsers get a minimal fallback.
  */
 
 .o-deck {

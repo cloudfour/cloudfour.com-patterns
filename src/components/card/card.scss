@@ -73,8 +73,6 @@ $_focus-overflow: (sizes.$edge-large * -1);
  *    gaps will line up with three-column elements below.
  * 3. The `fr` rows on the
  *    ends keep the content rows vertically centered.
- *
- * @todo Coordinate this with the eventual card grid object.
  */
 
 .c-card--horizontal {

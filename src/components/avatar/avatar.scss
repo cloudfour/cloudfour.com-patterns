@@ -19,10 +19,10 @@
   background: var(--theme-color-background-avatar);
   border-radius: sizes.$radius-full;
   flex: none;
-  width: sizes.$avatar-base;
+  width: sizes.$avatar-medium;
   @include ratio-box.core-styles();
 }
 
 .c-avatar--full {
-  width: 100%;
+  width: sizes.$avatar-full;
 }

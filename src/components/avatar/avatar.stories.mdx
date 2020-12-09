@@ -8,15 +8,21 @@ const demoImageSrcset = [
   `${demoImageMedium} 335w`,
   `${demoImageLarge} 768w`,
 ].join(', ');
-const avatarStory = (args) => template(args);
+const avatarStory = (args) => {
+  // Don't bother with the size option if it is the default
+  if (args.size === 'medium') {
+    args.size = '';
+  }
+  return template(args);
+};
 
 <Meta
   title="Components/Avatar"
   argTypes={{
     size: {
       type: { name: 'enum' },
-      control: { type: 'select', options: ['', 'full'] },
-      defaultValue: '',
+      control: { type: 'select', options: ['medium', 'full'] },
+      defaultValue: 'medium',
     },
     src: { type: { name: 'string' } },
     srcset: { type: { name: 'string' } },
@@ -28,13 +34,27 @@ const avatarStory = (args) => template(args);
 # Avatar
 
 <Canvas>
-  <Story name="Default">{avatarStory.bind({})}</Story>
+  <Story name="Empty">{avatarStory.bind({})}</Story>
 </Canvas>
 
 <Canvas>
   <Story
     name="With Image"
     args={{ src: demoImageSmall, srcset: demoImageSrcset, sizes: '60px' }}
+  >
+    {avatarStory.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Full Width"
+    args={{
+      src: demoImageSmall,
+      srcset: demoImageSrcset,
+      size: 'full',
+      sizes: '100vw',
+    }}
   >
     {avatarStory.bind({})}
   </Story>

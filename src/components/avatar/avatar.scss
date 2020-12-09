@@ -18,6 +18,11 @@
 .c-avatar {
   background: var(--theme-color-background-avatar);
   border-radius: sizes.$radius-full;
+  flex: none;
   width: sizes.$avatar-base;
   @include ratio-box.core-styles();
+}
+
+.c-avatar--full {
+  width: 100%;
 }

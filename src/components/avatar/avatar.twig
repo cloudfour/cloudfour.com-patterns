@@ -1,4 +1,7 @@
-<div class="c-avatar">
+<div class="
+  c-avatar
+  {% if size %}c-avatar--{{size}}{% endif %}
+  {% if class %}{{class}}{% endif %}">
   {% block content %}
     {%- if src -%}
       <img src="{{src}}"

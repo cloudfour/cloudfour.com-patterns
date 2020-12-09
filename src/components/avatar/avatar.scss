@@ -16,11 +16,7 @@
 }
 
 .c-avatar {
-  background-color: var(--theme-color-background-avatar);
-  background-image: svg-load('illustrations/default-avatar.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--theme-color-background-avatar);
   border-radius: sizes.$radius-full;
   width: sizes.$avatar-base;
   @include ratio-box.core-styles();

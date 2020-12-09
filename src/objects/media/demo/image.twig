@@ -1,8 +1,8 @@
 {% embed '@cloudfour/objects/media/media.twig' %}
   {% block object %}
-    <img class="o-media__object u-rounded-full"
-      src="{{imgSrc}}" width="{{imgSize|default(64)}}" height="{{imgSize|default(64)}}"
-      alt="Megan">
+    {% include '@cloudfour/components/avatar/avatar.twig' with {
+      src: imgSrc
+    } only %}
   {% endblock %}
   {% block content %}
     <p>{{text|default('Hello world!')}}</p>

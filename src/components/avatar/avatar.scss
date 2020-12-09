@@ -1,6 +1,7 @@
 @use '../../design-tokens/colors.yml';
 @use '../../design-tokens/sizes.yml';
-@use "../../mixins/theme";
+@use '../../mixins/ratio-box';
+@use '../../mixins/theme';
 
 /**
  * Themed properties
@@ -21,17 +22,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: sizes.$radius-full;
-  height: sizes.$avatar-base;
-  overflow: hidden;
-  position: relative;
   width: sizes.$avatar-base;
-}
-
-.c-avatar > * {
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 100%;
+  @include ratio-box.core-styles();
 }

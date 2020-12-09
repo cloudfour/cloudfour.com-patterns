@@ -1,0 +1,37 @@
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/sizes.yml';
+@use "../../mixins/theme";
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-background-avatar: #{colors.$gray-light};
+}
+
+@include theme.props(dark) {
+  --theme-color-background-avatar: #{colors.$primary-brand-dark};
+}
+
+.c-avatar {
+  background-color: var(--theme-color-background-avatar);
+  background-image: svg-load('illustrations/default-avatar.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: sizes.$radius-full;
+  height: sizes.$avatar-base;
+  overflow: hidden;
+  position: relative;
+  width: sizes.$avatar-base;
+}
+
+.c-avatar > * {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}

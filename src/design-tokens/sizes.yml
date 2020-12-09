@@ -27,6 +27,10 @@ props:
       trouble of recalculating the stupidly large value.
     type: pixel
     category: radius
+  - name: avatar_base
+    value: 5
+    type: modular/em
+    category: sizing
   - name: card_column_min
     value: 15em
     comment: |

@@ -1,0 +1,11 @@
+<div class="c-avatar">
+  {% block content %}
+    {%- if src -%}
+      <img src="{{src}}"
+        {% if srcset %}srcset="{{srcset}}"{% endif %}
+        {% if sizes %}sizes="{{sizes}}"{% endif %}
+        alt="{{alt|default('')|trim}}"
+        loading="{{loading|default('lazy')}}">
+    {%- endif -%}
+  {% endblock %}
+</div>

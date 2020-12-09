@@ -33,11 +33,12 @@ const avatarStory = (args) => {
 
 # Avatar
 
-<Canvas>
-  <Story name="Empty">{avatarStory.bind({})}</Story>
-</Canvas>
+Displays a user, organization or product [avatar](<https://en.wikipedia.org/wiki/Avatar_(computing)>) or profile picture.
+
+The size is fixed to the value of [our `sizes.$avatar-medium` token by default](/?path=/docs/design-tokens-sizes--page#sizing), making this an ideal pattern to use within [a Media object](/?path=/docs/objects-media--image). If the pattern contains no image, it will show a plain color.
 
 <Canvas>
+  <Story name="Empty">{avatarStory.bind({})}</Story>
   <Story
     name="With Image"
     args={{ src: demoImageSmall, srcset: demoImageSrcset, sizes: '60px' }}
@@ -45,6 +46,10 @@ const avatarStory = (args) => {
     {avatarStory.bind({})}
   </Story>
 </Canvas>
+
+## Full Width
+
+The `c-avatar--full` modifier sizes the component to `100%` of its container.
 
 <Canvas>
   <Story
@@ -59,3 +64,20 @@ const avatarStory = (args) => {
     {avatarStory.bind({})}
   </Story>
 </Canvas>
+
+## Template Properties
+
+- `alt`: Value for the inner `img` element's `alt` attribute.
+- `class`: Append a class to the `c-avatar` element.
+- `content` (block): Directly specify content for the element. Useful for adding a `picture` or `svg` element directly.
+- `loading`: Value for the inner `img` element's `loading` attribute. Defaults to `lazy`.
+- `size`: Shorthand for appending a size modifier class, for example `full`.
+- `sizes`: Value for the inner `img` element's `sizes` attribute.
+- `src`: Value for the inner `img` element's `src` attribute. If omitted, no `img` will be output.
+- `srcset`: Value for the inner `img` element's `srcset` attribute.
+
+## See Also
+
+To display images and other embedded media at a fluid but consistent aspect ratio, see [the Embed object](/?path=/docs/objects-embed--image).
+
+To size and color icons based on surrounding text, see [the Icon component](/?path=/docs/components-icon--basic).

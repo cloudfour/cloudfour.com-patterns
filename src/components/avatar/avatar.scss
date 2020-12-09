@@ -15,13 +15,29 @@
   --theme-color-background-avatar: #{colors.$primary-brand-dark};
 }
 
+/**
+ * Containing element
+ *
+ * 1. Because avatars are a good thing to lazy-load, we want to show a
+ *    background color that will make that transition less jarring. This also
+ *    lets this function as a placeholder if desired.
+ * 2. Prevent this element from squashing or stretching within a flex container.
+ * 3. The most common use cases for avatars use a consistent width, so we set
+ *    that here.
+ */
+
 .c-avatar {
-  background: var(--theme-color-background-avatar);
+  background: var(--theme-color-background-avatar); /* 1 */
   border-radius: sizes.$radius-full;
-  flex: none;
-  width: sizes.$avatar-medium;
+  flex: none; /* 2 */
+  width: sizes.$avatar-medium; /* 3 */
+  // Ratio box hack lets us support fixed _and_ percentage widths with ease
   @include ratio-box.core-styles();
 }
+
+/**
+ * Full-width modifier
+ */
 
 .c-avatar--full {
   width: sizes.$avatar-full;

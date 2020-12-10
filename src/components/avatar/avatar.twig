@@ -1,0 +1,19 @@
+<div class="
+  c-avatar
+  {% if size %}c-avatar--{{size}}{% endif %}
+  {% if class %}{{class}}{% endif %}">
+  {% block content %}
+    {%- if src -%}
+      <img src="{{src}}"
+        {% if srcset %}srcset="{{srcset}}"{% endif %}
+        {#
+          TODO: There is probably a way of using design tokens to create
+          sensible defaults for this attribute based on the `size` property
+          (if provided).
+        #}
+        {% if sizes %}sizes="{{sizes}}"{% endif %}
+        alt="{{alt|default('')|trim}}"
+        loading="{{loading|default('lazy')}}">
+    {%- endif -%}
+  {% endblock %}
+</div>

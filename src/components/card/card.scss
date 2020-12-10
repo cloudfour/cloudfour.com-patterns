@@ -3,12 +3,12 @@
 @use '../../design-tokens/colors.yml';
 @use '../../design-tokens/motion.yml';
 @use '../../design-tokens/sizes.yml';
-@use '../../mixins/embed';
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/headings';
 @use '../../mixins/media-query';
 @use '../../mixins/ms';
+@use '../../mixins/ratio-box';
 
 /// We can't use `grid-gap` exclusively due to some containers only being
 /// present some of the time, so we re-use this value to define the space
@@ -180,7 +180,7 @@ $_focus-overflow: (sizes.$edge-large * -1);
   background-color: var(--theme-color-background-secondary); /* 1 */
   border-radius: sizes.$radius-medium;
   grid-area: cover;
-  @include embed.object(aspect-ratio.$wide); /* 2 */
+  @include ratio-box.core-styles($ratio: aspect-ratio.$wide);
 
   /**
    * Since this element is always visually on top, we can assume it needs a
@@ -207,7 +207,8 @@ $_focus-overflow: (sizes.$edge-large * -1);
  * a very slight amount.
  */
 
-.c-card__cover > * {
+.c-card__cover > *,
+.c-card__cover > picture > img {
   transition: transform motion.$speed-prompt motion.$ease-out;
 
   .c-card--with-link:hover & {

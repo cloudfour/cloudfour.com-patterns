@@ -1,6 +1,5 @@
-@use '../../mixins/embed';
+@use '../../mixins/ratio-box';
 
 .o-embed {
-  @include embed.object-fallback;
-  @include embed.object;
+  @include ratio-box.enhanced-styles($include-modifiers: true);
 }

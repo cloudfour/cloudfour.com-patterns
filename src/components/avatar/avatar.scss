@@ -27,12 +27,12 @@
  */
 
 .c-avatar {
+  // Ratio box hack lets us support fixed _and_ percentage widths with ease
+  @include ratio-box.core-styles();
   background: var(--theme-color-background-avatar); /* 1 */
   border-radius: sizes.$radius-full;
   flex: none; /* 2 */
   width: sizes.$avatar-medium; /* 3 */
-  // Ratio box hack lets us support fixed _and_ percentage widths with ease
-  @include ratio-box.core-styles();
 }
 
 /**

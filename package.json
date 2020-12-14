@@ -67,7 +67,7 @@
     "cssnano": "4.1.10",
     "cypress": "6.1.0",
     "eliminate": "1.1.2",
-    "eslint": "7.14.0",
+    "eslint": "7.15.0",
     "eslint-plugin-mdx": "1.8.2",
     "eslint-plugin-react": "7.21.5",
     "gulp": "4.0.2",

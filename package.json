@@ -57,7 +57,7 @@
     "@storybook/addon-viewport": "6.1.10",
     "@storybook/html": "6.1.10",
     "@svgr/webpack": "5.5.0",
-    "@testing-library/cypress": "7.0.2",
+    "@testing-library/cypress": "7.0.3",
     "@types/prismjs": "1.16.2",
     "@whitespace/storybook-addon-html": "2.0.1",
     "@wordpress/block-library": "2.26.6",

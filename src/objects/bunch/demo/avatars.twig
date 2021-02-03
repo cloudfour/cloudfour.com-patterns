@@ -1,0 +1,7 @@
+{% embed '@cloudfour/objects/bunch/bunch.twig' %}
+  {% block content %}
+    {% for src in srcs %}
+      {% include '@cloudfour/components/avatar/avatar.twig' %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

@@ -102,6 +102,13 @@ props:
     value: 6
     type: modular/rem
     category: sizing
+  - name: overlap_small
+    comment: |
+      Small amount of overlap between adjacent items organized in a visual
+      bunch.
+    value: -6
+    type: modular/rem
+    category: sizing
   - name: cell_pad_horizontal
     comment: |
       Used for table cells or other repeating content rows.

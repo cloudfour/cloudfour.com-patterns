@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs/blocks';
 import { shuffle } from 'lodash';
 import avatarsDemo from './demo/avatars.twig';
 const demoImageDir = require.context('./demo', false, /\.png$/);
@@ -12,13 +12,15 @@ const avatarsDemoStory = (args) => {
   title="Objects/Bunch"
   argTypes={{
     count: {
+      type: 'number',
+      defaultValue: 3,
+      description: 'Number of avatars to show',
       control: {
         type: 'range',
         min: 1,
         max: demoImageSrcs.length,
         step: 1,
       },
-      defaultValue: 3,
     },
   }}
 />
@@ -30,6 +32,8 @@ A tight cluster of visual elements with a small amount of overlap. Useful for di
 <Canvas>
   <Story name="Of avatars">{avatarsDemoStory.bind({})}</Story>
 </Canvas>
+
+<ArgsTable story="Of avatars" />
 
 ## CSS Properties
 

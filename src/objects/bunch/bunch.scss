@@ -4,14 +4,17 @@
  * Container
  *
  * 1. Child elements of varying sizes look a bit off if they aren't centered.
- * 2. Keeps z-index values of child elements relative to this to avoid
+ * 2. Ideally this component won't be over-stuffed, but just in case, let's
+ *    wrap children if there are too many of them or they're too big.
+ * 3. Keeps z-index values of child elements relative to this to avoid
  *    disrupting outside stacking order.
  */
 
 .o-bunch {
   align-items: center; /* 1 */
   display: flex;
-  position: relative; /* 2 */
+  flex-wrap: wrap; /* 2 */
+  position: relative; /* 3 */
 }
 
 /**
@@ -39,7 +42,7 @@
  */
 
 @for $i from 1 through 10 {
-  .o-bunch > *:nth-child(#{$i}) {
+  .o-bunch > :nth-child(#{$i}) {
     --bunch-index: #{$i};
   }
 }

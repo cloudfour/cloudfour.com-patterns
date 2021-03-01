@@ -1,6 +1,5 @@
 import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
-import { withHTML } from '@whitespace/storybook-addon-html/html';
 import * as colors from '../src/design-tokens/colors.yml';
 import * as breakpoints from '../src/design-tokens/breakpoint.yml';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
@@ -101,8 +100,4 @@ export const parameters = {
   paddings,
 };
 
-export const decorators = [
-  // Add HTML tab with output source
-  withHTML,
-  withPaddings,
-];
+export const decorators = [withPaddings];

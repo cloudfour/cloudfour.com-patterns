@@ -13,7 +13,7 @@ function theoLoader(source) {
   // Lets Webpack know this is an async loader and provides us a callback.
   const done = this.async();
   // Load the source to a JavaScript object so we can process imports.
-  const def = yaml.safeLoad(source);
+  const def = yaml.load(source);
 
   // By processing import paths beforehand, we give Webpack the info it needs
   // to refresh files accurately and clear its cache.

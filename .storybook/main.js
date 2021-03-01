@@ -17,7 +17,7 @@ module.exports = {
     '@storybook/addon-viewport/register',
     'storybook-addon-themes',
     'storybook-addon-paddings',
-    '@whitespace/storybook-addon-html/register',
+    '@whitespace/storybook-addon-html',
   ],
   webpackFinal: async (config) => {
     const isDev = config.mode === 'development';

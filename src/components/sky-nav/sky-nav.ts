@@ -1,3 +1,5 @@
+import { m } from '../../design-tokens/generated/breakpoint.js';
+
 /**
  * Create Sky Nav Menu
  *
@@ -23,17 +25,29 @@ export const createSkyNav = (navButton: HTMLButtonElement) => {
   const menu = navButton.nextElementSibling as HTMLElement;
   console.log('CREATE SKY NAV');
 
+  // Create a media query
+  const largeScreenMediaQuery = window.matchMedia(`(min-width: ${m})`);
+  // Check its initial value
+  let isLargeScreen = largeScreenMediaQuery.matches;
+  // Add a listener to run code when the media query status changes
+  largeScreenMediaQuery.addListener(event => {
+    isLargeScreen = event.matches;
+  });
+
   /** Update visibility of menu & navButton for breakpoint changes */
   const update = () => {
     console.log('UPDATE!');
 
     // If small screens, else do opposite
-    navButton.setAttribute('aria-expanded', 'false');
-    menu.hidden = true;
+    if (!isLargeScreen) {
+      navButton.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    }
 
     // Center the button with a bottom offset
     // TypeScript is concerned header might be null, so wrapping this in an if()
-    if (header.clientHeight) {
+    // eslint-disable-next-line @cloudfour/typescript-eslint/no-unnecessary-condition, @cloudfour/typescript-eslint/prefer-optional-chain
+    if (header && header.clientHeight) {
       navButton.style.bottom = `${
         (header.clientHeight - navButton.offsetHeight) / 2
       }px`;

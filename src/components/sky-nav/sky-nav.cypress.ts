@@ -5,12 +5,7 @@ import menu from './demo/menu.json';
 
 describe('Sky Nav', () => {
   it('On small screens the menu starts closed & the button opens it', () => {
-    render(
-      skyNavMarkup({
-        includeMainDemo: true,
-        menu,
-      })
-    );
+    render(skyNavMarkup({ includeMainDemo: true, menu }));
     cy.viewport('iphone-6');
     cy.findByRole('button')
       .as('button')
@@ -35,7 +30,7 @@ describe('Sky Nav', () => {
     });
 
     // Initial state: list is visible, button is hidden
-    cy.findByRole('button').should('not.be.visible');
+    cy.findByRole('button').should('not.exist');
     cy.findByRole('list').should('exist');
   });
 });

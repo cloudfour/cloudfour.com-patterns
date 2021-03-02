@@ -12,7 +12,7 @@
     "emitDeclarationOnly": true,
     "allowJs": true,
     "checkJs": true,
-    "types": ["cypress", "node"],
+    "types": ["cypress", "@testing-library/cypress", "node"],
     "skipLibCheck": true,
     "resolveJsonModule": true
   },

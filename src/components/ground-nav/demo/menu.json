@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "link": "/portland-device-lab", "title": "Device Lab" },
+    { "link": "https://cloudfour-patterns.netlify.app/", "title": "Patterns" },
+    {
+      "link": "https://www.responsivefieldday.com/",
+      "title": "Responsive Field Day"
+    }
+  ]
+}

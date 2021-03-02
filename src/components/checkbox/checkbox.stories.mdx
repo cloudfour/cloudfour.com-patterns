@@ -1,28 +1,28 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import withLabelDemo from './demo/with-label.twig';
 import './demo/styles.scss';
 
-<Meta title="Components/Checkbox" decorators={[withKnobs]} />
+<Meta
+  title="Components/Checkbox"
+  argTypes={{
+    disabled: { type: { name: 'boolean' } },
+  }}
+/>
 
 # Checkbox
 
 `c-checkbox` may be applied to any `<input type="checkbox">` element. They are larger than native checkboxes and more visually consistent with our [input](/?path=/docs/components-input--text-elements) and [button](/?path=/docs/components-button--elements) components.
 
-<Preview>
-  <Story name="Enabled" height="120px">
-    {withLabelDemo({
-      disabled: boolean('disabled', false),
-    })}
+<Canvas>
+  <Story name="Enabled" height="120px" args={{ disabled: false }}>
+    {(args) => withLabelDemo(args)}
   </Story>
-</Preview>
+</Canvas>
 
 Checkboxes appear more subtle and less actionable when the `disabled` attribute is set.
 
-<Preview>
-  <Story name="Disabled" height="120px">
-    {withLabelDemo({
-      disabled: boolean('disabled', true),
-    })}
+<Canvas>
+  <Story name="Disabled" height="120px" args={{ disabled: true }}>
+    {(args) => withLabelDemo(args)}
   </Story>
-</Preview>
+</Canvas>

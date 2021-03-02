@@ -1,0 +1,17 @@
+class InlineSvg {
+  private $svg;
+
+  public function __construct( $path ) {
+    $ext = pathinfo($path, PATHINFO_EXTENSION);
+
+    if ( empty( $ext ) ) {
+      $path .= '.svg';
+    }
+
+    if ( is_file( $path ) ) {
+      $this->svg = new SimpleXMLElement( $path, LIBXML_NOBLANKS | LIBXML_NOERROR, true );
+    } else {
+      $this->svg = simplexml_load_string( '<svg></svg>' );
+    }
+  }
+}

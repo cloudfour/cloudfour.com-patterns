@@ -5,6 +5,7 @@
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
+@use '../../mixins/theme';
 
 // Defines the hit area for actionable elements, specifically the height of
 // links and the width/height of "previous" and "next" affordances.
@@ -22,6 +23,22 @@ $indicator-height: sizes.$edge-medium;
 $indicator-width: ms.step(-1);
 $indicator-height-current: sizes.$edge-large;
 $indicator-width-current: $indicator-height-current;
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-background-pagination-control: transparent;
+  --theme-color-border-pagination-control: #{colors.$gray-light};
+}
+
+@include theme.props(dark) {
+  --theme-color-background-pagination-control: var(
+    --theme-color-background-secondary
+  );
+  --theme-color-border-pagination-control: transparent;
+}
 
 /**
  * We have no styles to apply to the root `c-pagination` class, but we don't
@@ -107,10 +124,11 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__action.is-previous::before,
 .c-pagination__action.is-next::after {
+  background-color: var(--theme-color-background-pagination-control);
   background-position: center;
   background-repeat: no-repeat;
   background-size: sizes.$control-icon-size;
-  border: sizes.$edge-small solid colors.$gray-light;
+  border: sizes.$edge-small solid var(--theme-color-border-pagination-control);
   border-radius: sizes.$radius-full;
   bottom: 0;
   content: '';
@@ -121,11 +139,6 @@ $indicator-width-current: $indicator-height-current;
   transition: filter motion.$speed-slow motion.$ease-out,
     transform motion.$speed-quick motion.$ease-out;
   width: $action-size;
-
-  .t-dark & {
-    background-color: colors.$primary-brand-dark;
-    border-color: transparent;
-  }
 }
 
 /**
@@ -152,13 +165,21 @@ $indicator-width-current: $indicator-height-current;
  */
 
 .c-pagination__action.is-previous::before {
-  background-image: svg-load(
-    'icons/arrow-left.svg',
-    stroke=colors.$primary-brand
-  );
   left: 0;
 
-  .t-dark & {
+  /**
+   * Inline SVGs aren't aware of custom properties, so we have to do a bit
+   * of theming trickery here
+   */
+
+  @include theme.styles() {
+    background-image: svg-load(
+      'icons/arrow-left.svg',
+      stroke=colors.$primary-brand
+    );
+  }
+
+  @include theme.styles(dark) {
     background-image: svg-load(
       'icons/arrow-left.svg',
       stroke=colors.$text-light-emphasis
@@ -167,13 +188,21 @@ $indicator-width-current: $indicator-height-current;
 }
 
 .c-pagination__action.is-next::after {
-  background-image: svg-load(
-    'icons/arrow-right.svg',
-    stroke=colors.$primary-brand
-  );
   right: 0;
 
-  .t-dark & {
+  /**
+   * Inline SVGs aren't aware of custom properties, so we have to do a bit
+   * of theming trickery here
+   */
+
+  @include theme.styles() {
+    background-image: svg-load(
+      'icons/arrow-right.svg',
+      stroke=colors.$primary-brand
+    );
+  }
+
+  @include theme.styles(dark) {
     background-image: svg-load(
       'icons/arrow-right.svg',
       stroke=colors.$text-light-emphasis

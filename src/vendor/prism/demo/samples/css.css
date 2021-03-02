@@ -1,0 +1,18 @@
+.Sky--clouds {
+  background-image: url('/images/sandbox/clouds-alt.svg');
+  background-position: -60% bottom;
+  background-repeat: repeat-x;
+  background-size: calc(420 / 16em * 1.25);
+  content: 'Whut?' !important;
+  padding-bottom: calc(24 / 16em * 1.25);
+}
+
+.Sky--clouds::after {
+  transform: rotate(35deg);
+}
+
+@media (min-width: 1337px) {
+  p > b > a {
+    content: 'Terrible selector! :(';
+  }
+}

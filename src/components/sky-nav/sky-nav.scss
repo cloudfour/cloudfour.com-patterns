@@ -10,6 +10,7 @@
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
+@use '../../mixins/theme';
 @use 'sass:color';
 
 // Minimum viewport width where links are exposed
@@ -241,8 +242,11 @@ $_max-width: #{unit.strip(layout.$max-width-spread) +
    * Fun fact: An earlier version of this design included twinkling stars,
    * but they significantly decreased performance! They also made the text a
    * little harder to read.
+   *
+   * @todo Decide if supporting themes for SkyNav is even necessary and, if so,
+   * try to make this work via custom properties.
    */
-  .t-dark & {
+  @include theme.styles(dark) {
     @media (max-width: $_breakpoint-narrow-max) {
       background-image: linear-gradient(
         to bottom,
@@ -371,7 +375,12 @@ $_max-width: #{unit.strip(layout.$max-width-spread) +
     border-bottom: sizes.$edge-small solid colors.$gray-light;
     padding: $_space-vertical $_space-horizontal;
 
-    .t-dark & {
+    /**
+     * @todo Decide if supporting themes for SkyNav is even necessary and, if so,
+     * try to make this work via custom properties.
+     */
+
+    @include theme.styles(dark) {
       border-bottom-color: color.change(
         colors.$primary-brand-darker,
         $alpha: 0.5

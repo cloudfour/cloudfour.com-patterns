@@ -47,6 +47,7 @@ body {
 @for $i from 1 through 6 {
   h#{$i} {
     @include headings.level($i);
+    color: var(--theme-color-text-emphasis);
   }
 }
 

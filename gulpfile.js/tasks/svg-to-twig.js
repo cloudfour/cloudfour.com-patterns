@@ -9,7 +9,7 @@ const { readFileSync } = require('fs');
 
 // Load SVGO preferences from config file to keep things DRY
 const svgoPath = path.join(__dirname, '../../.svgo.yml');
-const svgoConfig = yaml.safeLoad(readFileSync(svgoPath, 'utf8'));
+const svgoConfig = yaml.load(readFileSync(svgoPath, 'utf8'));
 
 // Properties to make configurable via Twig templates
 const dynamicSvgProps = [

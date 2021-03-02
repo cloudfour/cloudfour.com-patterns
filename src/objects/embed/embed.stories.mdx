@@ -1,5 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import * as aspectRatioTokens from '../../design-tokens/aspect-ratio.yml';
 import imageDemo from './demo/image.twig';
 import imageDemoSrc from './demo/design-system-navigation.png';
@@ -13,8 +12,16 @@ const modifierClasses = [
   '',
   ...Object.keys(aspectRatioTokens).map((key) => `o-embed--${key}`),
 ];
+const defaultArgTypes = {
+  class: {
+    type: { name: 'enum' },
+    control: { type: 'select', options: modifierClasses },
+    defaultValue: 'o-embed--wide',
+  },
+  aspect_ratio: { type: { name: 'string' } },
+};
 
-<Meta title="Objects/Embed" decorators={[withKnobs]} />
+<Meta title="Objects/Embed" />
 
 # Embed
 
@@ -29,53 +36,47 @@ Embed objects support two methods for specifying the desired aspect ratio:
 
 ### Image
 
-<Preview>
-  <Story name="Image">
-    {imageDemo({
-      class: select('modifier class', modifierClasses, 'o-embed--wide'),
-      aspect_ratio: text('aspect_ratio'),
-      src: imageDemoSrc,
-    })}
+<Canvas>
+  <Story name="Image" argTypes={defaultArgTypes}>
+    {(args) => imageDemo({ ...args, src: imageDemoSrc })}
   </Story>
-</Preview>
+</Canvas>
 
 ### Picture
 
-<Preview>
-  <Story name="Picture">
-    {pictureDemo({
-      class: select('modifier class', modifierClasses, 'o-embed--wide'),
-      aspect_ratio: text('aspect_ratio'),
-      jpgSrc: pictureDemoJpgSrc,
-      webpSrc: pictureDemoWebpSrc,
-    })}
+<Canvas>
+  <Story name="Picture" argTypes={defaultArgTypes}>
+    {(args) =>
+      pictureDemo({
+        ...args,
+        jpgSrc: pictureDemoJpgSrc,
+        webpSrc: pictureDemoWebpSrc,
+      })
+    }
   </Story>
-</Preview>
+</Canvas>
 
 ### Video
 
-<Preview>
-  <Story name="Video">
-    {videoDemo({
-      class: select('modifier class', modifierClasses, 'o-embed--wide'),
-      aspect_ratio: text('aspect_ratio'),
-    })}
+<Canvas>
+  <Story name="Video" argTypes={defaultArgTypes}>
+    {(args) => videoDemo(args)}
   </Story>
-</Preview>
+</Canvas>
 
 ## Rounded
 
 Embeds may be combined with [rounded corner utilities](/?path=/docs/utilities-rounded-corners--sizes). In this example, a square embed becomes circular thanks to `u-rounded-full`.
 
-<Preview>
-  <Story name="Rounded" height="240px">
+<Canvas>
+  <Story name="Rounded">
     {imageDemo({
       class: 'u-rounded-full',
       style: 'max-width: 10em',
       src: roundedDemoSrc,
     })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Responsive Usage
 
@@ -83,11 +84,17 @@ An additional benefit of modifier classes is support for breakpoint-specific rat
 
 In this example, the aspect ratio starts square but becomes wider with each successive breakpoint. All [breakpoint tokens](/?path=/docs/design-tokens-breakpoint--page) are supported.
 
-<Preview>
-  <Story name="Responsive">
-    {penDemo({
-      class: text('class', 'o-embed--full@s o-embed--wide@m o-embed--cinema@l'),
-      aspect_ratio: text('aspect_ratio'),
-    })}
+<Canvas>
+  <Story
+    name="Responsive"
+    argTypes={{
+      class: {
+        type: { name: 'string' },
+        defaultValue: 'o-embed--full@s o-embed--wide@m o-embed--cinema@l',
+      },
+      aspect_ratio: defaultArgTypes.aspect_ratio,
+    }}
+  >
+    {(args) => penDemo(args)}
   </Story>
-</Preview>
+</Canvas>

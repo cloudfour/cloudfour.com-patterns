@@ -1,29 +1,26 @@
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {
+  twingLoader,
+  valLoader,
+  alias: twingAlias,
+} = require('../twing/webpack-options');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
-  stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.(js|mdx)'],
+  stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.@(js|mdx)'],
   addons: [
-    // Core addons
-    '@storybook/addon-a11y/register',
     '@storybook/addon-docs',
-    '@storybook/addon-knobs/register',
+    '@storybook/addon-controls',
+    '@storybook/addon-a11y',
+    'storybook-mobile',
     '@storybook/addon-viewport/register',
-    // Community addons
     'storybook-addon-themes',
     'storybook-addon-paddings',
+    '@whitespace/storybook-addon-html',
   ],
   webpackFinal: async (config) => {
     const isDev = config.mode === 'development';
-    // Remove default SVG processing from default config.
-    // @see https://github.com/storybookjs/storybook/issues/5708#issuecomment-515384927
-    config.module.rules = config.module.rules.map((data) => {
-      if (/svg\|/.test(String(data.test))) {
-        data.test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/;
-      }
-      return data;
-    });
 
     /**
      * For development, leave the default 'cheap-module-source-map', as it's faster and works.
@@ -42,9 +39,6 @@ module.exports = {
           {
             // @see https://github.com/webpack-contrib/style-loader/issues/303#issuecomment-581168870
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDev,
-            },
           },
           {
             loader: 'css-loader',
@@ -79,27 +73,19 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.twig$/,
-        use: 'twigjs-loader',
-      },
+      twingLoader,
+      valLoader,
       {
         // Import Theo design tokens as JS objects
         test: /\.ya?ml$/,
         use: resolve(__dirname, '../.theo/webpack-loader.js'),
-      },
-      {
-        // Optimize and process SVGs as React elements for use in documentation
-        test: /\.svg$/,
-        use: '@svgr/webpack',
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        use: 'babel-loader',
       }
     );
 
-    config.resolve.extensions.push('.ts', '.tsx');
+    Object.assign(config.resolve.alias, twingAlias);
+    // Allow resolving `static/*` paths so relative paths don't have to be used
+    // This is used for url() paths in CSS
+    config.resolve.alias['static'] = join(__dirname, '..', 'static');
 
     config.plugins.push(new MiniCssExtractPlugin());
 

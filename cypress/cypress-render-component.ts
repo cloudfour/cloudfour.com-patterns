@@ -6,7 +6,7 @@ const createStyleSheetIfMissing = () => {
   const stylesheet = document.createElement('style');
   stylesheet.classList.add('cloudfour-cypress-stylesheet');
   document.head.append(stylesheet);
-  cy.readFile('./dist/standalone.css').then((contents) => {
+  cy.readFile('./dist/standalone.css').then((contents: string) => {
     stylesheet.textContent = contents;
   });
 };
@@ -17,7 +17,6 @@ const createStyleSheetIfMissing = () => {
  * @returns Cypress Chainable object pointing to root rendered element (same interface as `cy`)
  */
 export const render = (htmlText: string) => {
-  // @ts-expect-error
   if (Cypress.spec.specType !== 'component') {
     throw new Error(
       "Can't mount a component here, make sure that your test file is in componentFolder"

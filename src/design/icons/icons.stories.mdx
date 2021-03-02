@@ -1,8 +1,15 @@
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
 import { extname, relative } from 'path';
 // Import whole directory of icons together
+// Using inline loaders to confine SVG to React transform to this doc
 // @see https://webpack.js.org/guides/dependency-management/#context-module-api
-const iconDir = require.context('../../assets/icons', false, /\.svg$/);
+// @see https://webpack.js.org/concepts/loaders/#configuration
+// @see https://react-svgr.com/docs/webpack/
+const iconDir = require.context(
+  '!!@svgr/webpack!../../assets/icons',
+  false,
+  /\.svg$/
+);
 const iconElements = iconDir.keys().map((key) => {
   const Icon = iconDir(key).default;
   // Retains subdirectory if we want to organize with those in the future
@@ -14,7 +21,7 @@ const iconElements = iconDir.keys().map((key) => {
   );
 });
 const brandIconDir = require.context(
-  '../../assets/icons/brands',
+  '!!@svgr/webpack!../../assets/icons/brands',
   true,
   /\.svg$/
 );
@@ -25,7 +32,7 @@ const brandIconElements = brandIconDir.keys().map((key) => {
   // Retains subdirectory if we want to organize with those in the future
   const name = relative('.', key).replace(extname(key), '');
   return (
-    <IconItem name={name}>
+    <IconItem name={`brands/${name}`}>
       <BrandIcon class="c-icon" />
     </IconItem>
   );
@@ -41,8 +48,8 @@ For icon usage examples, see [the icon object](/?path=/docs/components-icon--bas
 
 <IconGallery>{iconElements}</IconGallery>
 
-# Vendor Icons
+## Third-Party Brands
 
-This icon set encompasses third-party brand and service icons.
+Intended for outbound links to publications and social media profiles.
 
 <IconGallery>{brandIconElements}</IconGallery>

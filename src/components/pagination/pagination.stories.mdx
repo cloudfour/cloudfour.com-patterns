@@ -1,9 +1,8 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, number } from '@storybook/addon-knobs';
-import mockPaginationData from './demo/mock-pagination-data.ts';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import mockPaginationData from './demo/mock-pagination-data.js';
 import template from './pagination.twig';
 
-<Meta title="Components/Pagination" decorators={[withKnobs]} />
+<Meta title="Components/Pagination" />
 
 # Pagination
 
@@ -13,17 +12,18 @@ The component supports variable amounts of page numbers and will adjust its layo
 
 As the viewport widens, individual numbers may drift awkwardly far apart. You can prevent this by wrapping the component in [a container](/?path=/docs/objects-container--basic).
 
-<Preview>
-  <Story name="Example" height="100px">
-    {template({
-      pagination: mockPaginationData({
-        current: number('current', 2),
-        midSize: number('mid_size', 2),
-        total: number('Total Pages', 36),
-      }),
-    })}
+<Canvas>
+  <Story
+    name="Example"
+    argTypes={{
+      current: { type: { name: 'number' }, defaultValue: 2 },
+      midSize: { type: { name: 'number' }, defaultValue: 2 },
+      total: { type: { name: 'number' }, defaultValue: 36 },
+    }}
+  >
+    {(args) => template({ pagination: mockPaginationData(args) })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Elements
 

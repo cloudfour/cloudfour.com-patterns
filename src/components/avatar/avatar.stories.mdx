@@ -1,0 +1,85 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import template from './avatar.twig';
+import demoImageSmall from './demo/tyler-64.png';
+import demoImageMedium from './demo/tyler-335.png';
+import demoImageLarge from './demo/tyler-768.png';
+const demoImageSrcset = [
+  `${demoImageSmall} 64w`,
+  `${demoImageMedium} 335w`,
+  `${demoImageLarge} 768w`,
+].join(', ');
+const avatarStory = (args) => {
+  // Don't bother with the size option if it is the default
+  if (args.size === 'medium') {
+    args.size = '';
+  }
+  return template(args);
+};
+
+<Meta
+  title="Components/Avatar"
+  argTypes={{
+    size: {
+      type: { name: 'enum' },
+      control: { type: 'select', options: ['medium', 'full'] },
+      defaultValue: 'medium',
+    },
+    src: { type: { name: 'string' } },
+    srcset: { type: { name: 'string' } },
+    sizes: { type: { name: 'string' } },
+    alt: { type: { name: 'string' } },
+  }}
+/>
+
+# Avatar
+
+Displays a user, organization or product [avatar](<https://en.wikipedia.org/wiki/Avatar_(computing)>) or profile picture.
+
+The size is fixed to the value of [our `sizes.$avatar-medium` token by default](/?path=/docs/design-tokens-sizes--page#sizing), making this an ideal pattern to use within [a Media object](/?path=/docs/objects-media--image). If the pattern contains no image, it will show a plain color.
+
+<Canvas>
+  <Story name="Empty">{avatarStory.bind({})}</Story>
+  <Story
+    name="With Image"
+    args={{ src: demoImageSmall, srcset: demoImageSrcset, sizes: '60px' }}
+  >
+    {avatarStory.bind({})}
+  </Story>
+</Canvas>
+
+## Full Width
+
+The `c-avatar--full` modifier sizes the component to `100%` of its container.
+
+<Canvas>
+  <Story
+    name="Full Width"
+    args={{
+      src: demoImageSmall,
+      srcset: demoImageSrcset,
+      size: 'full',
+      sizes: '100vw',
+    }}
+  >
+    {avatarStory.bind({})}
+  </Story>
+</Canvas>
+
+## Template Properties
+
+- `alt`: Value for the inner `img` element's `alt` attribute.
+- `class`: Append a class to the `c-avatar` element.
+- `content` (block): Directly specify content for the element. Useful for adding a `picture` or `svg` element directly.
+- `loading`: Value for the inner `img` element's `loading` attribute. Defaults to `lazy`.
+- `size`: Shorthand for appending a size modifier class, for example `full`.
+- `sizes`: Value for the inner `img` element's `sizes` attribute.
+- `src`: Value for the inner `img` element's `src` attribute. If omitted, no `img` will be output.
+- `srcset`: Value for the inner `img` element's `srcset` attribute.
+
+## See Also
+
+To display multiple avatars in a visual cluster, see [the Bunch object](/?path=/docs/objects-bunch--of-avatars).
+
+To display images and other embedded media at a fluid but consistent aspect ratio, see [the Embed object](/?path=/docs/objects-embed--image).
+
+To size and color icons based on surrounding text, see [the Icon component](/?path=/docs/components-icon--basic).

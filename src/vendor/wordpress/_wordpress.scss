@@ -1,0 +1,209 @@
+@use "../../design-tokens/breakpoint.yml";
+@use "../../design-tokens/colors.yml";
+@use "../../design-tokens/sizes.yml";
+@use "../../mixins/button";
+@use "../../mixins/table";
+
+/**
+ * Gutenberg block: Button
+ * Applies our pattern library styles to buttons generated via Gutenberg blocks.
+ */
+
+$wp-button-gap: sizes.$gap-inline-medium;
+
+/**
+ * 1. Align buttons with outer parent
+ * 2. Complete half-gaps left by buttons
+ */
+.wp-block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin: $wp-button-gap * -1;
+  padding: $wp-button-gap / 2;
+
+  /**
+   * If this has content before, assume it is prose content and add back
+   * some margin.
+   */
+  &:not(:first-child) {
+    margin-top: sizes.$rhythm-space-generous - $wp-button-gap;
+  }
+
+  /**
+   * If this has content after, assume it is prose content and add back
+   * some margin.
+   */
+  &:not(:last-child) {
+    margin-bottom: sizes.$rhythm-space-generous - $wp-button-gap;
+  }
+}
+
+/**
+ * 1. Prevent inherited display flex styling from crushing layout
+ * 2. Add half-gaps (will add up to full gutters)
+ */
+.wp-block-button {
+  flex: none; /* 1 */
+  padding: $wp-button-gap / 2; /* 2 */
+
+  .wp-block-button__link {
+    @include button.default;
+  }
+
+  &.is-style-outline .wp-block-button__link {
+    @include button.secondary;
+  }
+}
+
+/**
+ * Gutenberg block: File download button
+ * Applies our pattern library styles to gutenberg file download blocks.
+ */
+.wp-block-file {
+  /**
+   * 1. Prevents stacked file buttons from collapsing on each other.
+   */
+  + .wp-block-file {
+    margin-top: $wp-button-gap; /* 1 */
+  }
+
+  /**
+   * The following three selectors target a class name _and_ a universal
+   * selector (*). This is intentional because the Gutenberg file block can
+   * generate two different elements, a file-link and a file-button and we
+   * want to style both of them with the same visual appearance and
+   * characteristics. We could easily have chosen `:not(.wp-block-file__button)`
+   * but opted for less characters.
+   *
+   * 1. Prevents default WP styling from modifying buttons opacity on hover.
+   */
+  .wp-block-file__button,
+  * {
+    @include button.default;
+    opacity: inherit !important; /* 1 */
+  }
+
+  /**
+   * 1. Prevents default WP styling from modifying button text color on hover
+   */
+  &.c-button--secondary {
+    .wp-block-file__button,
+    * {
+      @include button.secondary;
+      color: inherit !important; /* 1 */
+    }
+  }
+
+  /**
+   * 1. Prevents default WP styling from modifying button text color on hover
+   */
+  &.c-button--tertiary {
+    .wp-block-file__button,
+    * {
+      @include button.tertiary;
+      color: inherit !important; /* 1 */
+    }
+  }
+}
+
+/**
+ * Gutenberg block: Image
+ * Styles for images inserted via Gutenberg blocks.
+ *
+ * 1. Since we are applying `margin-top` to CMS content via our o-rhythm
+ *    pattern, the default `margin-bottom` value on Gutenberg image blocks is
+ *    unnecessary, so we remove it here.
+ */
+.wp-block-image {
+  margin-bottom: 0; /* 1 */
+  position: relative;
+
+  /**
+   * Setting a width of `100%` prevents resized and centered images from
+   * breaking layout when placed after a right-aligned image in a post.
+   */
+  &.aligncenter {
+    width: 100%;
+  }
+
+  /**
+   * Releases a full-width child element from its limited width container
+   * @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
+   */
+  &.alignfull {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+
+  /*
+   * 1. Applies an opinionated wide-image width that allows an image element to
+   *    spill slightly outsides its container at larger viewports.
+   */
+  &.alignwide {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    @media (min-width: breakpoint.$l) {
+      margin-left: -6vw; /* 1 */
+      margin-right: -6vw; /* 1 */
+    }
+  }
+
+  /* Since we are applying `margin-top` to CMS content via our o-rhythm
+   * pattern, the default `margin-bottom` value on Gutenberg figcaption
+   * elements is unnecessary, so we remove it here.
+   */
+  figcaption {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Gutenberg block: Table
+ * Applies our pattern library styles to tables generated via Gutenberg blocks.
+ */
+
+/**
+ * Default table
+ */
+.wp-block-table table td,
+.wp-block-table table th {
+  @include table.t-container;
+}
+
+.wp-block-table table th {
+  @include table.t-heading;
+}
+
+.wp-block-table table thead {
+  @include table.t-head;
+}
+
+.wp-block-table table tfoot {
+  @include table.t-foot;
+}
+
+.wp-block-table table caption {
+  @include table.t-caption;
+}
+
+/**
+ * Striped table
+ */
+.wp-block-table.is-style-stripes {
+  border-bottom: 0;
+
+  & tbody tr:nth-of-type(2n - 1) {
+    @include table.t-striped;
+  }
+}
+
+/**
+ * Numeric table
+ */
+.wp-block-table.c-table--numeric table {
+  @include table.t-numeric;
+
+  & th {
+    text-align: right;
+  }
+}

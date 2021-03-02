@@ -1,20 +1,12 @@
-import { addDecorator, addParameters } from '@storybook/html';
-import { withA11y } from '@storybook/addon-a11y';
+import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
 import * as colors from '../src/design-tokens/colors.yml';
 import * as breakpoints from '../src/design-tokens/breakpoint.yml';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ratio } from '../src/design-tokens/modular-scale.yml';
 import 'focus-visible';
-import '../src/index.scss';
+import '../src/index-with-dependencies.scss';
 import './preview.scss';
-
-// Accessibility testing via aXe
-addDecorator(withA11y);
-
-// Theme selection from stories
-const themes = [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }];
-addParameters({ themes });
 
 /**
  * The parameters for Storybook sorting functions are sparsely documented.
@@ -27,7 +19,7 @@ addParameters({ themes });
 
 /**
  * Get the category from a story (StoryItem)
- * @param {StoryItem} story - Item passed to `addParameters.options.storySort`
+ * @param {StoryItem} story
  * @returns {string} - Story's category, the first part of the `StoreItem.kind`
  * value, which is a string delimited with forward slashes
  */
@@ -45,46 +37,33 @@ const orderedCategories = [
   'Design Tokens',
   'Objects',
   'Components',
-  'Themes',
   'Utilities',
   'Vendor',
   'Prototypes',
 ];
 
 /**
- * Compares two stories and sorts by category, according to a predefined order
- * @param {String[]} categories - Array of categories to use for sorting. Order of
- * items in the array determines the top-level menu sorting order.
- * @returns {(a: StoryItem, b: StoryItem) => (0 | 1 | -1)} - Sorts two stories based on
- * the order of the passed-in array of categories
+ * Compares two stories and sorts by category, according to the predefined order
+ * @param {StoryItem} a
+ * @param {StoryItem} b
  */
-const storySort = (categories) => (a, b) => {
-  const indexA = categories.indexOf(getStoryCategory(a));
-  const indexB = categories.indexOf(getStoryCategory(b));
+const storySort = (a, b) => {
+  const indexA = orderedCategories.indexOf(getStoryCategory(a));
+  const indexB = orderedCategories.indexOf(getStoryCategory(b));
   return indexA === indexB ? 0 : indexA > indexB ? 1 : -1;
 };
 
-// Sort stories according to preferred top-level settings
-addParameters({
-  options: {
-    storySort: storySort(orderedCategories),
-  },
-});
-
 // Padding values from modular scale
-const paddings = [];
+const paddings = { values: [], default: 'Step 0' };
 for (let i = -3; i <= 6; i++) {
-  paddings.push({
+  paddings.values.push({
     name: `Step ${i}`,
     // `toFixed` keeps the values from extending past two decimal points.
     // The leading `+` keeps values from having decimal points where they don't
     // need them, so `1.00` becomes `1`.
     value: `${+Math.pow(ratio, i).toFixed(2)}em`,
-    default: i === 0,
   });
 }
-addDecorator(withPaddings);
-addParameters({ paddings });
 
 // Create viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).map((name) => {
@@ -98,11 +77,27 @@ const breakpointViewports = Object.keys(breakpoints).map((name) => {
     type: 'other',
   };
 });
-addParameters({
+
+const htmlToReactParser = new Parser();
+
+export const parameters = {
+  // Theme selection from stories
+  themes: [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }],
+  // Sort stories according to preferred top-level settings
+  options: { storySort },
+  docs: {
+    // Docs support for inlining plain HTML stories
+    // https://github.com/storybookjs/storybook/blob/v6.0.21/addons/docs/docs/docspage.md#inline-stories-vs-iframe-stories
+    inlineStories: true,
+    prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
+  },
   viewport: {
     viewports: {
       ...breakpointViewports,
       ...INITIAL_VIEWPORTS,
     },
   },
-});
+  paddings,
+};
+
+export const decorators = [withPaddings];

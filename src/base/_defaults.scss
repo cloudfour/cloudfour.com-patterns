@@ -2,6 +2,7 @@
 @use "../design-tokens/opacity.yml";
 @use "../design-tokens/sizes.yml";
 @use "../mixins/ms";
+@use "../mixins/theme";
 
 /**
  * Sensible box model
@@ -46,14 +47,25 @@ ul {
 }
 
 /**
- * 1. Prevents custom background colors, iframes, etc. from making page content
- *    unreadable.
- * 2. 100% black can appear somewhat harsh against white.
+ * Forces the viewport to be filled. Necessary for the footer to "stick" to the
+ * bottom of short pages.
+ *
+ * @see https://css-tricks.com/couple-takes-sticky-footer/#there-is-grid
+ */
+
+html,
+body {
+  height: 100%;
+}
+
+/**
+ * We apply theme rules here rather than `:root` because custom background
+ * colors, iframe embeds, etc. will defer to or attempt to change the `body`
+ * background so it's important to establish defaults.
  */
 
 body {
-  background-color: #fff; /* 1 */
-  color: colors.$text-dark; /* 2 */
+  @include theme.rules;
 }
 
 /**
@@ -61,7 +73,7 @@ body {
  */
 
 a {
-  color: colors.$text-action;
+  color: var(--theme-color-text-action);
 }
 
 /**
@@ -125,7 +137,7 @@ pre {
 
 *:not(pre):not(a) > code,
 *:not(pre):not(a) > kbd {
-  color: colors.$fuchsia;
+  color: var(--theme-color-text-code);
 }
 
 /**
@@ -139,9 +151,10 @@ pre {
  */
 
 *:not(pre):not(a) > kbd {
-  border: sizes.$edge-small solid colors.$gray-light;
+  background: var(--theme-color-background-kbd);
+  border: sizes.$edge-small solid var(--theme-color-border-kbd);
   border-radius: sizes.$radius-small;
-  box-shadow: 0 sizes.$edge-small 0 0 colors.$gray-light; /* 1 */
+  box-shadow: 0 sizes.$edge-small 0 0 var(--theme-color-border-kbd); /* 1 */
   display: inline-block;
   min-width: ms.step(2); /* 2 */
   padding: 0 ms.step(-6);
@@ -153,7 +166,7 @@ pre {
  */
 
 del {
-  opacity: opacity.$muted;
+  opacity: var(--theme-opacity-del);
 }
 
 /**
@@ -249,4 +262,8 @@ figcaption {
   font-size: ms.step(-1);
   font-style: italic;
   text-align: center;
+}
+
+address {
+  font-style: normal;
 }

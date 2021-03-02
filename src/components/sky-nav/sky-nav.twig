@@ -3,7 +3,7 @@
 
 <div class="c-sky-nav{% if class %} {{class}}{% endif %}">
   {# https://webaim.org/techniques/skipnav/ #}
-  {% embed '../button/button.twig' with {
+  {% embed '@cloudfour/components/button/button.twig' with {
     class: 'c-sky-nav__skip',
     href: _main_href
   } only %}
@@ -41,8 +41,8 @@
         Toggle button must be nested inside the `nav` element
         https://inclusive-components.design/menus-menu-buttons/#placement
       #}
-      {% embed '../button/button.twig' with {
-        class: 'c-sky-nav__menu-toggle js-sky-nav-menu-toggle'
+      {% embed '@cloudfour/components/button/button.twig' with {
+        class: 'c-sky-nav__menu-toggle'
       } only %}
         {% block content %}
           <span class="u-hidden-visually">Toggle Main</span>

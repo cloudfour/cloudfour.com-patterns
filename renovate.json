@@ -1,5 +1,5 @@
 {
-  "extends": ["group:recommended", "group:monorepos"],
+  "extends": ["group:recommended", "group:monorepos", ":automergeMinor"],
   "reviewers": ["team:dev"],
   "rangeStrategy": "pin",
   "packageRules": [
@@ -7,5 +7,15 @@
       "packageNames": ["node"],
       "enabled": false
     }
-  ]
+  ],
+  "prConcurrentLimit": 5,
+  "schedule": ["before 9am on monday"],
+  "stabilityDays": 3,
+  "prCreation": "not-pending",
+  "dependencyDashboard": true,
+  "force": {
+    "constraints": {
+      "node": "< 15.0.0"
+    }
+  }
 }

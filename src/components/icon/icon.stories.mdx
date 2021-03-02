@@ -1,5 +1,5 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import basicDemo from './demo/basic.twig';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import template from './icon.twig';
 import inlineDemo from './demo/inline.twig';
 
 <Meta title="Components/Icon" />
@@ -10,18 +10,44 @@ The `c-icon` class causes an SVG element to inherit its size and default color f
 
 For a list of available icons, visit [the Icons page](/?path=/docs/design-icons--page).
 
-<Preview>
-  <Story name="Basic" height="100px">
-    {basicDemo()}
+<Canvas>
+  <Story
+    name="Basic"
+    argTypes={{
+      name: { type: { name: 'string' }, defaultValue: 'heart' },
+      fallback: { type: { name: 'string' } },
+      inline: { type: { name: 'boolean' }, defaultValue: false },
+      class: { type: { name: 'string' } },
+    }}
+  >
+    {(args) => template(args)}
   </Story>
-</Preview>
+</Canvas>
 
 ## Modifier: Inline
 
 Icons without a flex or grid container may appear [slightly low in comparison to adjacent text](https://cloudfour.com/thinks/some-imaginary-css/#align-to-typeface-median). The `c-icon--inline` modifier applies a slight positioning adjustment to account for this.
 
-<Preview>
-  <Story name="Inline" height="100px">
-    {inlineDemo()}
-  </Story>
-</Preview>
+<Canvas>
+  <Story name="Inline">{inlineDemo}</Story>
+</Canvas>
+
+## Template Properties
+
+The component template supports the following unique properties:
+
+- `name`: The name of the intended icon [in our library](/?path=/docs/design-icons--page).
+- `fallback`: The name of an icon to display if the first doesn't exist. Useful if you are displaying unique icons based on dynamic content. Defaults to `close`.
+- `inline`: When `true`, the inline modifier will be applied.
+- `class`: Will append to `c-icon` and any other modifier classes.
+
+Additional SVG properties will be passed to the Twig template for the asset itself:
+
+```twig
+{% include '@cloudfour/components/icon/icon.twig' with {
+  name: 'heart',
+  inline: true,
+  viewBox: '-12 -12 48 48',
+  aria_hidden: 'true'
+} %}
+```

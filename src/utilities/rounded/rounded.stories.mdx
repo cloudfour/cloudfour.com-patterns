@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import sizesDemo from './demo/sizes.twig';
 import './demo/styles.scss';
 
@@ -16,8 +16,6 @@ Utilities for controlling the `border-radius` of an element.
 
 `u-rounded-none` omits rounded corners entirely.
 
-<Preview>
-  <Story name="Sizes" height="200px">
-    {sizesDemo()}
-  </Story>
-</Preview>
+<Canvas>
+  <Story name="Sizes">{sizesDemo()}</Story>
+</Canvas>

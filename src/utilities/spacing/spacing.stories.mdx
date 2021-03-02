@@ -1,5 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, radios, number } from '@storybook/addon-knobs';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import {
   minimumStep,
   maximumStep,
@@ -7,8 +6,13 @@ import {
 import logicalPropertiesDemo from './demo/logical-properties.twig';
 import directionsDemo from './demo/directions.twig';
 import './demo/styles.scss';
+const stepArg = {
+  type: { name: 'number' },
+  control: { type: 'range', min: minimumStep, max: maximumStep, step: 1 },
+  defaultValue: 1,
+};
 
-<Meta title="Utilities/Spacing" decorators={[withKnobs]} />
+<Meta title="Utilities/Spacing" />
 
 # Spacing
 
@@ -26,19 +30,21 @@ All of our utilities use [logical properties](https://www.w3.org/TR/css-logical-
 
 Observe how the direction of the same utility classes change depending on the page's [direction](https://developer.mozilla.org/en-US/docs/Web/CSS/direction) and [writing mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode):
 
-<Preview>
-  <Story name="Logical Properties" height="420px">
-    {logicalPropertiesDemo({
-      name: radios('Utility', ['space', 'pad'], 'space'),
-      step: number('Step', 1, {
-        range: true,
-        min: minimumStep,
-        max: maximumStep,
-        step: 1,
-      }),
-    })}
+<Canvas>
+  <Story
+    name="Logical Properties"
+    argTypes={{
+      name: {
+        type: { name: 'enum' },
+        control: { type: 'inline-radio', options: ['space', 'pad'] },
+        defaultValue: 'space',
+      },
+      step: stepArg,
+    }}
+  >
+    {(args) => logicalPropertiesDemo(args)}
   </Story>
-</Preview>
+</Canvas>
 
 The following table maps the traditional physical property for `direction: ltr` and `writing-mode: horizontal-tb` to its equivalent logical property:
 
@@ -63,19 +69,11 @@ The following utilities pad the _inside_ of the element:
 
 `{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page) or `none`.
 
-<Preview>
-  <Story name="Padding" height="320px">
-    {directionsDemo({
-      name: 'pad',
-      step: number('Step', 1, {
-        range: true,
-        min: minimumStep,
-        max: maximumStep,
-        step: 1,
-      }),
-    })}
+<Canvas>
+  <Story name="Padding" argTypes={{ step: stepArg }}>
+    {(args) => directionsDemo({ name: 'pad', ...args })}
   </Story>
-</Preview>
+</Canvas>
 
 ## Margin
 
@@ -91,19 +89,11 @@ The following utilities apply space _outside_ the element:
 
 `{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page), `auto` or `none`.
 
-<Preview>
-  <Story name="Margin" height="320px">
-    {directionsDemo({
-      name: 'space',
-      step: number('Step', 1, {
-        range: true,
-        min: minimumStep,
-        max: maximumStep,
-        step: 1,
-      }),
-    })}
+<Canvas>
+  <Story name="Margin" argTypes={{ step: stepArg }}>
+    {(args) => directionsDemo({ name: 'space', ...args })}
   </Story>
-</Preview>
+</Canvas>
 
 To add consistent spacing between adjacent block elements, see [the rhythm object](/?path=/docs/objects-rhythm--default-story).
 
@@ -121,11 +111,11 @@ The following utilities _pull_ an element one direction or another by applying a
 
 `{amount}` may be a step of [our modular scale](/?path=/docs/design-modular-scale--page).
 
-<Preview>
-  <Story name="Negative Margin" height="320px">
+<Canvas>
+  <Story name="Negative Margin">
     {directionsDemo({
       name: 'pull',
       step: 1,
     })}
   </Story>
-</Preview>
+</Canvas>

@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - v-next
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          # Fetch all git history for correct changelog commits
+          fetch-depth: 0
+      - name: Use Node.js 12
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Install Dependencies
+        run: CYPRESS_INSTALL_BINARY=0 npm ci
+      - name: Run Preprocess
+        run: npm run preprocess
+      - name: Run Build
+        run: npm run build
+      - name: Create Release Pull Request or Publish to npm
+        uses: changesets/action@master
+        with:
+          publish: npm run release
+          version: npm run version
+          title: 'Publish Next Version'
+          commit: 'Publish Next Version'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

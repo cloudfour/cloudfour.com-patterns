@@ -1,4 +1,4 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import articleDemo from './demo/article.twig';
 import listDemo from './demo/list.twig';
 import introDemo from './demo/intro.twig';
@@ -13,42 +13,41 @@ The `o-rhythm` class applies [consistent vertical spacing between child elements
 
 The default spacing works great for medium-to-long text content:
 
-<Preview>
-  <Story name="Default" height="300px">
-    {introDemo}
-  </Story>
-</Preview>
+<Canvas>
+  <Story name="Default">{introDemo}</Story>
+</Canvas>
 
 ## Modifiers
 
 For shorter summary content, use the `o-rhythm--condensed` modifier to tighten things up a bit:
 
-<Preview>
-  <Story name="Condensed" height="300px">
-    {summaryDemo}
-  </Story>
-</Preview>
+<Canvas>
+  <Story name="Condensed">{summaryDemo}</Story>
+</Canvas>
 
 `o-rhythm--compact` is best for shorter content chunks that just need a _pinch_ more space:
 
-<Preview>
-  <Story name="Compact" height="200px">
-    {listDemo}
-  </Story>
-</Preview>
+<Canvas>
+  <Story name="Compact">{listDemo}</Story>
+</Canvas>
 
 While `o-rhythm--generous` is intended for separating distinct content chunks with more whitespace:
 
-<Preview>
-  <Story name="Generous" height="300px">
-    {sectionsDemo}
-  </Story>
-</Preview>
+<Canvas>
+  <Story name="Generous">{sectionsDemo}</Story>
+</Canvas>
 
 ## Heading Modifiers
 
 The `o-rhythm--generous-headings` modifier helps differentiate sections of articles (or similarly long prose content) by adding more whitespace before headings than other elements.
 
-<Preview>
-  <Story name="Generous Headings">{articleDemo}</Story>
-</Preview>
+<!--
+This example isn't inlined so any media queries affecting the container will
+behave as expected.
+-->
+
+<Canvas>
+  <Story name="Generous Headings" inline={false}>
+    {articleDemo}
+  </Story>
+</Canvas>

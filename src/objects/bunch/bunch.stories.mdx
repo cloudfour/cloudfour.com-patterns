@@ -1,0 +1,45 @@
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs/blocks';
+import { shuffle } from 'lodash';
+import avatarsDemo from './demo/avatars.twig';
+const demoImageDir = require.context('./demo', false, /\.png$/);
+const demoImageSrcs = demoImageDir.keys().map((key) => demoImageDir(key));
+const avatarsDemoStory = (args) => {
+  const srcs = shuffle(demoImageSrcs).slice(0, args.count);
+  return avatarsDemo({ srcs });
+};
+
+<Meta
+  title="Objects/Bunch"
+  argTypes={{
+    count: {
+      type: 'number',
+      defaultValue: 3,
+      description: 'Number of avatars to show',
+      control: {
+        type: 'range',
+        min: 1,
+        max: demoImageSrcs.length,
+        step: 1,
+      },
+    },
+  }}
+/>
+
+# Bunch
+
+A tight cluster of visual elements with a small amount of overlap. Useful for displaying [avatars](/?path=/docs/components-avatar--empty) alongside bylines where multiple authors are equally credited.
+
+<Canvas>
+  <Story name="Of avatars">{avatarsDemoStory.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="Of avatars" />
+
+## CSS Properties
+
+- `--bunch-index` (on children): The higher this number, the lower the element's `z-index`. Applied automatically to the first ten child elements. May become unnecessary someday if we get [CSS support for reversing stack order](https://github.com/w3c/csswg-drafts/issues/1026#issuecomment-385285148).
+
+## Template Properties
+
+- `class`: Append a class to the `o-block` element.
+- `content` (block): Directly specify content for the element.

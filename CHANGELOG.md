@@ -1,0 +1,69 @@
+# @cloudfour/patterns
+
+## 0.6.0
+
+### Minor Changes
+
+- [`90fae26`](https://github.com/cloudfour/cloudfour.com-patterns/commit/90fae2626781080d2953364bb0910c140270f304) [#1065](https://github.com/cloudfour/cloudfour.com-patterns/pull/1065) Thanks [@tylersticka](https://github.com/tylersticka)! - Adds Event Log component
+
+* [`57b3d83`](https://github.com/cloudfour/cloudfour.com-patterns/commit/57b3d833237995c5f936b3b0ad857072711ea247) [#1056](https://github.com/cloudfour/cloudfour.com-patterns/pull/1056) Thanks [@tylersticka](https://github.com/tylersticka)! - Add light theme and nested theme support
+
+- [`26509ca`](https://github.com/cloudfour/cloudfour.com-patterns/commit/26509caee96023ae3a0fed7dce50f2d0158bb4e6) [#1044](https://github.com/cloudfour/cloudfour.com-patterns/pull/1044) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Card component
+
+* [`6bad210`](https://github.com/cloudfour/cloudfour.com-patterns/commit/6bad210c6a9df5992ead43c60bb05f5e0f2e4efa) [#1075](https://github.com/cloudfour/cloudfour.com-patterns/pull/1075) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Deck layout object
+
+## 0.5.0
+
+### Minor Changes
+
+- [`8aef4fe`](https://github.com/cloudfour/cloudfour.com-patterns/commit/8aef4fe5857a8f28dc760b463311b83bceb4d9ce) [#1043](https://github.com/cloudfour/cloudfour.com-patterns/pull/1043) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Page object for "sticky" page footers
+
+### Patch Changes
+
+- [`28ff9c1`](https://github.com/cloudfour/cloudfour.com-patterns/commit/28ff9c1d95569220016b9cce286024cc9c896105) [#1040](https://github.com/cloudfour/cloudfour.com-patterns/pull/1040) Thanks [@tylersticka](https://github.com/tylersticka)! - Remove unnecessary theme prop from container which would conflict with Timber/WordPress prop of same name
+
+* [`819eef4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/819eef4e5eb8d36d1dfc3765ea0801745a485b93) [#1042](https://github.com/cloudfour/cloudfour.com-patterns/pull/1042) Thanks [@tylersticka](https://github.com/tylersticka)! - Make Ground Nav component whitespace consistent with Container object
+
+## 0.4.0
+
+### Minor Changes
+
+- [`366fc2a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/366fc2a71a952e5c4f0220e69e6af424398b4d10) [#1027](https://github.com/cloudfour/cloudfour.com-patterns/pull/1027) Thanks [@tylersticka](https://github.com/tylersticka)! - Add standard padding modifiers for container object
+
+* [`366fc2a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/366fc2a71a952e5c4f0220e69e6af424398b4d10) [#1027](https://github.com/cloudfour/cloudfour.com-patterns/pull/1027) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Cloud Cover component
+
+- [`ef67b15`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ef67b1558a226f9d21babf12095aedb81ca23682) [#1016](https://github.com/cloudfour/cloudfour.com-patterns/pull/1016) Thanks [@spaceninja](https://github.com/spaceninja)! - Code refactor of the elastic textarea javascript results in a slight performance improvement for IE11.
+
+### Patch Changes
+
+- [`26f9306`](https://github.com/cloudfour/cloudfour.com-patterns/commit/26f930617e895ffe6ce044d15ac9996b83262059) [#1005](https://github.com/cloudfour/cloudfour.com-patterns/pull/1005) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix for non-link pagination items
+
+## 0.3.2
+
+### Patch Changes
+
+- [`849dcfc`](https://github.com/cloudfour/cloudfour.com-patterns/commit/849dcfcc2c1968e7b1f853a3d01ce901ee36da77) [#991](https://github.com/cloudfour/cloudfour.com-patterns/pull/991) Thanks [@tylersticka](https://github.com/tylersticka)! - Reduced errors when Ground Nav has incomplete data
+
+* [`dc39b08`](https://github.com/cloudfour/cloudfour.com-patterns/commit/dc39b088dc1b9eb05dcf91a086a0067f0c2324ed) [#990](https://github.com/cloudfour/cloudfour.com-patterns/pull/990) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix pagination next/previous issue in Timber
+
+## 0.3.1
+
+### Patch Changes
+
+- [`97da320`](https://github.com/cloudfour/cloudfour.com-patterns/commit/97da320ee80d2f004dca264f2969cb13fe6e87a7) [#989](https://github.com/cloudfour/cloudfour.com-patterns/pull/989) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix for missing SVGs in compiled CSS
+
+## 0.3.0
+
+### Minor Changes
+
+- 62b6525: Adds visual support for WP Gutenberg file blocks
+
+## 0.2.0
+
+### Minor Changes
+
+- eeba7a8f: Adds visual styles that support gutenberg image blocks
+
+## 0.1.0
+
+- Initial release

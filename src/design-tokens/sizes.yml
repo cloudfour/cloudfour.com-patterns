@@ -27,6 +27,20 @@ props:
       trouble of recalculating the stupidly large value.
     type: pixel
     category: radius
+  - name: avatar_medium
+    value: 5
+    type: modular/em
+    category: sizing
+  - name: avatar_full
+    value: 100%
+    type: percentage
+    category: sizing
+  - name: card_column_min
+    value: 15em
+    comment: |
+      The minimum space to display a default card in a grid.
+    type: relative
+    category: sizing
   - name: control_height
     value: 4
     type: modular/em
@@ -64,9 +78,36 @@ props:
     value: 1
     type: modular/em
     category: sizing
-  - name: list_inline_gap
+  - name: gap_inline_small
+    comment: |
+      Horizontal/column gap between media object and content, etc.
+    value: 0
+    type: modular/em
+    category: sizing
+  - name: gap_inline_medium
+    comment: |
+      Horizontal/column gap between cells in inline lists, event logs, etc.
     value: 1
     type: modular/em
+    category: sizing
+  - name: gap_fluid_min
+    comment: |
+      Minimum size of a large content gap, for example gutters between cards.
+    value: 3
+    type: modular/rem
+    category: sizing
+  - name: gap_fluid_max
+    comment: |
+      Maximum size of a large content gap, for example gutters between cards.
+    value: 6
+    type: modular/rem
+    category: sizing
+  - name: overlap_small
+    comment: |
+      Small amount of overlap between adjacent items organized in a visual
+      bunch.
+    value: -6
+    type: modular/rem
     category: sizing
   - name: cell_pad_horizontal
     comment: |
@@ -78,10 +119,6 @@ props:
     comment: |
       Used for table cells or other repeating content rows.
     value: -3
-    type: modular/em
-    category: sizing
-  - name: media_gap
-    value: 0
     type: modular/em
     category: sizing
   - name: rhythm_space_compact

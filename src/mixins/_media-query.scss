@@ -1,0 +1,108 @@
+@use '../design-tokens/breakpoint.yml';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+
+/// A map of all breakpoint token variables we can reference using Sass's map
+/// utilities.
+/// @type Map
+$breakpoint-map: meta.module-variables(breakpoint);
+
+/// A list of breakpoint keys, also for looping over to generate different class
+/// name variations.
+/// @type List
+$breakpoint-keys: map.keys($breakpoint-map);
+
+/// The first/narrowest breakpoint, used as a default in multiple mixins.
+/// @type String
+$first-breakpoint: list.nth($breakpoint-keys, 1);
+
+/// The last/widest breakpoint, used as a default in multiple mixins.
+/// @type String
+$last-breakpoint: list.nth($breakpoint-keys, -1);
+
+/// Output some CSS content for multiple breakpoints.
+///
+/// @param {String} $from [$first-breakpoint] - The first/narrowest breakpoint
+/// token key to start looping over.
+/// @param {String} $to [$last-breakpoint] - The last/widest breakpoint token
+/// key to finish looping over.
+/// @content [Receives the current breakpoint `$key`]
+/// @output The `@content` output within each breakpoint's `min-width` media
+/// query.
+@mixin breakpoint-loop($from: $first-breakpoint, $to: $last-breakpoint) {
+  $start: list.index($breakpoint-keys, $from);
+  $end: list.index($breakpoint-keys, $to);
+
+  @for $i from $start through $end {
+    $key: list.nth($breakpoint-keys, $i);
+    $value: map.get($breakpoint-map, $key);
+
+    @media (width >= $value) {
+      @content ($key);
+    }
+  }
+}
+
+/// Repeat a chunk of CSS for multiple standard breakpoints. Useful for keeping
+/// responsive CSS nice and DRY.
+///
+/// @param {String} $from [$first-breakpoint] - The first/narrowest breakpoint
+/// token key to start looping over.
+/// @param {String} $to [$last-breakpoint] - The last/widest breakpoint token
+/// key to finish looping over.
+/// @param {Bool} $include-default [true] - If true, the `@content` will be
+/// output in the current parent before any media queries.
+/// @content
+/// @output The `@content` nested within variations of the parent class that
+/// include media query token segments.
+@mixin breakpoint-classes(
+  $from: $first-breakpoint,
+  $to: $last-breakpoint,
+  $include-default: true
+) {
+  @if ($include-default) {
+    @content;
+  }
+
+  @include breakpoint-loop($from, $to) using ($key) {
+    &\@#{$key} {
+      @content;
+    }
+  }
+}
+
+/// Works the same as `breakpoint-classes`, except the breakpoint keys will be
+/// appended to a `$selector`, and the `@content` will be applied to `&`. This
+/// is useful for styling children of other breakpoint classes, for example
+/// `.parent\@s .parent__child`.
+///
+/// @param {String} $selector - The parent class that will be prepended to the
+/// current context.
+/// @param {String} $from [$first-breakpoint] - The first/narrowest breakpoint
+/// token key to start looping over.
+/// @param {String} $to [$last-breakpoint] - The last/widest breakpoint token
+/// key to finish looping over.
+/// @param {Bool} $include-default [true] - If true, the `@content` will be
+/// output in the current parent before any media queries.
+/// @content
+/// @output The `@content` nested within variations of the parent class that
+/// include media query token segments.
+@mixin breakpoint-parent-classes(
+  $selector,
+  $from: $first-breakpoint,
+  $to: $last-breakpoint,
+  $include-default: true
+) {
+  @if $include-default {
+    #{$selector} & {
+      @content;
+    }
+  }
+
+  @include breakpoint-loop($from, $to) using ($key) {
+    #{$selector}\@#{$key} & {
+      @content;
+    }
+  }
+}

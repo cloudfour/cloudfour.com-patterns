@@ -3,5 +3,6 @@ module.exports = {
     require('postcss-inline-svg')({
       paths: ['./src/assets'],
     }),
+    require('postcss-media-minmax')(),
   ],
 };

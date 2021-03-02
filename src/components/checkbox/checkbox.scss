@@ -2,6 +2,25 @@
 @use "../../design-tokens/motion.yml";
 @use "../../design-tokens/sizes.yml";
 @use "../../mixins/focus";
+@use "../../mixins/theme";
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-text-checkbox-checked-hover: var(
+    --theme-color-text-checkbox-hover
+  );
+  --theme-color-text-checkbox-disabled: #{colors.$gray-dark};
+  --theme-color-text-checkbox-hover: #{colors.$primary-brand};
+}
+
+@include theme.props(dark) {
+  --theme-color-text-checkbox-checked-hover: #{colors.$primary-brand-darker};
+  --theme-color-text-checkbox-disabled: #{colors.$text-light};
+  --theme-color-text-checkbox-hover: #{colors.$text-dark};
+}
 
 /**
  * 1. This `@supports` query prevents IE11 (and older browsers) from applying
@@ -75,11 +94,7 @@
 
     &:hover {
       background-color: colors.$text-light-emphasis;
-      color: colors.$primary-brand;
-
-      .t-dark & {
-        color: colors.$text-dark;
-      }
+      color: var(--theme-color-text-checkbox-hover);
     }
 
     /**
@@ -98,8 +113,8 @@
         transform: scale(1);
       }
 
-      .t-dark &:hover {
-        color: colors.$primary-brand-darker;
+      &:hover {
+        color: var(--theme-color-text-checkbox-checked-hover);
       }
     }
 
@@ -125,23 +140,23 @@
     &:disabled {
       background-color: transparent; /* 1 */
       border-style: dashed; /* 1 */
-      color: colors.$gray-dark; /* 2 */
+      color: var(--theme-color-text-checkbox-disabled); /* 2 */
       cursor: not-allowed;
 
-      /**
-       * For purely visual consistency with dark theme disabled inputs we would
-       * use `$primary-brand-lighter`, but that will not have enough contrast
-       * on its own in this context.
-       */
-
-      .t-dark & {
-        color: colors.$text-light;
-      }
-
       &::after {
-        background-image: svg-load('icons/check.svg', stroke=colors.$gray-dark);
+        /**
+         * Inline SVGs aren't aware of custom properties, so we have to do a bit
+         * of theming trickery here
+         */
 
-        .t-dark & {
+        @include theme.styles() {
+          background-image: svg-load(
+            'icons/check.svg',
+            stroke=colors.$gray-dark
+          );
+        }
+
+        @include theme.styles(dark) {
           background-image: svg-load(
             'icons/check.svg',
             stroke=colors.$text-light

@@ -1,0 +1,217 @@
+@use '../../design-tokens/breakpoint.yml';
+@use '../../design-tokens/colors.yml';
+@use '../../design-tokens/font.yml';
+@use "../../design-tokens/sizes.yml";
+@use '../../mixins/ms';
+@use '../../mixins/unit';
+
+// Whitespace used for gaps, padding and margin
+// (It uses `rem` so space will be consistent throughout the component)
+$_ground-nav-space: ms.step(1, 1rem);
+// Negative value used to reduce the space around elements as well as position elements.
+$_ground-nav-negative-space: ($_ground-nav-space * -1);
+$_ground-nav-border-width: sizes.$edge-medium;
+$_ground-nav-border-style: solid;
+$_ground-nav-border-color: colors.$gray-light;
+
+/**
+ * 1. We establish vertical whitespace for the action to simplify alignment of
+ *    the illustration, but other whitespace is assumed to be handled by the
+ *    container object to promote alignment with adjacent sections.
+ * 2. Allow illustration to be positioned relative to this container.
+ */
+
+.c-ground-nav__action {
+  padding-bottom: $_ground-nav-space; /* 1 */
+  padding-top: $_ground-nav-space; /* 1 */
+  position: relative; /* 2 */
+}
+
+.c-ground-nav__action-inner {
+  /**
+   * Starting at this viewport, we want to position the illustration relative to
+   * the inner element (away from the nearest horizontal edge).
+   */
+
+  @media (min-width: breakpoint.$m) {
+    position: relative;
+  }
+
+  @media (min-width: breakpoint.$l) {
+    align-items: center;
+    display: flex;
+  }
+}
+
+/**
+ * 1. Creates space between the action lead in and action title.
+ * 2. Adds horizontal space when these elements are side by side.
+ */
+.c-ground-nav__action-title {
+  margin-top: $_ground-nav-space; /* 1 */
+
+  @media (min-width: breakpoint.$l) {
+    margin: ms.step(4) $_ground-nav-space; /* 2 */
+  }
+}
+
+/**
+ * The illustration is aligned with the footer content.
+ * As the screen size increases, we decrease the size
+ * of the illustration so that it doesn't get too large.
+ */
+
+.c-ground-nav__action-illustration {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  width: 40%;
+
+  /**
+   * We position ourselves relative to a max-width container starting at this
+   * breakpoint, so we have to adjust the bottom position to account for the
+   * change in whitespace.
+   */
+
+  @media (min-width: breakpoint.$m) {
+    bottom: $_ground-nav-negative-space;
+    width: calc(100% / 3);
+  }
+
+  @media (min-width: breakpoint.$l) {
+    width: 25%;
+  }
+}
+
+.c-ground-nav__content {
+  background-color: colors.$gray-lighter;
+}
+
+/**
+ * Creates vertical space between elements when grid isn't supported.
+ */
+.c-ground-nav__content-inner > * + * {
+  margin-top: $_ground-nav-space;
+}
+
+/**
+ * 1. Removes `margin-top` so the organization information is
+ *    aligned with the other footer elements
+ */
+.c-ground-nav__organization {
+  margin-top: 0; /* 1 */
+}
+
+.c-ground-nav__organization-name {
+  font-weight: font.$weight-bold;
+}
+
+.c-ground-nav__social-icon {
+  font-size: ms.step(2);
+}
+
+.c-ground-nav__menu {
+  border-bottom: $_ground-nav-border-width $_ground-nav-border-style
+    $_ground-nav-border-color;
+  border-top: $_ground-nav-border-width $_ground-nav-border-style
+    $_ground-nav-border-color;
+  padding: $_ground-nav-space 0;
+}
+
+/**
+ * Divides the menu into 2 columns.
+ */
+.c-ground-nav__menu-items {
+  column-gap: $_ground-nav-space;
+  columns: 2;
+}
+
+.c-ground-nav__kudos,
+.c-ground-nav__legal {
+  font-size: ms.step(-1);
+}
+
+/**
+ * We use CSS grid when supported by the browser.
+ */
+@supports (display: grid) {
+  .c-ground-nav__content-inner {
+    display: grid;
+    grid-gap: $_ground-nav-space;
+    margin: 0 auto;
+
+    /**
+     * As the screen size increases, the number of columns increases.
+     * Instead of making all the columns the same size, we use `minmax`
+     * for one of the columns to make sure the content in this section
+     * doesn't have any line breaks, but can still grow as horizontal
+     * space allows.
+     */
+    @media (min-width: breakpoint.$m) {
+      grid-template-columns: 1fr minmax(max-content, 1fr);
+    }
+
+    @media (min-width: breakpoint.$l) {
+      grid-template-columns: 1fr minmax(max-content, 1fr) 1fr;
+    }
+  }
+
+  /**
+   * Removes the margin used by our fallback design. Grid allows us to
+   * use `grid-gap` to create consistent space between elements.
+   */
+  .c-ground-nav__content-inner > * + * {
+    margin: 0;
+  }
+
+  /**
+   * The visual order of the footer content is different than the
+   * semantic order. We explicitly define where content should
+   * be placed within the grid.
+   */
+  .c-ground-nav__organization {
+    @media (min-width: breakpoint.$m) {
+      grid-column: 1/2;
+      grid-row: 1/3;
+    }
+  }
+
+  .c-ground-nav__menu {
+    @media (min-width: breakpoint.$m) {
+      border: none;
+      grid-column: 2/3;
+      grid-row: 1/3;
+      padding: 0;
+    }
+  }
+
+  .c-ground-nav__social {
+    @media (min-width: breakpoint.$m) {
+      border-bottom: $_ground-nav-border-width $_ground-nav-border-style
+        $_ground-nav-border-color;
+      grid-column: 1/3;
+      padding-bottom: $_ground-nav-space;
+    }
+
+    @media (min-width: breakpoint.$l) {
+      border-bottom: none;
+      grid-column: 3/4;
+      grid-row: 1/2;
+      justify-self: end;
+      padding-bottom: 0;
+    }
+  }
+
+  .c-ground-nav__kudos {
+    @media (min-width: breakpoint.$m) {
+      grid-column: 1/3;
+    }
+  }
+
+  .c-ground-nav__legal {
+    @media (min-width: breakpoint.$l) {
+      align-self: end;
+      justify-self: end;
+    }
+  }
+}

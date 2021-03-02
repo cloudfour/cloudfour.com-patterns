@@ -1,0 +1,52 @@
+@use "../design-tokens/colors.yml";
+@use "../design-tokens/opacity.yml";
+@use "../design-tokens/sizes.yml";
+
+/// Defines the default theme, used to determine selectors to output as well
+/// as default arguments.
+/// @type String
+$default-theme: light;
+
+/// @param {String} $theme [$default-theme]
+/// @output Content within the appropriate root-level theme selector
+/// @content
+@mixin props($theme: $default-theme) {
+  @if $theme == $default-theme {
+    :root,
+    .t-#{$theme} {
+      @content;
+    }
+  } @else {
+    .t-#{$theme} {
+      @content;
+    }
+  }
+}
+
+/// @param {String} $theme [$default-theme]
+/// @output Content within the appropriate child selector for the current
+/// element.
+/// @content
+@mixin styles($theme: $default-theme) {
+  @if $theme == $default-theme {
+    &,
+    .t-#{$theme} & {
+      @content;
+    }
+  } @else {
+    .t-#{$theme} & {
+      @content;
+    }
+  }
+}
+
+/// Establish the minimal rules needed for a theme's root element, specifically
+/// a `background-color` and default text color. Without this, the theme root
+/// won't be visually offset from its parent and its contents may not be very
+/// readable.
+///
+/// @output `background-color` and `color` rules
+@mixin rules() {
+  background-color: var(--theme-color-background-base);
+  color: var(--theme-color-text-base);
+}

@@ -33,7 +33,7 @@ export const createSkyNav = (navButton: HTMLButtonElement) => {
 
     // Center the button with a bottom offset
     // TypeScript is concerned header might be null, so wrapping this in an if()
-    if (header && header.clientHeight) {
+    if (header.clientHeight) {
       navButton.style.bottom = `${
         (header.clientHeight - navButton.offsetHeight) / 2
       }px`;

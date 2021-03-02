@@ -30,7 +30,7 @@ export const createSkyNav = (navButton: HTMLButtonElement) => {
   // Check its initial value
   let isLargeScreen = largeScreenMediaQuery.matches;
   // Add a listener to run code when the media query status changes
-  largeScreenMediaQuery.addListener(event => {
+  largeScreenMediaQuery.addListener((event) => {
     isLargeScreen = event.matches;
   });
 

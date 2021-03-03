@@ -10,11 +10,9 @@ module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
   stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.@(js|mdx)'],
   addons: [
-    '@storybook/addon-docs',
-    '@storybook/addon-controls',
+    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     'storybook-mobile',
-    '@storybook/addon-viewport',
     'storybook-addon-themes',
     'storybook-addon-paddings',
     '@whitespace/storybook-addon-html',

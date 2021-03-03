@@ -1,6 +1,7 @@
 @use "../compiled/scss/aspect-ratios";
 @use '../mixins/media-query';
 @use 'sass:meta';
+@use 'sass:string';
 
 /// The default aspect ratio will not be output outside of a media query.
 /// @type Number
@@ -79,7 +80,9 @@ $aspect-ratio-map: meta.module-variables('aspect-ratios');
 /// @output Ratio modifier classes for supported breakpoints.
 @mixin enhanced-modifiers($default-ratio: $default-ratio) {
   @each $name, $ratio in $aspect-ratio-map {
-    &--#{$name} {
+    // remove `number-aspect-ratio-` from $name
+    $trimmed-name: string.slice($name, 21);
+    &--#{$trimmed-name} {
       @include media-query.breakpoint-classes(
         $include-default: $ratio != $default-ratio
       ) {

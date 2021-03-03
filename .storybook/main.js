@@ -68,12 +68,7 @@ module.exports = {
         ],
       },
       twingLoader,
-      valLoader,
-      {
-        // Optimize and process SVGs as React elements for use in documentation
-        test: /\.svg$/,
-        use: '@svgr/webpack',
-      }
+      valLoader
     );
 
     Object.assign(config.resolve.alias, twingAlias);

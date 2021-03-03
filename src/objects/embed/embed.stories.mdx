@@ -1,5 +1,4 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
 import tokens from '../../compiled/js/tokens';
 import imageDemo from './demo/image.twig';
 import imageDemoSrc from './demo/design-system-navigation.png';
@@ -14,8 +13,16 @@ const modifierClasses = [
   '',
   ...Object.keys(aspectRatioTokens).map((key) => `o-embed--${key}`),
 ];
+const defaultArgTypes = {
+  class: {
+    type: { name: 'enum' },
+    control: { type: 'select', options: modifierClasses },
+    defaultValue: 'o-embed--wide',
+  },
+  aspect_ratio: { type: { name: 'string' } },
+};
 
-<Meta title="Objects/Embed" decorators={[withKnobs]} />
+<Meta title="Objects/Embed" />
 
 # Embed
 
@@ -31,36 +38,30 @@ Embed objects support two methods for specifying the desired aspect ratio:
 ### Image
 
 <Canvas>
-  <Story name="Image">
-    {imageDemo({
-      class: select('modifier class', modifierClasses, 'o-embed--wide'),
-      aspect_ratio: text('aspect_ratio'),
-      src: imageDemoSrc,
-    })}
+  <Story name="Image" argTypes={defaultArgTypes}>
+    {(args) => imageDemo({ ...args, src: imageDemoSrc })}
   </Story>
 </Canvas>
 
 ### Picture
 
 <Canvas>
-  <Story name="Picture">
-    {pictureDemo({
-      class: select('modifier class', modifierClasses, 'o-embed--wide'),
-      aspect_ratio: text('aspect_ratio'),
-      jpgSrc: pictureDemoJpgSrc,
-      webpSrc: pictureDemoWebpSrc,
-    })}
+  <Story name="Picture" argTypes={defaultArgTypes}>
+    {(args) =>
+      pictureDemo({
+        ...args,
+        jpgSrc: pictureDemoJpgSrc,
+        webpSrc: pictureDemoWebpSrc,
+      })
+    }
   </Story>
 </Canvas>
 
 ### Video
 
 <Canvas>
-  <Story name="Video">
-    {videoDemo({
-      class: select('modifier class', modifierClasses, 'o-embed--wide'),
-      aspect_ratio: text('aspect_ratio'),
-    })}
+  <Story name="Video" argTypes={defaultArgTypes}>
+    {(args) => videoDemo(args)}
   </Story>
 </Canvas>
 
@@ -85,10 +86,16 @@ An additional benefit of modifier classes is support for breakpoint-specific rat
 In this example, the aspect ratio starts square but becomes wider with each successive breakpoint. All [breakpoint tokens](/?path=/docs/design-tokens-breakpoint--page) are supported.
 
 <Canvas>
-  <Story name="Responsive">
-    {penDemo({
-      class: text('class', 'o-embed--full@s o-embed--wide@m o-embed--cinema@l'),
-      aspect_ratio: text('aspect_ratio'),
-    })}
+  <Story
+    name="Responsive"
+    argTypes={{
+      class: {
+        type: { name: 'string' },
+        defaultValue: 'o-embed--full@s o-embed--wide@m o-embed--cinema@l',
+      },
+      aspect_ratio: defaultArgTypes.aspect_ratio,
+    }}
+  >
+    {(args) => penDemo(args)}
   </Story>
 </Canvas>

@@ -1,0 +1,58 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import contentDemo from './demo/content.twig';
+import sceneDemo from './demo/scene.twig';
+import extraDemo from './demo/extra.twig';
+import flagImage from './demo/flag.svg';
+import robotImage from './demo/robot.svg';
+
+<Meta
+  title="Components/Cloud Cover"
+  parameters={{
+    docs: { inlineStories: false },
+    paddings: { disabled: true },
+    themes: { disable: true },
+  }}
+/>
+
+# Cloud Cover
+
+A containing element for introductory page content, for example a heading and subtitle. The clouds offer a whimsical, illustrative element to help transition from the page title and [Sky Nav](/?path=/docs/components-sky-nav--dark) to the main body content.
+
+<Canvas>
+  <Story name="Content" height="400px">
+    {contentDemo()}
+  </Story>
+</Canvas>
+
+## Scenes
+
+The cloud cover may optionally contain a "scene" containing a visual object, most likely an `img` or `svg` element. By default, the scene will float in the sky.
+
+<Canvas>
+  <Story name="Scene" height="400px">
+    {sceneDemo({ image: robotImage })}
+  </Story>
+</Canvas>
+
+The `c-cloud-cover--horizon-scene` modifier applies an alternate composition ideal for scenes intended to intersect the "horizon line" (bottom) of the cloud cover.
+
+<Canvas>
+  <Story name="Horizon Scene" height="400px">
+    {sceneDemo({ class: 'c-cloud-cover--horizon-scene', image: flagImage })}
+  </Story>
+</Canvas>
+
+## Extra Content
+
+You can also include supporting elements like newsletter sign-up forms, notification opt-ins or other calls to action in an adjacent cell. Note that it is not possible to show extra content _and_ a scene at the same time.
+
+<Canvas>
+  <Story name="Extra Content" height="400px">
+    {extraDemo()}
+  </Story>
+</Canvas>
+
+## Coming Soon
+
+- Graceful fallback for browsers that don't support CSS Grid Layout.
+- Most likely adjustments based on actual usage in theme.

@@ -1,0 +1,25 @@
+{% embed '@cloudfour/components/event-log/event-log.twig' %}
+  {% block content %}
+    {% for item in items %}
+      {% embed '@cloudfour/components/event-log/item.twig' with item %}
+        {% block extra %}
+          {%- if item.links -%}
+            {% embed '@cloudfour/objects/list/list.twig' with {
+              class: 'o-list--inline'
+            } %}
+              {% block content %}
+                {% for link in item.links %}
+                  <li>
+                    <a href="{{link.link}}">
+                      {{link.title}}
+                    </a>
+                  </li>
+                {% endfor %}
+              {% endblock %}
+            {% endembed %}
+          {%- endif -%}
+        {% endblock %}
+      {% endembed %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

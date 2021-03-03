@@ -1,10 +1,22 @@
 @use "../../compiled/scss/tokens";
 @use '../../mixins/ms';
-@use '../../mixins/unit';
+@use '../../mixins/theme';
 
 $size: ms.step(8);
 $edge-size: tokens.$size-edge-medium;
 $radius: tokens.$size-border-radius-medium;
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-border-calendar-date: #{colors.$gray-light};
+}
+
+@include theme.props(dark) {
+  --theme-color-border-calendar-date: #{colors.$primary-brand-dark};
+}
 
 .c-calendar-date {
   display: flex;
@@ -74,7 +86,7 @@ $radius: tokens.$size-border-radius-medium;
 .c-calendar-date__main {
   align-items: center;
   background-color: tokens.$color-text-light-emphasis;
-  border: $edge-size solid tokens.$color-base-gray-light;
+  border: $edge-size solid var(--theme-color-border-calendar-date);
   border-bottom-left-radius: $radius;
   border-bottom-right-radius: $radius;
   border-top-width: 0;
@@ -83,10 +95,6 @@ $radius: tokens.$size-border-radius-medium;
   flex: 1;
   flex-direction: column;
   justify-content: center;
-
-  .t-dark & {
-    border-color: tokens.$color-brand-primary-dark;
-  }
 }
 
 .c-calendar-date__day {

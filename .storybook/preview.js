@@ -54,9 +54,9 @@ const storySort = (a, b) => {
 };
 
 // Padding values from modular scale
-const paddings = [];
+const paddings = { values: [], default: 'Step 0' };
 for (let i = -3; i <= 6; i++) {
-  paddings.push({
+  paddings.values.push({
     name: `Step ${i}`,
     // `toFixed` keeps the values from extending past two decimal points.
     // The leading `+` keeps values from having decimal points where they don't
@@ -64,7 +64,6 @@ for (let i = -3; i <= 6; i++) {
     value: `${+Math.pow(tokens.number.scale.modular.ratio.value, i).toFixed(
       2
     )}em`,
-    default: i === 0,
   });
 }
 
@@ -105,8 +104,4 @@ export const parameters = {
   paddings,
 };
 
-export const decorators = [
-  // Add HTML tab with output source
-  withHTML,
-  withPaddings,
-];
+export const decorators = [withPaddings];

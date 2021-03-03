@@ -3,6 +3,5 @@
 // from the glob pattern and fails
 @use './objects/*/*.scss' as objects;
 @use './components/*/*.scss' as components;
-@use './themes/*.scss' as themes;
 @use './utilities/*/*.scss' as utilities;
 @use './vendor/*/*.scss' as vendor;

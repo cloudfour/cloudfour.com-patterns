@@ -1,4 +1,21 @@
 @use "../../compiled/scss/tokens";
+@use "../../mixins/theme";
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-background-input-disabled: #{tokens.$color-base-gray-light};
+  --theme-color-border-input-disabled: #{tokens.$color-base-gray};
+  --theme-color-border-input-hover: #{tokens.$color-brand-primary};
+}
+
+@include theme.props(dark) {
+  --theme-color-background-input-disabled: #{tokens.$color-brand-primary-lighter};
+  --theme-color-border-input-disabled: #{tokens.$color-brand-primary-dark};
+  --theme-color-border-input-hover: currentColor;
+}
 
 /**
  * 1. Browsers apply certain default styles unless appearance is set to `none`.
@@ -95,11 +112,7 @@
 
   &:hover:not(:disabled):not([readonly]) {
     background-color: tokens.$color-text-light-emphasis;
-    border-color: tokens.$color-brand-primary;
-
-    .t-dark & {
-      border-color: currentColor;
-    }
+    border-color: var(--theme-color-border-input-hover);
   }
 
   /**
@@ -121,14 +134,9 @@
   }
 
   &:disabled {
-    background-color: tokens.$color-base-gray-light;
-    border-color: tokens.$color-base-gray;
+    background-color: var(--theme-color-background-input-disabled);
+    border-color: var(--theme-color-border-input-disabled);
     cursor: not-allowed;
-
-    .t-dark & {
-      background-color: tokens.$color-brand-primary-lighter;
-      border-color: tokens.$color-brand-primary-dark;
-    }
   }
 
   /**

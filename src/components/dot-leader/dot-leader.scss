@@ -40,11 +40,7 @@ $dot-content: '';
 
 .c-dot-leader__between,
 .c-dot-leader__end {
-  color: tokens.$color-text-dark;
-
-  .t-dark & {
-    color: tokens.$color-text-light;
-  }
+  color: var(--theme-color-text-base);
 }
 
 /**

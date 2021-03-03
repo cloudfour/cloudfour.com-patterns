@@ -1,0 +1,90 @@
+@use '../design-tokens/aspect-ratio.yml';
+@use '../mixins/media-query';
+@use 'sass:meta';
+
+/// The default aspect ratio will not be output outside of a media query.
+/// @type Number
+$default-ratio: aspect-ratio.$square;
+
+/// Saving a map of aspect ratio values makes it easier to loop through.
+/// @type Map
+$aspect-ratio-map: meta.module-variables('aspect-ratio');
+
+/// Core ratio box hack styles.
+///
+/// @param {Number} $ratio [$default-ratio] - The desired aspect ratio.
+/// @param {Mixed} $padding [false] - If present, this will override the ratio.
+/// Allows the output padding value to be specified directly, which is useful
+/// for outputting something based on a custom property.
+/// @link https://css-tricks.com/aspect-ratio-boxes/
+@mixin core-styles($ratio: $default-ratio, $padding: false) {
+  @if $padding == false {
+    $padding: (100% / $ratio);
+  }
+
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-bottom: $padding;
+  }
+
+  > *,
+  > picture > img {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/// Enhanced ratio box hack styles. Uses custom properties and supports optional
+/// responsive modifier classes.
+///
+/// @param {Number} $default-ratio [$default-ratio] - The default aspect ratio.
+/// @param {Boolean} $include-modifiers [false] - If `true`, modifier classes
+/// will be output for aspect ratio tokens.
+@mixin enhanced-styles(
+  $default-ratio: $default-ratio,
+  $include-modifiers: false
+) {
+  > *,
+  > picture > img {
+    display: block;
+    width: 100%;
+  }
+
+  @supports (--custom: property) {
+    --aspect-ratio: #{$default-ratio};
+
+    @include core-styles($padding: calc(100% / (var(--aspect-ratio))));
+
+    @if $include-modifiers {
+      @include enhanced-modifiers($default-ratio: $default-ratio);
+    }
+  }
+}
+
+/// Makes ratio modifier classes based on the `aspect-ratio` and `breakpoint`
+/// design tokens. Intended to be included from within a base class.
+///
+/// @param {String} $default-ratio [$default-ratio] - We won't
+/// output this property again outside of a breakpoint since it shouldn't be
+/// necessary.
+/// @output Ratio modifier classes for supported breakpoints.
+@mixin enhanced-modifiers($default-ratio: $default-ratio) {
+  @each $name, $ratio in $aspect-ratio-map {
+    &--#{$name} {
+      @include media-query.breakpoint-classes(
+        $include-default: $ratio != $default-ratio
+      ) {
+        --aspect-ratio: #{$ratio};
+      }
+    }
+  }
+}

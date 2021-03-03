@@ -102,14 +102,14 @@
   }
 
   .o-container--hero {
-    background-image: url('/clouds/clouds-hero-sm.svg');
+    background-image: url('static/clouds/clouds-hero-sm.svg');
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: 60% auto;
     padding: 3em 1em 3em 1em;
 
     @media (min-width: tokens.$size-breakpoint-m) {
-      background-image: url('/clouds/clouds-hero.svg');
+      background-image: url('static/clouds/clouds-hero.svg');
       background-size: 30% auto;
       padding: 2em 1em;
     }

@@ -1,9 +1,8 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import template from './icon.twig';
 import inlineDemo from './demo/inline.twig';
 
-<Meta title="Components/Icon" decorators={[withKnobs]} />
+<Meta title="Components/Icon" />
 
 # Icon
 
@@ -12,13 +11,16 @@ The `c-icon` class causes an SVG element to inherit its size and default color f
 For a list of available icons, visit [the Icons page](/?path=/docs/design-icons--page).
 
 <Canvas>
-  <Story name="Basic">
-    {template({
-      name: text('name', 'heart'),
-      fallback: text('fallback'),
-      inline: boolean('inline'),
-      class: text('class'),
-    })}
+  <Story
+    name="Basic"
+    argTypes={{
+      name: { type: { name: 'string' }, defaultValue: 'heart' },
+      fallback: { type: { name: 'string' } },
+      inline: { type: { name: 'boolean' }, defaultValue: false },
+      class: { type: { name: 'string' } },
+    }}
+  >
+    {(args) => template(args)}
   </Story>
 </Canvas>
 

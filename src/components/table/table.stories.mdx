@@ -1,9 +1,42 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
 import data from './demo/data.json';
 
-<Meta title="Components/Table" decorators={[withKnobs]} />
+<Meta
+  title="Components/Table"
+  argTypes={{
+    hasHeader: {
+      name: 'Include Header',
+      type: { name: 'boolean' },
+      defaultValue: true,
+    },
+    hasFooter: {
+      name: 'Include Footer',
+      type: { name: 'boolean' },
+      defaultValue: true,
+    },
+    hasCaption: {
+      name: 'Include Caption',
+      type: { name: 'boolean' },
+      defaultValue: true,
+    },
+    isRuled: {
+      name: 'Add c-tabled--ruled modifier to the table',
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+    isStriped: {
+      name: 'Add c-tabled--striped modifier to the table',
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+    numericData: {
+      name: 'Add c-table--numeric modifier to the table',
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+  }}
+/>
 
 # Table
 
@@ -12,15 +45,7 @@ A table can optionally have a header, a footer, and a caption.
 
 <Canvas>
   <Story name="Basic">
-    {basicDemo({
-      hasHeader: boolean('Include Header', true),
-      hasFooter: boolean('Include Footer', true),
-      hasCaption: boolean('Include Caption', true),
-      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
-      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
-      numericData: boolean('Add c-table--numeric modifier to the table', false),
-      tableData: data,
-    })}
+    {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
 
@@ -29,16 +54,8 @@ A table can optionally have a header, a footer, and a caption.
 The `c-table--ruled` modifier adds horizontal rules in between table rows.
 
 <Canvas>
-  <Story name="Ruled">
-    {basicDemo({
-      hasHeader: boolean('Include Header', true),
-      hasFooter: boolean('Include Footer', true),
-      hasCaption: boolean('Include Caption', true),
-      isRuled: true,
-      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
-      numericData: boolean('Add c-table--numeric modifier to the table', false),
-      tableData: data,
-    })}
+  <Story name="Ruled" args={{ isRuled: true }}>
+    {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
 
@@ -47,16 +64,8 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
 The `c-table--striped` modifier adds alternating background colors to table rows.
 
 <Canvas>
-  <Story name="Striped">
-    {basicDemo({
-      hasHeader: boolean('Include Header', true),
-      hasFooter: boolean('Include Footer', true),
-      hasCaption: boolean('Include Caption', true),
-      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
-      isStriped: true,
-      numericData: boolean('Add c-table--numeric modifier to the table', false),
-      tableData: data,
-    })}
+  <Story name="Striped" args={{ isStriped: true }}>
+    {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
 
@@ -71,15 +80,7 @@ compare cells across a column.
 These changes can be achieved by adding c-table--numeric to the table.
 
 <Canvas>
-  <Story name="Numeric Data">
-    {basicDemo({
-      hasHeader: boolean('Include Header', true),
-      hasFooter: boolean('Include Footer', true),
-      hasCaption: boolean('Include Caption', true),
-      isRuled: boolean('Add c-tabled--ruled modifier to the table', false),
-      isStriped: boolean('Add c-tabled--striped modifier to the table', false),
-      numericData: true,
-      tableData: data,
-    })}
+  <Story name="Numeric Data" args={{ numericData: true }}>
+    {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>

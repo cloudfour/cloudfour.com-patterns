@@ -52,6 +52,62 @@
   }
 }
 
+@mixin grid-gap($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    grid-gap: $min;
+  }
+
+  @media (min-width: $min-width) {
+    grid-gap: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    grid-gap: $max;
+  }
+}
+
+@mixin grid-column-gap($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    grid-column-gap: $min;
+  }
+
+  @media (min-width: $min-width) {
+    grid-column-gap: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    grid-column-gap: $max;
+  }
+}
+
+@mixin grid-row-gap($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    grid-row-gap: $min;
+  }
+
+  @media (min-width: $min-width) {
+    grid-row-gap: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    grid-row-gap: $max;
+  }
+}
+
+@mixin padding($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    padding: $min;
+  }
+
+  @media (min-width: $min-width) {
+    padding: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    padding: $max;
+  }
+}
+
 @mixin padding-block($min-width, $max-width, $min, $max, $include-min: true) {
   @if $include-min {
     padding-block-end: $min;
@@ -66,5 +122,22 @@
   @media (min-width: $max-width) {
     padding-block-end: $max;
     padding-block-start: $max;
+  }
+}
+
+@mixin padding-inline($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    padding-inline-end: $min;
+    padding-inline-start: $min;
+  }
+
+  @media (min-width: $min-width) {
+    padding-inline-end: fluid-calc($min-width, $max-width, $min, $max);
+    padding-inline-start: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    padding-inline-end: $max;
+    padding-inline-start: $max;
   }
 }

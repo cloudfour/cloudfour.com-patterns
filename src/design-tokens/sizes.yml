@@ -1,0 +1,139 @@
+props:
+  - name: edge_small
+    value: 0.0625rem
+    type: relative
+    category: sizing
+  - name: edge_medium
+    value: 0.125rem
+    type: relative
+    category: sizing
+  - name: edge_large
+    value: 0.25rem
+    type: relative
+    category: sizing
+  - name: radius_small
+    value: 0.125em
+    type: relative
+    category: radius
+  - name: radius_medium
+    value: 0.25em
+    type: relative
+    category: radius
+  - name: radius_full
+    value: 9999px
+    comment: |
+      A value of 50% would be more intuitive, but results in unexpectedly oblong
+      rounding for non-square shapes. We use `px` to save the browser the
+      trouble of recalculating the stupidly large value.
+    type: pixel
+    category: radius
+  - name: avatar_medium
+    value: 5
+    type: modular/em
+    category: sizing
+  - name: avatar_full
+    value: 100%
+    type: percentage
+    category: sizing
+  - name: card_column_min
+    value: 15em
+    comment: |
+      The minimum space to display a default card in a grid.
+    type: relative
+    category: sizing
+  - name: control_height
+    value: 4
+    type: modular/em
+    category: sizing
+  - name: control_height_multiline
+    value: 6
+    type: modular/em
+    category: sizing
+  - name: control_pad_horizontal
+    value: 1
+    type: modular/em
+    category: sizing
+  - name: control_pad_vertical
+    value: -4
+    type: modular/em
+    category: sizing
+  - name: control_text_inset
+    value: -1
+    type: modular/em
+    category: sizing
+  - name: control_icon_size
+    value: 0
+    type: modular/em
+    category: sizing
+  - name: control_icon_inset
+    value: -3
+    type: modular/em
+    category: sizing
+  - name: toggle_medium
+    value: 2
+    type: modular/em
+    category: sizing
+  - name: type_block_indent
+    comment: Shared indentation for lists, blockquotes, etc.
+    value: 1
+    type: modular/em
+    category: sizing
+  - name: gap_inline_small
+    comment: |
+      Horizontal/column gap between media object and content, etc.
+    value: 0
+    type: modular/em
+    category: sizing
+  - name: gap_inline_medium
+    comment: |
+      Horizontal/column gap between cells in inline lists, event logs, etc.
+    value: 1
+    type: modular/em
+    category: sizing
+  - name: gap_fluid_min
+    comment: |
+      Minimum size of a large content gap, for example gutters between cards.
+    value: 3
+    type: modular/rem
+    category: sizing
+  - name: gap_fluid_max
+    comment: |
+      Maximum size of a large content gap, for example gutters between cards.
+    value: 6
+    type: modular/rem
+    category: sizing
+  - name: overlap_small
+    comment: |
+      Small amount of overlap between adjacent items organized in a visual
+      bunch.
+    value: -6
+    type: modular/rem
+    category: sizing
+  - name: cell_pad_horizontal
+    comment: |
+      Used for table cells or other repeating content rows.
+    value: -3
+    type: modular/em
+    category: sizing
+  - name: cell_pad_vertical
+    comment: |
+      Used for table cells or other repeating content rows.
+    value: -3
+    type: modular/em
+    category: sizing
+  - name: rhythm_space_compact
+    value: -6
+    type: modular/em
+    category: rhythm
+  - name: rhythm_space_condensed
+    value: -1
+    type: modular/em
+    category: rhythm
+  - name: rhythm_space
+    value: 1
+    type: modular/em
+    category: rhythm
+  - name: rhythm_space_generous
+    value: 3
+    type: modular/em
+    category: rhythm

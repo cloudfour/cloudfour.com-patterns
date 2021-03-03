@@ -11,13 +11,28 @@ $_ground-nav-border-width: tokens.$size-edge-medium;
 $_ground-nav-border-style: solid;
 $_ground-nav-border-color: tokens.$color-base-gray-light;
 
-.c-ground-nav__action,
-.c-ground-nav__content {
-  padding: $_ground-nav-space;
+/**
+ * 1. We establish vertical whitespace for the action to simplify alignment of
+ *    the illustration, but other whitespace is assumed to be handled by the
+ *    container object to promote alignment with adjacent sections.
+ * 2. Allow illustration to be positioned relative to this container.
+ */
+
+.c-ground-nav__action {
+  padding-bottom: $_ground-nav-space; /* 1 */
+  padding-top: $_ground-nav-space; /* 1 */
+  position: relative; /* 2 */
 }
 
 .c-ground-nav__action-inner {
-  position: relative;
+  /**
+   * Starting at this viewport, we want to position the illustration relative to
+   * the inner element (away from the nearest horizontal edge).
+   */
+
+  @media (min-width: breakpoint.$m) {
+    position: relative;
+  }
 
   @media (min-width: tokens.$size-breakpoint-l) {
     align-items: center;
@@ -44,13 +59,19 @@ $_ground-nav-border-color: tokens.$color-base-gray-light;
  */
 
 .c-ground-nav__action-illustration {
-  bottom: $_ground-nav-negative-space;
+  bottom: 0;
   position: absolute;
-  right: $_ground-nav-negative-space;
+  right: 0;
   width: 40%;
 
+  /**
+   * We position ourselves relative to a max-width container starting at this
+   * breakpoint, so we have to adjust the bottom position to account for the
+   * change in whitespace.
+   */
+
   @media (min-width: tokens.$size-breakpoint-m) {
-    right: 0;
+    bottom: $_ground-nav-negative-space;
     width: calc(100% / 3);
   }
 

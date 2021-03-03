@@ -14,6 +14,7 @@ const buildSass = () => {
         importer: [require('../../glob-sass-importer')],
       }).on('error', sass.logError)
     )
+    .pipe(postcss())
     .pipe(rename({ basename: 'standalone' }))
     .pipe(dest(outDir))
     .pipe(postcss([cssnano()]))

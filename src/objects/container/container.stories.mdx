@@ -1,6 +1,21 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
 import basicDemo from './demo/basic.twig';
+const basicDemoStory = (args) => {
+  const modifiers = [];
+  if (args.prose) {
+    modifiers.push('prose');
+  }
+  if (args.pad && args.pad.length > 0) {
+    if (args.pad.length === 2) {
+      modifiers.push('pad');
+    } else {
+      modifiers.push(`pad-${args.pad[0]}`);
+    }
+  }
+  const classNames = modifiers.map((modifier) => `o-container--${modifier}`);
+  return basicDemo({ ...args, class: classNames.join(' ') });
+};
+const padOptions = ['block', 'inline'];
 
 <!--
 Inline stories disabled so media queries will behave as expected within
@@ -9,19 +24,31 @@ embedded examples.
 
 <Meta
   title="Objects/Container"
-  decorators={[withKnobs]}
-  parameters={{ docs: { inlineStories: false } }}
+  parameters={{ docs: { inlineStories: false }, paddings: { disabled: true } }}
+  argTypes={{
+    prose: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    pad: {
+      control: {
+        type: 'inline-check',
+        options: padOptions,
+      },
+    },
+  }}
 />
 
 # Containers
 
-Containers are helpful for layouts, they provide a maximum width and center content on large screens. Margins and/or padding should be applied to the outer container `o-container` to keep content centered.
+Containers help maintain consistent reading line lengths and prevent fixed-width imagery from expanding to unwieldy sizes by establishing a maximum width. When the viewport exceeds that maximum width, the content is centered.
+
+The container's default width is generous, a good fit for content that can expand to fill multiple columns. For example, a grid of article summaries.
 
 <Canvas>
-  <Story name="Basic" height="300px">
-    {basicDemo({
-      prose: boolean('Prose', false),
-    })}
+  <Story name="Basic" height="300px" args={{ prose: false, pad: padOptions }}>
+    {basicDemoStory.bind({})}
   </Story>
 </Canvas>
 
@@ -30,9 +57,19 @@ Containers are helpful for layouts, they provide a maximum width and center cont
 The `--prose` modifier is intended to be used with content that mostly consists of text, like an article. It helps improve readability by limiting line length.
 
 <Canvas>
-  <Story name="Prose" height="300px">
-    {basicDemo({
-      prose: boolean('Prose', true),
-    })}
+  <Story name="Prose" height="300px" args={{ prose: true, pad: padOptions }}>
+    {basicDemoStory.bind({})}
   </Story>
 </Canvas>
+
+## Padding
+
+By default, container does not apply any padding. This means the content will meet the edges of the viewport below the maximum size.
+
+Modifiers may be added to apply a consistent amount of responsive padding to containers:
+
+- `o-container--pad`: Adds padding on all sides.
+- `o-container--pad-block`: Adds vertical padding.
+- `o-container--pad-inline`: Adds horizontal padding.
+
+Custom padding amounts may be applied through the use of [padding utilities](/?path=/docs/utilities-spacing--padding).

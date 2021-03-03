@@ -1,9 +1,51 @@
 @use "../../compiled/scss/tokens";
+@use "../../mixins/fluid";
+@use '../../mixins/ms';
+
+$pad-breakpoint-min: tokens.$size-breakpoint-s;
+$pad-breakpoint-max: tokens.$size-breakpoint-xl;
+$pad-min: ms.step(-1, 1rem);
+$pad-max: ms.step(3, 1rem);
 
 /**
  * There are no default styles for `o-container`. It acts as a wrapper so that
  * we can add space utilities to the container without interfering with the
  * margins for `o-container__content`.
+ */
+
+/**
+ * Modifiers for `o-container` that add some standard, responsive padding.
+ */
+
+.o-container--pad {
+  @include fluid.padding(
+    $pad-breakpoint-min,
+    $pad-breakpoint-max,
+    $pad-min,
+    $pad-max
+  );
+}
+
+.o-container--pad-block {
+  @include fluid.padding-block(
+    $pad-breakpoint-min,
+    $pad-breakpoint-max,
+    $pad-min,
+    $pad-max
+  );
+}
+
+.o-container--pad-inline {
+  @include fluid.padding-inline(
+    $pad-breakpoint-min,
+    $pad-breakpoint-max,
+    $pad-min,
+    $pad-max
+  );
+}
+
+/**
+ * Content container, where the width is actually applied.
  */
 
 .o-container__content {

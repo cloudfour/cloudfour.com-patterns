@@ -1,4 +1,4 @@
-name: Changesets
+name: Release
 
 on:
   push:
@@ -6,17 +6,17 @@ on:
       - v-next
 
 jobs:
-  changesets:
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repo
+        uses: actions/checkout@v2
         with:
-          # Fetch all Git history so that Changesets can generate changelogs with the correct commits
+          # Fetch all git history for correct changelog commits
           fetch-depth: 0
-          # Don't set the GITHUB_TOKEN variable
-          persist-credentials: false
       - name: Use Node.js 12
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 12
       - name: Install Dependencies
@@ -25,17 +25,13 @@ jobs:
         run: npm run preprocess
       - name: Run Build
         run: npm run build
-      - name: Bump version + changelog (creates commit + tag)
-        run: ./version-from-changesets.sh
-      - name: Set npm token
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Publish to npm + create git tag
-        run: npx changeset publish
-      - name: Push release commit + tag
-        uses: ad-m/github-push-action@v0.6.0
+      - name: Create Release Pull Request or Publish to npm
+        uses: changesets/action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tags: true
-          branch: v-next
+          publish: npm run release
+          version: npm run version
+          title: 'Publish Next Version'
+          commit: 'Publish Next Version'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

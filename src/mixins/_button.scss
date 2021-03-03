@@ -2,6 +2,29 @@
 @use "./focus";
 @use "./ms";
 @use "./unit";
+@use "./theme";
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-background-button-default: #{colors.$primary-brand};
+  --theme-color-background-button-secondary: transparent;
+  --theme-color-border-button-default: #{colors.$primary-brand-dark};
+  --theme-color-border-button-secondary: #{colors.$primary-brand-light};
+  --theme-color-text-button-secondary: var(--theme-color-text-action);
+  --theme-color-text-button-tertiary: var(--theme-color-text-action);
+}
+
+@include theme.props(dark) {
+  --theme-color-background-button-default: #{colors.$primary-brand-dark};
+  --theme-color-background-button-secondary: transparent;
+  --theme-color-border-button-default: #{colors.$primary-brand-darker};
+  --theme-color-border-button-secondary: #{colors.$primary-brand-dark};
+  --theme-color-text-button-secondary: var(--theme-color-text-action);
+  --theme-color-text-button-tertiary: var(--theme-color-text-action);
+}
 
 /**
  * Button object
@@ -17,8 +40,8 @@
  */
 
 @mixin default {
-  background: tokens.$color-brand-primary;
-  border-color: tokens.$color-brand-primary-dark;
+  background: var(--theme-color-background-button-default);
+  border-color: var(--theme-color-border-button-default);
   border-radius: tokens.$size-border-radius-medium;
   border-style: solid;
   border-width: tokens.$size-edge-medium;
@@ -65,11 +88,6 @@
     box-shadow: 0 0 0 tokens.$size-edge-large
       tokens.$color-brand-primary-lighter;
   }
-
-  .t-dark & {
-    background-color: tokens.$color-brand-primary-dark;
-    border-color: tokens.$color-brand-primary-darker;
-  }
 }
 
 /**
@@ -77,18 +95,9 @@
  */
 
 @mixin secondary {
-  border-color: tokens.$color-brand-primary-light;
-  color: tokens.$color-brand-primary;
-
-  &,
-  .t-dark & {
-    background-color: transparent;
-  }
-
-  .t-dark & {
-    border-color: tokens.$color-brand-primary-dark;
-    color: tokens.$color-text-light-emphasis;
-  }
+  background-color: var(--theme-color-background-button-secondary);
+  border-color: var(--theme-color-border-button-secondary);
+  color: var(--theme-color-text-button-secondary);
 }
 
 /**
@@ -96,15 +105,7 @@
  */
 
 @mixin tertiary {
-  color: tokens.$color-brand-primary;
-
-  &,
-  .t-dark & {
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  .t-dark & {
-    color: tokens.$color-text-light-emphasis;
-  }
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--theme-color-text-button-tertiary);
 }

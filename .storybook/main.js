@@ -14,7 +14,7 @@ module.exports = {
     '@storybook/addon-controls',
     '@storybook/addon-a11y',
     'storybook-mobile',
-    '@storybook/addon-viewport/register',
+    '@storybook/addon-viewport',
     'storybook-addon-themes',
     'storybook-addon-paddings',
     '@whitespace/storybook-addon-html',

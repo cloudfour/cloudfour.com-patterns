@@ -24,9 +24,8 @@ module.exports = {
       // Specifying this here fixes it.
       files: ['*.ts', '*.tsx'],
       parser: require.resolve(
-        // This package has to be resolved from the eslint plugin
-        // since it isn't installed into the pattern library directly.
-        '@cloudfour/eslint-plugin/node_modules/@typescript-eslint/parser'
+        // eslint-disable-next-line @cloudfour/node/no-extraneous-require
+        '@typescript-eslint/parser'
       ),
       parserOptions: {
         project: './tsconfig.json',

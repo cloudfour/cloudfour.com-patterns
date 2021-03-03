@@ -125,7 +125,8 @@ $indicator-width-current: $indicator-height-current;
   background-position: center;
   background-repeat: no-repeat;
   background-size: tokens.$size-square-control-icon;
-  border: tokens.$size-edge-small solid var(--theme-color-border-pagination-control);
+  border: tokens.$size-edge-small solid
+    var(--theme-color-border-pagination-control);
   border-radius: tokens.$size-border-radius-full;
   bottom: 0;
   content: '';

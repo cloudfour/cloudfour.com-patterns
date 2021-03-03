@@ -1,5 +1,4 @@
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/scss/tokens";
 @use '../../mixins/ratio-box';
 @use '../../mixins/theme';
 
@@ -8,11 +7,11 @@
  */
 
 @include theme.props() {
-  --theme-color-background-avatar: #{colors.$gray-light};
+  --theme-color-background-avatar: #{tokens.$color-base-gray-light};
 }
 
 @include theme.props(dark) {
-  --theme-color-background-avatar: #{colors.$primary-brand-dark};
+  --theme-color-background-avatar: #{tokens.$color-brand-primary-dark};
 }
 
 /**
@@ -30,9 +29,9 @@
   // Ratio box hack lets us support fixed _and_ percentage widths with ease
   @include ratio-box.core-styles();
   background: var(--theme-color-background-avatar); /* 1 */
-  border-radius: sizes.$radius-full;
+  border-radius: tokens.$size-border-radius-full;
   flex: none; /* 2 */
-  width: sizes.$avatar-medium; /* 3 */
+  width: tokens.$size-square-avatar-medium; /* 3 */
 }
 
 /**
@@ -40,5 +39,5 @@
  */
 
 .c-avatar--full {
-  width: sizes.$avatar-full;
+  width: tokens.$size-square-avatar-full;
 }

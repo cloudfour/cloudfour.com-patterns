@@ -30,7 +30,7 @@ $_ground-nav-border-color: tokens.$color-base-gray-light;
    * the inner element (away from the nearest horizontal edge).
    */
 
-  @media (min-width: breakpoint.$m) {
+  @media (min-width: tokens.$size-breakpoint-m) {
     position: relative;
   }
 

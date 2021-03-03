@@ -1,8 +1,5 @@
-@use '../../design-tokens/aspect-ratio.yml';
-@use '../../design-tokens/breakpoint.yml';
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/motion.yml';
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/scss/aspect-ratios";
+@use "../../compiled/scss/tokens";
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/headings';
@@ -34,7 +31,7 @@ $_cover-gap: ms.step(1, 1rem);
 /// @type Number
 /// @access private
 
-$_focus-overflow: (sizes.$edge-large * -1);
+$_focus-overflow: (tokens.$size-edge-large * -1);
 
 /**
  * The main card container
@@ -57,10 +54,10 @@ $_focus-overflow: (sizes.$edge-large * -1);
   grid-template-rows: minmax(0, auto) minmax(0, auto) 1fr minmax(0, auto); /* 1 */
   position: relative; /* 2 */
   @include fluid.grid-column-gap(
-    breakpoint.$s,
-    breakpoint.$xl,
-    sizes.$gap-fluid-min,
-    sizes.$gap-fluid-max
+    tokens.$size-breakpoint-s,
+    tokens.$size-breakpoint-xl,
+    tokens.$size-spacing-gap-fluid-min,
+    tokens.$size-spacing-gap-fluid-max
   ); /* 3 */
 }
 
@@ -77,8 +74,8 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
 .c-card--horizontal {
   @include media-query.breakpoint-classes(
-    $from: m,
-    $to: xl,
+    $from: size-breakpoint-m,
+    $to: size-breakpoint-xl,
     $include-default: false
   ) {
     grid-column: 1 / -1; /* 1 */
@@ -145,7 +142,7 @@ $_focus-overflow: (sizes.$edge-large * -1);
    */
 
   &::after {
-    border-radius: sizes.$radius-medium;
+    border-radius: tokens.$size-border-radius-medium;
     bottom: $_focus-overflow;
     content: '';
     left: $_focus-overflow;
@@ -161,7 +158,8 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
   @include focus.focus-visible {
     &::after {
-      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+      box-shadow: 0 0 0 tokens.$size-edge-large
+        tokens.$color-brand-primary-lighter;
     }
   }
 }
@@ -178,9 +176,11 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
 .c-card__cover {
   background-color: var(--theme-color-background-secondary); /* 1 */
-  border-radius: sizes.$radius-medium;
+  border-radius: tokens.$size-border-radius-medium;
   grid-area: cover;
-  @include ratio-box.core-styles($ratio: aspect-ratio.$wide);
+  @include ratio-box.core-styles(
+    $ratio: aspect-ratios.$number-aspect-ratio-wide
+  );
 
   /**
    * Since this element is always visually on top, we can assume it needs a
@@ -193,8 +193,8 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
     @include media-query.breakpoint-parent-classes(
       $selector: '.c-card--horizontal',
-      $from: m,
-      $to: xl,
+      $from: size-breakpoint-m,
+      $to: size-breakpoint-xl,
       $include-default: false
     ) {
       margin-bottom: 0;
@@ -209,7 +209,7 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
 .c-card__cover > *,
 .c-card__cover > picture > img {
-  transition: transform motion.$speed-prompt motion.$ease-out;
+  transition: transform tokens.$time-transition-prompt tokens.$ease-out;
 
   .c-card--with-link:hover & {
     transform: scale(1.025);

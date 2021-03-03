@@ -1,5 +1,4 @@
-@use '../../design-tokens/breakpoint.yml';
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/scss/tokens";
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
 
@@ -15,10 +14,10 @@
   display: grid;
   grid-auto-flow: dense; /* 1 */
   @include fluid.grid-gap(
-    breakpoint.$s,
-    breakpoint.$xl,
-    sizes.$gap-fluid-min,
-    sizes.$gap-fluid-max
+    tokens.$size-breakpoint-s,
+    tokens.$size-breakpoint-xl,
+    tokens.$size-spacing-gap-fluid-min,
+    tokens.$size-spacing-gap-fluid-max
   );
 
   /**
@@ -29,10 +28,10 @@
    * allows.
    */
 
-  @media (width >= breakpoint.$xs) {
+  @media (width >= tokens.$size-breakpoint-xs) {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(#{sizes.$card-column-min}, 1fr)
+      minmax(#{tokens.$size-width-card-column-min}, 1fr)
     );
   }
 }
@@ -47,7 +46,10 @@
 
 @for $i from 2 through 3 {
   .o-deck--#{$i}-column {
-    @include media-query.breakpoint-classes($from: s, $to: xl) {
+    @include media-query.breakpoint-classes(
+      $from: size-breakpoint-s,
+      $to: size-breakpoint-xl
+    ) {
       grid-template-columns: repeat(#{$i}, 1fr);
     }
   }

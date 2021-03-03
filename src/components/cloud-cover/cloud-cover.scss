@@ -1,5 +1,4 @@
-@use "../../design-tokens/breakpoint.yml";
-@use "../../design-tokens/colors.yml";
+@use "../../compiled/scss/tokens";
 @use "../../mixins/ms";
 
 /// We can't use `grid-gap` exclusively due to some containers only being present
@@ -68,7 +67,7 @@ $_gap: ms.step(1);
   right: 0;
   width: 100%;
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= tokens.$size-breakpoint-m) {
     width: 50%;
   }
 }
@@ -84,14 +83,14 @@ $_gap: ms.step(1);
 .c-cloud-cover::before {
   background-image: svg-load(
       'clouds/medium.svg',
-      fill=colors.$primary-brand-lighter,
+      fill=tokens.$color-brand-primary-lighter,
       width= '480',
       height= '220',
       viewBox= '0 0 480 220'
     ),
     svg-load(
       'clouds/small.svg',
-      fill=colors.$primary-brand-light,
+      fill=tokens.$color-brand-primary-light,
       width= '580',
       height= '140',
       viewBox= '0 0 580 140'
@@ -106,7 +105,7 @@ $_gap: ms.step(1);
 .c-cloud-cover::after {
   background-image: svg-load(
     'clouds/large.svg',
-    fill=colors.$text-light-emphasis,
+    fill=tokens.$color-text-light-emphasis,
     width= '320',
     height= '300',
     viewBox= '0 0 320 300'
@@ -150,7 +149,7 @@ $_gap: ms.step(1);
    *    overlap.
    */
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= tokens.$size-breakpoint-m) {
     grid-template-areas:
       '. .'
       '. scene'
@@ -172,7 +171,7 @@ $_gap: ms.step(1);
  */
 
 .c-cloud-cover--horizon-scene .c-cloud-cover__inner {
-  @media (width < breakpoint.$m) {
+  @media (width < tokens.$size-breakpoint-m) {
     grid-template-areas:
       '.'
       'content'
@@ -203,7 +202,7 @@ $_gap: ms.step(1);
    * use margin to avoid this running up against adjacent content.
    */
 
-  @media (width < breakpoint.$m) {
+  @media (width < tokens.$size-breakpoint-m) {
     margin-top: $_gap;
   }
 }
@@ -227,7 +226,7 @@ $_gap: ms.step(1);
    * large as the clouds.
    */
 
-  @media (width < breakpoint.$m) {
+  @media (width < tokens.$size-breakpoint-m) {
     height: _cloud-space(2);
     margin-bottom: $_gap;
   }
@@ -237,7 +236,7 @@ $_gap: ms.step(1);
    * and size based on available space.
    */
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= tokens.$size-breakpoint-m) {
     grid-row-end: span 3;
     height: 100%;
   }
@@ -255,7 +254,7 @@ $_gap: ms.step(1);
    * the reverse of the default).
    */
 
-  @media (width < breakpoint.$m) {
+  @media (width < tokens.$size-breakpoint-m) {
     height: _cloud-space(3);
     margin-bottom: 0;
     margin-top: $_gap;
@@ -266,7 +265,7 @@ $_gap: ms.step(1);
    * on areas alone to do this since the `scene` and `extra` areas overlap.
    */
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= tokens.$size-breakpoint-m) {
     grid-row-end: span 4;
   }
 }
@@ -292,7 +291,7 @@ $_gap: ms.step(1);
    * to the right rather than on both sides.
    */
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= tokens.$size-breakpoint-m) {
     object-position: left center;
   }
 }
@@ -305,7 +304,7 @@ $_gap: ms.step(1);
 .c-cloud-cover--horizon-scene .c-cloud-cover__scene-object {
   object-position: center bottom;
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= tokens.$size-breakpoint-m) {
     object-position: left bottom;
   }
 }

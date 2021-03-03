@@ -10,14 +10,14 @@
   --theme-color-text-checkbox-checked-hover: var(
     --theme-color-text-checkbox-hover
   );
-  --theme-color-text-checkbox-disabled: #{colors.$gray-dark};
-  --theme-color-text-checkbox-hover: #{colors.$primary-brand};
+  --theme-color-text-checkbox-disabled: #{tokens.$color-base-gray-dark};
+  --theme-color-text-checkbox-hover: #{tokens.$color-brand-primary};
 }
 
 @include theme.props(dark) {
-  --theme-color-text-checkbox-checked-hover: #{colors.$primary-brand-darker};
-  --theme-color-text-checkbox-disabled: #{colors.$text-light};
-  --theme-color-text-checkbox-hover: #{colors.$text-dark};
+  --theme-color-text-checkbox-checked-hover: #{tokens.$color-brand-primary-darker};
+  --theme-color-text-checkbox-disabled: #{tokens.$color-text-light};
+  --theme-color-text-checkbox-hover: #{tokens.$color-text-dark};
 }
 
 /**

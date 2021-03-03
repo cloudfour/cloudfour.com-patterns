@@ -11,11 +11,11 @@ $radius: tokens.$size-border-radius-medium;
  */
 
 @include theme.props() {
-  --theme-color-border-calendar-date: #{colors.$gray-light};
+  --theme-color-border-calendar-date: #{tokens.$color-base-gray-light};
 }
 
 @include theme.props(dark) {
-  --theme-color-border-calendar-date: #{colors.$primary-brand-dark};
+  --theme-color-border-calendar-date: #{tokens.$color-brand-primary-dark};
 }
 
 .c-calendar-date {

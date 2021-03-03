@@ -1,25 +1,21 @@
-@use '../../design-tokens/breakpoint.yml';
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/font.yml';
-@use '../../design-tokens/opacity.yml';
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/scss/tokens";
 @use '../../mixins/theme';
 
 /// The breakpoint at which items should attempt to display in a single line.
 /// @access private
-$_breakpoint-wide: breakpoint.$m;
+$_breakpoint-wide: tokens.$size-breakpoint-m;
 
 /**
  * Themed properties
  */
 
 @include theme.props() {
-  --theme-color-border-event-log-item: #{colors.$gray-light};
-  --theme-opacity-event-log-location: #{opacity.$muted};
+  --theme-color-border-event-log-item: #{tokens.$color-base-gray-light};
+  --theme-opacity-event-log-location: #{tokens.$number-opacity-muted};
 }
 
 @include theme.props(dark) {
-  --theme-color-border-event-log-item: #{colors.$primary-brand-dark};
+  --theme-color-border-event-log-item: #{tokens.$color-brand-primary-dark};
   --theme-opacity-event-log-location: 1;
 }
 
@@ -33,7 +29,7 @@ $_breakpoint-wide: breakpoint.$m;
 
 .c-event-log {
   display: grid;
-  grid-column-gap: sizes.$gap-inline-medium;
+  grid-column-gap: tokens.$size-spacing-gap-inline-medium;
   grid-template-columns: auto 1fr; /* 1 */
 }
 
@@ -65,11 +61,11 @@ $_breakpoint-wide: breakpoint.$m;
 
   &:not(:first-child) {
     border-top: 1px solid var(--theme-color-border-event-log-item);
-    padding-top: sizes.$cell-pad-vertical;
+    padding-top: tokens.$size-padding-cell-vertical;
   }
 
   &:not(:last-child) {
-    padding-bottom: sizes.$cell-pad-vertical;
+    padding-bottom: tokens.$size-padding-cell-vertical;
   }
 }
 
@@ -122,7 +118,7 @@ $_breakpoint-wide: breakpoint.$m;
    */
 
   @media (width >= $_breakpoint-wide) {
-    margin-right: sizes.$gap-inline-medium;
+    margin-right: tokens.$size-spacing-gap-inline-medium;
   }
 }
 
@@ -131,7 +127,7 @@ $_breakpoint-wide: breakpoint.$m;
  */
 
 .c-event-log__title {
-  font-weight: font.$weight-semibold;
+  font-weight: tokens.$number-font-weight-semibold;
 
   /**
    * We want the title and location to feel a tad more unified than other

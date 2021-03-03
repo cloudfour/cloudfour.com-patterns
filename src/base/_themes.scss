@@ -1,5 +1,4 @@
-@use '../design-tokens/colors.yml';
-@use '../design-tokens/opacity.yml';
+@use "../compiled/scss/tokens";
 @use '../mixins/theme';
 
 /**
@@ -13,15 +12,15 @@
  */
 
 @include theme.props() {
-  --theme-color-background-base: #{colors.$text-light-emphasis};
+  --theme-color-background-base: #{tokens.$color-text-light-emphasis};
   --theme-color-background-kbd: transparent;
-  --theme-color-background-secondary: #{colors.$gray-lighter};
-  --theme-color-border-kbd: #{colors.$gray-light};
-  --theme-color-text-action: #{colors.$text-action};
-  --theme-color-text-base: #{colors.$text-dark};
-  --theme-color-text-code: #{colors.$fuchsia};
+  --theme-color-background-secondary: #{tokens.$color-base-gray-lighter};
+  --theme-color-border-kbd: #{tokens.$color-base-gray-light};
+  --theme-color-text-action: #{tokens.$color-text-action};
+  --theme-color-text-base: #{tokens.$color-text-dark};
+  --theme-color-text-code: #{tokens.$color-base-fuchsia};
   --theme-color-text-emphasis: var(--theme-color-text-base);
-  --theme-opacity-del: #{opacity.$muted};
+  --theme-opacity-del: #{tokens.$number-opacity-muted};
 }
 
 /**
@@ -29,14 +28,14 @@
  */
 
 @include theme.props(dark) {
-  --theme-color-background-base: #{colors.$primary-brand};
-  --theme-color-background-kbd: #{colors.$primary-brand-dark};
-  --theme-color-background-secondary: #{colors.$primary-brand-dark};
-  --theme-color-border-kbd: #{colors.$primary-brand-darker};
+  --theme-color-background-base: #{tokens.$color-brand-primary};
+  --theme-color-background-kbd: #{tokens.$color-brand-primary-dark};
+  --theme-color-background-secondary: #{tokens.$color-brand-primary-dark};
+  --theme-color-border-kbd: #{tokens.$color-brand-primary-darker};
   --theme-color-text-action: var(--theme-color-text-emphasis);
-  --theme-color-text-base: #{colors.$text-light};
+  --theme-color-text-base: #{tokens.$color-text-light};
   --theme-color-text-code: var(--theme-color-text-emphasis);
-  --theme-color-text-emphasis: #{colors.$text-light-emphasis};
+  --theme-color-text-emphasis: #{tokens.$color-text-light-emphasis};
   --theme-opacity-del: 1;
 }
 

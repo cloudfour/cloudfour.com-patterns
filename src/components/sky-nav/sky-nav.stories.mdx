@@ -11,7 +11,7 @@ embedded examples.
 
 <Meta
   title="Components/Sky Nav"
-  parameters={{ docs: { inlineStories: false }, paddings: { disabled: true } }}
+  parameters={{ docs: { inlineStories: false } }}
 />
 
 # Sky Nav
@@ -27,7 +27,15 @@ Our primary navigation component, intended for the very top of a page layout. It
 The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--dark):
 
 <Canvas>
-  <Story name="Dark" height="200px" parameters={{ themes: { disable: true } }}>
+  <Story
+    name="Dark"
+    height="200px"
+    parameters={{
+      layout: 'fullscreen',
+      paddings: { disable: true },
+      themes: { disable: true },
+    }}
+  >
     {() => {
       useEffect(() => {
         createSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
@@ -40,7 +48,15 @@ The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--d
 But it works without a theme, too, just in case:
 
 <Canvas>
-  <Story name="Light" height="200px">
+  <Story
+    name="Light"
+    height="200px"
+    parameters={{
+      layout: 'fullscreen',
+      paddings: { disable: true },
+      themes: { disable: true },
+    }}
+  >
     {() => {
       useEffect(() => {
         createSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
@@ -90,4 +106,20 @@ It supports these additional properties:
 
 ## JavaScript Instructions
 
-TODO: Add JS instructions
+You'll need to use JavaScript to select and initialize the Sky Nav.
+
+> Note: The component class is used to set the visibility of the menu. But, as a best practice, [you should avoid binding your CSS and JS onto the same class in your HTML](https://cssguidelin.es/#javascript-hooks). As a result, we recommend adding an additional JS-specific class. It could be anything, but we're using `js-sky-nav-menu-toggle` for this example.
+
+Once you have added the `js-sky-nav-menu-toggle` class to the `button` element, you'll also need to add some JavaScript that runs after the page loads, like so:
+
+```js
+const skyNav = createSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
+```
+
+The `createSkyNav` function adds an event listener to the menu, allowing it to respond to user input.
+
+It also returns an object containing a `destroy()` method, if you need to remove the event listener.
+
+```js
+skyNav.destroy();
+```

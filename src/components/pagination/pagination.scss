@@ -1,8 +1,8 @@
 @use "../../compiled/scss/tokens";
 @use '../../mixins/focus';
 @use '../../mixins/ms';
-@use '../../mixins/unit';
 @use '../../mixins/theme';
+@use '../../mixins/unit';
 
 // Defines the hit area for actionable elements, specifically the height of
 // links and the width/height of "previous" and "next" affordances.

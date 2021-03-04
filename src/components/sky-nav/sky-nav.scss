@@ -4,8 +4,8 @@
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
-@use '../../mixins/unit';
 @use '../../mixins/theme';
+@use '../../mixins/unit';
 
 // Minimum viewport width where links are exposed
 $_breakpoint-wide: tokens.$size-breakpoint-m;

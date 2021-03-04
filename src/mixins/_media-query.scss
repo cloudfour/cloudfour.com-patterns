@@ -1,7 +1,7 @@
-@use "../compiled/scss/breakpoints";
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
+@use "../compiled/scss/breakpoints";
 
 /// A map of all breakpoint token variables we can reference using Sass's map
 /// utilities.

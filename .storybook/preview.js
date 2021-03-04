@@ -1,8 +1,7 @@
 import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
-import { withHTML } from '@whitespace/storybook-addon-html/html';
-import tokens from '../src/compiled/js/tokens';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import tokens from '../src/compiled/js/tokens';
 import 'focus-visible';
 import '../src/index-with-dependencies.scss';
 import './preview.scss';
@@ -70,7 +69,7 @@ for (let i = -3; i <= 6; i++) {
 // Create viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).map((name) => {
   return {
-    name: `tokens.$${breakpoints[name].name}`,
+    name: `$${breakpoints[name].name}`,
     styles: {
       width: breakpoints[name].value,
       // Account for padding and border around viewport preview

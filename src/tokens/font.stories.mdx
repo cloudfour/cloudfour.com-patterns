@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import tokens from '../compiled/js/tokens';
+import tokens from '../compiled/tokens/js/tokens';
 const generateTokenTable = (props) => {
   const propsArray = Object.values(props);
   const hasComments = propsArray.filter((p) => Boolean(p.comment)).length > 0;
@@ -58,12 +58,12 @@ const fontWeightTable = generateTokenTable(tokens.number.font_weight);
 # Font
 
 ```scss
-@use "../../compiled/scss/tokens";
+@use "../../compiled/tokens/scss/tokens";
 $example: tokens.$font-family-sans; // => 'Source Sans Pro Variable', Tahoma, 'Helvetica Neue', Helvetica, Arial, sans-serif
 ```
 
 ```javascript
-import tokens from '../../compiled/js/tokens';
+import tokens from '../../compiled/tokens/js/tokens';
 console.log(tokens.font.family.sans.value); // => "'Source Sans Pro Variable', Tahoma, 'Helvetica Neue', Helvetica, Arial, sans-serif"
 ```
 

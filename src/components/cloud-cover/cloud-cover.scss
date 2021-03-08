@@ -1,4 +1,4 @@
-@use "../../compiled/scss/tokens";
+@use "../../compiled/tokens/scss/tokens";
 @use "../../mixins/ms";
 
 /// We can't use `grid-gap` exclusively due to some containers only being present

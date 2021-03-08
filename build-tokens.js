@@ -6,7 +6,7 @@ const styleDictionaryConfig = {
   platforms: {
     scss: {
       transformGroup: 'custom/transform-group/css',
-      buildPath: 'src/compiled/scss/',
+      buildPath: 'src/compiled/tokens/scss/',
       files: [
         {
           destination: '_tokens.scss',
@@ -26,7 +26,7 @@ const styleDictionaryConfig = {
     },
     js: {
       transformGroup: 'custom/transform-group/css',
-      buildPath: 'src/compiled/js/',
+      buildPath: 'src/compiled/tokens/js/',
       files: [
         {
           destination: 'tokens.js',

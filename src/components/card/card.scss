@@ -1,5 +1,5 @@
-@use "../../compiled/scss/aspect-ratios";
-@use "../../compiled/scss/tokens";
+@use "../../compiled/tokens/scss/aspect-ratios";
+@use "../../compiled/tokens/scss/tokens";
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/headings';

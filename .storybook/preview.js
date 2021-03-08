@@ -1,7 +1,7 @@
 import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import tokens from '../src/compiled/js/tokens';
+import tokens from '../src/compiled/tokens/js/tokens';
 import 'focus-visible';
 import '../src/index-with-dependencies.scss';
 import './preview.scss';

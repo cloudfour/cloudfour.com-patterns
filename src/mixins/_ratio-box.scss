@@ -1,6 +1,6 @@
 @use 'sass:meta';
 @use 'sass:string';
-@use "../compiled/scss/aspect-ratios";
+@use "../compiled/tokens/scss/aspect-ratios";
 @use '../mixins/media-query';
 
 /// The default aspect ratio will not be output outside of a media query.

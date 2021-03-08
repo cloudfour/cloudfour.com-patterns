@@ -1,4 +1,4 @@
-@use "../compiled/scss/tokens";
+@use "../compiled/tokens/scss/tokens";
 @use "./ms";
 
 $table-border-color: tokens.$color-base-gray-light;

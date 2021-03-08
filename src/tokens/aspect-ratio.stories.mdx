@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import tokens from '../compiled/js/tokens';
+import tokens from '../compiled/tokens/js/tokens';
 const aspectRatios = tokens.number.aspect_ratio;
 const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
   const { name, value } = aspectRatios[key];
@@ -20,12 +20,12 @@ const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
 # Aspect Ratio
 
 ```scss
-@use "../../compiled/scss/tokens";
+@use "../../compiled/tokens/scss/tokens";
 $example: tokens.$number-aspect-ratio-square; // => 1
 ```
 
 ```javascript
-import tokens from '../../compiled/js/tokens';
+import tokens from '../../compiled/tokens/js/tokens';
 console.log(tokens.number.aspect_ratio.square.value); // => 1
 ```
 

@@ -20,24 +20,12 @@ export const createSkyNav = (navButton: HTMLButtonElement) => {
    * Sets visibility of menu & navButton for small vs large screen layouts.
    */
   const update = (isLargeScreen: boolean) => {
-    // OffsetParent is null if the button is hidden so we need to check it here
-    const header = navButton.offsetParent as HTMLElement;
-
     if (isLargeScreen) {
       navButton.removeAttribute('aria-expanded');
       menu.removeAttribute('hidden');
     } else {
       navButton.setAttribute('aria-expanded', 'false');
       menu.hidden = true;
-    }
-
-    // Center the button with a bottom offset
-    // header might be null, so wrapping this in an if()
-    // eslint-disable-next-line @cloudfour/typescript-eslint/no-unnecessary-condition, @cloudfour/typescript-eslint/prefer-optional-chain
-    if (header && header.clientHeight) {
-      navButton.style.bottom = `${
-        (header.clientHeight - navButton.offsetHeight) / 2
-      }px`;
     }
   };
 

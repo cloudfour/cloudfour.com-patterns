@@ -24,6 +24,9 @@ cloudfour.com-patterns
 ├── .storybook
 │   ├── main.js           # Settings for Storybook UI
 │   └── preview.js        # Settings for story previews
+├── .style-dictionary
+│   ├── config.json       # Settings for design token processing
+│   └── build.js          # Design token build script
 ├── gulpfile.js
 │   └── tasks/*.js        # Complex build tasks
 ├── src
@@ -34,7 +37,6 @@ cloudfour.com-patterns
 ├── .editorconfig         # Low-level code consistency
 ├── .nvmrc                # Node version (used by Netlify)
 ├── .svgo.yml             # Inline SVG optimization settings
-├── build-tokens.js       # Settings for design token processing
 ├── CONTRIBUTING.md       # ⬅️ You are here!
 ├── README.md             # Pattern library install instructions
 ├── netlify.toml          # Netlify build settings

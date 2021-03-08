@@ -115,7 +115,7 @@
     "build-storybook": "npm run preprocess && build-storybook -s static",
     "preprocess": "run-p preprocess:*",
     "preprocess:svg-to-twig": "gulp svgToTwig",
-    "preprocess:tokens": "node ./build-tokens.js",
+    "preprocess:tokens": "node .style-dictionary/build.js",
     "watch": "run-p watch:*",
     "watch:preprocess": "gulp watchPreprocess",
     "watch:tokens": "chokidar  \"src/tokens/**/*.+(js|json)\" -c \"npm run preprocess:tokens\"",

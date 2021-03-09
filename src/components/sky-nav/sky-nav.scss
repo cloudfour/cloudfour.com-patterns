@@ -36,6 +36,9 @@ $_label-pad-vertical: ms.step(-9);
 $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
   unit.strip($_space-horizontal * 2)}em;
 
+// Height of masthead on small screens.
+$_masthead-height-sm: ms.step(7);
+
 /**
  * 1. Allow child elements to position themselves relative to the container.
  */
@@ -119,11 +122,19 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
 
 /**
  * Containing element for the logo and menu toggle.
+ *
+ * 1. Set a fixed height on small screens to support vertically centering the
+ *    menu toggle button.
  */
 .c-sky-nav__masthead {
   align-items: center;
   display: flex;
+  height: $_masthead-height-sm; /* 1 */
   justify-content: space-between;
+
+  @media (min-width: $_breakpoint-wide) {
+    height: auto;
+  }
 }
 
 /**
@@ -134,8 +145,17 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
  *    than it would be if whitespace were applied to the parent element.
  */
 .c-sky-nav__logo {
+  align-items: center;
+  display: flex;
   flex: none; /* 1 */
-  padding: $_space-vertical $_space-horizontal; /* 2 */
+  height: 100%; /* 2 */
+  padding: 0 $_space-horizontal; /* 2 */
+
+  @media (min-width: $_breakpoint-wide) {
+    display: block;
+    height: auto;
+    padding: $_space-vertical $_space-horizontal; /* 2 */
+  }
 }
 
 /**
@@ -206,7 +226,9 @@ $_max-width: #{unit.strip(tokens.$size-max-width-spread) +
  *    container for this one element.
  */
 .c-sky-nav__menu-toggle {
-  margin-right: $_space-horizontal; /* 1 */
+  bottom: calc((#{$_masthead-height-sm} - #{sizes.$control-height}) / 2);
+  position: absolute;
+  right: $_space-horizontal; /* 1 */
 
   /**
    * Hide once the menu contents are always exposed.

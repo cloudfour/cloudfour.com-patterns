@@ -1,6 +1,8 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { useEffect } from '@storybook/client-api';
 import menu from './demo/menu.json';
 import template from './sky-nav.twig';
+import { initSkyNav } from './sky-nav.ts';
 
 <!--
 Inline stories disabled so media queries will behave as expected within
@@ -9,7 +11,7 @@ embedded examples.
 
 <Meta
   title="Components/Sky Nav"
-  parameters={{ docs: { inlineStories: false }, paddings: { disabled: true } }}
+  parameters={{ docs: { inlineStories: false } }}
 />
 
 # Sky Nav
@@ -25,16 +27,42 @@ Our primary navigation component, intended for the very top of a page layout. It
 The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--dark):
 
 <Canvas>
-  <Story name="Dark" height="200px" parameters={{ themes: { disable: true } }}>
-    {template({ class: 't-dark', include_main_demo: true, menu })}
+  <Story
+    name="Dark"
+    height="200px"
+    parameters={{
+      layout: 'fullscreen',
+      paddings: { disable: true },
+      themes: { disable: true },
+    }}
+  >
+    {() => {
+      useEffect(() => {
+        initSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
+      }, []);
+      return template({ class: 't-dark', include_main_demo: true, menu });
+    }}
   </Story>
 </Canvas>
 
 But it works without a theme, too, just in case:
 
 <Canvas>
-  <Story name="Light" height="200px">
-    {template({ include_main_demo: true, menu })}
+  <Story
+    name="Light"
+    height="200px"
+    parameters={{
+      layout: 'fullscreen',
+      paddings: { disable: true },
+      themes: { disable: true },
+    }}
+  >
+    {() => {
+      useEffect(() => {
+        initSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
+      }, []);
+      return template({ include_main_demo: true, menu });
+    }}
   </Story>
 </Canvas>
 
@@ -75,3 +103,23 @@ It supports these additional properties:
 - `include_role`: If `true`, the `<header>` element will include a `role` attribute set to `banner`. This should not be necessary unless this component is nested in an `article`, `aside`, `main`, `nav` or `section` ([more info](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/banner.html)).
 - `is_home`: If `true`, the logo link will have its `aria-current` attribute set to `page`.
 - `main_id`: The ID of the main content, used to link to said ID from `c-sky-nav__skip` and for the demo if present. Defaults to `main`.
+
+## JavaScript Instructions
+
+You'll need to use JavaScript to select and initialize the Sky Nav.
+
+> Note: The component class is used to set the visibility of the menu. But, as a best practice, [you should avoid binding your CSS and JS onto the same class in your HTML](https://cssguidelin.es/#javascript-hooks). As a result, we recommend adding an additional JS-specific class. It could be anything, but we're using `js-sky-nav-menu-toggle` for this example.
+
+Once you have added the `js-sky-nav-menu-toggle` class to the `button` element, you'll also need to add some JavaScript that runs after the page loads, like so:
+
+```js
+const skyNav = initSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
+```
+
+The `initSkyNav` function adds an event listener to the menu, allowing it to respond to user input.
+
+It also returns an object containing a `destroy()` method, if you need to remove the event listener.
+
+```js
+skyNav.destroy();
+```

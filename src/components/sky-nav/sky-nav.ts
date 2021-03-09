@@ -11,7 +11,7 @@ import { m as mediumBreakpoint } from '../../design-tokens/generated/breakpoint.
  *
  * @param navButton - the toggle button for the navigation
  */
-export const createSkyNav = (navButton: HTMLButtonElement) => {
+export const initSkyNav = (navButton: HTMLButtonElement) => {
   const menu = navButton.nextElementSibling as HTMLElement;
   const largeScreenMediaQuery = window.matchMedia(
     `(min-width: ${mediumBreakpoint})`

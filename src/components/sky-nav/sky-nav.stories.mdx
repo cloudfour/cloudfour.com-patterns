@@ -2,7 +2,7 @@ import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { useEffect } from '@storybook/client-api';
 import menu from './demo/menu.json';
 import template from './sky-nav.twig';
-import { createSkyNav } from './sky-nav.ts';
+import { initSkyNav } from './sky-nav.ts';
 
 <!--
 Inline stories disabled so media queries will behave as expected within
@@ -38,7 +38,7 @@ The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--d
   >
     {() => {
       useEffect(() => {
-        createSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
+        initSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
       }, []);
       return template({ class: 't-dark', include_main_demo: true, menu });
     }}
@@ -59,7 +59,7 @@ But it works without a theme, too, just in case:
   >
     {() => {
       useEffect(() => {
-        createSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
+        initSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
       }, []);
       return template({ include_main_demo: true, menu });
     }}
@@ -113,10 +113,10 @@ You'll need to use JavaScript to select and initialize the Sky Nav.
 Once you have added the `js-sky-nav-menu-toggle` class to the `button` element, you'll also need to add some JavaScript that runs after the page loads, like so:
 
 ```js
-const skyNav = createSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
+const skyNav = initSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
 ```
 
-The `createSkyNav` function adds an event listener to the menu, allowing it to respond to user input.
+The `initSkyNav` function adds an event listener to the menu, allowing it to respond to user input.
 
 It also returns an object containing a `destroy()` method, if you need to remove the event listener.
 

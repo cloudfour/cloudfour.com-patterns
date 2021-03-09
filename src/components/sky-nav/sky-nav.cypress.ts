@@ -1,6 +1,6 @@
 import { render } from '../../../cypress/cypress-render-component';
 import skyNavMarkup from './sky-nav.twig';
-import { createSkyNav } from './sky-nav';
+import { initSkyNav } from './sky-nav';
 import menu from './demo/menu.json';
 
 describe('Sky Nav', () => {
@@ -8,7 +8,7 @@ describe('Sky Nav', () => {
     render(skyNavMarkup({ includeMainDemo: true, menu }));
     cy.viewport('iphone-6');
     cy.get('.js-sky-nav-menu-toggle').then((navButton) => {
-      createSkyNav(navButton.get(0) as HTMLButtonElement);
+      initSkyNav(navButton.get(0) as HTMLButtonElement);
     });
 
     // Initial state: menu is closed
@@ -25,7 +25,7 @@ describe('Sky Nav', () => {
   it('is expanded on large screens', () => {
     render(skyNavMarkup({ includeMainDemo: true, menu }));
     cy.get('.js-sky-nav-menu-toggle').then((navButton) => {
-      createSkyNav(navButton.get(0) as HTMLButtonElement);
+      initSkyNav(navButton.get(0) as HTMLButtonElement);
     });
 
     // Initial state: list is visible, button is hidden

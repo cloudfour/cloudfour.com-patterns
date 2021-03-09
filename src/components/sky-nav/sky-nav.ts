@@ -1,4 +1,4 @@
-import { m as mediumBreakpoint } from '../../design-tokens/generated/breakpoint.js';
+import * as tokens from '../../compiled/tokens/js/tokens';
 
 /**
  * Create Sky Nav Menu
@@ -14,7 +14,7 @@ import { m as mediumBreakpoint } from '../../design-tokens/generated/breakpoint.
 export const initSkyNav = (navButton: HTMLButtonElement) => {
   const menu = navButton.nextElementSibling as HTMLElement;
   const largeScreenMediaQuery = window.matchMedia(
-    `(min-width: ${mediumBreakpoint})`
+    `(min-width: ${tokens.size.breakpoint.m.value})`
   );
 
   /**

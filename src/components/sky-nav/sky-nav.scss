@@ -226,7 +226,9 @@ $_masthead-height-sm: ms.step(7);
  *    container for this one element.
  */
 .c-sky-nav__menu-toggle {
-  bottom: calc((#{$_masthead-height-sm} - #{sizes.$control-height}) / 2);
+  bottom: calc(
+    (#{$_masthead-height-sm} - #{tokens.$size-height-control-default}) / 2
+  );
   position: absolute;
   right: $_space-horizontal; /* 1 */
 

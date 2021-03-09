@@ -18,3 +18,6 @@ npm-debug.log
 
 # Local configurations
 .vscode
+
+# Cypress artifacts
+/cypress/screenshots

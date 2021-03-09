@@ -10,4 +10,5 @@ module.exports = {
   buildSass: require('./tasks/build-sass'),
   buildJS: require('./tasks/build-scripts').buildJS,
   buildTypes: require('./tasks/build-scripts').buildTypes,
+  buildTokens: require('./tasks/build-tokens'),
 };

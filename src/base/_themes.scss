@@ -1,5 +1,6 @@
 @use "../compiled/tokens/scss/tokens";
 @use "../compiled/tokens/scss/color";
+@use "../compiled/tokens/scss/opacity";
 @use '../mixins/theme';
 
 /**
@@ -21,7 +22,7 @@
   --theme-color-text-base: #{color.$text-dark};
   --theme-color-text-code: #{color.$base-fuchsia};
   --theme-color-text-emphasis: var(--theme-color-text-base);
-  --theme-opacity-del: #{tokens.$number-opacity-muted};
+  --theme-opacity-del: #{opacity.$muted};
 }
 
 /**

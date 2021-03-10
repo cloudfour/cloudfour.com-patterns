@@ -1,5 +1,6 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/opacity";
 
 /**
  * Build pseudo content for "between" element. We do this with text characters
@@ -56,7 +57,7 @@ $dot-content: '';
 
 .c-dot-leader__between {
   @supports (display: grid) {
-    opacity: tokens.$number-opacity-muted;
+    opacity: opacity.$muted;
     overflow: hidden;
 
     &::after {

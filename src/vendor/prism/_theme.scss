@@ -1,6 +1,7 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/opacity";
 
 /**
  * Cloud Four theme for Prism syntax highlighting.
@@ -15,7 +16,7 @@
   &.prolog,
   &.punctuation {
     color: color.$text-light;
-    opacity: tokens.$number-opacity-muted;
+    opacity: opacity.$muted;
   }
 
   &.attr-name,

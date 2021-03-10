@@ -2,6 +2,7 @@
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/opacity";
 @use '../../mixins/theme';
 
 /// The breakpoint at which items should attempt to display in a single line.
@@ -14,7 +15,7 @@ $_breakpoint-wide: breakpoint.$m;
 
 @include theme.props() {
   --theme-color-border-event-log-item: #{color.$base-gray-light};
-  --theme-opacity-event-log-location: #{tokens.$number-opacity-muted};
+  --theme-opacity-event-log-location: #{opacity.$muted};
 }
 
 @include theme.props(dark) {

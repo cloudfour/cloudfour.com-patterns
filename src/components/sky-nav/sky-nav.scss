@@ -2,6 +2,8 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/opacity";
+@use "../../compiled/tokens/scss/size";
 @use '../../mixins/a11y';
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
@@ -35,7 +37,7 @@ $_label-pad-horizontal: ms.step(-3);
 $_label-pad-vertical: ms.step(-9);
 
 // Use the widest standard layout `max-width` plus buffer for horizontal space
-$_max-width: #{unit.strip(tokens.$size-max-width-spread) +
+$_max-width: #{unit.strip(size.$max-width-spread) +
   unit.strip($_space-horizontal * 2)}em;
 
 // Height of masthead on small screens.
@@ -118,7 +120,7 @@ $_masthead-height-sm: ms.step(7);
    * little.
    */
   .c-sky-nav__skip:focus ~ & {
-    opacity: tokens.$number-opacity-muted;
+    opacity: opacity.$muted;
   }
 }
 
@@ -193,7 +195,7 @@ $_masthead-height-sm: ms.step(7);
    * `filter` would desaturate the logo too much in this case.
    */
   .c-sky-nav__logo:active & {
-    opacity: tokens.$number-opacity-muted;
+    opacity: opacity.$muted;
     transform: scale(tokens.$number-scale-effect-shrink);
   }
 }
@@ -426,7 +428,7 @@ $_masthead-height-sm: ms.step(7);
    */
   .c-sky-nav__menu-items:hover &:not(:hover) {
     @media (min-width: $_breakpoint-wide) {
-      opacity: tokens.$number-opacity-muted;
+      opacity: opacity.$muted;
     }
   }
 }

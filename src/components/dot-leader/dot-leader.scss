@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/font-weight";
 
 /**
  * Build pseudo content for "between" element. We do this with text characters
@@ -26,7 +27,7 @@ $dot-content: '';
 }
 
 .c-dot-leader__start {
-  font-weight: tokens.$number-font-weight-medium;
+  font-weight: font-weight.$medium;
 
   /**
      * Retain `text-decoration` for hover effect when this element is a child

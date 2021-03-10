@@ -1,5 +1,6 @@
 @use "../compiled/tokens/scss/tokens";
 @use "../compiled/tokens/scss/color";
+@use "../compiled/tokens/scss/font-weight";
 @use "./ms";
 
 $table-border-color: color.$base-gray-light;
@@ -26,7 +27,7 @@ $table-border-thick: tokens.$size-edge-medium solid $table-border-color;
  * Table headings are semibold to stand out as labels
  */
 @mixin t-heading {
-  font-weight: tokens.$number-font-weight-semibold;
+  font-weight: font-weight.$semibold;
 }
 
 /**

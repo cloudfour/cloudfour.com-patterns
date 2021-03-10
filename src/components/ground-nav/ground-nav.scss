@@ -1,6 +1,7 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/font-weight";
 @use '../../mixins/ms';
 @use '../../mixins/unit';
 
@@ -102,7 +103,7 @@ $_ground-nav-border-color: color.$base-gray-light;
 }
 
 .c-ground-nav__organization-name {
-  font-weight: tokens.$number-font-weight-bold;
+  font-weight: font-weight.$bold;
 }
 
 .c-ground-nav__social-icon {

@@ -1,5 +1,6 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/font-weight";
 @use '../../mixins/ms';
 @use '../../mixins/theme';
 
@@ -22,7 +23,7 @@ $radius: tokens.$size-border-radius-medium;
 .c-calendar-date {
   display: flex;
   flex-direction: column;
-  font-weight: tokens.$number-font-weight-medium;
+  font-weight: font-weight.$medium;
   height: $size;
   line-height: ms.step(1, 1);
   text-align: center;
@@ -46,7 +47,7 @@ $radius: tokens.$size-border-radius-medium;
   color: color.$text-light-emphasis;
   display: flex;
   flex: none;
-  font-weight: tokens.$number-font-weight-semibold;
+  font-weight: font-weight.$semibold;
   height: ms.step(3);
   justify-content: center;
   text-transform: uppercase;

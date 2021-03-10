@@ -1,5 +1,6 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/font-weight";
 
 /**
  * Cloud Four theme for Prism syntax highlighting.
@@ -61,7 +62,7 @@
   }
 
   &.bold {
-    font-weight: tokens.$number-font-weight-semibold;
+    font-weight: font-weight.$semibold;
   }
 
   &.italic {

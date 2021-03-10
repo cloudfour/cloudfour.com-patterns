@@ -1,5 +1,6 @@
 @use "../compiled/tokens/scss/tokens";
 @use "../compiled/tokens/scss/color";
+@use "../compiled/tokens/scss/font-weight";
 @use "./focus";
 @use "./ms";
 @use "./unit";
@@ -51,7 +52,7 @@
   display: inline-block;
   font: inherit; /* 2 */
   font-style: normal;
-  font-weight: tokens.$number-font-weight-semibold;
+  font-weight: font-weight.$semibold;
   height: tokens.$size-height-control-default; /* 3 */
   line-height: normal;
   padding: tokens.$size-padding-control-vertical

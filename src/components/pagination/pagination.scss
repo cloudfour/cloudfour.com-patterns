@@ -1,5 +1,6 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/font-weight";
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/theme';
@@ -225,7 +226,7 @@ $indicator-width-current: $indicator-height-current;
   align-items: center;
   border-radius: tokens.$size-border-radius-full; /* 1 */
   display: flex;
-  font-weight: tokens.$number-font-weight-medium;
+  font-weight: font-weight.$medium;
   height: ($action-size - $action-pad * 2); /* 1 */
   justify-content: center;
   line-height: ms.step(0, 1); /* 2 */

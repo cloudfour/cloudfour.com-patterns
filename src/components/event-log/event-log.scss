@@ -1,6 +1,7 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/font-weight";
 @use '../../mixins/theme';
 
 /// The breakpoint at which items should attempt to display in a single line.
@@ -129,7 +130,7 @@ $_breakpoint-wide: breakpoint.$m;
  */
 
 .c-event-log__title {
-  font-weight: tokens.$number-font-weight-semibold;
+  font-weight: font-weight.$semibold;
 
   /**
    * We want the title and location to feel a tad more unified than other

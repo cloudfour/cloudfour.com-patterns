@@ -1,5 +1,4 @@
 @use "sass:math";
-@use "../compiled/tokens/scss/tokens";
 @use "../compiled/tokens/scss/scale";
 
 @function step($step, $base: 1em, $ratio: scale.$modular-ratio) {

@@ -1,5 +1,6 @@
-@use "../../compiled/tokens/scss/aspect-ratio";
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/aspect-ratio";
+@use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
@@ -55,8 +56,8 @@ $_focus-overflow: (tokens.$size-edge-large * -1);
   grid-template-rows: minmax(0, auto) minmax(0, auto) 1fr minmax(0, auto); /* 1 */
   position: relative; /* 2 */
   @include fluid.grid-column-gap(
-    tokens.$size-breakpoint-s,
-    tokens.$size-breakpoint-xl,
+    breakpoint.$s,
+    breakpoint.$xl,
     tokens.$size-spacing-gap-fluid-min,
     tokens.$size-spacing-gap-fluid-max
   ); /* 3 */

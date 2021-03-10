@@ -1,5 +1,6 @@
 @use 'sass:color' as sass-color;
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
 @use '../../mixins/a11y';
 @use '../../mixins/fluid';
@@ -9,11 +10,11 @@
 @use '../../mixins/unit';
 
 // Minimum viewport width where links are exposed
-$_breakpoint-wide: tokens.$size-breakpoint-m;
+$_breakpoint-wide: breakpoint.$m;
 // Minimum viewport width where links are no longer multi-line
-$_breakpoint-nowrap: tokens.$size-breakpoint-l;
+$_breakpoint-nowrap: breakpoint.$l;
 // Viewport where vertical expansion maxes out
-$_breakpoint-grow-max: tokens.$size-breakpoint-xxl;
+$_breakpoint-grow-max: breakpoint.$xxl;
 
 // Maximum viewport width where links are stacked and hidden initially
 $_breakpoint-narrow-max: ($_breakpoint-wide * 16 - 1) / 16;

@@ -1,5 +1,6 @@
 @use "_fonts";
 @use "../compiled/tokens/scss/tokens";
+@use "../compiled/tokens/scss/breakpoint";
 @use "../mixins/fluid";
 @use "../mixins/headings";
 @use "../mixins/ms";
@@ -15,8 +16,8 @@
 
 html {
   @include fluid.font-size(
-    tokens.$size-breakpoint-xs,
-    tokens.$size-breakpoint-xl,
+    breakpoint.$xs,
+    breakpoint.$xl,
     ms.step(0, 1rem),
     ms.step(1, 1rem)
   ); /* 1 */

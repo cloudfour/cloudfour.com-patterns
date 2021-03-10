@@ -1,4 +1,5 @@
 @use "../../../compiled/tokens/scss/tokens";
+@use "../../../compiled/tokens/scss/breakpoint";
 @use "../../../mixins/ms";
 
 .demo-input-basic {
@@ -9,7 +10,7 @@
 }
 
 .demo-input-basic--single-line {
-  @media (min-width: tokens.$size-breakpoint-m) {
+  @media (min-width: breakpoint.$m) {
     grid-template-columns: auto 1fr auto;
   }
 }

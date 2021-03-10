@@ -1,4 +1,5 @@
 @use "../../../compiled/tokens/scss/tokens";
+@use "../../../compiled/tokens/scss/breakpoint";
 @use "../../../mixins/ms";
 
 /**
@@ -13,10 +14,10 @@
     grid-gap: ms.step(4);
     padding: ms.step(2);
 
-    @media (min-width: tokens.$size-breakpoint-xs) {
+    @media (min-width: breakpoint.$xs) {
       grid-template-columns: repeat(
         auto-fit,
-        minmax(tokens.$size-breakpoint-xs - ms.step(2) * 2, 1fr)
+        minmax(breakpoint.$xs - ms.step(2) * 2, 1fr)
       );
     }
   }

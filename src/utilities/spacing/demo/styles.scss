@@ -1,4 +1,5 @@
 @use "../../../compiled/tokens/scss/tokens";
+@use "../../../compiled/tokens/scss/breakpoint";
 @use "../../../compiled/tokens/scss/color";
 @use '../../../mixins/ms';
 
@@ -61,14 +62,14 @@
   grid-gap: ms.step(1);
   grid-template-columns: repeat(2, 1fr);
 
-  @media (min-width: tokens.$size-breakpoint-s) {
+  @media (min-width: breakpoint.$s) {
     grid-template-columns: repeat(4, 1fr);
   }
 
   > :nth-child(-n + 2) {
     grid-column: span 2;
 
-    @media (min-width: tokens.$size-breakpoint-s) {
+    @media (min-width: breakpoint.$s) {
       grid-column: span 4;
     }
   }

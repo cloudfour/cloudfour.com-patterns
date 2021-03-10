@@ -1,10 +1,11 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
 @use '../../mixins/theme';
 
 /// The breakpoint at which items should attempt to display in a single line.
 /// @access private
-$_breakpoint-wide: tokens.$size-breakpoint-m;
+$_breakpoint-wide: breakpoint.$m;
 
 /**
  * Themed properties

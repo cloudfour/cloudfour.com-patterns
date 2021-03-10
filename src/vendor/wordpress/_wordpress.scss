@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/breakpoint";
 @use "../../mixins/button";
 @use "../../mixins/table";
 
@@ -140,7 +141,7 @@ $wp-button-gap: tokens.$size-spacing-list-inline-gap;
   &.alignwide {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
-    @media (min-width: tokens.$size-breakpoint-l) {
+    @media (min-width: breakpoint.$l) {
       margin-left: -6vw; /* 1 */
       margin-right: -6vw; /* 1 */
     }

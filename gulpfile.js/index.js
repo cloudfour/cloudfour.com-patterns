@@ -6,9 +6,9 @@
 
 module.exports = {
   watchPreprocess: require('./tasks/watch-preprocess'),
-  theo: require('./tasks/theo'),
   svgToTwig: require('./tasks/svg-to-twig'),
   buildSass: require('./tasks/build-sass'),
   buildJS: require('./tasks/build-scripts').buildJS,
   buildTypes: require('./tasks/build-scripts').buildTypes,
+  buildTokens: require('./tasks/build-tokens'),
 };

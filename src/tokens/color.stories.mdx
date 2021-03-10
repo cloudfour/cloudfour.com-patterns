@@ -1,0 +1,46 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/tokens/js/tokens';
+const generateColorPalette = (props) => {
+  const propsArray = Object.values(props);
+  return (
+    <ColorPalette>
+      {propsArray.map((prop) => (
+        <ColorItem
+          key={prop.name}
+          title={`color.$${prop.name.slice(6)}`}
+          subtitle={prop.comment}
+          colors={[prop.value]}
+        />
+      ))}
+    </ColorPalette>
+  );
+};
+const brandColorPalette = generateColorPalette(tokens.color.brand);
+const baseColorPalette = generateColorPalette(tokens.color.base);
+const textColorPalette = generateColorPalette(tokens.color.text);
+
+<Meta title="Design/Tokens/Color" />
+
+# Color
+
+```scss
+@use "../../compiled/tokens/scss/color";
+$example: color.$text-dark; // => rgba(0, 0, 0, 0.85)
+```
+
+```javascript
+import tokens from '../../compiled/tokens/js/tokens';
+console.log(tokens.color.text.dark.value); // => "rgba(0, 0, 0, 0.85)"
+```
+
+## Text Color
+
+<>{textColorPalette}</>
+
+## Primary Color
+
+<>{brandColorPalette}</>
+
+## Color
+
+<>{baseColorPalette}</>

@@ -1,8 +1,8 @@
 const { watch } = require('gulp');
 const svgToTwig = require('./svg-to-twig');
-const theo = require('./theo');
+const buildTokens = require('./build-tokens');
 
 module.exports = function () {
   watch('src/assets/**/*.svg', svgToTwig);
-  watch('src/design-tokens/**/*.yml', theo);
+  watch('src/tokens/**/*.+(js|json)', buildTokens);
 };

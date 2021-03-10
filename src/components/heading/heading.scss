@@ -1,27 +1,27 @@
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/layout.yml';
-@use "../../design-tokens/motion.yml";
-@use '../../design-tokens/opacity.yml';
-@use '../../design-tokens/sizes.yml';
+@use 'sass:math';
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/opacity";
+@use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
 @use '../../mixins/focus';
 @use '../../mixins/headings';
 @use '../../mixins/ms';
 @use '../../mixins/unit';
-@use 'sass:math';
 
 // Variables that define the size and shape of the (optional) permalink element.
 // 1. The total size of the element.
 // 2. The size of the icon within the element.
 // 3. The element's rounded corners.
-$permalink-size: sizes.$control-height; // 1
-$permalink-icon-size: sizes.$control-icon-size; // 2
-$permalink-radius: sizes.$radius-full; // 3
+$permalink-size: size.$height-control-default; // 1
+$permalink-icon-size: size.$square-control-icon; // 2
+$permalink-radius: size.$border-radius-full; // 3
 
 // We want the permalink's position to change when there is enough room to
 // display a full line of prose _plus_ the permalink. To pull this off, we use
 // the prose width and permalink size (above) to build some component-specific
 // media query breakpoints.
-$min-width-permalink-shift: layout.$max-width-prose + $permalink-size * 4;
+$min-width-permalink-shift: size.$max-width-prose + $permalink-size * 4;
 $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
 
 /**
@@ -103,8 +103,8 @@ $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
   right: ($permalink-size - $permalink-icon-size) / -2; /* 2 */
   text-decoration: none;
   top: 0;
-  transition: color motion.$speed-quick motion.$ease-out,
-    opacity motion.$speed-quick motion.$ease-out;
+  transition: color transition.$quick ease.$out,
+    opacity transition.$quick ease.$out;
   width: $permalink-size;
 
   /**
@@ -128,6 +128,6 @@ $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
   }
 
   @include focus.focus-visible {
-    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
   }
 }

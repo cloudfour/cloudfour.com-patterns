@@ -1,0 +1,10 @@
+{
+  "number": {
+    "scale": {
+      "effect": {
+        "grow": { "value": "1.05" },
+        "shrink": { "value": "0.95" }
+      }
+    }
+  }
+}

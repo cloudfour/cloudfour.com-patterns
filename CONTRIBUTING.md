@@ -24,14 +24,16 @@ cloudfour.com-patterns
 ├── .storybook
 │   ├── main.js           # Settings for Storybook UI
 │   └── preview.js        # Settings for story previews
-├── .theo                 # Settings for design token processing
+├── .style-dictionary
+│   ├── config.json       # Settings for design token processing
+│   └── build.js          # Design token build script
 ├── gulpfile.js
 │   └── tasks/*.js        # Complex build tasks
 ├── src
 │   ├── **/*.scss         # Styles (Sass)
 │   ├── **/*.stories.mdx  # Documentation (Storybook Docs)
 │   ├── **/*.twig         # Templates (Twig)
-│   └── **/*.yml          # Design tokens (Theo)
+│   └── tokens/*          # Design tokens (Style Dictionary)
 ├── .editorconfig         # Low-level code consistency
 ├── .nvmrc                # Node version (used by Netlify)
 ├── .svgo.yml             # Inline SVG optimization settings

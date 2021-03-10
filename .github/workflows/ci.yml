@@ -19,6 +19,8 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
         run: CYPRESS_INSTALL_BINARY=0 npm ci
+      - name: Run Preprocess
+        run: npm run preprocess
       - name: Run Lint
         run: npm run check-lint
 
@@ -59,8 +61,6 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
         run: CYPRESS_INSTALL_BINARY=0 npm ci
-      - name: Run Preprocess
-        run: npm run preprocess
       - name: Run Build
         run: npm run build
 

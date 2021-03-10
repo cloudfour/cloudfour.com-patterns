@@ -1,0 +1,14 @@
+{
+  "size": {
+    "border": {
+      "radius": {
+        "small": { "value": "0.125em" },
+        "medium": { "value": "0.25em" },
+        "full": {
+          "value": "9999px",
+          "comment": "A value of 50% would be more intuitive, but results in unexpectedly oblong rounding for non-square shapes. We use `px` to save the browser the trouble of recalculating the stupidly large value."
+        }
+      }
+    }
+  }
+}

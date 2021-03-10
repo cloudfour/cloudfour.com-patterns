@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/addon-docs/blocks';
 import { useEffect } from '@storybook/client-api';
 import { basename, extname } from 'path';
 import sampleDemo from './demo/sample.twig';
-import '../../vendor/prism/config.js';
+import './config.js';
 // Load samples directory as "raw" text
 const samplesDir = require.context('!!raw-loader!./demo/samples', false);
 // Initialize an object to store sample content in

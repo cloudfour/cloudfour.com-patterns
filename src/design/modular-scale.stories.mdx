@@ -1,15 +1,14 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import * as modularScaleTokens from '../design-tokens/modular-scale.yml';
+import tokens from '../compiled/tokens/js/tokens';
+const ratio = tokens.number.scale.modular.ratio.value;
+const minimumStep = tokens.number.scale.modular.minimum_step.value;
+const maximumStep = tokens.number.scale.modular.maximum_step.value;
 const sizeRows = [];
-for (
-  let i = modularScaleTokens.minimumStep;
-  i <= modularScaleTokens.maximumStep;
-  i++
-) {
+for (let i = minimumStep; i <= maximumStep; i++) {
   // `toFixed` keeps the values from extending past two decimal points.
   // The `Number` constructor prevents unnecessary decimals from displaying,
   // for example `1.00` instead of `1`.
-  const size = `${Number((modularScaleTokens.ratio ** i).toFixed(2))}em`;
+  const size = `${Number((ratio ** i).toFixed(2))}em`;
   const row = (
     <tr>
       <td>{i}</td>

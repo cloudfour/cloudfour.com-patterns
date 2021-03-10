@@ -1,22 +1,22 @@
-@use '../../../design-tokens/breakpoint.yml';
-@use '../../../design-tokens/colors.yml';
-@use '../../../design-tokens/sizes.yml';
+@use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../compiled/tokens/scss/color";
+@use "../../../compiled/tokens/scss/size";
 @use '../../../mixins/ms';
 
 .demo-u-space-logical-properties,
 .demo-u-space-directions {
   div {
-    border-radius: sizes.$radius-medium;
+    border-radius: size.$border-radius-medium;
   }
 
   & > div {
-    background: colors.$gray-light;
+    background: color.$base-gray-light;
     overflow: hidden;
   }
 
   [class*='u-space'] {
-    background: colors.$text-light-emphasis;
-    border: sizes.$edge-medium solid colors.$gray;
+    background: color.$text-light-emphasis;
+    border: size.$edge-medium solid color.$base-gray;
     padding: ms.step(-1);
   }
 }
@@ -24,12 +24,12 @@
 .demo-u-pad-logical-properties,
 .demo-u-pad-directions {
   [class*='u-pad'] {
-    background: colors.$gray-light;
-    border: sizes.$edge-medium solid colors.$gray;
-    border-radius: sizes.$radius-medium;
+    background: color.$base-gray-light;
+    border: size.$edge-medium solid color.$base-gray;
+    border-radius: size.$border-radius-medium;
 
     div {
-      background: colors.$text-light-emphasis;
+      background: color.$text-light-emphasis;
       border-radius: inherit;
     }
   }
@@ -40,17 +40,17 @@
   flex-direction: column;
 
   div {
-    border-radius: sizes.$radius-medium;
+    border-radius: size.$border-radius-medium;
   }
 
   & > div {
-    background: colors.$gray-light;
+    background: color.$base-gray-light;
     padding: ms.step(-1);
   }
 
   [class*='u-pull'] {
-    background: colors.$text-light-emphasis;
-    border: sizes.$edge-medium solid colors.$gray;
+    background: color.$text-light-emphasis;
+    border: size.$edge-medium solid color.$base-gray;
     opacity: 0.66;
     padding: ms.step(-1);
   }

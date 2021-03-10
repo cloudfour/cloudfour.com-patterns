@@ -1,6 +1,7 @@
-@use "../../design-tokens/colors.yml";
-@use "../../design-tokens/motion.yml";
-@use "../../design-tokens/sizes.yml";
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
 @use "../../mixins/theme";
 
 /**
@@ -8,14 +9,14 @@
  */
 
 @include theme.props() {
-  --theme-color-background-input-disabled: #{colors.$gray-light};
-  --theme-color-border-input-disabled: #{colors.$gray};
-  --theme-color-border-input-hover: #{colors.$primary-brand};
+  --theme-color-background-input-disabled: #{color.$base-gray-light};
+  --theme-color-border-input-disabled: #{color.$base-gray};
+  --theme-color-border-input-hover: #{color.$brand-primary};
 }
 
 @include theme.props(dark) {
-  --theme-color-background-input-disabled: #{colors.$primary-brand-lighter};
-  --theme-color-border-input-disabled: #{colors.$primary-brand-dark};
+  --theme-color-background-input-disabled: #{color.$brand-primary-lighter};
+  --theme-color-border-input-disabled: #{color.$brand-primary-dark};
   --theme-color-border-input-hover: currentColor;
 }
 
@@ -35,21 +36,21 @@
   -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
   -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
   appearance: none; /* 1 */
-  background-color: colors.$text-light;
-  border: sizes.$edge-medium solid currentColor;
-  border-radius: sizes.$radius-medium;
-  color: colors.$text-dark;
+  background-color: color.$text-light;
+  border: size.$edge-medium solid currentColor;
+  border-radius: size.$border-radius-medium;
+  color: color.$text-dark;
   display: block;
   font: inherit;
   font-style: normal;
-  height: sizes.$control-height; /* 2 */
+  height: size.$height-control-default; /* 2 */
   line-height: normal; /* 3 */
   outline: none;
-  padding: sizes.$control-pad-vertical sizes.$control-text-inset;
-  -webkit-text-fill-color: colors.$text-dark; /* 4 */
-  transition-duration: motion.$speed-quick;
+  padding: size.$padding-control-vertical size.$spacing-control-text-inset;
+  -webkit-text-fill-color: color.$text-dark; /* 4 */
+  transition-duration: transition.$quick;
   transition-property: background-color, border-color;
-  transition-timing-function: motion.$ease-out;
+  transition-timing-function: ease.$out;
   vertical-align: middle;
   width: 100%;
 
@@ -65,7 +66,7 @@
   &[type='email'],
   &[type='text'] {
     padding-left: 0;
-    text-indent: sizes.$control-text-inset;
+    text-indent: size.$spacing-control-text-inset;
   }
 
   /**
@@ -73,7 +74,7 @@
    */
 
   @at-root textarea#{&} {
-    height: sizes.$control-height-multiline;
+    height: size.$height-control-multiline;
   }
 
   /**
@@ -98,17 +99,17 @@
    */
 
   @at-root select#{&} {
-    background-image: svg-load('icons/caret-down.svg', fill=colors.$text-dark);
-    background-position: right sizes.$control-icon-inset center;
+    background-image: svg-load('icons/caret-down.svg', fill=color.$text-dark);
+    background-position: right size.$spacing-control-icon-inset center;
     background-repeat: no-repeat;
-    background-size: sizes.$control-icon-size 100%; /* 1 */
-    padding-bottom: sizes.$control-pad-vertical / 2; /* 2 */
-    padding-right: sizes.$control-icon-inset + sizes.$control-icon-size; /* 3 */
-    padding-top: sizes.$control-pad-vertical / 2; /* 2 */
+    background-size: size.$square-control-icon 100%; /* 1 */
+    padding-bottom: size.$padding-control-vertical / 2; /* 2 */
+    padding-right: size.$spacing-control-icon-inset + size.$square-control-icon; /* 3 */
+    padding-top: size.$padding-control-vertical / 2; /* 2 */
   }
 
   &:hover:not(:disabled):not([readonly]) {
-    background-color: colors.$text-light-emphasis;
+    background-color: color.$text-light-emphasis;
     border-color: var(--theme-color-border-input-hover);
   }
 
@@ -120,7 +121,7 @@
 
   &:focus {
     background-color: #fff;
-    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
   }
 
   &[readonly]:not(:disabled) {
@@ -146,8 +147,8 @@
    */
 
   &::placeholder {
-    color: colors.$text-dark-muted; /* 1 */
+    color: color.$text-dark-muted; /* 1 */
     opacity: 1; /* 2 */
-    -webkit-text-fill-color: colors.$text-dark-muted; /* 1 */
+    -webkit-text-fill-color: color.$text-dark-muted; /* 1 */
   }
 }

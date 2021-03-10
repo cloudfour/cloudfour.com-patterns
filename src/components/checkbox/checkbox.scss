@@ -1,6 +1,7 @@
-@use "../../design-tokens/colors.yml";
-@use "../../design-tokens/motion.yml";
-@use "../../design-tokens/sizes.yml";
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
 @use "../../mixins/focus";
 @use "../../mixins/theme";
 
@@ -12,14 +13,14 @@
   --theme-color-text-checkbox-checked-hover: var(
     --theme-color-text-checkbox-hover
   );
-  --theme-color-text-checkbox-disabled: #{colors.$gray-dark};
-  --theme-color-text-checkbox-hover: #{colors.$primary-brand};
+  --theme-color-text-checkbox-disabled: #{color.$base-gray-dark};
+  --theme-color-text-checkbox-hover: #{color.$brand-primary};
 }
 
 @include theme.props(dark) {
-  --theme-color-text-checkbox-checked-hover: #{colors.$primary-brand-darker};
-  --theme-color-text-checkbox-disabled: #{colors.$text-light};
-  --theme-color-text-checkbox-hover: #{colors.$text-dark};
+  --theme-color-text-checkbox-checked-hover: #{color.$brand-primary-darker};
+  --theme-color-text-checkbox-disabled: #{color.$text-light};
+  --theme-color-text-checkbox-hover: #{color.$text-dark};
 }
 
 /**
@@ -41,21 +42,21 @@
     -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     appearance: none; /* 2 */
-    background-color: colors.$text-light;
-    border: sizes.$edge-medium solid currentColor;
-    border-radius: sizes.$radius_medium;
-    color: colors.$text-dark;
+    background-color: color.$text-light;
+    border: size.$edge-medium solid currentColor;
+    border-radius: size.$border-radius-medium;
+    color: color.$text-dark;
     cursor: pointer;
     flex: none; /* 3 */
     font: inherit; /* 4 */
-    height: sizes.$toggle-medium;
+    height: size.$square-toggle-medium;
     padding: 0;
     position: relative;
-    transition-duration: motion.$speed-quick;
+    transition-duration: transition.$quick;
     transition-property: background-color, border-color, color;
-    transition-timing-function: motion.$ease-out;
+    transition-timing-function: ease.$out;
     vertical-align: middle;
-    width: sizes.$toggle-medium;
+    width: size.$square-toggle-medium;
 
     /**
      * We add the check mark via a pseudo element so we can easily apply
@@ -70,22 +71,22 @@
     &::after {
       background-image: svg-load(
         'icons/check.svg',
-        stroke=colors.$text-light-emphasis
+        stroke=color.$text-light-emphasis
       );
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      bottom: sizes.$edge-medium; /* 1 */
+      bottom: size.$edge-medium; /* 1 */
       content: '';
-      left: sizes.$edge-medium; /* 1 */
+      left: size.$edge-medium; /* 1 */
       opacity: 0; /* 2 */
       position: absolute;
-      right: sizes.$edge-medium; /* 1 */
-      top: sizes.$edge-medium; /* 1 */
+      right: size.$edge-medium; /* 1 */
+      top: size.$edge-medium; /* 1 */
       transform: scale(0); /* 2 */
-      transition-duration: motion.$speed-quick;
+      transition-duration: transition.$quick;
       transition-property: opacity, transform;
-      transition-timing-function: motion.$ease-out;
+      transition-timing-function: ease.$out;
     }
 
     /**
@@ -93,7 +94,7 @@
      */
 
     &:hover {
-      background-color: colors.$text-light-emphasis;
+      background-color: color.$text-light-emphasis;
       color: var(--theme-color-text-checkbox-hover);
     }
 
@@ -126,7 +127,7 @@
      */
 
     @include focus.focus-visible {
-      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
     }
 
     /**
@@ -152,14 +153,14 @@
         @include theme.styles() {
           background-image: svg-load(
             'icons/check.svg',
-            stroke=colors.$gray-dark
+            stroke=color.$base-gray-dark
           );
         }
 
         @include theme.styles(dark) {
           background-image: svg-load(
             'icons/check.svg',
-            stroke=colors.$text-light
+            stroke=color.$text-light
           );
         }
       }

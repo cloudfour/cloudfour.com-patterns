@@ -1,7 +1,10 @@
-@use "../design-tokens/colors.yml";
-@use "../design-tokens/font.yml";
-@use "../design-tokens/motion.yml";
-@use "../design-tokens/sizes.yml";
+@use "../compiled/tokens/scss/brightness";
+@use "../compiled/tokens/scss/color";
+@use "../compiled/tokens/scss/ease";
+@use "../compiled/tokens/scss/font-weight";
+@use "../compiled/tokens/scss/scale";
+@use "../compiled/tokens/scss/size";
+@use "../compiled/tokens/scss/transition";
 @use "./focus";
 @use "./ms";
 @use "./unit";
@@ -12,19 +15,19 @@
  */
 
 @include theme.props() {
-  --theme-color-background-button-default: #{colors.$primary-brand};
+  --theme-color-background-button-default: #{color.$brand-primary};
   --theme-color-background-button-secondary: transparent;
-  --theme-color-border-button-default: #{colors.$primary-brand-dark};
-  --theme-color-border-button-secondary: #{colors.$primary-brand-light};
+  --theme-color-border-button-default: #{color.$brand-primary-dark};
+  --theme-color-border-button-secondary: #{color.$brand-primary-light};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
   --theme-color-text-button-tertiary: var(--theme-color-text-action);
 }
 
 @include theme.props(dark) {
-  --theme-color-background-button-default: #{colors.$primary-brand-dark};
+  --theme-color-background-button-default: #{color.$brand-primary-dark};
   --theme-color-background-button-secondary: transparent;
-  --theme-color-border-button-default: #{colors.$primary-brand-darker};
-  --theme-color-border-button-secondary: #{colors.$primary-brand-dark};
+  --theme-color-border-button-default: #{color.$brand-primary-darker};
+  --theme-color-border-button-secondary: #{color.$brand-primary-dark};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
   --theme-color-text-button-tertiary: var(--theme-color-text-action);
 }
@@ -45,23 +48,23 @@
 @mixin default {
   background: var(--theme-color-background-button-default);
   border-color: var(--theme-color-border-button-default);
-  border-radius: sizes.$radius-medium;
+  border-radius: size.$border-radius-medium;
   border-style: solid;
-  border-width: sizes.$edge-medium;
-  color: colors.$text-light-emphasis;
+  border-width: size.$edge-medium;
+  color: color.$text-light-emphasis;
   cursor: pointer; /* 1 */
   display: inline-block;
   font: inherit; /* 2 */
   font-style: normal;
-  font-weight: font.$weight-semibold;
-  height: sizes.$control-height; /* 3 */
+  font-weight: font-weight.$semibold;
+  height: size.$height-control-default; /* 3 */
   line-height: normal;
-  padding: sizes.$control-pad-vertical sizes.$control-pad-horizontal;
+  padding: size.$padding-control-vertical size.$padding-control-horizontal;
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: filter motion.$speed-slow motion.$ease-out,
-    transform motion.$speed-quick motion.$ease-out;
+  transition: filter transition.$slow ease.$out,
+    transform transition.$quick ease.$out;
   user-select: none;
 
   /**
@@ -70,13 +73,13 @@
    */
 
   &:hover {
-    filter: brightness(motion.$control-brighten);
-    transform: scale(motion.$control-grow);
+    filter: brightness(brightness.$control-brighten);
+    transform: scale(scale.$effect-grow);
   }
 
   &:active {
-    filter: brightness(motion.$control-dim);
-    transform: scale(motion.$control-shrink);
+    filter: brightness(brightness.$control-dim);
+    transform: scale(scale.$effect-shrink);
   }
 
   &:disabled {
@@ -87,7 +90,7 @@
   }
 
   @include focus.focus-visible {
-    box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
   }
 }
 

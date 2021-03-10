@@ -1,12 +1,11 @@
 import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
-import * as colors from '../src/design-tokens/colors.yml';
-import * as breakpoints from '../src/design-tokens/breakpoint.yml';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { ratio } from '../src/design-tokens/modular-scale.yml';
+import tokens from '../src/compiled/tokens/js/tokens';
 import 'focus-visible';
 import '../src/index-with-dependencies.scss';
 import './preview.scss';
+const breakpoints = tokens.size.breakpoint;
 
 /**
  * The parameters for Storybook sorting functions are sparsely documented.
@@ -61,16 +60,18 @@ for (let i = -3; i <= 6; i++) {
     // `toFixed` keeps the values from extending past two decimal points.
     // The leading `+` keeps values from having decimal points where they don't
     // need them, so `1.00` becomes `1`.
-    value: `${+Math.pow(ratio, i).toFixed(2)}em`,
+    value: `${+Math.pow(tokens.number.scale.modular.ratio.value, i).toFixed(
+      2
+    )}em`,
   });
 }
 
 // Create viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).map((name) => {
   return {
-    name: `breakpoint.$${name}`,
+    name: `$${breakpoints[name].name}`,
     styles: {
-      width: breakpoints[name],
+      width: breakpoints[name].value,
       // Account for padding and border around viewport preview
       height: 'calc(100% - 20px)',
     },
@@ -82,7 +83,9 @@ const htmlToReactParser = new Parser();
 
 export const parameters = {
   // Theme selection from stories
-  themes: [{ name: 'Dark', class: 't-dark', color: colors.primaryBrand }],
+  themes: [
+    { name: 'Dark', class: 't-dark', color: tokens.color.brand.primary.value },
+  ],
   // Sort stories according to preferred top-level settings
   options: { storySort },
   docs: {

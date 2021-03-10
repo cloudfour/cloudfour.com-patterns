@@ -1,11 +1,10 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import {
-  minimumStep,
-  maximumStep,
-} from '../../design-tokens/modular-scale.yml';
 import logicalPropertiesDemo from './demo/logical-properties.twig';
 import directionsDemo from './demo/directions.twig';
 import './demo/styles.scss';
+import tokens from '../../compiled/tokens/js/tokens';
+const minimumStep = tokens.number.scale.modular.minimum_step.value;
+const maximumStep = tokens.number.scale.modular.maximum_step.value;
 const stepArg = {
   type: { name: 'number' },
   control: { type: 'range', min: minimumStep, max: maximumStep, step: 1 },

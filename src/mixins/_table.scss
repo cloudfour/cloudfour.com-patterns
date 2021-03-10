@@ -1,11 +1,11 @@
-@use "../design-tokens/colors.yml";
-@use "../design-tokens/font.yml";
-@use "../design-tokens/sizes.yml";
+@use "../compiled/tokens/scss/color";
+@use "../compiled/tokens/scss/font-weight";
+@use "../compiled/tokens/scss/size";
 @use "./ms";
 
-$table-border-color: colors.$gray-light;
-$table-border-thin: sizes.$edge_small solid $table-border-color;
-$table-border-thick: sizes.$edge_medium solid $table-border-color;
+$table-border-color: color.$base-gray-light;
+$table-border-thin: size.$edge-small solid $table-border-color;
+$table-border-thick: size.$edge-medium solid $table-border-color;
 
 /**
  * Our base table component
@@ -19,14 +19,14 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
  * Table cells and headers share padding
  */
 @mixin t-container {
-  padding: sizes.$cell-pad-vertical sizes.$cell-pad-horizontal;
+  padding: size.$padding-cell-vertical size.$padding-cell-horizontal;
 }
 
 /**
  * Table headings are semibold to stand out as labels
  */
 @mixin t-heading {
-  font-weight: font.$weight-semibold;
+  font-weight: font-weight.$semibold;
 }
 
 /**
@@ -42,7 +42,7 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
 
 @mixin t-caption {
   caption-side: bottom;
-  color: colors.$gray-dark;
+  color: color.$base-gray-dark;
   font-size: ms.step(-1);
   font-style: italic;
   padding: ms.step(-1) 0;
@@ -57,7 +57,7 @@ $table-border-thick: sizes.$edge_medium solid $table-border-color;
 }
 
 @mixin t-striped {
-  background-color: colors.$gray-lighter;
+  background-color: color.$base-gray-lighter;
 }
 
 /**

@@ -1,6 +1,5 @@
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/font.yml';
-@use '../../design-tokens/opacity.yml';
+@use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/opacity";
 
 /**
  * Build pseudo content for "between" element. We do this with text characters
@@ -28,7 +27,7 @@ $dot-content: '';
 }
 
 .c-dot-leader__start {
-  font-weight: font.$weight-medium;
+  font-weight: font-weight.$medium;
 
   /**
      * Retain `text-decoration` for hover effect when this element is a child

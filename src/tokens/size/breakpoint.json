@@ -1,0 +1,13 @@
+{
+  "size": {
+    "breakpoint": {
+      "xs": { "value": "{size.xs.value}" },
+      "s": { "value": "{size.s.value}" },
+      "m": { "value": "{size.m.value}" },
+      "l": { "value": "{size.l.value}" },
+      "xl": { "value": "{size.xl.value}" },
+      "xxl": { "value": "{size.xxl.value}" },
+      "xxxl": { "value": "{size.xxxl.value}" }
+    }
+  }
+}

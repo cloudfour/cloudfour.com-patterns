@@ -1,0 +1,137 @@
+{
+  "color": {
+    "base": {
+      "blue_lighter": {
+        "value": "#8abfff",
+        "comment": "Accessible on -darker colors."
+      },
+      "blue_light": {
+        "value": "#3d84F5"
+      },
+      "blue": {
+        "value": "#215cca",
+        "comment": "Accessible on white and lighter-gray."
+      },
+      "blue_dark": {
+        "value": "#183889",
+        "comment": "Accessible on white."
+      },
+      "blue_darker": {
+        "value": "#0E1C43",
+        "comment": "Accessible on white."
+      },
+      "green_lighter": {
+        "value": "#71f4ae",
+        "comment": "Accessible on -darker colors."
+      },
+      "green_light": {
+        "value": "#2cdd90"
+      },
+      "green": {
+        "value": "#158466",
+        "comment": "Accessible on white."
+      },
+      "green_dark": {
+        "value": "#105c52",
+        "comment": "Accessible on white."
+      },
+      "green_darker": {
+        "value": "#0c3538",
+        "comment": "Accessible on white."
+      },
+      "purple_lighter": {
+        "value": "#e98efa",
+        "comment": "Accessible on -darker colors."
+      },
+      "purple_light": {
+        "value": "#d250f7"
+      },
+      "purple": {
+        "value": "#950cde",
+        "comment": "Accessible on white."
+      },
+      "purple_dark": {
+        "value": "#560a9b",
+        "comment": "Accessible on white."
+      },
+      "purple_darker": {
+        "value": "#2a085e",
+        "comment": "Accessible on white."
+      },
+      "fuchsia_lighter": {
+        "value": "#ff80ca",
+        "comment": "Accessible on -darker colors."
+      },
+      "fuchsia_light": {
+        "value": "#f240ae"
+      },
+      "fuchsia": {
+        "value": "#d9118f",
+        "comment": "Accessible on white."
+      },
+      "fuchsia_dark": {
+        "value": "#950f7d",
+        "comment": "Accessible on white."
+      },
+      "fuchsia_darker": {
+        "value": "#5c0a5c",
+        "comment": "Accessible on white."
+      },
+      "orange_lighter": {
+        "value": "#ffad5c",
+        "comment": "Accessible on -darker colors."
+      },
+      "orange_light": {
+        "value": "#fa8f47"
+      },
+      "orange": {
+        "value": "#f27041"
+      },
+      "orange_dark": {
+        "value": "#aa3f24",
+        "comment": "Accessible on white."
+      },
+      "orange_darker": {
+        "value": "#622018",
+        "comment": "Accessible on white."
+      },
+      "gray_lighter": {
+        "value": "#f2f5f7",
+        "comment": "Accessible on -darker colors."
+      },
+      "gray_light": {
+        "value": "#c0cfd8"
+      },
+      "gray": {
+        "value": "#738da0"
+      },
+      "gray_dark": {
+        "value": "#485968",
+        "comment": "Accessible on white."
+      },
+      "gray_darker": {
+        "value": "#252b32",
+        "comment": "Accessible on white."
+      },
+      "black": {
+        "value": "#000"
+      },
+      "black_transparent_60": {
+        "value": "rgba(0, 0, 0, 0.60)",
+        "comment": "Intended for placeholder text in inputs. Use cautiously and always test combinations for contrast."
+      },
+      "black_transparent_85": {
+        "value": "rgba(0, 0, 0, 0.85)",
+        "comment": "Accessible on white and lightest gray."
+      },
+      "white": {
+        "value": "#fff",
+        "comment": "Accessible on primary brand color, useful for buttons and headings."
+      },
+      "white_transparent_85": {
+        "value": "rgba(255, 255, 255, 0.85)",
+        "comment": "Accessible on primary brand color."
+      }
+    }
+  }
+}

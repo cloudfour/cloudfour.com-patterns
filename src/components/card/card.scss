@@ -1,8 +1,9 @@
-@use '../../design-tokens/aspect-ratio.yml';
-@use '../../design-tokens/breakpoint.yml';
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/motion.yml';
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/tokens/scss/aspect-ratio";
+@use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/headings';
@@ -34,7 +35,7 @@ $_cover-gap: ms.step(1, 1rem);
 /// @type Number
 /// @access private
 
-$_focus-overflow: (sizes.$edge-large * -1);
+$_focus-overflow: (size.$edge-large * -1);
 
 /**
  * The main card container
@@ -59,8 +60,8 @@ $_focus-overflow: (sizes.$edge-large * -1);
   @include fluid.grid-column-gap(
     breakpoint.$s,
     breakpoint.$xl,
-    sizes.$gap-fluid-min,
-    sizes.$gap-fluid-max
+    size.$spacing-gap-fluid-min,
+    size.$spacing-gap-fluid-max
   ); /* 3 */
 }
 
@@ -145,7 +146,7 @@ $_focus-overflow: (sizes.$edge-large * -1);
    */
 
   &::after {
-    border-radius: sizes.$radius-medium;
+    border-radius: size.$border-radius-medium;
     bottom: $_focus-overflow;
     content: '';
     left: $_focus-overflow;
@@ -161,7 +162,7 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
   @include focus.focus-visible {
     &::after {
-      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
     }
   }
 }
@@ -178,7 +179,7 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
 .c-card__cover {
   background-color: var(--theme-color-background-secondary); /* 1 */
-  border-radius: sizes.$radius-medium;
+  border-radius: size.$border-radius-medium;
   grid-area: cover;
   @include ratio-box.core-styles($ratio: aspect-ratio.$wide);
 
@@ -209,7 +210,7 @@ $_focus-overflow: (sizes.$edge-large * -1);
 
 .c-card__cover > *,
 .c-card__cover > picture > img {
-  transition: transform motion.$speed-prompt motion.$ease-out;
+  transition: transform transition.$prompt ease.$out;
 
   .c-card--with-link:hover & {
     transform: scale(1.025);

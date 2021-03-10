@@ -1,8 +1,8 @@
-@use '../../design-tokens/breakpoint.yml';
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/font.yml';
-@use '../../design-tokens/opacity.yml';
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/opacity";
+@use "../../compiled/tokens/scss/size";
 @use '../../mixins/theme';
 
 /// The breakpoint at which items should attempt to display in a single line.
@@ -14,12 +14,12 @@ $_breakpoint-wide: breakpoint.$m;
  */
 
 @include theme.props() {
-  --theme-color-border-event-log-item: #{colors.$gray-light};
+  --theme-color-border-event-log-item: #{color.$base-gray-light};
   --theme-opacity-event-log-location: #{opacity.$muted};
 }
 
 @include theme.props(dark) {
-  --theme-color-border-event-log-item: #{colors.$primary-brand-dark};
+  --theme-color-border-event-log-item: #{color.$brand-primary-dark};
   --theme-opacity-event-log-location: 1;
 }
 
@@ -33,7 +33,7 @@ $_breakpoint-wide: breakpoint.$m;
 
 .c-event-log {
   display: grid;
-  grid-column-gap: sizes.$gap-inline-medium;
+  grid-column-gap: size.$spacing-gap-inline-medium;
   grid-template-columns: auto 1fr; /* 1 */
 }
 
@@ -65,11 +65,11 @@ $_breakpoint-wide: breakpoint.$m;
 
   &:not(:first-child) {
     border-top: 1px solid var(--theme-color-border-event-log-item);
-    padding-top: sizes.$cell-pad-vertical;
+    padding-top: size.$padding-cell-vertical;
   }
 
   &:not(:last-child) {
-    padding-bottom: sizes.$cell-pad-vertical;
+    padding-bottom: size.$padding-cell-vertical;
   }
 }
 
@@ -122,7 +122,7 @@ $_breakpoint-wide: breakpoint.$m;
    */
 
   @media (width >= $_breakpoint-wide) {
-    margin-right: sizes.$gap-inline-medium;
+    margin-right: size.$spacing-gap-inline-medium;
   }
 }
 
@@ -131,7 +131,7 @@ $_breakpoint-wide: breakpoint.$m;
  */
 
 .c-event-log__title {
-  font-weight: font.$weight-semibold;
+  font-weight: font-weight.$semibold;
 
   /**
    * We want the title and location to feel a tad more unified than other

@@ -1,5 +1,5 @@
-@use '../design-tokens/breakpoint.yml';
-@use '../design-tokens/font.yml';
+@use "../compiled/tokens/scss/breakpoint";
+@use "../compiled/tokens/scss/font-weight";
 @use 'fluid';
 @use 'ms';
 
@@ -35,5 +35,5 @@ $fluid-steps: 1;
     line-height: inherit;
   }
 
-  font-weight: font.$weight-bold;
+  font-weight: font-weight.$bold;
 }

@@ -1,0 +1,26 @@
+{
+  "color": {
+    "text": {
+      "dark": {
+        "value": "{color.base.black_transparent_85.value}",
+        "comment": "Accessible on white and lightest gray."
+      },
+      "dark_muted": {
+        "value": "{color.base.black_transparent_60.value}",
+        "comment": "Intended for placeholder text in inputs. Use cautiously and always test combinations for contrast."
+      },
+      "light": {
+        "value": "{color.base.white_transparent_85.value}",
+        "comment": "Accessible on primary brand color."
+      },
+      "light_emphasis": {
+        "value": "{color.base.white.value}",
+        "comment": "Accessible on primary brand color, useful for buttons and headings."
+      },
+      "action": {
+        "value": "{color.base.blue.value}",
+        "comment": "Accessible on white and lighter-gray."
+      }
+    }
+  }
+}

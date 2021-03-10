@@ -1,7 +1,7 @@
-@use '../design-tokens/breakpoint.yml';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
+@use "../compiled/tokens/scss/breakpoint";
 
 /// A map of all breakpoint token variables we can reference using Sass's map
 /// utilities.

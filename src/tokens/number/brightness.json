@@ -1,0 +1,10 @@
+{
+  "number": {
+    "brightness": {
+      "control": {
+        "brighten": { "value": "110%" },
+        "dim": { "value": "80%" }
+      }
+    }
+  }
+}

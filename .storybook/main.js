@@ -10,11 +10,15 @@ module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
   stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.@(js|mdx)'],
   addons: [
-    '@storybook/addon-docs',
-    '@storybook/addon-controls',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        actions: false,
+        backgrounds: false,
+      },
+    },
     '@storybook/addon-a11y',
     'storybook-mobile',
-    '@storybook/addon-viewport/register',
     'storybook-addon-themes',
     'storybook-addon-paddings',
     '@whitespace/storybook-addon-html',
@@ -63,23 +67,14 @@ module.exports = {
               implementation: require('sass'),
               sourceMap: true,
               sassOptions: {
-                importer: [
-                  require('../glob-sass-importer'),
-                  // Import Theo design tokens as SCSS variables
-                  require('../.theo/sass-importer'),
-                ],
+                importer: [require('../glob-sass-importer')],
               },
             },
           },
         ],
       },
       twingLoader,
-      valLoader,
-      {
-        // Import Theo design tokens as JS objects
-        test: /\.ya?ml$/,
-        use: resolve(__dirname, '../.theo/webpack-loader.js'),
-      }
+      valLoader
     );
 
     Object.assign(config.resolve.alias, twingAlias);

@@ -1,5 +1,5 @@
-@use '../../design-tokens/breakpoint.yml';
-@use "../../design-tokens/layout.yml";
+@use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/size";
 @use "../../mixins/fluid";
 @use '../../mixins/ms';
 
@@ -51,7 +51,7 @@ $pad-max: ms.step(3, 1rem);
 
 .o-container__content {
   margin: 0 auto;
-  max-width: layout.$max_width_spread;
+  max-width: size.$max-width-spread;
 }
 
 /**
@@ -60,6 +60,6 @@ $pad-max: ms.step(3, 1rem);
 
 .o-container--prose {
   .o-container__content {
-    max-width: layout.$max_width_prose;
+    max-width: size.$max-width-prose;
   }
 }

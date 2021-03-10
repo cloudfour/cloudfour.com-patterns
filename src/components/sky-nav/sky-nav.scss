@@ -1,17 +1,17 @@
-@use '../../design-tokens/breakpoint.yml';
-@use '../../design-tokens/colors.yml';
-@use '../../design-tokens/font.yml';
-@use '../../design-tokens/layout.yml';
-@use '../../design-tokens/motion.yml';
-@use '../../design-tokens/opacity.yml';
-@use '../../design-tokens/sizes.yml';
+@use 'sass:color' as sass-color;
+@use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/opacity";
+@use "../../compiled/tokens/scss/scale";
+@use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
 @use '../../mixins/a11y';
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
-@use '../../mixins/unit';
 @use '../../mixins/theme';
-@use 'sass:color';
+@use '../../mixins/unit';
 
 // Minimum viewport width where links are exposed
 $_breakpoint-wide: breakpoint.$m;
@@ -39,7 +39,7 @@ $_label-pad-horizontal: ms.step(-3);
 $_label-pad-vertical: ms.step(-9);
 
 // Use the widest standard layout `max-width` plus buffer for horizontal space
-$_max-width: #{unit.strip(layout.$max-width-spread) +
+$_max-width: #{unit.strip(size.$max-width-spread) +
   unit.strip($_space-horizontal * 2)}em;
 
 // Height of masthead on small screens.
@@ -105,7 +105,7 @@ $_masthead-height-sm: ms.step(7);
   display: flex;
   margin: 0 auto;
   max-width: $_max-width;
-  transition: opacity motion.$speed-quick motion.$ease-out; /* 1 */
+  transition: opacity transition.$quick ease.$out; /* 1 */
 
   /**
    * At narrow sizes, display content in reverse order so that the menu contents
@@ -178,8 +178,8 @@ $_masthead-height-sm: ms.step(7);
   fill: currentColor;
   height: auto;
   margin: (ms.step(-6) * -1); /* 2 */
-  transition: opacity motion.$speed-slow motion.$ease-out,
-    transform motion.$speed-quick motion.$ease-out;
+  transition: opacity transition.$slow ease.$out,
+    transform transition.$quick ease.$out;
   width: ms.step(8);
 
   /**
@@ -188,7 +188,7 @@ $_masthead-height-sm: ms.step(7);
    * scrollbars.
    */
   .c-sky-nav__logo:hover & {
-    transform: scale(motion.$control-grow);
+    transform: scale(scale.$effect-grow);
   }
 
   /**
@@ -198,7 +198,7 @@ $_masthead-height-sm: ms.step(7);
    */
   .c-sky-nav__logo:active & {
     opacity: opacity.$muted;
-    transform: scale(motion.$control-shrink);
+    transform: scale(scale.$effect-shrink);
   }
 }
 
@@ -211,7 +211,7 @@ $_masthead-height-sm: ms.step(7);
  */
 .c-sky-nav__logo-outline {
   opacity: 0; /* 1 */
-  stroke: colors.$primary-brand-lighter; /* 2 */
+  stroke: color.$brand-primary-lighter; /* 2 */
 }
 
 /**
@@ -232,7 +232,7 @@ $_masthead-height-sm: ms.step(7);
  *    container for this one element.
  */
 .c-sky-nav__menu-toggle {
-  bottom: calc((#{$_masthead-height-sm} - #{sizes.$control-height}) / 2);
+  bottom: calc((#{$_masthead-height-sm} - #{size.$height-control-default}) / 2);
   position: absolute;
   right: $_space-horizontal; /* 1 */
 
@@ -268,8 +268,8 @@ $_masthead-height-sm: ms.step(7);
     @media (max-width: $_breakpoint-narrow-max) {
       background-image: linear-gradient(
         to bottom,
-        colors.$primary-brand-dark,
-        color.change(colors.$primary-brand-dark, $alpha: 0)
+        color.$brand-primary-dark,
+        sass-color.change(color.$brand-primary-dark, $alpha: 0)
       );
     }
   }
@@ -382,7 +382,7 @@ $_masthead-height-sm: ms.step(7);
   line-height: ms.step(1, 1);
   text-align: center; /* 1 */
   text-decoration: none;
-  transition: opacity motion.$speed-quick motion.$ease-out;
+  transition: opacity transition.$quick ease.$out;
   user-select: none; /* 3 */
   width: 100%; /* 2 */
 
@@ -390,7 +390,7 @@ $_masthead-height-sm: ms.step(7);
    * Displayed as a ruled stack on narrow screens
    */
   @media (max-width: $_breakpoint-narrow-max) {
-    border-bottom: sizes.$edge-small solid colors.$gray-light;
+    border-bottom: size.$edge-small solid color.$base-gray-light;
     padding: $_space-vertical $_space-horizontal;
 
     /**
@@ -399,8 +399,8 @@ $_masthead-height-sm: ms.step(7);
      */
 
     @include theme.styles(dark) {
-      border-bottom-color: color.change(
-        colors.$primary-brand-darker,
+      border-bottom-color: sass-color.change(
+        color.$brand-primary-darker,
         $alpha: 0.5
       );
     }
@@ -442,7 +442,7 @@ $_masthead-height-sm: ms.step(7);
  *    impacting whitespace of parent elements.
  */
 .c-sky-nav__menu-label {
-  border-radius: sizes.$radius-full;
+  border-radius: size.$border-radius-full;
   margin: ($_label-pad-vertical * -1) ($_label-pad-horizontal * -1); /* 1 */
   padding: $_label-pad-vertical $_label-pad-horizontal;
 }
@@ -453,7 +453,7 @@ $_masthead-height-sm: ms.step(7);
 .c-sky-nav__menu-action {
   @include focus.focus-visible {
     .c-sky-nav__menu-label {
-      box-shadow: 0 0 0 sizes.$edge-large colors.$primary-brand-lighter;
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
     }
   }
 }

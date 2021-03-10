@@ -1,4 +1,4 @@
-@use '../../design-tokens/sizes.yml';
+@use "../../compiled/tokens/scss/size";
 
 /**
  * This pattern makes heavy use of Heydon Pickering's "lobotomized owl"
@@ -10,7 +10,7 @@
  */
 
 .o-rhythm > * + * {
-  margin-top: sizes.$rhythm-space;
+  margin-top: size.$rhythm-default;
 }
 
 /**
@@ -18,15 +18,15 @@
  */
 
 .o-rhythm--compact > * + * {
-  margin-top: sizes.$rhythm-space-compact;
+  margin-top: size.$rhythm-compact;
 }
 
 .o-rhythm--condensed > * + * {
-  margin-top: sizes.$rhythm-space-condensed;
+  margin-top: size.$rhythm-condensed;
 }
 
 .o-rhythm--generous > * + * {
-  margin-top: sizes.$rhythm-space-generous;
+  margin-top: size.$rhythm-generous;
 }
 
 /**
@@ -40,6 +40,6 @@
   & > * + h4,
   & > * + h5,
   & > * + h6 {
-    margin-top: sizes.$rhythm-space-generous;
+    margin-top: size.$rhythm-generous;
   }
 }

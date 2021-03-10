@@ -1,6 +1,6 @@
 /dist
 /ts-dist
-/src/design-tokens/generated
+/src/compiled
 /storybook-static
 
 # Ignore all files in the prototypes directory except for stories

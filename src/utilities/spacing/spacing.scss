@@ -1,6 +1,6 @@
-@use '../../design-tokens/modular-scale.yml';
-@use '../../mixins/ms';
 @use 'sass:math';
+@use "../../compiled/tokens/scss/scale";
+@use '../../mixins/ms';
 
 @mixin direction-utilities($property, $name, $value) {
   $value: $value !important;
@@ -80,8 +80,8 @@
 
 @mixin scale-utilities(
   $property,
-  $minimum-step: modular-scale.$minimum-step,
-  $maximum-step: modular-scale.$maximum-step,
+  $minimum-step: scale.$modular-minimum-step,
+  $maximum-step: scale.$modular-maximum-step,
   $base: 1em
 ) {
   @if $property == margin {
@@ -93,8 +93,8 @@
   }
 
   @for $step
-    from modular-scale.$minimum-step
-    through modular-scale.$maximum-step
+    from scale.$modular-minimum-step
+    through scale.$modular-maximum-step
   {
     $name: ms.step-class-segment($step);
 

@@ -1,5 +1,7 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/transition";
 @use "../../mixins/focus";
 @use "../../mixins/theme";
 
@@ -50,9 +52,9 @@
     height: tokens.$size-square-toggle-medium;
     padding: 0;
     position: relative;
-    transition-duration: tokens.$time-transition-quick;
+    transition-duration: transition.$quick;
     transition-property: background-color, border-color, color;
-    transition-timing-function: tokens.$ease-out;
+    transition-timing-function: ease.$out;
     vertical-align: middle;
     width: tokens.$size-square-toggle-medium;
 
@@ -82,9 +84,9 @@
       right: tokens.$size-edge-medium; /* 1 */
       top: tokens.$size-edge-medium; /* 1 */
       transform: scale(0); /* 2 */
-      transition-duration: tokens.$time-transition-quick;
+      transition-duration: transition.$quick;
       transition-property: opacity, transform;
-      transition-timing-function: tokens.$ease-out;
+      transition-timing-function: ease.$out;
     }
 
     /**

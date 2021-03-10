@@ -1,6 +1,10 @@
 @use "../compiled/tokens/scss/tokens";
+@use "../compiled/tokens/scss/brightness";
 @use "../compiled/tokens/scss/color";
+@use "../compiled/tokens/scss/ease";
 @use "../compiled/tokens/scss/font-weight";
+@use "../compiled/tokens/scss/transition";
+@use "../compiled/tokens/scss/scale";
 @use "./focus";
 @use "./ms";
 @use "./unit";
@@ -60,8 +64,8 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: filter tokens.$time-transition-slow tokens.$ease-out,
-    transform tokens.$time-transition-quick tokens.$ease-out;
+  transition: filter transition.$slow ease.$out,
+    transform transition.$quick ease.$out;
   user-select: none;
 
   /**
@@ -70,13 +74,13 @@
    */
 
   &:hover {
-    filter: brightness(tokens.$number-brightness-control-brighten);
-    transform: scale(tokens.$number-scale-effect-grow);
+    filter: brightness(brightness.$control-brighten);
+    transform: scale(scale.$effect-grow);
   }
 
   &:active {
-    filter: brightness(tokens.$number-brightness-control-dim);
-    transform: scale(tokens.$number-scale-effect-shrink);
+    filter: brightness(brightness.$control-dim);
+    transform: scale(scale.$effect-shrink);
   }
 
   &:disabled {

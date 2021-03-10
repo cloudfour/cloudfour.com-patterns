@@ -1,5 +1,7 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/transition";
 @use "../../mixins/theme";
 
 /**
@@ -47,9 +49,9 @@
   padding: tokens.$size-padding-control-vertical
     tokens.$size-spacing-control-text-inset;
   -webkit-text-fill-color: color.$text-dark; /* 4 */
-  transition-duration: tokens.$time-transition-quick;
+  transition-duration: transition.$quick;
   transition-property: background-color, border-color;
-  transition-timing-function: tokens.$ease-out;
+  transition-timing-function: ease.$out;
   vertical-align: middle;
   width: 100%;
 

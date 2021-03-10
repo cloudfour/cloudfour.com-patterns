@@ -1,8 +1,10 @@
 @use 'sass:math';
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
 @use "../../compiled/tokens/scss/opacity";
 @use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
 @use '../../mixins/focus';
 @use '../../mixins/headings';
 @use '../../mixins/ms';
@@ -102,8 +104,8 @@ $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
   right: ($permalink-size - $permalink-icon-size) / -2; /* 2 */
   text-decoration: none;
   top: 0;
-  transition: color tokens.$time-transition-quick tokens.$ease-out,
-    opacity tokens.$time-transition-quick tokens.$ease-out;
+  transition: color transition.$quick ease.$out,
+    opacity transition.$quick ease.$out;
   width: $permalink-size;
 
   /**

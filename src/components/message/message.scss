@@ -1,5 +1,9 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/brightness";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/transition";
+@use "../../compiled/tokens/scss/scale";
 @use "../../mixins/focus";
 @use "../../mixins/ms";
 
@@ -48,15 +52,15 @@
 }
 
 .c-message__close-icon {
-  transition: filter tokens.$time-transition-slow tokens.$ease-out,
-    transform tokens.$time-transition-quick tokens.$ease-out;
+  transition: filter transition.$slow ease.$out,
+    transform transition.$quick ease.$out;
 }
 
 .c-message__close:hover .c-message__close-icon {
-  transform: scale(tokens.$number-scale-effect-grow);
+  transform: scale(scale.$effect-grow);
 }
 
 .c-message__close:active .c-message__close-icon {
-  filter: brightness(tokens.$number-brightness-control-dim);
-  transform: scale(tokens.$number-scale-effect-shrink);
+  filter: brightness(brightness.$control-dim);
+  transform: scale(scale.$effect-shrink);
 }

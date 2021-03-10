@@ -2,6 +2,8 @@
 @use "../../compiled/tokens/scss/aspect-ratio";
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/transition";
 @use '../../mixins/fluid';
 @use '../../mixins/focus';
 @use '../../mixins/headings';
@@ -208,7 +210,7 @@ $_focus-overflow: (tokens.$size-edge-large * -1);
 
 .c-card__cover > *,
 .c-card__cover > picture > img {
-  transition: transform tokens.$time-transition-prompt tokens.$ease-out;
+  transition: transform transition.$prompt ease.$out;
 
   .c-card--with-link:hover & {
     transform: scale(1.025);

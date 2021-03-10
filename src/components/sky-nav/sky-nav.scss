@@ -233,9 +233,7 @@ $_masthead-height-sm: ms.step(7);
  *    container for this one element.
  */
 .c-sky-nav__menu-toggle {
-  bottom: calc(
-    (#{$_masthead-height-sm} - #{tokens.$size-height-control-default}) / 2
-  );
+  bottom: calc((#{$_masthead-height-sm} - #{size.$height-control-default}) / 2);
   position: absolute;
   right: $_space-horizontal; /* 1 */
 
@@ -393,7 +391,7 @@ $_masthead-height-sm: ms.step(7);
    * Displayed as a ruled stack on narrow screens
    */
   @media (max-width: $_breakpoint-narrow-max) {
-    border-bottom: tokens.$size-edge-small solid color.$base-gray-light;
+    border-bottom: size.$edge-small solid color.$base-gray-light;
     padding: $_space-vertical $_space-horizontal;
 
     /**
@@ -445,7 +443,7 @@ $_masthead-height-sm: ms.step(7);
  *    impacting whitespace of parent elements.
  */
 .c-sky-nav__menu-label {
-  border-radius: tokens.$size-border-radius-full;
+  border-radius: size.$border-radius-full;
   margin: ($_label-pad-vertical * -1) ($_label-pad-horizontal * -1); /* 1 */
   padding: $_label-pad-vertical $_label-pad-horizontal;
 }
@@ -456,7 +454,7 @@ $_masthead-height-sm: ms.step(7);
 .c-sky-nav__menu-action {
   @include focus.focus-visible {
     .c-sky-nav__menu-label {
-      box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
     }
   }
 }

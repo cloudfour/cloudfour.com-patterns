@@ -1,6 +1,7 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/size";
 @use "../../compiled/tokens/scss/transition";
 @use "../../mixins/theme";
 
@@ -37,17 +38,16 @@
   -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
   appearance: none; /* 1 */
   background-color: color.$text-light;
-  border: tokens.$size-edge-medium solid currentColor;
-  border-radius: tokens.$size-border-radius-medium;
+  border: size.$edge-medium solid currentColor;
+  border-radius: size.$border-radius-medium;
   color: color.$text-dark;
   display: block;
   font: inherit;
   font-style: normal;
-  height: tokens.$size-height-control-default; /* 2 */
+  height: size.$height-control-default; /* 2 */
   line-height: normal; /* 3 */
   outline: none;
-  padding: tokens.$size-padding-control-vertical
-    tokens.$size-spacing-control-text-inset;
+  padding: size.$padding-control-vertical size.$spacing-control-text-inset;
   -webkit-text-fill-color: color.$text-dark; /* 4 */
   transition-duration: transition.$quick;
   transition-property: background-color, border-color;
@@ -67,7 +67,7 @@
   &[type='email'],
   &[type='text'] {
     padding-left: 0;
-    text-indent: tokens.$size-spacing-control-text-inset;
+    text-indent: size.$spacing-control-text-inset;
   }
 
   /**
@@ -75,7 +75,7 @@
    */
 
   @at-root textarea#{&} {
-    height: tokens.$size-height-control-multiline;
+    height: size.$height-control-multiline;
   }
 
   /**
@@ -101,13 +101,12 @@
 
   @at-root select#{&} {
     background-image: svg-load('icons/caret-down.svg', fill=color.$text-dark);
-    background-position: right tokens.$size-spacing-control-icon-inset center;
+    background-position: right size.$spacing-control-icon-inset center;
     background-repeat: no-repeat;
-    background-size: tokens.$size-square-control-icon 100%; /* 1 */
-    padding-bottom: tokens.$size-padding-control-vertical / 2; /* 2 */
-    padding-right: tokens.$size-spacing-control-icon-inset +
-      tokens.$size-square-control-icon; /* 3 */
-    padding-top: tokens.$size-padding-control-vertical / 2; /* 2 */
+    background-size: size.$square-control-icon 100%; /* 1 */
+    padding-bottom: size.$padding-control-vertical / 2; /* 2 */
+    padding-right: size.$spacing-control-icon-inset + size.$square-control-icon; /* 3 */
+    padding-top: size.$padding-control-vertical / 2; /* 2 */
   }
 
   &:hover:not(:disabled):not([readonly]) {
@@ -123,7 +122,7 @@
 
   &:focus {
     background-color: #fff;
-    box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
+    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
   }
 
   &[readonly]:not(:disabled) {

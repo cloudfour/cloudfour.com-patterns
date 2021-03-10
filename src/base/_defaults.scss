@@ -1,5 +1,6 @@
 @use "../compiled/tokens/scss/tokens";
 @use "../compiled/tokens/scss/color";
+@use "../compiled/tokens/scss/size";
 @use "../mixins/ms";
 @use "../mixins/theme";
 
@@ -151,9 +152,9 @@ pre {
 
 *:not(pre):not(a) > kbd {
   background: var(--theme-color-background-kbd);
-  border: tokens.$size-edge-small solid var(--theme-color-border-kbd);
-  border-radius: tokens.$size-border-radius-small;
-  box-shadow: 0 tokens.$size-edge-small 0 0 var(--theme-color-border-kbd); /* 1 */
+  border: size.$edge-small solid var(--theme-color-border-kbd);
+  border-radius: size.$border-radius-small;
+  box-shadow: 0 size.$edge-small 0 0 var(--theme-color-border-kbd); /* 1 */
   display: inline-block;
   min-width: ms.step(2); /* 2 */
   padding: 0 ms.step(-6);
@@ -212,7 +213,7 @@ section {
 ul,
 ol,
 blockquote {
-  padding-left: tokens.$size-spacing-type-block-indent;
+  padding-left: size.$spacing-type-block-indent;
 }
 
 /**
@@ -223,7 +224,7 @@ blockquote {
  */
 
 blockquote > * + * {
-  margin-top: tokens.$size-rhythm-default;
+  margin-top: size.$rhythm-default;
 }
 
 /**

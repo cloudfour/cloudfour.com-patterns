@@ -3,6 +3,7 @@
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/font-weight";
 @use "../../compiled/tokens/scss/opacity";
+@use "../../compiled/tokens/scss/size";
 @use '../../mixins/theme';
 
 /// The breakpoint at which items should attempt to display in a single line.
@@ -33,7 +34,7 @@ $_breakpoint-wide: breakpoint.$m;
 
 .c-event-log {
   display: grid;
-  grid-column-gap: tokens.$size-spacing-gap-inline-medium;
+  grid-column-gap: size.$spacing-gap-inline-medium;
   grid-template-columns: auto 1fr; /* 1 */
 }
 
@@ -65,11 +66,11 @@ $_breakpoint-wide: breakpoint.$m;
 
   &:not(:first-child) {
     border-top: 1px solid var(--theme-color-border-event-log-item);
-    padding-top: tokens.$size-padding-cell-vertical;
+    padding-top: size.$padding-cell-vertical;
   }
 
   &:not(:last-child) {
-    padding-bottom: tokens.$size-padding-cell-vertical;
+    padding-bottom: size.$padding-cell-vertical;
   }
 }
 
@@ -122,7 +123,7 @@ $_breakpoint-wide: breakpoint.$m;
    */
 
   @media (width >= $_breakpoint-wide) {
-    margin-right: tokens.$size-spacing-gap-inline-medium;
+    margin-right: size.$spacing-gap-inline-medium;
   }
 }
 

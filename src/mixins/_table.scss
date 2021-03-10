@@ -1,11 +1,12 @@
 @use "../compiled/tokens/scss/tokens";
 @use "../compiled/tokens/scss/color";
 @use "../compiled/tokens/scss/font-weight";
+@use "../compiled/tokens/scss/size";
 @use "./ms";
 
 $table-border-color: color.$base-gray-light;
-$table-border-thin: tokens.$size-edge-small solid $table-border-color;
-$table-border-thick: tokens.$size-edge-medium solid $table-border-color;
+$table-border-thin: size.$edge-small solid $table-border-color;
+$table-border-thick: size.$edge-medium solid $table-border-color;
 
 /**
  * Our base table component
@@ -19,8 +20,7 @@ $table-border-thick: tokens.$size-edge-medium solid $table-border-color;
  * Table cells and headers share padding
  */
 @mixin t-container {
-  padding: tokens.$size-padding-cell-vertical
-    tokens.$size-padding-cell-horizontal;
+  padding: size.$padding-cell-vertical size.$padding-cell-horizontal;
 }
 
 /**

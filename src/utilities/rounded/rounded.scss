@@ -1,11 +1,12 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/size";
 
 .u-rounded {
-  border-radius: tokens.$size-border-radius-medium !important;
+  border-radius: size.$border-radius-medium !important;
 }
 
 .u-rounded-full {
-  border-radius: tokens.$size-border-radius-full !important;
+  border-radius: size.$border-radius-full !important;
 }
 
 .u-rounded-none {

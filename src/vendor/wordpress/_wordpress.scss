@@ -1,5 +1,6 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/size";
 @use "../../mixins/button";
 @use "../../mixins/table";
 
@@ -8,7 +9,7 @@
  * Applies our pattern library styles to buttons generated via Gutenberg blocks.
  */
 
-$wp-button-gap: tokens.$size-spacing-list-inline-gap;
+$wp-button-gap: size.$spacing-list-inline-gap;
 
 /**
  * 1. Align buttons with outer parent
@@ -25,7 +26,7 @@ $wp-button-gap: tokens.$size-spacing-list-inline-gap;
    * some margin.
    */
   &:not(:first-child) {
-    margin-top: tokens.$size-rhythm-generous - $wp-button-gap;
+    margin-top: size.$rhythm-generous - $wp-button-gap;
   }
 
   /**
@@ -33,7 +34,7 @@ $wp-button-gap: tokens.$size-spacing-list-inline-gap;
    * some margin.
    */
   &:not(:last-child) {
-    margin-bottom: tokens.$size-rhythm-generous - $wp-button-gap;
+    margin-bottom: size.$rhythm-generous - $wp-button-gap;
   }
 }
 

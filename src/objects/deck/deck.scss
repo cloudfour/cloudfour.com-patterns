@@ -1,5 +1,6 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/size";
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
 
@@ -17,8 +18,8 @@
   @include fluid.grid-gap(
     breakpoint.$s,
     breakpoint.$xl,
-    tokens.$size-spacing-gap-fluid-min,
-    tokens.$size-spacing-gap-fluid-max
+    size.$spacing-gap-fluid-min,
+    size.$spacing-gap-fluid-max
   );
 
   /**
@@ -32,7 +33,7 @@
   @media (width >= breakpoint.$xs) {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(#{tokens.$size-width-card-column-min}, 1fr)
+      minmax(#{size.$width-card-column-min}, 1fr)
     );
   }
 }

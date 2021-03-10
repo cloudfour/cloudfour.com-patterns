@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/size";
 
 /**
  * Container
@@ -31,7 +32,7 @@
 
 .o-bunch > * {
   flex: none; /* 1 */
-  margin-right: (tokens.$size-overlap-small * -1); /* 2 */
+  margin-right: (size.$overlap-small * -1); /* 2 */
   z-index: calc(var(--bunch-index, 0) * -1);
 }
 

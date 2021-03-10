@@ -1,6 +1,7 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/size";
 @use "../../compiled/tokens/scss/transition";
 @use "../../mixins/focus";
 @use "../../mixins/theme";
@@ -43,20 +44,20 @@
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     appearance: none; /* 2 */
     background-color: color.$text-light;
-    border: tokens.$size-edge-medium solid currentColor;
-    border-radius: tokens.$size-border-radius-medium;
+    border: size.$edge-medium solid currentColor;
+    border-radius: size.$border-radius-medium;
     color: color.$text-dark;
     cursor: pointer;
     flex: none; /* 3 */
     font: inherit; /* 4 */
-    height: tokens.$size-square-toggle-medium;
+    height: size.$square-toggle-medium;
     padding: 0;
     position: relative;
     transition-duration: transition.$quick;
     transition-property: background-color, border-color, color;
     transition-timing-function: ease.$out;
     vertical-align: middle;
-    width: tokens.$size-square-toggle-medium;
+    width: size.$square-toggle-medium;
 
     /**
      * We add the check mark via a pseudo element so we can easily apply
@@ -76,13 +77,13 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      bottom: tokens.$size-edge-medium; /* 1 */
+      bottom: size.$edge-medium; /* 1 */
       content: '';
-      left: tokens.$size-edge-medium; /* 1 */
+      left: size.$edge-medium; /* 1 */
       opacity: 0; /* 2 */
       position: absolute;
-      right: tokens.$size-edge-medium; /* 1 */
-      top: tokens.$size-edge-medium; /* 1 */
+      right: size.$edge-medium; /* 1 */
+      top: size.$edge-medium; /* 1 */
       transform: scale(0); /* 2 */
       transition-duration: transition.$quick;
       transition-property: opacity, transform;
@@ -127,7 +128,7 @@
      */
 
     @include focus.focus-visible {
-      box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
     }
 
     /**

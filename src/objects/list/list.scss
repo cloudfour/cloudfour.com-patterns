@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/size";
 
 /**
  * Override browser defaults. Note that this means it's very important to
@@ -31,11 +32,11 @@
 .o-list--inline {
   display: flex;
   flex-wrap: wrap;
-  margin-left: tokens.$size-spacing-list-inline-gap / -2;
-  margin-right: tokens.$size-spacing-list-inline-gap / -2;
+  margin-left: size.$spacing-list-inline-gap / -2;
+  margin-right: size.$spacing-list-inline-gap / -2;
 }
 
 .o-list--inline > * {
-  margin-left: tokens.$size-spacing-list-inline-gap / 2;
-  margin-right: tokens.$size-spacing-list-inline-gap / 2;
+  margin-left: size.$spacing-list-inline-gap / 2;
+  margin-right: size.$spacing-list-inline-gap / 2;
 }

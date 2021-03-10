@@ -2,6 +2,7 @@
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/size";
 @use '../../mixins/ms';
 @use '../../mixins/unit';
 
@@ -10,7 +11,7 @@
 $_ground-nav-space: ms.step(1, 1rem);
 // Negative value used to reduce the space around elements as well as position elements.
 $_ground-nav-negative-space: ($_ground-nav-space * -1);
-$_ground-nav-border-width: tokens.$size-edge-medium;
+$_ground-nav-border-width: size.$edge-medium;
 $_ground-nav-border-style: solid;
 $_ground-nav-border-color: color.$base-gray-light;
 

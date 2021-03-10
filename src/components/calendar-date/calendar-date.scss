@@ -1,12 +1,13 @@
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/size";
 @use '../../mixins/ms';
 @use '../../mixins/theme';
 
 $size: ms.step(8);
-$edge-size: tokens.$size-edge-medium;
-$radius: tokens.$size-border-radius-medium;
+$edge-size: size.$edge-medium;
+$radius: size.$border-radius-medium;
 
 /**
  * Themed properties
@@ -110,7 +111,7 @@ $radius: tokens.$size-border-radius-medium;
 .c-calendar-date__note {
   font-size: ms.step(-1);
   overflow: hidden; /* 1 */
-  padding: 0 tokens.$size-spacing-control-text-inset;
+  padding: 0 size.$spacing-control-text-inset;
   text-overflow: ellipsis; /* 1 */
   white-space: nowrap; /* 1 */
   width: 100%; /* 1 */

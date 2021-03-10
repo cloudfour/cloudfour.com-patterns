@@ -4,6 +4,7 @@
 @use "../../compiled/tokens/scss/ease";
 @use "../../compiled/tokens/scss/transition";
 @use "../../compiled/tokens/scss/scale";
+@use "../../compiled/tokens/scss/size";
 @use "../../mixins/focus";
 @use "../../mixins/ms";
 
@@ -37,7 +38,7 @@
 .c-message__close {
   align-items: center;
   background-color: inherit; /* 1 */
-  border-radius: tokens.$size-border-radius-medium;
+  border-radius: size.$border-radius-medium;
   border-width: 0;
   color: inherit; /* 1 */
   cursor: pointer;
@@ -47,7 +48,7 @@
   padding: 0 ms.step(1);
 
   @include focus.focus-visible {
-    box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
+    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
   }
 }
 

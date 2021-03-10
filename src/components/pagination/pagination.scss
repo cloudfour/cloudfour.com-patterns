@@ -3,8 +3,9 @@
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/ease";
 @use "../../compiled/tokens/scss/font-weight";
-@use "../../compiled/tokens/scss/transition";
 @use "../../compiled/tokens/scss/scale";
+@use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 @use '../../mixins/theme';
@@ -12,7 +13,7 @@
 
 // Defines the hit area for actionable elements, specifically the height of
 // links and the width/height of "previous" and "next" affordances.
-$action-size: tokens.$size-height-control-default;
+$action-size: size.$height-control-default;
 
 // Amount of padding within action elements. Used to minimize visual competition
 // between actions and direction affordances.
@@ -22,9 +23,9 @@ $action-pad: ms.step(-6);
 // of individual pages. The dimensions change slightly for the current state
 // indicator. We use edge tokens because the indicator feels similar in visual
 // appearance to a border or outline.
-$indicator-height: tokens.$size-edge-medium;
+$indicator-height: size.$edge-medium;
 $indicator-width: ms.step(-1);
-$indicator-height-current: tokens.$size-edge-large;
+$indicator-height-current: size.$edge-large;
 $indicator-width-current: $indicator-height-current;
 
 /**
@@ -130,10 +131,9 @@ $indicator-width-current: $indicator-height-current;
   background-color: var(--theme-color-background-pagination-control);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: tokens.$size-square-control-icon;
-  border: tokens.$size-edge-small solid
-    var(--theme-color-border-pagination-control);
-  border-radius: tokens.$size-border-radius-full;
+  background-size: size.$square-control-icon;
+  border: size.$edge-small solid var(--theme-color-border-pagination-control);
+  border-radius: size.$border-radius-full;
   bottom: 0;
   content: '';
   height: $action-size;
@@ -228,7 +228,7 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__number {
   align-items: center;
-  border-radius: tokens.$size-border-radius-full; /* 1 */
+  border-radius: size.$border-radius-full; /* 1 */
   display: flex;
   font-weight: font-weight.$medium;
   height: ($action-size - $action-pad * 2); /* 1 */
@@ -247,7 +247,7 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__action {
   @include focus.focus-visible {
     .c-pagination__number {
-      box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
     }
   }
 }
@@ -261,7 +261,7 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__number::after {
   background: currentColor;
-  border-radius: tokens.$size-border-radius-full;
+  border-radius: size.$border-radius-full;
   content: '';
   height: $indicator-height;
   left: 0;

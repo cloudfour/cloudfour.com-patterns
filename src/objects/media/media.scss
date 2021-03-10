@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/size";
 
 /**
  * We could use CSS Grid for this pattern and save ourselves some child element
@@ -25,7 +26,7 @@
 .o-media__object {
   align-self: flex-start; /* 1 */
   flex: none; /* 2 */
-  margin-right: tokens.$size-spacing-media-gap;
+  margin-right: size.$spacing-media-gap;
   order: -1; /* 3 */
 }
 
@@ -36,7 +37,7 @@
  */
 
 .o-media--reverse .o-media__object {
-  margin-left: tokens.$size-spacing-media-gap;
+  margin-left: size.$spacing-media-gap;
   margin-right: 0;
   order: 1;
 }

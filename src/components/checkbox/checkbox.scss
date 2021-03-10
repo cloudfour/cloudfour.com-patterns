@@ -11,14 +11,14 @@
   --theme-color-text-checkbox-checked-hover: var(
     --theme-color-text-checkbox-hover
   );
-  --theme-color-text-checkbox-disabled: #{color.$-base-gray-dark};
-  --theme-color-text-checkbox-hover: #{color.$-brand-primary};
+  --theme-color-text-checkbox-disabled: #{color.$base-gray-dark};
+  --theme-color-text-checkbox-hover: #{color.$brand-primary};
 }
 
 @include theme.props(dark) {
-  --theme-color-text-checkbox-checked-hover: #{color.$-brand-primary-darker};
-  --theme-color-text-checkbox-disabled: #{color.$-text-light};
-  --theme-color-text-checkbox-hover: #{color.$-text-dark};
+  --theme-color-text-checkbox-checked-hover: #{color.$brand-primary-darker};
+  --theme-color-text-checkbox-disabled: #{color.$text-light};
+  --theme-color-text-checkbox-hover: #{color.$text-dark};
 }
 
 /**
@@ -40,10 +40,10 @@
     -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     appearance: none; /* 2 */
-    background-color: color.$-text-light;
+    background-color: color.$text-light;
     border: tokens.$size-edge-medium solid currentColor;
     border-radius: tokens.$size-border-radius-medium;
-    color: color.$-text-dark;
+    color: color.$text-dark;
     cursor: pointer;
     flex: none; /* 3 */
     font: inherit; /* 4 */
@@ -69,7 +69,7 @@
     &::after {
       background-image: svg-load(
         'icons/check.svg',
-        stroke=color.$-text-light-emphasis
+        stroke=color.$text-light-emphasis
       );
       background-position: center;
       background-repeat: no-repeat;
@@ -92,7 +92,7 @@
      */
 
     &:hover {
-      background-color: color.$-text-light-emphasis;
+      background-color: color.$text-light-emphasis;
       color: var(--theme-color-text-checkbox-hover);
     }
 
@@ -125,7 +125,7 @@
      */
 
     @include focus.focus-visible {
-      box-shadow: 0 0 0 tokens.$size-edge-large color.$-brand-primary-lighter;
+      box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
     }
 
     /**
@@ -151,14 +151,14 @@
         @include theme.styles() {
           background-image: svg-load(
             'icons/check.svg',
-            stroke=color.$-base-gray-dark
+            stroke=color.$base-gray-dark
           );
         }
 
         @include theme.styles(dark) {
           background-image: svg-load(
             'icons/check.svg',
-            stroke=color.$-text-light
+            stroke=color.$text-light
           );
         }
       }

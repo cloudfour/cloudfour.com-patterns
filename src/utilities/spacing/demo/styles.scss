@@ -9,13 +9,13 @@
   }
 
   & > div {
-    background: color.$-base-gray-light;
+    background: color.$base-gray-light;
     overflow: hidden;
   }
 
   [class*='u-space'] {
-    background: color.$-text-light-emphasis;
-    border: tokens.$size-edge-medium solid color.$-base-gray;
+    background: color.$text-light-emphasis;
+    border: tokens.$size-edge-medium solid color.$base-gray;
     padding: ms.step(-1);
   }
 }
@@ -23,12 +23,12 @@
 .demo-u-pad-logical-properties,
 .demo-u-pad-directions {
   [class*='u-pad'] {
-    background: color.$-base-gray-light;
-    border: tokens.$size-edge-medium solid color.$-base-gray;
+    background: color.$base-gray-light;
+    border: tokens.$size-edge-medium solid color.$base-gray;
     border-radius: tokens.$size-border-radius-medium;
 
     div {
-      background: color.$-text-light-emphasis;
+      background: color.$text-light-emphasis;
       border-radius: inherit;
     }
   }
@@ -43,13 +43,13 @@
   }
 
   & > div {
-    background: color.$-base-gray-light;
+    background: color.$base-gray-light;
     padding: ms.step(-1);
   }
 
   [class*='u-pull'] {
-    background: color.$-text-light-emphasis;
-    border: tokens.$size-edge-medium solid color.$-base-gray;
+    background: color.$text-light-emphasis;
+    border: tokens.$size-edge-medium solid color.$base-gray;
     opacity: 0.66;
     padding: ms.step(-1);
   }

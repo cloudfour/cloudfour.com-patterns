@@ -11,12 +11,12 @@ $_breakpoint-wide: tokens.$size-breakpoint-m;
  */
 
 @include theme.props() {
-  --theme-color-border-event-log-item: #{color.$-base-gray-light};
+  --theme-color-border-event-log-item: #{color.$base-gray-light};
   --theme-opacity-event-log-location: #{tokens.$number-opacity-muted};
 }
 
 @include theme.props(dark) {
-  --theme-color-border-event-log-item: #{color.$-brand-primary-dark};
+  --theme-color-border-event-log-item: #{color.$brand-primary-dark};
   --theme-opacity-event-log-location: 1;
 }
 

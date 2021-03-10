@@ -1,4 +1,3 @@
-@use "sass:color";
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
 
@@ -14,7 +13,7 @@
   &.doctype,
   &.prolog,
   &.punctuation {
-    color: color.$-text-light;
+    color: color.$text-light;
     opacity: tokens.$number-opacity-muted;
   }
 
@@ -27,14 +26,14 @@
   &.variable,
   .language-liquid &.property,
   .language-twig &.property {
-    color: color.$-base-orange-lighter;
+    color: color.$base-orange-lighter;
   }
 
   &.attr-value,
   &.plain-text,
   &.string,
   &.url {
-    color: color.$-base-green-lighter;
+    color: color.$base-green-lighter;
   }
 
   &.entity,
@@ -43,13 +42,13 @@
   &.tag,
   .language-liquid &.operator + &.property,
   .language-twig &.operator + &.property {
-    color: color.$-base-fuchsia-lighter;
+    color: color.$base-fuchsia-lighter;
   }
 
   &.class-name,
   &.rule,
   &.important {
-    color: color.$-base-purple-lighter;
+    color: color.$base-purple-lighter;
   }
 
   &.block,
@@ -58,7 +57,7 @@
   &.operator,
   &.property,
   &.regex {
-    color: color.$-brand-primary-lighter;
+    color: color.$brand-primary-lighter;
   }
 
   &.bold {

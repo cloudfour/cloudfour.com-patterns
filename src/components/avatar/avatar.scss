@@ -8,11 +8,11 @@
  */
 
 @include theme.props() {
-  --theme-color-background-avatar: #{color.$-base-gray-light};
+  --theme-color-background-avatar: #{color.$base-gray-light};
 }
 
 @include theme.props(dark) {
-  --theme-color-background-avatar: #{color.$-brand-primary-dark};
+  --theme-color-background-avatar: #{color.$brand-primary-dark};
 }
 
 /**

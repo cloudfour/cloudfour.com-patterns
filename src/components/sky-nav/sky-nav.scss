@@ -1,4 +1,4 @@
-@use 'sass:color';
+@use 'sass:color' as sass-color;
 @use "../../compiled/tokens/scss/tokens";
 @use "../../compiled/tokens/scss/color";
 @use '../../mixins/a11y';
@@ -206,7 +206,7 @@ $_masthead-height-sm: ms.step(7);
  */
 .c-sky-nav__logo-outline {
   opacity: 0; /* 1 */
-  stroke: color.$-brand-primary-lighter; /* 2 */
+  stroke: color.$brand-primary-lighter; /* 2 */
 }
 
 /**
@@ -265,8 +265,8 @@ $_masthead-height-sm: ms.step(7);
     @media (max-width: $_breakpoint-narrow-max) {
       background-image: linear-gradient(
         to bottom,
-        color.$-brand-primary-dark,
-        color.change(color.$-brand-primary-dark, $alpha: 0)
+        color.$brand-primary-dark,
+        sass-color.change(color.$brand-primary-dark, $alpha: 0)
       );
     }
   }
@@ -387,7 +387,7 @@ $_masthead-height-sm: ms.step(7);
    * Displayed as a ruled stack on narrow screens
    */
   @media (max-width: $_breakpoint-narrow-max) {
-    border-bottom: tokens.$size-edge-small solid color.$-base-gray-light;
+    border-bottom: tokens.$size-edge-small solid color.$base-gray-light;
     padding: $_space-vertical $_space-horizontal;
 
     /**
@@ -396,8 +396,8 @@ $_masthead-height-sm: ms.step(7);
      */
 
     @include theme.styles(dark) {
-      border-bottom-color: color.change(
-        color.$-brand-primary-darker,
+      border-bottom-color: sass-color.change(
+        color.$brand-primary-darker,
         $alpha: 0.5
       );
     }
@@ -450,7 +450,7 @@ $_masthead-height-sm: ms.step(7);
 .c-sky-nav__menu-action {
   @include focus.focus-visible {
     .c-sky-nav__menu-label {
-      box-shadow: 0 0 0 tokens.$size-edge-large color.$-brand-primary-lighter;
+      box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
     }
   }
 }

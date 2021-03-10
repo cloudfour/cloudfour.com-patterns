@@ -125,6 +125,6 @@ $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
   }
 
   @include focus.focus-visible {
-    box-shadow: 0 0 0 tokens.$size-edge-large color.$-brand-primary-lighter;
+    box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
   }
 }

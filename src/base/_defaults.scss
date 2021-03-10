@@ -123,8 +123,8 @@ audio {
  */
 
 pre {
-  background: color.$-brand-primary-darker;
-  color: color.$-text-light;
+  background: color.$brand-primary-darker;
+  color: color.$text-light;
   overflow: auto; /* 1 */
   padding: ms.step(1);
 }

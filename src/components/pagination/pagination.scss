@@ -28,7 +28,7 @@ $indicator-width-current: $indicator-height-current;
 
 @include theme.props() {
   --theme-color-background-pagination-control: transparent;
-  --theme-color-border-pagination-control: #{color.$-base-gray-light};
+  --theme-color-border-pagination-control: #{color.$base-gray-light};
 }
 
 @include theme.props(dark) {
@@ -174,14 +174,14 @@ $indicator-width-current: $indicator-height-current;
   @include theme.styles() {
     background-image: svg-load(
       'icons/arrow-left.svg',
-      stroke=color.$-brand-primary
+      stroke=color.$brand-primary
     );
   }
 
   @include theme.styles(dark) {
     background-image: svg-load(
       'icons/arrow-left.svg',
-      stroke=color.$-text-light-emphasis
+      stroke=color.$text-light-emphasis
     );
   }
 }
@@ -197,14 +197,14 @@ $indicator-width-current: $indicator-height-current;
   @include theme.styles() {
     background-image: svg-load(
       'icons/arrow-right.svg',
-      stroke=color.$-brand-primary
+      stroke=color.$brand-primary
     );
   }
 
   @include theme.styles(dark) {
     background-image: svg-load(
       'icons/arrow-right.svg',
-      stroke=color.$-text-light-emphasis
+      stroke=color.$text-light-emphasis
     );
   }
 }
@@ -242,7 +242,7 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__action {
   @include focus.focus-visible {
     .c-pagination__number {
-      box-shadow: 0 0 0 tokens.$size-edge-large color.$-brand-primary-lighter;
+      box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
     }
   }
 }

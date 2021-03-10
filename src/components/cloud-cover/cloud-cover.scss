@@ -84,14 +84,14 @@ $_gap: ms.step(1);
 .c-cloud-cover::before {
   background-image: svg-load(
       'clouds/medium.svg',
-      fill=color.$-brand-primary-lighter,
+      fill=color.$brand-primary-lighter,
       width= '480',
       height= '220',
       viewBox= '0 0 480 220'
     ),
     svg-load(
       'clouds/small.svg',
-      fill=color.$-brand-primary-light,
+      fill=color.$brand-primary-light,
       width= '580',
       height= '140',
       viewBox= '0 0 580 140'
@@ -106,7 +106,7 @@ $_gap: ms.step(1);
 .c-cloud-cover::after {
   background-image: svg-load(
     'clouds/large.svg',
-    fill=color.$-text-light-emphasis,
+    fill=color.$text-light-emphasis,
     width= '320',
     height= '300',
     viewBox= '0 0 320 300'

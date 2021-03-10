@@ -159,7 +159,7 @@ $_focus-overflow: (tokens.$size-edge-large * -1);
 
   @include focus.focus-visible {
     &::after {
-      box-shadow: 0 0 0 tokens.$size-edge-large color.$-brand-primary-lighter;
+      box-shadow: 0 0 0 tokens.$size-edge-large color.$brand-primary-lighter;
     }
   }
 }

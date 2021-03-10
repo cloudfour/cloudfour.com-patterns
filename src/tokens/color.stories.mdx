@@ -6,6 +6,7 @@ const generateColorPalette = (props) => {
     <ColorPalette>
       {propsArray.map((prop) => (
         <ColorItem
+          key={prop.name}
           title={`color.$${prop.name.slice(6)}`}
           subtitle={prop.comment}
           colors={[prop.value]}

@@ -1,12 +1,13 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import tokens from '../compiled/tokens/js/tokens';
+const _ = require('lodash');
 const aspectRatios = tokens.number.aspect_ratio;
 const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
-  const { name, value } = aspectRatios[key];
+  const { name, attributes, value } = aspectRatios[key];
   return (
     <tr key={name}>
       <td>
-        <code>${name}</code>
+        <code>aspect-ratio.${_.kebabCase(attributes.item)}</code>
       </td>
       <td>
         <code>{value}</code>
@@ -20,13 +21,13 @@ const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
 # Aspect Ratio
 
 ```scss
-@use "../../compiled/tokens/scss/tokens";
-$example: tokens.$number-aspect-ratio-square; // => 1
+@use "../../compiled/tokens/scss/aspect-ratio";
+$example: aspect-ratio.$wide; // => '16/9'
 ```
 
 ```javascript
 import tokens from '../../compiled/tokens/js/tokens';
-console.log(tokens.number.aspect_ratio.square.value); // => 1
+console.log(tokens.number.aspect_ratio.wide.value); // => '16/9'
 ```
 
 ## Ratio

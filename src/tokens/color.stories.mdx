@@ -6,7 +6,7 @@ const generateColorPalette = (props) => {
     <ColorPalette>
       {propsArray.map((prop) => (
         <ColorItem
-          title={`$${prop.name}`}
+          title={`color.$${prop.name.slice(6)}`}
           subtitle={prop.comment}
           colors={[prop.value]}
         />
@@ -18,13 +18,13 @@ const brandColorPalette = generateColorPalette(tokens.color.brand);
 const baseColorPalette = generateColorPalette(tokens.color.base);
 const textColorPalette = generateColorPalette(tokens.color.text);
 
-<Meta title="Design/Tokens/Colors" />
+<Meta title="Design/Tokens/Color" />
 
-# Colors
+# Color
 
 ```scss
-@use "../../compiled/tokens/scss/tokens";
-$example: tokens.$color-text-dark; // => rgba(0, 0, 0, 0.85)
+@use "../../compiled/tokens/scss/color";
+$example: color.$text-dark; // => rgba(0, 0, 0, 0.85)
 ```
 
 ```javascript

@@ -1,12 +1,13 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import tokens from '../compiled/tokens/js/tokens';
+const _ = require('lodash');
 const maxWidths = tokens.size.max_width;
 const maxWidthRows = Object.keys(maxWidths).map((key) => {
-  const { name, value } = maxWidths[key];
+  const { name, attributes, value } = maxWidths[key];
   return (
     <tr key={name}>
       <td>
-        <code>${name}</code>
+        <code>size.${name.slice(attributes.category.length + 1)}</code>
       </td>
       <td>
         <code>{value}</code>
@@ -20,8 +21,8 @@ const maxWidthRows = Object.keys(maxWidths).map((key) => {
 # Layout
 
 ```scss
-@use "../../compiled/tokens/scss/tokens";
-$example: tokens.$size-max-width-prose; // => 40em
+@use "../../compiled/tokens/scss/size";
+$example: size.$max-width-prose; // => 40em
 ```
 
 ```javascript

@@ -1,12 +1,13 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import tokens from '../compiled/tokens/js/tokens';
+const _ = require('lodash');
 const breakpoints = tokens.size.breakpoint;
 const breakpointRows = Object.keys(breakpoints).map((key) => {
-  const { name, value } = breakpoints[key];
+  const { name, attributes, value } = breakpoints[key];
   return (
     <tr key={name}>
       <td>
-        <code>${name}</code>
+        <code>breakpoint.${_.kebabCase(attributes.item)}</code>
       </td>
       <td>
         <code>{value}</code>
@@ -20,8 +21,8 @@ const breakpointRows = Object.keys(breakpoints).map((key) => {
 # Breakpoint
 
 ```scss
-@use "../../compiled/tokens/scss/tokens";
-$example: tokens.$size-breakpoint-xs; // => 20em
+@use "../../compiled/tokens/scss/breakpoint";
+$example: breakpoint.$xs; // => "20em"
 ```
 
 ```javascript

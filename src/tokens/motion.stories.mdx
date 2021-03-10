@@ -1,6 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import tokens from '../compiled/tokens/js/tokens';
-const generateTokenTable = (props) => {
+const _ = require('lodash');
+const generateTokenTable = (props, filterLevel) => {
   const propsArray = Object.values(props);
   const hasComments = propsArray.filter((p) => Boolean(p.comment)).length > 0;
   return (
@@ -14,10 +15,24 @@ const generateTokenTable = (props) => {
       </thead>
       <tbody>
         {propsArray.map((prop) => {
+          let namespace = 'tokens';
+          let name = `${prop.name}`;
+          if (filterLevel === 'category') {
+            namespace = _.kebabCase(prop.attributes.category);
+            name = prop.name.slice(prop.attributes.category.length + 1);
+          }
+          if (filterLevel === 'type') {
+            namespace = _.kebabCase(prop.attributes.type);
+            name = prop.name.slice(
+              prop.attributes.category.length + prop.attributes.type.length + 2
+            );
+          }
           return (
             <tr key={prop.name}>
               <td>
-                <code>${prop.name}</code>
+                <code>
+                  {namespace}.${name}
+                </code>
               </td>
               <td>
                 <code>{prop.value}</code>
@@ -30,10 +45,13 @@ const generateTokenTable = (props) => {
     </table>
   );
 };
-const easeTable = generateTokenTable(tokens.ease);
-const speedTable = generateTokenTable(tokens.time.transition);
-const scaleTable = generateTokenTable(tokens.number.scale.effect);
-const brightnessTable = generateTokenTable(tokens.number.brightness.control);
+const easeTable = generateTokenTable(tokens.ease, 'category');
+const speedTable = generateTokenTable(tokens.time.transition, 'type');
+const scaleTable = generateTokenTable(tokens.number.scale.effect, 'type');
+const brightnessTable = generateTokenTable(
+  tokens.number.brightness.control,
+  'type'
+);
 
 <Meta title="Design/Tokens/Motion" />
 

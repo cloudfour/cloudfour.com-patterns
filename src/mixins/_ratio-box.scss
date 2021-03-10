@@ -1,15 +1,15 @@
 @use 'sass:meta';
 @use 'sass:string';
-@use "../compiled/tokens/scss/aspect-ratios";
+@use "../compiled/tokens/scss/aspect-ratio";
 @use '../mixins/media-query';
 
 /// The default aspect ratio will not be output outside of a media query.
 /// @type Number
-$default-ratio: aspect-ratios.$number-aspect-ratio-square;
+$default-ratio: aspect-ratio.$square;
 
 /// Saving a map of aspect ratio values makes it easier to loop through.
 /// @type Map
-$aspect-ratio-map: meta.module-variables('aspect-ratios');
+$aspect-ratio-map: meta.module-variables('aspect-ratio');
 
 /// Core ratio box hack styles.
 ///
@@ -80,9 +80,7 @@ $aspect-ratio-map: meta.module-variables('aspect-ratios');
 /// @output Ratio modifier classes for supported breakpoints.
 @mixin enhanced-modifiers($default-ratio: $default-ratio) {
   @each $name, $ratio in $aspect-ratio-map {
-    // remove `number-aspect-ratio-` from $name
-    $trimmed-name: string.slice($name, 21);
-    &--#{$trimmed-name} {
+    &--#{$name} {
       @include media-query.breakpoint-classes(
         $include-default: $ratio != $default-ratio
       ) {

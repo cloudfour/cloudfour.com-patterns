@@ -18,7 +18,9 @@ const generateTokenTable = (props) => {
           return (
             <tr key={prop.name}>
               <td>
-                <code>${prop.name}</code>
+                <code>
+                  size.${prop.name.slice(prop.attributes.category.length + 1)}
+                </code>
               </td>
               <td>
                 <code>{prop.value}</code>
@@ -31,28 +33,44 @@ const generateTokenTable = (props) => {
     </table>
   );
 };
+const filterTokensByType = (type) => {
+  return Object.keys(sizeTokens)
+    .filter((key) => sizeTokens[key].attributes.type === type)
+    .map((key) => sizeTokens[key]);
+};
 /**
  * We want a list of all size tokens that haven't already been documented.
  * We grab a flattened list of tokens so we don't have to worry about tokens
  * existing at different depths, filter the types we've already dealth with,
  * and return the remainder as a new object.
  */
-const ignoreTypes = ['border', 'breakpoint', 'max_width', 'rhythm'];
+const ignoreTypes = [
+  'breakpoint',
+  'max_width',
+  'border',
+  'edge',
+  'padding',
+  'rhythm',
+  'spacing',
+];
 const filteredSizeTable = generateTokenTable(
   Object.keys(sizeTokens)
     .filter((key) => !ignoreTypes.includes(sizeTokens[key].attributes.type))
     .map((key) => sizeTokens[key])
 );
-const borderRadiusTable = generateTokenTable(tokens.size.border.radius);
-const rhythmTable = generateTokenTable(tokens.size.rhythm);
+const radiusTable = generateTokenTable(filterTokensByType('border'));
+const edgeTable = generateTokenTable(filterTokensByType('edge'));
+const paddingTable = generateTokenTable(filterTokensByType('padding'));
+const rhythmTable = generateTokenTable(filterTokensByType('rhythm'));
+const spacingTable = generateTokenTable(filterTokensByType('spacing'));
 
-<Meta title="Design/Tokens/Sizes" />
+<Meta title="Design/Tokens/Size" />
 
-# Sizes
+# Size
 
 ```scss
-@use "../../compiled/tokens/scss/tokens";
-$example: tokens.$size-edge-small; // =>  0.0625rem
+@use "../../compiled/tokens/scss/size";
+$example: size.$edge-small; // =>  0.0625rem
 ```
 
 ```javascript
@@ -64,10 +82,22 @@ console.log(tokens.size.edge.small.value); // => " 0.0625rem"
 
 <>{filteredSizeTable}</>
 
+## Edge
+
+<>{edgeTable}</>
+
+## Padding
+
+<>{paddingTable}</>
+
 ## Radius
 
-<>{borderRadiusTable}</>
+<>{radiusTable}</>
 
 ## Rhythm
 
 <>{rhythmTable}</>
+
+## Spacing
+
+<>{spacingTable}</>

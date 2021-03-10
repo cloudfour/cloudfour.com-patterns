@@ -1,12 +1,12 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use "../compiled/tokens/scss/breakpoints";
+@use "../compiled/tokens/scss/breakpoint";
 
 /// A map of all breakpoint token variables we can reference using Sass's map
 /// utilities.
 /// @type Map
-$breakpoint-map: meta.module-variables(breakpoints);
+$breakpoint-map: meta.module-variables(breakpoint);
 
 /// A list of breakpoint keys, also for looping over to generate different class
 /// name variations.

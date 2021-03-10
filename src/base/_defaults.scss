@@ -1,4 +1,5 @@
 @use "../compiled/tokens/scss/tokens";
+@use "../compiled/tokens/scss/color";
 @use "../mixins/ms";
 @use "../mixins/theme";
 
@@ -122,8 +123,8 @@ audio {
  */
 
 pre {
-  background: tokens.$color-brand-primary-darker;
-  color: tokens.$color-text-light;
+  background: color.$-brand-primary-darker;
+  color: color.$-text-light;
   overflow: auto; /* 1 */
   padding: ms.step(1);
 }

@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/color";
 
 /**
  * Cloud Four theme for Prism syntax highlighting.
@@ -13,7 +14,7 @@
   &.doctype,
   &.prolog,
   &.punctuation {
-    color: tokens.$color-text-light;
+    color: color.$-text-light;
     opacity: tokens.$number-opacity-muted;
   }
 
@@ -26,14 +27,14 @@
   &.variable,
   .language-liquid &.property,
   .language-twig &.property {
-    color: tokens.$color-base-orange-lighter;
+    color: color.$-base-orange-lighter;
   }
 
   &.attr-value,
   &.plain-text,
   &.string,
   &.url {
-    color: tokens.$color-base-green-lighter;
+    color: color.$-base-green-lighter;
   }
 
   &.entity,
@@ -42,13 +43,13 @@
   &.tag,
   .language-liquid &.operator + &.property,
   .language-twig &.operator + &.property {
-    color: tokens.$color-base-fuchsia-lighter;
+    color: color.$-base-fuchsia-lighter;
   }
 
   &.class-name,
   &.rule,
   &.important {
-    color: tokens.$color-base-purple-lighter;
+    color: color.$-base-purple-lighter;
   }
 
   &.block,
@@ -57,7 +58,7 @@
   &.operator,
   &.property,
   &.regex {
-    color: tokens.$color-brand-primary-lighter;
+    color: color.$-brand-primary-lighter;
   }
 
   &.bold {

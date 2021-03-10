@@ -1,7 +1,8 @@
 @use "../compiled/tokens/scss/tokens";
+@use "../compiled/tokens/scss/color";
 @use "./ms";
 
-$table-border-color: tokens.$color-base-gray-light;
+$table-border-color: color.$-base-gray-light;
 $table-border-thin: tokens.$size-edge-small solid $table-border-color;
 $table-border-thick: tokens.$size-edge-medium solid $table-border-color;
 
@@ -41,7 +42,7 @@ $table-border-thick: tokens.$size-edge-medium solid $table-border-color;
 
 @mixin t-caption {
   caption-side: bottom;
-  color: tokens.$color-base-gray-dark;
+  color: color.$-base-gray-dark;
   font-size: ms.step(-1);
   font-style: italic;
   padding: ms.step(-1) 0;
@@ -56,7 +57,7 @@ $table-border-thick: tokens.$size-edge-medium solid $table-border-color;
 }
 
 @mixin t-striped {
-  background-color: tokens.$color-base-gray-lighter;
+  background-color: color.$-base-gray-lighter;
 }
 
 /**

@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/color";
 @use '../../mixins/ratio-box';
 @use '../../mixins/theme';
 
@@ -7,11 +8,11 @@
  */
 
 @include theme.props() {
-  --theme-color-background-avatar: #{tokens.$color-base-gray-light};
+  --theme-color-background-avatar: #{color.$-base-gray-light};
 }
 
 @include theme.props(dark) {
-  --theme-color-background-avatar: #{tokens.$color-brand-primary-dark};
+  --theme-color-background-avatar: #{color.$-brand-primary-dark};
 }
 
 /**

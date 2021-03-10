@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/color";
 @use '../../mixins/ms';
 @use '../../mixins/theme';
 
@@ -11,11 +12,11 @@ $radius: tokens.$size-border-radius-medium;
  */
 
 @include theme.props() {
-  --theme-color-border-calendar-date: #{tokens.$color-base-gray-light};
+  --theme-color-border-calendar-date: #{color.$-base-gray-light};
 }
 
 @include theme.props(dark) {
-  --theme-color-border-calendar-date: #{tokens.$color-brand-primary-dark};
+  --theme-color-border-calendar-date: #{color.$-brand-primary-dark};
 }
 
 .c-calendar-date {
@@ -37,12 +38,12 @@ $radius: tokens.$size-border-radius-medium;
 
 .c-calendar-date__header {
   align-items: center;
-  background-color: tokens.$color-base-gray-dark; /* 1 */
-  border: $edge-size solid tokens.$color-base-gray-darker; /* 1 */
+  background-color: color.$-base-gray-dark; /* 1 */
+  border: $edge-size solid color.$-base-gray-darker; /* 1 */
   border-bottom-width: 0;
   border-top-left-radius: $radius;
   border-top-right-radius: $radius;
-  color: tokens.$color-text-light-emphasis;
+  color: color.$-text-light-emphasis;
   display: flex;
   flex: none;
   font-weight: tokens.$number-font-weight-semibold;
@@ -57,40 +58,40 @@ $radius: tokens.$size-border-radius-medium;
   .c-calendar-date--march &,
   .c-calendar-date--april &,
   .c-calendar-date--may & {
-    background-color: tokens.$color-base-green-dark;
-    border-color: tokens.$color-base-green-darker;
+    background-color: color.$-base-green-dark;
+    border-color: color.$-base-green-darker;
   }
 
   .c-calendar-date--june &,
   .c-calendar-date--july &,
   .c-calendar-date--august & {
-    background-color: tokens.$color-base-fuchsia-dark;
-    border-color: tokens.$color-base-fuchsia-darker;
+    background-color: color.$-base-fuchsia-dark;
+    border-color: color.$-base-fuchsia-darker;
   }
 
   .c-calendar-date--september &,
   .c-calendar-date--october &,
   .c-calendar-date--november & {
-    background-color: tokens.$color-base-orange-dark;
-    border-color: tokens.$color-base-orange-darker;
+    background-color: color.$-base-orange-dark;
+    border-color: color.$-base-orange-darker;
   }
 
   .c-calendar-date--december &,
   .c-calendar-date--january &,
   .c-calendar-date--february & {
-    background-color: tokens.$color-base-purple-dark;
-    border-color: tokens.$color-base-purple-darker;
+    background-color: color.$-base-purple-dark;
+    border-color: color.$-base-purple-darker;
   }
 }
 
 .c-calendar-date__main {
   align-items: center;
-  background-color: tokens.$color-text-light-emphasis;
+  background-color: color.$-text-light-emphasis;
   border: $edge-size solid var(--theme-color-border-calendar-date);
   border-bottom-left-radius: $radius;
   border-bottom-right-radius: $radius;
   border-top-width: 0;
-  color: tokens.$color-text-dark;
+  color: color.$-text-dark;
   display: flex;
   flex: 1;
   flex-direction: column;

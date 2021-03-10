@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/color";
 @use '../../mixins/ms';
 @use '../../mixins/unit';
 
@@ -9,7 +10,7 @@ $_ground-nav-space: ms.step(1, 1rem);
 $_ground-nav-negative-space: ($_ground-nav-space * -1);
 $_ground-nav-border-width: tokens.$size-edge-medium;
 $_ground-nav-border-style: solid;
-$_ground-nav-border-color: tokens.$color-base-gray-light;
+$_ground-nav-border-color: color.$-base-gray-light;
 
 /**
  * 1. We establish vertical whitespace for the action to simplify alignment of
@@ -81,7 +82,7 @@ $_ground-nav-border-color: tokens.$color-base-gray-light;
 }
 
 .c-ground-nav__content {
-  background-color: tokens.$color-base-gray-lighter;
+  background-color: color.$-base-gray-lighter;
 }
 
 /**

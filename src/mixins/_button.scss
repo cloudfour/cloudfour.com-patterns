@@ -1,4 +1,5 @@
 @use "../compiled/tokens/scss/tokens";
+@use "../compiled/tokens/scss/color";
 @use "./focus";
 @use "./ms";
 @use "./unit";
@@ -9,19 +10,19 @@
  */
 
 @include theme.props() {
-  --theme-color-background-button-default: #{tokens.$color-brand-primary};
+  --theme-color-background-button-default: #{color.$-brand-primary};
   --theme-color-background-button-secondary: transparent;
-  --theme-color-border-button-default: #{tokens.$color-brand-primary-dark};
-  --theme-color-border-button-secondary: #{tokens.$color-brand-primary-light};
+  --theme-color-border-button-default: #{color.$-brand-primary-dark};
+  --theme-color-border-button-secondary: #{color.$-brand-primary-light};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
   --theme-color-text-button-tertiary: var(--theme-color-text-action);
 }
 
 @include theme.props(dark) {
-  --theme-color-background-button-default: #{tokens.$color-brand-primary-dark};
+  --theme-color-background-button-default: #{color.$-brand-primary-dark};
   --theme-color-background-button-secondary: transparent;
-  --theme-color-border-button-default: #{tokens.$color-brand-primary-darker};
-  --theme-color-border-button-secondary: #{tokens.$color-brand-primary-dark};
+  --theme-color-border-button-default: #{color.$-brand-primary-darker};
+  --theme-color-border-button-secondary: #{color.$-brand-primary-dark};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
   --theme-color-text-button-tertiary: var(--theme-color-text-action);
 }
@@ -45,7 +46,7 @@
   border-radius: tokens.$size-border-radius-medium;
   border-style: solid;
   border-width: tokens.$size-edge-medium;
-  color: tokens.$color-text-light-emphasis;
+  color: color.$-text-light-emphasis;
   cursor: pointer; /* 1 */
   display: inline-block;
   font: inherit; /* 2 */
@@ -85,8 +86,7 @@
   }
 
   @include focus.focus-visible {
-    box-shadow: 0 0 0 tokens.$size-edge-large
-      tokens.$color-brand-primary-lighter;
+    box-shadow: 0 0 0 tokens.$size-edge-large color.$-brand-primary-lighter;
   }
 }
 

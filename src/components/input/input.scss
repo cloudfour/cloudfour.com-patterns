@@ -1,4 +1,5 @@
 @use "../../compiled/tokens/scss/tokens";
+@use "../../compiled/tokens/scss/color";
 @use "../../mixins/theme";
 
 /**
@@ -6,14 +7,14 @@
  */
 
 @include theme.props() {
-  --theme-color-background-input-disabled: #{tokens.$color-base-gray-light};
-  --theme-color-border-input-disabled: #{tokens.$color-base-gray};
-  --theme-color-border-input-hover: #{tokens.$color-brand-primary};
+  --theme-color-background-input-disabled: #{color.$-base-gray-light};
+  --theme-color-border-input-disabled: #{color.$-base-gray};
+  --theme-color-border-input-hover: #{color.$-brand-primary};
 }
 
 @include theme.props(dark) {
-  --theme-color-background-input-disabled: #{tokens.$color-brand-primary-lighter};
-  --theme-color-border-input-disabled: #{tokens.$color-brand-primary-dark};
+  --theme-color-background-input-disabled: #{color.$-brand-primary-lighter};
+  --theme-color-border-input-disabled: #{color.$-brand-primary-dark};
   --theme-color-border-input-hover: currentColor;
 }
 
@@ -33,10 +34,10 @@
   -moz-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
   -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
   appearance: none; /* 1 */
-  background-color: tokens.$color-text-light;
+  background-color: color.$-text-light;
   border: tokens.$size-edge-medium solid currentColor;
   border-radius: tokens.$size-border-radius-medium;
-  color: tokens.$color-text-dark;
+  color: color.$-text-dark;
   display: block;
   font: inherit;
   font-style: normal;
@@ -45,7 +46,7 @@
   outline: none;
   padding: tokens.$size-padding-control-vertical
     tokens.$size-spacing-control-text-inset;
-  -webkit-text-fill-color: tokens.$color-text-dark; /* 4 */
+  -webkit-text-fill-color: color.$-text-dark; /* 4 */
   transition-duration: tokens.$time-transition-quick;
   transition-property: background-color, border-color;
   transition-timing-function: tokens.$ease-out;
@@ -97,10 +98,7 @@
    */
 
   @at-root select#{&} {
-    background-image: svg-load(
-      'icons/caret-down.svg',
-      fill=tokens.$color-text-dark
-    );
+    background-image: svg-load('icons/caret-down.svg', fill=color.$-text-dark);
     background-position: right tokens.$size-spacing-control-icon-inset center;
     background-repeat: no-repeat;
     background-size: tokens.$size-square-control-icon 100%; /* 1 */
@@ -111,7 +109,7 @@
   }
 
   &:hover:not(:disabled):not([readonly]) {
-    background-color: tokens.$color-text-light-emphasis;
+    background-color: color.$-text-light-emphasis;
     border-color: var(--theme-color-border-input-hover);
   }
 
@@ -123,8 +121,7 @@
 
   &:focus {
     background-color: #fff;
-    box-shadow: 0 0 0 tokens.$size-edge-large
-      tokens.$color-brand-primary-lighter;
+    box-shadow: 0 0 0 tokens.$size-edge-large color.$-brand-primary-lighter;
   }
 
   &[readonly]:not(:disabled) {
@@ -150,8 +147,8 @@
    */
 
   &::placeholder {
-    color: tokens.$color-text-dark-muted; /* 1 */
+    color: color.$-text-dark-muted; /* 1 */
     opacity: 1; /* 2 */
-    -webkit-text-fill-color: tokens.$color-text-dark-muted; /* 1 */
+    -webkit-text-fill-color: color.$-text-dark-muted; /* 1 */
   }
 }

@@ -1,4 +1,5 @@
 @use "../../../compiled/tokens/scss/tokens";
+@use "../../../compiled/tokens/scss/color";
 @use '../../../mixins/ms';
 
 .demo-u-space-logical-properties,
@@ -8,13 +9,13 @@
   }
 
   & > div {
-    background: tokens.$color-base-gray-light;
+    background: color.$-base-gray-light;
     overflow: hidden;
   }
 
   [class*='u-space'] {
-    background: tokens.$color-text-light-emphasis;
-    border: tokens.$size-edge-medium solid tokens.$color-base-gray;
+    background: color.$-text-light-emphasis;
+    border: tokens.$size-edge-medium solid color.$-base-gray;
     padding: ms.step(-1);
   }
 }
@@ -22,12 +23,12 @@
 .demo-u-pad-logical-properties,
 .demo-u-pad-directions {
   [class*='u-pad'] {
-    background: tokens.$color-base-gray-light;
-    border: tokens.$size-edge-medium solid tokens.$color-base-gray;
+    background: color.$-base-gray-light;
+    border: tokens.$size-edge-medium solid color.$-base-gray;
     border-radius: tokens.$size-border-radius-medium;
 
     div {
-      background: tokens.$color-text-light-emphasis;
+      background: color.$-text-light-emphasis;
       border-radius: inherit;
     }
   }
@@ -42,13 +43,13 @@
   }
 
   & > div {
-    background: tokens.$color-base-gray-light;
+    background: color.$-base-gray-light;
     padding: ms.step(-1);
   }
 
   [class*='u-pull'] {
-    background: tokens.$color-text-light-emphasis;
-    border: tokens.$size-edge-medium solid tokens.$color-base-gray;
+    background: color.$-text-light-emphasis;
+    border: tokens.$size-edge-medium solid color.$-base-gray;
     opacity: 0.66;
     padding: ms.step(-1);
   }

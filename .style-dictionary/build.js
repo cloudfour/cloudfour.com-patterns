@@ -5,7 +5,7 @@ const _ = require('lodash');
  * Custom Transform: Kebab-Case without Category
  * Creates a kebab case name without the category at the front.
  * This is most useful when filtering a file to only contain tokens from one
- * category (e.g., colors.$base-dark-red instead of tokens.color-base-dark-red).
+ * category (e.g., colors.$base-dark-red instead of tokens.$color-base-dark-red).
  * If you define a prefix on the platform in your config, it will be prepended.
  *
  * ```js
@@ -29,7 +29,7 @@ StyleDictionary.registerTransform({
  * Custom Transform: Kebab-Case without Category or Type
  * Creates a kebab case name without the category or type at the front.
  * This is most useful when filtering a file to only contain tokens from one
- * category & type (e.g., base-colors.$dark-red instead of tokens.color-base-dark-red).
+ * category & type (e.g., base-colors.$dark-red instead of tokens.$color-base-dark-red).
  * If you define a prefix on the platform in your config, it will be prepended.
  *
  * ```js

@@ -31,6 +31,7 @@
   "types": "./dist/cloudfour-patterns.d.ts",
   "files": [
     "/dist",
+    "/src/compiled/tokens",
     "/src/**/*.scss",
     "/src/**/*.twig",
     "!/src/**/demo/**/*.twig",

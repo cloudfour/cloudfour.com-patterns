@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 0.7.0
+
+### Minor Changes
+
+- [`2a900d0`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2a900d0194debfd9d6d5b5a3cd9c012be5ff44d1) [#1130](https://github.com/cloudfour/cloudfour.com-patterns/pull/1130) Thanks [@tylersticka](https://github.com/tylersticka)! - Add o-bunch layout object for multiple avatars
+
+* [`f83ffca`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f83ffca3681c97a372bb4ad89bed50fda5277e1c) [#1077](https://github.com/cloudfour/cloudfour.com-patterns/pull/1077) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Avatar component
+
+- [`8a2e698`](https://github.com/cloudfour/cloudfour.com-patterns/commit/8a2e69846247fe22c6e50534fd2ca5ef8b99225f) [#1144](https://github.com/cloudfour/cloudfour.com-patterns/pull/1144) Thanks [@spaceninja](https://github.com/spaceninja)! - Expose design tokens in npm package
+
 ## 0.6.0
 
 ### Minor Changes

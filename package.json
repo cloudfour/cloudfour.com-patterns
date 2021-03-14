@@ -99,7 +99,7 @@
     "storybook-mobile": "0.1.30",
     "style-dictionary": "2.10.3",
     "style-loader": "2.0.0",
-    "stylelint": "13.8.0",
+    "stylelint": "13.12.0",
     "stylelint-config-cloudfour": "4.0.0",
     "stylelint-config-prettier": "8.0.2",
     "through2": "4.0.2",

@@ -4,7 +4,7 @@ import seasonsDemo from './demo/seasons.twig';
 import './demo/styles.scss';
 const argTypes = {
   datetime: {
-    defaultValue: Number(new Date()),
+    defaultValue: Date.now(),
     control: { type: 'date' },
   },
   note: { type: { name: 'string' } },

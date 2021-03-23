@@ -25,7 +25,7 @@ const generateTokenTable = (props) => {
             // For each font string we create, we are going to remove the first font
             // element using `shift`. This allows each segment to be previewed along
             // with its remaining fallbacks.
-            while (fonts.length) {
+            while (fonts.length > 0) {
               const divStyle = {
                 fontFamily: fonts.join(','),
               };

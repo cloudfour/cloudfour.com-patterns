@@ -52,7 +52,7 @@ function templatizeSvgString(src) {
   // Properties already in use should have their value set to a conditional.
   // The `default` filter would be less code, but things get tricky when it
   // comes to managing quotation marks in XML.
-  usedProps.forEach((prop) => {
+  for (const prop of usedProps) {
     const current = svg.attrs[prop];
     // Dashes have meaning in Twig expressions, so we replace them with
     // underscores in property names.
@@ -60,7 +60,7 @@ function templatizeSvgString(src) {
     svg.attrs[
       prop
     ] = `{% if ${twigProp} %}{{${twigProp}}}{% else %}${current}{% endif %}`;
-  });
+  }
 
   // Grab the SVG source to this point
   let result = svg.root().toString();

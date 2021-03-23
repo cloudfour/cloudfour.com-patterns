@@ -6,9 +6,9 @@ const singleDemoStory = (args) => {
   };
   const modifiers = [];
   if (args.show.length > 0) {
-    args.show.forEach((block) => {
+    for (const block of args.show) {
       props[`show_${block}`] = true;
-    });
+    }
   }
   if (args.horizontal !== 'none') {
     modifiers.push(`horizontal${args.horizontal}`);

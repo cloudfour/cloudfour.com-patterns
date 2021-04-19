@@ -105,7 +105,7 @@ module.exports = {
         // Export all the tokens in a single JS file.
         {
           destination: 'tokens.js',
-          format: 'javascript/module',
+          format: 'custom/format/js/esm',
         },
         // Export a flattened version of just the size tokens for easier looping.
         {

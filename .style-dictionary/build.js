@@ -92,7 +92,22 @@ StyleDictionary.registerFormat({
     dictionary.allProperties.forEach((prop) => {
       tokens[prop.name] = prop;
     });
-    return `module.exports = ${JSON.stringify(tokens, null, '  ')}`;
+    return `export default ${JSON.stringify(tokens, null, '  ')}`;
+  },
+});
+
+/**
+ * Custom Format: JS ESM
+ * This custom format is based on `javascript/module` but it uses `export default` instead of `module.exports`
+ */
+StyleDictionary.registerFormat({
+  name: 'custom/format/js/esm',
+  formatter(dictionary) {
+    return `export default ${JSON.stringify(
+      dictionary.properties,
+      null,
+      '  '
+    )}`;
   },
 });
 

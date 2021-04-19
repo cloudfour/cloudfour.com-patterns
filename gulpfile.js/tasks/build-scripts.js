@@ -25,7 +25,6 @@ const createVirtualRootEntry = async () => {
     await glob(`src/{objects,components}/*/*{${extensions.join(',')}}`)
   )
     // Don't include test files in the build
-    .filter((f) => !f.endsWith('.cypress.ts'))
     .filter((f) => !f.endsWith('.test.ts'));
   return files
     .map((f) => {

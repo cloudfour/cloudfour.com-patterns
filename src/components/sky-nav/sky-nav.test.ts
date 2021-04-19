@@ -18,8 +18,8 @@ test(
     });
     await utils.runJS(
       `
-        import { initSkyNav } from './sky-nav'
-        export default (navButton) => initSkyNav(navButton)
+      import { initSkyNav } from './sky-nav'
+      export default (navButton) => initSkyNav(navButton)
       `,
       [navButton]
     );
@@ -46,8 +46,8 @@ test(
     });
     await utils.runJS(
       `
-        import { initSkyNav } from './sky-nav'
-        export default (navButton) => initSkyNav(navButton)
+      import { initSkyNav } from './sky-nav'
+      export default (navButton) => initSkyNav(navButton)
       `,
       [navButton]
     );

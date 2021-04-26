@@ -2,11 +2,8 @@ import path from 'path';
 import { devices, withBrowser } from 'test-mule';
 import { loadTwigTemplate } from '../../../test-utils';
 import menu from './demo/menu.json';
-
-// eslint-disable-next-line @cloudfour/typescript-eslint/require-await
-const skyNavMarkup = loadTwigTemplate(path.join(__dirname, './sky-nav.twig'));
-
 const iPhone = devices['iPhone 6'];
+const skyNavMarkup = loadTwigTemplate(path.join(__dirname, './sky-nav.twig'));
 
 test(
   'can be opened on small screens',

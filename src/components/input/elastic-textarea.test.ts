@@ -1,8 +1,17 @@
 import path from 'path';
+import type { ElementHandle, TestMuleUtils } from 'test-mule';
 import { withBrowser } from 'test-mule';
 import { loadTwigTemplate } from '../../../test-utils';
 
 const textInputHTML = loadTwigTemplate(path.join(__dirname, './input.twig'));
+const initTextareaJS = (utils: TestMuleUtils, textarea: ElementHandle) =>
+  utils.runJS(
+    `
+    import { createElasticTextArea } from './elastic-textarea'
+    export default (textarea) => createElasticTextArea(textarea);
+    `,
+    [textarea]
+  );
 
 test(
   'Resizes correctly with no rows attribute',
@@ -15,13 +24,7 @@ test(
     );
     await utils.loadCSS('../../../dist/standalone.css');
     const textarea = await screen.getByRole('textbox');
-    await utils.runJS(
-      `
-      import { createElasticTextArea } from './elastic-textarea'
-      export default (textarea) => createElasticTextArea(textarea);
-      `,
-      [textarea]
-    );
+    await initTextareaJS(utils, textarea);
     textarea.evaluate((el) => (el.style.maxWidth = '500px'));
 
     // Default of 2 rows
@@ -55,14 +58,7 @@ test(
       })
     );
     const textarea = await screen.getByRole('textbox');
-
-    await utils.runJS(
-      `
-      import { createElasticTextArea } from './elastic-textarea'
-      export default (textarea) => createElasticTextArea(textarea);
-      `,
-      [textarea]
-    );
+    await initTextareaJS(utils, textarea);
     await textarea.evaluate((el) => (el.style.maxWidth = '500px'));
 
     // Starts at 1 row since we set rows attribute

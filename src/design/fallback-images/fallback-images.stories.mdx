@@ -3,7 +3,6 @@ import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 // the `.svg.twig` file causes linting errors (since they are not tracked).
 // Therefore, we must track a twig file to satisfy CI.
 import fallbackImage from '../demo/fallback_images.twig';
-import './fallback-images-demo.scss';
 
 <Meta title="Design/Fallback Images" />
 
@@ -14,7 +13,7 @@ We've created a few different fallback images in the instance that an article do
 The captions below each fallback image aren't set in stone, moreso just ideas that these designs could be used for.
 
 <Canvas>
-  <Story name="Fallback Images" args={{ class: 'o-list--inline' }}>
+  <Story name="Fallback Images" args={{ class: 'o-deck--3-column@l' }}>
     {fallbackImage}
   </Story>
 </Canvas>

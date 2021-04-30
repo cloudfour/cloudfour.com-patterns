@@ -3,14 +3,13 @@ import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 // the `.svg.twig` file causes linting errors (since they are not tracked).
 // Therefore, we must track a twig file to satisfy CI.
 import fallbackImage from '../demo/fallback_images.twig';
+import './fallback-images.scss';
 
 <Meta title="Design/Fallback Images" />
 
 # Fallback Images
 
-We changed the way we displayed articles, but it requires all articles to have some sort of image. That can kind of disturb the flow of things when there isn't a background image present.
-
-To combat this, we've created a few different fallback images. The goal was to not have them compete too much with intentional images, but we also wanted them to be on brand. This design also leaves room to add more categories if desired.
+We've created a few different fallback images in the instance that an article doesn't have its own image. The goal was to not have them compete too much with intentional images, but we also wanted them to be on brand. This design also leaves room to add more categories if desired.
 
 The captions below each fallback image aren't set in stone, moreso just ideas that these designs could be used for.
 

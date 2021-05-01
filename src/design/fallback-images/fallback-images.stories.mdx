@@ -1,0 +1,23 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+// Importing a `.svg` directly, results in a failed build and importing
+// the `.svg.twig` file causes linting errors (since they are not tracked).
+// Therefore, we must track a twig file to satisfy CI.
+import fallbackImage from '../demo/fallback_images.twig';
+
+<Meta title="Design/Fallback Images" />
+
+# Fallback Images
+
+Article summaries appear more interesting and cohesive when they have an image, but sometimes an article does not have an obvious image, and not every author is an illustrator. These fallback images can be used in place of an original illustration.
+
+Loosely inspired by classic television test patterns, the goal was to have them coexist with feature images without stealing too much attention, all while staying on brand.
+
+This design also leaves room to add more categories if desired. Ideally, the icons are two-toned, with a singular color for each design. The core colors are from our [color palette](/?path=/story/design-colors--page), but the entire range of each color can be used, including values that may not be visibly included on that page (the pinks in the gauge example are not shown on our color palette page, but are derivatives of that base pink color). The design includes a light icon on a dark background to keep the focus on the icon and category of that article.
+
+The captions below each fallback image aren't set in stone, more so just ideas that these designs could be used for.
+
+<Canvas>
+  <Story name="Fallback Images" args={{ class: 'o-deck--2-column@l' }}>
+    {fallbackImage}
+  </Story>
+</Canvas>

@@ -62,7 +62,7 @@
     "@wordpress/block-library": "2.29.3",
     "babel-loader": "8.2.2",
     "browserify-transform-tools": "1.7.0",
-    "css-loader": "5.2.0",
+    "css-loader": "5.2.4",
     "cssnano": "4.1.10",
     "cypress": "6.8.0",
     "eliminate": "1.1.2",

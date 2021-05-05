@@ -1,0 +1,21 @@
+
+{% embed '@cloudfour/objects/deck/deck.twig' %}
+  {% block content %}
+    <figure>
+      {% include '@cloudfour/assets/illustrations/fallback/fallback_paintbrush.svg.twig' %}
+      <figcaption>Art, design, UX, animation, CSS</figcaption>
+    </figure>
+    <figure>
+      {% include '@cloudfour/assets/illustrations/fallback/fallback_lightbulb.svg.twig' %}
+      <figcaption>Ideas, philosophy, inspiration, process</figcaption>
+    </figure>
+    <figure>
+      {% include '@cloudfour/assets/illustrations/fallback/fallback_code.svg.twig' %}
+      <figcaption>Development, maintenance, technology, HTML</figcaption>
+    </figure>
+    <figure>
+      {% include '@cloudfour/assets/illustrations/fallback/fallback_gauge.svg.twig' %}
+      <figcaption>Performance, measurement, analytics</figcaption>
+    </figure>
+  {% endblock %}
+{% endembed %}

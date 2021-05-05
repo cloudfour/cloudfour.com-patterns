@@ -18,7 +18,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
-        run: CYPRESS_INSTALL_BINARY=0 npm ci
+        run: npm ci
       - name: Run Preprocess
         run: npm run preprocess
       - name: Run Lint
@@ -39,7 +39,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
-        run: CYPRESS_INSTALL_BINARY=0 npm ci
+        run: npm ci
       - name: Run Preprocess
         run: npm run preprocess
       - name: Run Type Checker
@@ -60,7 +60,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       - name: Install Dependencies
-        run: CYPRESS_INSTALL_BINARY=0 npm ci
+        run: npm ci
       - name: Run Build
         run: npm run build
 
@@ -83,9 +83,7 @@ jobs:
         run: npm ci
       - name: Run Preprocess
         run: npm run preprocess
-      - name: Run Build (necessary for including css file in cypress tests)
+      - name: Run Build (necessary for including css file in tests)
         run: npm run build
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          install: false
+      - name: Run Tests
+        run: npm run test

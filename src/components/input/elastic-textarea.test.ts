@@ -42,7 +42,7 @@ test(
     await expect(textarea).toHaveAttribute('rows', '3');
 
     // After emptying it out, it should have 2 rows, since that is the default
-    await user.type(textarea, '{selectall}{backspace}');
+    await user.clear(textarea);
     await expect(textarea).toHaveAttribute('rows', '2');
   })
 );
@@ -68,7 +68,7 @@ test(
     await expect(textarea).toHaveAttribute('rows', '4');
 
     // After emptying it out, it should have 1 row, since that is what we initialized `rows` to
-    await user.type(textarea, '{selectall}{backspace}');
+    await user.clear(textarea);
     await expect(textarea).toHaveAttribute('rows', '1');
   })
 );

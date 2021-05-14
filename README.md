@@ -2,7 +2,7 @@
 
 # Cloud Four Patterns 🚧
 
-[![NPM version](http://img.shields.io/npm/v/@cloudfour/patterns.svg)](https://www.npmjs.org/package/@cloudfour/patterns) [![Build Status](https://github.com/cloudfour/cloudfour.com-patterns/workflows/CI/badge.svg)](https://github.com/cloudfour/cloudfour.com-patterns/actions?query=workflow%3ACI) [![Renovate Status](https://badges.renovateapi.com/github/cloudfour/cloudfour.com-patterns)](https://renovatebot.com/) [![Netlify Status](https://api.netlify.com/api/v1/badges/1923e350-3172-409a-9361-b04d54d1c3b4/deploy-status)](https://app.netlify.com/sites/cloudfour-patterns/deploys?filter=v-next)
+[![NPM version](http://img.shields.io/npm/v/@cloudfour/patterns.svg)](https://www.npmjs.org/package/@cloudfour/patterns) [![Build Status](https://github.com/cloudfour/cloudfour.com-patterns/workflows/CI/badge.svg)](https://github.com/cloudfour/cloudfour.com-patterns/actions?query=workflow%3ACI) [![Netlify Status](https://api.netlify.com/api/v1/badges/1923e350-3172-409a-9361-b04d54d1c3b4/deploy-status)](https://app.netlify.com/sites/cloudfour-patterns/deploys?filter=v-next)
 
 🚨 **You are currently viewing the `v-next` branch.** This represents a significant refactor of our environment and coding standards. It is a work in progress and not yet ready for use.
 

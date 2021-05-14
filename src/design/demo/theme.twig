@@ -1,29 +1,25 @@
-{% extends '@cloudfour/design/demo/fill-canvas.twig' %}
-
-{% block content %}
-  {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-    class: 'o-rhythm--generous'
-  } %}
-    {% block content %}
-      <h1>t-{{theme}}</h1>
-      {% include '@cloudfour/design/typography/demo/inline-elements.twig' only %}
-      {% include '@cloudfour/components/button/demo/styles.twig' only %}
-      {# TODO: Replace padding and corner modifiers once card component can
-         handle these variations natively #}
-      {% set _card_class = 'c-card--horizontal@m u-pad-1 u-rounded' %}
-      {% if theme == 'light' %}
-        {% set _card_class = _card_class ~ ' t-dark' %}
-      {% else %}
-        {% set _card_class = _card_class ~ ' t-light' %}
-      {% endif %}
-      {% include '@cloudfour/components/card/demo/single.twig' with {
-        class: _card_class,
-        href: '#',
-        show_heading: true,
-        show_content: true,
-        show_cover: true,
-        show_footer: true
-      } only %}
-    {% endblock %}
-  {% endembed %}
-{% endblock %}
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+  class: 'o-rhythm--generous'
+} %}
+  {% block content %}
+    <h1>t-{{theme}}</h1>
+    {% include '@cloudfour/design/typography/demo/inline-elements.twig' only %}
+    {% include '@cloudfour/components/button/demo/styles.twig' only %}
+    {# TODO: Replace padding and corner modifiers once card component can
+        handle these variations natively #}
+    {% set _card_class = 'c-card--horizontal@m u-pad-1 u-rounded' %}
+    {% if theme == 'light' %}
+      {% set _card_class = _card_class ~ ' t-dark' %}
+    {% else %}
+      {% set _card_class = _card_class ~ ' t-light' %}
+    {% endif %}
+    {% include '@cloudfour/components/card/demo/single.twig' with {
+      class: _card_class,
+      href: '#',
+      show_heading: true,
+      show_content: true,
+      show_cover: true,
+      show_footer: true
+    } only %}
+  {% endblock %}
+{% endembed %}

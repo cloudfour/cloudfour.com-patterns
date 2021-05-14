@@ -1,0 +1,13 @@
+import { Meta, Description } from '@storybook/addon-docs/blocks';
+import readme from '../../README.md';
+
+<Meta title="Introduction" />
+
+<Description>
+  {readme
+    .replace(
+      '[View Netlify Preview →](https://v-next--cloudfour-patterns.netlify.com/)',
+      '[View GitHub Repository →](https://github.com/cloudfour/cloudfour.com-patterns)'
+    )
+    .replace('CONTRIBUTING.md', '/?path=/docs/contributing--page')}
+</Description>

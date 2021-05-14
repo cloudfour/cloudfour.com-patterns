@@ -1,0 +1,18 @@
+import { Meta, Description } from '@storybook/addon-docs/blocks';
+import readme from '../../README.md';
+
+<Meta title="Introduction" />
+
+<Description>
+  {readme
+    .replace(
+      '[View Netlify Preview →](https://v-next--cloudfour-patterns.netlify.com/)',
+      '[View GitHub Repository →](https://github.com/cloudfour/cloudfour.com-patterns)'
+    )
+    // Weird link path due to this issue:
+    // https://github.com/storybookjs/storybook/issues/9005
+    .replace(
+      /\[(.+)]\(CONTRIBUTING\.md\)/g,
+      '<a href="../?path=/story/contributing--page">$1</a>'
+    )}
+</Description>

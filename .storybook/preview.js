@@ -1,6 +1,7 @@
 import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { withTheme } from './theme-decorator';
 import tokens from '../src/compiled/tokens/js/tokens';
 import 'focus-visible';
 import '../src/index-with-dependencies.scss';
@@ -37,10 +38,6 @@ const breakpointViewports = Object.keys(breakpoints).map((name) => {
 const htmlToReactParser = new Parser();
 
 export const parameters = {
-  // Theme selection from stories
-  themes: [
-    { name: 'Dark', class: 't-dark', color: tokens.color.brand.primary.value },
-  ],
   options: {
     storySort: {
       method: 'alphabetical',
@@ -75,4 +72,23 @@ export const parameters = {
   paddings,
 };
 
-export const decorators = [withPaddings];
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    toolbar: {
+      icon: 'paintbrush',
+      items: [
+        {
+          title: 'No theme',
+        },
+        {
+          value: 't-dark',
+          title: 'Dark',
+        },
+      ],
+    },
+  },
+};
+
+export const decorators = [withPaddings, withTheme];

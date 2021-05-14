@@ -38,11 +38,12 @@ export const withTheme = (story, context) => {
       updateTheme(document.documentElement, theme);
     });
   } else if (context.viewMode === 'docs') {
-    // In docs view, theme the nearest story preview
-    const storyElementQuery = `#story--${context.id}`;
     useEffect(() => {
+      // Remove any existing theme classes from the root element
+      updateTheme(document.documentElement);
+      // Query for the most appropriate story preview element
       const previewElement = document
-        .querySelector(storyElementQuery)
+        .querySelector(`#story--${context.id}`)
         .closest('.docs-story');
       updateTheme(previewElement, theme);
     });

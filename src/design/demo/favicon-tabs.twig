@@ -1,0 +1,15 @@
+<ul class="demo-favicon-tabs">
+  {% for i in 1..2 %}
+    <li>
+      {% if dev %}
+        {% include '@cloudfour/assets/favicons/icon-dev.svg.twig' %}
+      {% else %}
+        {% include '@cloudfour/assets/favicons/icon.svg.twig' %}
+      {% endif %}
+      Cloud Four
+      {% if dev %}
+        (Dev)
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,23 @@
+<ul class="demo-favicon-apps">
+  {% if platform == 'apple' %}
+    <li class="demo-favicon-app">
+      <svg viewBox="0 0 180 180" width="44" height="44">
+        <image href="/favicons/apple-touch-icon.png"/>
+      </svg>
+      <span>Cloud Four</span>
+    </li>
+  {% else %}
+    <li class="demo-favicon-app">
+      <svg viewBox="0 0 192 192" width="48" height="48">
+        <image href="/favicons/icon-192.png"/>
+      </svg>
+      <span>Cloud Four</span>
+    </li>
+    <li class="demo-favicon-app demo-favicon-app--circle">
+      <svg viewBox="0 0 192 192" width="48" height="48">
+        <image href="/favicons/icon-192.png"/>
+      </svg>
+      <span>Cloud Four</span>
+    </li>
+  {% endif %}
+</ul>

@@ -113,8 +113,8 @@
   },
   "scripts": {
     "storybook": "npm run preprocess && run-p watch start-storybook",
-    "start-storybook": "start-storybook -p 6006 -s static",
-    "build-storybook": "npm run preprocess && build-storybook -s static",
+    "start-storybook": "start-storybook -p 6006 -s ./static,./src/assets",
+    "build-storybook": "npm run preprocess && build-storybook -s ./static,./src/assets",
     "preprocess": "run-p preprocess:*",
     "preprocess:svg-to-twig": "gulp svgToTwig",
     "preprocess:tokens": "node .style-dictionary/build.js",

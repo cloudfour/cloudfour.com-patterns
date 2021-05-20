@@ -7,6 +7,10 @@ import { useEffect } from '@storybook/client-api';
  * @param {string} [theme] - New theme to apply.
  */
 const updateTheme = (element, theme) => {
+  if (!element || !element.classList) {
+    return;
+  }
+
   const themes = [];
   element.classList.forEach((className) => {
     if (className.startsWith('t-') && className !== theme) {
@@ -41,11 +45,13 @@ export const withTheme = (story, context) => {
     useEffect(() => {
       // Remove any existing theme classes from the root element
       updateTheme(document.documentElement);
-      // Query for the most appropriate story preview element
-      const previewElement = document
-        .querySelector(`#story--${context.id}`)
-        .closest('.docs-story');
-      updateTheme(previewElement, theme);
+      // Query for the most appropriate story element
+      const storyElement = document.querySelector(`#story--${context.id}`);
+      // Only proceed if we actually found the relevant story.
+      if (storyElement) {
+        const previewElement = storyElement.closest('.docs-story');
+        updateTheme(previewElement, theme);
+      }
     });
   }
 

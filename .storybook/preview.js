@@ -80,6 +80,9 @@ export const globalTypes = {
       icon: 'paintbrush',
       items: [
         {
+          // 'null' value supports a "no value selected" state, if 'undefined'
+          // there are sometimes missing 'key' errors in console
+          value: null,
           title: 'No theme',
         },
         {

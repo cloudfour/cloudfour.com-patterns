@@ -1,0 +1,27 @@
+.demo-favicon-apps {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.demo-favicon-app {
+  flex: 1;
+  text-align: center;
+  user-select: none;
+
+  svg {
+    border-radius: 25%;
+    display: block;
+    margin: auto;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}
+
+.demo-favicon-app--circle svg {
+  border-radius: 50%;
+}

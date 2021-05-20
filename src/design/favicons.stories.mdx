@@ -1,0 +1,103 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import faviconApps from './demo/favicon-apps.twig';
+import faviconTabs from './demo/favicon-tabs.twig';
+import './demo/favicon-apps.scss';
+import './demo/favicon-tabs.scss';
+
+<Meta title="Design/Favicons" />
+
+# Favicons
+
+Our [favicons](https://en.wikipedia.org/wiki/Favicon) represent Cloud Four in browser tabs, bookmarks and home screens. Since 2021 we've followed [Andrey Sitnik's recommendation](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs) to focus on a handful of key files that cover most use cases.
+
+## Browser tabs
+
+`favicon.ico` is for older browsers. `icon.svg` is for newer browsers and is smaller in filesize. Both are sized at 32 square pixels for high-resolution displays, and both feature the same design with a white border so it will be visually offset in different themes and tab states.
+
+We also provide `favicon-dev.ico` and `favicon-dev.svg` to help differentiate tabs during development.
+
+<Canvas isColumn>
+  <Story
+    name="Favicons"
+    parameters={{
+      paddings: { disable: true },
+      docs: {
+        source: {
+          code: `<link rel="icon" href="path/to/favicon.ico" />
+<link rel="icon" href="path/to/icon.svg" type="image/svg+xml" />`,
+        },
+      },
+    }}
+  >
+    {faviconTabs}
+  </Story>
+  <Story
+    name="Favicons (Dev)"
+    parameters={{
+      paddings: { disable: true },
+      docs: {
+        source: {
+          code: `<link rel="icon" href="path/to/favicon-dev.ico" />
+<link rel="icon" href="path/to/icon-dev.svg" type="image/svg+xml" />`,
+        },
+      },
+    }}
+  >
+    {faviconTabs({ dev: true })}
+  </Story>
+</Canvas>
+
+Because `favicon.ico` was historically located at the root of the web server, it's best to make it accessible there (either directly or through a redirect) to satisfy tools like RSS readers and social media apps that may look for it there.
+
+## Android
+
+`icon-192.png` and `icon-512.png` are intended for Android. The logo has been sized so that it may be [maskable](https://css-tricks.com/maskable-icons-android-adaptive-icons-for-your-pwa/) where supported. These must be configured via a [web app manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest).
+
+<Canvas>
+  <Story
+    name="Android"
+    parameters={{
+      docs: {
+        source: {
+          code: `{
+  "icons": [
+    {
+      "src": "path/to/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable",
+    },
+    {
+      "src": "path/to/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable",
+    },
+  ]
+}`,
+        },
+      },
+    }}
+  >
+    {faviconApps}
+  </Story>
+</Canvas>
+
+## Apple
+
+Our logo is sized a little larger for iOS/macOS to match the conventions of that platform. Only a single 180-pixel image (`apple-touch-icon.png`) is necessary.
+
+<Canvas>
+  <Story
+    name="Apple"
+    parameters={{
+      docs: {
+        source: {
+          code: `<link rel="apple-touch-icon" href="path/to/apple-touch-icon.png">`,
+        },
+      },
+    }}
+  >
+    {faviconApps({ platform: 'apple' })}
+  </Story>
+</Canvas>

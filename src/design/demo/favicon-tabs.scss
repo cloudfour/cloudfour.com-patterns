@@ -1,0 +1,46 @@
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/size';
+
+.demo-favicon-tabs {
+  background: color.$base-gray-dark;
+  color: color.$text-light;
+  cursor: default;
+  display: flex;
+  font-size: 13px;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding: 4px;
+  padding-bottom: 0;
+  user-select: none;
+  white-space: nowrap;
+
+  li {
+    align-items: center;
+    border-top-left-radius: size.$border-radius-medium;
+    border-top-right-radius: size.$border-radius-medium;
+    display: flex;
+    flex: 1;
+    height: 36px;
+    max-width: 220px;
+    padding: 0 12px;
+  }
+
+  li:last-child {
+    background-color: color.$base-white;
+    color: color.$text-dark;
+  }
+
+  li:last-child::after {
+    content: '×';
+    font-size: 24px;
+    margin-left: auto;
+  }
+
+  svg {
+    flex: none;
+    height: 16px;
+    margin-right: 8px;
+    width: 16px;
+  }
+}

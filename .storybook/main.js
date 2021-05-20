@@ -1,4 +1,4 @@
-const { resolve, join } = require('path');
+const { join } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {
   twingLoader,
@@ -23,6 +23,12 @@ module.exports = {
     'storybook-addon-paddings',
     '@whitespace/storybook-addon-html',
   ],
+  managerHead: (head) => {
+    const iconSuffix = process.env.NODE_ENV === 'development' ? '-dev' : '';
+    return `${head}
+      <link rel="icon" href="favicons/favicon${iconSuffix}.ico" />
+      <link rel="icon" href="favicons/icon${iconSuffix}.svg" type="image/svg+xml" />`;
+  },
   webpackFinal: async (config) => {
     const isDev = config.mode === 'development';
 

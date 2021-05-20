@@ -39,12 +39,12 @@ export const withTheme = (story, context) => {
   if (context.viewMode === 'story') {
     // In canvas view, theme the root HTML element
     useEffect(() => {
-      updateTheme(document.documentElement, theme);
+      updateTheme(document.body, theme);
     });
   } else if (context.viewMode === 'docs') {
     useEffect(() => {
       // Remove any existing theme classes from the root element
-      updateTheme(document.documentElement);
+      updateTheme(document.body);
       // Query for the most appropriate story element
       const storyElement = document.querySelector(`#story--${context.id}`);
       // Only proceed if we actually found the relevant story.

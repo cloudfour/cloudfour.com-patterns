@@ -1,3 +1,18 @@
+@use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../mixins/ms";
+
+:root {
+  --timestamp-color: #485968;
+  --reply-link: #215cca;
+  --speech-balloon: url(../images/speech-balloon.svg);
+}
+
+.t-dark {
+  --timestamp-color: #F2F5F7;
+  --reply-link: #fff;
+  --speech-balloon: url(../images/speech-balloon-dark.svg);
+}
+
 #prototype-thread {
 
   .grid {
@@ -68,7 +83,7 @@
   .timestamp {
     padding-top: 1rem;
     display: flex;
-    color: #485968;
+    color: var(--timestamp-color);
     justify-content: space-between;
     width: 9rem;
   }
@@ -77,12 +92,16 @@
     display: flex;
     font-weight: 600;
     align-items: center;
-    color: #215cca;
+    color: var(--reply-link);
     text-decoration: none;
 
-    svg {
+    .reply-icon {
       margin-right: .25em;
       width: 1em;
+      height: 1em;
+      background-image: var(--speech-balloon);
+      background-size: contain;
+      background-repeat: no-repeat;
       @media only screen and (min-width: 60em) {
         margin-bottom: .1em;
       }

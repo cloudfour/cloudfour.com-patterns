@@ -29,6 +29,12 @@ const updateTheme = (element, theme) => {
 
 /**
  * Adds theme class to containing story elements.
+ *
+ * This unfortunately does not work with non-inline stories in Docs view due to
+ * some open Storybook issues, specifically
+ * {@link https://github.com/storybookjs/storybook/issues/14477|#14477} and
+ * {@link https://github.com/storybookjs/storybook/issues/13444|#13444}.
+ *
  * @param {function} story
  * @param {object} context
  * @returns {*} Result of story function.

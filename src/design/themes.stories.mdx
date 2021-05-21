@@ -13,7 +13,11 @@ Themes may be applied to a containing element to change that content's appearanc
 The default theme, applied to the document `:root` by default.
 
 <Canvas>
-  <Story name="Light" args={{ theme: 'light' }}>
+  <Story
+    name="Light"
+    parameters={{ theme: 't-light' }}
+    args={{ theme: 'light' }}
+  >
     {demoStory.bind({})}
   </Story>
 </Canvas>

@@ -1,0 +1,149 @@
+#prototype-thread {
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 5;
+    grid-gap: 2em;
+  }
+
+  h2 {
+    font-weight: 600;
+
+    @media (min-width: 40em) {
+    font-size: 1.25em;
+    }
+  }
+
+  .first-comment {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    position: relative;
+
+    .thread-line {
+      width: 2.5px;
+      height: 88%;
+      background-color: #c0cfd8;
+      position: absolute;
+      left: 16px;
+      top: 38px;
+      border-radius: 99em;
+
+      @media only screen and (min-width: 40em) {
+        height: 88%;
+        left: 17px;
+        top: 40px;
+      }
+
+      @media only screen and (min-width: 60em) {
+        height: 86%;
+        left: 24px;
+        top: 56px;
+      }
+    }
+  }
+
+  .name {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .avatar {
+    width: 2em;
+    height: 2em;
+    background-color: mistyrose;
+    border-radius: 99em;
+
+    @media only screen and (min-width: 60em) {
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+
+  .username {
+    margin-left: 1rem;
+  }
+
+  .timestamp {
+    padding-top: 1rem;
+    display: flex;
+    color: #485968;
+    justify-content: space-between;
+    width: 9rem;
+  }
+
+  .reply {
+    display: flex;
+    font-weight: 600;
+    align-items: center;
+    color: #215cca;
+    text-decoration: none;
+
+    svg {
+      margin-right: .25em;
+      width: 1em;
+      @media only screen and (min-width: 60em) {
+        margin-bottom: .1em;
+      }
+    }
+  }
+
+  .comment-content {
+    margin-left: 3.15em;
+
+    @media only screen and (min-width: 60em) {
+      margin-left: 3.55em;
+    }
+  }
+
+  .avatar-username {
+    display: flex;
+    align-items: center;
+    width: 15em;
+    padding-top: 2em;
+    margin-left: 2.5em;
+  }
+
+  .threaded-comment {
+    svg {
+      margin-left: .5em;
+      width: 1.25em;
+      @media only screen and (min-width: 60em) {
+        // width: 1.5em;
+      }
+    }
+  }
+
+  .threaded-avatar {
+    width: 2em;
+    height: 2em;
+    background-color: sienna;
+    border-radius: 99em;
+    position: relative;
+    @media only screen and (min-width: 60em) {
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+
+  .threaded-comment-content {
+    margin-left: 5.5em;
+    @media only screen and (min-width: 60em) {
+      margin-left: 6.1em;
+    }
+  }
+
+  .second-comment {
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+    .avatar {
+      background-color: steelblue;
+    }
+
+    .timestamp {
+      width: 100%;
+    }
+  }
+}

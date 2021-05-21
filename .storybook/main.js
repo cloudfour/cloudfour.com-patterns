@@ -19,7 +19,6 @@ module.exports = {
     },
     '@storybook/addon-a11y',
     'storybook-mobile',
-    'storybook-addon-themes',
     'storybook-addon-paddings',
     '@whitespace/storybook-addon-html',
   ],

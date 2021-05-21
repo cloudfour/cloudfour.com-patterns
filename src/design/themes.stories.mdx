@@ -2,17 +2,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import demo from './demo/theme.twig';
 const demoStory = (args) => demo(args);
 
-<Meta
-  title="Design/Themes"
-  parameters={{ themes: { disable: true }, paddings: { disabled: true } }}
-  argTypes={{
-    theme: {
-      type: { name: 'string' },
-      control: { type: 'inline-radio', options: ['light', 'dark'] },
-      defaultValue: 'light',
-    },
-  }}
-/>
+<Meta title="Design/Themes" />
 
 # Themes
 
@@ -23,7 +13,13 @@ Themes may be applied to a containing element to change that content's appearanc
 The default theme, applied to the document `:root` by default.
 
 <Canvas>
-  <Story name="Light">{demoStory.bind({})}</Story>
+  <Story
+    name="Light"
+    parameters={{ theme: 't-light' }}
+    args={{ theme: 'light' }}
+  >
+    {demoStory.bind({})}
+  </Story>
 </Canvas>
 
 ## Dark
@@ -31,7 +27,7 @@ The default theme, applied to the document `:root` by default.
 Optimized for page intros and headings.
 
 <Canvas>
-  <Story name="Dark" args={{ theme: 'dark' }}>
+  <Story name="Dark" parameters={{ theme: 't-dark' }} args={{ theme: 'dark' }}>
     {demoStory.bind({})}
   </Story>
 </Canvas>

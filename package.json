@@ -95,7 +95,6 @@
     "sass": "1.32.13",
     "sass-loader": "10.1.1",
     "storybook-addon-paddings": "4.0.0",
-    "storybook-addon-themes": "6.1.0",
     "storybook-mobile": "0.1.31",
     "style-dictionary": "2.10.3",
     "style-loader": "2.0.0",

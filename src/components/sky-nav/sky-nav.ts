@@ -21,10 +21,11 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
    * Update Menu Layout
    * Sets visibility of menu & navButton for small vs large screen layouts.
    */
-  const update = (isLargeScreen: boolean) => {
+  const update = () => {
+    const isLargeScreen = largeScreenMediaQuery.matches;
     if (isLargeScreen) {
       navButton.removeAttribute('aria-expanded');
-      menu.removeAttribute('hidden');
+      menu.hidden = false;
     } else {
       navButton.setAttribute('aria-expanded', 'false');
       menu.hidden = true;
@@ -36,32 +37,25 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
    * Sets aria-expanded & hidden attributes to show or hide the menu.
    */
   const toggle = () => {
-    const isExpanded =
-      navButton.getAttribute('aria-expanded') === 'true' || false;
+    const isExpanded = navButton.getAttribute('aria-expanded') === 'true';
 
     navButton.setAttribute('aria-expanded', String(!isExpanded));
     menu.hidden = isExpanded;
   };
 
-  /**
-   * Destroy Menu
-   * As part of the public API, allow users to remove the event listener
-   */
-  const destroy = () => navButton.removeEventListener('click', toggle);
-
-  // Initialize the navButton with toggle behavior
   navButton.addEventListener('click', toggle);
-
   // Run the update method when the media query status changes
-  largeScreenMediaQuery.addListener((event) => {
-    update(event.matches);
-  });
+  largeScreenMediaQuery.addEventListener('change', update);
 
   // Run the update method once to set the initial layout correctly
-  update(largeScreenMediaQuery.matches);
+  update();
+
+  /** Clean up event listeners */
+  const destroy = () => {
+    navButton.removeEventListener('click', toggle);
+    largeScreenMediaQuery.removeEventListener('change', update);
+  };
 
   // Return a public API for consumers of this component
-  return {
-    destroy,
-  };
+  return { destroy };
 };

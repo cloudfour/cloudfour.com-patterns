@@ -13,7 +13,7 @@ import tokens from '../../compiled/tokens/js/tokens';
  */
 export const initSkyNav = (navButton: HTMLButtonElement) => {
   const menu = navButton.nextElementSibling as HTMLElement;
-  const navWrapper = navButton.closest('.c-sky-nav') as HTMLElement; // Review: should this use a .js- class or some different selector?
+  const navWrapper = navButton.closest('.js-sky-nav') as HTMLElement;
   const largeScreenMediaQuery = window.matchMedia(
     `(min-width: ${tokens.size.breakpoint.m.value})`
   );

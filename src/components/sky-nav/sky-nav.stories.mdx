@@ -74,7 +74,7 @@ But it works without a theme, too, just in case:
 
 ## Elements
 
-- `c-sky-nav`: A containing `<div>` element.
+- `c-sky-nav`: A containing `<div>` element. This element should also have the `js-sky-nav` class, which is used for the open/close animation. The animation uses it to figure out which elements below the containing element need to be pushed up or down.
 - `c-sky-nav__skip`: A link to the main content area, visibly hidden until focus. Works great with [our `c-button` pattern](/?path=/docs/components-button--elements).
 - `c-sky-nav__content`: A `<header>` element representing the actual menu contents.
 - `c-sky-nav__masthead`: Containing element for the logo and menu toggle.

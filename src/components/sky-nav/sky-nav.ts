@@ -61,8 +61,8 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       elementsToShift.push(sibling);
     }
 
-    const duration = 0.5;
-    const transition = `transform ${duration}s ease-in-out`;
+    const duration = Number.parseFloat(tokens.time.transition.slow.value);
+    const transition = `transform ${duration}s ${tokens.ease.in_out.value}`;
     clearTimeout(timeoutId);
 
     menu.hidden = false;

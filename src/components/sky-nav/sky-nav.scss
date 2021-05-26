@@ -46,6 +46,18 @@ $_max-width: #{unit.strip(size.$max-width-spread) +
 $_masthead-height-sm: ms.step(7);
 
 /**
+ * On small screens the body transitions up and down when the menu opens
+ */
+body {
+  @media (max-width: $_breakpoint-narrow-max) {
+
+    // !important is required to override a Storybook transform.
+    // Is there a way to turn off that transform?
+    transition: transform transition.$slow ease.$in-out !important;
+  }
+}
+
+/**
  * 1. Allow child elements to position themselves relative to the container.
  */
 .c-sky-nav {
@@ -252,27 +264,6 @@ $_masthead-height-sm: ms.step(7);
 .c-sky-nav__menu {
   flex: 1; /* 1 */
 
-  /**
-   * When these links are displayed as a stack and the dark theme is applied,
-   * darken the background as if you're looking deeper into the sky up toward
-   * spaaaaaaaaaaaace 🚀
-   *
-   * Fun fact: An earlier version of this design included twinkling stars,
-   * but they significantly decreased performance! They also made the text a
-   * little harder to read.
-   *
-   * @todo Decide if supporting themes for SkyNav is even necessary and, if so,
-   * try to make this work via custom properties.
-   */
-  @include theme.styles(dark) {
-    @media (max-width: $_breakpoint-narrow-max) {
-      background-image: linear-gradient(
-        to bottom,
-        color.$brand-primary-dark,
-        sass-color.change(color.$brand-primary-dark, $alpha: 0)
-      );
-    }
-  }
 
   /**
    * Once the items are arranged horizontally, we want the links therein to
@@ -315,12 +306,39 @@ $_masthead-height-sm: ms.step(7);
  *
  * 1. Override list defaults. To avoid issues in Safari/VoiceOver, be sure to
  *    include `role="list"` on the element itself!
+ * 2. Position the menu off-screen for our animation
  *
  * @see https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
  */
 .c-sky-nav__menu-items {
+  bottom: 100%; /* 2 */
+  left: 0; /* 2 */
   list-style: none; /* 1 */
   padding-left: 0; /* 1 */
+  position: absolute; /* 2 */
+  right: 0; /* 2 */
+
+  /**
+   * When these links are displayed as a stack and the dark theme is applied,
+   * darken the background as if you're looking deeper into the sky up toward
+   * spaaaaaaaaaaaace 🚀
+   *
+   * Fun fact: An earlier version of this design included twinkling stars,
+   * but they significantly decreased performance! They also made the text a
+   * little harder to read.
+   *
+   * @todo Decide if supporting themes for SkyNav is even necessary and, if so,
+   * try to make this work via custom properties.
+   */
+  @include theme.styles(dark) {
+    @media (max-width: $_breakpoint-narrow-max) {
+      background-image: linear-gradient(
+        to bottom,
+        color.$brand-primary-dark,
+        color.$brand-primary
+      );
+    }
+  }
 
   /**
    * When the layout is wide enough to expose these items…
@@ -329,11 +347,14 @@ $_masthead-height-sm: ms.step(7);
    * 2. Fill the available space, even if it isn't necessary for the content.
    * 3. If the content wraps or for some reason is not all the way filled, we
    *    should right-align it.
+   * 4. Reset position
    */
   @media (min-width: $_breakpoint-wide) {
+    bottom: auto; /* 4 */
     display: flex; /* 1 */
     flex: 1; /* 2 */
     justify-content: flex-end; /* 3 */
+    position: relative; /* 4 */
   }
 
   /**

@@ -30,6 +30,7 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
     if (isLargeScreen) {
       navButton.removeAttribute('aria-expanded');
       menu.hidden = false;
+      document.body.style.transform = '';
     } else {
       navButton.setAttribute('aria-expanded', 'false');
       menu.hidden = true;
@@ -52,52 +53,22 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       return;
     }
 
-    // We need to keep track of the siblings after the menu,
-    // because we will push them down for the animation
-    const elementsToShift: HTMLElement[] = [navWrapper];
-    let sibling: HTMLElement | null = navWrapper;
-    // eslint-disable-next-line no-unmodified-loop-condition
-    while ((sibling = sibling.nextElementSibling as HTMLElement | null)) {
-      elementsToShift.push(sibling);
-    }
+    // TODO: Design token
+    const duration = 400;
 
-    const duration = 0.5;
-    const transition = `transform ${duration}s ease-in-out`;
     clearTimeout(timeoutId);
 
     menu.hidden = false;
     const heightDiff = menu.getBoundingClientRect().height;
     if (isExpanded) {
-      // Closing menu: slide the elements up before hiding the menu
-      for (const el of elementsToShift) {
-        el.style.transition = transition;
-        el.style.transform = `translateY(${-heightDiff}px)`;
-      }
+      document.body.style.transform = '';
 
       timeoutId = setTimeout(() => {
         menu.hidden = true;
-        for (const el of elementsToShift) {
-          el.style.transition = '';
-          el.style.transform = '';
-        }
-      }, duration * 1000) as any as number;
-    } else {
-      // Opening menu: start the elements higher than their "resting position" and then slide them down
-      for (const el of elementsToShift)
-        el.style.transform = `translateY(${-heightDiff}px)`;
 
-      // Flush changes to the DOM
-      // eslint-disable-next-line @cloudfour/typescript-eslint/no-unused-expressions, mdx/no-unused-expressions
-      navWrapper.offsetWidth;
-      for (const el of elementsToShift) {
-        el.style.transition = transition;
-        el.style.transform = '';
-      }
-      timeoutId = setTimeout(() => {
-        for (const el of elementsToShift) {
-          el.style.transition = '';
-        }
-      }, duration * 1000) as any as number;
+      }, duration) as any as number;
+    } else {
+      document.body.style.transform = `translateY(${heightDiff}px)`;
     }
   };
 

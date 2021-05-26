@@ -38,8 +38,10 @@ The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--d
   >
     {() => {
       useEffect(() => {
-        const {destroy} =initSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
-        return destroy
+        const { destroy } = initSkyNav(
+          document.querySelector('.js-sky-nav-menu-toggle')
+        );
+        return destroy;
       }, []);
       return template({ class: 't-dark', include_main_demo: true, menu });
     }}
@@ -60,8 +62,10 @@ But it works without a theme, too, just in case:
   >
     {() => {
       useEffect(() => {
-        const {destroy} =initSkyNav(document.querySelector('.js-sky-nav-menu-toggle'));
-        return destroy
+        const { destroy } = initSkyNav(
+          document.querySelector('.js-sky-nav-menu-toggle')
+        );
+        return destroy;
       }, []);
       return template({ include_main_demo: true, menu });
     }}

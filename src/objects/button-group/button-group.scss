@@ -1,0 +1,74 @@
+@use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/size";
+@use '../../mixins/fluid';
+@use '../../mixins/media-query';
+
+/**
+ * 1. If horizontal items are shown at the wrong column count, they will appear
+ *    to break the grid. This rule keeps items densely packed so it will always
+ *    appear visually correct.
+ *
+ * @todo Use progressive enhancement so older browsers get a minimal fallback.
+ */
+
+.o-button-group {
+  display: block;
+  // grid-auto-flow: dense; /* 1 */
+  // @include fluid.grid-gap(
+  //   breakpoint.$s,
+  //   breakpoint.$xl,
+  //   size.$spacing-gap-fluid-min,
+  //   size.$spacing-gap-fluid-max
+  // );
+
+  /**
+  * We define a media query for our initial grid so child elements will flex
+  * for viewports smaller than our minimum column size.
+  *
+  * Our use of `auto-fit` means columns will be automatically created as space
+  * allows.
+  */
+
+  // @media (width >= breakpoint.$xs) {
+  //   grid-template-columns: repeat(
+  //     auto-fit,
+  //     minmax(#{size.$width-card-column-min}, 1fr)
+  //   );
+  // }
+}
+
+// .o-button-group__list,
+.o-button-group > ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+// .o-button-group__list-item,
+.o-button-group > ul > li {
+  // box-sizing: border-box;
+  // flex-shrink: 0;
+  // max-width: 100%;
+  padding: 0.5rem;
+}
+
+.o-button-group--tight > ul > li {
+  padding: 0.25rem;
+}
+
+/**
+ * Responsive column count modifiers
+ *
+ * These modifier classes specify a hard-set column count at a particular
+ * breakpoint. This may be used to limit the column count to a particular
+ * maximum or to coordinate with adjacent elements.
+ */
+
+// @for $i from 2 through 3 {
+//   .o-deck--#{$i}-column {
+//     @include media-query.breakpoint-classes($from: s, $to: xl) {
+//       grid-template-columns: repeat(#{$i}, 1fr);
+//     }
+//   }
+// }

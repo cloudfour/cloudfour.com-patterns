@@ -41,7 +41,7 @@ const megan = {
 
 # Author
 
-Something something something
+Displays an author, or set of authors, for article bylines.
 
 <Canvas>
   <Story name="Default" args={{}}>
@@ -53,3 +53,18 @@ Something something something
     }
   </Story>
 </Canvas>
+
+## Template Properties
+
+- `class`: Append a class to the root element.
+- `authors`: Array of objects of the type:
+
+  ```ts
+  {
+    firstName: string;
+    lastName: string;
+    avatarOverride: string;
+    link: () => string;
+  }
+  ```
+- `date`: A date object representing the publication date

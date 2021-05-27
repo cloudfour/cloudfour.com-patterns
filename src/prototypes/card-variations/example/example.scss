@@ -1,0 +1,59 @@
+#card-variations {
+  .wrapper-container {
+    padding: 1rem;
+  }
+
+  .o-media {
+    margin: 1rem 0;
+    // padding: 2rem 1rem;
+    border-radius: 0.25em;
+  }
+
+  .light {
+    .card-one {
+      background-color: #F2F5F7;
+    }
+
+    .card-two {
+      display: flex;
+      flex-direction: column;
+      // border: 1px solid #215cca;
+      .footer {
+        width: 100%;
+        padding: .5rem 1rem;
+        border-bottom-left-radius: 0.25em;
+        border-bottom-right-radius: 0.25em;
+      }
+    }
+
+    .test {
+      display: flex;
+      padding: 2rem 1rem;
+    }
+  }
+
+  .t-dark {
+    .card-one {
+      background-color: #8abfff;
+    }
+
+    .card-two {
+      display: flex;
+      flex-direction: column;
+      // border: 1px solid #215cca;
+    }
+
+    .test {
+      display: flex;
+      padding: 2rem 1rem;
+    }
+
+    .footer {
+      width: 100%;
+      padding: .5rem 1rem;
+      background-color: #F2F5F7;
+      border-bottom-left-radius: 0.25em;
+      border-bottom-right-radius: 0.25em;
+    }
+  }
+}

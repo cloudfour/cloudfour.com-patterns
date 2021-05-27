@@ -1,0 +1,55 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import template from './author.twig';
+import gerardoImage from './demo/gerardo.png';
+import tylerImage from './demo/tyler.png';
+import meganImage from './demo/megan.png';
+const gerardo = {
+  firstName: 'Gerardo',
+  lastName: 'Rodriguez',
+  avatarOverride: gerardoImage,
+  link: () => 'https://cloudfour.com/is/gerardo',
+};
+const tyler = {
+  firstName: 'Tyler',
+  lastName: 'Sticka',
+  avatarOverride: tylerImage,
+  link: () => 'https://cloudfour.com/is/tyler',
+};
+const megan = {
+  firstName: 'Megan',
+  lastName: 'Notarte',
+  avatarOverride: meganImage,
+  link: () => 'https://cloudfour.com/is/megnotarte',
+};
+
+<Meta
+  title="Components/Author"
+  argTypes={{
+    count: {
+      type: 'number',
+      defaultValue: 2,
+      description: 'Number of authors to show',
+      control: {
+        type: 'range',
+        min: 1,
+        max: 3,
+        step: 1,
+      },
+    },
+  }}
+/>
+
+# Author
+
+Something something something
+
+<Canvas>
+  <Story name="Default" args={{}}>
+    {(args) =>
+      template({
+        authors: [gerardo, tyler, megan].slice(0, args.count),
+        date: new Date('March 31, 2021'),
+      })
+    }
+  </Story>
+</Canvas>

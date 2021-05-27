@@ -37,24 +37,38 @@
   // }
 }
 
+.o-button-group > * {
+  box-sizing: border-box;
+}
+
+/**
+ * Override browser defaults. Note that this means it's very important to
+ * include `[role="list"]` to prevent disruption of list navigation in Safari
+ * VoiceOver.
+ *
+ * @see https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+ */
+
 // .o-button-group__list,
 .o-button-group > ul {
   display: flex;
-  list-style-type: none;
-  margin: 0;
+  // flex-wrap: wrap;
+  list-style: none;
+  margin-left: size.$spacing-list-inline-gap / -2;
+  margin-right: size.$spacing-list-inline-gap / -2;
   padding: 0;
 }
 
 // .o-button-group__list-item,
 .o-button-group > ul > li {
-  // box-sizing: border-box;
-  // flex-shrink: 0;
-  // max-width: 100%;
-  padding: 0.5rem;
+  flex-shrink: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .o-button-group--tight > ul > li {
-  padding: 0.25rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 /**

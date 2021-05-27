@@ -1,8 +1,10 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 // Import articles from './demo/articles.json';
-// import articlesDemo from './demo/articles.twig';
+import basicDemo from './demo/basic.twig';
 import template from './button-group.twig';
-// Const articlesStory = (args) => articlesDemo({ items: articles, ...args });
+const basicDemoStory = (args) => {
+  return basicDemo({ ...args });
+};
 
 <Meta title="Objects/Button Group" />
 
@@ -14,48 +16,16 @@ The Button Group object pattern can be used for a collection of buttons.
 
 Add the `o-button-group` CSS class to the wrapper container.
 
-```html
-<div class="o-button-group">
-  <ul role="list">
-    <li>
-      <button class="c-button">Button 1</button>
-    </li>
-    <li>
-      <button class="c-button">Button 2</button>
-    </li>
-    <li>
-      <button class="c-button">Button 3</button>
-    </li>
-  </ul>
-</div>
-```
-
 <Canvas>
-  <Story name="Default">{(args) => template(args)}</Story>
+  <Story name="Default">{basicDemoStory.bind()}</Story>
 </Canvas>
 
 ## Tight spacing
 
 There is also a modifier, `o-button-group--tight`, to tighten up the spacing between the buttons.
 
-```html
-<div class="o-button-group o-button-group--tight">
-  <ul role="list">
-    <li>
-      <button class="c-button">Button 1</button>
-    </li>
-    <li>
-      <button class="c-button">Button 2</button>
-    </li>
-    <li>
-      <button class="c-button">Button 3</button>
-    </li>
-  </ul>
-</div>
-```
-
 <Canvas>
   <Story name="Tight" args={{ class: 'o-button-group--tight' }}>
-    {(args) => template(args)}
+    {basicDemoStory.bind()}
   </Story>
 </Canvas>

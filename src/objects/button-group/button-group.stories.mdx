@@ -10,7 +10,9 @@ The Button Group object pattern can be used for a collection of buttons.
 
 ## Default spacing
 
-Add the `o-button-group` CSS class to the wrapper container.
+Wrap a `ul` list of Button components with the Button Group component.
+
+> Important: Make sure to add `role="list"` to the `<ul>` element.
 
 <Canvas>
   <Story name="Default">{(args) => basicDemo({ ...args })}</Story>

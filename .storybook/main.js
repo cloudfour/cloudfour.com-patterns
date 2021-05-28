@@ -21,6 +21,7 @@ module.exports = {
     'storybook-mobile',
     'storybook-addon-paddings',
     '@whitespace/storybook-addon-html',
+    '@storybook/addon-postcss',
   ],
   managerHead: (head) => {
     const iconSuffix = process.env.NODE_ENV === 'development' ? '-dev' : '';

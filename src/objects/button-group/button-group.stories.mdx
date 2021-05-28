@@ -34,6 +34,15 @@ The Button Group layout object can be used for aligning a group of related butto
 
 ## Default
 
+```php
+{% embed '@cloudfour/objects/button-group/button-group.twig' %}
+  {% block content %}
+    {% include '@cloudfour/components/button/button.twig' with { label: 'Button 1' } %}
+    {% include '@cloudfour/components/button/button.twig' with { label: 'Button 2' } %}
+  {% endblock %}
+{% endembed %}
+```
+
 <Canvas>
   <Story name="Default">{(args) => demo({ ...args })}</Story>
 </Canvas>

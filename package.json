@@ -53,6 +53,7 @@
     "@rollup/plugin-node-resolve": "11.2.1",
     "@storybook/addon-a11y": "6.2.9",
     "@storybook/addon-essentials": "6.2.9",
+    "@storybook/addon-postcss": "2.0.0",
     "@storybook/html": "6.2.9",
     "@svgr/webpack": "5.5.0",
     "@types/jest": "26.0.23",

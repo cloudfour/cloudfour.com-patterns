@@ -1,0 +1,10 @@
+@use "../../compiled/tokens/scss/color";
+
+/**
+ * Container
+ */
+
+.c-author {
+  color: color.$base-gray-dark;
+}
+

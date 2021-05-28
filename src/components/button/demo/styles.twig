@@ -1,7 +1,11 @@
-{#
-  We could use `{% block content %}` but Twig.js complains when nested in
-  Storybook for some reason... 🤔
-#}
-{% include '@cloudfour/components/button/button.twig' with { label: 'Default' } %}
-{% include '@cloudfour/components/button/button.twig' with { label: 'Secondary', class: 'c-button--secondary' } %}
-{% include '@cloudfour/components/button/button.twig' with { label: 'Tertiary', class: 'c-button--tertiary' } %}
+{% embed '@cloudfour/objects/button-group/button-group.twig' with { tight: true } %}
+  {% block content %}
+    {#
+      We could use `{% block content %}` but Twig.js complains when nested in
+      Storybook for some reason... 🤔
+    #}
+    {% include '@cloudfour/components/button/button.twig' with { label: 'Default' } %}
+    {% include '@cloudfour/components/button/button.twig' with { label: 'Secondary', class: 'c-button--secondary' } %}
+    {% include '@cloudfour/components/button/button.twig' with { label: 'Tertiary', class: 'c-button--tertiary' } %}
+  {% endblock %}
+{% endembed %}

@@ -1,9 +1,19 @@
 {% embed '@cloudfour/objects/button-group/button-group.twig' %}
   {% block content %}
-    <button class="c-button">Button 1</button>
-    <button class="c-button">Button 2</button>
-    <button class="c-button">Button 3</button>
-    <button class="c-button">Button 4</button>
-    <button class="c-button">Button 5</button>
+    {% embed '@cloudfour/components/button/button.twig' %}
+      {% block content %}First Button{% endblock %}
+    {% endembed %}
+    {% embed '@cloudfour/components/button/button.twig' %}
+      {% block content %}Second Button{% endblock %}
+    {% endembed %}
+    {% embed '@cloudfour/components/button/button.twig' %}
+      {% block content %}Third Button{% endblock %}
+    {% endembed %}
+    {% embed '@cloudfour/components/button/button.twig' %}
+      {% block content %}Fourth Button{% endblock %}
+    {% endembed %}
+    {% embed '@cloudfour/components/button/button.twig' %}
+      {% block content %}Fifth Button{% endblock %}
+    {% endembed %}
   {% endblock %}
 {% endembed %}

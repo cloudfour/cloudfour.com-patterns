@@ -1,27 +1,11 @@
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/size";
 
-.o-button-group > * {
-  box-sizing: border-box;
-}
-
-/**
- * 1. Override browser defaults. Note that this means it's very important to
- * include `[role="list"]` to prevent disruption of list navigation in Safari
- * VoiceOver.
- *
- * @see https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
- */
-
-.o-button-group > ul {
+.o-button-group {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   justify-content: space-evenly;
-  list-style: none; /* 1 */
-  margin-left: size.$spacing-list-inline-gap / -2;
-  margin-right: size.$spacing-list-inline-gap / -2;
-  padding: 0;
 
   @media (min-width: breakpoint.$s) {
     flex-direction: row;
@@ -29,21 +13,21 @@
   }
 }
 
-.o-button-group > ul > li {
-  display: flex;
-  flex-grow: 1;
-}
-
 /**
- * 1. Targets the contents, allows for full width buttons
+ * 1. Allows buttons to be full width
  */
-.o-button-group > ul > li > * {
+.o-button-group > * {
   flex-grow: 1; /* 1 */
 }
 
 /**
- * Tight Modifier
+ * Tight spacing modifier
  */
-.o-button-group--tight > ul {
+.o-button-group--tight {
   gap: 1rem;
+}
+
+.o-button-group--no-stack {
+  flex-direction: row;
+  flex-wrap: wrap;
 }

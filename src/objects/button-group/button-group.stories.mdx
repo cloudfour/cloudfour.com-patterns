@@ -8,22 +8,28 @@ import demo from './demo/demo.twig';
 
 The Button Group object pattern can be used for a collection of buttons.
 
-## Default spacing
-
-Wrap a `ul` list of Button components with the Button Group component.
-
-> Important: Make sure to add `role="list"` to the `<ul>` element.
+## Default
 
 <Canvas>
   <Story name="Default">{(args) => demo({ ...args })}</Story>
 </Canvas>
 
-## Tight spacing
+## Tight spacing modifer
 
-There is also a modifier, `o-button-group--tight`, to tighten up the spacing between the buttons.
+The `o-button-group--tight` modifer will tighten up the spacing between the buttons.
 
 <Canvas>
-  <Story name="Tight" args={{ class: 'o-button-group--tight' }}>
+  <Story name="Tight Spacing" args={{ class: 'o-button-group--tight' }}>
+    {(args) => demo({ ...args })}
+  </Story>
+</Canvas>
+
+## No stack modifier
+
+The `o-button-group--no-stack` modifier will not stack the buttons vertically at smaller viewports (by default, buttons are stacked vertically at smaller viewports).
+
+<Canvas>
+  <Story name="No Stack" args={{ class: 'o-button-group--no-stack' }}>
     {(args) => demo({ ...args })}
   </Story>
 </Canvas>

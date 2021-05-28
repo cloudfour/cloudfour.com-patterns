@@ -1,7 +1,27 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import demo from './demo/demo.twig';
 
-<Meta title="Objects/Button Group" />
+<Meta
+  title="Objects/Button Group"
+  argTypes={{
+    tight: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+      description: 'Controls the tight-spacing modifier',
+    },
+    count: {
+      type: { name: 'number' },
+      defaultValue: 2,
+      description: 'Number of buttons to render',
+      control: {
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
+      },
+    },
+  }}
+/>
 
 # Button Group
 
@@ -15,21 +35,17 @@ The Button Group layout object can be used for aligning a group of related butto
 
 ## Tight spacing modifer
 
-The `o-button-group--tight` modifer will tighten up the spacing between the buttons.
+The Button Group has a tight-spacing modifier.
+You can apply it via the `tight` boolean argument:
+
+```php
+{% embed '@cloudfour/objects/button-group/button-group.twig' with { tight: true } %}
+  ...
+{% endembed %}
+```
 
 <Canvas>
-  <Story name="Tight Spacing" args={{ class: 'o-button-group--tight' }}>
-    {(args) => demo({ ...args })}
-  </Story>
-</Canvas>
-
-## No stack modifier
-
-By default buttons are stacked vertically at smaller viewports.
-The `o-button-group--no-stack` modifier will remove this behavior.
-
-<Canvas>
-  <Story name="No Stack" args={{ class: 'o-button-group--no-stack' }}>
+  <Story name="Tight Spacing" args={{ count: 5, tight: true }}>
     {(args) => demo({ ...args })}
   </Story>
 </Canvas>
@@ -38,3 +54,4 @@ The `o-button-group--no-stack` modifier will remove this behavior.
 
 - `class`: Append a class to the root element.
 - `content` (block): Block to add Button elements.
+- `tight` (boolean, default: `false`): Adds the `o-button-group--tight` CSS class modifier.

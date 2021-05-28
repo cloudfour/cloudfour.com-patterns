@@ -27,6 +27,11 @@
   gap: 1rem;
 }
 
+/**
+ * No stack modifer
+ * By default buttons are stacked vertically at smaller viewports.
+ * This modifer override that behavior.
+ */
 .o-button-group--no-stack {
   flex-direction: row;
   flex-wrap: wrap;

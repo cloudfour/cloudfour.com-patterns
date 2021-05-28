@@ -1,3 +1,14 @@
-<div class="o-button-group{% if class %} {{class}}{% endif %}">
+{# Will hold all the base CSS classes to add to the root element #}
+{% set baseCssClasses = ['o-button-group'] %}
+
+{# Tight modifier CSS class #}
+{% if tight %}
+  {% set baseCssClasses = baseCssClasses|merge(['o-button-group--tight']) %}
+{% endif %}
+
+{# Convert the CSS classes to a string #}
+{% set baseCssClasses = baseCssClasses|join(' ') %}
+
+<div class="{{ baseCssClasses }}{% if class %} {{ class }}{% endif %}">
   {% block content %}{% endblock %}
 </div>

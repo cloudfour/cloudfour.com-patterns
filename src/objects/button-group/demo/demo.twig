@@ -1,19 +1,9 @@
 {% embed '@cloudfour/objects/button-group/button-group.twig' %}
   {% block content %}
-    {% embed '@cloudfour/components/button/button.twig' %}
-      {% block content %}First Button{% endblock %}
-    {% endembed %}
-    {% embed '@cloudfour/components/button/button.twig' %}
-      {% block content %}Second Button{% endblock %}
-    {% endembed %}
-    {% embed '@cloudfour/components/button/button.twig' %}
-      {% block content %}Third Button{% endblock %}
-    {% endembed %}
-    {% embed '@cloudfour/components/button/button.twig' %}
-      {% block content %}Fourth Button{% endblock %}
-    {% endembed %}
-    {% embed '@cloudfour/components/button/button.twig' %}
-      {% block content %}Fifth Button{% endblock %}
-    {% endembed %}
+    {% for i in 1..buttonsToRender|default(2) %}
+      {% embed '@cloudfour/components/button/button.twig' %}
+        {% block content %}Button {{i}}{% endblock %}
+      {% endembed %}
+    {% endfor %}
   {% endblock %}
 {% endembed %}

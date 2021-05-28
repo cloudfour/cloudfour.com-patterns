@@ -6,12 +6,12 @@
   {% set baseCssClasses = baseCssClasses|merge(['o-button-group--tight']) %}
 {% endif %}
 
-{# Full width modifier CSS class #}
+{# Grow modifier CSS class #}
 {% if grow %}
   {% set baseCssClasses = baseCssClasses|merge(['o-button-group--grow']) %}
 {% endif %}
 
-{# Convert the CSS classes to a string #}
+{# Concatenate the base CSS classes #}
 {% set baseCssClasses = baseCssClasses|join(' ') %}
 
 <div class="{{ baseCssClasses }}{% if class %} {{ class }}{% endif %}">

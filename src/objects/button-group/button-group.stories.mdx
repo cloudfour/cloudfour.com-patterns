@@ -9,6 +9,11 @@ import demo from './demo/demo.twig';
       defaultValue: false,
       description: 'Controls the tight-spacing modifier',
     },
+    grow: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+      description: 'Controls the button full width modifier',
+    },
     count: {
       type: { name: 'number' },
       defaultValue: 2,
@@ -33,10 +38,9 @@ The Button Group layout object can be used for aligning a group of related butto
   <Story name="Default">{(args) => demo({ ...args })}</Story>
 </Canvas>
 
-## Tight spacing modifer
+## Tight modifer
 
-The Button Group has a tight-spacing modifier.
-You can apply it via the `tight` boolean argument:
+You can apply a tighter-spacing via the `tight` boolean argument:
 
 ```php
 {% embed '@cloudfour/objects/button-group/button-group.twig' with { tight: true } %}
@@ -45,7 +49,23 @@ You can apply it via the `tight` boolean argument:
 ```
 
 <Canvas>
-  <Story name="Tight Spacing" args={{ count: 5, tight: true }}>
+  <Story name="Tight" args={{ count: 5, tight: true }}>
+    {(args) => demo({ ...args })}
+  </Story>
+</Canvas>
+
+## Grow modifer
+
+You can have the buttons grow to fill their horizontal space via the `grow` boolean argument:
+
+```php
+{% embed '@cloudfour/objects/button-group/button-group.twig' with { grow: true } %}
+  ...
+{% endembed %}
+```
+
+<Canvas>
+  <Story name="Grow" args={{ count: 5, grow: true }}>
     {(args) => demo({ ...args })}
   </Story>
 </Canvas>
@@ -55,3 +75,4 @@ You can apply it via the `tight` boolean argument:
 - `class`: Append a class to the root element.
 - `content` (block): Block to add Button elements.
 - `tight` (boolean, default: `false`): Adds the `o-button-group--tight` CSS class modifier.
+- `grow` (boolean, default: `false`): Adds the `o-button-group--grow` CSS class modifier.

@@ -9,13 +9,6 @@
 }
 
 /**
- * 1. Allows buttons to be full width
- */
-.o-button-group > * {
-  flex-grow: 1; /* 1 */
-}
-
-/**
  * Tight spacing modifier
  */
 .o-button-group--tight {
@@ -23,11 +16,8 @@
 }
 
 /**
- * No stack modifer
- * By default buttons are stacked vertically at smaller viewports.
- * This modifer override that behavior.
+ * Full button width modifier
  */
-.o-button-group--no-stack {
-  flex-direction: row;
-  flex-wrap: wrap;
+.o-button-group--grow > * {
+  flex-grow: 1;
 }

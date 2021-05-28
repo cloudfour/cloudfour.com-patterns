@@ -4,7 +4,7 @@
 .o-button-group {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: size.$button-group-gap-default;
   justify-content: space-evenly;
 
   @media (min-width: breakpoint.$s) {
@@ -24,7 +24,7 @@
  * Tight spacing modifier
  */
 .o-button-group--tight {
-  gap: 1rem;
+  gap: size.$button-group-gap-tight;
 }
 
 /**

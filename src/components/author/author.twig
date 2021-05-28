@@ -10,7 +10,7 @@
     <div>
       {% for author in authors %}
         {% if loop.last and loop.length > 1 %}and {% endif %}
-        <a href="{{ author.link() }}">{{ author.firstName }} {{ author.lastName }}</a>
+        <a href="{{ author.link }}">{{ author.firstName }} {{ author.lastName }}</a>
         {%- if not loop.last and loop.length > 2 %},{% endif %}
       {% endfor %}
     </div>

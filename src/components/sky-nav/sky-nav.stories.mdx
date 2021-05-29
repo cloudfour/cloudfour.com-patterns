@@ -24,7 +24,7 @@ Our primary navigation component, intended for the very top of a page layout. It
 - In wider viewports, menu items are visible by default. They are displayed on multiple rows as needed.
 - At even wider viewports, the menu items are displayed in a single row.
 
-The Sky Nav is intended for use with our [our dark theme](/?path=/docs/themes--dark):
+The Sky Nav is intended for use with our [our dark theme](/docs/themes--dark):
 
 <Canvas>
   <Story
@@ -75,7 +75,7 @@ But it works without a theme, too, just in case:
 ## Elements
 
 - `c-sky-nav`: A containing `<div>` element. This element should also have the `js-sky-nav` class, which is used for the open/close animation. The animation uses it to figure out which elements below the containing element need to be pushed up or down.
-- `c-sky-nav__skip`: A link to the main content area, visibly hidden until focus. Works great with [our `c-button` pattern](/?path=/docs/components-button--elements).
+- `c-sky-nav__skip`: A link to the main content area, visibly hidden until focus. Works great with [our `c-button` pattern](/docs/components-button--elements).
 - `c-sky-nav__content`: A `<header>` element representing the actual menu contents.
 - `c-sky-nav__masthead`: Containing element for the logo and menu toggle.
 - `c-sky-nav__logo`: A link to the homepage containing our logo as an inline SVG.
@@ -94,7 +94,7 @@ As the primary navigation element for our site, it's imperative we think through
 
 - All interactive elements contain specially designed focus outlines. This is especially important since some browser's default outlines virtually disappear against our blue!
 - The "skip to main content" link precedes the header and navigation elements and can be used to skip them entirely. It is visually hidden until focus but always detectable by screen readers.
-- The logo link fallback text and `<nav>` heading are defined using [visually hidden](/?path=/docs/utilities-display--hidden-visually) elements rather than attributes to improve [compatibility with translation tools](https://heydonworks.com/article/aria-label-is-a-xenophobe/).
+- The logo link fallback text and `<nav>` heading are defined using [visually hidden](/docs/utilities-display--hidden-visually) elements rather than attributes to improve [compatibility with translation tools](https://heydonworks.com/article/aria-label-is-a-xenophobe/).
 - The logo SVG has its `focusable` attribute set to `false` to avoid [an IE issue with SVGs nested in focusable elements](http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4).
 - The list of menu items has a `role` attribute of `list` to avoid [an issue in Safari/VoiceOver](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html).
 - The current page action is identified using [the `aria-current` attribute](https://tink.uk/using-the-aria-current-attribute/).

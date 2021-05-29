@@ -1,17 +1,36 @@
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/size";
 
+/**
+ * Button Group layout object
+ * 1. Fallback for when Flexbox gap is not supported
+ */
 .o-button-group {
+  --gap: #{size.$button-group-gap-default};
+
   display: flex;
   flex-wrap: wrap;
-  gap: size.$button-group-gap-default;
+  margin: calc(var(--gap) / -2); /* 1 */
+
+  @supports (gap: 1em) {
+    gap: var(--gap);
+    margin: 0;
+  }
+
+  & > * {
+    margin: calc(var(--gap) / 2); /* 1 */
+
+    @supports (gap: 1em) {
+      margin: 0;
+    }
+  }
 }
 
 /**
  * Tight spacing modifier
  */
 .o-button-group--tight {
-  gap: size.$button-group-gap-tight;
+  --gap: #{size.$button-group-gap-tight};
 }
 
 /**

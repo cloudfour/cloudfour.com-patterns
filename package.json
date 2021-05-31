@@ -65,7 +65,7 @@
     "css-loader": "5.2.5",
     "cssnano": "4.1.11",
     "eliminate": "1.1.2",
-    "eslint": "7.26.0",
+    "eslint": "7.27.0",
     "eslint-plugin-mdx": "1.13.0",
     "eslint-plugin-react": "7.23.2",
     "gulp": "4.0.2",

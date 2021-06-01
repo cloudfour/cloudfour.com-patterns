@@ -4,22 +4,22 @@ import gerardoImage from './demo/gerardo.png';
 import tylerImage from './demo/tyler.png';
 import meganImage from './demo/megan.png';
 const gerardo = {
-  firstName: 'Gerardo',
-  lastName: 'Rodriguez',
-  avatarOverride: gerardoImage,
-  link: 'https://cloudfour.com/is/gerardo',
+  first_name: 'Gerardo',
+  last_name: 'Rodriguez',
+  avatar: () => gerardoImage,
+  link: () => 'https://cloudfour.com/is/gerardo',
 };
 const tyler = {
-  firstName: 'Tyler',
-  lastName: 'Sticka',
-  avatarOverride: tylerImage,
-  link: 'https://cloudfour.com/is/tyler',
+  first_name: 'Tyler',
+  last_name: 'Sticka',
+  avatar: () => tylerImage,
+  link: () => 'https://cloudfour.com/is/tyler',
 };
 const megan = {
-  firstName: 'Megan',
-  lastName: 'Notarte',
-  avatarOverride: meganImage,
-  link: 'https://cloudfour.com/is/megnotarte',
+  first_name: 'Megan',
+  last_name: 'Notarte',
+  avatar: () => meganImage,
+  link: () => 'https://cloudfour.com/is/megnotarte',
 };
 
 <Meta
@@ -57,14 +57,14 @@ Displays an author, or set of authors, for article bylines.
 ## Template Properties
 
 - `class`: Append a class to the root element.
-- `authors`: Array of objects of the type:
+- `authors`: Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
 
   ```ts
   {
-    firstName: string;
-    lastName: string;
-    avatarOverride: string;
-    link: string;
+    first_name: string;
+    last_name: string;
+    avatar: () => string;
+    link: () => string;
   }
   ```
 

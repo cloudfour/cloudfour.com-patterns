@@ -38,7 +38,7 @@
   --theme-color-text-base: #{color.$text-light};
   --theme-color-text-code: var(--theme-color-text-emphasis);
   --theme-color-text-emphasis: #{color.$text-light-emphasis};
-  --theme-color-text-muted: #{color.$base-white};
+  --theme-color-text-muted: inherit;
   --theme-opacity-del: 1;
 }
 

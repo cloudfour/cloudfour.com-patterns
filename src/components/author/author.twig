@@ -8,6 +8,7 @@
   {% endembed %}
   <div class="o-media__content">
     <div>
+      <span class="u-hidden-visually">Authored by</span>
       {% for author in authors %}
         {% if loop.last and loop.length > 1 %}and {% endif %}
         <a href="{{ author.link() }}">{{ author.name() }}</a>
@@ -15,6 +16,7 @@
       {% endfor %}
     </div>
     <div>
+      <span class="u-hidden-visually">Published on</span>
       <time datetime="{{ date | date("Y-m-d") }}">{{ date | date("F jS, Y") }}</time>
     </div>
   </div>

@@ -1,10 +1,10 @@
 import path from 'path';
-import type { ElementHandle, TestMuleUtils } from 'test-mule';
-import { withBrowser } from 'test-mule';
+import type { ElementHandle, PleasantestUtils } from 'pleasantest';
+import { withBrowser } from 'pleasantest';
 import { loadTwigTemplate } from '../../../test-utils';
 
 const textInputHTML = loadTwigTemplate(path.join(__dirname, './input.twig'));
-const initTextareaJS = (utils: TestMuleUtils, textarea: ElementHandle) =>
+const initTextareaJS = (utils: PleasantestUtils, textarea: ElementHandle) =>
   utils.runJS(
     `
     import { createElasticTextArea } from './elastic-textarea'

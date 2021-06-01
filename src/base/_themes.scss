@@ -21,7 +21,7 @@
   --theme-color-text-base: #{color.$text-dark};
   --theme-color-text-code: #{color.$base-fuchsia};
   --theme-color-text-emphasis: var(--theme-color-text-base);
-  --theme-color-text-muted: #{color.$base-gray-dark};
+  --theme-color-text-muted: #{color.$text-dark-muted};
   --theme-opacity-del: #{opacity.$muted};
 }
 

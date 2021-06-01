@@ -9,8 +9,8 @@
     <div class="c-comment-form__label">Message</div>
     {% include '@cloudfour/components/input/input.twig' with { type: 'textarea', name: 'comment', required: true } only %}
   </label>
-  {% if loggedInUser and logOutUrl %}
-    <p>Logged in as <a href="{{ loggedInUser.link() }}">{{ loggedInUser.name() }}</a>. <a href="{{ logOutUrl }}">Log out?</a></p>
+  {% if logged_in_user and log_out_url %}
+    <p>Logged in as <a href="{{ logged_in_user.link() }}">{{ logged_in_user.name() }}</a>. <a href="{{ log_out_url }}">Log out?</a></p>
   {% else %}
     <label class="c-comment-form__name">
       <div class="c-comment-form__label">Name</div>

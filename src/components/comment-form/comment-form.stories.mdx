@@ -22,7 +22,7 @@ The form used to add a comment to an article.
 <Canvas>
   <Story name="Default">
     {({ isLoggedIn }) =>
-      template(isLoggedIn ? { loggedInUser: tyler, logOutUrl: '/logout' } : {})
+      template(isLoggedIn ? { logged_in_user: tyler, log_out_url: '/logout' } : {})
     }
   </Story>
 </Canvas>
@@ -30,7 +30,7 @@ The form used to add a comment to an article.
 ## Template Properties
 
 - `class`: Append a class to the root element.
-- `loggedInUser`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+- `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
 
   ```ts
   {
@@ -39,4 +39,4 @@ The form used to add a comment to an article.
   }
   ```
 
-- `logOutUrl`: URL used for log out link.
+- `log_out_url`: URL used for log out link.

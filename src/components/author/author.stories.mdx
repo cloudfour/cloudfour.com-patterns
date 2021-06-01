@@ -4,20 +4,17 @@ import gerardoImage from './demo/gerardo.png';
 import tylerImage from './demo/tyler.png';
 import meganImage from './demo/megan.png';
 const gerardo = {
-  first_name: 'Gerardo',
-  last_name: 'Rodriguez',
+  name: () => 'Gerardo Rodriguez',
   avatar: () => gerardoImage,
   link: () => 'https://cloudfour.com/is/gerardo',
 };
 const tyler = {
-  first_name: 'Tyler',
-  last_name: 'Sticka',
+  name: () => 'Tyler Sticka',
   avatar: () => tylerImage,
   link: () => 'https://cloudfour.com/is/tyler',
 };
 const megan = {
-  first_name: 'Megan',
-  last_name: 'Notarte',
+  name: () => 'Megan Notarte',
   avatar: () => meganImage,
   link: () => 'https://cloudfour.com/is/megnotarte',
 };
@@ -61,8 +58,7 @@ Displays an author, or set of authors, for article bylines.
 
   ```ts
   {
-    first_name: string;
-    last_name: string;
+    name: () => string;
     avatar: () => string;
     link: () => string;
   }

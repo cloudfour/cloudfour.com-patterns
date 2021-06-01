@@ -1,0 +1,29 @@
+<form
+  class="c-comment-form{% if class %} {{class}}{% endif %}"
+  {%- if action %}action="{{ action }}"{% endif -%}
+  {%- if method %}method="{{ method }}"{% endif -%}
+>
+  <h2>Leave a Comment</h2>
+  <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a> in your comments. All fields are required.</p>
+  <label>
+    <div class="c-comment-form__label">Message</div>
+    {% include '@cloudfour/components/input/input.twig' with { type: 'textarea', name: 'comment', required: true } only %}
+  </label>
+  {% if loggedInUser and logOutUrl %}
+    <p>Logged in as <a href="{{ loggedInUser.link() }}">{{ loggedInUser.name() }}</a>. <a href="{{ logOutUrl }}">Log out?</a></p>
+  {% else %}
+    <label class="c-comment-form__name">
+      <div class="c-comment-form__label">Name</div>
+      {% include '@cloudfour/components/input/input.twig' with { name: 'author', autocomplete: 'name', required: true } %}
+    </label>
+    <label class="c-comment-form__email">
+      <div class="c-comment-form__label">Email</div>
+      {% include '@cloudfour/components/input/input.twig' with { type: 'email', autocomplete: 'home email', required: true } only %}
+    </label>
+  {% endif %}
+  <label class="c-comment-form__subscribe">
+    {% include '@cloudfour/components/checkbox/checkbox.twig' with { name: 'subscribe_comments' } only %}
+    Notify me of follow-up comments by email.
+  </label>
+  {% include '@cloudfour/components/button/button.twig' with { label: 'Submit Comment' } only %}
+</div>

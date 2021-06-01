@@ -26,13 +26,6 @@
 }
 
 /**
- * Tight spacing modifier
- */
-.o-button-group--tight {
-  --gap: #{size.$button-group-gap-tight};
-}
-
-/**
  * Full button width modifier
  */
 .o-button-group--grow > * {

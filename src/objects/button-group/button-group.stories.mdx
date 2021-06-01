@@ -47,22 +47,6 @@ The Button Group layout object can be used for aligning a group of related butto
   <Story name="Default">{(args) => demo({ ...args })}</Story>
 </Canvas>
 
-## Tight modifer
-
-You can apply a tighter-spacing via the template `tight` boolean argument:
-
-```php
-{% embed '@cloudfour/objects/button-group/button-group.twig' with { tight: true } %}
-  ...
-{% endembed %}
-```
-
-<Canvas>
-  <Story name="Tight" args={{ count: 5, tight: true }}>
-    {(args) => demo({ ...args })}
-  </Story>
-</Canvas>
-
 ## Grow modifer
 
 You can have the buttons grow to fill their horizontal space via
@@ -84,5 +68,4 @@ the template `grow` boolean argument:
 
 - `class`: Append a class to the root element.
 - `content` (block): Block to add Button elements.
-- `tight` (boolean, default: `false`): Adds the `o-button-group--tight` CSS class modifier.
 - `grow` (boolean, default: `false`): Adds the `o-button-group--grow` CSS class modifier.

@@ -49,12 +49,8 @@ module.exports = {
     button_group: {
       gap: {
         default: {
-          value: modularEm(1),
-          comment: 'The Button Group default gap spacing.',
-        },
-        tight: {
           value: modularEm(-2),
-          comment: 'The Button Group "tight" modifier gap spacing',
+          comment: 'The Button Group default gap spacing.',
         },
       },
     },

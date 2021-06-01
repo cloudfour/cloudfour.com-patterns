@@ -2,10 +2,25 @@
 @use "../compiled/tokens/scss/font-weight";
 @use "../compiled/tokens/scss/size";
 @use "./ms";
+@use "./theme";
 
 $table-border-color: color.$base-gray-light;
 $table-border-thin: size.$edge-small solid $table-border-color;
 $table-border-thick: size.$edge-medium solid $table-border-color;
+
+/**
+ * Themed properties
+ */
+
+@include theme.props() {
+  --theme-color-table-striped: #{color.$base-gray-lighter};
+  --theme-color-table-caption: #{color.$base-gray-dark};
+}
+
+@include theme.props(dark) {
+  --theme-color-table-striped: #{color.$brand-primary-dark};
+  --theme-color-table-caption: #{color.$base-gray-lighter};
+}
 
 /**
  * Our base table component
@@ -42,7 +57,7 @@ $table-border-thick: size.$edge-medium solid $table-border-color;
 
 @mixin t-caption {
   caption-side: bottom;
-  color: color.$base-gray-dark;
+  color: var(--theme-color-table-caption);
   font-size: ms.step(-1);
   font-style: italic;
   padding: ms.step(-1) 0;
@@ -57,7 +72,7 @@ $table-border-thick: size.$edge-medium solid $table-border-color;
 }
 
 @mixin t-striped {
-  background-color: color.$base-gray-lighter;
+  background-color: var(--theme-color-table-striped);
 }
 
 /**

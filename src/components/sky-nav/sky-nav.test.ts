@@ -1,12 +1,12 @@
 import path from 'path';
-import type { ElementHandle, TestMuleUtils } from 'test-mule';
-import { devices, withBrowser } from 'test-mule';
+import type { ElementHandle, PleasantestUtils } from 'pleasantest';
+import { devices, withBrowser } from 'pleasantest';
 import { loadTwigTemplate } from '../../../test-utils';
 import menu from './demo/menu.json';
 
 const iPhone = devices['iPhone 6'];
 const skyNavMarkup = loadTwigTemplate(path.join(__dirname, './sky-nav.twig'));
-const initSkyNavJS = (utils: TestMuleUtils, navButton: ElementHandle) =>
+const initSkyNavJS = (utils: PleasantestUtils, navButton: ElementHandle) =>
   utils.runJS(
     `
     import { initSkyNav } from './sky-nav'

@@ -1,7 +1,7 @@
 {% set main_id = main_id|default('main') %}
 {% set _main_href = '#' ~ main_id %}
 
-<div class="c-sky-nav{% if class %} {{class}}{% endif %}">
+<div class="c-sky-nav js-sky-nav{% if class %} {{class}}{% endif %}">
   {# https://webaim.org/techniques/skipnav/ #}
   {% embed '@cloudfour/components/button/button.twig' with {
     class: 'c-sky-nav__skip',

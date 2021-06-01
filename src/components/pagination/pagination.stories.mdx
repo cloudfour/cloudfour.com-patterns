@@ -10,7 +10,7 @@ Displays a horizontal list of page number links, including extra affordances for
 
 The component supports variable amounts of page numbers and will adjust its layout accordingly. For best results on small screens, we recommend a maximum link count of 5.
 
-As the viewport widens, individual numbers may drift awkwardly far apart. You can prevent this by wrapping the component in [a container](/?path=/docs/objects-container--basic).
+As the viewport widens, individual numbers may drift awkwardly far apart. You can prevent this by wrapping the component in [a container](/docs/objects-container--basic).
 
 <Canvas>
   <Story
@@ -45,7 +45,7 @@ In addition to the usual hover, active and focus states, `c-pagination__action` 
 Like all navigation patterns, pagination is potentially fraught with accessibility issues. Here's what we've done to make this component more inclusive:
 
 - The outer `<nav>` element clearly identifies this component as navigation to assistive devices.
-- Said element includes an `aria-labelledby` attribute, which maps to the ID of a [visually hidden](/?path=/docs/utilities-display--hidden-visually) heading element within. We use `aria-labelledby` instead of `aria-label` to improve [compatibility with translation tools](https://heydonworks.com/article/aria-label-is-a-xenophobe/).
+- Said element includes an `aria-labelledby` attribute, which maps to the ID of a [visually hidden](/docs/utilities-display--hidden-visually) heading element within. We use `aria-labelledby` instead of `aria-label` to improve [compatibility with translation tools](https://heydonworks.com/article/aria-label-is-a-xenophobe/).
 - The `<ul>` element containing list items includes a `role="list"` attribute to avoid [an issue in Safari/VoiceOver](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html).
 - All page actions include [visually hidden text for context](https://www.a11ymatters.com/pattern/pagination/#2--labeling-the-navigation-links) ("Page 4" instead of simply "4").
 - The current page action is identified using [the `aria-current` attribute](https://tink.uk/using-the-aria-current-attribute/).

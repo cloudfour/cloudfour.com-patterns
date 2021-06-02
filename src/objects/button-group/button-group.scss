@@ -5,7 +5,7 @@
  * 1. Fallback for when Flexbox gap is not supported
  */
 .o-button-group {
-  --gap: #{size.$button-group-gap-default};
+  --gap: #{size.$spacing-gap-button-group-default};
 
   display: flex;
   flex-wrap: wrap;

@@ -28,6 +28,12 @@ module.exports = {
               'Maximum size of a large content gap, for example gutters between cards.',
           },
         },
+        button_group: {
+          default: {
+            value: modularEm(-2),
+            comment: 'The Button Group default gap spacing.',
+          },
+        },
       },
       control: {
         text_inset: { value: modularEm(-1) },
@@ -44,14 +50,6 @@ module.exports = {
       },
       media: {
         gap: { value: '{size.spacing.gap.inline.small.value}' },
-      },
-    },
-    button_group: {
-      gap: {
-        default: {
-          value: modularEm(-2),
-          comment: 'The Button Group default gap spacing.',
-        },
       },
     },
   },

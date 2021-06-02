@@ -1,12 +1,17 @@
 import { Parser } from 'html-to-react';
 import { withPaddings } from 'storybook-addon-paddings';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import ReactSyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
+import twig from 'react-syntax-highlighter/dist/esm/languages/prism/twig';
 import { withTheme } from './theme-decorator';
 import tokens from '../src/compiled/tokens/js/tokens';
 import 'focus-visible';
 import '../src/index-with-dependencies.scss';
 import './preview.scss';
 const breakpoints = tokens.size.breakpoint;
+
+// Extend the languages Storybook will highlight
+ReactSyntaxHighlighter.registerLanguage('twig', twig);
 
 // Padding values from modular scale
 const paddings = { values: [], default: 'Step 0' };

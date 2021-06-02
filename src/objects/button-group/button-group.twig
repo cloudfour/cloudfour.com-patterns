@@ -1,11 +1,6 @@
 {# Will hold all the base CSS classes to add to the root element #}
 {% set baseCssClasses = ['o-button-group'] %}
 
-{# Tight modifier CSS class #}
-{% if tight %}
-  {% set baseCssClasses = baseCssClasses|merge(['o-button-group--tight']) %}
-{% endif %}
-
 {# Grow modifier CSS class #}
 {% if grow %}
   {% set baseCssClasses = baseCssClasses|merge(['o-button-group--grow']) %}

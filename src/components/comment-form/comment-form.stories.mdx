@@ -29,7 +29,6 @@ The form used to add a comment to an article.
   <Story name="Default">
     {({ isLoggedIn, isReply }) => {
       useEffect(() => {
-        console.log(document.querySelector('.js-elastic-textarea'));
         const { destroy } = createElasticTextArea(
           document.querySelector('.js-elastic-textarea')
         );

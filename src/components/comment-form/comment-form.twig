@@ -12,9 +12,9 @@
     {% include '@cloudfour/components/input/input.twig' with { name: 'author', autocomplete: 'name', required: true, label: 'Name', label_class: 'c-comment-form__name' } only %}
     {% include '@cloudfour/components/input/input.twig' with { type: 'email', autocomplete: 'home email', required: true, label: 'Email', label_class: 'c-comment-form__email' } only %}
   {% endif %}
-  <label class="c-comment-form__subscribe">
-    {% include '@cloudfour/components/checkbox/checkbox.twig' with { name: 'subscribe_comments' } only %}
-    Notify me of follow-up comments by email.
+  <label class="o-media">
+    {% include '@cloudfour/components/checkbox/checkbox.twig' with { name: 'subscribe_comments', class: 'o-media__object' } only %}
+    <span class="o-media__content">Notify me of follow-up comments by email.</span>
   </label>
   {% if is_reply %}
     <div class="c-comment-form__reply-buttons">

@@ -7,7 +7,10 @@
  * 2. Ideally this component won't be over-stuffed, but just in case, let's
  *    wrap children if there are too many of them or they're too big.
  * 3. Keeps z-index values of child elements relative to this to avoid
- *    disrupting outside stacking order.
+ *    disrupting outside stacking order. We shouldn't have to set a base
+ *    `z-index` as well, but some browsers don't establish a new stacking order
+ *    without this, which can cause children to display beneath outside
+ *    elements.
  */
 
 .o-bunch {
@@ -15,6 +18,7 @@
   display: flex;
   flex-wrap: wrap; /* 2 */
   position: relative; /* 3 */
+  z-index: 0; /* 3 */
 }
 
 /**

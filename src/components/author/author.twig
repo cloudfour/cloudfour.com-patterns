@@ -1,0 +1,23 @@
+<div class="c-author o-media{% if class %} {{class}}{% endif %}">
+  {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: "o-media__object" } %}
+    {% block content %}
+      {% for author in authors %}
+        {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar() } only %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+  <div class="o-media__content">
+    <div>
+      <span class="u-hidden-visually">Authored by</span>
+      {% for author in authors %}
+        {% if loop.last and loop.length > 1 %}and {% endif %}
+        <a href="{{ author.link() }}">{{ author.name() }}</a>
+        {%- if not loop.last and loop.length > 2 %},{% endif %}
+      {% endfor %}
+    </div>
+    <div>
+      <span class="u-hidden-visually">Published on</span>
+      <time datetime="{{ date | date("Y-m-d") }}">{{ date | date("F jS, Y") }}</time>
+    </div>
+  </div>
+</div>

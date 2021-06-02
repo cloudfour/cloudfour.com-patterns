@@ -1,0 +1,9 @@
+@use "../../compiled/tokens/scss/color";
+
+/**
+ * Container
+ */
+
+.c-author {
+  color: var(--theme-color-text-muted);
+}

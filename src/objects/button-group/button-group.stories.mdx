@@ -34,7 +34,7 @@ The Button Group layout object can be used for aligning a group of related butto
 
 ## Default
 
-```php
+```twig
 {% embed '@cloudfour/objects/button-group/button-group.twig' %}
   {% block content %}
     {% include '@cloudfour/components/button/button.twig' with { label: 'Button 1' } %}
@@ -52,7 +52,7 @@ The Button Group layout object can be used for aligning a group of related butto
 You can have the buttons grow to fill their horizontal space via
 the template `grow` boolean argument:
 
-```php
+```twig
 {% embed '@cloudfour/objects/button-group/button-group.twig' with { grow: true } %}
   ...
 {% endembed %}

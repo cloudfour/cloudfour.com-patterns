@@ -3,6 +3,7 @@
 @use "../../compiled/tokens/scss/size";
 @use "../../compiled/tokens/scss/transition";
 @use "../../mixins/theme";
+@use "../../mixins/ms";
 
 /**
  * Themed properties
@@ -152,3 +153,8 @@
     -webkit-text-fill-color: color.$text-dark-muted; /* 1 */
   }
 }
+
+.c-input__label {
+  margin-bottom: ms.step(-5, 1rem);
+}
+

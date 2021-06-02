@@ -28,9 +28,15 @@
   {% endfor %}
 {% endset %}
 
-{% if type == 'textarea' %}
-  <textarea {{attributes}}>{{value}}</textarea>
-{% else %}
-  <input type="{{type}}" value="{{value}}" {{attributes}}>
+{% if label %}
+<label>
+  <div class="c-input__label{% if label_class %} {{ label_class }}{% endif %}">{{ label }}</div>
 {% endif %}
-
+  {% if type == 'textarea' %}
+    <textarea {{attributes}}>{{value}}</textarea>
+  {% else %}
+    <input type="{{type}}" {% if value %}value="{{value}}" {% endif %}{{attributes}}>
+  {% endif %}
+{% if label %}
+</label>
+{% endif %}

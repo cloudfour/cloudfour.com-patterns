@@ -4,7 +4,7 @@
   {%- if method %}method="{{ method }}"{% endif -%}
 >
   <h2>Leave a Comment</h2>
-  <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a> in your comments. All fields are required.</p>
+  <p>{% block prompt %}Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a> in your comments. All fields are required.{% endblock %}</p>
   <label>
     <div class="c-comment-form__label">Message</div>
     {% include '@cloudfour/components/input/input.twig' with { type: 'textarea', name: 'comment', required: true } only %}

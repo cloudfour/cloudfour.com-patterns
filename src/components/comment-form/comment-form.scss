@@ -3,11 +3,11 @@
 
 .c-comment-form {
   display: grid;
-  grid-gap: ms.step(1, 1rem) ms.step(4, 1rem);
+  grid-gap: ms.step(2, 1rem) ms.step(4, 1rem);
   grid-template-columns: 1fr 1fr;
 }
 
-.c-comment-form * {
+.c-comment-form > * {
   grid-column: span 2;
 }
 
@@ -27,5 +27,15 @@
 
   & > input {
     margin-right: ms.step(-2, 1rem);
+  }
+}
+
+.c-comment-form__reply-buttons {
+  display: grid;
+  grid-gap: ms.step(-2, 1rem);
+  grid-template-columns: 1fr 1fr;
+
+  @media (min-width: size.$breakpoint-s) {
+    margin-right: auto;
   }
 }

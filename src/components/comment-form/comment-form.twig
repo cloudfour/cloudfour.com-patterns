@@ -25,5 +25,12 @@
     {% include '@cloudfour/components/checkbox/checkbox.twig' with { name: 'subscribe_comments' } only %}
     Notify me of follow-up comments by email.
   </label>
-  {% include '@cloudfour/components/button/button.twig' with { label: 'Submit Comment' } only %}
+  {% if is_reply %}
+    <div class="c-comment-form__reply-buttons">
+      {% include '@cloudfour/components/button/button.twig' with { label: 'Submit Reply' } only %}
+      {% include '@cloudfour/components/button/button.twig' with { label: 'Cancel', class: 'c-button--secondary' } only %}
+    </div>
+  {% else %}
+    {% include '@cloudfour/components/button/button.twig' with { label: 'Submit Comment' } only %}
+  {% endif %}
 </div>

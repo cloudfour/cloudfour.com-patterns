@@ -12,6 +12,10 @@ const tyler = {
       type: { name: 'boolean' },
       defaultValue: false,
     },
+    isReply: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
   }}
 />
 
@@ -21,8 +25,12 @@ The form used to add a comment to an article.
 
 <Canvas>
   <Story name="Default">
-    {({ isLoggedIn }) =>
-      template(isLoggedIn ? { logged_in_user: tyler, log_out_url: '/logout' } : {})
+    {({ isLoggedIn, isReply }) =>
+      template({
+        logged_in_user: isLoggedIn ? tyler : undefined,
+        log_out_url: '/logout',
+        is_reply: isReply,
+      })
     }
   </Story>
 </Canvas>
@@ -40,3 +48,4 @@ The form used to add a comment to an article.
   ```
 
 - `log_out_url`: URL used for log out link.
+- `is_reply`: Whether the comment is a reply to another comment.

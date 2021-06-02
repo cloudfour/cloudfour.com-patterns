@@ -2,8 +2,8 @@
 
 /**
  * Button Group layout object
- * 1. Using margins instead of Flexbox Gap due to browser support, consider
- *    changing to Flexbox Gap once browser support is better in the future.
+ * 1. Margins are used instead of Flexbox Gap due to browser support (consider
+ *    changing to Flexbox Gap once browser support is better in the future).
  */
 .o-button-group {
   --gap: #{size.$spacing-gap-button-group-default};

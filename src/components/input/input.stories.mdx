@@ -114,7 +114,10 @@ If the `rows` attribute is set, it will be used as the minimum height.
       // Use storybook hooks to trigger JS after story renders
       // @see https://github.com/storybookjs/storybook/issues/7786
       useEffect(() => {
-        createElasticTextArea(document.querySelector('.js-elastic-textarea'));
+        const { destroy } = createElasticTextArea(
+          document.querySelector('.js-elastic-textarea')
+        );
+        return destroy;
       }, []);
       return textDemo({
         type: 'textarea',

@@ -2,7 +2,8 @@
 
 /**
  * Button Group layout object
- * 1. Fallback for when Flexbox gap is not supported
+ * 1. Using margins instead of Flexbox Gap due to browser support, consider
+ *    changing to Flexbox Gap once browser support is better in the future.
  */
 .o-button-group {
   --gap: #{size.$spacing-gap-button-group-default};
@@ -11,17 +12,8 @@
   flex-wrap: wrap;
   margin: calc(var(--gap) / -2); /* 1 */
 
-  @supports (gap: 1em) {
-    gap: var(--gap);
-    margin: 0;
-  }
-
   & > * {
     margin: calc(var(--gap) / 2); /* 1 */
-
-    @supports (gap: 1em) {
-      margin: 0;
-    }
   }
 }
 

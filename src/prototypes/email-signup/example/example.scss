@@ -1,0 +1,36 @@
+// Header signup form
+
+#signup-form-a {
+
+  .demo-input-basic {
+    padding-top: .5em;
+  }
+
+  .demo-input-button {
+    @media (min-width: 60em) {
+      grid-template-columns: 2fr .5fr;
+    }
+  }
+
+  .c-cloud-cover__inner {
+    padding-bottom: 2em;
+  }
+}
+
+// Form that is found at the bottom of the page.
+
+#signup-form-b {
+  demo {
+    padding-top: .5em;
+  }
+
+  .heading {
+    padding-bottom: 1.5em;
+  }
+
+  .demo-input-basic--single-line {
+    @media (min-width: 40em) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+}

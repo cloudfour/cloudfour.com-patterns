@@ -6,7 +6,7 @@ export default {
   title: 'Prototypes/Email Signup Form',
   parameters: {
     docs: { page: null },
-    paddings: { disabled: true },
+    paddings: { disable: true },
   },
 };
 

@@ -1,0 +1,9 @@
+{% embed '@cloudfour/objects/button-group/button-group.twig' %}
+  {% block content %}
+    {% for i in 1..count %}
+      {% embed '@cloudfour/components/button/button.twig' %}
+        {% block content %}Button {{i}}{% endblock %}
+      {% endembed %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

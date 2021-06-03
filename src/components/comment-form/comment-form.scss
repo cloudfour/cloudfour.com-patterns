@@ -18,14 +18,6 @@
   }
 }
 
-.c-comment-form__subscribe {
-  display: flex;
-
-  & > input {
-    margin-right: ms.step(-2, 1rem);
-  }
-}
-
 .c-comment-form__reply-buttons {
   display: grid;
   grid-gap: ms.step(-2, 1rem);

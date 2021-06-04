@@ -12,8 +12,11 @@
     {% if disabled %}
       disabled
     {% endif %}
-  {% endif %}>
+  {% endif %}
+>
+  {% block iconStart %}{% endblock %}
   {% block content %}
     {{label | default('Hello world')}}
   {% endblock %}
+  {% block iconEnd %}{% endblock %}
 </{{tagName}}>

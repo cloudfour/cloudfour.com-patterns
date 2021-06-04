@@ -2,4 +2,4 @@
 '@cloudfour/patterns': patch
 ---
 
-Add option for Button component to have icons
+Add ability for Button component to have icons

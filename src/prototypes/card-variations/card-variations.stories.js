@@ -5,7 +5,7 @@ export default {
   title: 'Prototypes/Card Variations',
   parameters: {
     docs: { page: null },
-    paddings: { disabled: true },
+    paddings: { disable: true },
   },
 };
 

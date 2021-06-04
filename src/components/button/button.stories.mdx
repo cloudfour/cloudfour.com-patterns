@@ -1,7 +1,8 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import elementsDemo from './demo/elements.twig';
 import stylesDemo from './demo/styles.twig';
-import iconButtonDemo from './demo/icon-button.twig';
+import iconButtonRecommendedDemo from './demo/icon-button-recommended-demo.twig';
+import iconButtonAdvancedDemo from './demo/icon-button-advanced-demo.twig';
 
 <Meta
   title="Components/Button"
@@ -42,34 +43,58 @@ All the above visual styles will appear slightly different within [our dark them
 
 ## Button with icon
 
-Use an `iconStart` or `iconEnd` block to add an [Icon component](/docs/components-icon--basic) before or after the Button `content` block.
+The recommended way to add an icon to a button is to use the `icon_start` or
+`icon_end` Button component argument. You can pass the name of any of
+the [available icons](/docs/design-icons--page).
 
 ```twig
-{% embed '@cloudfour/components/button/button.twig' %}
-  {% block iconStart %}
-    {% include '@cloudfour/components/icon/icon.twig' with { name: 'notifications', inline: true } %}
-  {% endblock %}
+{% embed '@cloudfour/components/button/button.twig' with { icon_start: 'notifications' } %}
   {% block content %}Get notifications{% endblock %}
 {% endembed %}
 
-{% embed '@cloudfour/components/button/button.twig' %}
-  {% block content %}Button with icon{% endblock %}
-  {% block iconEnd %}
-    {% include '@cloudfour/components/icon/icon.twig' with { name: 'plus', inline: true } %}
-  {% endblock %}
+{% embed '@cloudfour/components/button/button.twig' with { icon_end: 'search' } %}
+  {% block content %}Find it!{% endblock %}
 {% endembed %}
 ```
 
 <Canvas>
-  <Story name="Button with icon">{(args) => iconButtonDemo(args)}</Story>
+  <Story name="Icon Basic">{(args) => iconButtonRecommendedDemo(args)}</Story>
+</Canvas>
+
+### Advanced usage
+
+If you need a custom icon, you can pass an `<svg>` element directly via the
+`icon_start` or `icon_end` Button component block.
+
+This option is only recommended in very unique cases. Also note the usage of the
+`c-icon c-icon--inline` CSS classes on the `<svg>` element.
+
+```twig
+{% embed '@cloudfour/components/button/button.twig' %}
+  {% block icon_end %}
+    <svg viewBox="0 0 24 24" width="24" height="24" class="c-icon c-icon--inline">
+      <circle r="8" cx="12" cy="12"></circle>
+    </svg>
+  {% endblock %}
+  {% block content %}Button with a custom icon{% endblock %}
+{% endembed %}
+```
+
+<Canvas>
+  <Story name="Icon Advanced">{(args) => iconButtonAdvancedDemo(args)}</Story>
 </Canvas>
 
 ## Template Properties
 
 - `class`: Append a class to the root element.
-- `iconStart` (block): Can be used to add an [Icon component](/docs/components-icon--basic) before the Button `content` block.
-- `content` (block): Block to add Button elements.
-- `iconEnd` (block): Can be used to add an [Icon component](/docs/components-icon--basic) after the Button `content` block.
+- `icon_start`: Pass the name of any [available icon](/docs/design-icons--page) to add the icon _before_ the Button `content` block.
+- `icon_end`: Pass the name of any [available icon](/docs/design-icons--page) to add the icon _after_ the Button `content` block.
+
+## Template Blocks
+
+- `icon_start`: Can be used to render a custom `<svg>` element before the Button `content` block.
+- `content`: Block to add Button elements.
+- `icon_end`: Can be used to render a custom `<svg>` element after the Button `content` block.
 
 ## See Also
 

@@ -14,9 +14,23 @@
     {% endif %}
   {% endif %}
 >
-  {% block iconStart %}{% endblock %}
+  {% block icon_start %}
+    {% if icon_start %}
+      {% include '@cloudfour/components/icon/icon.twig' with {
+        name: icon_start,
+        inline: true
+      } %}
+    {% endif %}
+  {% endblock %}
   {% block content %}
     {{label | default('Hello world')}}
   {% endblock %}
-  {% block iconEnd %}{% endblock %}
+  {% block icon_end %}
+    {% if icon_end %}
+      {% include '@cloudfour/components/icon/icon.twig' with {
+        name: icon_end,
+        inline: true
+      } %}
+    {% endif %}
+  {% endblock %}
 </{{tagName}}>

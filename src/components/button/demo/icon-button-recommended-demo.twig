@@ -1,0 +1,10 @@
+{% embed '@cloudfour/objects/button-group/button-group.twig' %}
+  {% block content %}
+    {% embed '@cloudfour/components/button/button.twig' with { icon_start: 'notifications' } %}
+      {% block content %}Get notifications{% endblock %}
+    {% endembed %}
+    {% embed '@cloudfour/components/button/button.twig' with { icon_end: 'search' } %}
+      {% block content %}Find it!{% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

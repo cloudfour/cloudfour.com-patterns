@@ -1,0 +1,24 @@
+{% embed '@cloudfour/objects/button-group/button-group.twig' %}
+  {% block content %}
+    {# Don't allow href knob to change this example's tag #}
+    {% embed '@cloudfour/components/button/button.twig' with { href: false } %}
+      {% block iconStart %}
+        {% include '@cloudfour/components/icon/icon.twig' with {
+          name: 'notifications',
+          inline: true
+        } %}
+      {% endblock %}
+      {% block content %}Get notifications{% endblock %}
+    {% endembed %}
+    {# Don't allow href knob to change this example's tag #}
+    {% embed '@cloudfour/components/button/button.twig' with { href: false } %}
+      {% block iconEnd %}
+        {% include '@cloudfour/components/icon/icon.twig' with {
+          name: 'plus',
+          inline: true
+        } %}
+      {% endblock %}
+      {% block content %}Button with icon{% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

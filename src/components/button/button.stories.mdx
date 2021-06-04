@@ -71,12 +71,12 @@ This option is only recommended in very unique cases. Also note the usage of the
 
 ```twig
 {% embed '@cloudfour/components/button/button.twig' %}
+  {% block content %}Button with a custom icon{% endblock %}
   {% block icon_end %}
     <svg viewBox="0 0 24 24" width="24" height="24" class="c-icon c-icon--inline">
       <circle r="8" cx="12" cy="12"></circle>
     </svg>
   {% endblock %}
-  {% block content %}Button with a custom icon{% endblock %}
 {% endembed %}
 ```
 

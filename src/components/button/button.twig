@@ -1,14 +1,14 @@
-{% set tag_name = tag_name | default(href ? 'a' : 'button') %}
+{% set tag_name = tag_name|default(href ? 'a' : 'button') %}
 
-<{{tag_name}}
-  class="c-button{% if class %} {{class}}{% endif %}"
+<{{ tag_name }}
+  class="c-button{% if class %} {{ class }}{% endif %}"
   {% if aria_expanded %}
-    aria-expanded="{{aria_expanded}}"
+    aria-expanded="{{ aria_expanded }}"
   {% endif %}
   {% if tag_name == 'a' %}
-    href="{{href|default('#')}}"
+    href="{{ href|default('#') }}"
   {% elseif tag_name == 'button' %}
-    type="{{type|default('button')}}"
+    type="{{ type|default('button') }}"
     {% if disabled %}
       disabled
     {% endif %}
@@ -23,7 +23,7 @@
     {% endif %}
   {% endblock %}
   {% block content %}
-    {{label | default('Hello world')}}
+    {{ label|default('Hello world') }}
   {% endblock %}
   {% block content_end %}
     {% if content_end_icon %}

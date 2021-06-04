@@ -14,10 +14,10 @@
     {% endif %}
   {% endif %}
 >
-  {% block icon_start %}
-    {% if icon_start %}
+  {% block content_start %}
+    {% if content_start_icon %}
       {% include '@cloudfour/components/icon/icon.twig' with {
-        name: icon_start,
+        name: content_start_icon,
         inline: true
       } %}
     {% endif %}
@@ -25,10 +25,10 @@
   {% block content %}
     {{label | default('Hello world')}}
   {% endblock %}
-  {% block icon_end %}
-    {% if icon_end %}
+  {% block content_end %}
+    {% if content_end_icon %}
       {% include '@cloudfour/components/icon/icon.twig' with {
-        name: icon_end,
+        name: content_end_icon,
         inline: true
       } %}
     {% endif %}

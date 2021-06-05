@@ -3,14 +3,21 @@ import elementsDemo from './demo/elements.twig';
 import stylesDemo from './demo/styles.twig';
 import iconButtonDemo from './demo/icon-button-demo.twig';
 import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
-const icons = [
-  '',
-  'notifications',
-  'search',
-  'heart',
-  'brands/github',
-  'brands/twitter',
-];
+const iconControlConfig = {
+  type: { name: 'string' },
+  control: {
+    type: 'select',
+    options: [
+      '',
+      'notifications',
+      'search',
+      'heart',
+      'brands/github',
+      'brands/twitter',
+    ],
+  },
+  defaultValue: '',
+};
 
 <Meta
   title="Components/Button"
@@ -22,22 +29,8 @@ const icons = [
       defaultValue: 'button',
     },
     disabled: { type: { name: 'boolean' }, defaultValue: false },
-    content_start_icon: {
-      type: { name: 'string' },
-      control: {
-        type: 'select',
-        options: icons,
-      },
-      defaultValue: '',
-    },
-    content_end_icon: {
-      type: { name: 'string' },
-      control: {
-        type: 'select',
-        options: icons,
-      },
-      defaultValue: '',
-    },
+    content_start_icon: iconControlConfig,
+    content_end_icon: iconControlConfig,
   }}
 />
 

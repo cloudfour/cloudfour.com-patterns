@@ -3,6 +3,14 @@ import elementsDemo from './demo/elements.twig';
 import stylesDemo from './demo/styles.twig';
 import iconButtonDemo from './demo/icon-button-demo.twig';
 import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
+const icons = [
+  '',
+  'notifications',
+  'search',
+  'heart',
+  'brands/github',
+  'brands/twitter',
+];
 
 <Meta
   title="Components/Button"
@@ -14,6 +22,22 @@ import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
       defaultValue: 'button',
     },
     disabled: { type: { name: 'boolean' }, defaultValue: false },
+    content_start_icon: {
+      type: { name: 'string' },
+      control: {
+        type: 'select',
+        options: icons,
+      },
+      defaultValue: '',
+    },
+    content_end_icon: {
+      type: { name: 'string' },
+      control: {
+        type: 'select',
+        options: icons,
+      },
+      defaultValue: '',
+    },
   }}
 />
 
@@ -57,7 +81,14 @@ to the `content_start_icon` or `content_end_icon` properties.
 ```
 
 <Canvas>
-  <Story name="Icon">{(args) => iconButtonDemo(args)}</Story>
+  <Story
+    name="Icon"
+    args={{
+      content_start_icon: 'notifications',
+    }}
+  >
+    {(args) => iconButtonDemo(args)}
+  </Story>
 </Canvas>
 
 ### Custom icon
@@ -85,9 +116,15 @@ This option is only recommended in very unique cases. Also note the usage of the
 
 ## Template Properties
 
+- `aria-expanded` (boolean): Sets the button's `aria-expanded` attribute.
 - `class` (string): Append a class to the root element.
 - `content_start_icon` (string): The name of the [icon](/docs/design-icons--page) to render in the `content_start` block.
 - `content_end_icon` (string): The name of the [icon](/docs/design-icons--page) to render in the `content_end` block.
+- `disabled` (boolean): Sets the button's `disabled` attribute.
+- `href` (string): Converts the button to an anchor element and assigns the `href` value. Defaults to `#` if `a` is passed as the `tag_name`.
+- `label` (string, default `'Hello world'`): Sets the button's text content.
+- `tag_name` (string, default `'button'`): The tag for the button. Uses a `button` by default, an `a` when an `href` value is passed.
+- `type` (string, default `'button'`): Sets the button's `type` value.
 
 ## Template Blocks
 

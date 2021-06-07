@@ -5,7 +5,7 @@
 {% set legal %}
   {% block legal %}
     <p class="c-ground-nav__legal">
-      © {{organization.foundingDate|date('Y')}}–{{'now'|date('Y')}} {{organization.name}}
+      © {{ organization.foundingDate|date('Y') }}–{{ 'now'|date('Y') }} {{ organization.name }}
     </p>
   {% endblock %}
 {% endset %}
@@ -15,7 +15,7 @@
   <div class="c-ground-nav__action o-container o-container--pad-inline">
     <div class="o-container__content c-ground-nav__action-inner">
       <h2 class="c-ground-nav__action-lead-in">
-        {{leadIn}}
+        {{ leadIn }}
       </h2>
       <p class="c-ground-nav__action-title">
         {% embed '@cloudfour/components/button/button.twig' with {
@@ -32,12 +32,13 @@
                 focusable: 'false'
               } only %}
             {% endif %}
-            {{label}}
+            {{ label }}
           {% endblock %}
         {% endembed %}
       </p>
       {% include '@cloudfour/assets/illustrations/portland.svg.twig' with {
-      class: 'c-ground-nav__action-illustration' } %}
+        class: 'c-ground-nav__action-illustration'
+      } %}
     </div>
   </div>
   {% endwith %}
@@ -50,21 +51,21 @@
       {# https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address #}
       {% with organization|default({}) %}
         <address class="c-ground-nav__organization">
-          <a href="{{url}}" class="c-ground-nav__organization-name">
-            {{name}}
+          <a href="{{ url }}" class="c-ground-nav__organization-name">
+            {{ name }}
           </a><br>
           {% with address|default({}) %}
-            {{streetAddress}}<br>
-            {{addressLocality}}, {{addressRegion}} {{postalCode}} {{addressCountry}}<br>
+            {{ streetAddress }}<br>
+            {{ addressLocality }}, {{ addressRegion }} {{ postalCode }} {{ addressCountry }}<br>
           {% endwith %}
-          <a href="mailto:{{email}}">{{email}}</a><br>
+          <a href="mailto:{{ email }}">{{ email }}</a><br>
           {# https://developers.google.com/web/fundamentals/native-hardware/click-to-call/ #}
-          <a href="tel:{{telephone|replace({
+          <a href="tel:{{ telephone|replace({
             '.': '-',
             '(': '-',
             ')': '-',
             ' ': ''
-          })}}">{{telephone}}</a>
+          }) }}">{{ telephone }}</a>
         </address>
       {% endwith %}
       {# https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html #}
@@ -72,9 +73,9 @@
         <ul class="c-ground-nav__social-list o-list o-list--inline" role="list">
           {% for item in social.items %}
             <li class="c-ground-nav__social-item">
-              <a class="c-ground-nav__social-action" href="{{item.link}}">
+              <a class="c-ground-nav__social-action" href="{{ item.link }}">
                 {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
-                <span class="u-hidden-visually">{{item.title}}</span>
+                <span class="u-hidden-visually">{{ item.title }}</span>
                 {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
                 {% include '@cloudfour/components/icon/icon.twig' with {
                   name: item.icon,
@@ -97,11 +98,11 @@
           {% for item in menu.items %}
             <li class="c-ground-nav__menu-item">
               <a class="c-ground-nav__menu-action"
-                href="{{item.link}}"
+                href="{{ item.link }}"
                 {% if item.current %}
                   aria-current="page"
                 {% endif %}>
-                {{item.title}}
+                {{ item.title }}
               </a>
             </li>
           {% endfor %}
@@ -109,11 +110,11 @@
       </nav>
 
       {% if kudos %}
-        {{kudos}}
+        {{ kudos }}
       {% endif %}
 
       {% if legal %}
-        {{legal}}
+        {{ legal }}
       {% endif %}
 
     </div>

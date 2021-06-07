@@ -206,3 +206,40 @@ $wp-button-gap: size.$spacing-list-inline-gap;
     text-align: right;
   }
 }
+
+ /**
+ * Quote and Pull-quote
+ * Styles for quotes and pull-quotes
+ *
+ * 1. Makes the line-height more consistent with existing quote styles.
+ * 2. The quote itself defaults to being italic, this straightens out the quote
+ * 3. The pull-quote isn't italic at all, so for consistency, the cite is
+ * italicized.
+ * 4. The quote is a little squished on small screens so the max width
+ * is increased.
+ */
+.wp-block-quote {
+  line-height: size.$height-control-multiline; /* 1 */
+}
+
+.wp-block-quote.is-style-large p, .wp-block-quote.is-large p {
+  font-style: normal; /* 2 */
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote cite {
+  font-style: italic; /* 3 */
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote {
+  @media (min-width: breakpoint.$xs) {
+    max-width: 80%;
+  }
+  @media (min-width: breakpoint.$m) {
+    max-width: 60%;
+  }
+}
+
+.wp-block-pullquote {
+  line-height: size.$height-control-multiline; /* 1 */
+  padding: size.$padding-control-vertical 0;
+}

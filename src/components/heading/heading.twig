@@ -37,7 +37,7 @@
 
 {% set _content %}
   {% block content %}
-    {{content}}
+    {{ content }}
   {% endblock %}
 {% endset %}
 
@@ -59,20 +59,20 @@
 #}
 
 {% if permalink and permalink_id %}
-  <div class="{{_level_class}}">
-    <a class="c-heading__permalink" href="#{{permalink_id}}">
+  <div class="{{ _level_class }}">
+    <a class="c-heading__permalink" href="#{{ permalink_id }}">
       {% include '@cloudfour/components/icon/icon.twig' with {
         name: 'link',
         aria_hidden: 'true'
       } only %}
-      <span class="u-hidden-visually">Permalink to {{_content}}</span>
+      <span class="u-hidden-visually">Permalink to {{ _content }}</span>
     </a>
-    <{{tag_name}} class="c-heading__content" id="{{permalink_id}}">
-      {{_content}}
-    </{{tag_name}}>
+    <{{ tag_name }} class="c-heading__content" id="{{ permalink_id }}">
+      {{ _content }}
+    </{{ tag_name }}>
   </div>
 {% else %}
-  <{{tag_name}} class="{{_level_class}}">
-    {{_content}}
-  </{{tag_name}}>
+  <{{ tag_name }} class="{{ _level_class }}">
+    {{ _content }}
+  </{{ tag_name }}>
 {% endif %}

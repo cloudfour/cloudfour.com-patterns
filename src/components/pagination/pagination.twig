@@ -1,35 +1,35 @@
 {% set label_tag_name = label_tag_name|default('h2') %}
 {% set label_id = label_id|default('pagination-label') %}
 
-<nav class="c-pagination" aria-labelledby="{{label_id}}">
-  <{{label_tag_name}} id="{{label_id}}" class="u-hidden-visually">Pagination</{{label_tag_name}}>
+<nav class="c-pagination" aria-labelledby="{{ label_id }}">
+  <{{ label_tag_name }} id="{{ label_id }}" class="u-hidden-visually">Pagination</{{ label_tag_name }}>
   <ul class="c-pagination__items" role="list">
     {% for page in pagination.pages %}
       <li class="c-pagination__item">
         {% if page.current %}
-          <a class="c-pagination__action" href="{{page.link}}" aria-current="page">
+          <a class="c-pagination__action" href="{{ page.link }}" aria-current="page">
             <span class="u-hidden-visually">Page</span>
-            <span class="c-pagination__number">{{page.title}}</span>
+            <span class="c-pagination__number">{{ page.title }}</span>
           </a>
         {% elseif page.link and page.link == pagination.prev.link %}
-          <a class="c-pagination__action is-previous" href="{{page.link}}">
+          <a class="c-pagination__action is-previous" href="{{ page.link }}">
             <span class="u-hidden-visually">Previous: Page</span>
-            <span class="c-pagination__number">{{page.title}}</span>
+            <span class="c-pagination__number">{{ page.title }}</span>
           </a>
         {% elseif page.link and page.link == pagination.next.link %}
-          <a class="c-pagination__action is-next" href="{{page.link}}">
+          <a class="c-pagination__action is-next" href="{{ page.link }}">
             <span class="u-hidden-visually">Next: Page</span>
-            <span class="c-pagination__number">{{page.title}}</span>
+            <span class="c-pagination__number">{{ page.title }}</span>
           </a>
         {% elseif page.link %}
-          <a class="c-pagination__action" href="{{page.link}}">
+          <a class="c-pagination__action" href="{{ page.link }}">
             <span class="u-hidden-visually">Page</span>
-            <span class="c-pagination__number">{{page.title}}</span>
+            <span class="c-pagination__number">{{ page.title }}</span>
           </a>
         {% else %}
           {# Fallback for non-link pages like ellipsis gaps for first/last pages #}
           <span class="c-pagination__action">
-            {{page.title}}
+            {{ page.title }}
           </span>
         {% endif %}
       </li>

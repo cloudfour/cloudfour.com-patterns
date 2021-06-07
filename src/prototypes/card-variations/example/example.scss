@@ -1,59 +1,62 @@
 #card-variations {
+
+  // General styles
+
   .wrapper-container {
     padding: 1rem;
   }
 
-  .o-media {
-    margin: 1rem 0;
-    // padding: 2rem 1rem;
-    border-radius: 0.25em;
+  .card {
+    margin: 1em;
+    border-radius: 0.5em;
+    max-width: 50em;
   }
+
+  .card-container {
+    display: flex;
+    padding: 1em;
+  }
+
+  .footer {
+    padding: .5em 1em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+  }
+
+  // Light theme styles
+  // #1D4AAA is a mix of two colors we have, $primary-brand and $primary-brand-dark
 
   .light {
     .card-one {
       background-color: #F2F5F7;
-    }
 
-    .card-two {
-      display: flex;
-      flex-direction: column;
-      // border: 1px solid #215cca;
       .footer {
-        width: 100%;
-        padding: .5rem 1rem;
-        border-bottom-left-radius: 0.25em;
-        border-bottom-right-radius: 0.25em;
+        border: 3px solid #F2F5F7;
       }
     }
 
-    .test {
-      display: flex;
-      padding: 2rem 1rem;
+    .card-two {
+      .footer {
+        background-color: #1D4AAA;
+      }
     }
   }
 
+  // Dark theme styles
+
   .t-dark {
     .card-one {
-      background-color: #8abfff;
+      background-color: #1D4AAA;
+
+      .footer {
+        border: 3px solid #1D4AAA;
+      }
     }
 
     .card-two {
-      display: flex;
-      flex-direction: column;
-      // border: 1px solid #215cca;
-    }
-
-    .test {
-      display: flex;
-      padding: 2rem 1rem;
-    }
-
-    .footer {
-      width: 100%;
-      padding: .5rem 1rem;
-      background-color: #F2F5F7;
-      border-bottom-left-radius: 0.25em;
-      border-bottom-right-radius: 0.25em;
+      .footer {
+        background-color: #F2F5F7;
+      }
     }
   }
 }

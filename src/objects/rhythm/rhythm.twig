@@ -1,6 +1,6 @@
 {% set tag_name = tag_name|default('div') %}
 
-<{{tag_name}} class="o-rhythm{% if class %} {{class}}{% endif %}">
+<{{ tag_name }} class="o-rhythm{% if class %} {{ class }}{% endif %}">
   {% block content %}
   {% endblock %}
-</{{tag_name}}>
+</{{ tag_name }}>

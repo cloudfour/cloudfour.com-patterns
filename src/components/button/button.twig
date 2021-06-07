@@ -1,13 +1,13 @@
-{% set tagName = tagName|default(href ? 'a' : 'button') %}
+{% set tag_name = tag_name|default(href ? 'a' : 'button') %}
 
-<{{ tagName }}
+<{{ tag_name }}
   class="c-button{% if class %} {{ class }}{% endif %}"
   {% if ariaExpanded %}
     aria-expanded="{{ ariaExpanded }}"
   {% endif %}
-  {% if tagName == 'a' %}
+  {% if tag_name == 'a' %}
     href="{{ href|default('#') }}"
-  {% elseif tagName == 'button' %}
+  {% elseif tag_name == 'button' %}
     type="{{ type|default('button') }}"
     {% if disabled %}
       disabled
@@ -33,4 +33,4 @@
       } %}
     {% endif %}
   {% endblock %}
-</{{ tagName }}>
+</{{ tag_name }}>

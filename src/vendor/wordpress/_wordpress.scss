@@ -11,6 +11,34 @@
 $wp-button-gap: size.$spacing-list-inline-gap;
 
 /**
+ * Apply to any current or future WordPress block that supports these alignment
+ * options (unless they decide to update their class name prefixes!)
+ */
+[class^='wp-block-'],
+[class*=' wp-block-'] {
+  /**
+   * Releases a full-width child element from its limited width container
+   * @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
+   */
+  &.alignfull,
+  &.alignwide {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+
+  /*
+   * Applies an opinionated wide-image width that allows an image element to
+   * spill slightly outsides its container at larger viewports.
+   */
+  &.alignwide {
+    @media (min-width: breakpoint.$l) {
+      margin-left: -6vw;
+      margin-right: -6vw;
+    }
+  }
+}
+
+/**
  * 1. Align buttons with outer parent
  * 2. Complete half-gaps left by buttons
  */
@@ -123,28 +151,6 @@ $wp-button-gap: size.$spacing-list-inline-gap;
    */
   &.aligncenter {
     width: 100%;
-  }
-
-  /**
-   * Releases a full-width child element from its limited width container
-   * @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
-   */
-  &.alignfull {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-  }
-
-  /*
-   * 1. Applies an opinionated wide-image width that allows an image element to
-   *    spill slightly outsides its container at larger viewports.
-   */
-  &.alignwide {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    @media (min-width: breakpoint.$l) {
-      margin-left: -6vw; /* 1 */
-      margin-right: -6vw; /* 1 */
-    }
   }
 
   /* Since we are applying `margin-top` to CMS content via our o-rhythm

@@ -51,7 +51,7 @@ If you forget to run `npx changeset`, changeset-bot will pester you in your PR. 
 
 ## Coding standards
 
-Use [snake case for template variables](https://symfony.com/doc/current/best_practices.html#use-snake-case-for-template-names-and-variables).
+Use [snake_case for Twig template variables](https://symfony.com/doc/current/best_practices.html#use-snake-case-for-template-names-and-variables).
 
 Follow the [Symfony Twig Coding Standards](https://twig.symfony.com/doc/3.x/coding_standards.html) for proper spacing, indentation, and variable guidelines.
 

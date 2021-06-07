@@ -5,12 +5,18 @@ const twingVirtualEnvironmentPath = require.resolve(
 
 const twingLoader = {
   test: /\.twig$/,
-  use: {
-    loader: 'twing-loader',
-    options: {
-      environmentModulePath: twingEnvironmentNodePath,
+  use: [
+    // Webpack loaders run in reverse, so this top loader will run last
+    {
+      loader: require.resolve('./source-inputs-loader'),
     },
-  },
+    {
+      loader: 'twing-loader',
+      options: {
+        environmentModulePath: twingEnvironmentNodePath,
+      },
+    },
+  ],
 };
 
 const alias = {

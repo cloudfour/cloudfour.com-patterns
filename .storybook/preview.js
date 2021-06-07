@@ -8,6 +8,7 @@ import tokens from '../src/compiled/tokens/js/tokens';
 import 'focus-visible';
 import '../src/index-with-dependencies.scss';
 import './preview.scss';
+import { makeTwigInclude } from '../src/make-twig-include';
 const breakpoints = tokens.size.breakpoint;
 
 // Extend the languages Storybook will highlight
@@ -67,6 +68,22 @@ export const parameters = {
     // https://github.com/storybookjs/storybook/blob/v6.0.21/addons/docs/docs/docspage.md#inline-stories-vs-iframe-stories
     inlineStories: true,
     prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
+    transformSource(src, storyContext) {
+      try {
+        const storyFunction = storyContext.getOriginal();
+        const rendered = storyFunction(storyContext.args);
+        // The twing/source-inputs-loader.js file makes it so that whenever twig templates are rendered,
+        // the arguments and input path are stored in the window.__twig_inputs__ variable.
+        // __twig_inputs__ is a map between the output HTML and and objects with the arguments and input paths
+        // Here, since we have the rendered HTML, we can look up what the arguments and path were
+        // that correspond to that output
+        const input = window.__twig_inputs__?.get(rendered);
+        if (!input) return src;
+        return makeTwigInclude(input.path, input.args);
+      } catch {
+        return src;
+      }
+    },
   },
   viewport: {
     viewports: {

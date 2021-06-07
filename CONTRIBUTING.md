@@ -73,3 +73,27 @@ This is generally not necessary, but in case you need to manually publish a vers
 You can run `npm publish --dry-run` to see everything that _would_ happen during publish, without actually publishing to the npm registry.
 
 Note the branch is `v-next` for now. When we we merge this branch to `master`, these instructions should be updated.
+
+## Overriding source code previews in Storybook
+
+For most stories, we are able to generate a twig source code snippet for Storybook to display automatically. When stories use `useEffect` or other hooks, the source code snippet cannot be generated automatically, so the JS that was passed to `<Story>` is shown instead (there may be other cases where this happens as well). In those cases, you can manually pass the source code to `<Story>`:
+
+```jsx
+import { makeTwigInclude } from '../../make-twig-include';
+<Story
+  name="Story Name"
+  parameters={{
+    docs: { source: { code: makeTwigInclude('asdf', { foo: 'bar' }) } },
+  }}
+>
+  {(args) => template(args)}
+</Story>;
+```
+
+This generates a source code snippet like this:
+
+```twig
+{% include 'asdf' with {
+  "foo": "bar"
+} only %}
+```

@@ -10,6 +10,7 @@
 @use '../../mixins/media-query';
 @use '../../mixins/ms';
 @use '../../mixins/ratio-box';
+@use '../../mixins/theme';
 
 /// We can't use `grid-gap` exclusively due to some containers only being
 /// present some of the time, so we re-use this value to define the space
@@ -63,6 +64,15 @@ $_focus-overflow: (size.$edge-large * -1);
     size.$spacing-gap-fluid-min,
     size.$spacing-gap-fluid-max
   ); /* 3 */
+}
+
+.c-card--contained {
+  border-radius: 0.375em;
+  padding: ms.step(1);
+
+  @include theme.unthemed-styles() {
+    background-color: var(--theme-color-background-secondary);
+  }
 }
 
 /**
@@ -154,6 +164,17 @@ $_focus-overflow: (size.$edge-large * -1);
     right: $_focus-overflow;
     top: $_focus-overflow;
     z-index: 1;
+
+    /**
+     * Do not overflow when the card's edges are distinct
+     */
+
+    .c-card--contained & {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
   }
 
   /**

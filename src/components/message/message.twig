@@ -1,10 +1,10 @@
 {% set tag_name = tag_name | default('div') %}
 
-<{{tag_name}} class="c-message{% if class %} {{class}}{% endif %}">
+<{{ tag_name }} class="c-message{% if class %} {{ class }}{% endif %}">
   <div class="c-message__content">
     {% block content %}
       <p>
-        {{label|default('Hi, I\'m a message!')}}
+        {{ label|default('Hi, I\'m a message!') }}
       </p>
     {% endblock %}
   </div>
@@ -18,4 +18,4 @@
       <span class="u-hidden-visually">Close the notification</span>
     </button>
   {% endif %}
-</{{tag_name}}>
+</{{ tag_name }}>

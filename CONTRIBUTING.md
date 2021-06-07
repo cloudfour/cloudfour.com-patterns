@@ -76,7 +76,7 @@ Note the branch is `v-next` for now. When we we merge this branch to `master`, t
 
 ## Overriding source code previews in Storybook
 
-For most stories, we are able to generate a twig source code snippet for Storybook to display automatically. In some edge cases, the source code snippet cannot be generated automatically, so the JS that was passed to `<Story>` is shown instead. In those cases, you can manually pass the source code to `<Story>`:
+For most stories, we are able to generate a twig source code snippet for Storybook to display automatically. When stories use `useEffect` or other hooks, the source code snippet cannot be generated automatically, so the JS that was passed to `<Story>` is shown instead (there may be other cases where this happens as well). In those cases, you can manually pass the source code to `<Story>`:
 
 ```jsx
 import { makeTwigInclude } from '../../make-twig-include';

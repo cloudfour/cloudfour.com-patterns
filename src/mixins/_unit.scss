@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /**
  * Accepts a numeric value with units and returns the value without any units.
  * For example, `16px` would become `16`.
@@ -6,7 +8,7 @@
  */
 
 @function strip($value) {
-  @return $value / ($value * 0 + 1);
+  @return math.div($value, $value * 0 + 1);
 }
 
 /**
@@ -25,7 +27,7 @@
  */
 
 @function px-to-rem($value, $base: 16) {
-  @return swap($value / $base, rem);
+  @return swap(math.div($value, $base), rem);
 }
 
 /**
@@ -34,5 +36,5 @@
  */
 
 @function px-to-em($value, $base: 16) {
-  @return swap($value / $base, em);
+  @return swap(math.div($value, $base), em);
 }

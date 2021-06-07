@@ -36,6 +36,16 @@ $default-theme: light;
   }
 }
 
+/// Apply these styles only if this element is a container without an explicit
+/// theme. Useful for patterns that are only optionally a container, such as
+/// 'c-card'.
+/// @content
+@mixin unthemed-styles() {
+  &:not([class^='t-']):not([class*=' t-']) {
+    @content;
+  }
+}
+
 /// Establish the minimal rules needed for a theme's root element, specifically
 /// a `background-color` and default text color. Without this, the theme root
 /// won't be visually offset from its parent and its contents may not be very

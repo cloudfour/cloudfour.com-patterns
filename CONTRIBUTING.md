@@ -49,6 +49,12 @@ Before you submit a PR, if that PR has changes that will affect consumers of thi
 
 If you forget to run `npx changeset`, changeset-bot will pester you in your PR. It will provide a link you can use to create the changesets file from the GitHub interface.
 
+## Coding standards
+
+Use [snake case for template variables](https://symfony.com/doc/current/best_practices.html#use-snake-case-for-template-names-and-variables).
+
+Follow the [Symfony Twig Coding Standards](https://twig.symfony.com/doc/3.x/coding_standards.html) for proper spacing, indentation, and variable guidelines.
+
 ## Publishing to npm
 
 This process happens automatically after any PR with a changeset is merged to v-next.

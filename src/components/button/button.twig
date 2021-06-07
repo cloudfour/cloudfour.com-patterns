@@ -2,8 +2,8 @@
 
 <{{ tag_name }}
   class="c-button{% if class %} {{ class }}{% endif %}"
-  {% if ariaExpanded %}
-    aria-expanded="{{ ariaExpanded }}"
+  {% if aria_expanded %}
+    aria-expanded="{{ aria_expanded }}"
   {% endif %}
   {% if tag_name == 'a' %}
     href="{{ href|default('#') }}"

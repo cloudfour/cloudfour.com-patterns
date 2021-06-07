@@ -1,6 +1,23 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import elementsDemo from './demo/elements.twig';
 import stylesDemo from './demo/styles.twig';
+import iconButtonDemo from './demo/icon-button-demo.twig';
+import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
+const iconControlConfig = {
+  type: { name: 'string' },
+  control: {
+    type: 'select',
+    options: [
+      '',
+      'notifications',
+      'search',
+      'heart',
+      'brands/github',
+      'brands/twitter',
+    ],
+  },
+  defaultValue: '',
+};
 
 <Meta
   title="Components/Button"
@@ -12,6 +29,8 @@ import stylesDemo from './demo/styles.twig';
       defaultValue: 'button',
     },
     disabled: { type: { name: 'boolean' }, defaultValue: false },
+    content_start_icon: iconControlConfig,
+    content_end_icon: iconControlConfig,
   }}
 />
 
@@ -38,6 +57,71 @@ All the above visual styles will appear slightly different within [our dark them
     {(args) => stylesDemo(args)}
   </Story>
 </Canvas>
+
+## Button with icon
+
+To add an icon, pass the name of any of the [available icons](/docs/design-icons--page)
+to the `content_start_icon` or `content_end_icon` properties.
+
+```twig
+{% embed '@cloudfour/components/button/button.twig' with { content_start_icon: 'notifications' } %}
+  {% block content %}Get notifications{% endblock %}
+{% endembed %}
+```
+
+<Canvas>
+  <Story
+    name="Icon"
+    args={{
+      content_start_icon: 'notifications',
+    }}
+  >
+    {(args) => iconButtonDemo(args)}
+  </Story>
+</Canvas>
+
+### Custom icon
+
+If you need a custom icon, you can pass an `<svg>` element directly via the
+`content_start` or `content_end` Button component block. This option is only
+recommended in unique cases. Also note the usage of the `c-icon c-icon--inline`
+CSS classes on the `<svg>` element.
+
+The `content_start`/`content_end` blocks override the
+`content_start_icon`/`content_end_icon` values.
+
+```twig
+{% embed '@cloudfour/components/button/button.twig' %}
+  {% block content %}Button with a custom icon{% endblock %}
+  {% block content_end %}
+    <svg viewBox="0 0 24 24" width="24" height="24" class="c-icon c-icon--inline">
+      <circle r="8" cx="12" cy="12"></circle>
+    </svg>
+  {% endblock %}
+{% endembed %}
+```
+
+<Canvas>
+  <Story name="Custom Icon">{(args) => iconButtonCustomDemo(args)}</Story>
+</Canvas>
+
+## Template Properties
+
+- `ariaExpanded` (boolean): Sets the button's `aria-expanded` attribute.
+- `class` (string): Append a class to the root element.
+- `content_start_icon` (string): The name of the [icon](/docs/design-icons--page) to render in the `content_start` block.
+- `content_end_icon` (string): The name of the [icon](/docs/design-icons--page) to render in the `content_end` block.
+- `disabled` (boolean): Sets the button's `disabled` attribute.
+- `href` (string): Converts the button to an anchor element and assigns the `href` value. Defaults to `#` if `a` is passed as the `tag_name`.
+- `label` (string, default `'Hello world'`): Sets the button's text content.
+- `tagName` (string, default `'button'`): The tag for the button. Uses a `button` by default, an `a` when an `href` value is passed.
+- `type` (string, default `'button'`): Sets the button's `type` value.
+
+## Template Blocks
+
+- `content_start`: Block to add content before the Button `content` block.
+- `content`: Block to add Button elements.
+- `content_end`: Block to add content after the Button `content` block.
 
 ## See Also
 

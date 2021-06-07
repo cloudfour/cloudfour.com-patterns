@@ -67,7 +67,7 @@ $_focus-overflow: (size.$edge-large * -1);
 }
 
 .c-card--contained {
-  border-radius: 0.375em;
+  border-radius: size.$border-radius-large;
   padding: ms.step(1);
 
   @include theme.unthemed-styles() {

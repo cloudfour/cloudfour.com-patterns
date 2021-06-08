@@ -17,7 +17,8 @@
 @include theme.props() {
   --theme-color-background-button-default: #{color.$brand-primary};
   --theme-color-background-button-secondary: transparent;
-  --theme-color-background-button-icon-slash-default: #{color.$text-light-emphasis};
+  // --theme-color-background-button-icon-slash-default: #{color.$text-light-emphasis};
+  --theme-color-background-button-icon-slash-default: #{color.$brand-primary};
   --theme-color-border-button-default: #{color.$brand-primary-dark};
   --theme-color-border-button-secondary: #{color.$brand-primary-light};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
@@ -27,6 +28,7 @@
 @include theme.props(dark) {
   --theme-color-background-button-default: #{color.$brand-primary-dark};
   --theme-color-background-button-secondary: transparent;
+  --theme-color-background-button-icon-slash-default: #{color.$brand-primary-dark};
   --theme-color-border-button-default: #{color.$brand-primary-darker};
   --theme-color-border-button-secondary: #{color.$brand-primary-dark};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
@@ -91,7 +93,7 @@
   }
 
   &[aria-pressed='true'] {
-    @include secondary;
+    // @include secondary;
 
     .c-button__effect {
       display: inline-block;
@@ -118,7 +120,6 @@
         background-color: var(
           --theme-color-background-button-icon-slash-default
         );
-        // background-color: color.$text-light-emphasis;
         height: 100%;
         left: 47%;
         top: 43%;
@@ -140,6 +141,9 @@
   background-color: var(--theme-color-background-button-secondary);
   border-color: var(--theme-color-border-button-secondary);
   color: var(--theme-color-text-button-secondary);
+
+  &[aria-pressed='true'] {
+  }
 }
 
 /**

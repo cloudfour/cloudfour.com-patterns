@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/size";
 @use "../../mixins/button";
@@ -46,7 +47,7 @@ $wp-button-gap: size.$spacing-list-inline-gap;
   display: flex;
   flex-wrap: wrap;
   margin: $wp-button-gap * -1;
-  padding: $wp-button-gap / 2;
+  padding: math.div($wp-button-gap, 2);
 
   /**
    * If this has content before, assume it is prose content and add back
@@ -71,7 +72,7 @@ $wp-button-gap: size.$spacing-list-inline-gap;
  */
 .wp-block-button {
   flex: none; /* 1 */
-  padding: $wp-button-gap / 2; /* 2 */
+  padding: math.div($wp-button-gap, 2); /* 2 */
 
   .wp-block-button__link {
     @include button.default;

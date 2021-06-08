@@ -1,3 +1,4 @@
+@use "sass:math";
 @use 'sass:color' as sass-color;
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
@@ -21,9 +22,9 @@ $_breakpoint-nowrap: breakpoint.$l;
 $_breakpoint-grow-max: breakpoint.$xxl;
 
 // Maximum viewport width where links are stacked and hidden initially
-$_breakpoint-narrow-max: ($_breakpoint-wide * 16 - 1) / 16;
+$_breakpoint-narrow-max: math.div($_breakpoint-wide * 16 - 1, 16);
 // Maximum viewport width where links are multi-line
-$_breakpoint-wide-max: ($_breakpoint-nowrap * 16 - 1) / 16;
+$_breakpoint-wide-max: math.div($_breakpoint-nowrap * 16 - 1, 16);
 
 // Whitespace used for gaps, padding and margin
 // (These use `rem` so they will be consistent throughout the component)
@@ -296,8 +297,8 @@ $_masthead-height-sm: ms.step(7);
    */
   @media (min-width: $_breakpoint-wide) and (max-width: $_breakpoint-wide-max) {
     margin-left: auto; /* 1 */
-    max-width: 100% / 3 * 2; /* 2 */
-    padding: ($_space-vertical / 2) ($_space-horizontal / 2); /* 3 */
+    max-width: math.div(100%, 3) * 2; /* 2 */
+    padding: math.div($_space-vertical, 2) math.div($_space-horizontal, 2); /* 3 */
   }
 
   /**
@@ -306,7 +307,7 @@ $_masthead-height-sm: ms.step(7);
    * element feels balanced in comparison to those to its left.
    */
   @media (min-width: $_breakpoint-nowrap) {
-    padding-right: ($_space-horizontal / 2);
+    padding-right: math.div($_space-horizontal, 2);
   }
 }
 
@@ -420,7 +421,7 @@ $_masthead-height-sm: ms.step(7);
    * to `c-sky-nav__menu`.)
    */
   @media (min-width: $_breakpoint-wide) and (max-width: $_breakpoint-wide-max) {
-    padding: ($_space-vertical / 2) ($_space-horizontal / 2);
+    padding: math.div($_space-vertical, 2) math.div($_space-horizontal, 2);
   }
 
   /**

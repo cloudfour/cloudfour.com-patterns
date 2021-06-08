@@ -22,7 +22,7 @@ $permalink-radius: size.$border-radius-full; // 3
 // the prose width and permalink size (above) to build some component-specific
 // media query breakpoints.
 $min-width-permalink-shift: size.$max-width-prose + $permalink-size * 4;
-$max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
+$max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 
 /**
  * This containing element may be applied to a heading directly to apply a
@@ -100,7 +100,7 @@ $max-width-permalink-shift: ($min-width-permalink-shift * 16 - 1) / 16;
   justify-content: center;
   margin: auto;
   position: absolute;
-  right: ($permalink-size - $permalink-icon-size) / -2; /* 2 */
+  right: math.div($permalink-size - $permalink-icon-size, -2); /* 2 */
   text-decoration: none;
   top: 0;
   transition: color transition.$quick ease.$out,

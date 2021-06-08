@@ -1,18 +1,18 @@
-{% set _tableClass = '' %}
+{% set _table_class = '' %}
 
 {% if numericData %}
-  {% set _tableClass = _tableClass ~ ' c-table--numeric' %}
+  {% set _table_class = _table_class ~ ' c-table--numeric' %}
 {% endif %}
 
 {% if isRuled %}
-  {% set _tableClass = _tableClass ~ ' c-table--ruled' %}
+  {% set _table_class = _table_class ~ ' c-table--ruled' %}
 {% endif %}
 
 {% if isStriped %}
-  {% set _tableClass = _tableClass ~ ' c-table--striped' %}
+  {% set _table_class = _table_class ~ ' c-table--striped' %}
 {% endif %}
 
-{% embed '@cloudfour/components/table/table.twig' with { tableClass: _tableClass } %}
+{% embed '@cloudfour/components/table/table.twig' with { table_class: _table_class } %}
 
   {% block caption %}
     {% if hasCaption %}

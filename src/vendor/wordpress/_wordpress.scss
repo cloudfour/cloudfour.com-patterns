@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/size";
 @use "../../mixins/button";
@@ -11,6 +12,34 @@
 $wp-button-gap: size.$spacing-list-inline-gap;
 
 /**
+ * Apply to any current or future WordPress block that supports these alignment
+ * options (unless they decide to update their class name prefixes!)
+ */
+[class^='wp-block-'],
+[class*=' wp-block-'] {
+  /**
+   * Releases a full-width child element from its limited width container
+   * @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
+   */
+  &.alignfull,
+  &.alignwide {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+
+  /*
+   * Applies an opinionated wide-image width that allows an image element to
+   * spill slightly outsides its container at larger viewports.
+   */
+  &.alignwide {
+    @media (min-width: breakpoint.$l) {
+      margin-left: -6vw;
+      margin-right: -6vw;
+    }
+  }
+}
+
+/**
  * 1. Align buttons with outer parent
  * 2. Complete half-gaps left by buttons
  */
@@ -18,7 +47,7 @@ $wp-button-gap: size.$spacing-list-inline-gap;
   display: flex;
   flex-wrap: wrap;
   margin: $wp-button-gap * -1;
-  padding: $wp-button-gap / 2;
+  padding: math.div($wp-button-gap, 2);
 
   /**
    * If this has content before, assume it is prose content and add back
@@ -43,7 +72,7 @@ $wp-button-gap: size.$spacing-list-inline-gap;
  */
 .wp-block-button {
   flex: none; /* 1 */
-  padding: $wp-button-gap / 2; /* 2 */
+  padding: math.div($wp-button-gap, 2); /* 2 */
 
   .wp-block-button__link {
     @include button.default;
@@ -125,28 +154,6 @@ $wp-button-gap: size.$spacing-list-inline-gap;
     width: 100%;
   }
 
-  /**
-   * Releases a full-width child element from its limited width container
-   * @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
-   */
-  &.alignfull {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-  }
-
-  /*
-   * 1. Applies an opinionated wide-image width that allows an image element to
-   *    spill slightly outsides its container at larger viewports.
-   */
-  &.alignwide {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    @media (min-width: breakpoint.$l) {
-      margin-left: -6vw; /* 1 */
-      margin-right: -6vw; /* 1 */
-    }
-  }
-
   /* Since we are applying `margin-top` to CMS content via our o-rhythm
    * pattern, the default `margin-bottom` value on Gutenberg figcaption
    * elements is unnecessary, so we remove it here.
@@ -205,4 +212,42 @@ $wp-button-gap: size.$spacing-list-inline-gap;
   & th {
     text-align: right;
   }
+}
+
+/**
+ * Quote and Pull-quote
+ * Styles for quotes and pull-quotes
+ *
+ * 1. Makes the line-height more consistent with existing quote styles.
+ * 2. The quote itself defaults to being italic, this straightens out the quote
+ * 3. The pull-quote isn't italic at all, so for consistency, the cite is
+ * italicized.
+ * 4. The quote is a little squished on small screens so the max width
+ * is increased.
+ */
+.wp-block-quote {
+  line-height: size.$height-control-multiline; /* 1 */
+}
+
+.wp-block-quote.is-style-large p,
+.wp-block-quote.is-large p {
+  font-style: normal; /* 2 */
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote cite {
+  font-style: italic; /* 3 */
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote {
+  @media (min-width: breakpoint.$xs) {
+    max-width: 80%;
+  }
+  @media (min-width: breakpoint.$m) {
+    max-width: 60%;
+  }
+}
+
+.wp-block-pullquote {
+  line-height: size.$height-control-multiline; /* 1 */
+  padding: size.$padding-control-vertical 0;
 }

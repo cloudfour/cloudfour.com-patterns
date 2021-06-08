@@ -1,5 +1,5 @@
-<div class="c-author o-media{% if class %} {{class}}{% endif %}">
-  {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: "o-media__object" } %}
+<div class="c-author o-media{% if class %} {{ class }}{% endif %}">
+  {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: 'o-media__object' } %}
     {% block content %}
       {% for author in authors %}
         {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar() } only %}
@@ -17,7 +17,7 @@
     </div>
     <div>
       <span class="u-hidden-visually">Published on</span>
-      <time datetime="{{ date | date("Y-m-d") }}">{{ date | date("F jS, Y") }}</time>
+      <time datetime="{{ date|date('Y-m-d') }}">{{ date|date('F jS, Y') }}</time>
     </div>
   </div>
 </div>

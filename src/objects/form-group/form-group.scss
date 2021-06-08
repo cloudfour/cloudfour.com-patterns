@@ -1,0 +1,9 @@
+@use "../../compiled/tokens/scss/size";
+
+/**
+ * Form Group layout object
+ */
+.o-form-group {
+  display: grid;
+  gap: #{size.$spacing-gap-form-group-default};
+}

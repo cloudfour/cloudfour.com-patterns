@@ -1,7 +1,7 @@
 {% set main_id = main_id|default('main') %}
 {% set _main_href = '#' ~ main_id %}
 
-<div class="c-sky-nav js-sky-nav{% if class %} {{class}}{% endif %}">
+<div class="c-sky-nav js-sky-nav{% if class %} {{ class }}{% endif %}">
   {# https://webaim.org/techniques/skipnav/ #}
   {% embed '@cloudfour/components/button/button.twig' with {
     class: 'c-sky-nav__skip',
@@ -58,12 +58,12 @@
         {% for item in menu.items %}
           <li class="c-sky-nav__menu-item">
             <a class="c-sky-nav__menu-action"
-              href="{{item.link}}"
+              href="{{ item.link }}"
               {% if item.current %}
                 aria-current="page"
               {% endif %}>
               <span class="c-sky-nav__menu-label">
-                {{item.title}}
+                {{ item.title }}
               </span>
             </a>
           </li>
@@ -81,7 +81,7 @@
   @see https://github.com/twigjs/twig.js/issues/262
 #}
 {% if include_main_demo %}
-  <main class="o-container u-pad-1" id="{{main_id}}">
+  <main class="o-container u-pad-1" id="{{ main_id }}">
     <div class="o-container__content">
       <p>Hello world! This is the main content.</p>
     </div>

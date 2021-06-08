@@ -4,6 +4,7 @@ const singleDemoStory = (args) => {
   const props = {
     href: args.href,
   };
+  const classNames = [];
   const modifiers = [];
   if (args.show.length > 0) {
     for (const block of args.show) {
@@ -13,8 +14,17 @@ const singleDemoStory = (args) => {
   if (args.horizontal !== 'none') {
     modifiers.push(`horizontal${args.horizontal}`);
   }
+  if (args.contained) {
+    modifiers.push('contained');
+  }
   if (modifiers.length > 0) {
-    props.class = modifiers.map((modifier) => `c-card--${modifier}`).join(' ');
+    classNames.push(...modifiers.map((modifier) => `c-card--${modifier}`));
+  }
+  if (args.theme !== 'none') {
+    classNames.push(`t-${args.theme}`);
+  }
+  if (classNames.length > 0) {
+    props.class = classNames.join(' ');
   }
   return singleDemo(props);
 };
@@ -33,6 +43,12 @@ const singleDemoStory = (args) => {
     horizontal: {
       type: { name: 'string' },
       control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
+      defaultValue: 'none',
+    },
+    contained: { type: { name: 'boolean' } },
+    theme: {
+      type: { name: 'string' },
+      control: { type: 'inline-radio', options: ['none', 'light', 'dark'] },
       defaultValue: 'none',
     },
   }}
@@ -92,7 +108,32 @@ If a card with a cover is meant to occupy its full container width, it may be pr
 
 Horizontal cards will attempt to span all available columns of a CSS Grid Layout. This comes in handy when displaying them [in a Deck](/docs/objects-deck--horizontal-card#with-horizontal-cards).
 
+## Contained
+
+A card with the `c-card--contained` class will gain a background color, padding and rounded corners. This can be helpful for offsetting the card visually from its surroundings.
+
+<Canvas>
+  <Story
+    name="Contained"
+    args={{ href: '#', horizontal: '@m', contained: true }}
+  >
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
+When the card is a focal point and more contrast is desired, you may also attach a [theme class](/docs/design-themes--light) to the card. In this example, the card has a class of `t-light` within a `t-dark` container:
+
+<Canvas>
+  <Story
+    name="Themed"
+    parameters={{ theme: 't-dark' }}
+    args={{ href: '#', horizontal: '@m', contained: true, theme: 'light' }}
+  >
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
 ## Coming soon
 
 - Progressive enhancement based on CSS Grid support
-- Contained and themed cards for PWA Stats use case
+- Distinctly contained footers for PWA Stats (if necessary)

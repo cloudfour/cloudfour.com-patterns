@@ -1,0 +1,15 @@
+{# Will hold all the base CSS classes to add to the root element #}
+{% set base_css_classes = ['o-button-group'] %}
+
+{# Grow modifier CSS class #}
+{% if grow %}
+  {% set base_css_classes = base_css_classes|merge(['o-button-group--grow']) %}
+{% endif %}
+
+{# Concatenate the base CSS classes #}
+{% set base_css_classes = base_css_classes|join(' ') %}
+
+{# The Button Group template #}
+<div class="{{ base_css_classes }}{% if class %} {{ class }}{% endif %}">
+  {% block content %}{% endblock %}
+</div>

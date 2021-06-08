@@ -1,3 +1,4 @@
+@use "sass:math";
 @use 'sass:meta';
 @use 'sass:string';
 @use "../compiled/tokens/scss/aspect-ratio";
@@ -20,7 +21,7 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
 /// @link https://css-tricks.com/aspect-ratio-boxes/
 @mixin core-styles($ratio: $default-ratio, $padding: false) {
   @if $padding == false {
-    $padding: (100% / $ratio);
+    $padding: math.div(100%, $ratio);
   }
 
   overflow: hidden;

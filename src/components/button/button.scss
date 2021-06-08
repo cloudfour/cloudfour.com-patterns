@@ -24,19 +24,12 @@
   @include button.secondary;
 
   .c-button__effect {
-    // align-items: center;
-    // display: flex;
     display: inline-block;
-    // justify-content: center;
     position: relative;
-    // transition-duration: tokens.$motion-speed-quick;
-    // transition-duration: var(--vwc-motion-speed-quick);
-    // transition-property: transform;
-    // transition-timing-function: ease;
 
     &::after {
       background-color: currentColor;
-      // border-radius: var(--vwc-size-radius-full);
+      border-radius: 99rem;
       content: '';
       height: 76%;
       left: 44%;

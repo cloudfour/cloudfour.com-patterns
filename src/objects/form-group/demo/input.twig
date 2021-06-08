@@ -1,0 +1,5 @@
+{% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Email' } %}
+  {% block control %}
+    {% include '@cloudfour/components/input/input.twig' with { type: 'email' } only %}
+  {% endblock %}
+{% endembed %}

@@ -2,7 +2,6 @@ import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { useEffect } from '@storybook/client-api';
 import textDemo from './demo/example.twig';
 import selectDemo from './demo/select.twig';
-import template from './input.twig';
 import './demo/styles.scss';
 import { createElasticTextArea } from './elastic-textarea.ts';
 
@@ -47,36 +46,6 @@ The `c-input` class styles text and text-like form elements in a consistent way.
   </Story>
 </Canvas>
 
-If you pass the `label` property, a label will automatically be created and associated with the input element.
-
-<Canvas>
-  <Story
-    name="Text Elements With Label"
-    height="200px"
-    argTypes={{
-      type: {
-        type: { name: 'enum' },
-        defaultValue: 'text',
-        control: {
-          type: 'select',
-          options: ['text', 'email', 'search', 'date', 'textarea'],
-        },
-      },
-      value: { type: { name: 'string' } },
-      label: { type: { name: 'string' }, defaultValue: 'Label' },
-      placeholder: {
-        type: { name: 'string' },
-        defaultValue: 'Placeholder text…',
-      },
-      id: { type: { name: 'string' }, defaultValue: 'demo-input' },
-      readonly: { type: { name: 'boolean' }, defaultValue: false },
-      disabled: { type: { name: 'boolean' }, defaultValue: false },
-    }}
-  >
-    {(args) => template(args)}
-  </Story>
-</Canvas>
-
 You can also add `c-input` to `<select>` elements, in which case you’ll get a nifty iconographic affordance. The `multiple` attribute is not supported.
 
 <Canvas>
@@ -114,10 +83,7 @@ If the `rows` attribute is set, it will be used as the minimum height.
       // Use storybook hooks to trigger JS after story renders
       // @see https://github.com/storybookjs/storybook/issues/7786
       useEffect(() => {
-        const { destroy } = createElasticTextArea(
-          document.querySelector('.js-elastic-textarea')
-        );
-        return destroy;
+        createElasticTextArea(document.querySelector('.js-elastic-textarea'));
       }, []);
       return textDemo({
         type: 'textarea',

@@ -1,5 +1,6 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import demo from './demo/input.twig'
+import { makeTwigInclude } from '../../make-twig-include';
+import demo from './demo/input.twig';
 
 <Meta title="Objects/Form Group" />
 
@@ -10,7 +11,22 @@ The Form Group layout object groups a label and its corresponding control.
 ## Default
 
 <Canvas>
-  <Story name="Default">{() => demo()}</Story>
+  <Story
+    name="Default"
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Email' } only %}
+  {% block control %}
+    {% include '@cloudfour/components/input/input.twig' with { type: 'email' } only %}
+  {% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
+    {() => demo()}
+  </Story>
 </Canvas>
 
 ## Template Properties

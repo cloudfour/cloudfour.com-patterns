@@ -2,11 +2,11 @@
   {% set style = (style|default('')) ~ ';--aspect-ratio:' ~ aspect_ratio %}
 {% endif %}
 
-<div class="o-embed{% if class %} {{class}}{% endif %}"
+<div class="o-embed{% if class %} {{ class }}{% endif %}"
   {% if style %}
     style="
       {%- for rule in style|split(';')|filter(rule => rule|length) -%}
-        {{rule}}{% if not loop.last %};{% endif %}
+        {{ rule }}{% if not loop.last %};{% endif %}
       {%- endfor -%}"
   {% endif %}>
   {% block content %}

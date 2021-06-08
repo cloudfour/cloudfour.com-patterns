@@ -9,41 +9,41 @@
 {% set _content_block %}{% block content %}{% endblock %}{% endset %}
 {% set _footer_block %}{% block footer %}{% endblock %}{% endset %}
 
-<{{tag_name}} class="
+<{{ tag_name }} class="
   c-card
   {% if href %}c-card--with-link{% endif %}
-  {% if class %}{{class}}{% endif %}">
+  {% if class %}{{ class }}{% endif %}">
 
   {% if _heading_block is not empty %}
-    <{{header_tag_name}} class="c-card__header">
-      <h{{heading_level}} class="c-card__heading">
+    <{{ header_tag_name }} class="c-card__header">
+      <h{{ heading_level }} class="c-card__heading">
         {% if href %}
-          <a href="{{href}}" class="c-card__link">
-            {{_heading_block}}
+          <a href="{{ href }}" class="c-card__link">
+            {{ _heading_block }}
           </a>
         {% else %}
-          {{_heading_block}}
+          {{ _heading_block }}
         {% endif %}
-      </h{{heading_level}}>
-    </{{header_tag_name}}>
+      </h{{ heading_level }}>
+    </{{ header_tag_name }}>
   {% endif %}
 
   {% if _cover_block is not empty %}
     <div class="c-card__cover">
-      {{_cover_block}}
+      {{ _cover_block }}
     </div>
   {% endif %}
 
   {% if _content_block is not empty %}
     <div class="c-card__content">
-      {{_content_block}}
+      {{ _content_block }}
     </div>
   {% endif %}
 
   {% if _footer_block is not empty %}
-    <{{footer_tag_name}} class="c-card__footer">
-      {{_footer_block}}
-    </{{footer_tag_name}}>
+    <{{ footer_tag_name }} class="c-card__footer">
+      {{ _footer_block }}
+    </{{ footer_tag_name }}>
   {% endif %}
 
-</{{tag_name}}>
+</{{ tag_name }}>

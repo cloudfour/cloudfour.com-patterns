@@ -23,23 +23,23 @@ const defaultArgTypes = {
   },
   organizationStreetAddress: {
     type: { name: 'string' },
-    defaultValue: organization.address.streetAddress,
+    defaultValue: organization.address.street_address,
   },
   organizationAddressLocality: {
     type: { name: 'string' },
-    defaultValue: organization.address.addressLocality,
+    defaultValue: organization.address.address_locality,
   },
   organizationAddressRegion: {
     type: { name: 'string' },
-    defaultValue: organization.address.addressRegion,
+    defaultValue: organization.address.address_region,
   },
   organizationPostalCode: {
     type: { name: 'string' },
-    defaultValue: organization.address.postalCode,
+    defaultValue: organization.address.postal_code,
   },
   organizationAddressCountry: {
     type: { name: 'string' },
-    defaultValue: organization.address.addressCountry,
+    defaultValue: organization.address.address_country,
   },
   organizationEmail: {
     type: { name: 'string' },
@@ -55,7 +55,7 @@ const defaultArgTypes = {
   },
   organizationFoundingDate: {
     type: { name: 'string' },
-    defaultValue: organization.foundingDate,
+    defaultValue: organization.founding_date,
   },
 };
 
@@ -89,7 +89,7 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
         menu,
         social,
         action: {
-          leadIn: args.buttonLeadIn,
+          lead_in: args.buttonLeadIn,
           title: args.buttonTitle,
           link: args.buttonLink,
           icon: args.buttonIcon,
@@ -97,16 +97,16 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
         organization: {
           name: args.organizationName,
           address: {
-            streetAddress: args.organizationStreetAddress,
-            addressLocality: args.organizationAddressLocality,
-            addressRegion: args.organizationAddressRegion,
-            postalCode: args.organizationPostalCode,
-            addressCountry: args.organizationAddressCountry,
+            street_address: args.organizationStreetAddress,
+            address_locality: args.organizationAddressLocality,
+            address_region: args.organizationAddressRegion,
+            postal_code: args.organizationPostalCode,
+            address_country: args.organizationAddressCountry,
           },
           email: args.organizationEmail,
           telephone: args.organizationTelephone,
           url: args.organizationUrl,
-          foundingDate: args.organizationFoundingDate,
+          founding_date: args.organizationFoundingDate,
         },
       })
     }
@@ -132,7 +132,7 @@ The menu’s contents may differ between projects. This example is based on the 
         menu,
         social,
         action: {
-          leadIn: args.buttonLeadIn,
+          lead_in: args.buttonLeadIn,
           title: args.buttonTitle,
           link: args.buttonLink,
           icon: args.buttonIcon,
@@ -140,16 +140,16 @@ The menu’s contents may differ between projects. This example is based on the 
         organization: {
           name: args.organizationName,
           address: {
-            streetAddress: args.organizationStreetAddress,
-            addressLocality: args.organizationAddressLocality,
-            addressRegion: args.organizationAddressRegion,
-            postalCode: args.organizationPostalCode,
-            addressCountry: args.organizationAddressCountry,
+            street_address: args.organizationStreetAddress,
+            address_locality: args.organizationAddressLocality,
+            address_region: args.organizationAddressRegion,
+            postal_code: args.organizationPostalCode,
+            address_country: args.organizationAddressCountry,
           },
           email: args.organizationEmail,
           telephone: args.organizationTelephone,
           url: args.organizationUrl,
-          foundingDate: args.organizationFoundingDate,
+          founding_date: args.organizationFoundingDate,
         },
       })
     }
@@ -163,21 +163,21 @@ Stay tuned!
 ## Template Properties
 
 - `action`: Object containing settings for the "call to action" section.
-  - `leadIn`: The heading text that precedes the button.
+  - `lead_in`: The heading text that precedes the button.
   - `title`: The title of the action link. Named `title` for consistency with menus.
   - `link`: The URL for the action link. Named `link` for consistency with menus.
   - `icon`: Optional key to one of [our icons](/docs/design-icons--page) for display in the link.
 - `organization`: Object containing Cloud Four details for contact information and copyright. Structure and property names are based on the [the Organization schema](https://schema.org/Organization).
   - `name`
   - `address`
-    - `streetAddress`
-    - `addressLocality` (city)
-    - `addressRegion` (state)
-    - `postalCode` (zip)
-    - `addressCountry`
+    - `street_address`
+    - `address_locality` (city)
+    - `address_region` (state)
+    - `postal_code` (zip)
+    - `address_country`
   - `email`
   - `telephone`
   - `url`
-  - `foundingDate`: Used for start date of default legal content.
+  - `founding_date`: Used for start date of default legal content.
 - `menu`: An object containing navigation menu `items` to iterate over in the same structure as that expected by [Timber menus](https://timber.github.io/docs/guides/menus/).
 - `social`: The same structure as `menu` but for social links. Each item must also contain an `icon` property corresponding to a key from [our icon library](/docs/design-icons--page).

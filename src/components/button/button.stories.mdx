@@ -80,18 +80,9 @@ to the `content_start_icon` or `content_end_icon` properties.
   >
     {(args) => button(args)}
   </Story>
-  <Story
-    name="Button toggle"
-    args={{
-      content_start_icon: 'notifications',
-      aria_pressed: 'true',
-    }}
-  >
-    {(args) => button(args)}
-  </Story>
 </Canvas>
 
-### Custom icon
+## Custom icon
 
 If you need a custom icon, you can pass an `<svg>` element directly via the
 `content_start` or `content_end` Button component block. This option is only
@@ -114,6 +105,29 @@ The `content_start`/`content_end` blocks override the
 
 <Canvas>
   <Story name="Custom Icon">{(args) => iconButtonCustomDemo(args)}</Story>
+</Canvas>
+
+## Toggling button
+
+Toggle them buttons!
+
+```twig
+
+```
+
+<Canvas>
+  <Story
+    name="Toggling Button"
+    args={{
+      content_start_icon: 'notifications',
+      aria_pressed: 'true',
+    }}
+  >
+    {(args) => button(args)}
+  </Story>
+  <Story name="Custom Icon Toggling Button" args={{ aria_pressed: 'true' }}>
+    {(args) => iconButtonCustomDemo(args)}
+  </Story>
 </Canvas>
 
 ## Template Properties

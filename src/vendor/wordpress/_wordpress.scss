@@ -207,7 +207,7 @@ $wp-button-gap: size.$spacing-list-inline-gap;
   }
 }
 
- /**
+/**
  * Quote and Pull-quote
  * Styles for quotes and pull-quotes
  *
@@ -222,7 +222,8 @@ $wp-button-gap: size.$spacing-list-inline-gap;
   line-height: size.$height-control-multiline; /* 1 */
 }
 
-.wp-block-quote.is-style-large p, .wp-block-quote.is-large p {
+.wp-block-quote.is-style-large p,
+.wp-block-quote.is-large p {
   font-style: normal; /* 2 */
 }
 

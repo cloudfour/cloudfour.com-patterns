@@ -19,37 +19,3 @@
 .c-button--tertiary {
   @include button.tertiary;
 }
-
-.c-button[aria-pressed='true'] {
-  @include button.secondary;
-
-  .c-button__effect {
-    display: inline-block;
-    position: relative;
-
-    &::after {
-      background-color: currentColor;
-      border-radius: 99rem;
-      content: '';
-      height: 76%;
-      left: 44%;
-      position: absolute;
-      top: 44%;
-      transform: translate(0, -46%) rotate(-45deg);
-      width: 2px;
-    }
-  }
-
-  .c-icon {
-    clip-path: polygon(
-      100% 105%,
-      0 105%,
-      0 5%,
-      100% 105%,
-      110% 95%,
-      15% 0,
-      110% 0,
-      110% 95%
-    );
-  }
-}

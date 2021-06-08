@@ -17,6 +17,7 @@
 @include theme.props() {
   --theme-color-background-button-default: #{color.$brand-primary};
   --theme-color-background-button-secondary: transparent;
+  --theme-color-background-button-icon-slash-default: #{color.$text-light-emphasis};
   --theme-color-border-button-default: #{color.$brand-primary-dark};
   --theme-color-border-button-secondary: #{color.$brand-primary-light};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
@@ -87,6 +88,43 @@
     filter: grayscale(60%);
     opacity: 0.85;
     transform: none;
+  }
+
+  &[aria-pressed='true'] {
+    @include secondary;
+
+    .c-button__effect {
+      display: inline-block;
+      position: relative;
+
+      &::before,
+      &::after {
+        border-radius: 99rem;
+        content: '';
+        position: absolute;
+        width: 2px;
+      }
+
+      &::before {
+        background-color: currentColor;
+        height: 76%;
+        left: 46%;
+        top: 46%;
+        transform: translate(0, -50%) rotate(-45deg);
+        z-index: 1;
+      }
+
+      &::after {
+        background-color: var(
+          --theme-color-background-button-icon-slash-default
+        );
+        // background-color: color.$text-light-emphasis;
+        height: 100%;
+        left: 47%;
+        top: 43%;
+        transform: translate(50%, -50%) rotate(-45deg);
+      }
+    }
   }
 
   @include focus.focus-visible {

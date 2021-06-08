@@ -5,6 +5,9 @@
   {% if ariaExpanded %}
     aria-expanded="{{ ariaExpanded }}"
   {% endif %}
+  {% if aria_pressed %}
+    aria-pressed="{{ aria_pressed }}"
+  {% endif %}
   {% if tagName == 'a' %}
     href="{{ href|default('#') }}"
   {% elseif tagName == 'button' %}

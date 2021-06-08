@@ -20,43 +20,43 @@
   @include button.tertiary;
 }
 
-.c-button--toggle {
+.c-button[aria-pressed='true'] {
   @include button.secondary;
+
+  .c-button__effect {
+    // align-items: center;
+    // display: flex;
+    display: inline-block;
+    // justify-content: center;
+    position: relative;
+    // transition-duration: tokens.$motion-speed-quick;
+    // transition-duration: var(--vwc-motion-speed-quick);
+    // transition-property: transform;
+    // transition-timing-function: ease;
+
+    &::after {
+      background-color: currentColor;
+      // border-radius: var(--vwc-size-radius-full);
+      content: '';
+      height: 76%;
+      left: 44%;
+      position: absolute;
+      top: 44%;
+      transform: translate(0, -46%) rotate(-45deg);
+      width: 2px;
+    }
+  }
 
   .c-icon {
     clip-path: polygon(
-      105% 115%,
-      0 115%,
-      0 10%,
-      105% 115%,
-      115% 105%,
-      10% 0,
-      115% 0,
-      115% 105%
+      100% 105%,
+      0 105%,
+      0 5%,
+      100% 105%,
+      110% 95%,
+      15% 0,
+      110% 0,
+      110% 95%
     );
-  }
-}
-
-.c-button__effect {
-  // align-items: center;
-  // display: flex;
-  display: inline-block;
-  // justify-content: center;
-  position: relative;
-  // transition-duration: tokens.$motion-speed-quick;
-  // transition-duration: var(--vwc-motion-speed-quick);
-  // transition-property: transform;
-  // transition-timing-function: ease;
-
-  &::after {
-    background-color: currentColor;
-    // border-radius: var(--vwc-size-radius-full);
-    content: '';
-    height: 75%;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-0.125rem, -50%) rotate(-45deg);
-    width: 2px;
   }
 }

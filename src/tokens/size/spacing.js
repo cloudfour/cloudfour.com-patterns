@@ -34,6 +34,12 @@ module.exports = {
             comment: 'The Button Group default gap spacing.',
           },
         },
+        form_group: {
+          default: {
+            value: modularEm(-5),
+            comment: 'The Form Group default gap spacing.',
+          },
+        },
       },
       control: {
         text_inset: { value: modularEm(-1) },

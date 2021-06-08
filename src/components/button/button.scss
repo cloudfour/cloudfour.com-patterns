@@ -19,3 +19,40 @@
 .c-button--tertiary {
   @include button.tertiary;
 }
+
+.c-button--toggle {
+  .c-icon {
+    clip-path: polygon(
+      0 100%,
+      0 15%,
+      85% 100%,
+      115% 100%,
+      15% 0,
+      115% 0,
+      115% 100%
+    );
+  }
+}
+
+.c-button__effect {
+  align-items: center;
+  // display: flex;
+  justify-content: center;
+  position: relative;
+  // transition-duration: tokens.$motion-speed-quick;
+  // transition-duration: var(--vwc-motion-speed-quick);
+  // transition-property: transform;
+  // transition-timing-function: ease;
+
+  &::after {
+    background-color: currentColor;
+    // border-radius: var(--vwc-size-radius-full);
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-200%, -50%) rotate(-45deg);
+    width: 2px;
+  }
+}

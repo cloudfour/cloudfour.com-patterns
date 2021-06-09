@@ -101,7 +101,7 @@
 
       &::before,
       &::after {
-        border-radius: 99rem;
+        border-radius: 98rem;
         content: '';
         position: absolute;
         width: 2px;
@@ -109,7 +109,7 @@
 
       &::before {
         background-color: currentColor;
-        height: 76%;
+        height: 80%;
         left: 46%;
         top: 46%;
         transform: translate(0, -50%) rotate(-45deg);

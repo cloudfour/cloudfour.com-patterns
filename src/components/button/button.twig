@@ -1,4 +1,8 @@
 {% set tagName = tagName|default(href ? 'a' : 'button') %}
+{# Set a default icon if aria-pressed is set and no icon was supplied #}
+{% if aria_pressed and content_start_icon is empty and content_end_icon is empty %}
+  {% set content_start_icon = 'notifications' %}
+{% endif %}
 
 <{{ tagName }}
   class="c-button{% if class %} {{ class }}{% endif %}"

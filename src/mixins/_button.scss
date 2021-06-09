@@ -92,9 +92,10 @@
     transform: none;
   }
 
+  /**
+   * Toggling button
+   */
   &[aria-pressed='true'] {
-    // @include secondary;
-
     .c-button__effect {
       display: inline-block;
       position: relative;
@@ -141,9 +142,6 @@
   background-color: var(--theme-color-background-button-secondary);
   border-color: var(--theme-color-border-button-secondary);
   color: var(--theme-color-text-button-secondary);
-
-  &[aria-pressed='true'] {
-  }
 }
 
 /**

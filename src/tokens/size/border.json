@@ -5,6 +5,10 @@
         "small": { "value": "0.125em" },
         "medium": { "value": "0.25em" },
         "large": { "value": "0.5em" },
+        "card-contained": {
+          "value": "{size.border.radius.large.value}",
+          "comment": "Current value for the contained cards."
+        },
         "full": {
           "value": "9999px",
           "comment": "A value of 50% would be more intuitive, but results in unexpectedly oblong rounding for non-square shapes. We use `px` to save the browser the trouble of recalculating the stupidly large value."

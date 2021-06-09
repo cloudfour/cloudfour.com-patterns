@@ -251,3 +251,12 @@ $wp-button-gap: size.$spacing-list-inline-gap;
   line-height: size.$height-control-multiline; /* 1 */
   padding: size.$padding-control-vertical 0;
 }
+
+/**
+ * Groups
+ * Rounds the corners for groups when the has-background class is applied.
+ */
+
+.wp-block-group.has-background {
+  border-radius: size.$border-radius-large;
+}

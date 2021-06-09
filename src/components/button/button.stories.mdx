@@ -132,6 +132,24 @@ You can override the `content_start_icon` value to a different icon.
   >
     {(args) => button(args)}
   </Story>
+  <Story
+    name="Secondary Toggling Button"
+    args={{
+      class: 'c-button--secondary',
+      aria_pressed: 'true',
+    }}
+  >
+    {(args) => button(args)}
+  </Story>
+  <Story
+    name="Tertiary Toggling Button"
+    args={{
+      class: 'c-button--tertiary',
+      aria_pressed: 'true',
+    }}
+  >
+    {(args) => button(args)}
+  </Story>
   <Story name="Custom Icon Toggling Button" args={{ aria_pressed: 'true' }}>
     {(args) => iconButtonCustomDemo(args)}
   </Story>

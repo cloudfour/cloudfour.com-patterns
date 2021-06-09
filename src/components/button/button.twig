@@ -1,6 +1,16 @@
 {% set tag_name = tag_name|default(href ? 'a' : 'button') %}
-{# Set a default icon if aria-pressed is set and no icon was supplied #}
-{% if aria_pressed and content_start_icon is empty and content_end_icon is empty %}
+{# Check for 'content_start' and 'content_end' #}
+{% set _content_start = block('content_start') %}
+{% set _content_end = block('content_end') %}
+
+{# Set a default icon if aria-pressed is set and no icon (or block content) was supplied #}
+{% if
+  aria_pressed and
+  content_start_icon is empty and
+  content_end_icon is empty and
+  _content_start|trim is empty and
+  _content_end|trim is empty
+%}
   {% set content_start_icon = 'notifications' %}
 {% endif %}
 

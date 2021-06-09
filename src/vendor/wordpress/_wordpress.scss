@@ -257,9 +257,11 @@ $wp-button-gap: size.$spacing-list-inline-gap;
  * Rounds the corners for groups when the has-background class is applied.
  * 1. This value is added to keep the Cloud Four card containers and
  * the Gutenberg styles consistent.
- * 2. When the classes alignfull or alignwide are applied with these classes
- * the border radius will go back to 0 to keep the corners flesh with the edge
- * of the page.
+ * 2. When the alignfull class is applied the border radius will go
+ * back to 0 to keep the corners flesh with the edge of the page.
+ * 3. The alignwide class will have the border-radius set to 0 until it hits
+ * the large breakpoint because at that point, it no longer sits along the
+ * edge of the screen. It's intended to be applied within a container.
  */
 
 .wp-block-group.has-background {
@@ -272,6 +274,6 @@ $wp-button-gap: size.$spacing-list-inline-gap;
 
 .wp-block-group.has-background.alignwide {
   @media (max-width: breakpoint.$l) {
-    border-radius: 0; /* 2 */
+    border-radius: 0; /* 3 */
   }
 }

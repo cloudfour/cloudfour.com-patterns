@@ -3,7 +3,7 @@ import tokens from '../compiled/tokens/js/tokens';
 const _ = require('lodash');
 const aspectRatios = tokens.number.aspect_ratio;
 const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
-  const { name, attributes, value } = aspectRatios[key];
+  const { name, attributes, value, comment } = aspectRatios[key];
   return (
     <tr key={name}>
       <td>
@@ -12,6 +12,7 @@ const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
       <td>
         <code>{value}</code>
       </td>
+      <td>{comment}</td>
     </tr>
   );
 });
@@ -22,12 +23,12 @@ const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
 
 ```scss
 @use "../../compiled/tokens/scss/aspect-ratio";
-$example: aspect-ratio.$wide; // => '16/9'
+$example: aspect-ratio.$wide; // => 1.7777777777777777
 ```
 
 ```javascript
 import tokens from '../../compiled/tokens/js/tokens';
-console.log(tokens.number.aspect_ratio.wide.value); // => '16/9'
+console.log(tokens.number.aspect_ratio.wide.value); // => 1.7777777777777777
 ```
 
 ## Ratio
@@ -37,6 +38,7 @@ console.log(tokens.number.aspect_ratio.wide.value); // => '16/9'
     <tr>
       <th style={{ width: '10%' }}>Name</th>
       <th>Value</th>
+      <th>Comment</th>
     </tr>
   </thead>
   <tbody>{aspectRatioRows}</tbody>

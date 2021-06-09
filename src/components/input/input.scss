@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/ease";
 @use "../../compiled/tokens/scss/size";
@@ -103,9 +104,9 @@
     background-position: right size.$spacing-control-icon-inset center;
     background-repeat: no-repeat;
     background-size: size.$square-control-icon 100%; /* 1 */
-    padding-bottom: size.$padding-control-vertical / 2; /* 2 */
+    padding-bottom: math.div(size.$padding-control-vertical, 2); /* 2 */
     padding-right: size.$spacing-control-icon-inset + size.$square-control-icon; /* 3 */
-    padding-top: size.$padding-control-vertical / 2; /* 2 */
+    padding-top: math.div(size.$padding-control-vertical, 2); /* 2 */
   }
 
   &:hover:not(:disabled):not([readonly]) {

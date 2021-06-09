@@ -1,7 +1,7 @@
 {% set type = type|default('text') %}
 
 {% set attributes %}
-  class="c-input{% if class %} {{class}}{% endif %}"
+  class="c-input{% if class %} {{ class }}{% endif %}"
   {% for attribute_name in [
     'id',
     'name',
@@ -14,23 +14,24 @@
     'min',
     'max',
     'rows',
-    'step'] %}
+    'step'
+  ] %}
     {% set attribute_value = attribute(_context, attribute_name) %}
-    {% if attribute_value %}{{attribute_name}}="{{attribute_value}}"{% endif %}
+    {% if attribute_value %}{{ attribute_name }}="{{ attribute_value }}"{% endif %}
   {% endfor %}
   {% for attribute_name in [
     'autofocus',
     'required',
     'disabled',
-    'readonly'] %}
+    'readonly'
+  ] %}
     {% set attribute_value = attribute(_context, attribute_name) %}
-    {% if attribute_value %}{{attribute_name}}{% endif %}
+    {% if attribute_value %}{{ attribute_name }}{% endif %}
   {% endfor %}
 {% endset %}
 
 {% if type == 'textarea' %}
-  <textarea {{attributes}}>{{value}}</textarea>
+  <textarea {{ attributes }}>{{ value }}</textarea>
 {% else %}
-  <input type="{{type}}" value="{{value}}" {{attributes}}>
+  <input type="{{ type }}" value="{{ value }}" {{ attributes }}>
 {% endif %}
-

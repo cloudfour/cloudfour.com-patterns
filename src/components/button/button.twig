@@ -1,20 +1,20 @@
-{% set tagName = tagName|default(href ? 'a' : 'button') %}
+{% set tag_name = tag_name|default(href ? 'a' : 'button') %}
 {# Set a default icon if aria-pressed is set and no icon was supplied #}
 {% if aria_pressed and content_start_icon is empty and content_end_icon is empty %}
   {% set content_start_icon = 'notifications' %}
 {% endif %}
 
-<{{ tagName }}
+<{{ tag_name }}
   class="c-button{% if class %} {{ class }}{% endif %}"
-  {% if ariaExpanded %}
-    aria-expanded="{{ ariaExpanded }}"
+  {% if aria_expanded %}
+    aria-expanded="{{ aria_expanded }}"
   {% endif %}
   {% if aria_pressed %}
     aria-pressed="{{ aria_pressed }}"
   {% endif %}
-  {% if tagName == 'a' %}
+  {% if tag_name == 'a' %}
     href="{{ href|default('#') }}"
-  {% elseif tagName == 'button' %}
+  {% elseif tag_name == 'button' %}
     type="{{ type|default('button') }}"
     {% if disabled %}
       disabled
@@ -44,4 +44,4 @@
       {% endif %}
     {% endblock %}
   </span>
-</{{ tagName }}>
+</{{ tag_name }}>

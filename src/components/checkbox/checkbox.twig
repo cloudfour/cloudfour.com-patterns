@@ -1,21 +1,23 @@
 {% set attributes %}
   type="checkbox"
-  class="c-checkbox{% if class %} {{class}}{% endif %}"
+  class="c-checkbox{% if class %} {{ class }}{% endif %}"
   {% for attribute_name in [
     'value',
     'id',
     'name',
-    'autocomplete',] %}
+    'autocomplete'
+  ] %}
     {% set attribute_value = attribute(_context, attribute_name) %}
-    {% if attribute_value %}{{attribute_name}}="{{attribute_value}}"{% endif %}
+    {% if attribute_value %}{{ attribute_name }}="{{ attribute_value }}"{% endif %}
   {% endfor %}
   {% for attribute_name in [
     'checked',
     'required',
-    'disabled'] %}
+    'disabled'
+  ] %}
     {% set attribute_value = attribute(_context, attribute_name) %}
-    {% if attribute_value %}{{attribute_name}}{% endif %}
+    {% if attribute_value %}{{ attribute_name }}{% endif %}
   {% endfor %}
 {% endset %}
 
-<input {{attributes}}>
+<input {{ attributes }}>

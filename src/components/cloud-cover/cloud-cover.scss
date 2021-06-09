@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
 @use "../../mixins/ms";
@@ -96,7 +97,8 @@ $_gap: ms.step(1);
       height= '140',
       viewBox= '0 0 580 140'
     );
-  background-size: auto (220 / 300 * 100%), auto (140 / 300 * 100%); /* 1 */
+  background-size: auto (math.div(220, 300) * 100%),
+    auto (math.div(140, 300) * 100%); /* 1 */
 }
 
 /**

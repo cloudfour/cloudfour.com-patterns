@@ -1,22 +1,24 @@
 {% set attributes %}
-  class="c-input{% if class %} {{class}}{% endif %}"
+  class="c-input{% if class %} {{ class }}{% endif %}"
   {% for attribute_name in [
     'id',
     'name',
-    'autocomplete'] %}
+    'autocomplete'
+  ] %}
     {% set attribute_value = attribute(_context, attribute_name) %}
-    {% if attribute_value %}{{attribute_name}}="{{attribute_value}}"{% endif %}
+    {% if attribute_value %}{{ attribute_name }}="{{ attribute_value }}"{% endif %}
   {% endfor %}
   {% for attribute_name in [
     'autofocus',
     'required',
-    'disabled'] %}
+    'disabled'
+  ] %}
     {% set attribute_value = attribute(_context, attribute_name) %}
-    {% if attribute_value %}{{attribute_name}}{% endif %}
+    {% if attribute_value %}{{ attribute_name }}{% endif %}
   {% endfor %}
 {% endset %}
 
-<select {{attributes}}>
+<select {{ attributes }}>
   {% block options %}
     <option>Option 1</option>
     <option>Option 2</option>

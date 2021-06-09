@@ -97,6 +97,8 @@
 
   /**
    * Toggling button
+   * This adds a slash across the icon to visually show the state has changed
+   * when `aria-pressed` is `'true'`.
    */
   &[aria-pressed='true'] {
     .c-button__effect {

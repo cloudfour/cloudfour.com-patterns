@@ -266,14 +266,14 @@ $wp-button-gap: size.$spacing-list-inline-gap;
 
 .wp-block-group.has-background {
   border-radius: size.$border-radius-card-contained; /* 1 */
-}
 
-.wp-block-group.has-background.alignfull {
-  border-radius: 0; /* 2 */
-}
+  &.alignfull {
+    border-radius: 0; /* 2 */
+  }
 
-.wp-block-group.has-background.alignwide {
-  @media (max-width: breakpoint.$l) {
-    border-radius: 0; /* 3 */
+  &.alignwide {
+    @media (max-width: breakpoint.$l) {
+      border-radius: 0; /* 3 */
+    }
   }
 }

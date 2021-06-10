@@ -273,7 +273,7 @@ $wp-button-gap: size.$spacing-list-inline-gap;
 }
 
 .wp-block-group.has-background.alignwide {
-  @media (max-width: breakpoint.$l) {
+  @media (width < breakpoint.$l) {
     border-radius: 0; /* 3 */
   }
 }

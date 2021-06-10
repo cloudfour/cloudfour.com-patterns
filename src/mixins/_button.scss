@@ -102,34 +102,31 @@
    */
   &[aria-pressed='true'] {
     .c-button__effect {
-      display: inline-block;
+      display: inline-flex;
       position: relative;
 
-      &::before,
-      &::after {
-        border-radius: 98rem;
-        content: '';
-        position: absolute;
-        width: 2px;
-      }
-
-      &::before {
-        background-color: currentColor;
-        height: 80%;
-        left: 46%;
-        top: 46%;
-        transform: translate(0, -50%) rotate(-45deg);
-        z-index: 1;
-      }
-
-      &::after {
-        background-color: var(
-          --theme-color-background-button-icon-slash-default
+      .c-icon {
+        clip-path: polygon(
+          100% 105%,
+          0 105%,
+          0 5%,
+          100% 105%,
+          110% 95%,
+          15% 0,
+          110% 0,
+          110% 95%
         );
+      }
+
+      &::after {
+        background-color: currentColor;
+        clip-path: polygon(100% 105%, 0 5%, 15% 0, 110% 95%);
+        content: '';
         height: 100%;
-        left: 47%;
-        top: 43%;
-        transform: translate(50%, -50%) rotate(-45deg);
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
       }
     }
   }
@@ -154,9 +151,9 @@
   &[aria-pressed='true'] {
     .c-button__effect {
       &::after {
-        background-color: var(
-          --theme-color-background-button-icon-slash-secondary
-        );
+        // background-color: var(
+        //   --theme-color-background-button-icon-slash-secondary
+        // );
       }
     }
   }
@@ -177,9 +174,9 @@
   &[aria-pressed='true'] {
     .c-button__effect {
       &::after {
-        background-color: var(
-          --theme-color-background-button-icon-slash-tertiary
-        );
+        // background-color: var(
+        //   --theme-color-background-button-icon-slash-tertiary
+        // );
       }
     }
   }

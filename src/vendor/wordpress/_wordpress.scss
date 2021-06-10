@@ -258,7 +258,7 @@ $wp-button-gap: size.$spacing-list-inline-gap;
  * 1. This value is added to keep the Cloud Four card containers and
  * the Gutenberg styles consistent.
  * 2. When the alignfull class is applied the border radius will go
- * back to 0 to keep the corners flesh with the edge of the page.
+ * back to 0 to keep the corners flush with the edge of the page.
  * 3. The alignwide class will have the border-radius set to 0 until it hits
  * the large breakpoint because at that point, it no longer sits along the
  * edge of the screen. It's intended to be applied within a container.

@@ -120,6 +120,7 @@
 
       /**
        * 1. This is a hack to force Safari to use a different polygon for the clip-path.
+       *    The -webkit-clip-path rule should be below the clip-path version to work as intended.
        */
       .c-icon {
         clip-path: polygon(
@@ -132,6 +133,7 @@
           0 170%
         );
 
+        /* stylelint-disable-next-line order/properties-alphabetical-order, property-no-vendor-prefix */
         -webkit-clip-path: view-box
           polygon(0 0, 180% 0, 0 100%, 0% 125%, 210% 0, 176% 120%, 0 170%); /* 1 */
       }

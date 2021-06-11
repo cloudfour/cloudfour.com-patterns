@@ -1,11 +1,12 @@
 {% set tag_name = tag_name|default(href ? 'a' : 'button') %}
-{# Check for 'content_start' and 'content_end' #}
+{# aria_pressed only accepts 'true' or 'false' (string) values #}
+{% set is_aria_pressed_valid = aria_pressed == 'true' or aria_pressed == 'false' %}
+{# Check for 'content_start' and 'content_end' content #}
 {% set _content_start = block('content_start') %}
 {% set _content_end = block('content_end') %}
-
 {# Set a default icon if aria-pressed is set and no icon (or block content) was supplied #}
 {% if
-  (aria_pressed == 'true' or aria_pressed == 'false') and
+  is_aria_pressed_valid and
   content_start_icon is empty and
   content_end_icon is empty and
   _content_start|trim is empty and
@@ -19,7 +20,7 @@
   {% if aria_expanded %}
     aria-expanded="{{ aria_expanded }}"
   {% endif %}
-  {% if aria_pressed %}
+  {% if is_aria_pressed_valid %}
     aria-pressed="{{ aria_pressed }}"
   {% endif %}
   {% if tag_name == 'a' %}

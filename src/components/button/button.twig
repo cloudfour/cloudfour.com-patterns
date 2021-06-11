@@ -5,7 +5,7 @@
 
 {# Set a default icon if aria-pressed is set and no icon (or block content) was supplied #}
 {% if
-  aria_pressed and
+  (aria_pressed == 'true' or aria_pressed == 'false') and
   content_start_icon is empty and
   content_end_icon is empty and
   _content_start|trim is empty and

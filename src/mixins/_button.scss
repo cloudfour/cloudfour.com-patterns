@@ -105,34 +105,35 @@
       display: inline-block;
       position: relative;
 
-      .c-icon {
-        clip-path: path(
-          'M0,0V24H24V0ZM22.89,8.87l-20.78,12a1,1,0,0,1-1-1.74l20.78-12a1,1,0,0,1,1,1.74Z'
-        );
-        height: 100%;
-        width: 100%;
-
-        @supports (clip-path: view-box) {
-          clip-path: view-box
-            path(
-              'M0,0V24H24V0ZM22.89,8.87l-20.78,12a1,1,0,0,1-1-1.74l20.78-12a1,1,0,0,1,1,1.74Z'
-            );
-        }
-      }
-
       &::after {
         background-color: currentColor;
-        background-color: red;
         border-radius: 99rem;
         content: '';
         height: 2px;
         left: 0;
-        opacity: 0.5;
         position: absolute;
         top: 50%;
-        transform: rotate(-30deg) translateY(-50%);
+        top: 0.7em;
+        transform: rotate(-30deg) translateY(-100%);
         width: 100%;
-        // z-index: 1;
+      }
+
+      /**
+       * 1. This is a hack to force Safari to use a different polygon for the clip-path.
+       */
+      .c-icon {
+        clip-path: polygon(
+          0 0,
+          130% 0,
+          0 75%,
+          0% 95%,
+          170% 0,
+          176% 120%,
+          0 170%
+        );
+
+        -webkit-clip-path: view-box
+          polygon(0 0, 180% 0, 0 100%, 0% 125%, 210% 0, 176% 120%, 0 170%); /* 1 */
       }
     }
   }
@@ -150,19 +151,6 @@
   background-color: var(--theme-color-background-button-secondary);
   border-color: var(--theme-color-border-button-secondary);
   color: var(--theme-color-text-button-secondary);
-
-  /**
-   * Toggling button
-   */
-  &[aria-pressed='true'] {
-    .c-button__effect {
-      &::after {
-        // background-color: var(
-        //   --theme-color-background-button-icon-slash-secondary
-        // );
-      }
-    }
-  }
 }
 
 /**
@@ -173,17 +161,4 @@
   background-color: transparent;
   border-color: transparent;
   color: var(--theme-color-text-button-tertiary);
-
-  /**
-   * Toggling button
-   */
-  &[aria-pressed='true'] {
-    .c-button__effect {
-      &::after {
-        // background-color: var(
-        //   --theme-color-background-button-icon-slash-tertiary
-        // );
-      }
-    }
-  }
 }

@@ -17,13 +17,3 @@
     grid-column: span 1;
   }
 }
-
-.c-comment-form__reply-buttons {
-  display: grid;
-  grid-gap: ms.step(-2, 1rem);
-  grid-template-columns: 1fr 1fr;
-
-  @media (min-width: size.$breakpoint-s) {
-    margin-right: auto;
-  }
-}

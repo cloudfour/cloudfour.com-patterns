@@ -5,6 +5,10 @@
 {% if grow %}
   {% set base_css_classes = base_css_classes|merge(['o-button-group--grow']) %}
 {% endif %}
+{# Equal width modifier CSS class #}
+{% if equal_width %}
+  {% set base_css_classes = base_css_classes|merge(['o-button-group--equal-width']) %}
+{% endif %}
 
 {# Concatenate the base CSS classes #}
 {% set base_css_classes = base_css_classes|join(' ') %}

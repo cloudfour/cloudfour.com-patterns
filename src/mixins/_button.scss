@@ -106,30 +106,33 @@
       position: relative;
 
       .c-icon {
-        clip-path: polygon(
-          100% 105%,
-          0 105%,
-          0 5%,
-          100% 105%,
-          110% 95%,
-          15% 0,
-          110% 0,
-          110% 95%
+        clip-path: path(
+          'M0,0V24H24V0ZM22.89,8.87l-20.78,12a1,1,0,0,1-1-1.74l20.78-12a1,1,0,0,1,1,1.74Z'
         );
+        height: 100%;
+        width: 100%;
+
+        @supports (clip-path: view-box) {
+          clip-path: view-box
+            path(
+              'M0,0V24H24V0ZM22.89,8.87l-20.78,12a1,1,0,0,1-1-1.74l20.78-12a1,1,0,0,1,1,1.74Z'
+            );
+        }
       }
 
       &::after {
         background-color: currentColor;
-        border-radius: 98rem;
+        background-color: red;
+        border-radius: 99rem;
         content: '';
-        height: 80%;
-        left: 46%;
+        height: 2px;
+        left: 0;
         opacity: 0.5;
         position: absolute;
-        top: 46%;
-        transform: translate(0, -50%) rotate(-45deg);
-        width: 2px;
-        z-index: 1;
+        top: 50%;
+        transform: rotate(-30deg) translateY(-50%);
+        width: 100%;
+        // z-index: 1;
       }
     }
   }
@@ -154,9 +157,9 @@
   &[aria-pressed='true'] {
     .c-button__effect {
       &::after {
-        background-color: var(
-          --theme-color-background-button-icon-slash-secondary
-        );
+        // background-color: var(
+        //   --theme-color-background-button-icon-slash-secondary
+        // );
       }
     }
   }
@@ -177,9 +180,9 @@
   &[aria-pressed='true'] {
     .c-button__effect {
       &::after {
-        background-color: var(
-          --theme-color-background-button-icon-slash-tertiary
-        );
+        // background-color: var(
+        //   --theme-color-background-button-icon-slash-tertiary
+        // );
       }
     }
   }

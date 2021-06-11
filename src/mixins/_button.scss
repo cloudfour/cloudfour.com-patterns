@@ -17,9 +17,6 @@
 @include theme.props() {
   --theme-color-background-button-default: #{color.$brand-primary};
   --theme-color-background-button-secondary: transparent;
-  --theme-color-background-button-icon-slash-default: #{color.$brand-primary};
-  --theme-color-background-button-icon-slash-secondary: transparent;
-  --theme-color-background-button-icon-slash-tertiary: transparent;
   --theme-color-border-button-default: #{color.$brand-primary-dark};
   --theme-color-border-button-secondary: #{color.$brand-primary-light};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
@@ -29,9 +26,6 @@
 @include theme.props(dark) {
   --theme-color-background-button-default: #{color.$brand-primary-dark};
   --theme-color-background-button-secondary: transparent;
-  --theme-color-background-button-icon-slash-default: #{color.$brand-primary-dark};
-  --theme-color-background-button-icon-slash-secondary: transparent;
-  --theme-color-background-button-icon-slash-tertiary: transparent;
   --theme-color-border-button-default: #{color.$brand-primary-darker};
   --theme-color-border-button-secondary: #{color.$brand-primary-dark};
   --theme-color-text-button-secondary: var(--theme-color-text-action);

@@ -31,27 +31,31 @@
     {% endif %}
   {% endif %}
 >
-  <span class="c-button__effect">
-    {% block content_start %}
-      {% if content_start_icon %}
-        {% include '@cloudfour/components/icon/icon.twig' with {
-          name: content_start_icon,
-          inline: true
-        } only %}
-      {% endif %}
-    {% endblock %}
-  </span>
+  {% if _content_start|trim or content_start_icon %}
+    <span class="c-button__effect">
+      {% block content_start %}
+        {% if content_start_icon %}
+          {% include '@cloudfour/components/icon/icon.twig' with {
+            name: content_start_icon,
+            inline: true
+          } only %}
+        {% endif %}
+      {% endblock %}
+    </span>
+  {% endif %}
   {% block content %}
     {{ label|default('Hello world') }}
   {% endblock %}
-  <span class="c-button__effect">
-    {% block content_end %}
-      {% if content_end_icon %}
-        {% include '@cloudfour/components/icon/icon.twig' with {
-          name: content_end_icon,
-          inline: true
-        } only %}
-      {% endif %}
-    {% endblock %}
-  </span>
+  {% if _content_end|trim or content_end_icon %}
+    <span class="c-button__effect">
+      {% block content_end %}
+        {% if content_end_icon %}
+          {% include '@cloudfour/components/icon/icon.twig' with {
+            name: content_end_icon,
+            inline: true
+          } only %}
+        {% endif %}
+      {% endblock %}
+    </span>
+  {% endif %}
 </{{ tag_name }}>

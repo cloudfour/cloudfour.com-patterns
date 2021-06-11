@@ -53,7 +53,10 @@ $last-breakpoint: list.nth($breakpoint-keys, -1);
 /// @content [Receives the current breakpoint `$key`]
 /// @output The `@content` output within each breakpoint's `min-width` media
 /// query.
-@mixin breakpoint-loop-max-width($from: $first-breakpoint, $to: $last-breakpoint) {
+@mixin breakpoint-loop-max-width(
+  $from: $first-breakpoint,
+  $to: $last-breakpoint
+) {
   $start: list.index($breakpoint-keys, $from);
   $end: list.index($breakpoint-keys, $to);
 

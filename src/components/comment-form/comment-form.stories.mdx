@@ -26,7 +26,7 @@ const tyler = {
 The form used to add a comment to an article.
 
 <Canvas>
-  <Story name="Default" args={{isReply: false}}>
+  <Story name="Default" args={{ isReply: false }}>
     {({ isLoggedIn, isReply }) => {
       useEffect(() => {
         const { destroy } = createElasticTextArea(
@@ -46,7 +46,7 @@ The form used to add a comment to an article.
 There is also a reply version of this component (`is_reply: true`), used to reply to an existing comment:
 
 <Canvas>
-  <Story name="Reply" args={{isReply: true}}>
+  <Story name="Reply" args={{ isReply: true }}>
     {({ isLoggedIn, isReply }) => {
       useEffect(() => {
         const { destroy } = createElasticTextArea(

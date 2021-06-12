@@ -1,0 +1,59 @@
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/ms';
+
+#tcs-button-toggle-icons {
+  .c-button {
+    align-items: center;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+
+  .c-button__extra {
+    display: flex;
+    font-size: ms.step(1);
+    margin: 0 ms.step(-4);
+    position: relative;
+
+    &:first-child {
+      margin-left: ms.step(-4) * -1;
+    }
+
+    &:last-child {
+      margin-right: ms.step(-4) * -1;
+    }
+
+    &::after {
+      background: currentColor;
+      border-radius: size.$border-radius-full;
+      content: '';
+      height: size.$edge-medium;
+      left: 0;
+      position: absolute;
+      transform: rotate(-30deg);
+      top: 50%;
+      width: 100%;
+    }
+
+    $clip-path: polygon(
+      -5% -5%,
+      105% -5%,
+      105% 23%,
+      -5% 87%,
+      -5% 101.4711%,
+      105% 37.9626%,
+      105% 105%,
+      -5% 105%
+    );
+
+    & > * {
+      clip-path: $clip-path;
+      height: 100%;
+      transform: translate(0, 0);
+      width: 100%;
+
+      @supports (clip-path: view-box) {
+        clip-path: view-box $clip-path;
+      }
+    }
+  }
+}

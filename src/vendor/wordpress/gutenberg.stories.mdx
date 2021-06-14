@@ -70,17 +70,24 @@ class on the `.wp-block-button` element.
 Controls allow each button to have custom text color, background color or gradient,
 and border radius.
 
-<Canvas>
+<Canvas isColumn>
   <Story name="core/button">
+    {`<div class="wp-block-button is-style-fill">
+        <a class="wp-block-button__link" href="#">
+          Single button
+        </a>
+      </div>`}
+  </Story>
+  <Story name="core/buttons">
     {`<div class="wp-block-buttons">
         <div class="wp-block-button is-style-fill">
           <a class="wp-block-button__link" href="#">
-            Button
+            Button 1 (Default/Fill)
           </a>
         </div>
         <div class="wp-block-button is-style-outline">
           <a class="wp-block-button__link" href="#">
-            Outlined button
+            Button 2 (Outline)
           </a>
         </div>
     </div>`}

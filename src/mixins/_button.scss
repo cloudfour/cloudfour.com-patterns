@@ -138,9 +138,7 @@
 
       & > * {
         clip-path: $clip-path;
-        // height: 100%;
         transform: translate(0, 0);
-        // width: 100%;
 
         @supports (clip-path: view-box) {
           clip-path: view-box $clip-path;

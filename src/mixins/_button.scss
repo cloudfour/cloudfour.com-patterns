@@ -46,6 +46,7 @@
  */
 
 @mixin default {
+  align-items: center;
   background: var(--theme-color-background-button-default);
   border-color: var(--theme-color-border-button-default);
   border-radius: size.$border-radius-medium;
@@ -53,7 +54,7 @@
   border-width: size.$edge-medium;
   color: color.$text-light-emphasis;
   cursor: pointer; /* 1 */
-  display: inline-block;
+  display: inline-flex;
   font: inherit; /* 2 */
   font-style: normal;
   font-weight: font-weight.$semibold;
@@ -66,6 +67,7 @@
   transition: filter transition.$slow ease.$out,
     transform transition.$quick ease.$out;
   user-select: none;
+  vertical-align: middle;
 
   /**
    * Transform, opacity and filter changes are performant and will work across
@@ -89,30 +91,28 @@
     transform: none;
   }
 
+  .c-button__extra {
+    display: flex;
+    font-size: ms.step(1);
+    margin: 0 ms.step(-4);
+    position: relative;
+
+    &:first-child {
+      margin-left: ms.step(-4) * -1;
+    }
+
+    &:last-child {
+      margin-right: ms.step(-4) * -1;
+    }
+  }
+
   /**
    * Toggling button
    * This adds a slash across the icon to visually show the state has changed
    * when `aria-pressed` is `'true'`.
    */
   &[aria-pressed='true'] {
-    align-items: center;
-    display: inline-flex;
-    vertical-align: middle;
-
-    .c-button__effect {
-      display: flex;
-      font-size: ms.step(1);
-      margin: 0 ms.step(-4);
-      position: relative;
-
-      &:first-child {
-        margin-left: ms.step(-4) * -1;
-      }
-
-      &:last-child {
-        margin-right: ms.step(-4) * -1;
-      }
-
+    .c-button__extra {
       &::after {
         background: currentColor;
         border-radius: size.$border-radius-full;

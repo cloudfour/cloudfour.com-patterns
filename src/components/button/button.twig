@@ -37,23 +37,23 @@
       {% block content_start %}
         {% if content_start_icon %}
           {% include '@cloudfour/components/icon/icon.twig' with {
-            name: content_start_icon,
-            inline: true
+            name: content_start_icon
           } only %}
         {% endif %}
       {% endblock %}
     </span>
   {% endif %}
   {% block content %}
-    {{ label|default('Hello world') }}
+    <span class="c-button__content">
+      {{ label|default('Hello world') }}
+    </span>
   {% endblock %}
   {% if _content_end|trim or content_end_icon %}
     <span class="c-button__effect">
       {% block content_end %}
         {% if content_end_icon %}
           {% include '@cloudfour/components/icon/icon.twig' with {
-            name: content_end_icon,
-            inline: true
+            name: content_end_icon
           } only %}
         {% endif %}
       {% endblock %}

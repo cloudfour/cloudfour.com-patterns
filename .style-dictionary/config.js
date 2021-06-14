@@ -115,5 +115,17 @@ module.exports = {
         },
       ],
     },
+    json: {
+      transformGroup: 'custom/transform-group/css',
+      buildPath: 'src/compiled/tokens/json/',
+      files: [
+        // Export all the tokens in a single JSON file. This will be easier to
+        // import for server-side languages like PHP.
+        {
+          destination: 'tokens.json',
+          format: 'json/nested',
+        },
+      ],
+    },
   },
 };

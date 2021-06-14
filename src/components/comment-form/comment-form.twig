@@ -31,7 +31,7 @@
     <span class="o-media__content">Notify me of follow-up comments by email.</span>
   </label>
   {% if is_reply %}
-    {% embed '@cloudfour/objects/button-group/button-group.twig' with { class: 'o-button-group--grow@s', equal_width: true } only %}
+    {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
       {% block content %}
         {% include '@cloudfour/components/button/button.twig' with { label: 'Submit Reply' } only %}
         {% include '@cloudfour/components/button/button.twig' with { label: 'Cancel', class: 'c-button--secondary' } only %}

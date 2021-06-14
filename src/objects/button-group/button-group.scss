@@ -1,5 +1,4 @@
 @use "../../compiled/tokens/scss/size";
-@use '../../mixins/media-query';
 
 /**
  * Button Group layout object
@@ -18,19 +17,9 @@
   }
 }
 
-.o-button-group--equal-width {
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-auto-flow: column;
-  width: max-content;
-
-  &.o-button-group--grow {
-    @include media-query.breakpoint-classes-max-width(
-      $from: s,
-      $to: l,
-      $include-default: true
-    ) {
-      width: auto;
-    }
-  }
+/**
+ * Full button width modifier
+ */
+.o-button-group--grow > * {
+  flex-grow: 1;
 }

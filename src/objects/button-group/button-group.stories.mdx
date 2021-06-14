@@ -42,36 +42,19 @@ The Button Group layout object can be used for aligning a group of related butto
   <Story name="Default">{(args) => demo(args)}</Story>
 </Canvas>
 
-## Equal width modifer
-
-You can have the buttons be the same width via the template `equal_width` boolean argument. This will also prevent wrapping.
-
-```twig
-{% embed '@cloudfour/objects/button-group/button-group.twig' with { equal_width: true } %}
-  ...
-{% endembed %}
-```
-
-<Canvas>
-  <Story name="Equal Width" args={{ count: 2, equal_width: true }}>
-    {(args) => demo(args)}
-  </Story>
-</Canvas>
-
 ## Grow modifer
 
-You can have the buttons grow to fill their horizontal space via the template `grow` boolean argument. This modifier is only available with the equal width modifier.
-
-There are also breakpoint-specific classes (`o-button-group--grow@s`, `o-button-group--grow@m`, `o-button-group--grow@l`) that can be applied if you only want the grow behavior for some breakpoints.
+You can have the buttons grow to fill their horizontal space via
+the template `grow` boolean argument:
 
 ```twig
-{% embed '@cloudfour/objects/button-group/button-group.twig' with { equal_width: true, grow: true } %}
+{% embed '@cloudfour/objects/button-group/button-group.twig' with { grow: true } %}
   ...
 {% endembed %}
 ```
 
 <Canvas>
-  <Story name="Grow" args={{ count: 2, equal_width: true, grow: true }}>
+  <Story name="Grow" args={{ count: 5, grow: true }}>
     {(args) => demo(args)}
   </Story>
 </Canvas>
@@ -80,5 +63,4 @@ There are also breakpoint-specific classes (`o-button-group--grow@s`, `o-button-
 
 - `class`: Append a class to the root element.
 - `content` (block): Block to add Button elements.
-- `equal_width` (boolean, default: `false`): Adds the `o-button-group--equal-width` CSS class modifier. Requires the `equal_width` option.
-- `grow` (boolean, default: `false`): Adds the `o-button-group--grow` CSS class modifier. Requires the `equal_width` option.
+- `grow` (boolean, default: `false`): Adds the `o-button-group--grow` CSS class modifier.

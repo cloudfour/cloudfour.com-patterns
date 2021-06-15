@@ -1,5 +1,51 @@
 # @cloudfour/patterns
 
+## 1.0.0
+
+### Major Changes
+
+- [#1286](https://github.com/cloudfour/cloudfour.com-patterns/pull/1286) [`1cce4bc`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1cce4bc11b856e1b7b6a1cd89c47be28caee985a) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Update Twig templates to snake_case variables + coding standards
+
+### Minor Changes
+
+- [#1239](https://github.com/cloudfour/cloudfour.com-patterns/pull/1239) [`f089a5d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f089a5df5d76365b0b4b2c68373b8dac34eab6c3) Thanks [@calebeby](https://github.com/calebeby)! - Add animation to Sky Nav on small screens. In order to enable this animation, the `js-sky-nav` class must be added to the containing element that has `c-sky-nav`.
+
+* [#1296](https://github.com/cloudfour/cloudfour.com-patterns/pull/1296) [`69104a9`](https://github.com/cloudfour/cloudfour.com-patterns/commit/69104a98623e40461485efc5f6daf502388ef9c1) Thanks [@calebeby](https://github.com/calebeby)! - Add form group layout object
+
+- [#1309](https://github.com/cloudfour/cloudfour.com-patterns/pull/1309) [`83a563e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/83a563eecaffd41e2ec6b8c14fa0f0128458a5c6) Thanks [@tylersticka](https://github.com/tylersticka)! - Add JSON format for compiled design tokens
+
+* [#1248](https://github.com/cloudfour/cloudfour.com-patterns/pull/1248) [`a7e6f6a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a7e6f6aaf3afdf7af6232ac58a455c18d6208bab) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Fix broken documentation links
+
+- [#1256](https://github.com/cloudfour/cloudfour.com-patterns/pull/1256) [`fe32e62`](https://github.com/cloudfour/cloudfour.com-patterns/commit/fe32e62b0410d6a065314ad0e39b47f9d33d0732) Thanks [@calebeby](https://github.com/calebeby)! - Added comment form pattern
+
+* [#1227](https://github.com/cloudfour/cloudfour.com-patterns/pull/1227) [`d5daea2`](https://github.com/cloudfour/cloudfour.com-patterns/commit/d5daea2f491157372f6509650693c2f1edb285b5) Thanks [@tylersticka](https://github.com/tylersticka)! - Add favicons to assets
+
+- [#1244](https://github.com/cloudfour/cloudfour.com-patterns/pull/1244) [`820c6b4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/820c6b4acc2c124cd358b8649d80040b8327b253) Thanks [@calebeby](https://github.com/calebeby)! - Add author pattern
+
+* [#1284](https://github.com/cloudfour/cloudfour.com-patterns/pull/1284) [`abbfe74`](https://github.com/cloudfour/cloudfour.com-patterns/commit/abbfe74b88917dfd7ab851098916f3d99bdd262e) Thanks [@tylersticka](https://github.com/tylersticka)! - Add support for `alignfull` and `alignwide` to any Gutenberg block
+
+- [#1264](https://github.com/cloudfour/cloudfour.com-patterns/pull/1264) [`4b904b5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4b904b5ea763715786357511a0feecd761b64825) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add ability for Button component to have icons
+
+* [#1287](https://github.com/cloudfour/cloudfour.com-patterns/pull/1287) [`f24e17f`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f24e17f9650fd787660e130eb64f5460d9611bc2) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `c-card--contained` modifier
+
+- [#1240](https://github.com/cloudfour/cloudfour.com-patterns/pull/1240) [`0c8be2d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0c8be2d205bbb6887f0ac8dc94adcc11822e064b) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add Button Group layout object
+
+### Patch Changes
+
+- [#1297](https://github.com/cloudfour/cloudfour.com-patterns/pull/1297) [`a1f7d76`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a1f7d76c64cc63d32bc4ee99777556d9cdea5ee7) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Add border radius to Gutenberg Groups styles when the has-background class is present
+
+* [#1311](https://github.com/cloudfour/cloudfour.com-patterns/pull/1311) [`c156b25`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c156b25c49d6c1bd45f47cff602d73974342ae9c) Thanks [@tylersticka](https://github.com/tylersticka)! - Remove extra padding on lone Gutenberg button blocks
+
+- [#1239](https://github.com/cloudfour/cloudfour.com-patterns/pull/1239) [`f089a5d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f089a5df5d76365b0b4b2c68373b8dac34eab6c3) Thanks [@calebeby](https://github.com/calebeby)! - Fix memory leak with media query listener in Sky Nav JS
+
+* [#1255](https://github.com/cloudfour/cloudfour.com-patterns/pull/1255) [`aef4454`](https://github.com/cloudfour/cloudfour.com-patterns/commit/aef44541d6b62307e9b631094936299988b8e775) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix for potential z-index issue with Bunch in certain containers
+
+- [#1300](https://github.com/cloudfour/cloudfour.com-patterns/pull/1300) [`4ed2269`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4ed2269f867dd34119e189439e35986f346184d7) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Remove function calls for properties in Author component
+
+* [#1301](https://github.com/cloudfour/cloudfour.com-patterns/pull/1301) [`257f870`](https://github.com/cloudfour/cloudfour.com-patterns/commit/257f8707492c0ab9a2948bea1d80f99d15dd7aac) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Update Avatar component story code examples
+
+- [#1292](https://github.com/cloudfour/cloudfour.com-patterns/pull/1292) [`bdda032`](https://github.com/cloudfour/cloudfour.com-patterns/commit/bdda032555194b01fc9877ea22b644b210ef42c5) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Update gutenberg styles for block and pullquote
+
 ## 0.7.0
 
 ### Minor Changes

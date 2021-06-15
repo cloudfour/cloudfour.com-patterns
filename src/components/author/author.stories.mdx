@@ -58,19 +58,9 @@ Displays an author, or set of authors, for article bylines.
 
   ```ts
   {
-    name: string;
-    avatar: string;
-    link: string;
-  }
-  ```
-
-  or
-
-  ```ts
-  {
-    name: () => string;
-    avatar: () => string;
-    link: () => string;
+    name: string | () => string;
+    avatar: string | () => string;
+    link: string | () => string;
   }
   ```
 

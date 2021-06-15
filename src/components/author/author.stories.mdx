@@ -5,19 +5,19 @@ import tylerImage from './demo/tyler.png';
 import meganImage from './demo/megan.png';
 import { makeTwigInclude } from '../../make-twig-include';
 const gerardo = {
-  name: () => 'Gerardo Rodriguez',
-  avatar: () => gerardoImage,
-  link: () => 'https://cloudfour.com/is/gerardo',
+  name: 'Gerardo Rodriguez',
+  avatar: gerardoImage,
+  link: 'https://cloudfour.com/is/gerardo',
 };
 const tyler = {
-  name: () => 'Tyler Sticka',
-  avatar: () => tylerImage,
-  link: () => 'https://cloudfour.com/is/tyler',
+  name: 'Tyler Sticka',
+  avatar: tylerImage,
+  link: 'https://cloudfour.com/is/tyler',
 };
 const megan = {
-  name: () => 'Megan Notarte',
-  avatar: () => meganImage,
-  link: () => 'https://cloudfour.com/is/megnotarte',
+  name: 'Megan Notarte',
+  avatar: meganImage,
+  link: 'https://cloudfour.com/is/megnotarte',
 };
 
 <Meta
@@ -42,30 +42,7 @@ const megan = {
 Displays an author, or set of authors, for article bylines.
 
 <Canvas>
-  <Story
-    name="Default"
-    parameters={{
-      docs: {
-        source: {
-          code: makeTwigInclude('@cloudfour/components/author/author.twig', {
-            authors: [
-              {
-                name: 'Megan Notarte',
-                avatar: meganImage,
-                link: 'https://cloudfour.com/is/megnotarte',
-              },
-              {
-                name: 'Tyler Sticka',
-                avatar: tylerImage,
-                link: 'https://cloudfour.com/is/tyler',
-              },
-            ],
-            date: new Date('March 31, 2021'),
-          }),
-        },
-      },
-    }}
-  >
+  <Story name="Default">
     {(args) =>
       template({
         authors: [gerardo, tyler, megan].slice(0, args.count),
@@ -79,6 +56,16 @@ Displays an author, or set of authors, for article bylines.
 
 - `class`: Append a class to the root element.
 - `authors`: Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+
+  ```ts
+  {
+    name: string;
+    avatar: string;
+    link: string;
+  }
+  ```
+
+  or
 
   ```ts
   {

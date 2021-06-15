@@ -4,19 +4,19 @@ import gerardoImage from './demo/gerardo.png';
 import tylerImage from './demo/tyler.png';
 import meganImage from './demo/megan.png';
 const gerardo = {
-  name: () => 'Gerardo Rodriguez',
-  avatar: () => gerardoImage,
-  link: () => 'https://cloudfour.com/is/gerardo',
+  name: 'Gerardo Rodriguez',
+  avatar: gerardoImage,
+  link: 'https://cloudfour.com/is/gerardo',
 };
 const tyler = {
-  name: () => 'Tyler Sticka',
-  avatar: () => tylerImage,
-  link: () => 'https://cloudfour.com/is/tyler',
+  name: 'Tyler Sticka',
+  avatar: tylerImage,
+  link: 'https://cloudfour.com/is/tyler',
 };
 const megan = {
-  name: () => 'Megan Notarte',
-  avatar: () => meganImage,
-  link: () => 'https://cloudfour.com/is/megnotarte',
+  name: 'Megan Notarte',
+  avatar: meganImage,
+  link: 'https://cloudfour.com/is/megnotarte',
 };
 
 <Meta
@@ -41,7 +41,7 @@ const megan = {
 Displays an author, or set of authors, for article bylines.
 
 <Canvas>
-  <Story name="Default" args={{}}>
+  <Story name="Default">
     {(args) =>
       template({
         authors: [gerardo, tyler, megan].slice(0, args.count),
@@ -58,9 +58,9 @@ Displays an author, or set of authors, for article bylines.
 
   ```ts
   {
-    name: () => string;
-    avatar: () => string;
-    link: () => string;
+    name: string | () => string;
+    avatar: string | () => string;
+    link: string | () => string;
   }
   ```
 

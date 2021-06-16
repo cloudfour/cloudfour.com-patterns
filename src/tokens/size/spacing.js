@@ -10,16 +10,10 @@ module.exports = {
             comment: 'Gap between button content and extra content.',
           },
         },
-        inline: {
-          small: {
-            value: modularEm(0),
-            comment:
-              'Horizontal/column gap between media object and content, etc.',
-          },
-          medium: {
-            value: modularEm(1),
-            comment:
-              'Horizontal/column gap between cells in inline lists, event logs, etc.',
+        button_group: {
+          default: {
+            value: modularEm(-2),
+            comment: 'The Button Group default gap spacing.',
           },
         },
         fluid: {
@@ -34,16 +28,22 @@ module.exports = {
               'Maximum size of a large content gap, for example gutters between cards.',
           },
         },
-        button_group: {
-          default: {
-            value: modularEm(-2),
-            comment: 'The Button Group default gap spacing.',
-          },
-        },
         form_group: {
           default: {
             value: modularEm(-5),
             comment: 'The Form Group default gap spacing.',
+          },
+        },
+        inline: {
+          small: {
+            value: modularEm(0),
+            comment:
+              'Horizontal/column gap between media object and content, etc.',
+          },
+          medium: {
+            value: modularEm(1),
+            comment:
+              'Horizontal/column gap between cells in inline lists, event logs, etc.',
           },
         },
       },

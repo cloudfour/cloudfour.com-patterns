@@ -1,0 +1,39 @@
+@use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../compiled/tokens/scss/size";
+
+// These utility classes may apply to anything created within the Gutenberg
+// editor (but not necessarily Gutenberg blocks).
+
+/// Releases a full-width child element from its limited-width container.
+/// @link https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
+.alignfull,
+.alignwide {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/// Applies an opinionated wide-image width that allows an image element to
+/// spill slightly outsides its container at larger viewports.
+.alignwide {
+  @media (width >= breakpoint.$l) {
+    margin-left: -6vw;
+    margin-right: -6vw;
+  }
+}
+
+/// When a custom background color is applied, we round the corners of the
+/// element unless the element has alignment that will cause it to meet the
+/// viewport edge.
+.has-background {
+  border-radius: size.$border-radius-card-contained;
+
+  &.alignfull {
+    border-radius: 0;
+  }
+
+  &.alignwide {
+    @media (width < breakpoint.$l) {
+      border-radius: 0;
+    }
+  }
+}

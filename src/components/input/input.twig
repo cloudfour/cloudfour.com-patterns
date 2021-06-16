@@ -33,5 +33,5 @@
 {% if type == 'textarea' %}
   <textarea {{ attributes }}>{{ value }}</textarea>
 {% else %}
-  <input type="{{ type }}" value="{{ value }}" {{ attributes }}>
+  <input type="{{ type }}"{% if value %} value="{{ value }}"{% endif %} {{ attributes }}>
 {% endif %}

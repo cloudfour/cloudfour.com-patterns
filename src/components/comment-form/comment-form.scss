@@ -1,0 +1,19 @@
+@use "../../mixins/ms";
+@use "../../compiled/tokens/scss/size";
+
+.c-comment-form {
+  display: grid;
+  grid-gap: ms.step(2, 1rem) ms.step(4, 1rem);
+  grid-template-columns: 1fr 1fr;
+}
+
+.c-comment-form > * {
+  grid-column: span 2;
+}
+
+@media (min-width: size.$breakpoint-s) {
+  .c-comment-form__name,
+  .c-comment-form__email {
+    grid-column: span 1;
+  }
+}

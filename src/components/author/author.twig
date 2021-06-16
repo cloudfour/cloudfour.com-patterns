@@ -2,7 +2,7 @@
   {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: 'o-media__object' } %}
     {% block content %}
       {% for author in authors %}
-        {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar() } only %}
+        {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar } only %}
       {% endfor %}
     {% endblock %}
   {% endembed %}
@@ -11,7 +11,7 @@
       <span class="u-hidden-visually">Authored by</span>
       {% for author in authors %}
         {% if loop.last and loop.length > 1 %}and {% endif %}
-        <a href="{{ author.link() }}">{{ author.name() }}</a>
+        <a href="{{ author.link }}">{{ author.name }}</a>
         {%- if not loop.last and loop.length > 2 %},{% endif %}
       {% endfor %}
     </div>

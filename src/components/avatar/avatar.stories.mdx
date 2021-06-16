@@ -11,7 +11,7 @@ const demoImageSrcset = [
 const avatarStory = (args) => {
   // Don't bother with the size option if it is the default
   if (args.size === 'medium') {
-    args.size = '';
+    delete args.size;
   }
   return template(args);
 };

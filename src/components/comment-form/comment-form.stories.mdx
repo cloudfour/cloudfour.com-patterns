@@ -1,0 +1,80 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { useEffect } from '@storybook/client-api';
+import { createElasticTextArea } from '../input/elastic-textarea.ts';
+import template from './comment-form.twig';
+const tyler = {
+  name: () => 'Tyler Sticka',
+  link: () => 'https://cloudfour.com/is/tyler',
+};
+
+<Meta
+  title="Components/Comment Form"
+  argTypes={{
+    isLoggedIn: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+    isReply: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+  }}
+/>
+
+# Comment Form
+
+The form used to add a comment to an article.
+
+<Canvas>
+  <Story name="Default" args={{ isReply: false }}>
+    {({ isLoggedIn, isReply }) => {
+      useEffect(() => {
+        const { destroy } = createElasticTextArea(
+          document.querySelector('.js-elastic-textarea')
+        );
+        return destroy;
+      }, []);
+      return template({
+        logged_in_user: isLoggedIn ? tyler : undefined,
+        log_out_url: '/logout',
+        is_reply: isReply,
+      });
+    }}
+  </Story>
+</Canvas>
+
+There is also a reply version of this component (`is_reply: true`), used to reply to an existing comment:
+
+<Canvas>
+  <Story name="Reply" args={{ isReply: true }}>
+    {({ isLoggedIn, isReply }) => {
+      useEffect(() => {
+        const { destroy } = createElasticTextArea(
+          document.querySelector('.js-elastic-textarea')
+        );
+        return destroy;
+      }, []);
+      return template({
+        logged_in_user: isLoggedIn ? tyler : undefined,
+        log_out_url: '/logout',
+        is_reply: isReply,
+      });
+    }}
+  </Story>
+</Canvas>
+
+## Template Properties
+
+- `class`: Append a class to the root element.
+- `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+
+  ```ts
+  {
+    name: () => string;
+    link: () => string;
+  }
+  ```
+
+- `log_out_url`: URL used for log out link.
+- `is_reply`: Whether the comment is a reply to another comment.
+- `prompt` (block): The text that is displayed above the messge box.

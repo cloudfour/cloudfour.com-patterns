@@ -64,6 +64,13 @@ module.exports = {
           },
         },
         {
+          destination: '_color-base.scss',
+          format: 'scss/variables',
+          filter: {
+            attributes: { category: 'color', type: 'base' },
+          },
+        },
+        {
           destination: '_font-family.scss',
           format: 'scss/variables',
           filter: { attributes: { category: 'font', type: 'family' } },

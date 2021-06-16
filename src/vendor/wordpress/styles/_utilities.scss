@@ -1,4 +1,6 @@
+@use 'sass:meta';
 @use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../compiled/tokens/scss/color-base";
 @use "../../../compiled/tokens/scss/size";
 
 // These utility classes may apply to anything created within the Gutenberg
@@ -13,7 +15,8 @@
 }
 
 /// Applies an opinionated wide-image width that allows an image element to
-/// spill slightly outsides its container at larger viewports.
+/// spill slightly outsides its container at larger viewports. This assumes
+/// a certain container size in its current form.
 .alignwide {
   @media (width >= breakpoint.$l) {
     margin-left: -6vw;
@@ -35,5 +38,20 @@
     @media (width < breakpoint.$l) {
       border-radius: 0;
     }
+  }
+}
+
+/// Utilities for Block Color Palettes
+/// @link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-color-palettes
+
+$color-map: meta.module-variables('color-base');
+
+@each $name, $value in $color-map {
+  .has-#{$name}-background-color {
+    background-color: $value;
+  }
+
+  .has-#{$name}-color {
+    color: $value;
   }
 }

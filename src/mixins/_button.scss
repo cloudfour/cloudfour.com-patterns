@@ -94,15 +94,15 @@
   .c-button__extra {
     display: flex;
     font-size: ms.step(1);
-    margin: 0 ms.step(-4);
+    margin: 0 size.$spacing-gap-button-extra;
     position: relative;
 
     &:first-child {
-      margin-left: ms.step(-4) * -1;
+      margin-left: size.$spacing-gap-button-extra * -1;
     }
 
     &:last-child {
-      margin-right: ms.step(-4) * -1;
+      margin-right: size.$spacing-gap-button-extra * -1;
     }
   }
 

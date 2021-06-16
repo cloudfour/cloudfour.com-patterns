@@ -136,12 +136,17 @@
         -5% 105%
       );
 
+      /**
+       * 1. Fixes a bug where some browsers would render the element as
+       *    slightly offset from others.
+       * 2. Helps normalize the box the clipping path renders to.
+       */
       & > * {
         clip-path: $clip-path;
-        transform: translate(0, 0);
+        transform: translate(0, 0); /* 1 */
 
         @supports (clip-path: view-box) {
-          clip-path: view-box $clip-path;
+          clip-path: view-box $clip-path; /* 2 */
         }
       }
     }

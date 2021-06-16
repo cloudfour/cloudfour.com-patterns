@@ -1,8 +1,7 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import elementsDemo from './demo/elements.twig';
 import stylesDemo from './demo/styles.twig';
-import iconButtonDemo from './demo/icon-button-demo.twig';
 import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
+import button from './button.twig';
 const iconControlConfig = {
   type: { name: 'string' },
   control: {
@@ -31,6 +30,10 @@ const iconControlConfig = {
     disabled: { type: { name: 'boolean' }, defaultValue: false },
     content_start_icon: iconControlConfig,
     content_end_icon: iconControlConfig,
+    aria_pressed: {
+      type: { name: 'enum' },
+      control: { type: 'inline-radio', options: ['true', 'false'] },
+    },
   }}
 />
 
@@ -39,7 +42,12 @@ const iconControlConfig = {
 The `c-button` class may be applied to button and link elements. The button appears filled by default so that the actionable element is clearly distinguished from surrounding text.
 
 <Canvas>
-  <Story name="Elements">{(args) => elementsDemo(args)}</Story>
+  <Story name="Button Element" args={{ label: 'Button', href: false }}>
+    {(args) => button(args)}
+  </Story>
+  <Story name="Link Element" args={{ label: 'Link', tagName: 'a' }}>
+    {(args) => button(args)}
+  </Story>
 </Canvas>
 
 ## Styles
@@ -64,9 +72,10 @@ To add an icon, pass the name of any of the [available icons](/docs/design-icons
 to the `content_start_icon` or `content_end_icon` properties.
 
 ```twig
-{% embed '@cloudfour/components/button/button.twig' with { content_start_icon: 'notifications' } %}
-  {% block content %}Get notifications{% endblock %}
-{% endembed %}
+{% embed '@cloudfour/components/button/button.twig' with {
+  label: 'Get notifications'
+  content_start_icon: 'notifications'
+} only %}
 ```
 
 <Canvas>
@@ -74,17 +83,18 @@ to the `content_start_icon` or `content_end_icon` properties.
     name="Icon"
     args={{
       content_start_icon: 'notifications',
+      label: 'Get notifications',
     }}
   >
-    {(args) => iconButtonDemo(args)}
+    {(args) => button(args)}
   </Story>
 </Canvas>
 
-### Custom icon
+## Custom icon
 
 If you need a custom icon, you can pass an `<svg>` element directly via the
 `content_start` or `content_end` Button component block. This option is only
-recommended in unique cases. Also note the usage of the `c-icon c-icon--inline`
+recommended in unique cases. Also note the usage of the `c-icon`
 CSS classes on the `<svg>` element.
 
 The `content_start`/`content_end` blocks override the
@@ -105,9 +115,48 @@ The `content_start`/`content_end` blocks override the
   <Story name="Custom Icon">{(args) => iconButtonCustomDemo(args)}</Story>
 </Canvas>
 
+## Toggling button
+
+Pass an `aria_pressed` value (`'true'` or `'false'`) to enable a toggling button. If no `content_start_icon`/`content_end_icon` or `content_start`/`content_end` block content is passed in, the `'notifications'` icon will be used by default as the `content_start_icon` value.
+
+You can override the `content_start_icon` value to a different icon.
+
+<Canvas>
+  <Story
+    name="Toggling Button"
+    args={{
+      aria_pressed: 'true',
+    }}
+  >
+    {(args) => button(args)}
+  </Story>
+  <Story
+    name="Secondary Toggling Button"
+    args={{
+      class: 'c-button--secondary',
+      aria_pressed: 'true',
+    }}
+  >
+    {(args) => button(args)}
+  </Story>
+  <Story
+    name="Tertiary Toggling Button"
+    args={{
+      class: 'c-button--tertiary',
+      aria_pressed: 'true',
+    }}
+  >
+    {(args) => button(args)}
+  </Story>
+  <Story name="Custom Icon Toggling Button" args={{ aria_pressed: 'true' }}>
+    {(args) => iconButtonCustomDemo(args)}
+  </Story>
+</Canvas>
+
 ## Template Properties
 
-- `aria_expanded` (boolean): Sets the button's `aria-expanded` attribute.
+- `aria_expanded` (string, `'true'`/`'false'`): Sets the button's `aria-expanded` attribute.
+- `aria_pressed` (string, `'true'`/`'false'`): Sets the button's `aria-pressed` attribute.
 - `class` (string): Append a class to the root element.
 - `content_start_icon` (string): The name of the [icon](/docs/design-icons--page) to render in the `content_start` block.
 - `content_end_icon` (string): The name of the [icon](/docs/design-icons--page) to render in the `content_end` block.

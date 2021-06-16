@@ -46,6 +46,7 @@
  */
 
 @mixin default {
+  align-items: center;
   background: var(--theme-color-background-button-default);
   border-color: var(--theme-color-border-button-default);
   border-radius: size.$border-radius-medium;
@@ -53,7 +54,7 @@
   border-width: size.$edge-medium;
   color: color.$text-light-emphasis;
   cursor: pointer; /* 1 */
-  display: inline-block;
+  display: inline-flex;
   font: inherit; /* 2 */
   font-style: normal;
   font-weight: font-weight.$semibold;
@@ -66,6 +67,7 @@
   transition: filter transition.$slow ease.$out,
     transform transition.$quick ease.$out;
   user-select: none;
+  vertical-align: middle;
 
   /**
    * Transform, opacity and filter changes are performant and will work across
@@ -87,6 +89,67 @@
     filter: grayscale(60%);
     opacity: 0.85;
     transform: none;
+  }
+
+  .c-button__extra {
+    display: flex;
+    font-size: size.$icon-medium;
+    margin: 0 size.$spacing-gap-button-extra;
+    position: relative;
+
+    &:first-child {
+      margin-left: size.$spacing-gap-button-extra * -1;
+    }
+
+    &:last-child {
+      margin-right: size.$spacing-gap-button-extra * -1;
+    }
+  }
+
+  /**
+   * Toggling button
+   * This adds a slash across the icon to visually show the state has changed
+   * when `aria-pressed` is `'true'`.
+   */
+  &[aria-pressed='true'] {
+    .c-button__extra {
+      &::after {
+        background: currentColor;
+        border-radius: size.$border-radius-full;
+        content: '';
+        height: size.$edge-medium;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: rotate(-30deg);
+        width: 100%;
+      }
+
+      $clip-path: polygon(
+        -5% -5%,
+        105% -5%,
+        105% 23%,
+        -5% 87%,
+        -5% 101.4711%,
+        105% 37.9626%,
+        105% 105%,
+        -5% 105%
+      );
+
+      /**
+       * 1. Fixes a bug where some browsers would render the element as
+       *    slightly offset from others.
+       * 2. Helps normalize the box the clipping path renders to.
+       */
+      & > * {
+        clip-path: $clip-path;
+        transform: translate(0, 0); /* 1 */
+
+        @supports (clip-path: view-box) {
+          clip-path: view-box $clip-path; /* 2 */
+        }
+      }
+    }
   }
 
   @include focus.focus-visible {

@@ -4,6 +4,12 @@ module.exports = {
   size: {
     spacing: {
       gap: {
+        button: {
+          extra: {
+            value: modularEm(-4),
+            comment: 'Gap between button content and extra content.',
+          },
+        },
         inline: {
           small: {
             value: modularEm(0),

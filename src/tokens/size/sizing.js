@@ -8,6 +8,20 @@ module.exports = {
         multiline: { value: modularEm(6) },
       },
     },
+    icon: {
+      default: {
+        value: modularEm(0),
+        comment: 'The default icon size.',
+      },
+      medium: {
+        value: modularEm(1),
+        comment: 'The medium icon size.',
+      },
+      large: {
+        value: modularEm(2),
+        comment: 'The large icon size.',
+      },
+    },
     width: {
       card_column: {
         min: {

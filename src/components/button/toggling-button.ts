@@ -1,5 +1,3 @@
-import tokens from '../../compiled/tokens/js/tokens';
-
 /**
  * Create Toggling Button
  *
@@ -14,21 +12,27 @@ import tokens from '../../compiled/tokens/js/tokens';
  * @param togglingButton - The button to apply the toggling functionality
  */
 export const initTogglingButton = (togglingButton: HTMLButtonElement) => {
-  // Trigger event to relay state of button
-
-  const togglePressedState = () => {
-    const isAriaPressed =
-      togglingButton.getAttribute('aria-pressed') === 'true';
-
-    togglingButton.setAttribute('aria-pressed', String(!isAriaPressed));
+  // Handler for when a toggling button is clicked
+  const onTogglingButtonClick = () => {
+    // Get the current aria-pressed state and toggle it
+    const isAriaPressed = !(
+      togglingButton.getAttribute('aria-pressed') === 'true'
+    );
+    // Update the UI state
+    togglingButton.setAttribute('aria-pressed', String(isAriaPressed));
   };
-
-  togglingButton.addEventListener('click', togglePressedState);
 
   // Clean up event listeners
   const destroy = () => {
-    togglingButton.removeEventListener('click', togglePressedState);
+    togglingButton.removeEventListener('click', onTogglingButtonClick);
   };
+
+  // Intialize
+  const init = () => {
+    togglingButton.addEventListener('click', onTogglingButtonClick);
+  };
+
+  init();
 
   // Return a public API for consumers of this component
   return { destroy };

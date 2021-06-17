@@ -23,7 +23,7 @@ const iconControlConfig = {
 const togglingButtonStory = (args) => {
   useEffect(() => {
     const { destroy } = initTogglingButton(
-      document.querySelector('.js-c-button')
+      document.querySelector('.js-toggling-button')
     );
     return destroy;
   }, []);
@@ -132,7 +132,7 @@ The `content_start`/`content_end` blocks override the
 
 ## Toggling button
 
-Pass an `aria_pressed` value (`'true'` or `'false'`) to enable a toggling button. If no `content_start_icon`/`content_end_icon` or `content_start`/`content_end` block content is passed in, the `'notifications'` icon will be used by default as the `content_start_icon` value.
+Pass an `aria_pressed` value (`'true'` or `'false'`) to set up a toggling button. If no `content_start_icon`/`content_end_icon` or `content_start`/`content_end` block content is passed in, the `'notifications'` icon will be used by default as the `content_start_icon` value.
 
 You can override the `content_start_icon` value to a different icon.
 
@@ -140,6 +140,7 @@ You can override the `content_start_icon` value to a different icon.
   <Story
     name="Toggling Button"
     args={{
+      class: 'js-toggling-button',
       aria_pressed: 'true',
     }}
   >
@@ -148,7 +149,7 @@ You can override the `content_start_icon` value to a different icon.
   <Story
     name="Secondary Toggling Button"
     args={{
-      class: 'c-button--secondary',
+      class: 'c-button--secondary js-toggling-button',
       aria_pressed: 'true',
     }}
   >
@@ -157,7 +158,7 @@ You can override the `content_start_icon` value to a different icon.
   <Story
     name="Tertiary Toggling Button"
     args={{
-      class: 'c-button--tertiary',
+      class: 'c-button--tertiary js-toggling-button',
       aria_pressed: 'true',
     }}
   >
@@ -165,11 +166,39 @@ You can override the `content_start_icon` value to a different icon.
   </Story>
   <Story
     name="Custom Icon Toggling Button"
-    args={{ aria_pressed: 'true', isIconButtonCustomDemo: true }}
+    args={{
+      class: 'js-toggling-button',
+      aria_pressed: 'true',
+      isIconButtonCustomDemo: true,
+    }}
   >
     {(args) => togglingButtonStory(args)}
   </Story>
 </Canvas>
+
+### JavaScript Instructions
+
+You'll need to use JavaScript to select and initialize the toggling button.
+
+> As a best practice, [you should avoid binding your CSS and JS onto the same class in your HTML](https://cssguidelin.es/#javascript-hooks). As a result, we recommend adding an additional JS-specific class. It could be anything, but we're using `js-toggling-button` for this example.
+
+Once you have added the `js-toggling-button` class to the `button` element, you'll also need to add some JavaScript that runs after the page loads, like so:
+
+```js
+// Initialize a toggle button
+const togglingButton = initTogglingButton(
+  document.querySelector('.js-toggling-button')
+);
+```
+
+The `initTogglingButton` function adds an event listener to the toggling button, updating the `aria-pressed` value.
+
+It also returns an object containing a `destroy()` method, if you need to remove the event listener.
+
+```js
+// Remove toggle button click event listener
+togglingButton.destroy();
+```
 
 ## Template Properties
 

@@ -62,18 +62,21 @@ A card contains content and optionally an action summarizing a single piece of c
   <Story
     name="Content Blocks"
     args={{ show: ['heading', 'content', 'footer'] }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>
 </Canvas>
-
-```twig
-{% embed '@cloudfour/components/card/card.twig' only %}
-  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
-  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
-  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
-{% endembed %}
-```
 
 ## With link
 
@@ -83,44 +86,71 @@ If an `href` property is provided, the `heading` (if present) will include a lin
   <Story
     name="Link"
     args={{ href: '#', show: ['heading', 'content', 'footer'] }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with { href: '#' } only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>
 </Canvas>
-
-```twig
-{% embed '@cloudfour/components/card/card.twig' with { href: '#' } only %}
-  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
-  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
-  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
-{% endembed %}
-```
 
 ## With cover
 
 An optional `cover` block may be provided containing an image or other visual object. This will display using our `wide` [aspect ratio token](/story/design-tokens-aspect-ratio--page), and includes an effect on hover if the card includes an `href` (see above).
 
 <Canvas>
-  <Story name="Cover Image" args={{ href: '#' }}>
-    {singleDemoStory.bind({})}
-  </Story>
-</Canvas>
-
-```twig
-{% embed '@cloudfour/components/card/card.twig' with { href: '#' } only %}
+  <Story
+    name="Cover Image"
+    args={{ href: '#' }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with { href: '#' } only %}
   {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
   {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
   {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
   {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
-{% endembed %}
-```
+{% endembed %}`,
+        },
+      },
+    }}
+  >
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
 
 ## Horizontal
 
 If a card with a cover is meant to occupy its full container width, it may be preferable to display it horizontally at larger [breakpoints](/docs/design-tokens-breakpoint--page). The `c-card--horizontal@m`, `c-card--horizontal@l` and `c-card--horizontal@xl` modifier classes will do that from their respective breakpoints.
 
 <Canvas>
-  <Story name="Horizontal" args={{ href: '#', horizontal: '@m' }}>
+  <Story
+    name="Horizontal"
+    args={{ href: '#', horizontal: '@m' }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with {
+  href: '#',
+  class: 'c-card--horizontal@m'
+} only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
     {singleDemoStory.bind({})}
   </Story>
 </Canvas>

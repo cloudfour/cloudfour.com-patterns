@@ -165,6 +165,21 @@ A card with the `c-card--contained` class will gain a background color, padding 
   <Story
     name="Contained"
     args={{ href: '#', horizontal: '@m', contained: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with {
+  href: '#',
+  class: 'c-card--horizontal@m c-card--contained'
+} only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>
@@ -175,8 +190,23 @@ When the card is a focal point and more contrast is desired, you may also attach
 <Canvas>
   <Story
     name="Themed"
-    parameters={{ theme: 't-dark' }}
     args={{ href: '#', horizontal: '@m', contained: true, theme: 'light' }}
+    parameters={{
+      theme: 't-dark',
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with {
+  href: '#',
+  class: 'c-card--horizontal@m c-card--contained t-light'
+} only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>

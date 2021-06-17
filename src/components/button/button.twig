@@ -1,7 +1,7 @@
 {% set tag_name = tag_name|default(href ? 'a' : 'button') %}
 {# aria_pressed only accepts 'true' or 'false' (string) values #}
 {% set is_aria_pressed_valid = aria_pressed == 'true' or aria_pressed == 'false' %}
-{# When aria_pressed is set, ensure a button is rendered #}
+{# When aria_pressed is set, ensure a button element is rendered #}
 {% if is_aria_pressed_valid %}
   {% set tag_name = 'button' %}
 {% endif %}

@@ -1,7 +1,9 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { useEffect } from '@storybook/client-api';
 import stylesDemo from './demo/styles.twig';
 import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
 import button from './button.twig';
+import { initTogglingButton } from './toggling-button.ts';
 const iconControlConfig = {
   type: { name: 'string' },
   control: {
@@ -16,6 +18,19 @@ const iconControlConfig = {
     ],
   },
   defaultValue: '',
+};
+// Helper function to initialize toggling button JS
+const togglingButtonStory = (args) => {
+  useEffect(() => {
+    const { destroy } = initTogglingButton(
+      document.querySelector('.js-c-button')
+    );
+    return destroy;
+  }, []);
+  if (args.isIconButtonCustomDemo) {
+    return iconButtonCustomDemo(args);
+  }
+  return button(args);
 };
 
 <Meta
@@ -128,7 +143,7 @@ You can override the `content_start_icon` value to a different icon.
       aria_pressed: 'true',
     }}
   >
-    {(args) => button(args)}
+    {(args) => togglingButtonStory(args)}
   </Story>
   <Story
     name="Secondary Toggling Button"
@@ -137,7 +152,7 @@ You can override the `content_start_icon` value to a different icon.
       aria_pressed: 'true',
     }}
   >
-    {(args) => button(args)}
+    {(args) => togglingButtonStory(args)}
   </Story>
   <Story
     name="Tertiary Toggling Button"
@@ -146,10 +161,13 @@ You can override the `content_start_icon` value to a different icon.
       aria_pressed: 'true',
     }}
   >
-    {(args) => button(args)}
+    {(args) => togglingButtonStory(args)}
   </Story>
-  <Story name="Custom Icon Toggling Button" args={{ aria_pressed: 'true' }}>
-    {(args) => iconButtonCustomDemo(args)}
+  <Story
+    name="Custom Icon Toggling Button"
+    args={{ aria_pressed: 'true', isIconButtonCustomDemo: true }}
+  >
+    {(args) => togglingButtonStory(args)}
   </Story>
 </Canvas>
 

@@ -58,16 +58,21 @@ const singleDemoStory = (args) => {
 
 A card contains content and optionally an action summarizing a single piece of content, for example an article, talk or case study.
 
-The Twig template supports three main blocks (all optional):
-
-- `heading`: The contents of the heading. The heading level may be customized using the `heading_level` property.
-- `content`: The main card content.
-- `footer`: Information about the author or additional supporting content for the card.
-
 <Canvas>
   <Story
     name="Content Blocks"
     args={{ show: ['heading', 'content', 'footer'] }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>
@@ -81,6 +86,17 @@ If an `href` property is provided, the `heading` (if present) will include a lin
   <Story
     name="Link"
     args={{ href: '#', show: ['heading', 'content', 'footer'] }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with { href: '#' } only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>
@@ -91,7 +107,22 @@ If an `href` property is provided, the `heading` (if present) will include a lin
 An optional `cover` block may be provided containing an image or other visual object. This will display using our `wide` [aspect ratio token](/story/design-tokens-aspect-ratio--page), and includes an effect on hover if the card includes an `href` (see above).
 
 <Canvas>
-  <Story name="Cover Image" args={{ href: '#' }}>
+  <Story
+    name="Cover Image"
+    args={{ href: '#' }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with { href: '#' } only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
     {singleDemoStory.bind({})}
   </Story>
 </Canvas>
@@ -101,7 +132,25 @@ An optional `cover` block may be provided containing an image or other visual ob
 If a card with a cover is meant to occupy its full container width, it may be preferable to display it horizontally at larger [breakpoints](/docs/design-tokens-breakpoint--page). The `c-card--horizontal@m`, `c-card--horizontal@l` and `c-card--horizontal@xl` modifier classes will do that from their respective breakpoints.
 
 <Canvas>
-  <Story name="Horizontal" args={{ href: '#', horizontal: '@m' }}>
+  <Story
+    name="Horizontal"
+    args={{ href: '#', horizontal: '@m' }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with {
+  href: '#',
+  class: 'c-card--horizontal@m'
+} only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
     {singleDemoStory.bind({})}
   </Story>
 </Canvas>
@@ -116,6 +165,21 @@ A card with the `c-card--contained` class will gain a background color, padding 
   <Story
     name="Contained"
     args={{ href: '#', horizontal: '@m', contained: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with {
+  href: '#',
+  class: 'c-card--horizontal@m c-card--contained'
+} only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>
@@ -126,12 +190,43 @@ When the card is a focal point and more contrast is desired, you may also attach
 <Canvas>
   <Story
     name="Themed"
-    parameters={{ theme: 't-dark' }}
     args={{ href: '#', horizontal: '@m', contained: true, theme: 'light' }}
+    parameters={{
+      theme: 't-dark',
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with {
+  href: '#',
+  class: 'c-card--horizontal@m c-card--contained t-light'
+} only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>
 </Canvas>
+
+## Template Properties
+
+- `class` (string): Append a class to the root element.
+- `tag_name` (string, default `'article'`): The root element tag.
+- `header_tag_name` (string, default `'header'`): The header element tag.
+- `footer_tag_name` (string, default `'footer'`): The footer element tag.
+- `heading_level` (number, default `2`): The header heading level (e.g. `2` renders an `<h2>` element).
+- `href` (string): When provided, the `heading` (if present) will include a link that encompasses the entire card.
+
+## Template Blocks
+
+- `heading` (optional): The contents of the heading. The heading level may be customized using the `heading_level` property.
+- `cover` (optional): Designed to provide an image or other visual object. Will display using our `wide` [aspect ratio token](/story/design-tokens-aspect-ratio--page), and includes an effect on hover if the card includes an `href`.
+- `content` (optional): The main card content.
+- `footer` (optional): Information about the author or additional supporting content for the card.
 
 ## Coming soon
 

@@ -20,7 +20,9 @@
 {% endif %}
 
 <{{ tag_name }}
-  class="c-button{% if class %} {{ class }}{% endif %}"
+  class="c-button
+  {% if class %}{{ class }}{% endif %}
+  {% if is_aria_pressed_valid %}js-c-button{% endif %}"
   {% if aria_expanded %}
     aria-expanded="{{ aria_expanded }}"
   {% endif %}

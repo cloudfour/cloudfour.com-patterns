@@ -1,15 +1,8 @@
 /**
  * Create Toggling Button
+ * Adds an event listener to toggle the `aria-pressed` value
  *
- * Adds an event listener to the toggle button of a Sky Nav component for click
- * events, which runs the toggle command to show or hide the menu with animation.
- * Responds to breakpoint changes to show or hide the nav for large and small
- * screens. Returns an object containing a `destroy()` method to remove the
- * event listener.
- *
- * TODO...
- *
- * @param togglingButton - The button to apply the toggling functionality
+ * @param togglingButton - The button to apply the toggling functionality to
  */
 export const initTogglingButton = (togglingButton: HTMLButtonElement) => {
   // Handler for when a toggling button is clicked

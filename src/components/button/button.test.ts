@@ -52,13 +52,15 @@ test(
 
 test(
   'should toggle aria-pressed state',
-  withBrowser(async ({ utils, screen }) => {
+  withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await buttonMarkup({ aria_pressed: 'false' }));
-    // await utils.loadCSS('../../../dist/standalone.css');
-
     const togglingButton = await screen.getByRole('button');
     await initTogglingButtonJS(utils, togglingButton);
 
-    await expect(togglingButton).toBeVisible();
+    await expect(togglingButton).toHaveAttribute('aria-pressed', 'false');
+    await user.click(togglingButton);
+    await expect(togglingButton).toHaveAttribute('aria-pressed', 'true');
+    await user.click(togglingButton);
+    await expect(togglingButton).toHaveAttribute('aria-pressed', 'false');
   })
 );

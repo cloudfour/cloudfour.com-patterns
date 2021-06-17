@@ -55,6 +55,7 @@ test(
   'should toggle aria-pressed state',
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await buttonMarkup({ aria_pressed: 'false' }));
+
     const togglingButton = await screen.getByRole('button');
     await initTogglingButtonJS(utils, togglingButton);
 

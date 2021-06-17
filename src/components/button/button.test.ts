@@ -59,8 +59,10 @@ test(
     await initTogglingButtonJS(utils, togglingButton);
 
     await expect(togglingButton).toHaveAttribute('aria-pressed', 'false');
+
     await user.click(togglingButton);
     await expect(togglingButton).toHaveAttribute('aria-pressed', 'true');
+
     await user.click(togglingButton);
     await expect(togglingButton).toHaveAttribute('aria-pressed', 'false');
   })

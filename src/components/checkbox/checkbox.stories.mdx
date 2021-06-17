@@ -22,11 +22,11 @@ import './demo/styles.scss';
       docs: {
         source: {
           code: `<label>
-  {% include '@cloudfour/components/checkbox/checkbox.twig' %}
+  {% include '@cloudfour/components/checkbox/checkbox.twig' only %}
   Unchecked
 </label>
 <label>
-  {% include '@cloudfour/components/checkbox/checkbox.twig' with { checked: true } %}
+  {% include '@cloudfour/components/checkbox/checkbox.twig' with { checked: true } only %}
   Checked
 </label>`,
         },
@@ -48,11 +48,11 @@ Checkboxes appear more subtle and less actionable when the `disabled` attribute 
       docs: {
         source: {
           code: `<label>
-  {% include '@cloudfour/components/checkbox/checkbox.twig' with { disabled: true } %}
+  {% include '@cloudfour/components/checkbox/checkbox.twig' with { disabled: true } only %}
   Unchecked
 </label>
 <label>
-  {% include '@cloudfour/components/checkbox/checkbox.twig' with { disabled: true, checked: true } %}
+  {% include '@cloudfour/components/checkbox/checkbox.twig' with { disabled: true, checked: true } only %}
   Checked
 </label>`,
         },

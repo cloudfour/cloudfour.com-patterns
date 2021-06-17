@@ -4,6 +4,7 @@ import { withBrowser } from 'pleasantest';
 import { loadTwigTemplate } from '../../../test-utils';
 
 const buttonMarkup = loadTwigTemplate(path.join(__dirname, './button.twig'));
+// Helper to test the JS-driven toggling button
 const initTogglingButtonJS = (
   utils: PleasantestUtils,
   togglingButton: ElementHandle
@@ -39,7 +40,7 @@ test(
 );
 
 test(
-  'should be a button when aria_pressed is set',
+  'should render a button when aria_pressed is set',
   withBrowser(async ({ utils, screen }) => {
     await utils.injectHTML(
       await buttonMarkup({ tag_name: 'a', aria_pressed: 'false' })

@@ -1,5 +1,4 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import { makeTwigInclude } from '../../make-twig-include';
 import template from './calendar-date.twig';
 import seasonsDemo from './demo/seasons.twig';
 import './demo/styles.scss';
@@ -38,10 +37,18 @@ To add some fun and visual variety, each season has its own header color. These 
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/calendar-date/calendar-date.twig',
-            { datetime: '2020-04-01' }
-          ),
+          code: `{% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
+  datetime: '2020-04-01'
+} only %}
+{% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
+  datetime: '2020-07-04'
+} only %}
+{% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
+  datetime: '2020-10-31'
+} only %}
+{% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
+  datetime: '2020-12-31'
+} only %}`,
         },
       },
     }}

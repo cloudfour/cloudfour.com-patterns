@@ -21,11 +21,7 @@ export const initTogglingButton = (togglingButton: HTMLButtonElement) => {
   };
 
   // Intialize
-  const init = () => {
-    togglingButton.addEventListener('click', onTogglingButtonClick);
-  };
-
-  init();
+  togglingButton.addEventListener('click', onTogglingButtonClick);
 
   // Return a public API for consumers of this component
   return { destroy };

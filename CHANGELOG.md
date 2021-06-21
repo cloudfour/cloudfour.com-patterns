@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 1.1.0
+
+### Minor Changes
+
+- [#1316](https://github.com/cloudfour/cloudfour.com-patterns/pull/1316) [`e397810`](https://github.com/cloudfour/cloudfour.com-patterns/commit/e397810b41cdc3998c5cb98bd81dba7fca98d1cd) Thanks [@tylersticka](https://github.com/tylersticka)! - Add support for WordPress block color utilities
+
+* [#1298](https://github.com/cloudfour/cloudfour.com-patterns/pull/1298) [`218b617`](https://github.com/cloudfour/cloudfour.com-patterns/commit/218b617611432e5d2b1a0d7a1cba7731542450bb) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Introduce CSS for toggling buttons
+
 ## 1.0.0
 
 ### Major Changes

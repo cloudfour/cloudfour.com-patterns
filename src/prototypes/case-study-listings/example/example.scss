@@ -1,10 +1,18 @@
 #case-study-listings {
+
   .title {
-    padding-bottom: calc( 0.8rem + 1.153125 * ((100vw - 30rem) / 50) );
+    padding-bottom: 2em;
   }
 
-  .title2 {
-    padding: calc( 0.8rem + 1.153125 * ((100vw - 30rem) / 50) ) 0;
+  .book-container {
+    background-color: #f2f5f7;
+  }
+
+  .wrapper {
+    padding-bottom: 1em;
+    @media (min-width: 60em) {
+      padding-bottom: 3em;
+    }
   }
 
   .c-card__header {
@@ -12,15 +20,6 @@
       h2 {
         font-size: 34px;
       }
-    }
-
-  .logo-image {
-    width: 6rem;
-    padding-bottom: .5rem;
-  }
-
-    .cf-logo {
-      width: 8.75rem;
     }
   }
 }

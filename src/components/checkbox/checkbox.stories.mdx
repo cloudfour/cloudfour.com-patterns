@@ -14,7 +14,25 @@ import './demo/styles.scss';
 `c-checkbox` may be applied to any `<input type="checkbox">` element. They are larger than native checkboxes and more visually consistent with our [input](/docs/components-input--text-elements) and [button](/docs/components-button--elements) components.
 
 <Canvas>
-  <Story name="Enabled" height="120px" args={{ disabled: false }}>
+  <Story
+    name="Enabled"
+    height="120px"
+    args={{ disabled: false }}
+    parameters={{
+      docs: {
+        source: {
+          code: `<label>
+  {% include '@cloudfour/components/checkbox/checkbox.twig' only %}
+  Unchecked
+</label>
+<label>
+  {% include '@cloudfour/components/checkbox/checkbox.twig' with { checked: true } only %}
+  Checked
+</label>`,
+        },
+      },
+    }}
+  >
     {(args) => withLabelDemo(args)}
   </Story>
 </Canvas>
@@ -22,7 +40,25 @@ import './demo/styles.scss';
 Checkboxes appear more subtle and less actionable when the `disabled` attribute is set.
 
 <Canvas>
-  <Story name="Disabled" height="120px" args={{ disabled: true }}>
+  <Story
+    name="Disabled"
+    height="120px"
+    args={{ disabled: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: `<label>
+  {% include '@cloudfour/components/checkbox/checkbox.twig' with { disabled: true } only %}
+  Unchecked
+</label>
+<label>
+  {% include '@cloudfour/components/checkbox/checkbox.twig' with { disabled: true, checked: true } only %}
+  Checked
+</label>`,
+        },
+      },
+    }}
+  >
     {(args) => withLabelDemo(args)}
   </Story>
 </Canvas>

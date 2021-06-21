@@ -5,11 +5,6 @@
 
  .title2 {
    padding: calc( 0.8rem + 1.153125 * ((100vw - 30rem) / 50) ) 0;
-   display: flex;
-
-   h1 {
-     padding-left: .5rem;
-   }
  }
 
  .c-card__header {
@@ -17,22 +12,6 @@
     font-size: 34px;
    }
 
- }
-
- .client-tag {
-   font-size: 16px;
-   background-color: #8abfff;
-   color: #183889;
-   border-radius: 99px;
-   padding: .25rem .5rem;
- }
-
-  .book-tag {
-   font-size: 16px;
-   background-color: #71f4ae;
-   color: #105c52;
-   border-radius: 99px;
-   padding: .25rem .5rem;
  }
 
  .logo-image {

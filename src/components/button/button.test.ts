@@ -43,6 +43,8 @@ test(
   'should render a button when aria_pressed is set',
   withBrowser(async ({ utils, screen }) => {
     await utils.injectHTML(
+      // The `aria_pressed` value should override the `tag_name` value and always
+      // render a button element. This test verifies that expecation.
       await buttonMarkup({ tag_name: 'a', aria_pressed: 'false' })
     );
 

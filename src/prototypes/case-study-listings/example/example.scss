@@ -1,25 +1,26 @@
 #case-study-listings {
- .title {
-   padding-bottom: calc( 0.8rem + 1.153125 * ((100vw - 30rem) / 50) );
- }
+  .title {
+    padding-bottom: calc( 0.8rem + 1.153125 * ((100vw - 30rem) / 50) );
+  }
 
- .title2 {
-   padding: calc( 0.8rem + 1.153125 * ((100vw - 30rem) / 50) ) 0;
- }
+  .title2 {
+    padding: calc( 0.8rem + 1.153125 * ((100vw - 30rem) / 50) ) 0;
+  }
 
- .c-card__header {
-   h2 {
-    font-size: 34px;
-   }
+  .c-card__header {
+    @media (min-width: 60em) {
+      h2 {
+        font-size: 34px;
+      }
+    }
 
- }
+  .logo-image {
+    width: 6rem;
+    padding-bottom: .5rem;
+  }
 
- .logo-image {
-   width: 6rem;
-   padding-bottom: .5rem;
- }
-
- .cf-logo {
-  width: 8.75rem;
- }
+    .cf-logo {
+      width: 8.75rem;
+    }
+  }
 }

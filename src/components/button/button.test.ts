@@ -25,7 +25,7 @@ test(
     await utils.injectHTML(await buttonMarkup({}));
 
     const button = await screen.getByRole('button');
-    await expect(button).toBeVisible();
+    await expect(button).toHaveTextContent(/^hello world$/i);
   })
 );
 
@@ -35,7 +35,7 @@ test(
     await utils.injectHTML(await buttonMarkup({ href: '#' }));
 
     const linkButton = await screen.getByRole('link');
-    await expect(linkButton).toBeVisible();
+    await expect(linkButton).toHaveTextContent(/^hello world$/i);
   })
 );
 
@@ -45,11 +45,15 @@ test(
     await utils.injectHTML(
       // The `aria_pressed` value should override the `tag_name` value and always
       // render a button element. This test verifies that expecation.
-      await buttonMarkup({ tag_name: 'a', aria_pressed: 'false' })
+      await buttonMarkup({
+        tag_name: 'a',
+        aria_pressed: 'false',
+        label: 'I am a button',
+      })
     );
 
     const button = await screen.getByRole('button');
-    await expect(button).toBeVisible();
+    await expect(button).toHaveTextContent(/^i am a button$/i);
   })
 );
 

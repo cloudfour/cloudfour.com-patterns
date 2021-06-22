@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import tokens from '../compiled/tokens/js/tokens';
+const lineHeightRows = Object.keys(tokens.number.line_height).map((key) => {
+  const { name, value, comment, attributes } = tokens.number.line_height[key];
+  return (
+    <tr key={name}>
+      <td>
+        <code>line-height.${attributes.item}</code>
+      </td>
+      <td>
+        <code>{value}</code>
+      </td>
+      <td>{comment}</td>
+    </tr>
+  );
+});
+
+<Meta title="Design/Tokens/Line Height" />
+
+# Line Height
+
+```scss
+@use "../../compiled/tokens/scss/line-height";
+$example: line-height.$loose; // => 1.5625
+```
+
+```javascript
+import tokens from '../../compiled/tokens/js/tokens';
+console.log(tokens.number.line_height.loose.value); // => 1.5625
+```
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: '10%' }}>Name</th>
+      <th>Value</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>{lineHeightRows}</tbody>
+</table>

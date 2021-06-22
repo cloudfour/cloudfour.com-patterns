@@ -1,17 +1,35 @@
 #case-study-listings {
 
   .title {
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
+
+    p {
+      padding-top: .75em;
+    }
   }
 
   .book-container {
     background-color: #f2f5f7;
   }
 
-  .wrapper {
-    padding-bottom: 1em;
+  .o-container {
     @media (min-width: 60em) {
-      padding-bottom: 3em;
+    padding-top: 0;
+    padding-bottom: 0;
+    }
+  }
+
+  .top-wrapper {
+    @media (min-width: 60em) {
+      padding-top: 4em;
+      padding-bottom: 2em;
+    }
+  }
+
+  .wrapper {
+    @media (min-width: 60em) {
+      padding-top: 2.5em;
+      padding-bottom: 2em;
     }
   }
 

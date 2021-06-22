@@ -3,6 +3,7 @@ import cpeImage from './images/collage-cpe.jpg';
 import wmImage from './images/walmart.jpg';
 import cfImage from './images/collage-cf.jpg';
 import bookApart from './images/aba.jpg';
+import mobileWeb from './images/mobile-web.jpg';
 import codePiece from './images/code.jpg';
 import pwaStat from './images/pwastat.jpg';
 import responsiveImg from './images/responsiveimg.jpg';
@@ -23,6 +24,7 @@ export const Example = () =>
     wm: wmImage,
     cf: cfImage,
     book: bookApart,
+    mobile: mobileWeb,
     code: codePiece,
     pwa: pwaStat,
     responsive: responsiveImg,

@@ -20,9 +20,7 @@ const initTogglingButtonJS = (
 test(
   'should render a button element by default',
   withBrowser(async ({ utils, screen }) => {
-    // If I don't pass _something_ to buttonMarkup(), I get an error.
-    // To get around that, I pass an empty object.
-    await utils.injectHTML(await buttonMarkup({}));
+    await utils.injectHTML(await buttonMarkup());
 
     const button = await screen.getByRole('button');
     await expect(button).toHaveTextContent(/^hello world$/i);

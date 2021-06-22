@@ -379,7 +379,7 @@ $_masthead-height-sm: ms.step(7);
 .c-sky-nav__menu-action {
   align-items: center; /* 1 */
   display: flex; /* 2 */
-  font-size: ms.step(1);
+  font-size: size.$font-big;
   justify-content: center; /* 1 */
   line-height: line-height.$tight;
   text-align: center; /* 1 */

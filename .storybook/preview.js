@@ -1,5 +1,4 @@
 import { Parser } from 'html-to-react';
-import { withPaddings } from 'storybook-addon-paddings';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import ReactSyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
 import twig from 'react-syntax-highlighter/dist/esm/languages/prism/twig';
@@ -116,4 +115,4 @@ export const globalTypes = {
   },
 };
 
-export const decorators = [withPaddings, withTheme];
+export const decorators = [withTheme];

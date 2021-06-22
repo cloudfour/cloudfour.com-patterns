@@ -1,6 +1,7 @@
 @use "../../compiled/tokens/scss/brightness";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/line-height";
 @use "../../compiled/tokens/scss/transition";
 @use "../../compiled/tokens/scss/scale";
 @use "../../compiled/tokens/scss/size";
@@ -18,7 +19,7 @@
   color: color.$text-dark;
   display: flex; /* 1 */
   justify-content: space-between; /* 1 */
-  line-height: ms.step(1, 1); /* 2 */
+  line-height: line-height.$tight; /* 2 */
 }
 
 .c-message__content {

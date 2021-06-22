@@ -3,6 +3,7 @@
 @use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/line-height";
 @use "../../compiled/tokens/scss/opacity";
 @use "../../compiled/tokens/scss/scale";
 @use "../../compiled/tokens/scss/size";
@@ -380,7 +381,7 @@ $_masthead-height-sm: ms.step(7);
   display: flex; /* 2 */
   font-size: ms.step(1);
   justify-content: center; /* 1 */
-  line-height: ms.step(1, 1);
+  line-height: line-height.$tight;
   text-align: center; /* 1 */
   text-decoration: none;
   transition: opacity transition.$quick ease.$out;

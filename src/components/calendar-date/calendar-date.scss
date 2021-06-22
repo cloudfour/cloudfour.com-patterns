@@ -1,5 +1,6 @@
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/line-height";
 @use "../../compiled/tokens/scss/size";
 @use '../../mixins/ms';
 @use '../../mixins/theme';
@@ -25,7 +26,7 @@ $radius: size.$border-radius-medium;
   flex-direction: column;
   font-weight: font-weight.$medium;
   height: $size;
-  line-height: ms.step(1, 1);
+  line-height: line-height.$tight;
   text-align: center;
   user-select: none;
   width: $size;

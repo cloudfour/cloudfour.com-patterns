@@ -1,5 +1,6 @@
 @use "../compiled/tokens/scss/breakpoint";
 @use "../compiled/tokens/scss/font-weight";
+@use "../compiled/tokens/scss/line-height";
 @use 'fluid';
 @use 'ms';
 
@@ -26,9 +27,9 @@ $fluid-steps: 1;
     );
 
     @if $level < 1 {
-      line-height: ms.step(0, 1);
+      line-height: line-height.$tighter;
     } @else {
-      line-height: ms.step(1, 1);
+      line-height: line-height.$tight;
     }
   } @else {
     font-size: inherit;

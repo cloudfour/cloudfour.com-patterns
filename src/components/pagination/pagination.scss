@@ -3,6 +3,7 @@
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/ease";
 @use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/line-height";
 @use "../../compiled/tokens/scss/scale";
 @use "../../compiled/tokens/scss/size";
 @use "../../compiled/tokens/scss/transition";
@@ -233,7 +234,7 @@ $indicator-width-current: $indicator-height-current;
   font-weight: font-weight.$medium;
   height: ($action-size - $action-pad * 2); /* 1 */
   justify-content: center;
-  line-height: ms.step(0, 1); /* 2 */
+  line-height: line-height.$tighter; /* 2 */
   max-width: ($action-size - $action-pad * 2); /* 1 */
   position: relative; /* 3 */
   width: 100%; /* 1 */

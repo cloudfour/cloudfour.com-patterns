@@ -2,6 +2,8 @@
 @use "../../../compiled/tokens/scss/breakpoint";
 @use "../../../compiled/tokens/scss/color-base";
 @use "../../../compiled/tokens/scss/size";
+@use '../../../mixins/headings';
+@use '../../../mixins/ms';
 
 // These utility classes may apply to anything created within the Gutenberg
 // editor (but not necessarily Gutenberg blocks).
@@ -53,5 +55,24 @@ $color-map: meta.module-variables('color-base');
 
   .has-#{$name}-color {
     color: $value;
+  }
+}
+
+/// Utilities for Block Font Sizes
+/// @link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-font-sizes
+
+.has-big-font-size {
+  font-size: size.$font-big;
+}
+
+.has-small-font-size {
+  font-size: size.$font-small;
+}
+
+@for $level from -2 through 3 {
+  $level-segment: ms.step-class-segment($level);
+
+  .has-heading-#{$level-segment}-font-size {
+    @include headings.level($level, false);
   }
 }

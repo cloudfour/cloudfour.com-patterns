@@ -12,7 +12,7 @@ $size-tokens: meta.module-variables('size');
 /// Mixin for applying heading styles at a particular level. Accepts an argument
 /// so it may be easily baked into "for" loops.
 /// @param {number} $level
-@mixin level($level) {
+@mixin level($level, $include-weight: true) {
   // Build token name to check for
   $token-name-root: 'font-heading-' + ms.step-class-segment($level);
   // Get minimum size token
@@ -42,6 +42,8 @@ $size-tokens: meta.module-variables('size');
     line-height: inherit;
   }
 
-  // Consistently bold headings to differentiate from normal copy
-  font-weight: font-weight.$bold;
+  @if $include-weight {
+    // Consistently bold headings to differentiate from normal copy
+    font-weight: font-weight.$bold;
+  }
 }

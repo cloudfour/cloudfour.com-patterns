@@ -48,11 +48,12 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
  * We start at `-2` so template designers have three sizes larger than a default
  * `<h1>` to apply thoughtfully within templates.
  *
- * We end at 3 because that is the maximum depth we support with distinct
- * visual differences.
+ * Even though distinct sizes end at level 3, we output modifier classes for all
+ * 6 levels to encourage semantic sizing that will be future-friendly if that
+ * ever changes.
  */
 
-@for $level from -2 through headings.$max-level {
+@for $level from -2 through 6 {
   $level-segment: ms.step-class-segment($level);
 
   .c-heading--level-#{$level-segment} {

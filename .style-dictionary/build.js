@@ -50,6 +50,20 @@ StyleDictionary.registerTransform({
 });
 
 /**
+ * Custom Transform: Re-join negative number name segments
+ * Looks for occurrences of `n-{number}` and removes the `-`. Useful for keeping
+ * negative number modular scale step token names consistent with related class
+ * names.
+ */
+StyleDictionary.registerTransform({
+  name: 'custom/name/i/kebab-rejoin-n',
+  type: 'name',
+  transformer: function (prop) {
+    return prop.name.replace(/-n-(\d)/g, '-n$1');
+  },
+});
+
+/**
  * Custom Transform Group: CSS
  * This is a modified version of the CSS transform group without the time,
  * size, or icon transformations and using our custom CSS color transform.
@@ -57,7 +71,12 @@ StyleDictionary.registerTransform({
  */
 StyleDictionary.registerTransformGroup({
   name: 'custom/transform-group/css',
-  transforms: ['attribute/cti', 'name/cti/kebab', 'color/css'],
+  transforms: [
+    'attribute/cti',
+    'name/cti/kebab',
+    'custom/name/i/kebab-rejoin-n',
+    'color/css',
+  ],
 });
 
 /**
@@ -67,7 +86,12 @@ StyleDictionary.registerTransformGroup({
  */
 StyleDictionary.registerTransformGroup({
   name: 'custom/transform-group/css-category',
-  transforms: ['attribute/cti', 'custom/name/ti/kebab', 'color/css'],
+  transforms: [
+    'attribute/cti',
+    'custom/name/ti/kebab',
+    'custom/name/i/kebab-rejoin-n',
+    'color/css',
+  ],
 });
 
 /**
@@ -77,7 +101,12 @@ StyleDictionary.registerTransformGroup({
  */
 StyleDictionary.registerTransformGroup({
   name: 'custom/transform-group/css-category-type',
-  transforms: ['attribute/cti', 'custom/name/i/kebab', 'color/css'],
+  transforms: [
+    'attribute/cti',
+    'custom/name/i/kebab',
+    'custom/name/i/kebab-rejoin-n',
+    'color/css',
+  ],
 });
 
 /**

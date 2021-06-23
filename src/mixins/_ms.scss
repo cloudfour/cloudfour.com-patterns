@@ -5,11 +5,11 @@
   @return math.pow($ratio, $step) * $base;
 }
 
-@function step-class-segment($step) {
+@function step-class-segment($step, $negative-prefix: 'n') {
   $result: math.abs($step);
 
   @if $step < 0 {
-    $result: 'n#{$result}';
+    $result: $negative-prefix + $result;
   }
 
   @return $result;

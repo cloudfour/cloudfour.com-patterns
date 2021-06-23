@@ -1,8 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import tokens from '../compiled/tokens/js/tokens';
-const lineHeightRows = Object.keys(tokens.number.line_height).map((key) => {
-  const { name, value, comment, attributes } = tokens.number.line_height[key];
-  return (
+const lineHeightRows = Object.entries(tokens.number.line_height).map(
+  ([key, { name, value, comment, attributes }]) => (
     <tr key={name}>
       <td>
         <code>line-height.${attributes.item}</code>
@@ -12,8 +11,8 @@ const lineHeightRows = Object.keys(tokens.number.line_height).map((key) => {
       </td>
       <td>{comment}</td>
     </tr>
-  );
-});
+  )
+);
 
 <Meta title="Design/Tokens/Line Height" />
 

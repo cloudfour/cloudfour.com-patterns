@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 1.2.0
+
+### Minor Changes
+
+- [#1333](https://github.com/cloudfour/cloudfour.com-patterns/pull/1333) [`f7781a1`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f7781a105ae34fd02f73ae3527a5f228906a8282) Thanks [@tylersticka](https://github.com/tylersticka)! - Add big, small and heading level font size tokens
+
+* [#1333](https://github.com/cloudfour/cloudfour.com-patterns/pull/1333) [`f7781a1`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f7781a105ae34fd02f73ae3527a5f228906a8282) Thanks [@tylersticka](https://github.com/tylersticka)! - Add line-height tokens
+
+- [#1333](https://github.com/cloudfour/cloudfour.com-patterns/pull/1333) [`f7781a1`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f7781a105ae34fd02f73ae3527a5f228906a8282) Thanks [@tylersticka](https://github.com/tylersticka)! - Add font-size utilities for Gutenberg block editor
+
+### Patch Changes
+
+- [#1333](https://github.com/cloudfour/cloudfour.com-patterns/pull/1333) [`f7781a1`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f7781a105ae34fd02f73ae3527a5f228906a8282) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix issue where Gutenberg quote paragraphs were incorrectly sized
+
 ## 1.1.0
 
 ### Minor Changes

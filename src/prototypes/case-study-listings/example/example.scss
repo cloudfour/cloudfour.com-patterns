@@ -3,9 +3,13 @@
   .title {
     padding-bottom: 1.5em;
 
-    p {
-      padding-top: .75em;
+    h2 {
+      font-weight: normal;
     }
+  }
+
+  .gh-button {
+    margin-top: 2em;
   }
 
   .book-container {
@@ -20,23 +24,26 @@
   }
 
   .top-wrapper {
-    @media (min-width: 60em) {
+    padding-top: 1.5em;
+    @media (min-width: 50em) {
       padding-top: 4em;
       padding-bottom: 2em;
     }
   }
 
   .wrapper {
-    @media (min-width: 60em) {
+    padding-top: 1em;
+    @media (min-width: 50em) {
       padding-top: 2.5em;
       padding-bottom: 2em;
     }
   }
 
   .c-card__header {
+    font-size: 1.25em;
     @media (min-width: 60em) {
       h2 {
-        font-size: 34px;
+        font-size: 1.56em;
       }
     }
   }

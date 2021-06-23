@@ -83,6 +83,13 @@ module.exports = {
           },
         },
         {
+          destination: '_line-height.scss',
+          format: 'scss/variables',
+          filter: {
+            attributes: { category: 'number', type: 'line_height' },
+          },
+        },
+        {
           destination: '_opacity.scss',
           format: 'scss/variables',
           filter: {

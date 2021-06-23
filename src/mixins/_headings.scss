@@ -1,39 +1,49 @@
 @use "../compiled/tokens/scss/breakpoint";
 @use "../compiled/tokens/scss/font-weight";
+@use "../compiled/tokens/scss/line-height";
+@use "../compiled/tokens/scss/size";
 @use 'fluid';
 @use 'ms';
+@use 'sass:map';
+@use 'sass:meta';
 
-$max-level: 3;
-$fluid-steps: 1;
+$size-tokens: meta.module-variables('size');
 
-/**
- * Mixin for applying heading styles at a particular level. Accepts an argument
- * so it may be easily baked into "for" loops. The size jumps and responsive
- * behavior are determined mathematically, so the level may be lower than 1 for
- * constructing larger heading classes.
- */
+/// Mixin for applying heading styles at a particular level. Accepts an argument
+/// so it may be easily baked into "for" loops.
+/// @param {number} $level
+@mixin level($level, $include-weight: true) {
+  // Build token name to check for
+  $token-name-root: 'font-heading-' + ms.step-class-segment($level);
+  // Get minimum size token
+  $min-size: map.get($size-tokens, $token-name-root + '-min');
+  // Get maximum size token
+  $max-size: map.get($size-tokens, $token-name-root + '-max');
 
-@mixin level($level) {
-  @if $level <= $max-level {
-    $min-step: $level * -1 + $max-level;
-    $max-step: $min-step + $fluid-steps;
-
+  // If tokens were found...
+  @if $min-size and $max-size {
+    // Output a fluid font size
     @include fluid.font-size(
       breakpoint.$xs,
       breakpoint.$l,
-      ms.step($min-step),
-      ms.step($max-step)
+      $min-size,
+      $max-size
     );
 
+    // Line heights above standard heading levels should be tighter
     @if $level < 1 {
-      line-height: ms.step(0, 1);
+      line-height: line-height.$tighter;
     } @else {
-      line-height: ms.step(1, 1);
+      line-height: line-height.$tight;
     }
   } @else {
+    // Otherwise, assume this is a lower heading level
     font-size: inherit;
     line-height: inherit;
   }
 
-  font-weight: font-weight.$bold;
+  @if $include-weight {
+    // Consistently bold headings to differentiate from normal copy
+    font-weight: font-weight.$bold;
+  }
 }

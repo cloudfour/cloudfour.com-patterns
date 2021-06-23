@@ -2,12 +2,30 @@ import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs/blocks';
 import { kebabCase } from 'lodash';
 import tokens from '../../compiled/tokens/js/tokens.js';
 import colorDemo from './demo/color.twig';
+import fontSizeDemo from './demo/font-size.twig';
 const baseColorTokenKeys = Object.keys(tokens.color.base).map(kebabCase);
 const colorControlConfig = {
   type: { name: 'string' },
   control: {
     type: 'select',
     options: ['', ...baseColorTokenKeys],
+  },
+};
+const fontSizeControlConfig = {
+  type: { name: 'string' },
+  control: {
+    type: 'select',
+    options: [
+      '',
+      'big',
+      'small',
+      'heading-n2',
+      'heading-n1',
+      'heading-0',
+      'heading-1',
+      'heading-2',
+      'heading-3',
+    ],
   },
 };
 
@@ -42,6 +60,26 @@ When a background color is chosen, rounded corners and padding may be added (dep
 </Canvas>
 
 <ArgsTable story="Color" />
+
+## Font Size
+
+We include `has-{font-size}-font-size` classes for our `big`, `small` and heading level [size tokens](/docs/design-tokens-size--page) to support [the `editor-font-sizes` feature](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-font-sizes).
+
+<Canvas>
+  <Story
+    name="Font Size"
+    argTypes={{
+      font_size: fontSizeControlConfig,
+    }}
+    args={{
+      font_size: 'big',
+    }}
+  >
+    {(args) => fontSizeDemo(args)}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Font Size" />
 
 ## Alignment
 

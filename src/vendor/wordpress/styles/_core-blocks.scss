@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../compiled/tokens/scss/line-height";
 @use "../../../compiled/tokens/scss/size";
 @use "../../../mixins/button";
 @use "../../../mixins/table";
@@ -174,11 +175,13 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 
 /**
- * Makes the line-height more consistent with existing quote styles.
+ * Makes the line-height more consistent with existing typographic styles.
  */
-.wp-block-quote,
+.wp-block-quote.is-large,
 .wp-block-pullquote {
-  line-height: size.$height-control-multiline;
+  p {
+    line-height: line-height.$tight;
+  }
 }
 
 .wp-block-pullquote {

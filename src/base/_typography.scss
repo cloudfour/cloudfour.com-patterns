@@ -1,6 +1,7 @@
 @use "_fonts";
 @use "../compiled/tokens/scss/breakpoint";
 @use "../compiled/tokens/scss/font-family";
+@use "../compiled/tokens/scss/line-height";
 @use "../mixins/fluid";
 @use "../mixins/headings";
 @use "../mixins/ms";
@@ -31,7 +32,7 @@ html {
 
 body {
   font-family: font-family.$sans-fallback;
-  line-height: ms.step(2, 1);
+  line-height: line-height.$loose;
   text-size-adjust: none; /* 1 */
   word-wrap: break-word; /* 2 */
 

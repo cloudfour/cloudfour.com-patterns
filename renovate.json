@@ -10,7 +10,7 @@
     {
       "packageNames": ["@wordpress/block-library"],
       "extends": ["schedule:monthly"],
-      "stabilityDays": 0,
+      "stabilityDays": 0
     }
   ],
   "prConcurrentLimit": 5,

@@ -23,8 +23,11 @@ test(
       })
     );
     await utils.loadCSS('../../../dist/standalone.css');
-    const textarea = await screen.getByRole('textbox');
+    const textarea = (await screen.getByRole(
+      'textbox'
+    )) as ElementHandle<HTMLTextAreaElement>;
     await initTextareaJS(utils, textarea);
+
     textarea.evaluate((el) => (el.style.maxWidth = '500px'));
 
     // Default of 2 rows
@@ -57,7 +60,9 @@ test(
         rows: 1,
       })
     );
-    const textarea = await screen.getByRole('textbox');
+    const textarea = (await screen.getByRole(
+      'textbox'
+    )) as ElementHandle<HTMLTextAreaElement>;
     await initTextareaJS(utils, textarea);
     await textarea.evaluate((el) => (el.style.maxWidth = '500px'));
 

@@ -1,0 +1,55 @@
+#case-study-listings {
+
+  .title {
+    padding-bottom: 1.5em;
+    @media (min-width: 50em) {
+      padding-bottom: 2.5em;
+    }
+
+    h2 {
+      font-weight: normal;
+    }
+  }
+
+  .gh-button {
+    margin-top: 4em;
+  }
+
+  .book-container {
+    background-color: #f2f5f7;
+  }
+
+  .o-container {
+    @media (min-width: 60em) {
+    padding-top: 0;
+    padding-bottom: 0;
+    }
+  }
+
+  .top-wrapper {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    @media (min-width: 50em) {
+      padding-top: 4em;
+      padding-bottom: 4em;
+    }
+  }
+
+  .wrapper {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    @media (min-width: 50em) {
+      padding-top: 4em;
+      padding-bottom: 4em;
+    }
+  }
+
+  .c-card__header {
+    font-size: 1.25em;
+    @media (min-width: 60em) {
+      h2 {
+        font-size: 1.56em;
+      }
+    }
+  }
+}

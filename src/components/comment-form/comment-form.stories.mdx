@@ -26,7 +26,17 @@ const tyler = {
 The form used to add a comment to an article.
 
 <Canvas>
-  <Story name="Default" args={{ isReply: false }}>
+  <Story
+    name="Default"
+    args={{ isReply: false }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% include '@cloudfour/components/comment-form/comment-form.twig' only %}`,
+        },
+      },
+    }}
+  >
     {({ isLoggedIn, isReply }) => {
       useEffect(() => {
         const { destroy } = createElasticTextArea(
@@ -46,7 +56,24 @@ The form used to add a comment to an article.
 There is also a reply version of this component (`is_reply: true`), used to reply to an existing comment:
 
 <Canvas>
-  <Story name="Reply" args={{ isReply: true }}>
+  <Story
+    name="Reply"
+    args={{ isReply: true, isLoggedIn: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% include '@cloudfour/components/comment-form/comment-form.twig' with {
+  logged_in_user: {
+    name: 'Tyler Sticka',
+    link: 'https://cloudfour.com/is/tyler',
+  },
+  log_out_url: '/logout',
+  is_reply: true
+} only %}`,
+        },
+      },
+    }}
+  >
     {({ isLoggedIn, isReply }) => {
       useEffect(() => {
         const { destroy } = createElasticTextArea(

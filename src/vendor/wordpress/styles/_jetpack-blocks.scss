@@ -1,0 +1,5 @@
+@use '../../../mixins/adjacent';
+
+.wp-block-jetpack-markdown {
+  @include adjacent.rhythm();
+}

@@ -1,45 +1,31 @@
 @use "../../compiled/tokens/scss/size";
+@use "../../mixins/adjacent";
 
-/**
- * This pattern makes heavy use of Heydon Pickering's "lobotomized owl"
- * selectors. By adding `margin-top` to adjacent elements, we avoid impacting
- * the layout of the container itself (which would complicate alignment of
- * adjacent columns).
- *
- * @see https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
- */
-
-.o-rhythm > * + * {
-  margin-top: size.$rhythm-default;
+:root {
+  --rhythm: #{size.$rhythm-default};
+  --rhythm-headings: var(--rhythm);
 }
 
-/**
- * General spacing modifiers
- */
-
-.o-rhythm--compact > * + * {
-  margin-top: size.$rhythm-compact;
+.o-rhythm {
+  @include adjacent.rhythm(size.$rhythm-default);
 }
 
-.o-rhythm--condensed > * + * {
-  margin-top: size.$rhythm-condensed;
+// General spacing modifiers
+
+.o-rhythm--compact {
+  --rhythm: #{size.$rhythm-compact};
 }
 
-.o-rhythm--generous > * + * {
-  margin-top: size.$rhythm-generous;
+.o-rhythm--condensed {
+  --rhythm: #{size.$rhythm-condensed};
 }
 
-/**
- * Heading modifiers
- */
+.o-rhythm--generous {
+  --rhythm: #{size.$rhythm-generous};
+}
+
+// Heading modifiers
 
 .o-rhythm--generous-headings {
-  & > * + h1,
-  & > * + h2,
-  & > * + h3,
-  & > * + h4,
-  & > * + h5,
-  & > * + h6 {
-    margin-top: size.$rhythm-generous;
-  }
+  --rhythm-headings: #{size.$rhythm-generous};
 }

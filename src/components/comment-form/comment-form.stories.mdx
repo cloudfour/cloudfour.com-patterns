@@ -97,11 +97,15 @@ There is also a reply version of this component (`is_reply: true`), used to repl
 
   ```ts
   {
-    name: () => string;
-    link: () => string;
+    name: string | () => string;
+    link: string | () => string;
   }
   ```
 
 - `log_out_url`: URL used for log out link.
 - `is_reply`: Whether the comment is a reply to another comment.
 - `prompt` (block): The text that is displayed above the messge box.
+
+## JavaScript
+
+The Comment Form component includes the [Elastic Textarea component](http://localhost:6006/?path=/docs/components-input--elastic-textarea). See the Elastic Textarea component for JavaScript setup details.

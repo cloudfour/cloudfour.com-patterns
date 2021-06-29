@@ -13,7 +13,7 @@
     {% endblock %}
   {% endembed %}
   {% if logged_in_user and log_out_url %}
-    <p>Logged in as <a href="{{ logged_in_user.link() }}">{{ logged_in_user.name() }}</a>. <a href="{{ log_out_url }}">Log out?</a></p>
+    <p>Logged in as <a href="{{ logged_in_user.link }}">{{ logged_in_user.name }}</a>. <a href="{{ log_out_url }}">Log out?</a></p>
   {% else %}
     {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Name', class: 'c-comment-form__name' } only %}
       {% block control %}

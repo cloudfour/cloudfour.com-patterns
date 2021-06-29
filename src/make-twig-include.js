@@ -4,7 +4,7 @@
  * @param {string} path
  * @param {any} args
  */
-export const makeTwigInclude = (path, args) => {
+export const makeTwigInclude = (path, args = {}) => {
   const argsString =
     Object.keys(args).length > 0
       ? ` with ${JSON.stringify(args, null, 2)}`

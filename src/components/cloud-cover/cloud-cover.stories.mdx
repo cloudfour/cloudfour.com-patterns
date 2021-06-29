@@ -19,7 +19,35 @@ import robotImage from './demo/robot.svg';
 A containing element for introductory page content, for example a heading and subtitle. The clouds offer a whimsical, illustrative element to help transition from the page title and [Sky Nav](/docs/components-sky-nav--dark) to the main body content.
 
 <Canvas>
-  <Story name="Content" height="400px">
+  <Story
+  name="Content"
+  height="400px"
+  parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
+  {% block content %}
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+      class: 'o-rhythm--condensed'
+    } only %}
+      {% block content %}
+        {% include '@cloudfour/components/heading/heading.twig' with {
+          level: -2,
+          content: 'Our Team'
+        } only %}
+        <p>
+          We are a small, versatile team who care passionately about the web.
+          We’re full of what our industry considers unicorns. Our designers
+          code. Our developers went to art school.
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
     {contentDemo()}
   </Story>
 </Canvas>

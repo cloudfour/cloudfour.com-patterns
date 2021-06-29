@@ -20,9 +20,9 @@ A containing element for introductory page content, for example a heading and su
 
 <Canvas>
   <Story
-  name="Content"
-  height="400px"
-  parameters={{
+    name="Content"
+    height="400px"
+    parameters={{
       docs: {
         source: {
           code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
@@ -58,12 +58,12 @@ The cloud cover may optionally contain a "scene" containing a visual object, mos
 
 <Canvas>
   <Story
-  name="Scene"
-  height="400px"
-  parameters={{
-    docs: {
-      source: {
-        code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
+    name="Scene"
+    height="400px"
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
   {% block content %}
     {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
       class: 'o-rhythm--condensed'
@@ -104,9 +104,9 @@ The `c-cloud-cover--horizon-scene` modifier applies an alternate composition ide
     name="Horizon Scene"
     height="400px"
     parameters={{
-    docs: {
-      source: {
-        code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' with {
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' with {
   class: 'c-cloud-cover--horizon-scene'
 } only %}
   {% block content %}
@@ -151,9 +151,9 @@ You can also include supporting elements like newsletter sign-up forms, notifica
     name="Extra Content"
     height="400px"
     parameters={{
-    docs: {
-      source: {
-        code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
   {% block content %}
     {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
       class: 'o-rhythm--condensed'

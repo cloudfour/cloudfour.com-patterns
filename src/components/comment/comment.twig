@@ -1,0 +1,37 @@
+<article class="c-comment {% if children %}c-comment--thread{% endif %}" id="comment-{{ID}}">
+  <header class="c-comment__header">
+    <h3 class="c-comment__heading">
+      <span class="c-comment__author">{{author.name}}</span>
+      <span class="u-hidden-visually">
+        {% if is_child %}replied{% else %}said{% endif %}:
+      </span>
+    </h3>
+  </header>
+  <div class="c-comment__object">
+    {% include '@cloudfour/components/avatar/avatar.twig' only %}
+  </div>
+  {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+    class: 'c-comment__content o-rhythm--condensed'
+  } %}
+    {% block content %}
+      {{comment_content|raw}}
+    {% endblock %}
+  {% endembed %}
+  <footer class="c-comment__footer">
+    <div class="c-comment__meta">
+      {{date}}
+    </div>
+    {% if children %}
+      <h4 class="u-hidden-visually">Replies</h4>
+      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+        class: 'c-comment__replies'
+      } %}
+        {% block content %}
+          {% for comment in children %}
+            {% include '@cloudfour/components/comment/comment.twig' with comment only %}
+          {% endfor %}
+        {% endblock %}
+      {% endembed %}
+    {% endif %}
+  </footer>
+</article>

@@ -1,0 +1,9 @@
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+  class: 'o-rhythm--generous'
+} %}
+  {% block content %}
+    {% for comment in comments %}
+      {% include '@cloudfour/components/comment/comment.twig' with comment only %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

@@ -12,7 +12,43 @@ Displays a list of event details in chronological order. Designed to show the pr
 For a less specialized display of tabular data, consider using [Table](/docs/components-table--basic). For simple string/number pairs, consider [Dot Leader](/docs/components-dot-leader--list). To display a single or upcoming date, consider using [Calendar Date](/docs/components-calendar-date--basic) (optionally combined with [Media](/docs/objects-media--event-summary)).
 
 <Canvas>
-  <Story name="Example">{eventsDemoStory.bind({})}</Story>
+  <Story
+    name="Example"
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/event-log/event-log.twig' only %}
+  {% block content %}
+    {% for item in items %}
+      {% embed '@cloudfour/components/event-log/item.twig' with item only %}
+        {% block extra %}
+          {%- if item.links -%}
+            {% embed '@cloudfour/objects/list/list.twig' with {
+              class: 'o-list--inline'
+            } only %}
+              {% block content %}
+                {% for link in item.links %}
+                  <li>
+                    <a href="{{link.link}}">
+                      {{link.title}}
+                    </a>
+                  </li>
+                {% endfor %}
+              {% endblock %}
+            {% endembed %}
+          {%- endif -%}
+        {% endblock %}
+      {% endembed %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}
+`,
+        },
+      },
+    }}
+  >
+    {eventsDemoStory.bind({})}
+  </Story>
 </Canvas>
 
 ## Template Properties

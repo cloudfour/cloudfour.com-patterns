@@ -36,8 +36,12 @@
 }
 
 /**
- * Full-width modifier
+ * Size modifiers
  */
+
+.c-avatar--small {
+  width: size.$square-avatar-small;
+}
 
 .c-avatar--full {
   width: size.$square-avatar-full;

@@ -15,5 +15,5 @@ export const loadTwigTemplate = (templatePath: string) => {
   );
   // Using "await" here because next version of twing returns promises
   // eslint-disable-next-line @cloudfour/typescript-eslint/await-thenable
-  return async (data: any) => (await templatePromise).render(data);
+  return async (data: any = {}) => (await templatePromise).render(data);
 };

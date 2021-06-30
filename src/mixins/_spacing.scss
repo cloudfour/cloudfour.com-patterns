@@ -7,7 +7,7 @@
 /// complicate alignment of adjacent columns).
 /// @link https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
 /// @param {Number} $space - The default space between.
-@mixin rhythm($space: size.$rhythm-default) {
+@mixin vertical-rhythm($space: size.$rhythm-default) {
   & > * + * {
     margin-top: $space;
     // Allow space to be overridden using custom properties

@@ -1,5 +1,5 @@
 @use "../../compiled/tokens/scss/size";
-@use "../../mixins/adjacent";
+@use "../../mixins/spacing";
 
 :root {
   --rhythm: #{size.$rhythm-default};
@@ -7,7 +7,7 @@
 }
 
 .o-rhythm {
-  @include adjacent.rhythm(size.$rhythm-default);
+  @include spacing.vertical-rhythm(size.$rhythm-default);
 }
 
 // General spacing modifiers

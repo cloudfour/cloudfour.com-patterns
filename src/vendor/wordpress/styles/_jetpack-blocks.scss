@@ -1,5 +1,5 @@
-@use '../../../mixins/adjacent';
+@use '../../../mixins/spacing';
 
 .wp-block-jetpack-markdown {
-  @include adjacent.rhythm();
+  @include spacing.vertical-rhythm();
 }

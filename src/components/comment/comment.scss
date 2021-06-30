@@ -1,6 +1,7 @@
 @use 'sass:math';
-@use '../../compiled/tokens/scss/size';
+@use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/font-weight';
+@use '../../compiled/tokens/scss/size';
 @use '../../mixins/headings';
 
 .c-comment {
@@ -10,7 +11,7 @@
   grid-template-areas: 'object header'
     'thread-line content'
     'thread-line footer';
-  grid-template-columns: auto 1fr;
+  grid-template-columns: #{size.$square-avatar-small} 1fr;
   grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
 }
 
@@ -53,6 +54,6 @@
 }
 
 .c-comment__replies {
-  // margin-left: math.div(size.$square-avatar-small, -2);
+  margin-left: math.div(size.$square-avatar-small, -2);
   margin-top: var(--rhythm, #{size.$rhythm-default});
 }

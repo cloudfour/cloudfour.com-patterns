@@ -3,7 +3,9 @@
 } %}
   {% block content %}
     {% for comment in comments %}
-      {% include '@cloudfour/components/comment/comment.twig' with comment only %}
+      {% include '@cloudfour/components/comment/comment.twig' with {
+        comment: comment
+      } only %}
     {% endfor %}
   {% endblock %}
 {% endembed %}

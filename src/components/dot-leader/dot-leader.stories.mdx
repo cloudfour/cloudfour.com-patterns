@@ -44,5 +44,29 @@ If `c-dot-leader` is an `<a>` element, it will gain some additional styles.
 Although `c-dot-leader` applies to a single row, the pattern works best as part of [a list object](/docs/objects-list--default-story). The dotted lines clearly associate each column even when content lengths vary.
 
 <Canvas>
-  <Story name="List">{listDemo({ topics })}</Story>
+  <Story
+    name="List"
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/objects/list/list.twig' only %}
+  {% block content %}
+    {% for topic in topics %}
+      <li>
+        {% include '@cloudfour/components/dot-leader/dot-leader.twig' with {
+          label: topic.title,
+          count: topic.count,
+          href: topic.url
+        } only %}
+      </li>
+    {% endfor %}
+  {% endblock %}
+{% endembed %}
+`,
+        },
+      },
+    }}
+  >
+    {listDemo({ topics })}
+  </Story>
 </Canvas>

@@ -1,0 +1,29 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Vendor/WordPress/Jetpack Blocks" />
+
+# Jetpack Blocks
+
+WordPress developer Automattic provides a [Jetpack](https://jetpack.com/) plugin that includes additional blocks. We support a selection of these.
+
+## Markdown Block
+
+The markdown block applies vertical rhythm between its children. If contained within a [Rhythm object](/docs/objects-rhythm--default-story), the markdown block will inherit the same spacing. For example, if the Rhythm object uses the `o-rhythm--generous` modifier, the markdown block will inherit the generous spacing.
+
+See also: [Markdown Block documentation](https://jetpack.com/support/markdown/)
+
+<Canvas>
+  <Story name="Markdown">
+    {`<div class="wp-block-jetpack-markdown">
+      <p>
+        <b>Lorem</b> <i>ipsum</i> dolor sit amet, consectetur adipiscing elit. Quisque eu ex
+        enim. Nunc efficitur scelerisque dolor et sollicitudin.
+      </p>
+      <p>
+        Donec finibus lorem elit, eu consectetur quam pellentesque sed.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada
+        fames ac turpis egestas.
+      </p>
+    </div>`}
+  </Story>
+</Canvas>

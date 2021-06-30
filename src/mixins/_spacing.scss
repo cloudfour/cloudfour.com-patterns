@@ -1,0 +1,29 @@
+@use "../compiled/tokens/scss/size";
+
+/// Applies styles for a vertical rhythm layout object. Used by the `o-rhythm`
+/// pattern and for relevant Gutenberg blocks. Makes heavy use of Heydon
+/// Pickering's "lobotomized owl" selectors: By adding `margin-top` to adjacent
+/// elements, we avoid impacting the layout of the container itself (which would
+/// complicate alignment of adjacent columns).
+/// @link https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
+/// @param {Number} $space - The default space between.
+@mixin vertical-rhythm($space: size.$rhythm-default) {
+  & > * + * {
+    margin-top: $space;
+    // Allow space to be overridden using custom properties
+    margin-top: var(--rhythm);
+  }
+
+  // Where custom properties are supported, also allow headings to receive their
+  // own rhythm.
+  @supports (--custom: properties) {
+    & > * + h1,
+    & > * + h2,
+    & > * + h3,
+    & > * + h4,
+    & > * + h5,
+    & > * + h6 {
+      margin-top: var(--rhythm-headings);
+    }
+  }
+}

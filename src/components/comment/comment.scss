@@ -1,0 +1,58 @@
+@use 'sass:math';
+@use '../../compiled/tokens/scss/size';
+@use '../../compiled/tokens/scss/font-weight';
+@use '../../mixins/headings';
+
+.c-comment {
+  display: grid;
+  grid-column-gap: size.$spacing-gap-inline-medium;
+  grid-row-gap: size.$rhythm-condensed;
+  grid-template-areas: 'object header'
+    'thread-line content'
+    'thread-line footer';
+  grid-template-columns: auto 1fr;
+  grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
+}
+
+.c-comment--thread::after {
+  background: currentColor;
+  border-radius: size.$border-radius-full;
+  content: '';
+  display: block;
+  grid-area: thread-line;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: size.$edge-medium;
+}
+
+.c-comment__object {
+  grid-area: object;
+}
+
+.c-comment__header {
+  align-self: center;
+  grid-area: header;
+}
+
+.c-comment__heading {
+  @include headings.level($level: 3, $include-weight: false);
+  font-weight: font-weight.$semibold;
+}
+
+.c-comment__content {
+  grid-area: content;
+}
+
+.c-comment__footer {
+  grid-area: footer;
+}
+
+.c-comment__meta {
+  color: var(--theme-color-text-muted);
+}
+
+.c-comment__replies {
+  // margin-left: math.div(size.$square-avatar-small, -2);
+  margin-top: var(--rhythm, #{size.$rhythm-default});
+}

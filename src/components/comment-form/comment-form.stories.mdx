@@ -1,10 +1,11 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { useEffect } from '@storybook/client-api';
 import { createElasticTextArea } from '../input/elastic-textarea.ts';
+import { makeTwigInclude } from '../../make-twig-include';
 import template from './comment-form.twig';
 const tyler = {
-  name: () => 'Tyler Sticka',
-  link: () => 'https://cloudfour.com/is/tyler',
+  name: 'Tyler Sticka',
+  link: 'https://cloudfour.com/is/tyler',
 };
 
 <Meta
@@ -26,7 +27,19 @@ const tyler = {
 The form used to add a comment to an article.
 
 <Canvas>
-  <Story name="Default" args={{ isReply: false }}>
+  <Story
+    name="Default"
+    args={{ isReply: false }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig'
+          ),
+        },
+      },
+    }}
+  >
     {({ isLoggedIn, isReply }) => {
       useEffect(() => {
         const { destroy } = createElasticTextArea(
@@ -46,7 +59,20 @@ The form used to add a comment to an article.
 There is also a reply version of this component (`is_reply: true`), used to reply to an existing comment:
 
 <Canvas>
-  <Story name="Reply" args={{ isReply: true }}>
+  <Story
+    name="Reply"
+    args={{ isReply: true, isLoggedIn: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig',
+            { logged_in_user: tyler, log_out_url: '/logout', is_reply: true }
+          ),
+        },
+      },
+    }}
+  >
     {({ isLoggedIn, isReply }) => {
       useEffect(() => {
         const { destroy } = createElasticTextArea(
@@ -70,11 +96,15 @@ There is also a reply version of this component (`is_reply: true`), used to repl
 
   ```ts
   {
-    name: () => string;
-    link: () => string;
+    name: string | () => string;
+    link: string | () => string;
   }
   ```
 
 - `log_out_url`: URL used for log out link.
 - `is_reply`: Whether the comment is a reply to another comment.
 - `prompt` (block): The text that is displayed above the messge box.
+
+## JavaScript
+
+The Comment Form component includes the [Elastic Textarea component](http://localhost:6006/?path=/docs/components-input--elastic-textarea). See the Elastic Textarea component for JavaScript setup details.

@@ -4,6 +4,15 @@ import groundNavMenu from './demo/menu.json';
 import organization from './demo/organization.json';
 import social from './demo/social.json';
 import template from './ground-nav.twig';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
+// okay with the following Webpack-specific raw loader syntax. It's better to leave
+// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
+// within a Storybook docs page and not within an actual component).
+// This can be revisited in the future if Storybook no longer relies on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import pwaStatsDemoSource from '!!raw-loader!./demo/pwa-stats.twig';
 import pwaStatsDemo from './demo/pwa-stats.twig';
 const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
 const defaultArgTypes = {
@@ -125,6 +134,13 @@ The menu’s contents may differ between projects. This example is based on the 
       buttonLink:
         'https://github.com/cloudfour/pwastats/issues/new?title=Submission:+New+Story',
       buttonIcon: 'brands/github',
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: pwaStatsDemoSource,
+        },
+      },
     }}
   >
     {(args) =>

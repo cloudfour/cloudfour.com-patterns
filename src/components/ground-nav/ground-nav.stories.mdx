@@ -4,6 +4,15 @@ import groundNavMenu from './demo/menu.json';
 import organization from './demo/organization.json';
 import social from './demo/social.json';
 import template from './ground-nav.twig';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
+// okay with the following Webpack-specific raw loader syntax. It's better to leave
+// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
+// within a Storybook docs page and not within an actual component).
+// This can be revisited in the future if Storybook no longer relies on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import pwaStatsDemoSource from '!!raw-loader!./demo/pwa-stats.twig';
 import pwaStatsDemo from './demo/pwa-stats.twig';
 const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
 const defaultArgTypes = {
@@ -129,109 +138,7 @@ The menu’s contents may differ between projects. This example is based on the 
     parameters={{
       docs: {
         source: {
-          code: `{% embed '@cloudfour/components/ground-nav/ground-nav.twig' with {
-  "menu": {
-    "items": [
-      {
-        "link": "/does",
-        "title": "What We Do",
-        "current": true
-      },
-      {
-        "link": "/believes",
-        "title": "Our Approach"
-      },
-      {
-        "link": "/made",
-        "title": "Our Work"
-      },
-      {
-        "link": "/thinks",
-        "title": "Articles"
-      },
-      {
-        "link": "/presents",
-        "title": "Speaking"
-      },
-      {
-        "link": "/contributes",
-        "title": "Labs"
-      },
-      {
-        "link": "/is",
-        "title": "Team"
-      },
-      {
-        "link": "/portland-device-lab",
-        "title": "Device Lab"
-      },
-      {
-        "link": "https://cloudfour-patterns.netlify.app/",
-        "title": "Patterns"
-      },
-      {
-        "link": "https://www.responsivefieldday.com/",
-        "title": "Responsive Field Day"
-      }
-    ]
-  },
-  "social": {
-    "items": [
-      {
-        "link": "https://twitter.com/cloudfour",
-        "title": "Follow us on Twitter",
-        "icon": "brands/twitter"
-      },
-      {
-        "link": "https://github.com/cloudfour",
-        "title": "Find us on GitHub",
-        "icon": "brands/github"
-      },
-      {
-        "link": "https://www.instagram.com/cloudfourpdx/",
-        "title": "Follow us on Instagram",
-        "icon": "brands/instagram"
-      },
-      {
-        "link": "https://www.linkedin.com/company/cloud-four",
-        "title": "Follow us on LinkedIn",
-        "icon": "brands/linkedin"
-      }
-    ]
-  },
-  "action": {
-    "lead_in": "Help us build this resource!",
-    "title": "Contribute a story",
-    "link": "https://github.com/cloudfour/pwastats/issues/new?title=Submission:+New+Story",
-    "icon": "brands/github"
-  },
-  "organization": {
-    "name": "Cloud Four, Inc.",
-    "address": {
-      "street_address": "510 SW 3rd Ave, Suite 420",
-      "address_locality": "Portland",
-      "address_region": "Oregon",
-      "postal_code": "97204",
-      "address_country": "USA"
-    },
-    "email": "info@cloudfour.com",
-    "telephone": "+1 (503) 290-1090",
-    "url": "https://cloudfour.com/",
-    "founding_date": "2007-12-13"
-  }
-} only %}
-  {% block kudos %}
-    <p class="c-ground-nav__kudos">
-      Hosted by <a href="https://www.netlify.com/">Netlify</a>, inspired by <a href="https://wpostats.com/">WPO Stats</a> and <a href="https://developers.google.com/web/showcase/">Google Web Showcase</a>
-    </p>
-  {% endblock %}
-  {% block legal %}
-    <p class="c-ground-nav__legal">
-      Designed by Cloud Four (<a href="https://github.com/cloudfour/pwastats/blob/master/LICENSE">License</a>)
-    </p>
-  {% endblock %}
-{% endembed %}
-`,
+          code: pwaStatsDemoSource,
         },
       },
     }}

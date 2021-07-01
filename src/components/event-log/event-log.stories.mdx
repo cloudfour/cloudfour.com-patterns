@@ -1,5 +1,14 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import events from './demo/events.json';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
+// okay with the following Webpack-specific raw loader syntax. It's better to leave
+// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
+// within a Storybook docs page and not within an actual component).
+// This can be revisited in the future if Storybook no longer relies on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import eventsDemoSource from '!!raw-loader!./demo/events.twig';
 import eventsDemo from './demo/events.twig';
 const eventsDemoStory = (args) => eventsDemo({ items: events, ...args });
 
@@ -17,32 +26,7 @@ For a less specialized display of tabular data, consider using [Table](/docs/com
     parameters={{
       docs: {
         source: {
-          code: `{% embed '@cloudfour/components/event-log/event-log.twig' only %}
-  {% block content %}
-    {% for item in items %}
-      {% embed '@cloudfour/components/event-log/item.twig' with item only %}
-        {% block extra %}
-          {%- if item.links -%}
-            {% embed '@cloudfour/objects/list/list.twig' with {
-              class: 'o-list--inline'
-            } only %}
-              {% block content %}
-                {% for link in item.links %}
-                  <li>
-                    <a href="{{link.link}}">
-                      {{link.title}}
-                    </a>
-                  </li>
-                {% endfor %}
-              {% endblock %}
-            {% endembed %}
-          {%- endif -%}
-        {% endblock %}
-      {% endembed %}
-    {% endfor %}
-  {% endblock %}
-{% endembed %}
-`,
+          code: eventsDemoSource,
         },
       },
     }}

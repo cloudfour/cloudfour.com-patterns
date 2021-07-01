@@ -1,55 +1,196 @@
 #case-study-listings {
 
-  .title {
-    padding-bottom: 1.5em;
-    @media (min-width: 50em) {
-      padding-bottom: 2.5em;
-    }
-
-    h2 {
-      font-weight: normal;
-    }
-  }
-
-  .gh-button {
-    margin-top: 4em;
-  }
-
-  .book-container {
-    background-color: #f2f5f7;
-  }
-
-  .o-container {
+  .grid-wrapper {
+    display: grid;
+    grid-gap: .5em;
+    grid-template-rows: auto auto;
+    grid-template-areas: "intro"
+      "content";
     @media (min-width: 60em) {
-    padding-top: 0;
-    padding-bottom: 0;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "intro content content";
     }
-  }
 
-  .top-wrapper {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    @media (min-width: 50em) {
-      padding-top: 4em;
-      padding-bottom: 4em;
+    .book-wrap {
+      background-color: salmon;
     }
-  }
 
-  .wrapper {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    @media (min-width: 50em) {
-      padding-top: 4em;
-      padding-bottom: 4em;
+    .content {
+      grid-area: content;
+      display: grid;
+      grid-gap: 1em;
+      @media (min-width: 60em) {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-  }
 
-  .c-card__header {
-    font-size: 1.25em;
-    @media (min-width: 60em) {
+    .intro {
+      grid-area: intro;
+
       h2 {
-        font-size: 1.56em;
+        font-weight: 300;
+        font-size: 2.44em;
       }
     }
   }
+
+  .item {
+    display: grid;
+    grid-template-columns: minmax(0, auto) 2fr;
+    grid-column-gap: 1em;
+    justify-items: center;
+    @media (min-width: 60em) {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .item-content {
+      justify-self: start;
+    }
+
+    .book-img {
+      @media (max-width: 959px) {
+        max-width: 7em;
+      }
+    }
+  }
+
+  // .title {
+  //   padding-bottom: 1.5em;
+  //   @media (min-width: 50em) {
+  //     padding-bottom: 1em;
+  //     width: 15em;
+  //   }
+
+  //   h2 {
+  //     font-weight: 300;
+  //     font-size: 2.44em;
+  //   }
+  // }
+
+//   .first-card-a {
+//     grid-column: 1 / 2;
+//     grid-row: 1 / 3;
+//   }
+
+//   .book-section {
+//     .test {
+//       width: 6em;
+//       height: 8em;
+//       border-radius: 0;
+//     }
+//   }
+
+
+//   .first-card {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     grid-row: 1 / 4;
+//     grid-column: 1 / 2;
+//   }
+
+//   .gh-button {
+//     margin-bottom: 3em;
+//   }
+
+//   .book-container {
+//     background-color: #f2f5f7;
+//   }
+
+//   .o-container {
+//     @media (min-width: 60em) {
+//     padding-top: 0;
+//     padding-bottom: 0;
+//     }
+//   }
+
+//   .top-wrapper {
+//     padding-top: 2em;
+//     padding-bottom: 2em;
+//     @media (min-width: 50em) {
+//       padding-top: 4em;
+//       padding-bottom: 4em;
+//     }
+//   }
+
+//   .wrapper {
+//     padding-top: 2em;
+//     padding-bottom: 2em;
+//     @media (min-width: 50em) {
+//       padding-top: 4em;
+//       padding-bottom: 4em;
+//     }
+//   }
+
+//   .c-card__header {
+//     font-size: 1.25em;
+//     @media (min-width: 60em) {
+//       h2 {
+//         font-size: 1.56em;
+//       }
+//     }
+//   }
+
+//   .Grid {
+//   display: grid;
+//   padding: 2em;
+//   grid-gap: 1rem;
+//   @media (min-width: 60em) {
+//     grid-template-columns: repeat(3, 1fr);
+//     grid-template-rows: repeat(2, 1fr);
+//   }
+// }
+
+// .grid-wrapper {
+//   background-color: #f2f5f7;
+
+//   .book-img {
+//     width: 5em;
+//   }
+// }
+
+
+// .book-title {
+//   padding: .5em;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//     @media (min-width: 60em) {
+//       grid-row: 1 / 2;
+//     }
+//   h2 {
+//     font-weight: 300;
+//     font-size: 2.44em;
+//   }
+// }
+
+
+// .open-source-title {
+//   padding: .5em;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//     @media (min-width: 60em) {
+//       grid-row: 1 / 4;
+//     }
+//   h2 {
+//     font-weight: 300;
+//     font-size: 2.44em;
+//   }
+// }
+
+// .content-container {
+//   padding: .5em;
+
+//   .content {
+//     display: flex;
+//   }
+
+//   .avatar {
+//     width: 3em;
+//     height: 3em;
+//     border-radius: 99em;
+//     margin-right: 1em;
+//   }
+// }
 }

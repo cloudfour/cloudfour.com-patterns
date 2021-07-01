@@ -2,12 +2,11 @@ import examplePrototype from './example/example.twig';
 import cpeImage from './images/collage-cpe.jpg';
 import wmImage from './images/walmart.jpg';
 import cfImage from './images/collage-cf.jpg';
-import bookApart from './images/aba.jpg';
-import mobileWeb from './images/mobile-web.jpg';
-import codePiece from './images/code.jpg';
+import bookApart from './images/bookicon.png';
+import mobileWeb from './images/bookicon2.png';
 import pwaStat from './images/pwastat.jpg';
-import responsiveImg from './images/responsiveimg.jpg';
-import svgPlaceholder from './images/svgplaceholder.jpg';
+import responsiveImg from './images/responsive.svg';
+import svgPlaceholder from './images/placeholder.jpg';
 import './example/example.scss';
 
 export default {
@@ -25,7 +24,6 @@ export const Example = () =>
     cf: cfImage,
     book: bookApart,
     mobile: mobileWeb,
-    code: codePiece,
     pwa: pwaStat,
     responsive: responsiveImg,
     svg: svgPlaceholder,

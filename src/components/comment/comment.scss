@@ -1,14 +1,17 @@
 @use 'sass:math';
 @use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/headings';
+@use '../../mixins/theme';
 
 .c-comment {
   display: grid;
   grid-column-gap: size.$spacing-gap-inline-medium;
   grid-row-gap: size.$rhythm-condensed;
-  grid-template-areas: 'object header'
+  grid-template-areas:
+    'object header'
     'thread-line content'
     'thread-line footer';
   grid-template-columns: #{size.$square-avatar-small} 1fr;
@@ -16,7 +19,6 @@
 }
 
 .c-comment--thread::after {
-  background: currentColor;
   border-radius: size.$border-radius-full;
   content: '';
   display: block;
@@ -25,6 +27,14 @@
   margin-left: auto;
   margin-right: auto;
   width: size.$edge-medium;
+
+  @include theme.styles() {
+    background-color: color.$base-gray-light;
+  }
+
+  @include theme.styles(dark) {
+    background-color: color.$base-blue-darker;
+  }
 }
 
 .c-comment__object {
@@ -51,6 +61,11 @@
 
 .c-comment__meta {
   color: var(--theme-color-text-muted);
+
+  a:not(:hover):not(:focus) {
+    color: inherit;
+    text-decoration: inherit;
+  }
 }
 
 .c-comment__replies {

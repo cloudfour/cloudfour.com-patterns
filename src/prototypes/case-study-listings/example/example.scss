@@ -13,6 +13,16 @@
     }
   }
 
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2em;
+    @media (min-width: 60em) {
+      padding-bottom: 0;
+    }
+  }
+
   .grid-wrapper {
     display: grid;
     grid-gap: .5em;
@@ -31,7 +41,7 @@
     .content {
       grid-area: content;
       display: grid;
-      grid-gap: 4em;
+      grid-gap: 3em;
       @media (min-width: 60em) {
         grid-template-columns: 1fr 1fr;
       }
@@ -61,11 +71,15 @@
 
     .item-content {
       justify-self: start;
+
+      h3 {
+        padding-bottom: .75em;
+      }
     }
 
     .book-img {
       @media (max-width: 959px) {
-        max-width: 6em;
+        max-width: 7em;
       }
     }
   }

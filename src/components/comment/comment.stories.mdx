@@ -11,6 +11,18 @@ import template from './comment.twig';
 </Canvas>
 
 <Canvas>
+  <Story name="With source">
+    {template({
+      comment: makeComment(),
+      source: {
+        url: 'https://twitter.com/smashingmag/status/1371521325236416516',
+        name: 'twitter.com',
+      },
+    })}
+  </Story>
+</Canvas>
+
+<Canvas>
   <Story name="With replies">
     {template({ comment: makeComment({ replies: 2 }) })}
   </Story>

@@ -24,12 +24,33 @@
   {% endembed %}
   <footer class="c-comment__footer">
     <div class="c-comment__meta">
-      <a href="{{comment.link}}"
-        title="Permalink to {{comment.author.name}}’s {{comment.date|date('M j')}} {% if comment.is_child %}reply{% else %}comment{% endif %}">
-        <time datetime="{{comment.date|date('Y-m-d')}}">
-          {{comment.date|date('M j, Y')}}
-        </time>
-      </a>
+      <div>
+        <a class="c-comment__meta-link"
+          href="{{comment.link}}"
+          title="Permalink to {{comment.author.name}}’s {{comment.date|date('M j')}} {% if comment.is_child %}reply{% else %}comment{% endif %}">
+          <span class="c-comment__meta-icon">
+            {% include '@cloudfour/components/icon/icon.twig' with {
+              name: 'link',
+              inline: true,
+              aria_hidden: 'true',
+            } only %}
+          </span>
+          <time datetime="{{comment.date|date('Y-m-d')}}">
+            {{comment.date|date('M j, Y')}}
+          </time>
+        </a>
+      </div>
+      {% if source %}
+        <div>
+          via <a class="c-comment__meta-link" href="{{source.url}}">{{source.name}}</a>
+        </div>
+      {% endif %}
+      {% include '@cloudfour/components/button/button.twig' with {
+        type: 'button',
+        class: 'c-button--tertiary',
+        content_start_icon: 'speech-balloon',
+        label: 'Reply'
+      } only %}
     </div>
     {% if comment.children %}
       {% set _section_heading_depth = min(_heading_depth + 1, 6) %}

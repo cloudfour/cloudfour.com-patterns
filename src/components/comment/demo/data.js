@@ -26,7 +26,7 @@ const themeWords = [
   'adaptive',
   'input',
   'talk',
-  '<a href="https://cloudfour.com/thinks/progressive-web-apps-simply-make-sense/">article</a>',
+  'this <a href="https://cloudfour.com/thinks/progressive-web-apps-simply-make-sense/">article</a>',
   'project',
   'case study',
   'specification',
@@ -34,18 +34,55 @@ const themeWords = [
   'progressive enhancement',
   'repository',
   'automate',
+  'typography',
+  'font-loading',
+  'web component',
+  'preload',
+  'HTTP/2',
+  'sticky notes',
+  'sketching',
+  'mockups',
+  'agile',
+  'dependency',
+  'in-browser',
+  'prototype',
+  'UX',
+  'WOFF',
+  'variable font',
+  'sufficient contrast',
+  'readable',
+  'intuitive',
+  'accessible',
+  'issue',
+  'TL;DR',
+  'IMHO',
+  'YMMV',
+  'thank you',
+  'community',
+  'fallback',
+  'mobile-first',
+  'cross-disciplinary',
+  'multidisciplinary',
+  'collaborative',
+  'theming',
+  'transparency',
+  'use case',
+  'audience',
+  'animated GIF',
+  'deploy',
+  'integration',
 ];
 
 const placeImgCategories = ['animals', 'arch', 'nature', 'people', 'tech'];
 
-const jabber = new Jabber(themeWords, 2);
+const jabber = new Jabber(themeWords, 1.5);
 
 const makeComment = ({ isChild = false, replies = 0 } = {}) => {
   const id = uniqueId();
   const paragraphs = [];
-  const paragraphCount = random(1, 3);
+  const paragraphCount = random(1, 2);
   for (let i = 0; i < paragraphCount; i++) {
-    paragraphs.push(jabber.createParagraph(random(10, 30)));
+    paragraphs.push(jabber.createParagraph(random(5, 30)));
   }
   const content = `<p>${paragraphs.join('</p><p>')}</p>`;
 

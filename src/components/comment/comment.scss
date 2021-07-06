@@ -4,6 +4,7 @@
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/headings';
+@use '../../mixins/ms';
 @use '../../mixins/theme';
 
 .c-comment {
@@ -60,9 +61,19 @@
 }
 
 .c-comment__meta {
+  align-items: center;
   color: var(--theme-color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
 
-  a:not(:hover):not(:focus) {
+  > *:not(:last-child) {
+    margin-right: size.$spacing-gap-inline-small;
+  }
+}
+
+.c-comment__meta-link {
+  &:not(:hover):not(:focus) {
     color: inherit;
     text-decoration: inherit;
   }

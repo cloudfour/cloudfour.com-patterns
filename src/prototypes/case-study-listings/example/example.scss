@@ -28,7 +28,7 @@
     grid-gap: .5em;
     grid-template-rows: auto auto;
     padding-top: 2em;
-    padding-bottom: 4em;
+    padding-bottom: 3em;
     grid-template-areas: "intro"
       "content";
     @media (min-width: 60em) {
@@ -86,15 +86,19 @@
     }
   }
 
-  .top-button {
+  .button-largeScreen {
     display: none;
     @media (min-width: 60em) {
       display: block;
-      margin-bottom: .5em;
+      margin-bottom: .25em;
     }
   }
 
-  .bottom-button {
+  .button-smallScreen {
+    width: 100%;
+    text-align: center;
+    display: inline;
+    // margin-top: 3em;
     @media (min-width: 60em) {
       display: none;
     }

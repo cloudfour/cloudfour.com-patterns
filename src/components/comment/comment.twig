@@ -11,6 +11,7 @@
   </header>
   <div class="c-comment__object">
     {% include '@cloudfour/components/avatar/avatar.twig' with {
+      src: comment.avatar,
       size: 'full'
     } only %}
   </div>
@@ -23,7 +24,12 @@
   {% endembed %}
   <footer class="c-comment__footer">
     <div class="c-comment__meta">
-      {{comment.date}}
+      <a href="{{comment.link}}"
+        title="Permalink to {{comment.author.name}}’s {{comment.date|date('M j')}} {% if comment.is_child %}reply{% else %}comment{% endif %}">
+        <time datetime="{{comment.date|date('Y-m-d')}}">
+          {{comment.date|date('M j, Y')}}
+        </time>
+      </a>
     </div>
     {% if comment.children %}
       {% set _section_heading_depth = min(_heading_depth + 1, 6) %}

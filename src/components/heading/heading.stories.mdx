@@ -46,7 +46,16 @@ You can control the appearance of a `c-heading` component by including a `c-head
 <Canvas>
   <Story
     name="Levels"
-    parameters={{ docs: { source: { code: levelsDemoSource } } }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% include '@cloudfour/components/heading/heading.twig' with {
+  level: -2,
+  content: 'c-heading--level-n2',
+} only %}`,
+        },
+      },
+    }}
   >
     {levelsDemo}
   </Story>
@@ -72,7 +81,17 @@ behave as expected.
     name="Permalinks"
     height="300px"
     inline={false}
-    parameters={{ docs: { source: { code: permalinksDemoSource } } }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% include '@cloudfour/components/heading/heading.twig' with {
+  level: 1,
+  content: 'c-heading--level-1',
+  permalink: true
+} only %}`,
+        },
+      },
+    }}
   >
     {permalinksDemo}
   </Story>

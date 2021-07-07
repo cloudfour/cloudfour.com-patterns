@@ -1,7 +1,5 @@
-const Jabber = require('jabber');
-const random = require('lodash/random');
-const sample = require('lodash/sample');
-const uniqueId = require('lodash/uniqueId');
+import Jabber from 'jabber';
+import { random, sample, uniqueId } from 'lodash';
 
 const themeWords = [
   'Progressive Web App (PWA)',
@@ -77,7 +75,7 @@ const placeImgCategories = ['animals', 'arch', 'nature', 'people', 'tech'];
 
 const jabber = new Jabber(themeWords, 1.5);
 
-const makeComment = ({ isChild = false, replies = 0 } = {}) => {
+export const makeComment = ({ isChild = false, replies = 0 } = {}) => {
   const id = uniqueId();
   const paragraphs = [];
   const paragraphCount = random(1, 2);
@@ -96,6 +94,7 @@ const makeComment = ({ isChild = false, replies = 0 } = {}) => {
     },
     comment_content: content,
     is_child: isChild,
+    children: [],
   };
 
   if (replies > 0) {
@@ -105,12 +104,10 @@ const makeComment = ({ isChild = false, replies = 0 } = {}) => {
   return result;
 };
 
-const makeThread = ({ length = random(1, 3), isChild = false } = {}) => {
+export const makeThread = ({ length = random(1, 3), isChild = false } = {}) => {
   const comments = [];
   for (let i = 0; i < length; i++) {
-    comments.push(makeComment(isChild));
+    comments.push(makeComment({ isChild }));
   }
   return comments;
 };
-
-module.exports = { makeComment, makeThread };

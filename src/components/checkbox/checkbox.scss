@@ -43,7 +43,7 @@
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     appearance: none; /* 2 */
     background-color: color.$text-light;
-    border: size.$edge-medium solid currentColor;
+    border: size.$edge-control solid currentColor;
     border-radius: size.$border-radius-medium;
     color: color.$text-dark;
     cursor: pointer;
@@ -76,13 +76,13 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      bottom: size.$edge-medium; /* 1 */
+      bottom: size.$edge-control; /* 1 */
       content: '';
-      left: size.$edge-medium; /* 1 */
+      left: size.$edge-control; /* 1 */
       opacity: 0; /* 2 */
       position: absolute;
-      right: size.$edge-medium; /* 1 */
-      top: size.$edge-medium; /* 1 */
+      right: size.$edge-control; /* 1 */
+      top: size.$edge-control; /* 1 */
       transform: scale(0); /* 2 */
       transition-duration: transition.$quick;
       transition-property: opacity, transform;

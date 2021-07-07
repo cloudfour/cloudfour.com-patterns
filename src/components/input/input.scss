@@ -38,7 +38,7 @@
   -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
   appearance: none; /* 1 */
   background-color: color.$text-light;
-  border: size.$edge-medium solid currentColor;
+  border: size.$edge-control solid currentColor;
   border-radius: size.$border-radius-medium;
   color: color.$text-dark;
   display: block;

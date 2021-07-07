@@ -1,0 +1,39 @@
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/line-height";
+@use "../../compiled/tokens/scss/size";
+@use '../../mixins/ms';
+@use '../../mixins/theme';
+
+.c-badge {
+  background: var(--theme-color-background-secondary);
+  border-radius: size.$border-radius-medium;
+  color: var(--theme-color-text-muted);
+  display: inline-flex;
+  font-size: ms.step(-1);
+  font-weight: font-weight.$medium;
+  height: ms.step(2);
+  line-height: line-height.$tighter;
+  margin-left: 1ch;
+  margin-top: (ms.step(2) / -8);
+  vertical-align: middle;
+}
+
+.c-badge__content {
+  align-self: center;
+
+  &:first-child {
+    padding-left: size.$padding-cell-horizontal;
+  }
+
+  &:last-child {
+    padding-right: size.$padding-cell-horizontal;
+  }
+}
+
+.c-badge__extra {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-width: ms.step(2);
+}

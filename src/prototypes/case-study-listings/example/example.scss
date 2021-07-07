@@ -75,7 +75,10 @@
 
       h3 {
         padding-bottom: .75em;
+        padding-top: .85em;
+        @media (min-width: 60em) {
         padding-top: .65em;
+        }
       }
     }
 

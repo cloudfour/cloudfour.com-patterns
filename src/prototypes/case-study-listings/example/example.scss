@@ -1,55 +1,109 @@
 #case-study-listings {
 
-  .title {
-    padding-bottom: 1.5em;
-    @media (min-width: 50em) {
-      padding-bottom: 2.5em;
-    }
-
-    h2 {
-      font-weight: normal;
-    }
-  }
-
-  .gh-button {
-    margin-top: 4em;
-  }
-
-  .book-container {
+  .book-wrapper {
     background-color: #f2f5f7;
   }
 
-  .o-container {
-    @media (min-width: 60em) {
-    padding-top: 0;
-    padding-bottom: 0;
-    }
-  }
-
   .top-wrapper {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 4em;
+    padding-bottom: 4em;
     @media (min-width: 50em) {
       padding-top: 4em;
       padding-bottom: 4em;
     }
   }
 
-  .wrapper {
-    padding-top: 2em;
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding-bottom: 2em;
-    @media (min-width: 50em) {
-      padding-top: 4em;
-      padding-bottom: 4em;
-    }
-  }
-
-  .c-card__header {
-    font-size: 1.25em;
     @media (min-width: 60em) {
-      h2 {
-        font-size: 1.56em;
+      padding-bottom: 0;
+    }
+  }
+
+  .grid-wrapper {
+    display: grid;
+    grid-gap: .5em;
+    grid-template-rows: auto auto;
+    padding-top: 2em;
+    padding-bottom: 3em;
+    grid-template-areas: "intro"
+      "content";
+    @media (min-width: 60em) {
+      // padding-top: 1em;
+      padding-bottom: 2em;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "intro content content";
+    }
+
+    .content {
+      grid-area: content;
+      display: grid;
+      grid-gap: 3em;
+      @media (min-width: 60em) {
+        grid-template-columns: 1fr 1fr;
       }
+    }
+
+    .intro {
+      grid-area: intro;
+
+      h2 {
+        font-weight: 300;
+        font-size: 2.44em;
+        padding-right: .5em;
+      }
+    }
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: minmax(0, auto) 2fr;
+    grid-column-gap: 1em;
+    justify-items: center;
+    align-items: start;
+    padding-top: .1em;
+
+    @media (min-width: 60em) {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .item-content {
+      justify-self: start;
+
+      h3 {
+        padding-bottom: .75em;
+        padding-top: .85em;
+        @media (min-width: 60em) {
+        padding-top: .65em;
+        }
+      }
+    }
+
+    .book-img {
+      @media (max-width: 959px) {
+        max-width: 7em;
+      }
+    }
+  }
+
+  .button-largeScreen {
+    display: none;
+    @media (min-width: 60em) {
+      display: block;
+      margin-bottom: .25em;
+    }
+  }
+
+  .button-smallScreen {
+    width: 100%;
+    text-align: center;
+    display: inline;
+    // margin-top: 3em;
+    @media (min-width: 60em) {
+      display: none;
     }
   }
 }

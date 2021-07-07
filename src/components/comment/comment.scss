@@ -54,7 +54,7 @@
 
 .c-comment__content {
   grid-area: content;
-  margin-top: math.div(size.$rhythm-condensed, -2);
+  margin-top: math.div(size.$rhythm-condensed, -4);
 }
 
 .c-comment__footer {

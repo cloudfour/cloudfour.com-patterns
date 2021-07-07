@@ -94,7 +94,7 @@ export const makeComment = ({ isChild = false, replies = 0 } = {}) => {
     },
     comment_content: content,
     is_child: isChild,
-    children: [],
+    children: [] as any,
   };
 
   if (replies > 0) {
@@ -105,7 +105,7 @@ export const makeComment = ({ isChild = false, replies = 0 } = {}) => {
 };
 
 export const makeThread = ({ length = random(1, 3), isChild = false } = {}) => {
-  const comments = [];
+  const comments: any[] = [];
   for (let i = 0; i < length; i++) {
     comments.push(makeComment({ isChild }));
   }

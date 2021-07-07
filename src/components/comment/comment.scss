@@ -54,6 +54,7 @@
 
 .c-comment__content {
   grid-area: content;
+  margin-top: math.div(size.$rhythm-condensed, -2);
 }
 
 .c-comment__footer {
@@ -62,13 +63,27 @@
 
 .c-comment__meta {
   align-items: center;
-  color: var(--theme-color-text-muted);
   display: flex;
   flex-wrap: wrap;
-  position: relative;
+}
 
-  > *:not(:last-child) {
+.c-comment__meta-detail {
+  color: var(--theme-color-text-muted);
+
+  &:not(:last-child) {
     margin-right: size.$spacing-gap-inline-small;
+  }
+}
+
+.c-comment__meta-control {
+  @if (math.compatible(size.$edge-control, size.$padding-control-vertical)) {
+    margin: ((size.$edge-control + size.$padding-control-vertical) * -1)
+      (math.div((size.$edge-control + size.$padding-control-horizontal), -2));
+  } @else {
+    margin: calc(
+        (#{size.$edge-control} + #{size.$padding-control-vertical}) * -1
+      )
+      calc((#{size.$edge-control} + #{size.$padding-control-horizontal}) / -2);
   }
 }
 

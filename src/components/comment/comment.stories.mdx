@@ -10,7 +10,9 @@ import template from './comment.twig';
   <Story name="Single">{template({ comment: makeComment() })}</Story>
 </Canvas>
 
-<Canvas>
+## With source
+
+<Canvas isColumn>
   <Story name="With source">
     {template({
       comment: makeComment(),
@@ -22,8 +24,21 @@ import template from './comment.twig';
   </Story>
 </Canvas>
 
+## With reply button
+
 <Canvas>
-  <Story name="With replies">
+  <Story name="With reply button">
+    {template({
+      comment: makeComment(),
+      demo_control: true,
+    })}
+  </Story>
+</Canvas>
+
+## With reply thread
+
+<Canvas>
+  <Story name="With reply thread">
     {template({ comment: makeComment({ replies: 2 }) })}
   </Story>
 </Canvas>

@@ -24,7 +24,7 @@
   {% endembed %}
   <footer class="c-comment__footer">
     <div class="c-comment__meta">
-      <div>
+      <div class="c-comment__meta-detail">
         <a class="c-comment__meta-link"
           href="{{comment.link}}"
           title="Permalink to {{comment.author.name}}’s {{comment.date|date('M j')}} {% if comment.is_child %}reply{% else %}comment{% endif %}">
@@ -41,16 +41,20 @@
         </a>
       </div>
       {% if source %}
-        <div>
+        <div class="c-comment__meta-detail">
           via <a class="c-comment__meta-link" href="{{source.url}}">{{source.name}}</a>
         </div>
       {% endif %}
-      {% include '@cloudfour/components/button/button.twig' with {
-        type: 'button',
-        class: 'c-button--tertiary',
-        content_start_icon: 'speech-balloon',
-        label: 'Reply'
-      } only %}
+      {% if demo_control %}
+        <div class="c-comment__meta-control">
+          {% include '@cloudfour/components/button/button.twig' with {
+            type: 'button',
+            class: 'c-button--tertiary',
+            content_start_icon: 'speech-balloon',
+            label: 'Reply'
+          } only %}
+        </div>
+      {% endif %}
     </div>
     {% if comment.children %}
       {% set _section_heading_depth = min(_heading_depth + 1, 6) %}

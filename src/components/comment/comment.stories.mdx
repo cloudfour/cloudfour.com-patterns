@@ -6,13 +6,38 @@ import template from './comment.twig';
 
 # Comment
 
+Displays a single comment in a comment thread, optionally with replies. Multiple comments can be displayed within [a Rhythm layout object](/docs/objects-rhythm--default-story).
+
+## Status
+
+This component is still a work in progress. The following features are still in development:
+
+- Indicating when a comment's author is a Cloud Four team member.
+- Displaying a message when a comment is not yet approved.
+- Integrating the comment reply form.
+- Adding blocks to the template to allow for more customization.
+
+## Single
+
+At minimum, a single comment consists of:
+
+- Author name
+- Author avatar
+- Comment content (HTML)
+- Publication date
+- Permalink to the comment
+
+This information may be passed to the component as a `comment` object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/).
+
 <Canvas>
   <Story name="Single">{template({ comment: makeComment() })}</Story>
 </Canvas>
 
 ## With source
 
-<Canvas isColumn>
+Additionally, a `source` object may be passed to the template consisting of a `url` and `name`. This is helpful if integrating [webmentions](https://indieweb.org/Webmention) into comment threads.
+
+<Canvas>
   <Story name="With source">
     {template({
       comment: makeComment(),
@@ -26,6 +51,8 @@ import template from './comment.twig';
 
 ## With reply button
 
+This feature is still a work in progress.
+
 <Canvas>
   <Story name="With reply button">
     {template({
@@ -36,6 +63,13 @@ import template from './comment.twig';
 </Canvas>
 
 ## With reply thread
+
+If a `comment` contains an array of `children`, they will be display in the footer of the original comment. A vertical line is used to visually associate the replies with the original comment. If the parent comment is contained within [a Rhythm layout object](/docs/objects-rhythm--default-story),the child comments will inherit that spacing.
+
+While it is theoretically possible to infinitely nest `children`, it's recommended to limit the depth to a single level. This is for two reasons:
+
+- Increasingly narrow comments will become difficult to read on narrow screens.
+- The heading levels for comment threads increment up to a maximum of six (since HTML only provides six heading levels). This means that levels beyond that will be harder to traverse for user agents navigating via the document outline.
 
 <Canvas>
   <Story name="With reply thread">

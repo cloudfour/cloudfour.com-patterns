@@ -26,8 +26,7 @@
     <div class="c-comment__meta">
       <div class="c-comment__meta-detail">
         <a class="c-comment__meta-link"
-          href="{{comment.link}}"
-          title="Permalink to {{comment.author.name}}’s {{comment.date|date('M j')}} {% if comment.is_child %}reply{% else %}comment{% endif %}">
+          href="{{comment.link}}">
           <span class="c-comment__meta-icon">
             {% include '@cloudfour/components/icon/icon.twig' with {
               name: 'link',
@@ -35,9 +34,15 @@
               aria_hidden: 'true',
             } only %}
           </span>
+          <span class="u-hidden-visually">
+            Permalink to {{comment.author.name}}’s
+          </span>
           <time datetime="{{comment.date|date('Y-m-d')}}">
             {{comment.date|date('M j, Y')}}
           </time>
+          <span class="u-hidden-visually">
+            {% if comment.is_child %}reply{% else %}comment{% endif %}
+          </span>
         </a>
       </div>
       {% if source %}

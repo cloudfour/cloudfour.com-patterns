@@ -12,9 +12,19 @@ import template from './alert.twig';
 
 # Alert
 
+A simple container for displaying important messages to the user such as errors, changes in state or confirmation of actions taken.
+
+## Status
+
+This component is still a work in progress. The following features are not yet implemented:
+
+- The dismissal control does not actually dismiss the alert.
+
+## Basic usage
+
 <Canvas>
   <Story
-    name="Alert"
+    name="Basic"
     args={{ message: 'Your comment is awaiting moderation.' }}
   >
     {(args) => template(args)}
@@ -22,6 +32,8 @@ import template from './alert.twig';
 </Canvas>
 
 ## Dismissable
+
+When `dismissable` is `true`, a close button will display to the right of the message.
 
 <Canvas>
   <Story
@@ -37,10 +49,13 @@ import template from './alert.twig';
 
 ## Full width
 
+By default, alerts assume they'll display within page content. For alerts meant to fill the full browser width, use the `c-alert--full-width` modifier class or set the `full_width` template property to `true`. This removes the rounded corners (which would awkwardly interact with viewport edges) and constrains the content to the value of [our `size.$max-width-spread` token](/docs/design-tokens-layout--page).
+
 <Canvas>
   <Story
     name="Full width"
     parameters={{
+      layout: 'fullscreen',
       paddings: { disable: true },
     }}
     args={{
@@ -52,3 +67,15 @@ import template from './alert.twig';
     {(args) => template(args)}
   </Story>
 </Canvas>
+
+## Template Properties
+
+- `class` (string)
+- `dismissable` (boolean, default `false`)
+- `full_width` (boolean, default `false`)
+- `message` (string, default `'Hello world!'`)
+- `tag_name` (string, default `'div'`)
+
+## Template Blocks
+
+- `content`

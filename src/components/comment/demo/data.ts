@@ -75,7 +75,11 @@ const placeImgCategories = ['animals', 'arch', 'nature', 'people', 'tech'];
 
 const jabber = new Jabber(themeWords, 1.5);
 
-export const makeComment = ({ isChild = false, replies = 0 } = {}) => {
+export const makeComment = ({
+  isChild = false,
+  replies = 0,
+  approved = true,
+} = {}) => {
   const id = uniqueId();
   const paragraphs = [];
   const paragraphCount = random(1, 2);
@@ -95,6 +99,7 @@ export const makeComment = ({ isChild = false, replies = 0 } = {}) => {
     comment_content: content,
     is_child: isChild,
     children: [] as any,
+    approved,
   };
 
   if (replies > 0) {

@@ -13,7 +13,6 @@ Displays a single comment in a comment thread, optionally with replies. Multiple
 This component is still a work in progress. The following features are still in development:
 
 - Indicating when a comment's author is a Cloud Four team member.
-- Displaying a message when a comment is not yet approved.
 - Integrating the comment reply form.
 - Adding blocks to the template to allow for more customization.
 
@@ -31,6 +30,16 @@ This information may be passed to the component as a `comment` object matching t
 
 <Canvas>
   <Story name="Single">{template({ comment: makeComment() })}</Story>
+</Canvas>
+
+## Unapproved
+
+If `comment.approved` is not `true`, an [Alert](/docs/components-alert--alert) will indicate that the comment is not yet approved.
+
+<Canvas>
+  <Story name="Unapproved">
+    {template({ comment: makeComment({ approved: false }) })}
+  </Story>
 </Canvas>
 
 ## With source

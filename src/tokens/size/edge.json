@@ -3,7 +3,8 @@
     "edge": {
       "small": { "value": "0.0625rem" },
       "medium": { "value": "0.125rem" },
-      "large": { "value": "0.25rem" }
+      "large": { "value": "0.25rem" },
+      "control": { "value": "{size.edge.medium.value}" }
     }
   }
 }

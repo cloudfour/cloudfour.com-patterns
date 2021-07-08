@@ -1,0 +1,90 @@
+{% set _heading_depth = min(heading_depth|default(3), 6) %}
+
+<article class="c-comment{% if comment.children is not empty %} c-comment--thread{% endif %}" id="comment-{{comment.ID}}">
+  <header class="c-comment__header">
+    <h{{_heading_depth}} class="c-comment__heading">
+      {{comment.author.name}}
+      <span class="u-hidden-visually">
+        {% if comment.is_child %}replied{% else %}said{% endif %}:
+      </span>
+    </h{{_heading_depth}}>
+  </header>
+  <div class="c-comment__object">
+    {% include '@cloudfour/components/avatar/avatar.twig' with {
+      src: comment.avatar,
+      size: 'full'
+    } only %}
+  </div>
+  {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+    class: 'c-comment__content o-rhythm--condensed'
+  } %}
+    {% block content %}
+      {{comment.comment_content|raw}}
+    {% endblock %}
+  {% endembed %}
+  <footer class="c-comment__footer">
+    <div class="c-comment__meta">
+      <div class="c-comment__meta-detail">
+        <a class="c-comment__meta-link"
+          href="{{comment.link}}">
+          <span class="c-comment__meta-icon">
+            {% include '@cloudfour/components/icon/icon.twig' with {
+              name: 'link',
+              inline: true,
+              aria_hidden: 'true',
+            } only %}
+          </span>
+          <span class="u-hidden-visually">
+            Permalink to {{comment.author.name}}’s
+          </span>
+          <time datetime="{{comment.date|date('Y-m-d')}}">
+            {{comment.date|date('M j, Y')}}
+          </time>
+          <span class="u-hidden-visually">
+            {% if comment.is_child %}reply{% else %}comment{% endif %}
+          </span>
+        </a>
+      </div>
+      {% if source %}
+        <div class="c-comment__meta-detail">
+          via <a class="c-comment__meta-link" href="{{source.url}}">{{source.name}}</a>
+        </div>
+      {% endif %}
+      {#
+        TODO: Replace `demo_control` with a more meaningful block or properties
+        once we have a better idea of how we want to implement the reply
+        functionality. For now, this property exists to allow us to test the
+        presentation of the control.
+      #}
+      {% if demo_control %}
+        <div class="c-comment__meta-control">
+          {% include '@cloudfour/components/button/button.twig' with {
+            type: 'button',
+            class: 'c-button--tertiary',
+            content_start_icon: 'speech-balloon',
+            label: 'Reply'
+          } only %}
+        </div>
+      {% endif %}
+    </div>
+    {% if comment.children is not empty %}
+      {% set _section_heading_depth = min(_heading_depth + 1, 6) %}
+      {% set _child_heading_depth = min(_section_heading_depth + 1, 6) %}
+      <h{{_section_heading_depth}} class="u-hidden-visually">
+        Replies to {{comment.author.name}}
+      </h{{_section_heading_depth}}>
+      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+        class: 'c-comment__replies'
+      } %}
+        {% block content %}
+          {% for child in comment.children %}
+            {% include '@cloudfour/components/comment/comment.twig' with {
+              comment: child,
+              heading_depth: _child_heading_depth
+            } only %}
+          {% endfor %}
+        {% endblock %}
+      {% endembed %}
+    {% endif %}
+  </footer>
+</article>

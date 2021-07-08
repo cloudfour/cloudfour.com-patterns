@@ -70,7 +70,9 @@ $color-map: meta.module-variables('color-base');
 }
 
 @for $level from -2 through 3 {
-  $level-segment: ms.step-class-segment($level);
+  // WordPress treats numbers as separate segments in slugs, so we must add an
+  // extra dash to negative number class segment prefixes
+  $level-segment: ms.step-class-segment($level, 'n-');
 
   .has-heading-#{$level-segment}-font-size {
     @include headings.level($level, false);

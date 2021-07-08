@@ -47,9 +47,35 @@ The size is fixed to the value of [our `sizes.$avatar-medium` token by default](
   </Story>
 </Canvas>
 
+## Small
+
+The `c-avatar--small` modifier sizes the avatar down to the value of our `sizes.$avatar-small` token. This may be useful when accompanying a single line of text or showing many avatars in a condensed space.
+
+<Canvas>
+  <Story
+    name="Small (Empty)"
+    args={{
+      size: 'small',
+    }}
+  >
+    {avatarStory.bind({})}
+  </Story>
+  <Story
+    name="Small (With Image)"
+    args={{
+      size: 'small',
+      src: demoImageSmall,
+      srcset: demoImageSrcset,
+      sizes: '38px',
+    }}
+  >
+    {avatarStory.bind({})}
+  </Story>
+</Canvas>
+
 ## Full Width
 
-The `c-avatar--full` modifier sizes the component to `100%` of its container.
+The `c-avatar--full` modifier sizes the component to `100%` of its container width.
 
 <Canvas>
   <Story
@@ -76,7 +102,7 @@ The `c-avatar--full` modifier sizes the component to `100%` of its container.
 - `src`: Value for the inner `img` element's `src` attribute. If omitted, no `img` will be output.
 - `srcset`: Value for the inner `img` element's `srcset` attribute.
 
-## See Also
+## See also…
 
 To display multiple avatars in a visual cluster, see [the Bunch object](/docs/objects-bunch--of-avatars).
 

@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 1.2.1
+
+### Patch Changes
+
+- [#1335](https://github.com/cloudfour/cloudfour.com-patterns/pull/1335) [`92a9bbd`](https://github.com/cloudfour/cloudfour.com-patterns/commit/92a9bbdbb3a0c3e7caa3abd92020b8d8e38d886f) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix missing dashes in some Gutenberg font size utility class names
+
 ## 1.2.0
 
 ### Minor Changes

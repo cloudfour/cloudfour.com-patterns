@@ -1,0 +1,223 @@
+<div id="case-study-listings">
+  <div class="c-cloud-cover t-dark">
+    <div class="o-container o-container--pad-inline">
+      <div class="o-container__content c-cloud-cover__inner">
+        <div class="c-cloud-cover__content">
+          <div class="o-rhythm o-rhythm--condensed">
+            <h1 class="c-heading c-heading--level-n2">Our Work</h1>
+            <p>
+              We’ve built responsive websites, JavaScript applications, hybrid apps, you name it—if it’s mobile, we’ve built it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="top-wrapper o-container o-container--pad">
+    <div class="o-container__content">
+      <div class="o-deck o-deck--2-column@l">
+        <article class="c-card c-card--with-link c-card--horizontal@m">
+          <header class="c-card__header">
+            <h2 class="c-card__heading">
+              <a
+                href="#"
+                class="c-card__link"
+              >
+                Champion Power Equipment
+              </a>
+            </h2>
+          </header>
+
+          <div class="c-card__cover">
+            <img
+              src="{{cpe}}"
+              alt=""
+            />
+          </div>
+
+          <div class="c-card__content">
+            <p>
+              Champion Power Equipment is a market leader in power generation equipment. They chose Cloud Four to design...
+            </p>
+          </div>
+        </article>
+
+        <article class="c-card c-card--with-link">
+          <header class="c-card__header">
+            <h2 class="c-card__heading">
+              <a
+                href="#"
+                class="c-card__link"
+              >
+                Walmart Grocery
+              </a>
+            </h2>
+          </header>
+
+          <div class="c-card__cover">
+            <img
+              src="{{wm}}"
+              alt=""
+            />
+          </div>
+
+          <div class="c-card__content">
+            <p>
+              Cloud Four was hired to help Walmart make the transition to responsive web design. We started with the smaller Walmart Grocery site, built a pattern library, and converted...
+            </p>
+          </div>
+        </article>
+
+        <article class="c-card c-card--with-link">
+          <header class="c-card__header">
+            <h2 class="c-card__heading">
+              <a
+                href="#"
+                class="c-card__link"
+              >
+                Ceasefire Oregon
+              </a>
+            </h2>
+          </header>
+
+          <div class="c-card__cover">
+            <img
+              src="{{cf}}"
+              alt=""
+            />
+          </div>
+
+          <div class="c-card__content">
+            <p>
+              Ceasefire Oregon is a small, non-profit organization working for sensible gun law reform. Their site had a wealth of information, but was difficult to navigate and read. We helped...
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper book-wrapper">
+    <div class="o-container o-container--pad">
+      <div class="o-container__content">
+        <div class="grid-wrapper">
+          <div class="intro">
+            <h2>Books we’ve written</h2>
+          </div>
+          <div class="content">
+            <div class="item">
+              <img
+              src="{{book}}"
+              alt=""
+              loading="lazy"
+              class="book-img"
+              />
+              <div class="item-content">
+                <h3 class="">
+                  <a href="#" class="c-card__link">Progressive Web Apps</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
+              </div>
+            </div>
+            <div class="item">
+              <img
+              src="{{mobile}}"
+              alt=""
+              loading="lazy"
+              class="book-img"
+              />
+              <div class="item-content">
+                <h3 class="">
+                  <a href="#" class="c-card__link">Head First Mobile Web</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="wrapper">
+    <div class="o-container o-container--pad">
+      <div class="o-container__content">
+        <div class="grid-wrapper">
+          <div class="intro">
+            <h2>Our open source projects</h2>
+            <footer>
+            <button class="button-largeScreen c-button c-button--secondary" type="button">Follow Cloud Four on GitHub</button>
+            </footer>
+          </div>
+          <div class="content">
+            <div class="item">
+              {% include '@cloudfour/components/avatar/avatar.twig' with {
+                "src": pwa,
+                "sizes": "60px"
+              } only %}
+              <div class="item-content">
+                <h3 class="">
+                  <a href="#" class="c-card__link">PWA Stats</a>
+                </h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
+              </div>
+            </div>
+            <div class="item">
+              {% include '@cloudfour/components/avatar/avatar.twig' with {
+                "src": responsive,
+                "sizes": "60px"
+              } only %}
+              <div class="item-content">
+                <h3 class="">
+                  <a href="#" class="c-card__link">Responsive Images</a>
+                </h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
+              </div>
+            </div>
+            <div class="item">
+              {% include '@cloudfour/components/avatar/avatar.twig' with {
+                "src": svg,
+                "sizes": "60px"
+              } only %}
+              <div class="item-content">
+                <h3 class="">
+                  <a href="#" class="c-card__link">Simple SVG Placeholder</a>
+                </h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
+              </div>
+            </div>
+            <div class="item">
+              {% include '@cloudfour/components/avatar/avatar.twig' with {
+                "src": pwa,
+                "sizes": "60px"
+              } only %}
+              <div class="item-content">
+                <h3 class="">
+                  <a href="#" class="c-card__link">A Project</a>
+                </h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
+              </div>
+            </div>
+            <div class="item">
+              {% include '@cloudfour/components/avatar/avatar.twig' with {
+                "src": responsive,
+                "sizes": "60px"
+              } only %}
+              <div class="item-content">
+                <h3 class="">
+                  <a href="#" class="c-card__link">Another Project</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
+              </div>
+            </div>
+            <footer>
+              <button class="button-smallScreen c-button c-button--secondary" type="button">Follow Cloud Four on GitHub</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

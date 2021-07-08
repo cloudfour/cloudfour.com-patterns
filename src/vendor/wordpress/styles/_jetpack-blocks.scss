@@ -1,0 +1,5 @@
+@use '../../../mixins/spacing';
+
+.wp-block-jetpack-markdown {
+  @include spacing.vertical-rhythm();
+}

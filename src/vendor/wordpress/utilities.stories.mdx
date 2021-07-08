@@ -19,8 +19,8 @@ const fontSizeControlConfig = {
       '',
       'big',
       'small',
-      'heading-n2',
-      'heading-n1',
+      'heading-n-2',
+      'heading-n-1',
       'heading-0',
       'heading-1',
       'heading-2',
@@ -63,7 +63,7 @@ When a background color is chosen, rounded corners and padding may be added (dep
 
 ## Font Size
 
-We include `has-{font-size}-font-size` classes for our `big`, `small` and heading level [size tokens](/docs/design-tokens-size--page) to support [the `editor-font-sizes` feature](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-font-sizes).
+We include `has-{font-size}-font-size` classes for our `big`, `small` and heading level [size tokens](/docs/design-tokens-size--page) to support [the `editor-font-sizes` feature](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-font-sizes). Note that negative number class segments include an extra dash (`n-1` instead of `n1`) due to WordPress's kebab-case formatting of slugs.
 
 <Canvas>
   <Story

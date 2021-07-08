@@ -51,3 +51,38 @@ behave as expected.
     {articleDemo}
   </Story>
 </Canvas>
+
+## Inheriting Rhythm
+
+The vertical spacing applied by the Rhythm object only applies to direct children. In some cases, you may want elements below to inherit rhythm. This can be accomplished in two main ways.
+
+### Via HTML
+
+If you have access to the markup, you can add the `o-rhythm` class to the child element:
+
+```html
+<div class="o-rhythm o-rhythm--condensed">
+  <!-- ... -->
+  <div class="o-rhythm">
+    <!-- will also be condensed -->
+  </div>
+  <!-- ... -->
+</div>
+```
+
+### Via Sass
+
+Our project includes a `spacing.vertical-rhythm` mixin that will apply the basic object rules to any selector:
+
+```scss
+@use 'path/to/mixins/spacing';
+
+.unchangeable-vendor-selector {
+  @include spacing.vertical-rhythm();
+}
+```
+
+## Custom Properties
+
+- `--rhythm`: Amount of vertical space between adjacent elements. Defaults to our `$rhythm-default` [size token](/docs/design-tokens-size--page#rhythm).
+- `--rhythm-headings`: Extra space to precede headings that follow another element. Defaults to the value of `--rhythm`.

@@ -1,0 +1,131 @@
+@use 'sass:math';
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/font-weight';
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/headings';
+@use '../../mixins/theme';
+
+.c-comment {
+  display: grid;
+  grid-column-gap: size.$spacing-gap-inline-medium;
+  grid-row-gap: size.$rhythm-condensed;
+  grid-template-areas:
+    'object header'
+    'thread-line content'
+    'thread-line footer';
+  // We set the object column size directly (instead of relying on `auto`)
+  // because the container for child comments will be setting a negative margin
+  // based on this value, and we don't want the layout to break if the wrong
+  // avatar size is set in the HTML.
+  grid-template-columns: #{size.$square-avatar-small} 1fr;
+  grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
+}
+
+/// Display a vertical line if the comment contains a reply thread to connect
+/// those comments visually with their parent.
+.c-comment--thread::after {
+  border-radius: size.$border-radius-full;
+  content: '';
+  display: block;
+  grid-area: thread-line;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: size.$edge-medium;
+
+  @include theme.styles() {
+    background-color: color.$base-gray-light;
+  }
+
+  @include theme.styles(dark) {
+    background-color: color.$base-blue-darker;
+  }
+}
+
+/// Named object for consistency with the Media component.
+.c-comment__object {
+  grid-area: object;
+}
+
+.c-comment__header {
+  // We generally want comment contents to align to the start/top, but the
+  // heading looks better center-aligned with the avatar.
+  align-self: center;
+  grid-area: header;
+}
+
+/// The heading level will change depending on comment depth, but we want it to
+/// appear consistent. We lighten the weight a bit from usual headings to offset
+/// it from the main article/page content.
+.c-comment__heading {
+  @include headings.level($level: 3, $include-weight: false);
+  font-weight: font-weight.$semibold;
+}
+
+.c-comment__content {
+  grid-area: content;
+  // The fluid heading size changes depending on the viewport, but the content
+  // always looks just a *tad* close to the header. This offsets that.
+  margin-top: math.div(size.$rhythm-condensed, -4);
+}
+
+.c-comment__footer {
+  grid-area: footer;
+}
+
+.c-comment__meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c-comment__meta-detail {
+  color: var(--theme-color-text-muted);
+
+  &:not(:last-child) {
+    margin-right: size.$spacing-gap-inline-small;
+  }
+}
+
+/// We don't want to reduce the padding of a button, but we also don't want the
+/// overall height of the meta elements changing between comments with a button
+/// and comments without. This negates the margin on the button's container
+/// to minimize this layout shift.
+///
+/// The horizontal value is less than the vertical value to account for the
+/// possibility of icons being present (which rest closer to the edge than the
+/// text label would on its own).
+.c-comment__meta-control {
+  // If the edge and padding sizes for controls use the same units, just crunch
+  // the numbers in Sass. Otherwise, use `calc` to do it in the browser.
+  @if (math.compatible(size.$edge-control, size.$padding-control-vertical)) {
+    margin: ((size.$edge-control + size.$padding-control-vertical) * -1)
+      (math.div((size.$edge-control + size.$padding-control-horizontal), -2));
+  } @else {
+    margin: calc(
+        (#{size.$edge-control} + #{size.$padding-control-vertical}) * -1
+      )
+      calc((#{size.$edge-control} + #{size.$padding-control-horizontal}) / -2);
+  }
+}
+
+/// Normally we would avoid obscuring links, but in this case things like
+/// permalinks and source links are quite tertiary in comparison to the main
+/// content. I found several accessibility resources that also do this in their
+/// comments (Deque being the most prominent example), so I feel okay about it!
+.c-comment__meta-link {
+  &:not(:hover):not(:focus) {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}
+
+.c-comment__replies {
+  // Visually centers the child avatars with the indentation of the parent
+  // comment. Without this, the replies feel nested too far to the right.
+  margin-left: math.div(size.$square-avatar-small, -2);
+  // Since the replies are likely wrapped in a Rhythm object intended to inherit
+  // the parent rhythm, we can use that custom property to inherit that same
+  // spacing between the meta and replies.
+  margin-top: var(--rhythm, #{size.$rhythm-default});
+}

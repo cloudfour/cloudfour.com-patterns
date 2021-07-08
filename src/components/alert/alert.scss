@@ -12,10 +12,25 @@
   color: var(--theme-color-text-emphasis);
 }
 
+/// When alert is meant to span the full viewport width, we omit its rounded
+/// corners to avoid awkward counter spaces where the background shows through
+/// those corners.
 .c-alert--full-width {
   border-radius: 0;
 }
 
+/// We use a separate inner element so we can constrain it when the alert is
+/// full-width without having to factor in the size of the optional dismissal
+/// control.
+///
+/// We lay out elements using CSS Grid to avoid relying on negative margins
+/// so that the dismissal control's interactive area will reach the element's
+/// edges.
+///
+/// The spacing here involves more "magic" numbers than I wanted it to, but
+/// since the default container is pretty subtle neither the standard container
+/// padding nor control padding felt quite right. We may want to revisit that
+/// in the future.
 .c-alert__inner {
   display: grid;
   grid-column-gap: ms.step(1);
@@ -26,6 +41,7 @@
   grid-template-columns: 0 1fr minmax(0, auto);
   grid-template-rows: ms.step(-1) minmax(0, auto) ms.step(-1);
 
+  /// We only bother constraining this element when it's full-width.
   .c-alert--full-width & {
     margin: 0 auto;
     max-width: size.$max-width-spread;
@@ -36,6 +52,7 @@
   grid-area: content;
 }
 
+/// Reset the dismissal button's appearance and center-align its content
 .c-alert__dismiss {
   align-items: center;
   appearance: none;
@@ -49,6 +66,7 @@
   grid-area: dismiss;
   justify-content: center;
   margin: 0;
+  // This is a magic number but it just feels right, y'know?
   min-width: ms.step(5);
   padding: 0;
 
@@ -57,6 +75,8 @@
   }
 }
 
+/// We apply the transition effects to the icon so the button itself won't break
+/// outside of the alert, which is particularly important when it's full-width.
 .c-alert__dismiss-icon {
   transition: filter transition.$slow ease.$out,
     transform transition.$quick ease.$out;

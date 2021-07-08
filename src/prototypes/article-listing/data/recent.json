@@ -1,0 +1,44 @@
+{
+  "articles": [
+    {
+      "title": "Building Flexible Components With Transparency",
+      "pubDate": "2020-11-19 17:28:54",
+      "link": "https://cloudfour.com/thinks/building-flexible-components-with-transparency/",
+      "guid": "https://cloudfour.com/?p=6017",
+      "author": "Paul Hebert",
+      "avatar": "https://cloudfour.com/wp-content/uploads/2019/09/paul-128x128-c-default.png",
+      "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/11/transparent-flexible.png",
+      "description": "By adding a touch of transparency, we can design components that automatically adapt to their backgrounds."
+    },
+    {
+      "title": "A GitHub Action for automated deployment to WP Engine",
+      "pubDate": "2020-11-17 08:30:14",
+      "link": "https://cloudfour.com/thinks/a-github-action-for-automated-deployment-to-wp-engine/",
+      "guid": "https://cloudfour.com/?p=5945",
+      "author": "Emerson Loustau",
+      "avatar": "https://cloudfour.com/wp-content/uploads/2020/04/emerson-128x128-c-default.png",
+      "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/06/SpongeBob-SquarePants-Nervous-Sweating.gif",
+      "description": "We recently set up a GitHub Action to automatically upload our site updates to WP Engine whenever we push to a specific branch. we suspect other teams might find it useful, too."
+    },
+    {
+      "title": "Perfectly Broken Code",
+      "pubDate": "2020-10-30 08:00:21",
+      "link": "https://cloudfour.com/thinks/perfectly-broken-code/",
+      "guid": "https://cloudfour.com/?p=5898",
+      "author": "Gerardo Rodriguez",
+      "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/gerardo-r2.png",
+      "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/10/perfectly-broken-code-preview-2.png",
+      "description": "Join me in exploring a recent experience where I started with flawed logic (without realizing it) and the steps I took to fix my bug. Let’s experience some broken code together. 🎉"
+    },
+    {
+      "title": "Designers, Design Systems and Finding Our Focus",
+      "pubDate": "2020-10-19 15:44:36",
+      "link": "https://cloudfour.com/thinks/designers-design-systems-and-finding-our-focus/",
+      "guid": "https://cloudfour.com/?p=5944",
+      "author": "Tyler Sticka",
+      "avatar": "https://cloudfour.com/wp-content/uploads/2017/06/tyler-128x128-c-default.png",
+      "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/10/focus-areas-r2.png",
+      "description": "For many designers, the process of finding one's place within a design system can be surprisingly tough."
+    }
+  ]
+}

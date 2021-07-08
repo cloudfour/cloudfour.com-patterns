@@ -1,0 +1,110 @@
+@use "../../../compiled/tokens/scss/color";
+@use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../compiled/tokens/scss/size";
+@use '../../../mixins/fluid';
+@use '../../../mixins/media-query';
+@use "../../../mixins/ms";
+
+#article-listing {
+  .o-container {
+    padding-bottom: ms.step(6);
+    padding-top: ms.step(6);
+  }
+
+  .o-container:nth-child(even) {
+    background-color: #{color.$base-gray-lighter};
+  }
+
+  .title-content {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+  }
+
+  @media (min-width: breakpoint.$l) {
+    .title-content {
+      grid-column: auto;
+    }
+  }
+
+  .section-title {
+    font-weight: 300;
+    font-size: ms.step(5);
+    padding-bottom: ms.step(-4);
+  }
+
+  @media (min-width: breakpoint.$l) {
+    .section-title {
+      padding-bottom: 0;
+    }
+  }
+
+  .section-cta {
+    padding-top: ms.step(6);
+  }
+
+  @media (min-width: breakpoint.$m) {
+    .topics-content {
+      columns: 2;
+      @include fluid.grid-gap(
+        breakpoint.$s,
+        breakpoint.$xl,
+        size.$spacing-gap-fluid-min,
+        size.$spacing-gap-fluid-max
+      );
+    }
+  }
+
+  @media (min-width: breakpoint.$l) {
+    .topics-content {
+      columns: 3;
+    }
+  }
+
+  .topics-content li {
+    margin-bottom: ms.step(0);
+  }
+
+  .topics {
+    padding-bottom: ms.step(2);
+  }
+
+  @media (min-width: breakpoint.$l) {
+    .topics {
+      display: grid;
+      @include fluid.grid-gap(
+        breakpoint.$s,
+        breakpoint.$xl,
+        size.$spacing-gap-fluid-min,
+        size.$spacing-gap-fluid-max
+      );
+      grid-template-columns: repeat(3, minmax(max-content, 1fr));
+      padding-bottom: ms.step(3);
+    }
+  }
+
+  .search-content {
+    align-items: center;
+    display: grid;
+    grid-column: 3 / -1;
+    grid-column-gap: ms.step(0);
+    grid-template-columns: auto 1fr auto;
+    padding: ms.step(0) 0;
+    position: relative;
+  }
+
+  @media (min-width: breakpoint.$l) {
+    .search-content {
+      grid-template-columns: 1fr auto;
+      padding: 0;
+    }
+  }
+
+  @media (min-width: breakpoint.$l) {
+    .search-label {
+      position: absolute;
+      left: -4rem;
+    }
+  }
+}

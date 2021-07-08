@@ -1,0 +1,56 @@
+{
+  "topics": [
+    {
+      "title": "Mobile Web and Services",
+      "cta": "93 Articles",
+      "articles": [
+        {
+          "title": "Responsive Images the Simple Way",
+          "pubDate": "2020-04-02 17:18:08",
+          "link": "https://cloudfour.com/thinks/responsive-images-the-simple-way/",
+          "guid": "https://cloudfour.com/?p=5773",
+          "author": "Scott Vandehey",
+          "avatar": "https://cloudfour.com/wp-content/uploads/2019/03/scott.png",
+          "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/03/summary.png",
+          "description": "The responsive images spec is fantastic and covers a lot of use cases, but most of the time you’ll only need one: resolution switching using the `srcset` and `sizes` attributes."
+        },
+        {
+          "title": "Performance is an issue of equity",
+          "pubDate": "2020-08-11 18:28:00",
+          "link": "https://cloudfour.com/thinks/performance-is-an-issue-of-equity/",
+          "guid": "https://cloudfour.com/?p=5981",
+          "author": "Megan Notarte",
+          "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/megan.png",
+          "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/08/perf-equity-r3-alt.png",
+          "description": "Website speed and performance are a question of equity.  Fast and lightweight sites mean that everyone can access your content equally. It’s not only an economic imperative; it’s a moral imperative."
+        }
+      ]
+    },
+    {
+      "title": "CSS",
+      "cta": "87 Articles",
+      "articles": [
+        {
+          "title": "CSS Animation Timelines: Building a Rube Goldberg Machine",
+          "pubDate": "2020-04-13 15:41:25",
+          "link": "https://cloudfour.com/thinks/css-animation-timelines-building-a-rube-goldberg-machine/",
+          "guid": "https://cloudfour.com/?p=5784",
+          "author": "Paul Hebert",
+          "avatar": "https://cloudfour.com/wp-content/uploads/2019/09/paul-128x128-c-default.png",
+          "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/04/rgm.gif",
+          "description": "Lately I’ve been using variables to plan out pure CSS timelines for complex animations. I built an SVG and CSS Rube Goldberg machine to put this technique to the test!"
+        },
+        {
+          "title": "Getting Unstuck",
+          "pubDate": "2020-04-03 08:00:06",
+          "link": "https://cloudfour.com/thinks/getting-unstuck/",
+          "guid": "https://cloudfour.com/?p=5752",
+          "author": "Emerson Loustau",
+          "avatar": "https://cloudfour.com/wp-content/uploads/2020/04/emerson-128x128-c-default.png",
+          "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/04/HD.4G.038_10537689444-scaled-e1585787011260.jpg",
+          "description": "Problem-solving is an essential part of software development. Sometimes we get stuck on a particularly baffling problem, and this can feel frustrating and discouraging. The following are some strategies for getting yourself “unstuck.”"
+        }
+      ]
+    }
+  ]
+}

@@ -65,7 +65,7 @@
       {% set _section_heading_depth = min(_heading_depth + 1, 6) %}
       {% set _child_heading_depth = min(_section_heading_depth + 1, 6) %}
       <h{{_section_heading_depth}} class="u-hidden-visually">
-        Replies
+        Replies to {{comment.author.name}}
       </h{{_section_heading_depth}}>
       {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
         class: 'c-comment__replies'

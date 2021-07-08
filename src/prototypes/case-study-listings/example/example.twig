@@ -95,6 +95,23 @@
           </div>
         </article>
       </div>
+
+        {# <div class="grid-wrapper">
+          <div class="intro">
+            <h2>Additional client work</h2>
+          </div>
+          <div class="content">
+            {% for logos in logos %}
+            <article>
+              <header>
+                <img src="{{logos.image}}"
+                class="logos">
+              </header>
+            </article>
+          {% endfor %}
+          </div>
+        </div> #}
+
     </div>
   </div>
 
@@ -220,4 +237,137 @@
       </div>
     </div>
   </div>
+
+  {# <div class="wrapper logo-wrapper">
+    <div class="o-container o-container--pad">
+      <div class="o-container__content">
+        <div class="grid-wrapper">
+          <div class="intro">
+            <h2>Books we’ve written</h2>
+          </div>
+          <div class="content">
+            {% for logos in logos %}
+            <article>
+              <header>
+                <img src="{{logos.image}}">
+              </header>
+            </article>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> #}
+  <div class="wrapper logo-wrapper">
+    <div class="o-container o-container--pad">
+      <div class="o-container__content">
+        <div class="container-wrap">
+          <div class="intro">
+            <h2>More clients we've worked with</h2>
+          </div>
+          <div class="content">
+            {% for logos in logos %}
+            <article>
+              <header>
+                <img src="{{logos.image}}">
+              </header>
+            </article>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+  "menu": {
+    "items": [
+      {
+        "link": "/does",
+        "title": "What We Do",
+        "current": true
+      },
+      {
+        "link": "/believes",
+        "title": "Our Approach"
+      },
+      {
+        "link": "/made",
+        "title": "Our Work"
+      },
+      {
+        "link": "/thinks",
+        "title": "Articles"
+      },
+      {
+        "link": "/presents",
+        "title": "Speaking"
+      },
+      {
+        "link": "/contributes",
+        "title": "Labs"
+      },
+      {
+        "link": "/is",
+        "title": "Team"
+      },
+      {
+        "link": "/portland-device-lab",
+        "title": "Device Lab"
+      },
+      {
+        "link": "https://cloudfour-patterns.netlify.app/",
+        "title": "Patterns"
+      },
+      {
+        "link": "https://www.responsivefieldday.com/",
+        "title": "Responsive Field Day"
+      }
+    ]
+  },
+  "social": {
+    "items": [
+      {
+        "link": "https://twitter.com/cloudfour",
+        "title": "Follow us on Twitter",
+        "icon": "brands/twitter"
+      },
+      {
+        "link": "https://github.com/cloudfour",
+        "title": "Find us on GitHub",
+        "icon": "brands/github"
+      },
+      {
+        "link": "https://www.instagram.com/cloudfourpdx/",
+        "title": "Follow us on Instagram",
+        "icon": "brands/instagram"
+      },
+      {
+        "link": "https://www.linkedin.com/company/cloud-four",
+        "title": "Follow us on LinkedIn",
+        "icon": "brands/linkedin"
+      }
+    ]
+  },
+  "action": {
+    "lead_in": "Let’s discuss your project!",
+    "title": "Email us",
+    "link": "mailto:info@cloudfour.com",
+    "icon": "envelope"
+  },
+  "organization": {
+    "name": "Cloud Four, Inc.",
+    "address": {
+      "street_address": "510 SW 3rd Ave, Suite 420",
+      "address_locality": "Portland",
+      "address_region": "Oregon",
+      "postal_code": "97204",
+      "address_country": "USA"
+    },
+    "email": "info@cloudfour.com",
+    "telephone": "+1 (503) 290-1090",
+    "url": "https://cloudfour.com/",
+    "founding_date": "2007-12-13"
+  }
+  } only %}
 </div>

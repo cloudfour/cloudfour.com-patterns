@@ -1,0 +1,54 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import template from './alert.twig';
+
+<Meta
+  title="Components/Alert"
+  argTypes={{
+    message: { type: { name: 'string' } },
+    dismissable: { type: { name: 'boolean' } },
+    full_width: { type: { name: 'boolean' } },
+  }}
+/>
+
+# Alert
+
+<Canvas>
+  <Story
+    name="Alert"
+    args={{ message: 'Your comment is awaiting moderation.' }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
+## Dismissable
+
+<Canvas>
+  <Story
+    name="Dismissable"
+    args={{
+      message: 'Your action was completed successfully! 🎉',
+      dismissable: true,
+    }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
+## Full width
+
+<Canvas>
+  <Story
+    name="Full width"
+    parameters={{
+      paddings: { disable: true },
+    }}
+    args={{
+      message: 'You appear to be offline. 🤔',
+      full_width: true,
+      dismissable: true,
+    }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>

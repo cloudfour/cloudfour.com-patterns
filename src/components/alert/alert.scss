@@ -1,0 +1,71 @@
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/ease';
+@use '../../compiled/tokens/scss/scale';
+@use '../../compiled/tokens/scss/size';
+@use '../../compiled/tokens/scss/transition';
+@use '../../mixins/focus';
+
+.c-alert {
+  background: var(--theme-color-background-secondary);
+  border: size.$edge-control solid transparent;
+  border-radius: size.$border-radius-medium;
+  color: var(--theme-color-text-emphasis);
+}
+
+.c-alert--full-width {
+  border-radius: 0;
+}
+
+.c-alert__inner {
+  display: grid;
+  grid-column-gap: size.$spacing-control-text-inset;
+  grid-template-areas:
+    '. . dismiss'
+    '. content dismiss'
+    '. . dismiss';
+  grid-template-columns: 0 1fr minmax(0, auto);
+  grid-template-rows: size.$padding-control-vertical minmax(0, auto) size.$padding-control-vertical;
+
+  .c-alert--full-width & {
+    margin: 0 auto;
+    max-width: size.$max-width-spread;
+  }
+}
+
+.c-alert__content {
+  grid-area: content;
+}
+
+.c-alert__dismiss {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: size.$border-radius-medium;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  grid-area: dismiss;
+  justify-content: center;
+  margin: 0;
+  min-width: size.$spacing-control-text-inset * 3;
+  padding: 0;
+
+  @include focus.focus-visible {
+    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+  }
+}
+
+.c-alert__dismiss-icon {
+  transition: filter transition.$slow ease.$out,
+    transform transition.$quick ease.$out;
+
+  .c-alert__dismiss:hover & {
+    transform: scale(scale.$effect-grow);
+  }
+
+  .c-alert__dismiss:active & {
+    transform: scale(scale.$effect-shrink);
+  }
+}

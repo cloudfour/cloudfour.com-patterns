@@ -1,0 +1,23 @@
+{% set tag_name = tag_name|default('div') %}
+
+<{{ tag_name }} class="c-alert{% if full_width %} c-alert--full-width{% endif %}{% if class %} {{ class }}{% endif %}">
+  <div class="c-alert__inner">
+    <div class="c-alert__content">
+      {% block content %}
+        <p>
+          {{message|default('Hello world!')}}
+        </p>
+      {% endblock %}
+    </div>
+    {% if dismissable %}
+      <button class="c-alert__dismiss" type="button">
+        {% include '@cloudfour/components/icon/icon.twig' with {
+          class: 'c-alert__dismiss-icon',
+          name: 'x',
+          aria_hidden: true,
+        } %}
+        <span class="u-hidden-visually">Dismiss alert</span>
+      </button>
+    {% endif %}
+  </div>
+</{{ tag_name }}>

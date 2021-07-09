@@ -19,6 +19,11 @@
     class: 'c-comment__content o-rhythm--condensed'
   } %}
     {% block content %}
+      {% if not comment.approved %}
+        {% include '@cloudfour/components/alert/alert.twig' with {
+          message: 'This comment is awaiting moderation.'
+        } only %}
+      {% endif %}
       {{comment.comment_content|raw}}
     {% endblock %}
   {% endembed %}

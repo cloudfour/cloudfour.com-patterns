@@ -30,7 +30,12 @@
 
   .section-title {
     font-weight: 300;
-    font-size: ms.step(5);
+    @include fluid.font-size(
+      breakpoint.$xs,
+      breakpoint.$xl,
+      ms.step(4, 1rem),
+      ms.step(5, 1rem)
+    );
     padding-bottom: ms.step(-4);
   }
 

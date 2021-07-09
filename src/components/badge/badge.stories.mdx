@@ -1,10 +1,46 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import template from './badge.twig';
 
-<Meta title="Components/Badge" />
+<Meta
+  title="Components/Badge"
+  argTypes={{
+    label: { type: { name: 'string' } },
+    icon: {
+      type: { name: 'string' },
+      control: {
+        type: 'select',
+        options: ['', 'check', 'heart', 'pencil'],
+      },
+      defaultValue: '',
+    },
+  }}
+/>
 
 # Badge
 
+Badges help provide just a smidge more context to repetitive or serialized content. For example, a badge can help the reader identify when [a comment on an article is by the author of that article](/docs/components-comment--role-author#role-badges).
+
 <Canvas>
-  <Story name="Basic">{template}</Story>
+  <Story name="Basic" args={{ label: 'Hello' }}>
+    {(args) => template(args)}
+  </Story>
 </Canvas>
+
+## With icon
+
+<Canvas>
+  <Story name="With icon" args={{ icon: 'check', label: 'Verified' }}>
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
+## Template Properties
+
+- `class` (string)
+- `icon` (string): The name of one of [our icons](/docs/design-icons--page) to display.
+- `message` (string, default `'Label'`)
+
+## Template Blocks
+
+- `content`: The main label content, typically the value of `message`.
+- `extra`: A visual extra preceding the content, typically populated by an icon if `icon` is set.

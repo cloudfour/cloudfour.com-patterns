@@ -62,7 +62,6 @@
 
       h2 {
         font-weight: 300;
-        font-size: 2.44em;
         padding-right: .5em;
       }
     }
@@ -116,9 +115,37 @@
     }
   }
 
-  .logo-wrapper {
+  .container-wrap {
+    padding-top: 5em;
+
+      p {
+        text-align: center;
+        font-weight: 400;
+      }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      max-width: 65em;
+      padding-top: 2em;
+
+      img {
+        // opacity: .6;
+        margin: .5em;
+        width: 10em;
+      }
+    }
+  }
+
+    .logo-wrapper {
     background-color: #f2f5f7;
     padding-top: 3em;
+
+      h2 {
+        text-align: center;
+      }
 
     .content {
       display: flex;
@@ -127,13 +154,6 @@
       align-items: center;
       max-width: 65em;
       padding-top: 3em;
-
-      .intro {
-        h2 {
-        text-align: center;
-        color: red;
-        }
-      }
 
       img {
         opacity: .6;

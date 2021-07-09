@@ -96,21 +96,20 @@
         </article>
       </div>
 
-        {# <div class="grid-wrapper">
-          <div class="intro">
-            <h2>Additional client work</h2>
-          </div>
-          <div class="content">
-            {% for logos in logos %}
-            <article>
-              <header>
-                <img src="{{logos.image}}"
-                class="logos">
-              </header>
-            </article>
-          {% endfor %}
-          </div>
-        </div> #}
+      <div class="container-wrap">
+        <div class="intro">
+          <p class="c-heading--level-2">More clients we've worked with</p>
+        </div>
+        <div class="content">
+          {% for logos in logos %}
+          <article>
+            <header>
+              <img src="{{logos.image}}">
+            </header>
+          </article>
+        {% endfor %}
+        </div>
+      </div>
 
     </div>
   </div>
@@ -120,7 +119,7 @@
       <div class="o-container__content">
         <div class="grid-wrapper">
           <div class="intro">
-            <h2>Books we’ve written</h2>
+            <h2 class="c-heading c-heading--level-0">Books we’ve written</h2>
           </div>
           <div class="content">
             <div class="item">
@@ -163,7 +162,7 @@
       <div class="o-container__content">
         <div class="grid-wrapper">
           <div class="intro">
-            <h2>Our open source projects</h2>
+            <h2 class="c-heading c-heading--level-0">Our open source projects</h2>
             <footer>
             <button class="button-largeScreen c-button c-button--secondary" type="button">Follow Cloud Four on GitHub</button>
             </footer>
@@ -232,47 +231,6 @@
             <footer>
               <button class="button-smallScreen c-button c-button--secondary" type="button">Follow Cloud Four on GitHub</button>
             </footer>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {# <div class="wrapper logo-wrapper">
-    <div class="o-container o-container--pad">
-      <div class="o-container__content">
-        <div class="grid-wrapper">
-          <div class="intro">
-            <h2>Books we’ve written</h2>
-          </div>
-          <div class="content">
-            {% for logos in logos %}
-            <article>
-              <header>
-                <img src="{{logos.image}}">
-              </header>
-            </article>
-          {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> #}
-  <div class="wrapper logo-wrapper">
-    <div class="o-container o-container--pad">
-      <div class="o-container__content">
-        <div class="container-wrap">
-          <div class="intro">
-            <h2>More clients we've worked with</h2>
-          </div>
-          <div class="content">
-            {% for logos in logos %}
-            <article>
-              <header>
-                <img src="{{logos.image}}">
-              </header>
-            </article>
-          {% endfor %}
           </div>
         </div>
       </div>

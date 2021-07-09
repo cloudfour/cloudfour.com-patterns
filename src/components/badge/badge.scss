@@ -4,6 +4,7 @@
 @use "../../compiled/tokens/scss/size";
 @use '../../mixins/ms';
 @use '../../mixins/theme';
+@use 'sass:math';
 
 .c-badge {
   background: var(--theme-color-background-secondary);
@@ -14,20 +15,20 @@
   font-weight: font-weight.$medium;
   height: ms.step(2);
   line-height: line-height.$tighter;
-  margin-left: 1ch;
-  margin-top: (ms.step(2) / -8);
+  padding: 0 math.div(size.$padding-cell-horizontal, 2);
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .c-badge__content {
   align-self: center;
 
   &:first-child {
-    padding-left: size.$padding-cell-horizontal;
+    padding-left: math.div(size.$padding-cell-horizontal, 2);
   }
 
   &:last-child {
-    padding-right: size.$padding-cell-horizontal;
+    padding-right: math.div(size.$padding-cell-horizontal, 2);
   }
 }
 

@@ -1,48 +1,10 @@
-<h3>
-  <span style="font-weight: 600;">Danielle Romo</span>
-  <div class="c-badge">
-    <div class="c-badge__extra">
-      {# {% include '@cloudfour/components/icon/icon.twig' with {
-        name: 'bell',
-      } only %} #}
-      ✏️
-    </div>
-    <div class="c-badge__content">
-      {{label|default('Author')}}
-    </div>
+<div class="c-badge">
+  <div class="c-badge__extra">
+    {% include '@cloudfour/assets/brand/logo.svg.twig' with {
+      class: 'c-icon',
+    } only %}
   </div>
-</h3>
-
-<h3 style="margin-top: 2em;">
-  <span style="font-weight: 600;">Paul Hebert</span>
-  <div class="c-badge">
-    <div class="c-badge__extra">
-      {# {% include '@cloudfour/components/icon/icon.twig' with {
-        name: 'bell',
-      } only %} #}
-      {% include '@cloudfour/assets/brand/logo.svg.twig' with {
-        class: 'c-icon',
-      } only %}
-    </div>
-    <div class="c-badge__content">
-      {{label|default('Team')}}
-    </div>
+  <div class="c-badge__content">
+    {{label|default('Team')}}
   </div>
-</h3>
-
-<h3 style="margin-top: 2em;">
-  <span style="font-weight: 600;">Sara Lohr</span>
-  <div class="c-badge">
-    <div class="c-badge__extra">
-      {# {% include '@cloudfour/components/icon/icon.twig' with {
-        name: 'bell',
-      } only %} #}
-      {% include '@cloudfour/assets/brand/logo.svg.twig' with {
-        class: 'c-icon',
-      } only %}
-    </div>
-    <div class="c-badge__content">
-      {{label|default('Alumni')}}
-    </div>
-  </div>
-</h3>
+</div>

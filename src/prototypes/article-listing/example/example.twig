@@ -45,6 +45,64 @@
           {% endfor %}
         {% endblock %}
       {% endembed %}
+      {% include '@cloudfour/components/pagination/pagination.twig' with {
+        "pagination": {
+          "mid_size": 2,
+          "current": 1,
+          "total": 36,
+          "prev": {
+            "title": 1,
+            "text": 1,
+            "name": 1,
+            "current": false,
+            "link": "#page-1"
+          },
+          "next": {
+            "title": 3,
+            "text": 3,
+            "name": 3,
+            "current": false,
+            "link": "#page-3"
+          },
+          "pages": [
+            {
+              "title": 1,
+              "text": 1,
+              "name": 1,
+              "current": false,
+              "link": "#page-1"
+            },
+            {
+              "title": 2,
+              "text": 2,
+              "name": 2,
+              "current": true,
+              "link": false
+            },
+            {
+              "title": 3,
+              "text": 3,
+              "name": 3,
+              "current": false,
+              "link": "#page-3"
+            },
+            {
+              "title": 4,
+              "text": 4,
+              "name": 4,
+              "current": false,
+              "link": "#page-4"
+            },
+            {
+              "title": 5,
+              "text": 5,
+              "name": 5,
+              "current": false,
+              "link": "#page-5"
+            }
+          ]
+        }
+      } only %}
     </div>
   </div>
   {% for topic in featured.topics %}
@@ -116,7 +174,7 @@
           }  %}
             {% block content %}
               {% include '@cloudfour/components/icon/icon.twig' with {
-                name: 'search'
+                name: 'magnifying-glass'
               } %}
             {% endblock %}
           {% endembed %}

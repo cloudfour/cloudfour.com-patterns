@@ -15,6 +15,10 @@
     background-color: #{color.$base-gray-lighter};
   }
 
+  .c-pagination {
+    padding-top: ms.step(6);
+  }
+
   .section {
     display: grid;
     grid-auto-flow: dense;

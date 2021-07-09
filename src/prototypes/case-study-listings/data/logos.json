@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Walmart",
+    "image": "media/client-logos/logo-walmart.svg"
+  },
+  {
+    "title": "Deschutes Brewery",
+    "image": "media/client-logos/logo-deschutes.svg"
+  },
+  {
+    "title": "Obama",
+    "image": "media/client-logos/logo-obama.svg"
+  },
+  {
+    "title": "Treasure Coast Hospice",
+    "image": "media/client-logos/logo-treasurecoast.svg"
+  },
+  {
+    "title": "Entertainment",
+    "image": "media/client-logos/logo-entertainment.svg"
+  },
+  {
+    "title": "Hautelook",
+    "image": "media/client-logos/logo-hautelook.svg"
+  },
+  {
+    "title": "Ceasefire Oregon",
+    "image": "media/client-logos/logo-ceasefire.svg"
+  }
+]

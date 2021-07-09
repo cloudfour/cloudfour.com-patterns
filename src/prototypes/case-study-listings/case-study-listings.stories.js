@@ -7,6 +7,7 @@ import mobileWeb from './images/bookicon2.png';
 import pwaStat from './images/pwastat.jpg';
 import responsiveImg from './images/responsive.svg';
 import svgPlaceholder from './images/placeholder.jpg';
+import logos from './data/logos.json';
 import './example/example.scss';
 
 export default {
@@ -27,4 +28,5 @@ export const Example = () =>
     pwa: pwaStat,
     responsive: responsiveImg,
     svg: svgPlaceholder,
+    logos,
   });

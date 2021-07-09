@@ -46,17 +46,16 @@
         grid-template-columns: 1fr 1fr;
       }
     }
+  }
 
     .intro {
-      grid-area: intro;
+    grid-area: intro;
 
       h2 {
         font-weight: 300;
-        font-size: 2.44em;
         padding-right: .5em;
       }
     }
-  }
 
   .item {
     display: grid;
@@ -101,9 +100,34 @@
     width: 100%;
     text-align: center;
     display: inline;
-    // margin-top: 3em;
     @media (min-width: 60em) {
       display: none;
+    }
+  }
+
+  .container-wrap {
+    padding-top: 4em;
+
+      p {
+        text-align: center;
+        font-weight: 400;
+      }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      max-width: 60em;
+      margin: 0 auto;
+      @media (min-width: 60em) {
+        padding-top: 2em;
+      }
+
+      img {
+        margin: 2em;
+        width: 9em;
+      }
     }
   }
 }

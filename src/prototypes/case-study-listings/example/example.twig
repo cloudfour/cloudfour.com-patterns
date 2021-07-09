@@ -98,13 +98,14 @@
 
       <div class="container-wrap">
         <div class="intro">
-          <p class="c-heading--level-2">More clients we've worked with</p>
+          <p class="c-heading--level-3">More clients we’ve worked with</p>
         </div>
         <div class="content">
           {% for logos in logos %}
           <article>
             <header>
-              <img src="{{logos.image}}">
+              <img src="{{logos.image}}"
+              class="logos">
             </header>
           </article>
         {% endfor %}

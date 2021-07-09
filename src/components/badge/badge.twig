@@ -1,10 +1,22 @@
-<div class="c-badge">
-  <div class="c-badge__extra">
-    {% include '@cloudfour/assets/brand/logo.svg.twig' with {
-      class: 'c-icon',
-    } only %}
-  </div>
-  <div class="c-badge__content">
-    {{label|default('Team')}}
-  </div>
-</div>
+{% set _extra_content %}
+  {% block extra %}
+    {% if icon %}
+      {% include '@cloudfour/components/icon/icon.twig' with {
+        name: icon
+      } only %}
+    {% endif %}
+  {% endblock %}
+{% endset %}
+
+<span class="c-badge{% if class %} {{class}}{% endif %}">
+  {% if _extra_content|trim %}
+    <span class="c-badge__extra">
+      {{_extra_content}}
+    </span>
+  {% endif %}
+  <span class="c-badge__content">
+    {% block content %}
+      {{label|default('Label')}}
+    {% endblock %}
+  </span>
+</span>

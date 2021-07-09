@@ -50,58 +50,56 @@
   {% for topic in featured.topics %}
     <div class="o-container o-container--pad">
       <div class="o-container__content">
-        {% embed '@cloudfour/objects/deck/deck.twig' with {
-          class: 'o-deck--3-column@l',
-        } %}
-          {% block content %}
-            <div class="title-content">
+        <div class="section">
+            <div class="section-title-wrapper">
               <h2 class="section-title">{{topic.title}}</h2>
-              <div>
-                {% embed '@cloudfour/components/button/button.twig' with { class: 'c-button--secondary' } %}
-                  {% block content %}{{topic.cta}}{% endblock %}
-                  {% block content_end %}
-                    {% include '@cloudfour/components/icon/icon.twig' with {
-                      "name": "arrow-right"
-                    } only %}
+            </div>
+            {% for article in topic.articles %}
+              <div class="section-card-wrapper">
+                {% embed '@cloudfour/components/card/card.twig' with {
+                  class: '',
+                  href: article.link
+                } %}
+                  {% block heading %}
+                    {{article.title}}
+                  {% endblock %}
+                  {% block cover %}
+                    <img src="{{article.thumbnail}}" alt="">
+                  {% endblock %}
+                  {% block content %}
+                    <p>
+                      {% if article.description|length > 140 %}
+                        {{article.description|slice(0, 140)|trim}}…
+                      {% else %}
+                        {{article.description}}
+                      {% endif %}
+                    </p>
+                  {% endblock %}
+                  {% block footer %}
+                    <div class="c-author o-media">
+                      <div class="o-media__object">
+                        {% include '@cloudfour/components/avatar/avatar.twig' with { src: article.avatar } only %}
+                      </div>
+                      <div class="o-media__content">
+                        <p<a href="#">{{article.author}}</a></p>
+                        <p>{{article.pubDate|date('M j, Y')}}</p>
+                      </div>
+                    </div>
                   {% endblock %}
                 {% endembed %}
               </div>
-            </div>
-            {% for article in topic.articles %}
-              {% embed '@cloudfour/components/card/card.twig' with {
-                class: '',
-                href: article.link
-              } %}
-                {% block heading %}
-                  {{article.title}}
-                {% endblock %}
-                {% block cover %}
-                  <img src="{{article.thumbnail}}" alt="">
-                {% endblock %}
-                {% block content %}
-                  <p>
-                    {% if article.description|length > 140 %}
-                      {{article.description|slice(0, 140)|trim}}…
-                    {% else %}
-                      {{article.description}}
-                    {% endif %}
-                  </p>
-                {% endblock %}
-                {% block footer %}
-                  <div class="c-author o-media">
-                    <div class="o-media__object">
-                      {% include '@cloudfour/components/avatar/avatar.twig' with { src: article.avatar } only %}
-                    </div>
-                    <div class="o-media__content">
-                      <p<a href="#">{{article.author}}</a></p>
-                      <p>{{article.pubDate|date('M j, Y')}}</p>
-                    </div>
-                  </div>
+            {% endfor %}
+            <div class="section-cta-wrapper">
+              {% embed '@cloudfour/components/button/button.twig' with { class: 'c-button--secondary' } %}
+                {% block content %}{{topic.cta}}{% endblock %}
+                {% block content_end %}
+                  {% include '@cloudfour/components/icon/icon.twig' with {
+                    "name": "arrow-right"
+                  } only %}
                 {% endblock %}
               {% endembed %}
-            {% endfor %}
-          {% endblock %}
-        {% endembed %}
+            </div>
+          </div>
       </div>
     </div>
   {% endfor %}
@@ -123,23 +121,21 @@
           {% endembed %}
         </div>
       </div>
-
-        {% embed '@cloudfour/objects/list/list.twig' with {
-          class: 'topics-content'
-        } %}
-          {% block content %}
-            {% for topic in topics %}
-              <li>
-                {% include '@cloudfour/components/dot-leader/dot-leader.twig' with {
-                  label: topic.title,
-                  count: topic.count,
-                  href: 'https://cloudfour.com/thinks/'
-                } only %}
-              </li>
-            {% endfor %}
-          {% endblock %}
-        {% endembed %}
-
+      {% embed '@cloudfour/objects/list/list.twig' with {
+        class: 'topics-content'
+      } %}
+        {% block content %}
+          {% for topic in topics %}
+            <li>
+              {% include '@cloudfour/components/dot-leader/dot-leader.twig' with {
+                label: topic.title,
+                count: topic.count,
+                href: 'https://cloudfour.com/thinks/'
+              } only %}
+            </li>
+          {% endfor %}
+        {% endblock %}
+      {% endembed %}
     </div>
   </div>
 </div>

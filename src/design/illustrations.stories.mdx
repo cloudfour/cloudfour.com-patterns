@@ -1,12 +1,12 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-// Importing a `.svg` directly, results in a failed build and importing
-// the `.svg.twig` file causes linting errors (since they are not tracked).
-// Therefore, we must track a twig file to satisfy CI.
-import fallbackImage from '../demo/fallback_images.twig';
+import fallbackFeatureImages from './demo/fallback-feature-images.twig';
+import avatarDefaultSrc from '../assets/illustrations/avatar-default.svg';
 
-<Meta title="Design/Fallback Images" />
+<Meta title="Design/Illustrations" />
 
-# Fallback Images
+# Illustrations
+
+## Fallback feature images
 
 Article summaries appear more interesting and cohesive when they have an image, but sometimes an article does not have an obvious image, and not every author is an illustrator. These fallback images can be used in place of an original illustration.
 
@@ -17,7 +17,13 @@ This design also leaves room to add more categories if desired. Ideally, the ico
 The captions below each fallback image aren't set in stone, more so just ideas that these designs could be used for.
 
 <Canvas>
-  <Story name="Fallback Images" args={{ class: 'o-deck--2-column@l' }}>
-    {fallbackImage}
-  </Story>
+  <Story name="Feature images">{() => fallbackFeatureImages()}</Story>
+</Canvas>
+
+## Default avatar
+
+This asset may be used in place of a specific user avatar. To differentiate multiple fallback avatars, consider swapping its fill colors for [others in our palette](/docs/design-colors--page).
+
+<Canvas>
+  <Story name="Default avatar">{`<img src="${avatarDefaultSrc}" alt="Default avatar">`}</Story>
 </Canvas>

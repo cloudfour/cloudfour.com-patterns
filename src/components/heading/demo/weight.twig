@@ -1,0 +1,11 @@
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+  class: 'o-rhythm--condensed'
+} only %}
+  {% block content %}
+      {% include '@cloudfour/components/heading/heading.twig' with {
+        level: 1,
+        weight: 'light',
+        content: 'c-heading--weight-' ~ 'light'
+      } only %}
+  {% endblock %}
+{% endembed %}

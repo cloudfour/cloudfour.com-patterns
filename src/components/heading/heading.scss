@@ -62,6 +62,17 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 }
 
 /**
+ * Weight modifier
+ *
+ * The default font weight for headings is set to 700. This modifier will
+ * change that to a lighter weight of 300.
+ */
+
+.c-heading--weight-light {
+  font-weight: 300;
+}
+
+/**
  * If `c-heading` is applied to a containing element, this class must be applied
  * to the inner heading to avoid unintended font sizes.
  */

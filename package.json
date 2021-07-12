@@ -99,7 +99,7 @@
     "rollup-plugin-terser": "7.0.2",
     "sass": "1.35.2",
     "sass-loader": "10.2.0",
-    "storybook-addon-outline": "1.3.4",
+    "storybook-addon-outline": "1.4.1",
     "storybook-addon-paddings": "4.2.0",
     "storybook-mobile": "0.1.31",
     "style-dictionary": "3.0.1",

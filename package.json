@@ -41,7 +41,7 @@
   ],
   "dependencies": {
     "focus-visible": "5.2.0",
-    "prismjs": "1.23.0"
+    "prismjs": "1.24.1"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",
@@ -58,7 +58,7 @@
     "@svgr/webpack": "5.5.0",
     "@types/jest": "26.0.24",
     "@types/lodash": "4.14.171",
-    "@types/prismjs": "1.16.5",
+    "@types/prismjs": "1.16.6",
     "@whitespace/storybook-addon-html": "5.0.0",
     "@wordpress/block-library": "3.2.9",
     "babel-loader": "8.2.2",

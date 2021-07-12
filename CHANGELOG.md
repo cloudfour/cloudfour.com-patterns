@@ -1,5 +1,33 @@
 # @cloudfour/patterns
 
+## 2.0.0
+
+### Major Changes
+
+- [#1355](https://github.com/cloudfour/cloudfour.com-patterns/pull/1355) [`e0475be4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/e0475be4f8cd8727c7f4ba80117ef9e77521cc9c) Thanks [@tylersticka](https://github.com/tylersticka)! - Revised icon set! All icons have improved weights and proportions. There are now more `caret-` icons and a `speech-balloon` icon. The `notifications-off` icon has been removed since we now have dynamic toggle icons. Other icons have been renamed to separate what they are from how they are used: `attachment` is now `paperclip`, `close` is now `x`, `notifications` is now `bell`, `reply` is now `arrow-down-right`, `return` is now `arrow-hook-left` and `search` is now `magnifying-glass`.
+
+* [#1373](https://github.com/cloudfour/cloudfour.com-patterns/pull/1373) [`76051bbd`](https://github.com/cloudfour/cloudfour.com-patterns/commit/76051bbd8bd647cb234878e07edc98939d90e43d) Thanks [@tylersticka](https://github.com/tylersticka)! - Replace Message component with Alert component that takes into account inline and full-width use cases and responds to themes
+
+### Minor Changes
+
+- [#1358](https://github.com/cloudfour/cloudfour.com-patterns/pull/1358) [`39e4c936`](https://github.com/cloudfour/cloudfour.com-patterns/commit/39e4c936c0f575987cbb29f3c8a1796f9e129278) Thanks [@tylersticka](https://github.com/tylersticka)! - Add small size modifier and design token to Avatar
+
+* [#1370](https://github.com/cloudfour/cloudfour.com-patterns/pull/1370) [`157fad19`](https://github.com/cloudfour/cloudfour.com-patterns/commit/157fad194c9fbf3f6c6ca3c7f46d82d772e23ec5) Thanks [@tylersticka](https://github.com/tylersticka)! - Add initial version of Comment component
+
+- [#1379](https://github.com/cloudfour/cloudfour.com-patterns/pull/1379) [`799e874f`](https://github.com/cloudfour/cloudfour.com-patterns/commit/799e874f18f34c796da868e16984f4480fece45b) Thanks [@tylersticka](https://github.com/tylersticka)! - Add 'pencil' icon
+
+* [#1379](https://github.com/cloudfour/cloudfour.com-patterns/pull/1379) [`799e874f`](https://github.com/cloudfour/cloudfour.com-patterns/commit/799e874f18f34c796da868e16984f4480fece45b) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Badge component
+
+- [#1373](https://github.com/cloudfour/cloudfour.com-patterns/pull/1373) [`76051bbd`](https://github.com/cloudfour/cloudfour.com-patterns/commit/76051bbd8bd647cb234878e07edc98939d90e43d) Thanks [@tylersticka](https://github.com/tylersticka)! - Show alert in unapproved comments
+
+* [#1353](https://github.com/cloudfour/cloudfour.com-patterns/pull/1353) [`68bfa9eb`](https://github.com/cloudfour/cloudfour.com-patterns/commit/68bfa9eb9be4cd737171c33d628a05a21867dcd9) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Remove function call from logged_in_user object properties in Comment Form template
+
+- [#1393](https://github.com/cloudfour/cloudfour.com-patterns/pull/1393) [`59c9c138`](https://github.com/cloudfour/cloudfour.com-patterns/commit/59c9c138186928ab43f676eedda3ab504c2eb9d8) Thanks [@tylersticka](https://github.com/tylersticka)! - Add default avatar asset
+
+* [#1351](https://github.com/cloudfour/cloudfour.com-patterns/pull/1351) [`60d60f9c`](https://github.com/cloudfour/cloudfour.com-patterns/commit/60d60f9ce232c420a615853ac0abfff7628e718f) Thanks [@tylersticka](https://github.com/tylersticka)! - Add support for Jetpack Markdown Block
+
+- [#1351](https://github.com/cloudfour/cloudfour.com-patterns/pull/1351) [`60d60f9c`](https://github.com/cloudfour/cloudfour.com-patterns/commit/60d60f9ce232c420a615853ac0abfff7628e718f) Thanks [@tylersticka](https://github.com/tylersticka)! - Use custom properties for Rhythm spacing to support inheritance
+
 ## 1.2.1
 
 ### Patch Changes

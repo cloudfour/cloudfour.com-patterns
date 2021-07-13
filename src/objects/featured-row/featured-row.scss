@@ -21,7 +21,7 @@
   @media (min-width: breakpoint.$l) {
     grid-template-areas:
       'intro content content'
-      '. content content'
+      'intro content content'
       'action content content';
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);

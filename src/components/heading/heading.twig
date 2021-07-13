@@ -29,8 +29,7 @@
 {% endif %}
 
 {% if weight is not empty %}
-  {% set _weight_modifier = 'c-heading--light' %}
-  {% set _heading_class = _heading_class_prefix ~ '--' ~ weight %}
+  {% set _heading_class = _heading_class ~ ' ' ~ _heading_class_prefix ~ '--' ~ weight %}
 {% endif %}
 
 {% if class %}

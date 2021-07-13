@@ -1,3 +1,5 @@
+{% set _action_block %}{% block action %}{% endblock %}{% endset %}
+
 <div class="o-featured-row">
   <div class="o-featured-row__heading">
     {% block heading %}{% endblock %}
@@ -5,7 +7,9 @@
   <div class="o-featured-row__content">
     {% block content %}{% endblock %}
   </div>
+  {% if _action_block is not empty %}
   <div class="o-featured-row__action">
-    {% block action %}{% endblock %}
+    {{_action_block}}
   </div>
+  {% endif %}
 </div>

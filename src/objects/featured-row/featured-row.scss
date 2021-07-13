@@ -1,13 +1,11 @@
-@use "../../../compiled/tokens/scss/color";
-@use "../../../compiled/tokens/scss/breakpoint";
-@use "../../../compiled/tokens/scss/size";
-@use '../../../mixins/fluid';
-@use '../../../mixins/media-query';
-@use "../../../mixins/ms";
+@use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/size";
+@use '../../mixins/fluid';
+@use '../../mixins/media-query';
+@use "../../mixins/ms";
 
 .o-featured-row {
   display: grid;
-  grid-auto-flow: dense;
   @include fluid.grid-gap(
     breakpoint.$s,
     breakpoint.$xl,
@@ -15,47 +13,30 @@
     size.$spacing-gap-fluid-max
   );
 
-  @media (min-width: breakpoint.$m) {
-    grid-template-columns: repeat(
-      2,
-      minmax(#{size.$width-card-column-min}, 1fr)
-    );
-  }
-
   @media (min-width: breakpoint.$l) {
-    grid-template-columns: repeat(
-      3,
-      minmax(#{size.$width-card-column-min}, 1fr)
-    );
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, max-content);
   }
 }
 
 .o-featured-row__heading {
-  @media (min-width: breakpoint.$m) {
-    grid-column: span 2;
-  }
-
   @media (min-width: breakpoint.$l) {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
 }
 
-.o-featured-row__action {
-  @media (min-width: breakpoint.$m) {
-    grid-column: span 2;
+.o-featured-row__content {
+  @media (min-width: breakpoint.$l) {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
   }
+}
 
+.o-featured-row__action {
   @media (min-width: breakpoint.$l) {
     align-self: end;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-  }
-}
-
-.o-featured-row__content {
-  @media (min-width: breakpoint.$l) {
-    grid-row: 1 / 3;
   }
 }

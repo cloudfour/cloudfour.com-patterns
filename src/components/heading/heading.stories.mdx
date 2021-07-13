@@ -53,7 +53,7 @@ You can control the appearance of a `c-heading` component by including a `c-head
 
 ## Weight Modifier
 
-There are some instances where the heading weight is lighter than the default `700`, this modifier will set the font weight to `300`.
+There are some instances where the heading weight is lighter than the default `font-weight.$bold`, this modifier will set the font weight to `font-weight.$light`.
 
 <Canvas>
   <Story
@@ -63,7 +63,7 @@ There are some instances where the heading weight is lighter than the default `7
         source: {
           code: `{% include '@cloudfour/components/heading/heading.twig' with {
   weight: 'light',
-  content: 'c-heading--weight-light',
+  content: 'c-heading--light',
 } only %}`,
         },
       },

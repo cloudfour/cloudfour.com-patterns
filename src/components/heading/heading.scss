@@ -4,6 +4,7 @@
 @use "../../compiled/tokens/scss/opacity";
 @use "../../compiled/tokens/scss/size";
 @use "../../compiled/tokens/scss/transition";
+@use "../../compiled/tokens/scss/font-weight";
 @use '../../mixins/focus';
 @use '../../mixins/headings';
 @use '../../mixins/ms';
@@ -64,12 +65,13 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 /**
  * Weight modifier
  *
- * The default font weight for headings is set to 700. This modifier will
- * change that to a lighter weight of 300.
+ * The default font weight for headings is set to font-weight.$bold.
+ * This modifier will change that to a lighter weight
+ * of font-weight.$light.
  */
 
 .c-heading--weight-light {
-  font-weight: 300;
+  font-weight: font-weight.$light;
 }
 
 /**

@@ -12,31 +12,36 @@
     size.$spacing-gap-fluid-min,
     size.$spacing-gap-fluid-max
   );
+  grid-template-areas:
+    'intro'
+    'content'
+    'action';
+  grid-template-rows: repeat(3, minmax(0, auto));
 
   @media (min-width: breakpoint.$l) {
+    grid-template-areas:
+      'intro content content'
+      '. content content'
+      'action content content';
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, max-content);
+    grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
   }
 }
 
 .o-featured-row__intro {
   @media (min-width: breakpoint.$l) {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    grid-area: intro;
   }
 }
 
 .o-featured-row__content {
   @media (min-width: breakpoint.$l) {
-    grid-column: 2 / 4;
-    grid-row: 1 / 3;
+    grid-area: content;
   }
 }
 
 .o-featured-row__action {
   @media (min-width: breakpoint.$l) {
-    align-self: end;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    grid-area: action;
   }
 }

@@ -1,5 +1,6 @@
-
-{% embed '@cloudfour/objects/deck/deck.twig' %}
+{% embed '@cloudfour/objects/deck/deck.twig' with {
+  class: 'o-deck--2-column@l'
+} %}
   {% block content %}
     <figure>
       {% include '@cloudfour/assets/illustrations/fallback/fallback_paintbrush.svg.twig' %}

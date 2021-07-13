@@ -12,9 +12,8 @@ Displays a single comment in a comment thread, optionally with replies. Multiple
 
 This component is still a work in progress. The following features are still in development:
 
-- Indicating when a comment's author is a Cloud Four team member.
 - Integrating the comment reply form.
-- Adding blocks to the template to allow for more customization.
+- Finalizing this pattern's blocks and properties for theme integration.
 
 ## Single
 
@@ -30,6 +29,22 @@ This information may be passed to the component as a `comment` object matching t
 
 <Canvas>
   <Story name="Single">{template({ comment: makeComment() })}</Story>
+</Canvas>
+
+## Role badges
+
+It is helpful for context within a discussion to know when a commentor is the original post author or a Cloud Four team member. The mechanics of this feature are still in development, but these stories show how these roles should appear using [the Badge component](/docs/components-badge--basic).
+
+<Canvas>
+  <Story name="Role: Author">
+    {template({ comment: makeComment(), demo_post_author: true })}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Role: Cloud Four">
+    {template({ comment: makeComment(), demo_cloud_four_member: true })}
+  </Story>
 </Canvas>
 
 ## Unapproved

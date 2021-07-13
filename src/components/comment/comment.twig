@@ -4,6 +4,33 @@
   <header class="c-comment__header">
     <h{{_heading_depth}} class="c-comment__heading">
       {{comment.author.name}}
+      {#
+        TODO: Replace `demo_post_author` and `demo_cloud_four_member` with
+        more meaningful blocks or properties once we have a better idea of how
+        we'll integrate role badging based on actual comment data.
+      #}
+      {% if demo_post_author %}
+        <span class="u-hidden-visually">(Article</span>
+        {% embed '@cloudfour/components/badge/badge.twig' with {
+          label: 'Author',
+          icon: 'pencil',
+        } only %}
+        {% endembed %}
+        <span class="u-hidden-visually">)</span>
+      {% elseif demo_cloud_four_member %}
+        <span class="u-hidden-visually">(Cloud Four</span>
+        {% embed '@cloudfour/components/badge/badge.twig' with {
+          label: 'Team'
+        } only %}
+          {% block extra %}
+            {% include '@cloudfour/assets/brand/logo.svg.twig' with {
+              class: 'c-icon',
+              aria_hidden: 'true',
+            } only %}
+          {% endblock %}
+        {% endembed %}
+        <span class="u-hidden-visually">Member)</span>
+      {% endif %}
       <span class="u-hidden-visually">
         {% if comment.is_child %}replied{% else %}said{% endif %}:
       </span>

@@ -4,7 +4,7 @@
 @use '../../mixins/media-query';
 @use "../../mixins/ms";
 
-.o-featured-row {
+.o-feature-group {
   display: grid;
   @include fluid.grid-gap(
     breakpoint.$s,
@@ -28,14 +28,14 @@
   }
 }
 
-.o-featured-row__intro {
+.o-feature-group__intro {
   grid-area: intro;
 }
 
-.o-featured-row__content {
+.o-feature-group__content {
   grid-area: content;
 }
 
-.o-featured-row__action {
+.o-feature-group__action {
   grid-area: action;
 }

@@ -4,6 +4,7 @@
 @use "../../compiled/tokens/scss/opacity";
 @use "../../compiled/tokens/scss/size";
 @use "../../compiled/tokens/scss/transition";
+@use "../../compiled/tokens/scss/font-weight";
 @use '../../mixins/focus';
 @use '../../mixins/headings';
 @use '../../mixins/ms';
@@ -59,6 +60,18 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
   .c-heading--level-#{$level-segment} {
     @include headings.level($level);
   }
+}
+
+/**
+ * Weight modifier
+ *
+ * The default font weight for headings is normally defined by heading level.
+ * This modifier will change the heading to font-weight.$light. We do this to
+ * maintain the importance of headings without drowning out other content.
+ */
+
+.c-heading--light {
+  font-weight: font-weight.$light;
 }
 
 /**

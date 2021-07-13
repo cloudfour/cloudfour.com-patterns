@@ -1,5 +1,6 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import levelsDemo from './demo/levels.twig';
+import template from './heading.twig';
 import permalinksDemo from './demo/permalinks.twig';
 
 <Meta title="Components/Heading" />
@@ -47,6 +48,23 @@ You can control the appearance of a `c-heading` component by including a `c-head
     }}
   >
     {levelsDemo}
+  </Story>
+</Canvas>
+
+## Light Weight Modifier
+
+The default font weight for headings is normally defined by heading level. This modifier will change the heading to `font-weight.$light`. We do this to maintain the importance of headings without drowning out other content.
+
+<Canvas>
+  <Story
+    name="Light weight"
+    args={{
+      level: 1,
+      weight: 'light',
+      content: 'c-heading--light',
+    }}
+  >
+    {(args) => template(args)}
   </Story>
 </Canvas>
 

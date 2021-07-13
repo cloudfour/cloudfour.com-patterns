@@ -20,15 +20,20 @@
   Build the class name based on the level.
 #}
 
-{% set _level_class = 'c-heading' %}
+{% set _heading_class = 'c-heading' %}
+{% set _heading_class_prefix = 'c-heading' %}
 
 {% if level is not empty %}
   {% set _level_modifier = ('level-' ~ level)|replace({ '--': '-n' }) %}
-  {% set _level_class = _level_class ~ ' ' ~ _level_class ~ '--' ~ _level_modifier %}
+  {% set _heading_class = _heading_class ~ ' ' ~ _heading_class_prefix ~ '--' ~ _level_modifier %}
+{% endif %}
+
+{% if weight is not empty %}
+  {% set _heading_class = _heading_class ~ ' ' ~ _heading_class_prefix ~ '--' ~ weight %}
 {% endif %}
 
 {% if class %}
-  {% set _level_class = _level_class ~ ' ' ~ class %}
+  {% set _heading_class = _heading_class ~ ' ' ~ class %}
 {% endif %}
 
 {#
@@ -59,7 +64,7 @@
 #}
 
 {% if permalink and permalink_id %}
-  <div class="{{ _level_class }}">
+  <div class="{{ _heading_class }}">
     <a class="c-heading__permalink" href="#{{ permalink_id }}">
       {% include '@cloudfour/components/icon/icon.twig' with {
         name: 'link',
@@ -72,7 +77,7 @@
     </{{ tag_name }}>
   </div>
 {% else %}
-  <{{ tag_name }} class="{{ _level_class }}">
+  <{{ tag_name }} class="{{ _heading_class }}">
     {{ _content }}
   </{{ tag_name }}>
 {% endif %}

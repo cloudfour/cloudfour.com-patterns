@@ -29,19 +29,13 @@
 }
 
 .o-featured-row__intro {
-  @media (min-width: breakpoint.$l) {
-    grid-area: intro;
-  }
+  grid-area: intro;
 }
 
 .o-featured-row__content {
-  @media (min-width: breakpoint.$l) {
-    grid-area: content;
-  }
+  grid-area: content;
 }
 
 .o-featured-row__action {
-  @media (min-width: breakpoint.$l) {
-    grid-area: action;
-  }
+  grid-area: action;
 }

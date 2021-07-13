@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add font weight modifier to heading component
+Add light weight modifier to Heading component

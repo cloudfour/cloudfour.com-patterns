@@ -1,5 +1,8 @@
 @use "sass:math";
+@use "../../compiled/tokens/scss/breakpoint";
 @use "../../compiled/tokens/scss/size";
+@use '../../mixins/fluid';
+@use '../../mixins/media-query';
 
 /**
  * Override browser defaults. Note that this means it's very important to
@@ -39,4 +42,18 @@
 .o-list--inline > * {
   margin-left: math.div(size.$spacing-list-inline-gap, 2);
   margin-right: math.div(size.$spacing-list-inline-gap, 2);
+}
+
+@for $i from 2 through 3 {
+  .o-list--#{$i}-column {
+    @include media-query.breakpoint-classes($from: s, $to: xl) {
+      columns: #{$i};
+      @include fluid.grid-gap(
+        breakpoint.$s,
+        breakpoint.$xl,
+        size.$spacing-gap-fluid-min,
+        size.$spacing-gap-fluid-max
+      );
+    }
+  }
 }

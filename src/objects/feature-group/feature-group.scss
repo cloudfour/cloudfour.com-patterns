@@ -1,0 +1,42 @@
+@use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/size";
+@use '../../mixins/fluid';
+@use '../../mixins/media-query';
+@use "../../mixins/ms";
+
+.o-feature-group {
+  display: grid;
+  @include fluid.grid-gap(
+    breakpoint.$s,
+    breakpoint.$xl,
+    size.$spacing-gap-fluid-min,
+    size.$spacing-gap-fluid-max
+  );
+  grid-template-areas:
+    'intro'
+    'content'
+    'action';
+  grid-template-rows: repeat(3, minmax(0, auto));
+
+  @media (min-width: breakpoint.$l) {
+    grid-row-gap: 0;
+    grid-template-areas:
+      'intro content content'
+      'intro content content'
+      'action content content';
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
+  }
+}
+
+.o-feature-group__intro {
+  grid-area: intro;
+}
+
+.o-feature-group__content {
+  grid-area: content;
+}
+
+.o-feature-group__action {
+  grid-area: action;
+}

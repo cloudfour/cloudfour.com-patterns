@@ -1,0 +1,15 @@
+{% set _action_block %}{% block action %}{% endblock %}{% endset %}
+
+<div class="o-feature-group">
+  <div class="o-feature-group__intro">
+    {% block intro %}{% endblock %}
+  </div>
+  <div class="o-feature-group__content">
+    {% block content %}{% endblock %}
+  </div>
+  {% if _action_block is not empty %}
+    <div class="o-feature-group__action">
+      {{_action_block}}
+    </div>
+  {% endif %}
+</div>

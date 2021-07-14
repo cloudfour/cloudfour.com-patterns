@@ -19,6 +19,7 @@
   grid-template-rows: repeat(3, minmax(0, auto));
 
   @media (min-width: breakpoint.$l) {
+    grid-row-gap: 0;
     grid-template-areas:
       'intro content content'
       'intro content content'

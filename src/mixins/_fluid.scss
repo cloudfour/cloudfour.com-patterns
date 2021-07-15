@@ -40,6 +40,20 @@
  * Fluid properties
  */
 
+@mixin column-gap($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    column-gap: $min;
+  }
+
+  @media (min-width: $min-width) {
+    column-gap: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    column-gap: $max;
+  }
+}
+
 @mixin font-size($min-width, $max-width, $min, $max) {
   font-size: $min;
 

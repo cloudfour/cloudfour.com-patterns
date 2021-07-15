@@ -48,7 +48,7 @@
   .o-list--#{$i}-column {
     @include media-query.breakpoint-classes($from: s, $to: xl) {
       columns: #{$i};
-      @include fluid.grid-gap(
+      @include fluid.column-gap(
         breakpoint.$s,
         breakpoint.$xl,
         size.$spacing-gap-fluid-min,

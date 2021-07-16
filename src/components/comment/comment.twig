@@ -83,12 +83,12 @@
         </div>
       {% endif %}
       {#
-        TODO: Replace `demo_control` with a more meaningful block or properties
+        TODO: Replace `allow_replies` with a more meaningful block or properties
         once we have a better idea of how we want to implement the reply
         functionality. For now, this property exists to allow us to test the
         presentation of the control.
       #}
-      {% if demo_control %}
+      {% if allow_replies %}
         <div class="c-comment__meta-control">
           {% include '@cloudfour/components/button/button.twig' with {
             type: 'button',

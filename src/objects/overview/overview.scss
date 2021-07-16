@@ -1,22 +1,50 @@
 @use "../../compiled/tokens/scss/breakpoint";
 @use '../../mixins/ms';
+@use "../../compiled/tokens/scss/size";
+@use '../../mixins/fluid';
 
 // TODO: Design tokens?
 
 .o-overview__header {
-  padding-bottom: ms.step(1);
+  margin-bottom: ms.step(1);
 }
 
 .o-overview__actions {
-  padding-bottom: ms.step(3);
+  margin-bottom: ms.step(3);
 }
 
 @media (min-width: breakpoint.$l) {
   .o-overview {
+    @include fluid.column-gap(
+      breakpoint.$s,
+      breakpoint.$xl,
+      size.$spacing-gap-fluid-min,
+      size.$spacing-gap-fluid-max
+    );
+
+    align-items: center;
     display: grid;
-    grid-template-areas: "
-      header header actions
-      content content content
-    ";
+    grid-template-areas:
+      'header header actions'
+      'content content content';
+    grid-template-columns: repeat(3, minmax(max-content, 1fr));
+    row-gap: ms.step(3);
+  }
+
+  .o-overview__header,
+  .o-overview__actions {
+    margin: 0;
+  }
+
+  .o-overview__header {
+    grid-area: header;
+  }
+
+  .o-overview__actions {
+    grid-area: actions;
+  }
+
+  .o-overview__content {
+    grid-area: content;
   }
 }

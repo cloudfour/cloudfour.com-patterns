@@ -94,11 +94,6 @@
     align-items: center;
     display: flex;
     grid-column: 3 / -1;
-    padding-top: ms.step(1);
-
-    @media (min-width: breakpoint.$l) {
-      padding-top: 0;
-    }
   }
 
   .search-input {

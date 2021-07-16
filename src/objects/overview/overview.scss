@@ -32,7 +32,7 @@
       grid-template-areas:
         'header header actions'
         'content content content';
-      grid-template-columns: repeat(3, minmax(max-content, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       row-gap: ms.step(3);
     }
 

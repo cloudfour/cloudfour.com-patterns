@@ -1,0 +1,25 @@
+@use "../../compiled/tokens/scss/size";
+
+.c-input-group {
+  display: flex;
+  margin: 4em;
+
+  & :first-child {
+    border-bottom-right-radius: var(--size-border-radius-input-group);
+    border-top-right-radius: var(--size-border-radius-input-group);
+  }
+
+  & :last-child {
+    border-bottom-left-radius: var(--size-border-radius-input-group);
+    border-top-left-radius: var(--size-border-radius-input-group);
+  }
+
+/**
+ * In the instance where someone would want to include 3 or more elements,
+ * this ensures that the middle elements will not have a border radius.
+ */
+
+  & :not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}

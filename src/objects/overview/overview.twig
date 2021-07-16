@@ -1,14 +1,13 @@
-{# TODO: More semantic elements #}
 {# TODO: aria-labelledby? #}
 
-<section class="o-overview">
-  <div class="o-overview__header">
+<{{overview_tag|default('section')}} class="o-overview">
+  <header class="o-overview__header">
     {% block header %}{% endblock %}
-  </div>
+  </header>
   <div class="o-overview__actions">
     {% block actions %}{% endblock %}
   </div>
   <div class="o-overview__content">
     {% block content %}{% endblock %}
   </div>
-</section>
+</{{overview_tag|default('section')}}>

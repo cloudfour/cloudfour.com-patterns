@@ -76,6 +76,8 @@ The `c-heading` class may include a permalink using [a technique from Marcy Sutt
 - `c-heading__content`: The actual semantic heading element (usually `<h1>` – `<h6>`), including the `id` referenced by `c-heading__permalink`.
 - `c-heading__permalink`: The `<a>` element that exposes the permalink to the user. This element is kept separate from the actual heading so it won't disrupt a user's ability to navigate via headings.
 
+You can specify an ID that will be used for the heading (and therefore the permalink hash) using the `id` property. (The `id` property can also be used without permalinking.)
+
 Note that the layout of this pattern is optimized for [our prose containers](/docs/objects-container--prose#prose) with generous horizontal whitespace.
 
 <!--

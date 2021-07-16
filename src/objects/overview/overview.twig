@@ -1,6 +1,7 @@
-{# TODO: aria-labelledby? #}
-
-<{{overview_tag|default('section')}} class="o-overview">
+<{{overview_tag|default('section')}}
+  class="o-overview"
+  {% if labelledby_id %}aria-labelledby="{{labelledby_id}}"{% endif %}
+>
   <header class="o-overview__header">
     {% block header %}{% endblock %}
   </header>

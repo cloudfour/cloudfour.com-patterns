@@ -3,12 +3,12 @@
 .c-input-group {
   display: flex;
 
-  & :first-child {
+  & > :first-child {
     border-bottom-right-radius: var(--size-border-radius-input-group);
     border-top-right-radius: var(--size-border-radius-input-group);
   }
 
-  & :last-child {
+  & > :last-child {
     border-bottom-left-radius: var(--size-border-radius-input-group);
     border-top-left-radius: var(--size-border-radius-input-group);
   }

@@ -110,7 +110,12 @@
       <div class="o-container__content">
         <div class="section">
             <div class="section-title-wrapper">
-              <h2 class="section-title">{{topic.title}}</h2>
+              {% include '@cloudfour/components/heading/heading.twig' with {
+                level: -1,
+                tag_name: 'h2',
+                weight: 'light',
+                content: topic.title,
+              } only %}
             </div>
             {% for article in topic.articles %}
               <div class="section-card-wrapper">
@@ -164,7 +169,12 @@
   <div class="o-container o-container--pad">
     <div class="o-container__content">
       <div class="topics-header">
-        <h2 class="section-title">More Topics</h2>
+        {% include '@cloudfour/components/heading/heading.twig' with {
+          level: -1,
+          tag_name: 'h2',
+          weight: 'light',
+          content: 'More Topics',
+        } only %}
         <div class="search-content">
           {% include '@cloudfour/components/input/input.twig' with {
             class: 'search-input'

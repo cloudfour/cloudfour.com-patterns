@@ -3,26 +3,17 @@
 .c-input-group {
   display: flex;
 
-  & > :first-child {
-    border-bottom-right-radius: var(--size-border-radius-input-group);
-    border-top-right-radius: var(--size-border-radius-input-group);
+  & > :not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
   }
 
-  & > :last-child {
-    border-bottom-left-radius: var(--size-border-radius-input-group);
-    border-top-left-radius: var(--size-border-radius-input-group);
+  & > :not(:last-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
   }
 
   & > * + * {
-    margin-left: -2px;
-  }
-
-  /**
- * In the instance where someone would want to include 3 or more elements,
- * this ensures that the middle elements will not have a border radius.
- */
-
-  & :not(:first-child):not(:last-child) {
-    border-radius: 0;
+    margin-left: -(size.$edge-medium);
   }
 }

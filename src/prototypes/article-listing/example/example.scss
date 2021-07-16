@@ -74,16 +74,6 @@
     }
   }
 
-  .section-title {
-    font-weight: 300;
-    @include fluid.font-size(
-      breakpoint.$xs,
-      breakpoint.$xl,
-      ms.step(4, 1rem),
-      ms.step(5, 1rem)
-    );
-  }
-
   .topics-header {
     padding-bottom: ms.step(3);
 

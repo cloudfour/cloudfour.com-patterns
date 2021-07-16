@@ -6,17 +6,17 @@
 
 .o-feature-group {
   display: grid;
+  grid-template-areas:
+    'intro'
+    'content'
+    'action';
+  grid-template-rows: repeat(3, minmax(0, auto));
   @include fluid.grid-gap(
     breakpoint.$s,
     breakpoint.$xl,
     size.$spacing-gap-fluid-min,
     size.$spacing-gap-fluid-max
   );
-  grid-template-areas:
-    'intro'
-    'content'
-    'action';
-  grid-template-rows: repeat(3, minmax(0, auto));
 
   @media (min-width: breakpoint.$l) {
     grid-row-gap: 0;

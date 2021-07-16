@@ -12,6 +12,7 @@ const tagNames = ['ul', 'ol'];
 
 <Meta
   title="Objects/List"
+  parameters={{ docs: { inlineStories: false } }}
   argTypes={{
     class: { type: { name: 'string' } },
     items: { type: { name: 'array' }, defaultValue: defaultItems },
@@ -32,7 +33,9 @@ The `o-list` object presents list items in a straightforward and unopinionated m
 By default, `o-list` removes default spacing and list item decorators:
 
 <Canvas>
-  <Story name="Default">{(args) => template(args)}</Story>
+  <Story name="Default" height="200px">
+    {(args) => template(args)}
+  </Story>
 </Canvas>
 
 ## Inline List
@@ -41,6 +44,16 @@ The `o-list--inline` modifier arranges items in a horizontal row, wrapping to ne
 
 <Canvas>
   <Story name="Inline" args={{ class: 'o-list--inline' }}>
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
+## Columns
+
+Lists can be displayed in multiple columns using a modifier class. Use the format `o-list--X-column@Y`, where `X` is the desired column count (from 2 to 3) and `Y` is the desired [breakpoint](/docs/design-tokens-breakpoint--page) (from `s` to `xl`).
+
+<Canvas>
+  <Story name="Column" args={{ class: 'o-list--3-column@l' }}>
     {(args) => template(args)}
   </Story>
 </Canvas>

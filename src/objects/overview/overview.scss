@@ -3,7 +3,11 @@
 @use "../../compiled/tokens/scss/size";
 @use '../../mixins/fluid';
 
-// TODO: Design tokens?
+/**
+ * The Overview stacks content vertically on small screens.
+ * On large screens the header and actions are stacked horizontally above the content.
+ * The specific spacing values were inferred from the Article Listing prototype.
+ */
 
 .o-overview__header {
   margin-bottom: ms.step(1);

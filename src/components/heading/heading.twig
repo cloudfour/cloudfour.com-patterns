@@ -47,15 +47,15 @@
 {% endset %}
 
 {#
-  If a `permalink` is desired but no `permalink_id` is specified, we try
-  creating a `permalink_id` from the value of `content`.
+  If a `permalink` is desired but no `id` is specified, we try
+  creating a `id` from the value of `content`.
 
   Since Twig lacks a built-in slugify function, this is pretty fragile and
   should be considered a fallback.
 #}
 
-{% if permalink and not permalink_id and content is not empty %}
-  {% set permalink_id = content|lower|escape('url')|replace({'%20': '-'}) %}
+{% if permalink and not id and content is not empty %}
+  {% set id = content|lower|escape('url')|replace({'%20': '-'}) %}
 {% endif %}
 
 {#
@@ -63,21 +63,21 @@
   Marcy Sutton: http://codepen.io/marcysutton/pen/rLKvgZ
 #}
 
-{% if permalink and permalink_id %}
+{% if permalink and id %}
   <div class="{{ _heading_class }}">
-    <a class="c-heading__permalink" href="#{{ permalink_id }}">
+    <a class="c-heading__permalink" href="#{{ id }}">
       {% include '@cloudfour/components/icon/icon.twig' with {
         name: 'link',
         aria_hidden: 'true'
       } only %}
       <span class="u-hidden-visually">Permalink to {{ _content }}</span>
     </a>
-    <{{ tag_name }} class="c-heading__content" id="{{ permalink_id }}">
+    <{{ tag_name }} class="c-heading__content" id="{{ id }}">
       {{ _content }}
     </{{ tag_name }}>
   </div>
 {% else %}
-  <{{ tag_name }} class="{{ _heading_class }}">
+  <{{ tag_name }} class="{{ _heading_class }}" {% if id %}id="{{id}}"{% endif %}>
     {{ _content }}
   </{{ tag_name }}>
 {% endif %}

@@ -1,0 +1,28 @@
+{% embed '@cloudfour/objects/overview/overview.twig' %}
+  {% block header %}
+    {% include '@cloudfour/components/heading/heading.twig' with {
+      level: -1,
+      weight: "light",
+      content: 'More Topics',
+    } only %}
+  {% endblock %}
+  {% block actions %}
+    {#
+      In the future we could swap this out for the Input Group component
+      that's currently in the works.
+    #}
+    <label>
+      <span class="u-hidden-visually">Search</span>
+      {% include '@cloudfour/components/input/input.twig' %}
+    </label>
+  {% endblock %}
+  {% block content %}
+    <p>
+      Etiam et egestas lorem. Vivamus sagittis sit amet dolor quis lobortis.
+      Integer sed fermentum arcu, id vulputate lacus. Etiam fermentum sem eu
+      quam hendrerit.
+      Nam risus massa, ullamcorper consectetur eros fermentum, porta aliquet
+      ligula. Sed vel mauris nec enim.
+    </p>
+  {% endblock %}
+{% endembed %}

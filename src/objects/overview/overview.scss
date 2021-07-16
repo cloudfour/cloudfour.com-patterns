@@ -1,0 +1,22 @@
+@use "../../compiled/tokens/scss/breakpoint";
+@use '../../mixins/ms';
+
+// TODO: Design tokens?
+
+.o-overview__header {
+  padding-bottom: ms.step(1);
+}
+
+.o-overview__actions {
+  padding-bottom: ms.step(3);
+}
+
+@media (min-width: breakpoint.$l) {
+  .o-overview {
+    display: grid;
+    grid-template-areas: "
+      header header actions
+      content content content
+    ";
+  }
+}

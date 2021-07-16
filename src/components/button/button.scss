@@ -2,6 +2,7 @@
 
 .c-button {
   @include button.default;
+  flex-grow: none;
 }
 
 /**

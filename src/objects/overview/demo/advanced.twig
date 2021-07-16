@@ -17,12 +17,21 @@
     </label>
   {% endblock %}
   {% block content %}
-    <p>
-      Etiam et egestas lorem. Vivamus sagittis sit amet dolor quis lobortis.
-      Integer sed fermentum arcu, id vulputate lacus. Etiam fermentum sem eu
-      quam hendrerit.
-      Nam risus massa, ullamcorper consectetur eros fermentum, porta aliquet
-      ligula. Sed vel mauris nec enim.
-    </p>
+    {% embed '@cloudfour/objects/list/list.twig' with {
+      "tag_name": "ul",
+      "class": "o-list--2-column@m o-list--3-column@l"
+    } %}
+      {% block content %}
+        {% for topic in topics %}
+          <li class="u-space-block-end-0">
+            {% include '@cloudfour/components/dot-leader/dot-leader.twig' with {
+              label: topic.title,
+              count: topic.count,
+              href: 'https://cloudfour.com/thinks/'
+            } only %}
+          </li>
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
   {% endblock %}
 {% endembed %}

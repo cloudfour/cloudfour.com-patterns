@@ -1,0 +1,6 @@
+@use "../../../mixins/ms";
+
+.demo-input-group {
+  display: grid;
+  grid-gap: ms.step(1);
+}

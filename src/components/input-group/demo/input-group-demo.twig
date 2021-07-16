@@ -1,15 +1,17 @@
-<div class="demo-input-group">
-  {% embed '@cloudfour/components/input-group/input-group.twig' %}
-    {% block content %}
-      {% include '@cloudfour/components/button/button.twig' %}
-      {% include '@cloudfour/components/input/input.twig' %}
-    {% endblock %}
-  {% endembed %}
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' %}
+  {% block content %}
+    {% embed '@cloudfour/components/input-group/input-group.twig' %}
+      {% block content %}
+        {% include '@cloudfour/components/button/button.twig' %}
+        {% include '@cloudfour/components/input/input.twig' %}
+      {% endblock %}
+    {% endembed %}
 
-  {% embed '@cloudfour/components/input-group/input-group.twig' %}
-    {% block content %}
-      {% include '@cloudfour/components/input/input.twig' %}
-      {% include '@cloudfour/components/button/button.twig' %}
-    {% endblock %}
-  {% endembed %}
-</div>
+    {% embed '@cloudfour/components/input-group/input-group.twig' %}
+      {% block content %}
+        {% include '@cloudfour/components/input/input.twig' %}
+        {% include '@cloudfour/components/button/button.twig' %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

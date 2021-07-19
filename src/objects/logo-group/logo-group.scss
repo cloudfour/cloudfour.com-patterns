@@ -6,8 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
-  max-width: size.$l;
+  margin: (-1 * ms.step(3));
 }
 
 .o-logo-group > * {

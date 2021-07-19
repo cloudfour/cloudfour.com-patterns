@@ -1,0 +1,7 @@
+<div class="o-logo-group">
+  {% block content %}
+    {% for item in items %}
+      <img src="{{ item.src }}" alt="{{ item.alt|default('') }}">
+    {% endfor %}
+  {% endblock %}
+</div>

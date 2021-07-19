@@ -1,7 +1,11 @@
-{% embed '@cloudfour/objects/logo-group/logo-group.twig' %}
+{% embed '@cloudfour/objects/container/container.twig' %}
   {% block content %}
-    {% for item in items %}
-      <img src="{{ item.src }}" alt="{{ item.alt }}">
-    {% endfor %}
+    {% embed '@cloudfour/objects/logo-group/logo-group.twig' %}
+      {% block content %}
+        {% for item in items %}
+          <img src="{{ item.src }}" alt="{{ item.alt }}">
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
   {% endblock %}
 {% endembed %}

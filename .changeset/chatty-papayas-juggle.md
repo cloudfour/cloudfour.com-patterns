@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add Input Group component
+Add Input Group object

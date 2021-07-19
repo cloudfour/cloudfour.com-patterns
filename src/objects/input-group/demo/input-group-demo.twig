@@ -9,8 +9,8 @@
 
     {% embed '@cloudfour/objects/input-group/input-group.twig' %}
       {% block content %}
-        {% include '@cloudfour/components/input/input.twig' %}
-        {% include '@cloudfour/components/button/button.twig' %}
+        {% include '@cloudfour/components/input/input.twig' only %}
+        {% include '@cloudfour/components/button/button.twig' only %}
       {% endblock %}
     {% endembed %}
   {% endblock %}

@@ -1,8 +1,26 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { makeComment } from './demo/data.ts';
 import template from './comment.twig';
+import { initComments } from './comment.ts';
+import { useEffect } from '@storybook/client-api';
+const tyler = {
+  name: 'Tyler Sticka',
+  link: 'https://cloudfour.com/is/tyler',
+};
 
-<Meta title="Components/Comment" />
+<Meta
+  title="Components/Comment"
+  argTypes={{
+    isLoggedIn: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+    allowReplies: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+  }}
+/>
 
 # Comment
 
@@ -28,7 +46,20 @@ At minimum, a single comment consists of:
 This information may be passed to the component as a `comment` object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/).
 
 <Canvas>
-  <Story name="Single">{template({ comment: makeComment() })}</Story>
+  <Story name="Single">
+    {(args) => {
+      useEffect(() => {
+        initComments();
+      });
+      return template({
+        comment: makeComment({
+          allow_replies: args.allowReplies,
+        }),
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
+  </Story>
 </Canvas>
 
 ## Role badges
@@ -37,13 +68,37 @@ It is helpful for context within a discussion to know when a commentor is the or
 
 <Canvas>
   <Story name="Role: Author">
-    {template({ comment: makeComment(), demo_post_author: true })}
+    {(args) => {
+      useEffect(() => {
+        initComments();
+      });
+      return template({
+        comment: makeComment({
+          allowReplies: args.allowReplies,
+        }),
+        demo_post_author: true,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name="Role: Cloud Four">
-    {template({ comment: makeComment(), demo_cloud_four_member: true })}
+    {(args) => {
+      useEffect(() => {
+        initComments();
+      });
+      return template({
+        comment: makeComment({
+          allowReplies: args.allowReplies,
+        }),
+        demo_cloud_four_member: true,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
@@ -53,7 +108,19 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
 
 <Canvas>
   <Story name="Unapproved">
-    {template({ comment: makeComment({ approved: false }) })}
+    {(args) => {
+      useEffect(() => {
+        initComments();
+      });
+      return template({
+        comment: makeComment({
+          approved: false,
+          allowReplies: args.allowReplies,
+        }),
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
@@ -63,26 +130,41 @@ Additionally, a `source` object may be passed to the template consisting of a `u
 
 <Canvas>
   <Story name="With source">
-    {template({
-      comment: makeComment(),
-      source: {
-        url: 'https://twitter.com/smashingmag/status/1371521325236416516',
-        name: 'twitter.com',
-      },
-    })}
+    {(args) => {
+      useEffect(() => {
+        initComments();
+      });
+      return template({
+        comment: makeComment({ allowReplies: args.allowReplies }),
+        source: {
+          url: 'https://twitter.com/smashingmag/status/1371521325236416516',
+          name: 'twitter.com',
+        },
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
 ## With reply button
 
-This feature is still a work in progress.
+You can set `allow_replies` to `true` in order to add a reply button that toggles a [Comment Form](/docs/components-comment-form--reply).
+
+If the user is logged in, you should pass in `logged_in_user` and `log_out_url` properties that match the [template properties of Comment Forms](/docs/components-comment-form--reply#template-properties).
 
 <Canvas>
-  <Story name="With reply button">
-    {template({
-      comment: makeComment(),
-      allow_replies: true,
-    })}
+  <Story name="With reply button" args={{ allowReplies: true }}>
+    {(args) => {
+      useEffect(() => {
+        initComments();
+      });
+      return template({
+        comment: makeComment({ allowReplies: args.allowReplies }),
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
@@ -97,6 +179,15 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
 
 <Canvas>
   <Story name="With reply thread">
-    {template({ comment: makeComment({ replies: 2 }) })}
+    {(args) => {
+      useEffect(() => {
+        initComments();
+      });
+      return template({
+        comment: makeComment({ replies: 2, allowReplies: args.allowReplies }),
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>

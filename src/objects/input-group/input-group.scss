@@ -1,0 +1,19 @@
+@use "../../compiled/tokens/scss/size";
+
+.o-input-group {
+  display: flex;
+
+  & > :not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  & > :not(:last-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  & > * + * {
+    margin-left: -(size.$edge-medium);
+  }
+}

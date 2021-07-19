@@ -64,7 +64,7 @@
     "@wordpress/block-library": "3.2.9",
     "babel-loader": "8.2.2",
     "browserify-transform-tools": "1.7.0",
-    "css-loader": "5.2.6",
+    "css-loader": "5.2.7",
     "cssnano": "5.0.6",
     "eliminate": "1.1.2",
     "eslint": "7.30.0",

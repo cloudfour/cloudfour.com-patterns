@@ -110,7 +110,12 @@
       <div class="o-container__content">
         <div class="section">
             <div class="section-title-wrapper">
-              <h2 class="section-title">{{topic.title}}</h2>
+              {% include '@cloudfour/components/heading/heading.twig' with {
+                level: -1,
+                tag_name: 'h2',
+                weight: 'light',
+                content: topic.title,
+              } only %}
             </div>
             {% for article in topic.articles %}
               <div class="section-card-wrapper">
@@ -163,36 +168,50 @@
   {% endfor %}
   <div class="o-container o-container--pad">
     <div class="o-container__content">
-      <div class="topics-header">
-        <h2 class="section-title">More Topics</h2>
-        <div class="search-content">
-          {% include '@cloudfour/components/input/input.twig' with {
-            class: 'search-input'
-          }  %}
-          {% embed '@cloudfour/components/button/button.twig' with {
-            class: 'search-btn'
-          }  %}
+      {% embed '@cloudfour/objects/overview/overview.twig' with {
+        labelledby_id: 'more-topics'
+      }  %}
+        {% block header %}
+          {% include '@cloudfour/components/heading/heading.twig' with {
+            level: -1,
+            weight: "light",
+            content: 'More Topics',
+            id: 'more-topics'
+          } only %}
+        {% endblock %}
+        {% block actions %}
+          <div class="search-content">
+            {% include '@cloudfour/components/input/input.twig' with {
+              class: 'search-input'
+            }  %}
+            {% embed '@cloudfour/components/button/button.twig' with {
+              class: 'search-btn'
+            }  %}
+              {% block content %}
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  name: 'magnifying-glass'
+                } %}
+              {% endblock %}
+            {% endembed %}
+          </div>
+        {% endblock %}
+        {% block content %}
+          {% embed '@cloudfour/objects/list/list.twig' with {
+            "tag_name": "ul",
+            "class": "o-list--2-column@m o-list--3-column@l"
+          } %}
             {% block content %}
-              {% include '@cloudfour/components/icon/icon.twig' with {
-                name: 'magnifying-glass'
-              } %}
+              {% for topic in topics %}
+                <li class="u-space-block-end-0">
+                  {% include '@cloudfour/components/dot-leader/dot-leader.twig' with {
+                    label: topic.title,
+                    count: topic.count,
+                    href: 'https://cloudfour.com/thinks/'
+                  } only %}
+                </li>
+              {% endfor %}
             {% endblock %}
           {% endembed %}
-        </div>
-      </div>
-      {% embed '@cloudfour/objects/list/list.twig' with {
-        class: 'topics-content'
-      } %}
-        {% block content %}
-          {% for topic in topics %}
-            <li>
-              {% include '@cloudfour/components/dot-leader/dot-leader.twig' with {
-                label: topic.title,
-                count: topic.count,
-                href: 'https://cloudfour.com/thinks/'
-              } only %}
-            </li>
-          {% endfor %}
         {% endblock %}
       {% endembed %}
     </div>

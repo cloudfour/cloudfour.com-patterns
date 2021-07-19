@@ -1,0 +1,14 @@
+<{{overview_tag|default('section')}}
+  class="o-overview"
+  {% if labelledby_id %}aria-labelledby="{{labelledby_id}}"{% endif %}
+>
+  <header class="o-overview__header">
+    {% block header %}{% endblock %}
+  </header>
+  <div class="o-overview__actions">
+    {% block actions %}{% endblock %}
+  </div>
+  <div class="o-overview__content">
+    {% block content %}{% endblock %}
+  </div>
+</{{overview_tag|default('section')}}>

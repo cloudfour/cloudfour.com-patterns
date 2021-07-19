@@ -51,6 +51,7 @@ The form used to add a comment to an article.
         logged_in_user: isLoggedIn ? tyler : undefined,
         log_out_url: '/logout',
         is_reply: isReply,
+        heading_id: 'leave-a-comment',
       });
     }}
   </Story>
@@ -84,6 +85,7 @@ There is also a reply version of this component (`is_reply: true`), used to repl
         logged_in_user: isLoggedIn ? tyler : undefined,
         log_out_url: '/logout',
         is_reply: isReply,
+        heading_id: 'reply-to-comment-100',
       });
     }}
   </Story>
@@ -92,6 +94,7 @@ There is also a reply version of this component (`is_reply: true`), used to repl
 ## Template Properties
 
 - `class`: Append a class to the root element.
+- `heading_id`: A unique ID for your heading element. This will be used as the accessible name for the form.
 - `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
 
   ```ts

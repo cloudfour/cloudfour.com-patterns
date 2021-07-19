@@ -1,10 +1,11 @@
 <form
   class="c-comment-form{% if class %} {{class}}{% endif %}"
+  {% if heading_id %}aria-labelledby="{{ heading_id }}"{% endif %}
   {%- if action %}action="{{ action }}"{% endif -%}
   {%- if method %}method="{{ method }}"{% endif -%}
 >
   {% block prompt %}
-  <h2>Leave a Comment</h2>
+  <h2 {% if heading_id %}id="{{ heading_id }}"{% endif %}>Leave a Comment</h2>
   <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a> in your comments. All fields are required.</p>
   {% endblock %}
   {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Message' } only %}

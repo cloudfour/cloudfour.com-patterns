@@ -1,0 +1,16 @@
+@use "../../compiled/tokens/scss/size";
+@use '../../mixins/ms';
+
+.o-logo-group {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: size.$l;
+}
+
+.o-logo-group > * {
+  margin: ms.step(3);
+  width: size.$width-logo-group-item;
+}

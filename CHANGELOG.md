@@ -1,5 +1,27 @@
 # @cloudfour/patterns
 
+## 3.0.0
+
+### Major Changes
+
+- [#1406](https://github.com/cloudfour/cloudfour.com-patterns/pull/1406) [`7bce7132`](https://github.com/cloudfour/cloudfour.com-patterns/commit/7bce713204b3d945af93eb971b40fd9a009555b5) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Renamed the Heading property from `permalink_id` to `id` and allowed you to use `id` when `permalink` is false.
+
+### Minor Changes
+
+- [#1405](https://github.com/cloudfour/cloudfour.com-patterns/pull/1405) [`2c7fb4ab`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2c7fb4ab14802256afea3f74cf73d89ec57aebb8) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Add Input Group object
+
+* [#1399](https://github.com/cloudfour/cloudfour.com-patterns/pull/1399) [`2fbf9d84`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2fbf9d845c13c73d494de8f3f093dfe58a65e5f2) Thanks [@dromo77](https://github.com/dromo77)! - Add layout modifier to the List object
+
+- [#1406](https://github.com/cloudfour/cloudfour.com-patterns/pull/1406) [`7bce7132`](https://github.com/cloudfour/cloudfour.com-patterns/commit/7bce713204b3d945af93eb971b40fd9a009555b5) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Added Overview object for use in Article Listings
+
+* [#1395](https://github.com/cloudfour/cloudfour.com-patterns/pull/1395) [`a07d5b01`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a07d5b01618be7da408a1a54428f90aadef6295d) Thanks [@dromo77](https://github.com/dromo77)! - Add Feature Group object
+
+- [#1394](https://github.com/cloudfour/cloudfour.com-patterns/pull/1394) [`17a7a179`](https://github.com/cloudfour/cloudfour.com-patterns/commit/17a7a17973403a956378df7e3fc5b1699f55bd5d) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Add light weight modifier to Heading component
+
+### Patch Changes
+
+- [#1398](https://github.com/cloudfour/cloudfour.com-patterns/pull/1398) [`85e7ed08`](https://github.com/cloudfour/cloudfour.com-patterns/commit/85e7ed08be60502f6e5caf331bba092cdf174585) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Fix bug where button content was not centered
+
 ## 2.0.0
 
 ### Major Changes

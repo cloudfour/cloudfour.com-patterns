@@ -191,3 +191,38 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
     }}
   </Story>
 </Canvas>
+
+## Template Properties
+
+- `comment`: A comment object containing the following properties:
+  - `ID`: A unique numerical ID
+  - `link`: A hash URL such as `#comment-100`
+  - `date`: The date of the comment
+  - `avatar`: A url to the commenter's avatar.
+  - `author`: An object containing the following properties:
+    - `name`: The commenter's name
+  - `comment_content`: The comment content
+  - `is_child`: Whether a comment is a child of another comment
+  - `children`: Nested responses to the comment
+  - `approved`: Whether the comment is approved
+  - `allow_replies`: A boolean property that controls whether to show a reply button and form
+- `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+  ```ts
+  {
+    name: string | () => string;
+    link: string | () => string;
+  }
+  ```
+- `log_out_url`: URL used for log out link.
+- `source`: An optional object containing a `url` and `name` for the comment source.
+
+## JavaScript Instructions
+
+You can run `initComments` to initialize all comments on a page:
+
+```js
+// Depending on how you're consuming this project, the script is likely at
+// a different location.
+import { initComments } from './comment.ts';
+initComments();
+```

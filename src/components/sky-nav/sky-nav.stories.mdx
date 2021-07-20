@@ -1,8 +1,13 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { useEffect } from '@storybook/client-api';
+import { makeTwigInclude } from '../../make-twig-include';
 import menu from './demo/menu.json';
 import template from './sky-nav.twig';
 import { initSkyNav } from './sky-nav.ts';
+const basicStoryArgs = {
+  include_main_demo: true,
+  menu,
+};
 
 <!--
 Inline stories disabled so media queries will behave as expected within
@@ -34,6 +39,14 @@ The Sky Nav is intended for use with our [our dark theme](/docs/design-themes--d
       layout: 'fullscreen',
       paddings: { disable: true },
       themes: { disable: true },
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/sky-nav/sky-nav.twig', {
+            ...basicStoryArgs,
+            class: 't-dark',
+          }),
+        },
+      },
     }}
   >
     {() => {
@@ -43,7 +56,10 @@ The Sky Nav is intended for use with our [our dark theme](/docs/design-themes--d
         );
         return destroy;
       }, []);
-      return template({ class: 't-dark', include_main_demo: true, menu });
+      return template({
+        ...basicStoryArgs,
+        class: 't-dark',
+      });
     }}
   </Story>
 </Canvas>
@@ -58,6 +74,14 @@ But it works without a theme, too, just in case:
       layout: 'fullscreen',
       paddings: { disable: true },
       themes: { disable: true },
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/sky-nav/sky-nav.twig',
+            basicStoryArgs
+          ),
+        },
+      },
     }}
   >
     {() => {
@@ -67,7 +91,7 @@ But it works without a theme, too, just in case:
         );
         return destroy;
       }, []);
-      return template({ include_main_demo: true, menu });
+      return template(basicStoryArgs);
     }}
   </Story>
 </Canvas>

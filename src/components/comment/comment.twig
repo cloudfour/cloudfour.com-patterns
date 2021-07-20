@@ -94,6 +94,7 @@
         </div>
       {% endif %}
     </div>
+    {% set _section_heading_depth = min(_heading_depth + 1, 6) %}
 
     {% if comment.allow_replies %}
       <div class="c-comment__reply-form js-comment-reply-form" hidden>
@@ -102,11 +103,13 @@
           logged_in_user: logged_in_user,
           log_out_url: log_out_url,
           heading_id: "reply-to-comment-#{comment.ID}",
+          heading_tag: "h#{_section_heading_depth}",
+          heading_text: "Reply to #{comment.author.name}",
+          heading_class: "c-comment__heading"
         } only %}
       </div>
     {% endif %}
     {% if comment.children is not empty %}
-      {% set _section_heading_depth = min(_heading_depth + 1, 6) %}
       {% set _child_heading_depth = min(_section_heading_depth + 1, 6) %}
       <h{{_section_heading_depth}} class="u-hidden-visually">
         Replies to {{comment.author.name}}

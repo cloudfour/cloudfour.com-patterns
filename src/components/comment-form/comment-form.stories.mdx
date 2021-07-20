@@ -57,7 +57,7 @@ The form used to add a comment to an article.
   </Story>
 </Canvas>
 
-There is also a reply version of this component (`is_reply: true`), used to reply to an existing comment:
+There is also a reply version of this component (`is_reply: true`), used to reply to an existing comment. (You'll also want to modify `heading_tag`, `heading_id`, `heading_class`, and `heading_text`. When using the [Comment pattern](/docs/components-comment--with-reply-button) this will be done automatically.)
 
 <Canvas>
   <Story
@@ -86,6 +86,8 @@ There is also a reply version of this component (`is_reply: true`), used to repl
         log_out_url: '/logout',
         is_reply: isReply,
         heading_id: 'reply-to-comment-100',
+        heading_tag: 'h4',
+        heading_text: 'Reply to John Doe',
       });
     }}
   </Story>
@@ -95,6 +97,9 @@ There is also a reply version of this component (`is_reply: true`), used to repl
 
 - `class`: Append a class to the root element.
 - `heading_id`: A unique ID for your heading element. This will be used as the accessible name for the form.
+- `heading_tag`: The tag for your heading (defaults to `h2`).
+- `heading_text`: The text for your heading.
+- `heading_class`: An optional class for your heading.
 - `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
 
   ```ts

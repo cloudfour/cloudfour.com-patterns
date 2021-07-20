@@ -5,8 +5,14 @@
   {%- if method %}method="{{ method }}"{% endif -%}
 >
   {% block prompt %}
-  <h2 {% if heading_id %}id="{{ heading_id }}"{% endif %}>Leave a Comment</h2>
-  <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a> in your comments. All fields are required.</p>
+    {% set _heading_tag = heading_tag|default('h2') %}
+    <{{_heading_tag}}
+      {% if heading_id %}id="{{ heading_id }}"{% endif %}
+      {% if heading_class %}class="{{ heading_class }}"{% endif %}
+    >
+      {{ heading_text|default("Leave a Comment") }}
+    </{{_heading_tag}}>
+    <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a> in your comments. All fields are required.</p>
   {% endblock %}
   {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Message' } only %}
     {% block control %}

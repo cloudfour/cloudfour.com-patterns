@@ -68,7 +68,15 @@ There is also a reply version of this component (`is_reply: true`), used to repl
         source: {
           code: makeTwigInclude(
             '@cloudfour/components/comment-form/comment-form.twig',
-            { logged_in_user: tyler, log_out_url: '/logout', is_reply: true }
+            {
+              logged_in_user: tyler,
+              log_out_url: '/logout',
+              is_reply: true,
+              heading_id: 'reply-to-comment-100',
+              heading_tag: 'h4',
+              heading_text: 'Reply to John Doe',
+              heading_class: 'c-comment__heading',
+            }
           ),
         },
       },
@@ -88,6 +96,7 @@ There is also a reply version of this component (`is_reply: true`), used to repl
         heading_id: 'reply-to-comment-100',
         heading_tag: 'h4',
         heading_text: 'Reply to John Doe',
+        heading_class: 'c-comment__heading',
       });
     }}
   </Story>

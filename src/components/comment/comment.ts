@@ -21,7 +21,15 @@ export const initComments = () => {
       const firstInput = replyForm?.querySelector(
         'textarea, input'
       ) as HTMLElement | null;
-      firstInput?.focus();
+
+      // Without this Timeout, VoiceOver does not properly focus the first input
+      // (though it works outside of VoiceOver).
+      // I went back and forth on whether or not to force this behavior in
+      // VoiceOver, since it will skip them past context around the comment
+      // (e.g. you may use simple HTML or markdown).
+      // I ended up adding this timeout to force the focus so that we provide
+      // an equivalent experience for all users.
+      setTimeout(() => firstInput?.focus(), 0);
     });
 
     cancelButton?.addEventListener('click', () => {

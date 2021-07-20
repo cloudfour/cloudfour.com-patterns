@@ -1,4 +1,4 @@
-export const initComments = () => {
+export const initCommentsWithRepliesEnabled = () => {
   const commentsWithRepliesEnabled = document.querySelectorAll(
     '.js-comment-with-replies-enabled'
   );

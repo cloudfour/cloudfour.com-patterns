@@ -1,7 +1,7 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { makeComment } from './demo/data.ts';
 import template from './comment.twig';
-import { initCommentWithRepliesEnabled } from './comment.ts';
+import { initCommentsWithRepliesEnabled } from './comment.ts';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include';
 const tyler = {
@@ -63,7 +63,7 @@ This information may be passed to the component as a `comment` object matching t
   >
     {(args) => {
       useEffect(() => {
-        initCommentWithRepliesEnabled();
+        initCommentsWithRepliesEnabled();
       });
       return template({
         comment: makeComment(),
@@ -98,7 +98,7 @@ It is helpful for context within a discussion to know when a commentor is the or
   >
     {(args) => {
       useEffect(() => {
-        initCommentWithRepliesEnabled();
+        initCommentsWithRepliesEnabled();
       });
       return template({
         comment: makeComment(),
@@ -130,7 +130,7 @@ It is helpful for context within a discussion to know when a commentor is the or
   >
     {(args) => {
       useEffect(() => {
-        initCommentWithRepliesEnabled();
+        initCommentsWithRepliesEnabled();
       });
       return template({
         comment: makeComment(),
@@ -167,7 +167,7 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
   >
     {(args) => {
       useEffect(() => {
-        initCommentWithRepliesEnabled();
+        initCommentsWithRepliesEnabled();
       });
       return template({
         comment: makeComment({
@@ -207,7 +207,7 @@ Additionally, a `source` object may be passed to the template consisting of a `u
   >
     {(args) => {
       useEffect(() => {
-        initCommentWithRepliesEnabled();
+        initCommentsWithRepliesEnabled();
       });
       return template({
         comment: makeComment(),
@@ -253,7 +253,7 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
   >
     {(args) => {
       useEffect(() => {
-        initCommentWithRepliesEnabled();
+        initCommentsWithRepliesEnabled();
       });
       return template({
         comment: makeComment(),
@@ -294,7 +294,7 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
   >
     {(args) => {
       useEffect(() => {
-        initCommentWithRepliesEnabled();
+        initCommentsWithRepliesEnabled();
       });
       return template({
         comment: makeComment({ replies: 2 }),
@@ -324,11 +324,11 @@ Note: These template properties are not finalized, and may change in the future.
 
 ## JavaScript Instructions
 
-You can run `initCommentWithRepliesEnabled` to initialize the ability to reply to comments.
+You can run `initCommentsWithRepliesEnabled` to initialize the ability to reply to comments.
 
 (This is not necessary for pages with comments disabled, like older posts.)
 
 ```js
-import { initCommentWithRepliesEnabled } from 'path/to/comment.js';
-initCommentWithRepliesEnabled();
+import { initCommentsWithRepliesEnabled } from 'path/to/comment.js';
+initCommentsWithRepliesEnabled();
 ```

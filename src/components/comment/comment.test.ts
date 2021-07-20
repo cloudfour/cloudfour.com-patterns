@@ -25,8 +25,8 @@ test(
           },
           comment_content: 'Test',
           approved: true,
-          allow_replies: true,
         },
+        allow_replies: true,
       })
     );
 
@@ -51,11 +51,17 @@ test(
     // Reply button is hidden
     await expect(replyButton).not.toBeVisible();
     await expect(comment).toHaveClass('is-replying');
+    // The first input or textarea should be focused.
+    // (In practice this will always be a textarea, but if the form is
+    // changed to lead with an input in the future, and that input is selected,
+    // this test should still pass.)
+    const inputs = await screen.getAllByRole(/textbox|input/)
+    await expect(inputs[0]).toHaveFocus();
 
+    // Click the cancel button to get back to our initial state
     const cancelButton = await screen.getByRole('button', {
       name: /cancel/i,
     });
-
     await user.click(cancelButton);
 
     // Back to our intial state

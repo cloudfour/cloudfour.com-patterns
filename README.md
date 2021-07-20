@@ -1,4 +1,4 @@
-<p align="center"><img src="https://cloudfour.com/android-chrome-512x512.png" alt="" width="128" height="128"></p>
+<p align="center"><img src="https://cloudfour.com/android-chrome-512x512.png" alt="" width="128" height="128"/></p>
 
 # Cloud Four Patterns 🚧
 

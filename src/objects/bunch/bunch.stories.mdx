@@ -1,8 +1,8 @@
 import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs/blocks';
 import { shuffle } from 'lodash';
 import avatarsDemo from './demo/avatars.twig';
-const demoImageDir = require.context('./demo', false, /\.png$/);
-const demoImageSrcs = demoImageDir.keys().map((key) => demoImageDir(key));
+/* const demoImageDir = require.context('./demo', false, /\.png$/); */
+const demoImageSrcs = [] //demoImageDir.keys().map((key) => demoImageDir(key));
 const avatarsDemoStory = (args) => {
   const srcs = shuffle(demoImageSrcs).slice(0, args.count);
   return avatarsDemo({ srcs });

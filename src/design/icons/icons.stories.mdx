@@ -1,42 +1,44 @@
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
-import { extname, relative } from 'path';
+// import { extname, relative } from 'path';
 // Import whole directory of icons together
 // Using inline loaders to confine SVG to React transform to this doc
 // @see https://webpack.js.org/guides/dependency-management/#context-module-api
 // @see https://webpack.js.org/concepts/loaders/#configuration
 // @see https://react-svgr.com/docs/webpack/
-const iconDir = require.context(
-  '!!@svgr/webpack!../../assets/icons',
-  false,
-  /\.svg$/
-);
-const iconElements = iconDir.keys().map((key) => {
-  const Icon = iconDir(key).default;
-  // Retains subdirectory if we want to organize with those in the future
-  const name = relative('.', key).replace(extname(key), '');
-  return (
-    <IconItem name={name}>
-      <Icon class="c-icon" />
-    </IconItem>
-  );
-});
-const brandIconDir = require.context(
-  '!!@svgr/webpack!../../assets/icons/brands',
-  true,
-  /\.svg$/
-);
+// const iconDir = require.context(
+//   '!!@svgr/webpack!../../assets/icons',
+//   false,
+//   /\.svg$/
+// );
+const iconElements = []
+  // iconDir.keys().map((key) => {
+  // const Icon = iconDir(key).default;
+  // // Retains subdirectory if we want to organize with those in the future
+  // const name = relative('.', key).replace(extname(key), '');
+  // return (
+  //   <IconItem name={name}>
+  //     <Icon class="c-icon" />
+  //   </IconItem>
+  // );
+// });
+// const brandIconDir = require.context(
+//   '!!@svgr/webpack!../../assets/icons/brands',
+//   true,
+//   /\.svg$/
+// );
 // This is duplicated from icons, we may want to consider keeping this logic DRY
 // in a single file in the future.
-const brandIconElements = brandIconDir.keys().map((key) => {
-  const BrandIcon = brandIconDir(key).default;
-  // Retains subdirectory if we want to organize with those in the future
-  const name = relative('.', key).replace(extname(key), '');
-  return (
-    <IconItem name={`brands/${name}`}>
-      <BrandIcon class="c-icon" />
-    </IconItem>
-  );
-});
+const brandIconElements = []
+  // brandIconDir.keys().map((key) => {
+  // const BrandIcon = brandIconDir(key).default;
+  // // Retains subdirectory if we want to organize with those in the future
+  // const name = relative('.', key).replace(extname(key), '');
+  // return (
+  //   <IconItem name={`brands/${name}`}>
+  //     <BrandIcon class="c-icon" />
+  //   </IconItem>
+  // );
+// });
 
 <Meta title="Design/Icons" />
 

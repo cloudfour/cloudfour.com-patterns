@@ -1,20 +1,20 @@
 import { Story, Meta } from '@storybook/addon-docs/blocks';
 import { useEffect } from '@storybook/client-api';
-import { basename, extname } from 'path';
+// import { basename, extname } from 'path';
 import sampleDemo from './demo/sample.twig';
 import './config.js';
 // Load samples directory as "raw" text
-const samplesDir = require.context('!!raw-loader!./demo/samples', false);
+// const samplesDir = require.context('!!raw-loader!./demo/samples', false);
 // Initialize an object to store sample content in
 const samples = {};
 // For each sample, fetch its content and build an object for our template
-for (const key of samplesDir.keys()) {
-  const filename = basename(key);
-  const ext = extname(key);
-  const name = filename.replace(ext, '');
-  const content = samplesDir(key).default;
-  samples[name] = { filename, name, ext, content };
-}
+// for (const key of samplesDir.keys()) {
+//   const filename = basename(key);
+//   const ext = extname(key);
+//   const name = filename.replace(ext, '');
+//   const content = samplesDir(key).default;
+//   samples[name] = { filename, name, ext, content };
+// }
 
 <Meta
   title="Vendor/Prism"

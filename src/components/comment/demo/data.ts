@@ -78,7 +78,6 @@ const jabber = new Jabber(themeWords, 1.5);
 export const makeComment = ({
   isChild = false,
   replies = 0,
-  allowReplies = false,
   approved = true,
 } = {}) => {
   const id = uniqueId();
@@ -101,14 +100,12 @@ export const makeComment = ({
     is_child: isChild,
     children: [] as any,
     approved,
-    allow_replies: allowReplies,
   };
 
   if (replies > 0) {
     result.children = makeThread({
       length: replies,
       isChild: true,
-      allowReplies,
     });
   }
 

@@ -3,6 +3,7 @@ import { makeComment } from './demo/data.ts';
 import template from './comment.twig';
 import { initComments } from './comment.ts';
 import { useEffect } from '@storybook/client-api';
+import { makeTwigInclude } from '../../make-twig-include';
 const tyler = {
   name: 'Tyler Sticka',
   link: 'https://cloudfour.com/is/tyler',
@@ -46,7 +47,21 @@ At minimum, a single comment consists of:
 This information may be passed to the component as a `comment` object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/).
 
 <Canvas>
-  <Story name="Single">
+  <Story
+    name="Single"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig',
+            {
+              comment: makeComment(),
+            }
+          ),
+        },
+      },
+    }}
+  >
     {(args) => {
       useEffect(() => {
         initComments();
@@ -67,7 +82,22 @@ This information may be passed to the component as a `comment` object matching t
 It is helpful for context within a discussion to know when a commentor is the original post author or a Cloud Four team member. The mechanics of this feature are still in development, but these stories show how these roles should appear using [the Badge component](/docs/components-badge--basic).
 
 <Canvas>
-  <Story name="Role: Author">
+  <Story
+    name="Role: Author"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig',
+            {
+              comment: makeComment(),
+              demo_post_author: true,
+            }
+          ),
+        },
+      },
+    }}
+  >
     {(args) => {
       useEffect(() => {
         initComments();
@@ -85,7 +115,22 @@ It is helpful for context within a discussion to know when a commentor is the or
 </Canvas>
 
 <Canvas>
-  <Story name="Role: Cloud Four">
+  <Story
+    name="Role: Cloud Four"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig',
+            {
+              comment: makeComment(),
+              demo_cloud_four_member: true,
+            }
+          ),
+        },
+      },
+    }}
+  >
     {(args) => {
       useEffect(() => {
         initComments();
@@ -107,7 +152,23 @@ It is helpful for context within a discussion to know when a commentor is the or
 If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) will indicate that the comment is not yet approved.
 
 <Canvas>
-  <Story name="Unapproved">
+  <Story
+    name="Unapproved"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig',
+            {
+              comment: makeComment({
+                approved: false,
+              }),
+            }
+          ),
+        },
+      },
+    }}
+  >
     {(args) => {
       useEffect(() => {
         initComments();
@@ -129,13 +190,31 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
 Additionally, a `source` object may be passed to the template consisting of a `url` and `name`. This is helpful if integrating [webmentions](https://indieweb.org/Webmention) into comment threads.
 
 <Canvas>
-  <Story name="With source">
+  <Story
+    name="With source"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig',
+            {
+              comment: makeComment(),
+              source: {
+                url: 'https://twitter.com/smashingmag/status/1371521325236416516',
+                name: 'twitter.com',
+              },
+            }
+          ),
+        },
+      },
+    }}
+  >
     {(args) => {
       useEffect(() => {
         initComments();
       });
       return template({
-        comment: makeComment({ allowReplies: args.allowReplies }),
+        comment: makeComment(),
         source: {
           url: 'https://twitter.com/smashingmag/status/1371521325236416516',
           name: 'twitter.com',
@@ -154,7 +233,26 @@ You can set `allow_replies` to `true` in order to add a reply button that toggle
 If the user is logged in, you should pass in `logged_in_user` and `log_out_url` properties that match the [template properties of Comment Forms](/docs/components-comment-form--reply#template-properties).
 
 <Canvas>
-  <Story name="With reply button" args={{ allowReplies: true }}>
+  <Story
+    name="With reply button"
+    args={{ allowReplies: true, isLoggedIn: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig',
+            {
+              comment: makeComment({
+                allow_replies: true,
+              }),
+              logged_in_user: tyler,
+              log_out_url: '/logout',
+            }
+          ),
+        },
+      },
+    }}
+  >
     {(args) => {
       useEffect(() => {
         initComments();
@@ -178,7 +276,23 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
 - The heading levels for comment threads increment up to a maximum of six (since HTML only provides six heading levels). This means that levels beyond that will be harder to traverse for user agents navigating via the document outline.
 
 <Canvas>
-  <Story name="With reply thread">
+  <Story
+    name="With reply thread"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/comment-form/comment-form.twig',
+            {
+              comment: makeComment({
+                replies: 2,
+              }),
+            }
+          ),
+        },
+      },
+    }}
+  >
     {(args) => {
       useEffect(() => {
         initComments();
@@ -223,8 +337,6 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
 You can run `initComments` to initialize all comments on a page:
 
 ```js
-// Depending on how you're consuming this project, the script is likely at
-// a different location.
-import { initComments } from './comment.ts';
+import { initComments } from 'path/to/comment.js';
 initComments();
 ```

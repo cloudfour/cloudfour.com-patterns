@@ -1,5 +1,8 @@
-{% embed '@cloudfour/components/input/demo/example.twig' %}
-  {% block element %}
-    {% include '@cloudfour/components/input/select.twig' %}
+{% embed '@cloudfour/components/input/select.twig' only %}
+  {% block options %}
+    <option value="this">This</option>
+    <option value="that">That</option>
+    <option value="other">Other</option>
+    <option value="none">None</option>
   {% endblock %}
 {% endembed %}

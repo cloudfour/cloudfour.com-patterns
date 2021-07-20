@@ -101,11 +101,15 @@ export const makeComment = ({
     is_child: isChild,
     children: [] as any,
     approved,
-    allow_replies: allowReplies
+    allow_replies: allowReplies,
   };
 
   if (replies > 0) {
-    result.children = makeThread({ length: replies, isChild: true, allowReplies });
+    result.children = makeThread({
+      length: replies,
+      isChild: true,
+      allowReplies,
+    });
   }
 
   return result;

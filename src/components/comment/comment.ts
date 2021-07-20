@@ -10,7 +10,9 @@ export const initComments = () => {
       comment.classList.add('is-replying');
       replyButton.setAttribute('hidden', '');
       replyForm?.removeAttribute('hidden');
-      const firstInput = replyForm?.querySelector('textarea, input') as HTMLElement | null;
+      const firstInput = replyForm?.querySelector(
+        'textarea, input'
+      ) as HTMLElement | null;
       firstInput?.focus();
     });
 
@@ -20,4 +22,4 @@ export const initComments = () => {
       replyForm?.setAttribute('hidden', '');
     });
   }
-}
+};

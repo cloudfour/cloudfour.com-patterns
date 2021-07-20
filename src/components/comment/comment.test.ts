@@ -25,8 +25,8 @@ test(
           },
           comment_content: 'Test',
           approved: true,
-          allow_replies: true
-        }
+          allow_replies: true,
+        },
       })
     );
 
@@ -35,7 +35,7 @@ test(
     await initCommentsJs(utils);
 
     const comment = await screen.getByRole('article');
-    const form = await screen.getByRole('form', { hidden: true })
+    const form = await screen.getByRole('form', { hidden: true });
     const replyButton = await screen.getByRole('button', {
       name: /reply/i,
     });

@@ -55,7 +55,7 @@ test(
     // (In practice this will always be a textarea, but if the form is
     // changed to lead with an input in the future, and that input is selected,
     // this test should still pass.)
-    const inputs = await screen.getAllByRole(/textbox|input/)
+    const inputs = await screen.getAllByRole(/textbox|input/);
     await expect(inputs[0]).toHaveFocus();
 
     // Click the cancel button to get back to our initial state

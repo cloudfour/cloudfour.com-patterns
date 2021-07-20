@@ -64,7 +64,7 @@ test(
     });
     await user.click(cancelButton);
 
-    // Back to our intial state
+    // Back to our initial state
     await expect(form).not.toBeVisible();
     await expect(replyButton).toBeVisible();
     await expect(comment).not.toHaveClass('is-replying');

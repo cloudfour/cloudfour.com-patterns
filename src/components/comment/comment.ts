@@ -22,7 +22,7 @@ export const initComments = () => {
         'textarea, input'
       ) as HTMLElement | null;
 
-      // Without this Timeout, VoiceOver does not properly focus the first input
+      // Without this timeout, VoiceOver does not properly focus the first input
       // (though it works outside of VoiceOver).
       // I went back and forth on whether or not to force this behavior in
       // VoiceOver, since it will skip them past context around the comment

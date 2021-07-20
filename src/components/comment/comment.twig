@@ -97,6 +97,11 @@
 
       {% if allow_replies %}
         <div class="c-comment__meta-control">
+          {#
+            Since this button shows a form I considered adding `aria-expanded`.
+            I decided against this because the button only shows the form,
+            it doesn't toggle it. A separate button does that.
+          #}
           {% include '@cloudfour/components/button/button.twig' with {
             type: 'button',
             class: 'c-button--tertiary js-comment-reply-button',

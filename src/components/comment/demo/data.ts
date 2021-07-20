@@ -103,10 +103,7 @@ export const makeComment = ({
   };
 
   if (replies > 0) {
-    result.children = makeThread({
-      length: replies,
-      isChild: true,
-    });
+    result.children = makeThread({ length: replies, isChild: true, });
   }
 
   return result;

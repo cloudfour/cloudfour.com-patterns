@@ -83,7 +83,7 @@
         </div>
       {% endif %}
 
-      {% if comment.allow_replies %}
+      {% if allow_replies %}
         <div class="c-comment__meta-control">
           {% include '@cloudfour/components/button/button.twig' with {
             type: 'button',
@@ -96,7 +96,7 @@
     </div>
     {% set _section_heading_depth = min(_heading_depth + 1, 6) %}
 
-    {% if comment.allow_replies %}
+    {% if allow_replies %}
       <div class="c-comment__reply-form js-comment-reply-form" hidden>
         {% include '@cloudfour/components/comment-form/comment-form.twig' with {
           is_reply: true,
@@ -122,8 +122,6 @@
             {% include '@cloudfour/components/comment/comment.twig' with {
               comment: child,
               heading_depth: _child_heading_depth,
-              logged_in_user: logged_in_user,
-              log_out_url: log_out_url
             } only %}
           {% endfor %}
         {% endblock %}

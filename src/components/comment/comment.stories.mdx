@@ -31,7 +31,6 @@ Displays a single comment in a comment thread, optionally with replies. Multiple
 
 This component is still a work in progress. The following features are still in development:
 
-- Integrating the comment reply form.
 - Finalizing this pattern's blocks and properties for theme integration.
 
 ## Single
@@ -67,9 +66,8 @@ This information may be passed to the component as a `comment` object matching t
         initComments();
       });
       return template({
-        comment: makeComment({
-          allow_replies: args.allowReplies,
-        }),
+        comment: makeComment(),
+        allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
       });
@@ -103,9 +101,8 @@ It is helpful for context within a discussion to know when a commentor is the or
         initComments();
       });
       return template({
-        comment: makeComment({
-          allowReplies: args.allowReplies,
-        }),
+        comment: makeComment(),
+        allow_replies: args.allowReplies,
         demo_post_author: true,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
@@ -136,9 +133,8 @@ It is helpful for context within a discussion to know when a commentor is the or
         initComments();
       });
       return template({
-        comment: makeComment({
-          allowReplies: args.allowReplies,
-        }),
+        comment: makeComment(),
+        allow_replies: args.allowReplies,
         demo_cloud_four_member: true,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
@@ -176,8 +172,8 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
       return template({
         comment: makeComment({
           approved: false,
-          allowReplies: args.allowReplies,
         }),
+        allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
       });
@@ -219,6 +215,7 @@ Additionally, a `source` object may be passed to the template consisting of a `u
           url: 'https://twitter.com/smashingmag/status/1371521325236416516',
           name: 'twitter.com',
         },
+        allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
       });
@@ -232,6 +229,8 @@ You can set `allow_replies` to `true` in order to add a reply button that toggle
 
 If the user is logged in, you should pass in `logged_in_user` and `log_out_url` properties that match the [template properties of Comment Forms](/docs/components-comment-form--reply#template-properties).
 
+`allow_replies` should only be set to true for first-level comments, as we do not allow multiple levels of threading in comment chains.
+
 <Canvas>
   <Story
     name="With reply button"
@@ -242,9 +241,8 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
           code: makeTwigInclude(
             '@cloudfour/components/comment-form/comment-form.twig',
             {
-              comment: makeComment({
-                allow_replies: true,
-              }),
+              comment: makeComment(),
+              allow_replies: true,
               logged_in_user: tyler,
               log_out_url: '/logout',
             }
@@ -258,7 +256,8 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
         initComments();
       });
       return template({
-        comment: makeComment({ allowReplies: args.allowReplies }),
+        comment: makeComment(),
+        allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
       });
@@ -298,7 +297,8 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
         initComments();
       });
       return template({
-        comment: makeComment({ replies: 2, allowReplies: args.allowReplies }),
+        comment: makeComment({ replies: 2 }),
+        allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
       });
@@ -308,20 +308,10 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
 
 ## Template Properties
 
-- `comment`: A comment object containing the following properties:
-  - `ID`: A unique numerical ID
-  - `link`: A hash URL such as `#comment-100`
-  - `date`: The date of the comment
-  - `avatar`: A url to the commenter's avatar.
-  - `author`: An object containing the following properties:
-    - `name`: The commenter's name
-  - `comment_content`: The comment content
-  - `is_child`: Whether a comment is a child of another comment
-  - `children`: Nested responses to the comment
-  - `approved`: Whether the comment is approved
-  - `allow_replies`: A boolean property that controls whether to show a reply button and form
-  - `demo_cloud_four_member`: A boolean property that indicates if the commentor is a Cloud Four member. (Name will be changed in the future.)
-  - `demo_post_author`: A boolean property that indicates if the commentor is the post author. (Name will be changed in the future.)
+Note: These template properties are not finalized, and may change in the future.
+
+- `comment`: an object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/)
+- `allow_replies`: A boolean property that controls whether to show a reply button and form
 - `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
   ```ts
   {

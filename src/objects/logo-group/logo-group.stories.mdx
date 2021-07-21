@@ -18,5 +18,10 @@ import logos from './demo/logos.json';
 Logo Group can be used to display a group of client logos. Logos break onto multiple lines depending on the available space and are vertically centered.
 
 <Canvas>
-  <Story name="Default">{defaultDemo({ items: logos })}</Story>
+  <Story
+    name="Default"
+    parameters={{ docs: { source: { code: defaultDemoSource } } }}
+  >
+    {defaultDemo({ items: logos })}
+  </Story>
 </Canvas>

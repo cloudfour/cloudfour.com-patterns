@@ -1,7 +1,7 @@
 import path from 'path';
 import type { ElementHandle, PleasantestUtils } from 'pleasantest';
 import { withBrowser } from 'pleasantest';
-import { loadTwigTemplate } from '../../../test-utils';
+import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
 const textInputHTML = loadTwigTemplate(path.join(__dirname, './input.twig'));
 const initTextareaJS = (utils: PleasantestUtils, textarea: ElementHandle) =>
@@ -22,7 +22,7 @@ test(
         type: 'textarea',
       })
     );
-    await utils.loadCSS('../../../dist/standalone.css');
+    await loadGlobalCSS(utils);
     const textarea = (await screen.getByRole(
       'textbox'
     )) as ElementHandle<HTMLTextAreaElement>;

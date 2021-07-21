@@ -1,7 +1,7 @@
 import path from 'path';
 import type { PleasantestUtils } from 'pleasantest';
 import { withBrowser } from 'pleasantest';
-import { loadTwigTemplate } from '../../../test-utils';
+import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
 const commentMarkup = loadTwigTemplate(path.join(__dirname, 'comment.twig'));
 const initCommentsJs = (utils: PleasantestUtils) =>
@@ -30,7 +30,7 @@ test(
       })
     );
 
-    await utils.loadCSS('../../../dist/standalone.css');
+    await loadGlobalCSS(utils);
 
     await initCommentsJs(utils);
 

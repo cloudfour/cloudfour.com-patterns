@@ -1,7 +1,7 @@
 import path from 'path';
 import type { ElementHandle, PleasantestUtils } from 'pleasantest';
 import { devices, withBrowser } from 'pleasantest';
-import { loadTwigTemplate } from '../../../test-utils';
+import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 import menu from './demo/menu.json';
 
 const iPhone = devices['iPhone 6'];
@@ -19,8 +19,7 @@ test(
   'can be opened on small screens',
   withBrowser({ device: iPhone }, async ({ utils, screen, user }) => {
     await utils.injectHTML(await skyNavMarkup({ includeMainDemo: true, menu }));
-    await utils.loadCSS('../../../dist/standalone.css');
-    const navButton = await screen.getByRole('button', {
+    await loadGlobalCSS(utils);    const navButton = await screen.getByRole('button', {
       name: /toggle main menu/i,
     });
     await initSkyNavJS(utils, navButton);
@@ -41,7 +40,7 @@ test(
   'is expanded on large screens',
   withBrowser(async ({ utils, screen }) => {
     await utils.injectHTML(await skyNavMarkup({ includeMainDemo: true, menu }));
-    await utils.loadCSS('../../../dist/standalone.css');
+    await loadGlobalCSS(utils);
     // Hidden: true allows searching hidden elements (button is hidden on large screens)
     const navButton = await screen.getByRole('button', { hidden: true });
     await initSkyNavJS(utils, navButton);

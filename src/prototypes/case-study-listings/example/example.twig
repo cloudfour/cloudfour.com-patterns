@@ -100,15 +100,13 @@
         <div class="intro">
           <p class="c-heading--level-3">More clients we’ve worked with</p>
         </div>
-        <div class="u-pad-block-start-6 u-pad-inline-6">
-          {% embed '@cloudfour/objects/logo-group/logo-group.twig' %}
-            {% block content %}
-              {% for logo in logos %}
-                <img src="{{ logo.image }}" alt="{{ logo.title }}">
-              {% endfor %}
-            {% endblock %}
-          {% endembed %}
-        </div>
+        {% embed '@cloudfour/objects/logo-group/logo-group.twig' %}
+          {% block content %}
+            {% for logo in logos %}
+              <img src="{{ logo.image }}" alt="{{ logo.title }}">
+            {% endfor %}
+          {% endblock %}
+        {% endembed %}
       </div>
 
     </div>

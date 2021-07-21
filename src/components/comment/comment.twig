@@ -114,7 +114,7 @@
     {% set _section_heading_depth = min(_heading_depth + 1, 6) %}
 
     {% if allow_replies %}
-      <div class="c-comment__reply-form js-comment-reply-form" hidden>
+      <div class="c-comment__reply-form js-comment-reply-form">
         {% include '@cloudfour/components/comment-form/comment-form.twig' with {
           is_reply: true,
           logged_in_user: logged_in_user,

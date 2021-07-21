@@ -17,7 +17,6 @@ export const initCommentsWithRepliesEnabled = () => {
     replyButton?.addEventListener('click', () => {
       comment.classList.add('is-replying');
       replyButton.setAttribute('hidden', '');
-      replyForm?.removeAttribute('hidden');
       const firstInput = replyForm?.querySelector(
         'textarea, input'
       ) as HTMLElement | null;
@@ -35,7 +34,6 @@ export const initCommentsWithRepliesEnabled = () => {
     cancelButton?.addEventListener('click', () => {
       comment.classList.remove('is-replying');
       replyButton?.removeAttribute('hidden');
-      replyForm?.setAttribute('hidden', '');
     });
   }
 };

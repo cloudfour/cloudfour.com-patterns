@@ -34,7 +34,6 @@ test(
 
     await initCommentsJs(utils);
 
-    const comment = await screen.getByRole('article');
     const form = await screen.getByRole('form', { hidden: true });
     const replyButton = await screen.getByRole('button', {
       name: /reply/i,
@@ -42,7 +41,6 @@ test(
 
     // Initial state: reply form is hidden
     await expect(form).not.toBeVisible();
-    await expect(comment).not.toHaveClass('is-replying');
 
     await user.click(replyButton);
 
@@ -50,7 +48,6 @@ test(
     await expect(form).toBeVisible();
     // Reply button is hidden
     await expect(replyButton).not.toBeVisible();
-    await expect(comment).toHaveClass('is-replying');
     // The first input or textarea should be focused.
     // (In practice this will always be a textarea, but if the form is
     // changed to lead with an input in the future, and that input is selected,
@@ -67,6 +64,5 @@ test(
     // Back to our initial state
     await expect(form).not.toBeVisible();
     await expect(replyButton).toBeVisible();
-    await expect(comment).not.toHaveClass('is-replying');
   })
 );

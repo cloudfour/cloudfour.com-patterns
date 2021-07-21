@@ -43,6 +43,15 @@
   }
 }
 
+/// Comment reply forms are hidden until someone starts a reply.
+.c-comment__reply-form {
+  display: none;
+}
+
+.c-comment.is-replying .c-comment__reply-form {
+  display: block;
+}
+
 /// Named object for consistency with the Media component.
 .c-comment__object {
   grid-area: object;

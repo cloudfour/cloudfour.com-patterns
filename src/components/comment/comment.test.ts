@@ -6,8 +6,9 @@ import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 const commentMarkup = loadTwigTemplate(path.join(__dirname, 'comment.twig'));
 const initCommentsJs = (utils: PleasantestUtils) =>
   utils.runJS(`
-    import { initCommentsWithRepliesEnabled } from './comment';
-    initCommentsWithRepliesEnabled();
+    import { initCommentReplyForm } from './comment';
+
+    initCommentReplyForm(document.querySelector('.js-comment-with-reply-form'));
   `);
 
 test(

@@ -1,12 +1,6 @@
 @use "../../compiled/tokens/scss/size";
 @use '../../mixins/ms';
 
-/**
- * Because there is generous spacing between the logos, we added a lot of white
- * space around Logo Group to help balance the pattern visually. Including the
- * spacing as part of the pattern means we don't need to rely on utilities.
- */
-
 .o-logo-group {
   align-items: center;
   display: flex;
@@ -14,7 +8,14 @@
   justify-content: center;
 }
 
+/**
+ * 1. Because there is generous spacing between the logos, we added a lot of
+ *    white space around Logo Group to help balance the pattern visually.
+ *    Including the spacing as part of the pattern means we don't need to rely
+ *    on utilities.
+ */
+
 .o-logo-group > * {
-  margin: ms.step(3);
+  margin: size.$spacing-gap-logo-group; /* 1 */
   width: size.$width-logo-group-item-width;
 }

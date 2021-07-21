@@ -1,7 +1,7 @@
 const { src, dest } = require('gulp');
 const outDir = 'dist';
 
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');

@@ -29,6 +29,12 @@ module.exports = {
           comment: 'The minimum space to display a default card in a grid.',
         },
       },
+      logo_group: {
+        item_width: {
+          value: '9em',
+          comment: 'The width of individual logos in the logo group.',
+        },
+      },
     },
     square: {
       avatar: {

@@ -25,6 +25,7 @@ export const initCommentsWithRepliesEnabled = () => {
       // (though it works outside of VoiceOver).
       // With this timeout, iOS doesn't show the keyboard, since iOS will only
       // show the keyboard in direct response to a user action.
+      // By doing it with and without a timeout we can make both work.
       firstInput?.focus()
       setTimeout(() => firstInput?.focus(), 0);
     });

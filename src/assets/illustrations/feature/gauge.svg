@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <g>
+    <g>
+      <rect width="800" height="450" fill="#f2f5f7" />
+      <g>
+        <line x1="400" y1="10" x2="400" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="320" y1="10" x2="320" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="240" y1="10" x2="240" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="160" y1="10" x2="160" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="80" y1="10" x2="80" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="720" y1="10" x2="720" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="640" y1="10" x2="640" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="560" y1="10" x2="560" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="480" y1="10" x2="480" y2="440" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="10.18" y1="225" x2="790" y2="225" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="10.18" y1="300" x2="790" y2="300" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="10.18" y1="375" x2="790" y2="375" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="10.18" y1="150" x2="790" y2="150" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <line x1="10.18" y1="75" x2="790" y2="75" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+      </g>
+      <circle cx="400" cy="225" r="200" fill="none" stroke="#f2f5f7" stroke-linecap="round" stroke-miterlimit="10"
+        stroke-width="18" />
+      <circle cx="400" cy="225" r="200" fill="none" stroke="#c0cfd8" stroke-linecap="round" stroke-miterlimit="10"
+        stroke-width="12" />
+      <g>
+        <circle cx="90" cy="90" r="70" fill="#f2f5f7" stroke="#f2f5f7" stroke-miterlimit="10" stroke-width="10" />
+        <circle cx="90" cy="90" r="70" fill="none" stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="4" />
+        <circle cx="90" cy="90" r="32.67" transform="translate(-3.99 4.17) rotate(-2.6)" fill="none" stroke="#c0cfd8"
+          stroke-miterlimit="10" stroke-width="2" />
+        <circle cx="90" cy="90" r="23.33" fill="none" stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="2" />
+        <path d="M107.85,35.06q12.89,2.17,20.17,9.47t9.22,19.93" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M109.45,43.82q8.14,1.27,12.81,6t6,13" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M68.05,139q-12.88-2.17-20.18-9.47t-9.22-19.92" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M66.45,130.25q-8.16-1.27-12.81-6t-6-13" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+      </g>
+      <g>
+        <circle cx="710" cy="90" r="70" fill="#f2f5f7" stroke="#f2f5f7" stroke-miterlimit="10" stroke-width="10" />
+        <circle cx="710" cy="90" r="70" fill="none" stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="4" />
+        <circle cx="710" cy="90" r="32.67" transform="translate(-3.35 32.27) rotate(-2.6)" fill="none" stroke="#c0cfd8"
+          stroke-miterlimit="10" stroke-width="2" />
+        <circle cx="710" cy="90" r="23.33" fill="none" stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="2" />
+        <path d="M727.85,35.06q12.89,2.17,20.17,9.47t9.22,19.93" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M729.45,43.82q8.14,1.27,12.81,6t6,13" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M688.05,139q-12.88-2.17-20.18-9.47t-9.22-19.92" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M686.45,130.25q-8.16-1.27-12.81-6t-6-13" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+      </g>
+      <g>
+        <circle cx="90" cy="360" r="70" fill="#f2f5f7" stroke="#f2f5f7" stroke-miterlimit="10" stroke-width="10" />
+        <circle cx="90" cy="360" r="70" fill="none" stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="4" />
+        <circle cx="90" cy="360" r="32.67" transform="translate(-16.22 4.45) rotate(-2.6)" fill="none" stroke="#c0cfd8"
+          stroke-miterlimit="10" stroke-width="2" />
+        <circle cx="90" cy="360" r="23.33" fill="none" stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="2" />
+        <path d="M107.85,305.06q12.89,2.18,20.17,9.47t9.22,19.93" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M109.45,313.82q8.14,1.28,12.81,6t6,13" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M68.05,409q-12.88-2.17-20.18-9.47t-9.22-19.92" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M66.45,400.25q-8.16-1.28-12.81-6t-6-13" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+      </g>
+      <g>
+        <circle cx="710" cy="360" r="70" fill="#f2f5f7" stroke="#f2f5f7" stroke-miterlimit="10" stroke-width="10" />
+        <circle cx="710" cy="360" r="70" fill="none" stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="4" />
+        <circle cx="710" cy="360" r="32.67" transform="translate(-15.58 32.54) rotate(-2.6)" fill="none"
+          stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="2" />
+        <circle cx="710" cy="360" r="23.33" fill="none" stroke="#c0cfd8" stroke-miterlimit="10" stroke-width="2" />
+        <path d="M727.85,305.06q12.89,2.18,20.17,9.47t9.22,19.93" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M729.45,313.82q8.14,1.28,12.81,6t6,13" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M688.05,409q-12.88-2.17-20.18-9.47t-9.22-19.92" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+        <path d="M686.45,400.25q-8.16-1.28-12.81-6t-6-13" fill="none" stroke="#c0cfd8" stroke-linecap="round"
+          stroke-miterlimit="10" stroke-width="2" />
+      </g>
+      <circle cx="400" cy="225" r="120" fill="#f2f5f7" stroke="#f2f5f7" stroke-miterlimit="10" stroke-width="16" />
+      <g>
+        <path
+          d="M760.31,413.62A44.5,44.5,0,0,0,746.66,411a15.61,15.61,0,0,0-1-3.41c-6.09-15.06-26.09-23.91-46.23-19.35-13,3-22.65,10.73-26.34,20a40.11,40.11,0,0,0-20.23,5.72c-13.51,8.3-21.26,23.15-20.54,36.09h157C789.44,435.31,777.84,419.89,760.31,413.62Z"
+          fill="#c0cfd8" />
+        <path
+          d="M800,354.48a47.42,47.42,0,0,0-26.31-8c-25,0-45.69,19.63-49.55,45.32h-.65c-29.43-.93-46.12,21.45-46.12,47.9A42.3,42.3,0,0,0,678.59,450H800Z"
+          fill="#fff" fill-rule="evenodd" />
+      </g>
+    </g>
+  </g>
+  <g>
+    <g>
+      <circle cx="400" cy="225" r="120" fill="#d9118f" />
+      <g>
+        <path
+          d="M400,111A114,114,0,0,0,287.08,240.7a4,4,0,0,0,4.66,3.39L332.15,237a4,4,0,0,0,3.3-4.37,64.91,64.91,0,0,1,32.05-63.87A64.65,64.65,0,0,1,400,160Z"
+          fill="#ff80ca" />
+        <path d="M457,126.26a114.12,114.12,0,0,0-114,0l24.51,42.46A65,65,0,0,1,465,225h49A114,114,0,0,0,457,126.26Z"
+          fill="#feb3df" />
+        <path
+          d="M465,225a65.55,65.55,0,0,1-.45,7.59,4,4,0,0,0,3.3,4.37l40.41,7.13a4,4,0,0,0,4.66-3.39A114.1,114.1,0,0,0,457,126.26L432.5,168.72A64.94,64.94,0,0,1,465,225Z"
+          fill="#fff" />
+      </g>
+      <g>
+        <path d="M400.57,215.31l61.16-37.19s3.75-2.35,5.56.26-.78,4.8-1.72,5.48L407,229.68Z" fill="#5c0a5c" />
+        <circle cx="400" cy="225" r="24" fill="#5c0a5c" />
+      </g>
+    </g>
+  </g>
+</svg>

@@ -3,7 +3,7 @@ export const initCommentsWithRepliesEnabled = () => {
     '.js-comment-with-replies-enabled'
   );
 
-  for (const comment of [...commentsWithRepliesEnabled]) {
+  for (const comment of commentsWithRepliesEnabled) {
     const replyButton = comment.querySelector('.js-comment-reply-button');
     const replyForm = comment.querySelector('.js-comment-reply-form');
     // The cancel button is inside the Comment Form, so we need to reach inside

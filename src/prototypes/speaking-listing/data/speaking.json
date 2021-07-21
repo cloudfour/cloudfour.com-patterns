@@ -33,7 +33,8 @@
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/10/the-path-forward.jpg",
-    "description": "Presented at An Event Apart, Portland Digital Summit, PADNU + 2 more"
+    "description": "Presented at An Event Apart, Portland Digital Summit, PADNU",
+    "more": "+ 2 more"
   },
   {
     "title": "SVG: So Very Good",
@@ -42,7 +43,8 @@
     "author": "Tyler Sticka",
     "avatar": "https://cloudfour.com/wp-content/uploads/2017/06/tyler-128x128-c-default.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/08/svg-slide-1.png",
-    "description": "Presented at Smashing Conference, Open Source Bridge, CascadiaFest + 1 more"
+    "description": "Presented at Smashing Conference, Open Source Bridge, CascadiaFest",
+    "more": "+ 1 more"
   },
   {
     "title": "Responsive images are here. Now what?",
@@ -69,7 +71,8 @@
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/being-responsive.jpg",
-    "description": "Presented at Federal Reserve UX Summit, Gore UX Summit, Epic Systems + 1 more"
+    "description": "Presented at Federal Reserve UX Summit, Gore UX Summit, Epic Systems",
+    "more": "+ 1 more"
   },
   {
     "title": "The virtuoso generalist",
@@ -87,7 +90,8 @@
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/adaptive-input.jpg",
-    "description": "Presented at UX Mobile Immersion, Refresh PDX, Beyond the Desktop + 5 more"
+    "description": "Presented at UX Mobile Immersion, Refresh PDX, Beyond the Desktop",
+    "more": "+ 5 more"
   },
   {
     "title": "Mobile First Responsive Design",
@@ -96,7 +100,8 @@
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/mobile-first.jpg",
-    "description": "Presented at An Event Apart, User Experience Lisbon, Respond + 6 more"
+    "description": "Presented at An Event Apart, User Experience Lisbon, Respond",
+    "more": "+ 6 more"
   },
   {
     "title": "Side Projects That Ships",
@@ -114,7 +119,8 @@
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/immobile-web-16-9.jpg",
-    "description": "Presented at An Event Apart, UX Mobile Immersion, Breaking Development + 2 more"
+    "description": "Presented at An Event Apart, UX Mobile Immersion, Breaking Development",
+    "more": "+ 2 more"
   },
   {
     "title": "PhoneGap Self Defense for Web Developers",
@@ -150,7 +156,8 @@
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/desktop-shackles.jpg",
-    "description": "Presented at WebVisions, Talk at HP, BeerMob + 2 more"
+    "description": "Presented at WebVisions, Talk at HP, BeerMob",
+    "more": "+ 2 more"
   },
   {
     "title": "The Essence of Content of the Future Web",
@@ -177,7 +184,8 @@
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/iStock_000001555960Medium.jpg",
-    "description": "Presented at MIMA Summit, OCCA, Innotech + 7 more"
+    "description": "Presented at MIMA Summit, OCCA, Innotech",
+    "more": "+ 7 more"
   },
   {
     "title": "Cup Noodle Ignite Talk",
@@ -186,6 +194,7 @@
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
     "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/freeze-drying.jpg",
-    "description": "Presented at Google Zeitgeist, Web 2.0 Expo, Gnomedex + 1 more"
+    "description": "Presented at Google Zeitgeist, Web 2.0 Expo, Gnomedex",
+    "more": "+ 1 more"
   }
 ]

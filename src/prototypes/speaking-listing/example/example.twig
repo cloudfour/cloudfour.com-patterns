@@ -35,11 +35,7 @@
               {% endblock %}
               {% block content %}
                 <p>
-                  {% if article.description|length > 140 %}
-                    {{item.description|slice(0, 140)|trim}}…
-                  {% else %}
-                    {{item.description}}
-                  {% endif %}
+                  {{item.description}} {% if item.more %}<span class="more-text">{{item.more}}</span>{% endif %}
                 </p>
               {% endblock %}
               {% block footer %}

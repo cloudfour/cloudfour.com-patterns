@@ -6,5 +6,8 @@
 @use "../../../mixins/ms";
 
 #speaking-listing {
-
+  .more-text {
+    color: #{color.$brand-primary};
+    white-space: nowrap;
+  }
 }

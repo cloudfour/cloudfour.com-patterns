@@ -1,4 +1,13 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
+// okay with the following Webpack-specific raw loader syntax. It's better to leave
+// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
+// within a Storybook docs page and not within an actual component).
+// This can be revisited in the future if Storybook no longer relies on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import basicDemoSource from '!!raw-loader!./demo/basic.twig';
 import basicDemo from './demo/basic.twig';
 import data from './demo/data.json';
 
@@ -44,7 +53,10 @@ The `c-table` class applies default styling to HTML `table` elements.
 A table can optionally have a header, a footer, and a caption.
 
 <Canvas>
-  <Story name="Basic">
+  <Story
+    name="Basic"
+    parameters={{ docs: { source: { code: basicDemoSource } } }}
+  >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
@@ -54,7 +66,11 @@ A table can optionally have a header, a footer, and a caption.
 The `c-table--ruled` modifier adds horizontal rules in between table rows.
 
 <Canvas>
-  <Story name="Ruled" args={{ isRuled: true }}>
+  <Story
+    name="Ruled"
+    args={{ isRuled: true }}
+    parameters={{ docs: { source: { code: basicDemoSource } } }}
+  >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
@@ -64,7 +80,11 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
 The `c-table--striped` modifier adds alternating background colors to table rows.
 
 <Canvas>
-  <Story name="Striped" args={{ isStriped: true }}>
+  <Story
+    name="Striped"
+    args={{ isStriped: true }}
+    parameters={{ docs: { source: { code: basicDemoSource } } }}
+  >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
@@ -80,7 +100,11 @@ compare cells across a column.
 These changes can be achieved by adding c-table--numeric to the table.
 
 <Canvas>
-  <Story name="Numeric Data" args={{ numericData: true }}>
+  <Story
+    name="Numeric Data"
+    args={{ numericData: true }}
+    parameters={{ docs: { source: { code: basicDemoSource } } }}
+  >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>

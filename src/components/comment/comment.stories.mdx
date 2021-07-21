@@ -10,8 +10,18 @@ const tyler = {
   link: 'https://cloudfour.com/is/tyler',
 };
 const initCommentReplyForms = () => {
-  initCommentReplyForm(document.querySelector('.js-comment-with-reply-form'));
-  createElasticTextArea(document.querySelector('.js-elastic-textarea'));
+  const textAreaEl = document.querySelector('.js-elastic-textarea');
+  const commentReplyFormEl = document.querySelector(
+    '.js-comment-with-reply-form'
+  );
+  if (textAreaEl && commentReplyFormEl) {
+    const textareaInstance = createElasticTextArea(textAreaEl);
+    const commentReplyFormInstance = initCommentReplyForm(commentReplyFormEl);
+    return () => {
+      textareaInstance.destroy();
+      commentReplyFormInstance.destroy();
+    };
+  }
 };
 
 <Meta
@@ -68,7 +78,7 @@ This information may be passed to the component as a `comment` object matching t
   >
     {(args) => {
       useEffect(() => {
-        initCommentReplyForms();
+        return initCommentReplyForms();
       });
       return template({
         comment: makeComment(),
@@ -103,7 +113,7 @@ It is helpful for context within a discussion to know when a commentor is the or
   >
     {(args) => {
       useEffect(() => {
-        initCommentReplyForms();
+        return initCommentReplyForms();
       });
       return template({
         comment: makeComment(),
@@ -135,7 +145,7 @@ It is helpful for context within a discussion to know when a commentor is the or
   >
     {(args) => {
       useEffect(() => {
-        initCommentReplyForms();
+        return initCommentReplyForms();
       });
       return template({
         comment: makeComment(),
@@ -172,7 +182,7 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
   >
     {(args) => {
       useEffect(() => {
-        initCommentReplyForms();
+        return initCommentReplyForms();
       });
       return template({
         comment: makeComment({
@@ -212,7 +222,7 @@ Additionally, a `source` object may be passed to the template consisting of a `u
   >
     {(args) => {
       useEffect(() => {
-        initCommentReplyForms();
+        return initCommentReplyForms();
       });
       return template({
         comment: makeComment(),
@@ -258,7 +268,7 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
   >
     {(args) => {
       useEffect(() => {
-        initCommentReplyForms();
+        return initCommentReplyForms();
       });
       return template({
         comment: makeComment(),
@@ -299,7 +309,7 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
   >
     {(args) => {
       useEffect(() => {
-        initCommentReplyForms();
+        return initCommentReplyForms();
       });
       return template({
         comment: makeComment({ replies: 2 }),
@@ -336,10 +346,15 @@ You can run `initCommentReplyForm` to initialize a comment's reply form. Comment
 ```js
 import { initCommentReplyForm } from 'path/to/comment.js';
 
-const comments = document.querySelectorAll('.js-comment-with-reply-form');
-for (const comment of comments) {
-  initCommentReplyForm(comment);
+const comment = document.querySelector('.js-comment-with-reply-form');
+const replyformInstance = initCommentReplyForm(comment);
 }
+```
+
+It also returns an object containing a `destroy()` method, if you need to remove the event listener.
+
+```js
+comment.destroy();
 ```
 
 The Comment reply form also includes the [Elastic Textarea component](/docs/components-input--elastic-textarea). See the Elastic Textarea component for JavaScript setup details.

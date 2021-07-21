@@ -23,18 +23,16 @@ export const initCommentsWithRepliesEnabled = () => {
 
       // Without this timeout, VoiceOver does not properly focus the first input
       // (though it works outside of VoiceOver).
-      // I went back and forth on whether or not to force this behavior in
-      // VoiceOver, since it will skip them past context around the comment
-      // (e.g. you may use simple HTML or markdown).
-      // I ended up adding this timeout to force the focus so that we provide
-      // an equivalent experience for all users.
+      // With this timeout, iOS doesn't show the keyboard, since iOS will only
+      // show the keyboard in direct response to a user action.
+      firstInput?.focus()
       setTimeout(() => firstInput?.focus(), 0);
     });
 
     cancelButton?.addEventListener('click', () => {
       comment.classList.remove('is-replying');
       replyButton?.removeAttribute('hidden');
-      // Similar to above, we use a timeout to force the focus.
+      // Similar to above, we use a timeout to force the focus in VoiceOver.
       setTimeout(() => replyButton?.focus(), 0);
     });
   }

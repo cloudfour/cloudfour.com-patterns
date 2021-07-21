@@ -61,8 +61,9 @@ test(
     });
     await user.click(cancelButton);
 
-    // Back to our initial state
+    // Back to our initial state, though now the reply button is focused.
     await expect(form).not.toBeVisible();
     await expect(replyButton).toBeVisible();
+    await expect(replyButton).toHaveFocus();
   })
 );

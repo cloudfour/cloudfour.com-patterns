@@ -1,7 +1,6 @@
 [
   {
     "title": "Designing Progressive Web Apps",
-    "pubDate": "2020-11-19 17:28:54",
     "link": "https://cloudfour.com/presents/designing-progressive-web-apps/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -10,7 +9,6 @@
   },
   {
     "title": "Web Forms: Now You See Them, Now You Don’t!",
-    "pubDate": "2020-11-17 08:30:14",
     "link": "https://cloudfour.com/presents/web-forms-now-you-see-them-now-you-dont/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -19,7 +17,6 @@
   },
   {
     "title": "What is Modular CSS",
-    "pubDate": "2020-10-30 08:00:21",
     "link": "https://cloudfour.com/thinks/perfectly-broken-code/",
     "author": "Scott Vandehey",
     "avatar": "https://cloudfour.com/wp-content/uploads/2019/03/scott.png",
@@ -28,7 +25,6 @@
   },
   {
     "title": "The Case for Progressive Web Apps",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/why-you-should-build-a-progressive-web-app-now/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -38,7 +34,6 @@
   },
   {
     "title": "SVG: So Very Good",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/svg-so-very-good/",
     "author": "Tyler Sticka",
     "avatar": "https://cloudfour.com/wp-content/uploads/2017/06/tyler-128x128-c-default.png",
@@ -48,7 +43,6 @@
   },
   {
     "title": "Responsive images are here. Now what?",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/responsive-images-are-here-now-what",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -57,7 +51,6 @@
   },
   {
     "title": "Adapting to Input",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/adapting-to-input/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -66,7 +59,6 @@
   },
   {
     "title": "Being Responsive",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/being-responsive/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -76,7 +68,6 @@
   },
   {
     "title": "The virtuoso generalist",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/the-virtuoso-generalist/",
     "author": "Lyza Gardner",
     "avatar": "https://cloudfour.com/wp-content/uploads/2019/02/cloudfour-avatar-default-blue.png",
@@ -85,7 +76,6 @@
   },
   {
     "title": "Adaptive Input",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/adaptive-input/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -95,7 +85,6 @@
   },
   {
     "title": "Mobile First Responsive Design",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/mobile-first-responsive-design/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -105,7 +94,6 @@
   },
   {
     "title": "Side Projects That Ships",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/side-projects-that-ship/",
     "author": "Tyler Sticka",
     "avatar": "https://cloudfour.com/wp-content/uploads/2017/06/tyler-128x128-c-default.png",
@@ -114,7 +102,6 @@
   },
   {
     "title": "The Immobile Web",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/the-immobile-web/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -124,7 +111,6 @@
   },
   {
     "title": "PhoneGap Self Defense for Web Developers",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/phonegap-self-defense-for-web-developers/",
     "author": "Lyza Gardner",
     "avatar": "https://cloudfour.com/wp-content/uploads/2019/02/cloudfour-avatar-default-blue.png",
@@ -133,7 +119,6 @@
   },
   {
     "title": "Mobile Media Panel",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/mobile-media-images-video-audio-and-webrtc/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -142,7 +127,6 @@
   },
   {
     "title": "The Most Common Denominator",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/the-most-common-denominator-supporting-more-sucking-less/",
     "author": "Lyza Gardner",
     "avatar": "https://cloudfour.com/wp-content/uploads/2019/02/cloudfour-avatar-default-blue.png",
@@ -151,7 +135,6 @@
   },
   {
     "title": "Casting Off Our Desktop Shackles",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/casting-off-our-desktop-shackles/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -161,7 +144,6 @@
   },
   {
     "title": "The Essence of Content of the Future Web",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/performance-implications-of-responsive-design/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -170,7 +152,6 @@
   },
   {
     "title": "Responsive Design Performance",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/cutting-through-the-crap-the-essence-of-content-on-the-future-web/",
     "author": "Lyza Gardner",
     "avatar": "https://cloudfour.com/wp-content/uploads/2019/02/cloudfour-avatar-default-blue.png",
@@ -179,7 +160,6 @@
   },
   {
     "title": "DOs and DONTs of Mobile Strategy",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/get-me-a-mobile-strategy-of-youre-fired/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
@@ -189,7 +169,6 @@
   },
   {
     "title": "Cup Noodle Ignite Talk",
-    "pubDate": "2020-10-19 15:44:36",
     "link": "https://cloudfour.com/presents/cup-noodle-innovation-inspiration-and-manga/",
     "author": "Jason Grigsby",
     "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",

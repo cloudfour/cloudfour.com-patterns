@@ -19,7 +19,8 @@ test(
   'can be opened on small screens',
   withBrowser({ device: iPhone }, async ({ utils, screen, user }) => {
     await utils.injectHTML(await skyNavMarkup({ includeMainDemo: true, menu }));
-    await loadGlobalCSS(utils);    const navButton = await screen.getByRole('button', {
+    await loadGlobalCSS(utils);
+    const navButton = await screen.getByRole('button', {
       name: /toggle main menu/i,
     });
     await initSkyNavJS(utils, navButton);

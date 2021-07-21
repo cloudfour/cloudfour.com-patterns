@@ -28,14 +28,14 @@ export const initCommentReplyForm = (comment: HTMLElement) => {
     // By doing it with and without a timeout we can make both work.
     firstInput?.focus();
     setTimeout(() => firstInput?.focus(), 0);
-  }
+  };
 
   const hide = () => {
     comment.classList.remove('is-replying');
     replyButton?.removeAttribute('hidden');
     // Similar to above, we use a timeout to force the focus in VoiceOver.
     setTimeout(() => replyButton?.focus(), 0);
-  }
+  };
 
   replyButton?.addEventListener('click', show);
   cancelButton?.addEventListener('click', hide);
@@ -43,7 +43,7 @@ export const initCommentReplyForm = (comment: HTMLElement) => {
   const destroy = () => {
     replyButton?.removeEventListener('click', show);
     cancelButton?.removeEventListener('click', hide);
-  }
+  };
 
   return { destroy };
 };

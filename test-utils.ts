@@ -21,4 +21,4 @@ export const loadTwigTemplate = (templatePath: string) => {
 
 export const loadGlobalCSS = async (utils: PleasantestUtils) => {
   await utils.loadCSS('../../../dist/standalone.css');
-}
+};

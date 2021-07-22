@@ -1,0 +1,29 @@
+[
+  {
+    "event": "An Event Apart",
+    "location": "Nashville, TN",
+    "speaker": "Jason",
+    "date": "2020-03-14",
+    "note": "3 day event"
+  },
+  {
+    "event": "An Event Apart",
+    "location": "Seattle, WA",
+    "speaker": "Jason",
+    "date": "2020-04-14",
+    "note": "3 day event"
+  },
+  {
+    "event": "Front End PDX",
+    "location": "Portland, OR",
+    "speaker": "Tyler",
+    "date": "2020-04-12"
+  },
+  {
+    "event": "Smashing Conference",
+    "location": "New York, NY",
+    "speaker": "Jason",
+    "date": "2020-06-14",
+    "note": "2 day event"
+  }
+]

@@ -1,8 +1,35 @@
 @use "../../../compiled/tokens/scss/color";
+@use "../../../compiled/tokens/scss/ease";
+@use "../../../compiled/tokens/scss/scale";
+@use "../../../compiled/tokens/scss/transition";
 
 #speaking-listing {
   .more-text {
     color: #{color.$brand-primary};
     white-space: nowrap;
+  }
+
+  .media-link {
+    text-decoration: none;
+  }
+
+  .media-link {
+    color: #{color.$text-dark};
+  }
+
+  .media-link h3 {
+    color: #{color.$brand-primary};
+  }
+
+  .media-link:hover h3 {
+    text-decoration: underline;
+  }
+
+  .media-link .o-media__object {
+    transition: transform transition.$quick ease.$out;
+  }
+
+  .media-link:hover .o-media__object {
+    transform: scale(scale.$effect-grow);
   }
 }

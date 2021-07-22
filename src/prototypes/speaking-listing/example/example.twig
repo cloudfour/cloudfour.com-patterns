@@ -18,38 +18,75 @@
   {% endembed %}
   <div class="o-container o-container--pad">
     <div class="o-container__content">
-      {% embed '@cloudfour/objects/deck/deck.twig' with {
-        class: 'o-deck--3-column@l'
-      } %}
+      {% embed '@cloudfour/objects/rhythm/rhythm.twig' %}
         {% block content %}
-          {% for item in speaking %}
-            {% embed '@cloudfour/components/card/card.twig' with {
-              class: _card_class,
-              href: item.link
-            } %}
-              {% block heading %}
-                {{item.title}}
-              {% endblock %}
-              {% block cover %}
-                <img src="{{item.thumbnail}}" alt="">
-              {% endblock %}
-              {% block content %}
-                <p>
-                  {{item.description}} {% if item.more %}<span class="more-text">{{item.more}}</span>{% endif %}
-                </p>
-              {% endblock %}
-              {% block footer %}
-                <div class="c-author o-media">
-                  <div class="o-media__object">
-                    {% include '@cloudfour/components/avatar/avatar.twig' with { src: item.avatar } only %}
-                  </div>
-                  <div class="o-media__content">
-                    <p<a href="#">{{item.author}}</a></p>
-                  </div>
-                </div>
-              {% endblock %}
-            {% endembed %}
-          {% endfor %}
+          {% include '@cloudfour/components/heading/heading.twig' with {
+            level: -1,
+            tag_name: 'h2',
+            content: 'Future Events',
+          } only %}
+          {% embed '@cloudfour/objects/deck/deck.twig' with {
+            class: 'o-deck--3-column@l'
+          } %}
+            {% block content %}
+              {% for item in future %}
+                <a href="#" class="media-link">
+                {% embed '@cloudfour/objects/media/media.twig' with { reverse_markup: true } %}
+                  {% block object %}
+                    {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
+                      datetime: item.date,
+                      note: item.note
+                    } only %}
+                  {% endblock %}
+                  {% block content %}
+                    <h3>{{item.event}}</h3>
+                    <p>{{item.location}}</p>
+                    <p>Speaker: {{item.speaker}}</p>
+                  {% endblock %}
+                {% endembed %}
+                </a>
+              {% endfor %}
+            {% endblock %}
+          {% endembed %}
+          {% include '@cloudfour/components/heading/heading.twig' with {
+            level: -1,
+            tag_name: 'h2',
+            content: 'Our Talks',
+          } only %}
+          {% embed '@cloudfour/objects/deck/deck.twig' with {
+            class: 'o-deck--3-column@l'
+          } %}
+            {% block content %}
+              {% for item in speaking %}
+                {% embed '@cloudfour/components/card/card.twig' with {
+                  class: _card_class,
+                  href: item.link
+                } %}
+                  {% block heading %}
+                    {{item.title}}
+                  {% endblock %}
+                  {% block cover %}
+                    <img src="{{item.thumbnail}}" alt="">
+                  {% endblock %}
+                  {% block content %}
+                    <p>
+                      {{item.description}} {% if item.more %}<span class="more-text">{{item.more}}</span>{% endif %}
+                    </p>
+                  {% endblock %}
+                  {% block footer %}
+                    <div class="c-author o-media">
+                      <div class="o-media__object">
+                        {% include '@cloudfour/components/avatar/avatar.twig' with { src: item.avatar } only %}
+                      </div>
+                      <div class="o-media__content">
+                        <p<a href="#">{{item.author}}</a></p>
+                      </div>
+                    </div>
+                  {% endblock %}
+                {% endembed %}
+              {% endfor %}
+            {% endblock %}
+          {% endembed %}
         {% endblock %}
       {% endembed %}
     </div>

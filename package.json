@@ -133,7 +133,7 @@
     "clean": "eliminate dist",
     "type": "tsc",
     "type:watch": "tsc --watch",
-    "lint": "run-s lint:*",
+    "lint": "run-s lint:js lint:css lint:prettier",
     "lint:check": "run-s lint:*:check",
     "lint:js": "eslint . --fix",
     "lint:js:check": "eslint .",

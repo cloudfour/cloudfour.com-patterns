@@ -66,12 +66,9 @@ This information may be passed to the component as a `comment` object matching t
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/comment-form/comment-form.twig',
-            {
-              comment: makeComment(),
-            }
-          ),
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+          }),
         },
       },
     }}
@@ -100,13 +97,10 @@ It is helpful for context within a discussion to know when a commentor is the or
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/comment-form/comment-form.twig',
-            {
-              comment: makeComment(),
-              demo_post_author: true,
-            }
-          ),
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+            demo_post_author: true,
+          }),
         },
       },
     }}
@@ -132,13 +126,10 @@ It is helpful for context within a discussion to know when a commentor is the or
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/comment-form/comment-form.twig',
-            {
-              comment: makeComment(),
-              demo_cloud_four_member: true,
-            }
-          ),
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+            demo_cloud_four_member: true,
+          }),
         },
       },
     }}
@@ -168,14 +159,11 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/comment-form/comment-form.twig',
-            {
-              comment: makeComment({
-                approved: false,
-              }),
-            }
-          ),
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment({
+              approved: false,
+            }),
+          }),
         },
       },
     }}
@@ -206,16 +194,13 @@ Additionally, a `source` object may be passed to the template consisting of a `u
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/comment-form/comment-form.twig',
-            {
-              comment: makeComment(),
-              source: {
-                url: 'https://twitter.com/smashingmag/status/1371521325236416516',
-                name: 'twitter.com',
-              },
-            }
-          ),
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+            source: {
+              url: 'https://twitter.com/smashingmag/status/1371521325236416516',
+              name: 'twitter.com',
+            },
+          }),
         },
       },
     }}
@@ -253,15 +238,12 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/comment-form/comment-form.twig',
-            {
-              comment: makeComment(),
-              allow_replies: true,
-              logged_in_user: tyler,
-              log_out_url: '/logout',
-            }
-          ),
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+            allow_replies: true,
+            logged_in_user: tyler,
+            log_out_url: '/logout',
+          }),
         },
       },
     }}
@@ -295,14 +277,11 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/comment-form/comment-form.twig',
-            {
-              comment: makeComment({
-                replies: 2,
-              }),
-            }
-          ),
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment({
+              replies: 2,
+            }),
+          }),
         },
       },
     }}

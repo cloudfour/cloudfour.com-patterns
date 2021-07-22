@@ -62,7 +62,7 @@ The form used to add a comment to an article. Including the `heading_id` and `he
   </Story>
 </Canvas>
 
-There is also a reply version of this component (`is_reply: true`), used to reply to an existing comment. (You'll also want to modify `heading_tag`, `heading_id`, `heading_class`, `heading_text`, `main_label`, and `wrap_help_text_in_alert`. When using the [Comment pattern](/docs/components-comment--with-reply-button) this will be done automatically.)
+There is also a reply version of this component (`is_reply: true`), used to reply to an existing comment. (You'll also want to modify `heading_tag`, `heading_id`, `heading_class`, `heading_text`, and `main_label`. When using the [Comment pattern](/docs/components-comment--with-reply-button) this will be done automatically.)
 
 <Canvas>
   <Story
@@ -82,7 +82,6 @@ There is also a reply version of this component (`is_reply: true`), used to repl
               heading_text: 'Reply to John Doe',
               heading_class: 'u-hidden-visually',
               main_label: 'Reply',
-              wrap_help_text_in_alert: true,
             }
           ),
         },
@@ -105,7 +104,6 @@ There is also a reply version of this component (`is_reply: true`), used to repl
         heading_text: 'Reply to John Doe',
         heading_class: 'u-hidden-visually',
         main_label: 'Reply',
-        wrap_help_text_in_alert: true,
       });
     }}
   </Story>
@@ -120,7 +118,6 @@ There is also a reply version of this component (`is_reply: true`), used to repl
 - `heading_class`: An optional class for your heading.
 - `heading_id`: A unique ID for your help text. This will be used as the accessible description for the reply textarea.
 - `main_label`: The label for the primary message textarea. Defaults to `message`
-- `wrap_help_text_in_alert`: Wraps the help text in the promo in an [Alert](/docs/components-alert--basic)
 - `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
 
   ```ts

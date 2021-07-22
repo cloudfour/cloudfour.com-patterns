@@ -1,8 +1,42 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { makeComment } from './demo/data.ts';
 import template from './comment.twig';
+import { initCommentReplyForm } from './comment.ts';
+import { createElasticTextArea } from '../input/elastic-textarea.ts';
+import { useEffect } from '@storybook/client-api';
+import { makeTwigInclude } from '../../make-twig-include';
+const tyler = {
+  name: 'Tyler Sticka',
+  link: 'https://cloudfour.com/is/tyler',
+};
+const initCommentReplyForms = () => {
+  const textAreaEl = document.querySelector('.js-elastic-textarea');
+  const commentReplyFormEl = document.querySelector(
+    '.js-comment-with-reply-form'
+  );
+  if (textAreaEl && commentReplyFormEl) {
+    const textareaInstance = createElasticTextArea(textAreaEl);
+    const commentReplyFormInstance = initCommentReplyForm(commentReplyFormEl);
+    return () => {
+      textareaInstance.destroy();
+      commentReplyFormInstance.destroy();
+    };
+  }
+};
 
-<Meta title="Components/Comment" />
+<Meta
+  title="Components/Comment"
+  argTypes={{
+    isLoggedIn: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+    allowReplies: {
+      type: { name: 'boolean' },
+      defaultValue: false,
+    },
+  }}
+/>
 
 # Comment
 
@@ -12,7 +46,6 @@ Displays a single comment in a comment thread, optionally with replies. Multiple
 
 This component is still a work in progress. The following features are still in development:
 
-- Integrating the comment reply form.
 - Finalizing this pattern's blocks and properties for theme integration.
 
 ## Single
@@ -28,7 +61,28 @@ At minimum, a single comment consists of:
 This information may be passed to the component as a `comment` object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/).
 
 <Canvas>
-  <Story name="Single">{template({ comment: makeComment() })}</Story>
+  <Story
+    name="Single"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+          }),
+        },
+      },
+    }}
+  >
+    {(args) => {
+      useEffect(() => initCommentReplyForms());
+      return template({
+        comment: makeComment(),
+        allow_replies: args.allowReplies,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
+  </Story>
 </Canvas>
 
 ## Role badges
@@ -36,14 +90,56 @@ This information may be passed to the component as a `comment` object matching t
 It is helpful for context within a discussion to know when a commentor is the original post author or a Cloud Four team member. The mechanics of this feature are still in development, but these stories show how these roles should appear using [the Badge component](/docs/components-badge--basic).
 
 <Canvas>
-  <Story name="Role: Author">
-    {template({ comment: makeComment(), demo_post_author: true })}
+  <Story
+    name="Role: Author"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+            demo_post_author: true,
+          }),
+        },
+      },
+    }}
+  >
+    {(args) => {
+      useEffect(() => initCommentReplyForms());
+      return template({
+        comment: makeComment(),
+        allow_replies: args.allowReplies,
+        demo_post_author: true,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name="Role: Cloud Four">
-    {template({ comment: makeComment(), demo_cloud_four_member: true })}
+  <Story
+    name="Role: Cloud Four"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+            demo_cloud_four_member: true,
+          }),
+        },
+      },
+    }}
+  >
+    {(args) => {
+      useEffect(() => initCommentReplyForms());
+      return template({
+        comment: makeComment(),
+        allow_replies: args.allowReplies,
+        demo_cloud_four_member: true,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
@@ -52,8 +148,31 @@ It is helpful for context within a discussion to know when a commentor is the or
 If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) will indicate that the comment is not yet approved.
 
 <Canvas>
-  <Story name="Unapproved">
-    {template({ comment: makeComment({ approved: false }) })}
+  <Story
+    name="Unapproved"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment({
+              approved: false,
+            }),
+          }),
+        },
+      },
+    }}
+  >
+    {(args) => {
+      useEffect(() => initCommentReplyForms());
+      return template({
+        comment: makeComment({
+          approved: false,
+        }),
+        allow_replies: args.allowReplies,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
@@ -62,27 +181,72 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
 Additionally, a `source` object may be passed to the template consisting of a `url` and `name`. This is helpful if integrating [webmentions](https://indieweb.org/Webmention) into comment threads.
 
 <Canvas>
-  <Story name="With source">
-    {template({
-      comment: makeComment(),
-      source: {
-        url: 'https://twitter.com/smashingmag/status/1371521325236416516',
-        name: 'twitter.com',
+  <Story
+    name="With source"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+            source: {
+              url: 'https://twitter.com/smashingmag/status/1371521325236416516',
+              name: 'twitter.com',
+            },
+          }),
+        },
       },
-    })}
+    }}
+  >
+    {(args) => {
+      useEffect(() => initCommentReplyForms());
+      return template({
+        comment: makeComment(),
+        source: {
+          url: 'https://twitter.com/smashingmag/status/1371521325236416516',
+          name: 'twitter.com',
+        },
+        allow_replies: args.allowReplies,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
 ## With reply button
 
-This feature is still a work in progress.
+You can set `allow_replies` to `true` in order to add a reply button that toggles a [Comment Form](/docs/components-comment-form--reply).
+
+If the user is logged in, you should pass in `logged_in_user` and `log_out_url` properties that match the [template properties of Comment Forms](/docs/components-comment-form--reply#template-properties).
+
+`allow_replies` should only be set to true for first-level comments, as we do not allow multiple levels of threading in comment chains.
 
 <Canvas>
-  <Story name="With reply button">
-    {template({
-      comment: makeComment(),
-      demo_control: true,
-    })}
+  <Story
+    name="With reply button"
+    args={{ allowReplies: true, isLoggedIn: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment(),
+            allow_replies: true,
+            logged_in_user: tyler,
+            log_out_url: '/logout',
+          }),
+        },
+      },
+    }}
+  >
+    {(args) => {
+      useEffect(() => initCommentReplyForms());
+      return template({
+        comment: makeComment(),
+        allow_replies: args.allowReplies,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
 
@@ -96,7 +260,65 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
 - The heading levels for comment threads increment up to a maximum of six (since HTML only provides six heading levels). This means that levels beyond that will be harder to traverse for user agents navigating via the document outline.
 
 <Canvas>
-  <Story name="With reply thread">
-    {template({ comment: makeComment({ replies: 2 }) })}
+  <Story
+    name="With reply thread"
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
+            comment: makeComment({
+              replies: 2,
+            }),
+          }),
+        },
+      },
+    }}
+  >
+    {(args) => {
+      useEffect(() => initCommentReplyForms());
+      return template({
+        comment: makeComment({ replies: 2 }),
+        allow_replies: args.allowReplies,
+        logged_in_user: args.isLoggedIn ? tyler : null,
+        log_out_url: '/logout',
+      });
+    }}
   </Story>
 </Canvas>
+
+## Template Properties
+
+Note: These template properties are not finalized, and may change in the future.
+
+- `comment`: an object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/)
+- `allow_replies`: A boolean property that controls whether to show a reply button and form
+- `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+  ```ts
+  {
+    name: string | () => string;
+    link: string | () => string;
+  }
+  ```
+- `log_out_url`: URL used for log out link.
+- `source`: An optional object containing a `url` and `name` for the comment source.
+
+## JavaScript Instructions
+
+You can run `initCommentReplyForm` to initialize a comment's reply form. Comments with reply forms will have the `js-comment-with-reply-form` class which you can use to query and initialize them.
+
+(This is not necessary for pages with comments disabled, like older posts.)
+
+```js
+import { initCommentReplyForm } from 'path/to/comment.js';
+
+const comment = document.querySelector('.js-comment-with-reply-form');
+const replyformInstance = initCommentReplyForm(comment);
+```
+
+It also returns an object containing a `destroy()` method, if you need to remove the event listener.
+
+```js
+comment.destroy();
+```
+
+The Comment reply form also includes the [Elastic Textarea component](/docs/components-input--elastic-textarea). See the Elastic Textarea component for JavaScript setup details.

@@ -1,15 +1,34 @@
 <form
   class="c-comment-form{% if class %} {{class}}{% endif %}"
+  {% if heading_id %}aria-labelledby="{{ heading_id }}"{% endif %}
   {%- if action %}action="{{ action }}"{% endif -%}
   {%- if method %}method="{{ method }}"{% endif -%}
 >
   {% block prompt %}
-  <h2>Leave a Comment</h2>
-  <p>Please be kind, courteous and constructive. You may use simple HTML or <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a> in your comments. All fields are required.</p>
+    {% set _heading_tag = heading_tag|default('h2') %}
+    <{{_heading_tag}}
+      {% if heading_id %}id="{{ heading_id }}"{% endif %}
+      {% if heading_class %}class="{{ heading_class }}"{% endif %}
+    >
+      {{ heading_text|default("Leave a Comment") }}
+    </{{_heading_tag}}>
+    <p {% if help_text_id %}id="{{ help_text_id }}"{% endif %}>
+      Please be kind, courteous and constructive.
+      You may use simple HTML or
+      <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a>
+      in your comments.
+      All fields are required.
+    </p>
   {% endblock %}
-  {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Message' } only %}
+  {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: main_label|default('Message') } %}
     {% block control %}
-      {% include '@cloudfour/components/input/input.twig' with { type: 'textarea', name: 'comment', required: true, class: 'c-input--elastic js-elastic-textarea' } only %}
+      {% include '@cloudfour/components/input/input.twig' with {
+        type: 'textarea',
+        name: 'comment',
+        required: true,
+        class: 'c-input--elastic js-elastic-textarea',
+        'aria-describedby': help_text_id
+      } only %}
     {% endblock %}
   {% endembed %}
   {% if logged_in_user and log_out_url %}
@@ -34,10 +53,10 @@
     {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
       {% block content %}
         {% include '@cloudfour/components/button/button.twig' with { label: 'Submit Reply' } only %}
-        {% include '@cloudfour/components/button/button.twig' with { label: 'Cancel', class: 'c-button--secondary' } only %}
+        {% include '@cloudfour/components/button/button.twig' with { label: 'Cancel', class: 'c-button--secondary js-cancel-reply' } only %}
       {% endblock %}
     {% endembed %}
   {% else %}
     {% include '@cloudfour/components/button/button.twig' with { label: 'Submit Comment' } only %}
   {% endif %}
-</div>
+</form>

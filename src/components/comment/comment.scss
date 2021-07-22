@@ -23,6 +23,7 @@
 
 /// Display a vertical line if the comment contains a reply thread to connect
 /// those comments visually with their parent.
+.c-comment.is-replying::after,
 .c-comment--thread::after {
   border-radius: size.$border-radius-full;
   content: '';
@@ -40,6 +41,15 @@
   @include theme.styles(dark) {
     background-color: color.$base-blue-darker;
   }
+}
+
+/// Comment reply forms are hidden until someone starts a reply.
+.c-comment__reply-form {
+  display: none;
+}
+
+.c-comment.is-replying .c-comment__reply-form {
+  display: block;
 }
 
 /// Named object for consistency with the Media component.
@@ -124,6 +134,10 @@
   // Visually centers the child avatars with the indentation of the parent
   // comment. Without this, the replies feel nested too far to the right.
   margin-left: math.div(size.$square-avatar-small, -2);
+}
+
+.c-comment__replies,
+.c-comment__reply-form {
   // Since the replies are likely wrapped in a Rhythm object intended to inherit
   // the parent rhythm, we can use that custom property to inherit that same
   // spacing between the meta and replies.

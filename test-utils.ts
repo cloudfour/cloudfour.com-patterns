@@ -1,5 +1,6 @@
 import path from 'path';
 import { TwingEnvironment, TwingLoaderFilesystem } from 'twing';
+import type { PleasantestUtils } from 'pleasantest';
 
 const loader = new TwingLoaderFilesystem(process.cwd());
 loader.addPath(path.join(process.cwd(), 'src'), 'cloudfour');
@@ -16,4 +17,8 @@ export const loadTwigTemplate = (templatePath: string) => {
   // Using "await" here because next version of twing returns promises
   // eslint-disable-next-line @cloudfour/typescript-eslint/await-thenable
   return async (data: any) => (await templatePromise).render(data);
+};
+
+export const loadGlobalCSS = async (utils: PleasantestUtils) => {
+  await utils.loadCSS('../../../dist/standalone.css');
 };

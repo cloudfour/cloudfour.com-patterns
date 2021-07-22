@@ -14,7 +14,8 @@
     'min',
     'max',
     'rows',
-    'step'
+    'step',
+    'aria-describedby'
   ] %}
     {% set attribute_value = attribute(_context, attribute_name) %}
     {% if attribute_value %}{{ attribute_name }}="{{ attribute_value }}"{% endif %}

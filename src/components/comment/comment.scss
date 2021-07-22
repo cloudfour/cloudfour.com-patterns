@@ -4,7 +4,6 @@
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/headings';
 @use '../../mixins/theme';
-@use "../../mixins/ms";
 
 .c-comment {
   display: grid;

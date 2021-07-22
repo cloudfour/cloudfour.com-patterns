@@ -25,5 +25,12 @@
     "speaker": "Jason",
     "date": "2020-06-14",
     "note": "2 day event"
+  },
+  {
+    "event": "Smashing Conference",
+    "location": "Freiburg, Germany",
+    "speaker": "Jason",
+    "date": "2020-09-12",
+    "note": "2 day event"
   }
 ]

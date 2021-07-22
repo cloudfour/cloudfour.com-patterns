@@ -54,7 +54,7 @@
   /// The top margin matches the grid gap spacing applied to the comment form.
   /// Otherwise, the form's help text appears visually closer to the comment
   /// you're responding to than to the form.
-  margin-top: ms.step(2, 1rem);
+  margin-top: size.$spacing-gap-comment-form-vertical;
 }
 
 /// Named object for consistency with the Media component.

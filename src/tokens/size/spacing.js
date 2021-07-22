@@ -1,4 +1,4 @@
-const { modularEm } = require('../../scripts/modular-scale');
+const { modularEm, modularRem } = require('../../scripts/modular-scale');
 
 module.exports = {
   size: {
@@ -49,6 +49,10 @@ module.exports = {
         logo_group: {
           value: modularEm(3),
         },
+        comment_form: {
+          horizontal: { value: modularRem(4) },
+          vertical: { value: modularRem(2) },
+        }
       },
       control: {
         text_inset: { value: modularEm(-1) },

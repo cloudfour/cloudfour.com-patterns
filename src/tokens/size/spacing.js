@@ -52,7 +52,7 @@ module.exports = {
         comment_form: {
           horizontal: { value: modularRem(4) },
           vertical: { value: modularRem(2) },
-        }
+        },
       },
       control: {
         text_inset: { value: modularEm(-1) },

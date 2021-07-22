@@ -3,7 +3,7 @@ import tokens from '../compiled/tokens/js/tokens';
 const _ = require('lodash');
 const generateTokenTable = (props) => {
   const propsArray = Object.values(props);
-  const hasComments = propsArray.filter((p) => Boolean(p.comment)).length > 0;
+  const hasComments = propsArray.some((p) => Boolean(p.comment));
   return (
     <table>
       <thead>

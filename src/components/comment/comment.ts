@@ -15,7 +15,7 @@ export const initCommentReplyForm = (comment: HTMLElement) => {
     comment.querySelector<HTMLButtonElement>('.js-cancel-reply');
 
   // If we're missing form elements we shouldn't proceed
-  if (!replyButton || !replyForm || !cancelButton) return { destroy: () => {} }
+  if (!replyButton || !replyForm || !cancelButton) return { destroy: () => {} };
 
   const show = () => {
     comment.classList.add('is-replying');

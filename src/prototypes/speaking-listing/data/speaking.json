@@ -1,0 +1,179 @@
+[
+  {
+    "title": "Designing Progressive Web Apps",
+    "link": "https://cloudfour.com/presents/designing-progressive-web-apps/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2018/10/background-black-blank-733857.jpg",
+    "description": "Presented at Artifact Conference, Smashing Conference, An Event Apart"
+  },
+  {
+    "title": "Web Forms: Now You See Them, Now You Don’t!",
+    "link": "https://cloudfour.com/presents/web-forms-now-you-see-them-now-you-dont/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2019/12/webforms-title-page.png",
+    "description": "Presented at An Event Apart"
+  },
+  {
+    "title": "What is Modular CSS",
+    "link": "https://cloudfour.com/thinks/perfectly-broken-code/",
+    "author": "Scott Vandehey",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2019/03/scott.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2019/02/legos.png",
+    "description": "Presented at pdxFLIT, Devsigner 2016"
+  },
+  {
+    "title": "The Case for Progressive Web Apps",
+    "link": "https://cloudfour.com/presents/why-you-should-build-a-progressive-web-app-now/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/10/the-path-forward.jpg",
+    "description": "Presented at An Event Apart, Portland Digital Summit, PADNU",
+    "more": "+ 2 more"
+  },
+  {
+    "title": "SVG: So Very Good",
+    "link": "https://cloudfour.com/presents/svg-so-very-good/",
+    "author": "Tyler Sticka",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2017/06/tyler-128x128-c-default.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/08/svg-slide-1.png",
+    "description": "Presented at Smashing Conference, Open Source Bridge, CascadiaFest",
+    "more": "+ 1 more"
+  },
+  {
+    "title": "Responsive images are here. Now what?",
+    "link": "https://cloudfour.com/presents/responsive-images-are-here-now-what",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/responsive-images-here.jpg",
+    "description": "Presented at Imagecon, An Event Apart, Responsive Day Out"
+  },
+  {
+    "title": "Adapting to Input",
+    "link": "https://cloudfour.com/presents/adapting-to-input/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/adapting-to-input.jpg",
+    "description": "Presented at An Event Apart, Smashing Conference"
+  },
+  {
+    "title": "Being Responsive",
+    "link": "https://cloudfour.com/presents/being-responsive/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/being-responsive.jpg",
+    "description": "Presented at Federal Reserve UX Summit, Gore UX Summit, Epic Systems",
+    "more": "+ 1 more"
+  },
+  {
+    "title": "The virtuoso generalist",
+    "link": "https://cloudfour.com/presents/the-virtuoso-generalist/",
+    "author": "Lyza Gardner",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2019/02/cloudfour-avatar-default-blue.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/virtuoso-generalist.jpg",
+    "description": "Presented at Responsive Day Out, Web Design Day"
+  },
+  {
+    "title": "Adaptive Input",
+    "link": "https://cloudfour.com/presents/adaptive-input/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/adaptive-input.jpg",
+    "description": "Presented at UX Mobile Immersion, Refresh PDX, Beyond the Desktop",
+    "more": "+ 5 more"
+  },
+  {
+    "title": "Mobile First Responsive Design",
+    "link": "https://cloudfour.com/presents/mobile-first-responsive-design/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/mobile-first.jpg",
+    "description": "Presented at An Event Apart, User Experience Lisbon, Respond",
+    "more": "+ 6 more"
+  },
+  {
+    "title": "Side Projects That Ships",
+    "link": "https://cloudfour.com/presents/side-projects-that-ship/",
+    "author": "Tyler Sticka",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2017/06/tyler-128x128-c-default.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/feature-image-side-projects-that-ship.png",
+    "description": "Presented at Refresh Portland, WebVisions"
+  },
+  {
+    "title": "The Immobile Web",
+    "link": "https://cloudfour.com/presents/the-immobile-web/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/immobile-web-16-9.jpg",
+    "description": "Presented at An Event Apart, UX Mobile Immersion, Breaking Development",
+    "more": "+ 2 more"
+  },
+  {
+    "title": "PhoneGap Self Defense for Web Developers",
+    "link": "https://cloudfour.com/presents/phonegap-self-defense-for-web-developers/",
+    "author": "Lyza Gardner",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2019/02/cloudfour-avatar-default-blue.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/joyleap.jpg",
+    "description": "Presented at PhoneGap Day US"
+  },
+  {
+    "title": "Mobile Media Panel",
+    "link": "https://cloudfour.com/presents/mobile-media-images-video-audio-and-webrtc/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/mobile-media.jpg",
+    "description": "Presented at Google I/O"
+  },
+  {
+    "title": "The Most Common Denominator",
+    "link": "https://cloudfour.com/presents/the-most-common-denominator-supporting-more-sucking-less/",
+    "author": "Lyza Gardner",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2019/02/cloudfour-avatar-default-blue.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/common-denominator.jpg",
+    "description": "Presented at Breaking Development"
+  },
+  {
+    "title": "Casting Off Our Desktop Shackles",
+    "link": "https://cloudfour.com/presents/casting-off-our-desktop-shackles/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/desktop-shackles.jpg",
+    "description": "Presented at WebVisions, Talk at HP, BeerMob",
+    "more": "+ 2 more"
+  },
+  {
+    "title": "The Essence of Content of the Future Web",
+    "link": "https://cloudfour.com/presents/performance-implications-of-responsive-design/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/performance-responsive.jpg",
+    "description": "Presented at Velocity"
+  },
+  {
+    "title": "Responsive Design Performance",
+    "link": "https://cloudfour.com/presents/cutting-through-the-crap-the-essence-of-content-on-the-future-web/",
+    "author": "Lyza Gardner",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2019/02/cloudfour-avatar-default-blue.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/cutting-crap.jpg",
+    "description": "Presented at Mobilism"
+  },
+  {
+    "title": "DOs and DONTs of Mobile Strategy",
+    "link": "https://cloudfour.com/presents/get-me-a-mobile-strategy-of-youre-fired/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/iStock_000001555960Medium.jpg",
+    "description": "Presented at MIMA Summit, OCCA, Innotech",
+    "more": "+ 7 more"
+  },
+  {
+    "title": "Cup Noodle Ignite Talk",
+    "link": "https://cloudfour.com/presents/cup-noodle-innovation-inspiration-and-manga/",
+    "author": "Jason Grigsby",
+    "avatar": "https://cloudfour.com/wp-content/uploads/2016/07/jason.png",
+    "thumbnail": "https://cloudfour.com/wp-content/uploads/2016/07/freeze-drying.jpg",
+    "description": "Presented at Google Zeitgeist, Web 2.0 Expo, Gnomedex",
+    "more": "+ 1 more"
+  }
+]

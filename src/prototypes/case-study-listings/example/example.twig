@@ -100,16 +100,13 @@
         <div class="intro">
           <p class="c-heading--level-3">More clients we’ve worked with</p>
         </div>
-        <div class="content">
-          {% for logos in logos %}
-          <article>
-            <header>
-              <img src="{{logos.image}}"
-              class="logos">
-            </header>
-          </article>
-        {% endfor %}
-        </div>
+        {% embed '@cloudfour/objects/logo-group/logo-group.twig' %}
+          {% block content %}
+            {% for logo in logos %}
+              <img src="{{ logo.image }}" alt="{{ logo.title }}">
+            {% endfor %}
+          {% endblock %}
+        {% endembed %}
       </div>
 
     </div>

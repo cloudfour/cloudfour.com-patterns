@@ -69,6 +69,7 @@
     transform transition.$quick ease.$out;
   user-select: none;
   vertical-align: middle;
+  white-space: nowrap;
 
   /**
    * Transform, opacity and filter changes are performant and will work across

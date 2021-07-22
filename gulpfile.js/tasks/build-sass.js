@@ -1,14 +1,14 @@
 const { src, dest } = require('gulp');
 const outDir = 'dist';
 
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 sass.compiler = require('sass');
 
-const buildSass = () => {
-  return src('./src/index.scss')
+const buildSass = () =>
+  src('./src/index.scss')
     .pipe(
       sass({
         importer: [require('../../glob-sass-importer')],
@@ -20,6 +20,5 @@ const buildSass = () => {
     .pipe(postcss([cssnano()]))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(outDir));
-};
 
 module.exports = buildSass;

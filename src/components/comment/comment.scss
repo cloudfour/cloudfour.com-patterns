@@ -44,12 +44,14 @@
 }
 
 /// Comment reply forms are hidden until someone starts a reply.
-.c-comment__reply-form {
+.c-comment:not(.is-replying) .c-comment__reply-form {
   display: none;
 }
 
-.c-comment.is-replying .c-comment__reply-form {
-  display: block;
+.c-comment__reply-form {
+  display: grid;
+  grid-column-gap: size.$spacing-gap-inline-medium;
+  grid-template-columns: #{size.$square-avatar-small} 1fr;
 }
 
 /// Named object for consistency with the Media component.

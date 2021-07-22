@@ -115,6 +115,17 @@
 
     {% if allow_replies %}
       <div class="c-comment__reply-form js-comment-reply-form">
+
+        {% embed '@cloudfour/components/avatar/avatar.twig' with {
+          size: 'full'
+        }%}
+          {% block content %}
+            {% include '@cloudfour/components/icon/icon.twig' with {
+              name: 'speech-balloon',
+              aria_hidden: 'true',
+            } only %}
+          {% endblock %}
+        {% endembed %}
         {% include '@cloudfour/components/comment-form/comment-form.twig' with {
           is_reply: true,
           logged_in_user: logged_in_user,

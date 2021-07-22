@@ -9,31 +9,23 @@ const ratio = Number(tokens.number.scale.modular.ratio.value);
  * Simple function for calculating ratio steps
  * @param {string} step
  */
-const modularScale = (step) => {
-  return ratio ** Number(step);
-};
+const modularScale = (step) => ratio ** Number(step);
 exports.modularScale = modularScale;
 
 /**
  * Modular Scale in Ems
  * @param {string} step
  */
-exports.modularEm = (step) => {
-  return `${modularScale(step)}em`;
-};
+exports.modularEm = (step) => `${modularScale(step)}em`;
 
 /**
  * Modular Scale in Rems
  * @param {string} step
  */
-exports.modularRem = (step) => {
-  return `${modularScale(step)}rem`;
-};
+exports.modularRem = (step) => `${modularScale(step)}rem`;
 
 /**
  * Modular Scale in Pixels
  * @param {string} step
  */
-exports.modularPx = (step) => {
-  return `${modularScale(step) * 16}px`;
-};
+exports.modularPx = (step) => `${modularScale(step) * 16}px`;

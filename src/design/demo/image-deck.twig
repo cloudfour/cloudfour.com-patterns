@@ -1,0 +1,12 @@
+{% embed '@cloudfour/objects/deck/deck.twig' with {
+  class: 'o-deck--2-column@l'
+} %}
+  {% block content %}
+    {% for image in images %}
+      <figure>
+        <img src="{{image.src}}" alt="">
+        <figcaption>{{image.name}}</figcaption>
+      </figure>
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

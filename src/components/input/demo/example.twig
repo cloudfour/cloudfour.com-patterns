@@ -1,7 +1,0 @@
-<demo class="demo-input-basic{% if type != 'textarea' %} demo-input-basic--single-line{% endif %}">
-  <label for="{{id}}">Label</label>
-  {% block element %}
-    {% include '@cloudfour/components/input/input.twig' %}
-  {% endblock %}
-  {% include '@cloudfour/components/button/button.twig' with { label: 'Button' } only %}
-</demo>

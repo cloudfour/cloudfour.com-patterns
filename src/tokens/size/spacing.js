@@ -46,6 +46,9 @@ module.exports = {
             comment: 'The Form Group default gap spacing.',
           },
         },
+        logo_group: {
+          value: modularEm(3),
+        },
       },
       control: {
         text_inset: { value: modularEm(-1) },

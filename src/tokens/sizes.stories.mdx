@@ -2,7 +2,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 import sizeTokens from '../compiled/tokens/js/size-tokens'; // Flattened tokens object
 const generateTokenTable = (props) => {
   const propsArray = Object.values(props);
-  const hasComments = propsArray.filter((p) => Boolean(p.comment)).length > 0;
+  const hasComments = propsArray.some((p) => Boolean(p.comment));
   return (
     <table>
       <thead>
@@ -13,30 +13,27 @@ const generateTokenTable = (props) => {
         </tr>
       </thead>
       <tbody>
-        {propsArray.map((prop) => {
-          return (
-            <tr key={prop.name}>
-              <td>
-                <code>
-                  size.${prop.name.slice(prop.attributes.category.length + 1)}
-                </code>
-              </td>
-              <td>
-                <code>{prop.value}</code>
-              </td>
-              {hasComments && <td>{prop.comment}</td>}
-            </tr>
-          );
-        })}
+        {propsArray.map((prop) => (
+          <tr key={prop.name}>
+            <td>
+              <code>
+                size.${prop.name.slice(prop.attributes.category.length + 1)}
+              </code>
+            </td>
+            <td>
+              <code>{prop.value}</code>
+            </td>
+            {hasComments && <td>{prop.comment}</td>}
+          </tr>
+        ))}
       </tbody>
     </table>
   );
 };
-const filterTokensByType = (type) => {
-  return Object.keys(sizeTokens)
+const filterTokensByType = (type) =>
+  Object.keys(sizeTokens)
     .filter((key) => sizeTokens[key].attributes.type === type)
     .map((key) => sizeTokens[key]);
-};
 /**
  * We want a list of all size tokens that haven't already been documented.
  * We grab a flattened list of tokens so we don't have to worry about tokens

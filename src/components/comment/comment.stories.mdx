@@ -74,9 +74,7 @@ This information may be passed to the component as a `comment` object matching t
     }}
   >
     {(args) => {
-      useEffect(() => {
-        return initCommentReplyForms();
-      });
+      useEffect(() => initCommentReplyForms());
       return template({
         comment: makeComment(),
         allow_replies: args.allowReplies,
@@ -106,9 +104,7 @@ It is helpful for context within a discussion to know when a commentor is the or
     }}
   >
     {(args) => {
-      useEffect(() => {
-        return initCommentReplyForms();
-      });
+      useEffect(() => initCommentReplyForms());
       return template({
         comment: makeComment(),
         allow_replies: args.allowReplies,
@@ -135,9 +131,7 @@ It is helpful for context within a discussion to know when a commentor is the or
     }}
   >
     {(args) => {
-      useEffect(() => {
-        return initCommentReplyForms();
-      });
+      useEffect(() => initCommentReplyForms());
       return template({
         comment: makeComment(),
         allow_replies: args.allowReplies,
@@ -169,9 +163,7 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
     }}
   >
     {(args) => {
-      useEffect(() => {
-        return initCommentReplyForms();
-      });
+      useEffect(() => initCommentReplyForms());
       return template({
         comment: makeComment({
           approved: false,
@@ -206,9 +198,7 @@ Additionally, a `source` object may be passed to the template consisting of a `u
     }}
   >
     {(args) => {
-      useEffect(() => {
-        return initCommentReplyForms();
-      });
+      useEffect(() => initCommentReplyForms());
       return template({
         comment: makeComment(),
         source: {
@@ -249,9 +239,7 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
     }}
   >
     {(args) => {
-      useEffect(() => {
-        return initCommentReplyForms();
-      });
+      useEffect(() => initCommentReplyForms());
       return template({
         comment: makeComment(),
         allow_replies: args.allowReplies,
@@ -287,9 +275,7 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
     }}
   >
     {(args) => {
-      useEffect(() => {
-        return initCommentReplyForms();
-      });
+      useEffect(() => initCommentReplyForms());
       return template({
         comment: makeComment({ replies: 2 }),
         allow_replies: args.allowReplies,

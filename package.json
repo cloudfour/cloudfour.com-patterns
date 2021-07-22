@@ -117,6 +117,7 @@
     "webpack": "4.46.0"
   },
   "scripts": {
+    "start": "npm run storybook",
     "storybook": "npm run preprocess && run-p watch start-storybook",
     "start-storybook": "start-storybook -p 6006 -s ./static,./src/assets",
     "build-storybook": "npm run preprocess && build-storybook -s ./static,./src/assets",
@@ -132,16 +133,17 @@
     "clean": "eliminate dist",
     "type": "tsc",
     "type:watch": "tsc --watch",
-    "check-lint": "run-s check-lint:*",
-    "check-lint:prettier": "prettier . --check",
-    "check-lint:css": "stylelint '**/*.scss'",
-    "check-lint:js": "eslint .",
     "lint": "run-s lint:*",
-    "lint:prettier": "prettier . --write",
-    "lint:css": "stylelint --fix '**/*.scss'",
+    "lint:check": "run-s lint:*:check",
     "lint:js": "eslint . --fix",
+    "lint:js:check": "eslint .",
+    "lint:css": "stylelint --fix '**/*.scss'",
+    "lint:css:check": "stylelint '**/*.scss'",
+    "lint:prettier": "prettier . --write",
+    "lint:prettier:check": "prettier . --check",
     "test": "jest",
     "test:watch": "jest --watch",
+    "validate": "run-s test lint:check type",
     "version": "changeset version && prettier --write .",
     "release": "npm run build && changeset publish"
   }

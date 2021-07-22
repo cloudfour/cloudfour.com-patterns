@@ -5,16 +5,25 @@ Thanks for contributing to the Cloud Four Pattern Library!
 ## Getting Started
 
 1. `npm ci` — to install dependencies
-1. `npm run storybook` — to run a local instance of Storybook
+1. `npm start` — to run a local instance of Storybook
 
 ## Building
 
 - `npm run build` — Builds CSS+JS for npm package
 - `npm run build-storybook` — Creates a static storybook site build, for example for publishing the pattern library to Netlify
 
-## Testing
+## Validating
 
-Note that tests will fail if you have not built the project. If you see tests failing with errors like "file not found in `dist` folder", try running `npm run build` and then re-run the tests.
+You can run `npm run validate` to run all of the checks that will be run in CI (except for building).
+
+You can also run checks individually:
+
+- **Linters/formatters**: `npm run lint` (runs Prettier, ESLint, and Stylelint)
+- **Tests**: `npm run test` (runs Jest tests)
+  You can also run `npm run test:watch` to run Jest in watch mode
+  Note that tests will fail if you have not built the project. If you see tests failing with errors like "file not found in `dist` folder", try running `npm run build` and then re-run the tests.
+- **Typechecking** `npm run type` (runs TypeScript)
+  You can also run `npm run type:watch` to run TypeScript in watch mode
 
 ## Project Structure
 

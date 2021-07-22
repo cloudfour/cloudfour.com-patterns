@@ -27,7 +27,7 @@ jobs:
       - name: Run Preprocess
         run: npm run preprocess
       - name: Run Lint
-        run: npm run check-lint
+        run: npm run lint:check
 
   type:
     runs-on: ubuntu-latest

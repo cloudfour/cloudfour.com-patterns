@@ -14,10 +14,13 @@ export const initCommentReplyForm = (comment: HTMLElement) => {
   const cancelButton =
     comment.querySelector<HTMLButtonElement>('.js-cancel-reply');
 
+  // If we're missing form elements we shouldn't proceed
+  if (!replyButton || !replyForm || !cancelButton) return { destroy: () => {} }
+
   const show = () => {
     comment.classList.add('is-replying');
-    replyButton?.setAttribute('hidden', '');
-    const firstInput = replyForm?.querySelector<
+    replyButton.setAttribute('hidden', '');
+    const firstInput = replyForm.querySelector<
       HTMLTextAreaElement | HTMLInputElement
     >('textarea, input');
 
@@ -32,17 +35,17 @@ export const initCommentReplyForm = (comment: HTMLElement) => {
 
   const hide = () => {
     comment.classList.remove('is-replying');
-    replyButton?.removeAttribute('hidden');
+    replyButton.removeAttribute('hidden');
     // Similar to above, we use a timeout to force the focus in VoiceOver.
-    setTimeout(() => replyButton?.focus(), 0);
+    setTimeout(() => replyButton.focus(), 0);
   };
 
-  replyButton?.addEventListener('click', show);
-  cancelButton?.addEventListener('click', hide);
+  replyButton.addEventListener('click', show);
+  cancelButton.addEventListener('click', hide);
 
   const destroy = () => {
-    replyButton?.removeEventListener('click', show);
-    cancelButton?.removeEventListener('click', hide);
+    replyButton.removeEventListener('click', show);
+    cancelButton.removeEventListener('click', hide);
   };
 
   return { destroy };

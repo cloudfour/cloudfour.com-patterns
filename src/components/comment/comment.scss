@@ -50,6 +50,10 @@
 
 .c-comment.is-replying .c-comment__reply-form {
   display: block;
+  /// The top margin matches the grid gap spacing applied to the comment form.
+  /// Otherwise, the form's help text appears visually closer to the comment
+  /// you're responding to than to the form.
+  margin-top: size.$spacing-gap-comment-form-vertical;
 }
 
 /// Named object for consistency with the Media component.
@@ -134,10 +138,6 @@
   // Visually centers the child avatars with the indentation of the parent
   // comment. Without this, the replies feel nested too far to the right.
   margin-left: math.div(size.$square-avatar-small, -2);
-}
-
-.c-comment__replies,
-.c-comment__reply-form {
   // Since the replies are likely wrapped in a Rhythm object intended to inherit
   // the parent rhythm, we can use that custom property to inherit that same
   // spacing between the meta and replies.

@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 3.1.1
+
+### Patch Changes
+
+- [#1440](https://github.com/cloudfour/cloudfour.com-patterns/pull/1440) [`7463bd6a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/7463bd6a3f56e11e3a43e32fb7865e515d2ba054) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Fix issue with Comment `replies` block not working
+
 ## 3.1.0
 
 ### Minor Changes

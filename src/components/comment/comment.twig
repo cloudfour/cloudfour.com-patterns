@@ -113,18 +113,27 @@
       <h{{_section_heading_depth}} class="u-hidden-visually">
         Replies to {{comment.author.name}}
       </h{{_section_heading_depth}}>
+
+      {#
+        This is defined here, so we can pass it into the block of a nested embed.
+        @see https://benfurfie.co.uk/articles/how-to-nest-a-block-in-another-block-in-an-embed-in-twig
+      #}
+      {% set repliesContent %}
+        {% block replies %}
+          {% for child in comment.children %}
+            {% include '@cloudfour/components/comment/comment.twig' with {
+              comment: child,
+              heading_depth: _child_heading_depth,
+            } only %}
+          {% endfor %}
+        {% endblock %}
+      {% endset %}
+
       {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
         class: 'c-comment__replies'
       } %}
         {% block content %}
-          {% block replies %}
-            {% for child in comment.children %}
-              {% include '@cloudfour/components/comment/comment.twig' with {
-                comment: child,
-                heading_depth: _child_heading_depth,
-              } only %}
-            {% endfor %}
-          {% endblock %}
+          {{ repliesContent }}
         {% endblock %}
       {% endembed %}
     {% endif %}

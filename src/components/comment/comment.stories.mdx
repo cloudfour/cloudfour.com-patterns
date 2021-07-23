@@ -5,6 +5,18 @@ import { initCommentReplyForm } from './comment.ts';
 import { createElasticTextArea } from '../input/elastic-textarea.ts';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include';
+import authorDemo from './demo/author.twig';
+import memberDemo from './demo/member.twig';
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
+// okay with the following Webpack-specific raw loader syntax. It's better to leave
+// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
+// within a Storybook docs page and not within an actual component).
+// This can be revisited in the future if Storybook no longer relies on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import authorDemoSource from '!!raw-loader!./demo/author.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import memberDemoSource from '!!raw-loader!./demo/member.twig';
 const tyler = {
   name: 'Tyler Sticka',
   link: 'https://cloudfour.com/is/tyler',
@@ -41,12 +53,6 @@ const initCommentReplyForms = () => {
 # Comment
 
 Displays a single comment in a comment thread, optionally with replies. Multiple comments can be displayed within [a Rhythm layout object](/docs/objects-rhythm--default-story).
-
-## Status
-
-This component is still a work in progress. The following features are still in development:
-
-- Finalizing this pattern's blocks and properties for theme integration.
 
 ## Single
 
@@ -85,27 +91,24 @@ This information may be passed to the component as a `comment` object matching t
   </Story>
 </Canvas>
 
-## Role badges
+## Author Meta Info
 
-It is helpful for context within a discussion to know when a commentor is the original post author or a Cloud Four team member. The mechanics of this feature are still in development, but these stories show how these roles should appear using [the Badge component](/docs/components-badge--basic).
+You can us the `author_meta` block to display author meta information.
+
+It is helpful for context within a discussion to know when a commentor is the original post author or a Cloud Four team member. This can be achieved by passing in [a Badge component](/docs/components-badge--basic) to the `author_meta` block.
 
 <Canvas>
   <Story
     name="Role: Author"
     parameters={{
       docs: {
-        source: {
-          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment(),
-            demo_post_author: true,
-          }),
-        },
+        source: { code: authorDemoSource },
       },
     }}
   >
     {(args) => {
       useEffect(() => initCommentReplyForms());
-      return template({
+      return authorDemo({
         comment: makeComment(),
         allow_replies: args.allowReplies,
         demo_post_author: true,
@@ -122,17 +125,14 @@ It is helpful for context within a discussion to know when a commentor is the or
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment(),
-            demo_cloud_four_member: true,
-          }),
+          code: memberDemoSource,
         },
       },
     }}
   >
     {(args) => {
       useEffect(() => initCommentReplyForms());
-      return template({
+      return memberDemo({
         comment: makeComment(),
         allow_replies: args.allowReplies,
         demo_cloud_four_member: true,

@@ -1,0 +1,13 @@
+{% embed '@cloudfour/components/comment/comment.twig' with {
+  comment: comment,
+  logged_in_user: logged_in_user,
+  allow_replies: allow_replies,
+} %}
+  {% block author_meta %}
+    <span class="u-hidden-visually">(Article</span>
+    {% include '@cloudfour/components/badge/badge.twig' with {
+      label: 'Author',
+      icon: 'pencil',
+    } only %}
+  {% endblock %}
+{% endembed %}

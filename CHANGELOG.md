@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 3.1.0
+
+### Minor Changes
+
+- [#1434](https://github.com/cloudfour/cloudfour.com-patterns/pull/1434) [`f77fba9d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f77fba9ddb2557129c3c5fdc06f2d0de786fba49) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Refine the visual display of the comment reply form help text
+
+* [#1439](https://github.com/cloudfour/cloudfour.com-patterns/pull/1439) [`a1d70178`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a1d70178a76592b2e79dd44b763ff000a42a66b8) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Increase comment template flexibility using blocks.
+
 ## 3.0.0
 
 ### Major Changes

@@ -288,8 +288,6 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
 
 ## Template Properties
 
-Note: These template properties are not finalized, and may change in the future.
-
 - `comment`: an object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/)
 - `allow_replies`: A boolean property that controls whether to show a reply button and form
 - `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
@@ -301,6 +299,13 @@ Note: These template properties are not finalized, and may change in the future.
   ```
 - `log_out_url`: URL used for log out link.
 - `source`: An optional object containing a `url` and `name` for the comment source.
+
+## Template Blocks
+
+- `header_content`: Use to over-write the content of the comment header
+- `heading_content`: Use to over-write the content of the comment heading
+- `author_title`: Use to over-write a portion of the comment heading content. Will be followed by a visually hidden span reading either `replied` or `said`. (Valid values could be `John Doe` or `John Doe (Post Author)`.)
+- `replies`: Use to pass in your own replies markup. This is useful if you need to modify other blocks within replies.
 
 ## JavaScript Instructions
 

@@ -109,9 +109,7 @@ It is helpful for context within a discussion to know when a commentor is the or
     {(args) => {
       useEffect(() => initCommentReplyForms());
       return authorDemo({
-        comment: makeComment({
-          replies: 2,
-        }),
+        comment: makeComment(),
         allow_replies: args.allowReplies,
         demo_post_author: true,
         logged_in_user: args.isLoggedIn ? tyler : null,

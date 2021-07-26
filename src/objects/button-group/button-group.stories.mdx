@@ -29,17 +29,31 @@ The Button Group layout object can be used for aligning a group of related butto
 
 ## Default
 
-```twig
-{% embed '@cloudfour/objects/button-group/button-group.twig' %}
-  {% block content %}
-    {% include '@cloudfour/components/button/button.twig' with { label: 'Button 1' } %}
-    {% include '@cloudfour/components/button/button.twig' with { label: 'Button 2' } %}
-  {% endblock %}
-{% endembed %}
-```
+<!-- The object demo is not particularly helpful if its source is imported directly,
+so we've provided it manually to the docs add-on via parameters. -->
 
 <Canvas>
-  <Story name="Default">{(args) => demo(args)}</Story>
+  <Story
+    name="Default"
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/objects/button-group/button-group.twig' only %}
+  {% block content %}
+    {% include '@cloudfour/components/button/button.twig' with {
+      label: 'Button 1'
+    } only %}
+    {% include '@cloudfour/components/button/button.twig' with {
+      label: 'Button 2'
+    } only %}
+  {% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
+    {(args) => demo(args)}
+  </Story>
 </Canvas>
 
 ## Grow modifer
@@ -47,14 +61,25 @@ The Button Group layout object can be used for aligning a group of related butto
 You can have the buttons grow to fill their horizontal space via
 the template `grow` boolean argument:
 
-```twig
-{% embed '@cloudfour/objects/button-group/button-group.twig' with { grow: true } %}
-  ...
-{% endembed %}
-```
+<!-- The object demo is not particularly helpful if its source is imported directly,
+so we've provided it manually to the docs add-on via parameters. -->
 
 <Canvas>
-  <Story name="Grow" args={{ count: 5, grow: true }}>
+  <Story
+    name="Grow"
+    args={{ count: 5, grow: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/objects/button-group/button-group.twig' with {
+  grow: true
+} only %}
+  {# buttons #}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
     {(args) => demo(args)}
   </Story>
 </Canvas>

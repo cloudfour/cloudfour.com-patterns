@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2019-09-30",
+    "title": "Artifact Conference",
+    "link": "https://artifactconf.com/",
+    "location": "Austin, TX"
+  },
+  {
+    "date": "2018-10-23",
+    "title": "Smashing Conference",
+    "link": "https://smashingconf.com/ny-2018/",
+    "location": "New York, NY",
+    "links": [
+      {
+        "title": "Video",
+        "link": "https://vimeo.com/296793040"
+      }
+    ]
+  },
+  {
+    "date": "2018-08-27",
+    "title": "An Event Apart",
+    "link": "https://aneventapart.com/event/chicago-2018",
+    "location": "Chicago, IL"
+  },
+  {
+    "date": "2018-07-30",
+    "title": "An Event Apart",
+    "link": "https://aneventapart.com/event/washington-dc-2018",
+    "location": "Washington, DC"
+  },
+  {
+    "date": "2018-04-02",
+    "title": "An Event Apart",
+    "link": "https://aneventapart.com/event/seattle-2018",
+    "location": "Seattle, WA"
+  }
+]

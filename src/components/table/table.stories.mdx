@@ -9,15 +9,20 @@ const basicTableCodeExample = (tableClass) => {
   return `{% embed '@cloudfour/components/table/table.twig'${withArgs} only %}
   {% block caption %}
     {# Optionally add a caption string #}
+    Comparing popular Cloud Four projects on GitHub.
   {% endblock %}
   {% block header %}
     {# Optionally add a single \`<tr>\` element #}
+    <tr>...</tr>
   {% endblock %}
   {% block body %}
     {# Add \`<tr>\` elements #}
+    <tr>...</tr>
+    <tr>...</tr>
   {% endblock %}
   {% block footer %}
     {# Optionally add a single \`<tr>\` element #}
+    <tr>...</tr>
   {% endblock %}
 {% endembed %}`;
 };

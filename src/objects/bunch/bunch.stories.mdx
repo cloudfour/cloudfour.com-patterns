@@ -7,6 +7,13 @@ const avatarsDemoStory = (args) => {
   const srcs = shuffle(demoImageSrcs).slice(0, args.count);
   return avatarsDemo({ srcs });
 };
+// The story demo is kind of specific to Storybook, so we're manually defining
+// a source code example that will be easier to understand.
+const avatarsDemoSrc = `{% embed '@cloudfour/objects/bunch/bunch.twig' only %}
+  {% block content %}
+    {# avatars #}
+  {% endblock %}
+{% endembed %}`;
 
 <Meta
   title="Objects/Bunch"
@@ -30,7 +37,18 @@ const avatarsDemoStory = (args) => {
 A tight cluster of visual elements with a small amount of overlap. Useful for displaying [avatars](/docs/components-avatar--empty) alongside bylines where multiple authors are equally credited.
 
 <Canvas>
-  <Story name="Of avatars">{avatarsDemoStory.bind({})}</Story>
+  <Story
+    name="Of avatars"
+    parameters={{
+      docs: {
+        source: {
+          code: avatarsDemoSrc,
+        },
+      },
+    }}
+  >
+    {avatarsDemoStory.bind({})}
+  </Story>
 </Canvas>
 
 <ArgsTable story="Of avatars" />

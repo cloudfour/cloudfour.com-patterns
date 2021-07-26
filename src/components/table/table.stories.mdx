@@ -1,15 +1,26 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
-// See: https://github.com/webpack-contrib/raw-loader#examples
-// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
-// okay with the following Webpack-specific raw loader syntax. It's better to leave
-// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
-// within a Storybook docs page and not within an actual component).
-// This can be revisited in the future if Storybook no longer relies on Webpack.
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import basicDemoSource from '!!raw-loader!./demo/basic.twig';
 import basicDemo from './demo/basic.twig';
 import data from './demo/data.json';
+const basicTableCodeExample = (tableClass) => {
+  let withArgs = '';
+  if (tableClass) {
+    withArgs = ` with { table_class: '${tableClass}' }`;
+  }
+  return `{% embed '@cloudfour/components/table/table.twig'${withArgs} only %}
+  {% block caption %}
+    {# Optionally add a caption string #}
+  {% endblock %}
+  {% block header %}
+    {# Optionally add a single \`<tr>\` element #}
+  {% endblock %}
+  {% block body %}
+    {# Add \`<tr>\` elements #}
+  {% endblock %}
+  {% block footer %}
+    {# Optionally add a single \`<tr>\` element #}
+  {% endblock %}
+{% endembed %}`;
+};
 
 <Meta
   title="Components/Table"
@@ -55,7 +66,7 @@ A table can optionally have a header, a footer, and a caption.
 <Canvas>
   <Story
     name="Basic"
-    parameters={{ docs: { source: { code: basicDemoSource } } }}
+    parameters={{ docs: { source: { code: basicTableCodeExample() } } }}
   >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
@@ -69,7 +80,9 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
   <Story
     name="Ruled"
     args={{ isRuled: true }}
-    parameters={{ docs: { source: { code: basicDemoSource } } }}
+    parameters={{
+      docs: { source: { code: basicTableCodeExample('c-table--ruled') } },
+    }}
   >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
@@ -83,7 +96,9 @@ The `c-table--striped` modifier adds alternating background colors to table rows
   <Story
     name="Striped"
     args={{ isStriped: true }}
-    parameters={{ docs: { source: { code: basicDemoSource } } }}
+    parameters={{
+      docs: { source: { code: basicTableCodeExample('c-table--striped') } },
+    }}
   >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
@@ -97,14 +112,27 @@ easier to read and understand.
 Numeric cells are right-aligned and use tabular figures to make it easier to
 compare cells across a column.
 
-These changes can be achieved by adding c-table--numeric to the table.
+These changes can be achieved by adding `c-table--numeric` to the table.
 
 <Canvas>
   <Story
     name="Numeric Data"
     args={{ numericData: true }}
-    parameters={{ docs: { source: { code: basicDemoSource } } }}
+    parameters={{
+      docs: { source: { code: basicTableCodeExample('c-table--numeric') } },
+    }}
   >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
+
+## Template Properties
+
+- `table_class` (string): Append a class to the root `<table>` element.
+
+## Template Blocks
+
+- `caption` (optional): Block to add a table caption string.
+- `header` (optional): Block to add a `<tr>` for the table header.
+- `body`: Block to add table body `<tr>` elements.
+- `footer` (optional): Block to add a `<tr>` for the table footer.

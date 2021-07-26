@@ -1,6 +1,28 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import basicDemo from './demo/basic.twig';
 import data from './demo/data.json';
+const basicTableCodeExample = (tableClass) => {
+  const withArgs = tableClass ? ` with { table_class: '${tableClass}' }` : '';
+  return `{% embed '@cloudfour/components/table/table.twig'${withArgs} only %}
+  {% block caption %}
+    {# Optionally add a caption string #}
+    Comparing popular Cloud Four projects on GitHub.
+  {% endblock %}
+  {% block header %}
+    {# Optionally add a single \`<tr>\` element #}
+    <tr>...</tr>
+  {% endblock %}
+  {% block body %}
+    {# Add \`<tr>\` elements #}
+    <tr>...</tr>
+    <tr>...</tr>
+  {% endblock %}
+  {% block footer %}
+    {# Optionally add a single \`<tr>\` element #}
+    <tr>...</tr>
+  {% endblock %}
+{% endembed %}`;
+};
 
 <Meta
   title="Components/Table"
@@ -21,17 +43,17 @@ import data from './demo/data.json';
       defaultValue: true,
     },
     isRuled: {
-      name: 'Add c-tabled--ruled modifier to the table',
+      name: 'Add `c-tabled--ruled` modifier to the table',
       type: { name: 'boolean' },
       defaultValue: false,
     },
     isStriped: {
-      name: 'Add c-tabled--striped modifier to the table',
+      name: 'Add `c-tabled--striped` modifier to the table',
       type: { name: 'boolean' },
       defaultValue: false,
     },
     numericData: {
-      name: 'Add c-table--numeric modifier to the table',
+      name: 'Add `c-table--numeric` modifier to the table',
       type: { name: 'boolean' },
       defaultValue: false,
     },
@@ -44,7 +66,10 @@ The `c-table` class applies default styling to HTML `table` elements.
 A table can optionally have a header, a footer, and a caption.
 
 <Canvas>
-  <Story name="Basic">
+  <Story
+    name="Basic"
+    parameters={{ docs: { source: { code: basicTableCodeExample() } } }}
+  >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
@@ -54,7 +79,13 @@ A table can optionally have a header, a footer, and a caption.
 The `c-table--ruled` modifier adds horizontal rules in between table rows.
 
 <Canvas>
-  <Story name="Ruled" args={{ isRuled: true }}>
+  <Story
+    name="Ruled"
+    args={{ isRuled: true }}
+    parameters={{
+      docs: { source: { code: basicTableCodeExample('c-table--ruled') } },
+    }}
+  >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
@@ -64,7 +95,13 @@ The `c-table--ruled` modifier adds horizontal rules in between table rows.
 The `c-table--striped` modifier adds alternating background colors to table rows.
 
 <Canvas>
-  <Story name="Striped" args={{ isStriped: true }}>
+  <Story
+    name="Striped"
+    args={{ isStriped: true }}
+    parameters={{
+      docs: { source: { code: basicTableCodeExample('c-table--striped') } },
+    }}
+  >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
@@ -77,10 +114,27 @@ easier to read and understand.
 Numeric cells are right-aligned and use tabular figures to make it easier to
 compare cells across a column.
 
-These changes can be achieved by adding c-table--numeric to the table.
+These changes can be achieved by adding `c-table--numeric` to the table.
 
 <Canvas>
-  <Story name="Numeric Data" args={{ numericData: true }}>
+  <Story
+    name="Numeric Data"
+    args={{ numericData: true }}
+    parameters={{
+      docs: { source: { code: basicTableCodeExample('c-table--numeric') } },
+    }}
+  >
     {(args) => basicDemo({ ...args, tableData: data })}
   </Story>
 </Canvas>
+
+## Template Properties
+
+- `table_class` (string): Append a class to the root `<table>` element.
+
+## Template Blocks
+
+- `caption` (optional): Block to add a table caption string.
+- `header` (optional): Block to add a `<tr>` for the table header.
+- `body`: Block to add table body `<tr>` elements.
+- `footer` (optional): Block to add a `<tr>` for the table footer.

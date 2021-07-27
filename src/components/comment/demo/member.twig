@@ -1,0 +1,21 @@
+{% embed '@cloudfour/components/comment/comment.twig' with {
+  comment: comment,
+  logged_in_user: logged_in_user,
+  allow_replies: allow_replies,
+} %}
+  {% block author_title %}
+    {{parent()}}
+    <span class="u-hidden-visually">(Cloud Four</span>
+    {% embed '@cloudfour/components/badge/badge.twig' with {
+      label: 'Team'
+    } only %}
+      {% block extra %}
+        {% include '@cloudfour/assets/brand/logo.svg.twig' with {
+          class: 'c-icon',
+          aria_hidden: 'true',
+        } only %}
+      {% endblock %}
+    {% endembed %}
+    <span class="u-hidden-visually">Member)</span>
+  {% endblock %}
+{% endembed %}

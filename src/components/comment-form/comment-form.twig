@@ -12,13 +12,18 @@
     >
       {{ heading_text|default("Leave a Comment") }}
     </{{_heading_tag}}>
-    <p {% if help_text_id %}id="{{ help_text_id }}"{% endif %}>
-      Please be kind, courteous and constructive.
-      You may use simple HTML or
-      <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a>
-      in your comments.
-      All fields are required.
-    </p>
+
+    {% embed '@cloudfour/components/alert/alert.twig' %}
+      {% block content %}
+        <p {% if help_text_id %}id="{{ help_text_id }}"{% endif %}>
+          Please be kind, courteous and constructive.
+          You may use simple HTML or
+          <a href="https://en.support.wordpress.com/markdown-quick-reference">Markdown</a>
+          in your comments.
+          All fields are required.
+        </p>
+      {% endblock %}
+    {% endembed %}
   {% endblock %}
   {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: main_label|default('Message') } %}
     {% block control %}

@@ -5,6 +5,18 @@ import { initCommentReplyForm } from './comment.ts';
 import { createElasticTextArea } from '../input/elastic-textarea.ts';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include';
+import authorDemo from './demo/author.twig';
+import memberDemo from './demo/member.twig';
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
+// okay with the following Webpack-specific raw loader syntax. It's better to leave
+// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
+// within a Storybook docs page and not within an actual component).
+// This can be revisited in the future if Storybook no longer relies on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import authorDemoSource from '!!raw-loader!./demo/author.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import memberDemoSource from '!!raw-loader!./demo/member.twig';
 const tyler = {
   name: 'Tyler Sticka',
   link: 'https://cloudfour.com/is/tyler',
@@ -41,12 +53,6 @@ const initCommentReplyForms = () => {
 # Comment
 
 Displays a single comment in a comment thread, optionally with replies. Multiple comments can be displayed within [a Rhythm layout object](/docs/objects-rhythm--default-story).
-
-## Status
-
-This component is still a work in progress. The following features are still in development:
-
-- Finalizing this pattern's blocks and properties for theme integration.
 
 ## Single
 
@@ -85,27 +91,24 @@ This information may be passed to the component as a `comment` object matching t
   </Story>
 </Canvas>
 
-## Role badges
+## Author Title
 
-It is helpful for context within a discussion to know when a commentor is the original post author or a Cloud Four team member. The mechanics of this feature are still in development, but these stories show how these roles should appear using [the Badge component](/docs/components-badge--basic).
+You can use the `author_title` block to pass in a custom author name or title.
+
+It is helpful for context within a discussion to know when a commentor is the original post author or a Cloud Four team member. This can be achieved by passing in a name with [a Badge component](/docs/components-badge--basic) to the `author_title` block.
 
 <Canvas>
   <Story
     name="Role: Author"
     parameters={{
       docs: {
-        source: {
-          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment(),
-            demo_post_author: true,
-          }),
-        },
+        source: { code: authorDemoSource },
       },
     }}
   >
     {(args) => {
       useEffect(() => initCommentReplyForms());
-      return template({
+      return authorDemo({
         comment: makeComment(),
         allow_replies: args.allowReplies,
         demo_post_author: true,
@@ -122,17 +125,14 @@ It is helpful for context within a discussion to know when a commentor is the or
     parameters={{
       docs: {
         source: {
-          code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment(),
-            demo_cloud_four_member: true,
-          }),
+          code: memberDemoSource,
         },
       },
     }}
   >
     {(args) => {
       useEffect(() => initCommentReplyForms());
-      return template({
+      return memberDemo({
         comment: makeComment(),
         allow_replies: args.allowReplies,
         demo_cloud_four_member: true,
@@ -288,8 +288,6 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
 
 ## Template Properties
 
-Note: These template properties are not finalized, and may change in the future.
-
 - `comment`: an object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/)
 - `allow_replies`: A boolean property that controls whether to show a reply button and form
 - `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
@@ -301,6 +299,13 @@ Note: These template properties are not finalized, and may change in the future.
   ```
 - `log_out_url`: URL used for log out link.
 - `source`: An optional object containing a `url` and `name` for the comment source.
+
+## Template Blocks
+
+- `header_content`: Use to over-write the content of the comment header
+- `heading_content`: Use to over-write the content of the comment heading
+- `author_title`: Use to over-write a portion of the comment heading content. Will be followed by a visually hidden span reading either `replied` or `said`. (Valid values could be `John Doe` or `John Doe (Post Author)`.)
+- `replies`: Use to pass in your own replies markup. This is useful if you need to modify other blocks within replies.
 
 ## JavaScript Instructions
 

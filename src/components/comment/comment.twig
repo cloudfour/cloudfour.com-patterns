@@ -13,41 +13,21 @@
   class="c-comment {{_comment_modifiers}}"
   id="comment-{{comment.ID}}"
 >
-  <header class="c-comment__header">
+<header class="c-comment__header">
+  {% block header_content %}
     <h{{_heading_depth}} class="c-comment__heading">
-      {{comment.author.name}}
-      {#
-        TODO: Replace `demo_post_author` and `demo_cloud_four_member` with
-        more meaningful blocks or properties once we have a better idea of how
-        we'll integrate role badging based on actual comment data.
-      #}
-      {% if demo_post_author %}
-        <span class="u-hidden-visually">(Article</span>
-        {% embed '@cloudfour/components/badge/badge.twig' with {
-          label: 'Author',
-          icon: 'pencil',
-        } only %}
-        {% endembed %}
-        <span class="u-hidden-visually">)</span>
-      {% elseif demo_cloud_four_member %}
-        <span class="u-hidden-visually">(Cloud Four</span>
-        {% embed '@cloudfour/components/badge/badge.twig' with {
-          label: 'Team'
-        } only %}
-          {% block extra %}
-            {% include '@cloudfour/assets/brand/logo.svg.twig' with {
-              class: 'c-icon',
-              aria_hidden: 'true',
-            } only %}
-          {% endblock %}
-        {% endembed %}
-        <span class="u-hidden-visually">Member)</span>
-      {% endif %}
-      <span class="u-hidden-visually">
-        {% if comment.is_child %}replied{% else %}said{% endif %}:
-      </span>
+      {% block heading_content %}
+        {% block author_title %}
+          {{comment.author.name}}
+        {% endblock %}
+
+        <span class="u-hidden-visually">
+          {% if comment.is_child %}replied{% else %}said{% endif %}:
+        </span>
+      {% endblock %}
     </h{{_heading_depth}}>
-  </header>
+  {% endblock %}
+</header>
   <div class="c-comment__object">
     {% include '@cloudfour/components/avatar/avatar.twig' with {
       src: comment.avatar,
@@ -133,16 +113,27 @@
       <h{{_section_heading_depth}} class="u-hidden-visually">
         Replies to {{comment.author.name}}
       </h{{_section_heading_depth}}>
-      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-        class: 'c-comment__replies'
-      } %}
-        {% block content %}
+
+      {#
+        This is defined here, so we can pass it into the block of a nested embed.
+        @see https://benfurfie.co.uk/articles/how-to-nest-a-block-in-another-block-in-an-embed-in-twig
+      #}
+      {% set repliesContent %}
+        {% block replies %}
           {% for child in comment.children %}
             {% include '@cloudfour/components/comment/comment.twig' with {
               comment: child,
               heading_depth: _child_heading_depth,
             } only %}
           {% endfor %}
+        {% endblock %}
+      {% endset %}
+
+      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+        class: 'c-comment__replies'
+      } %}
+        {% block content %}
+          {{ repliesContent }}
         {% endblock %}
       {% endembed %}
     {% endif %}

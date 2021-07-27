@@ -3,7 +3,8 @@
 
 .c-comment-form {
   display: grid;
-  grid-gap: ms.step(2, 1rem) ms.step(4, 1rem);
+  grid-gap: size.$spacing-gap-comment-form-vertical
+    size.$spacing-gap-comment-form-horizontal;
   grid-template-columns: 1fr 1fr;
 }
 

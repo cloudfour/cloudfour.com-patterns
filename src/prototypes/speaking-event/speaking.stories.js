@@ -1,5 +1,6 @@
 import events from './data/events.json';
 import examplePrototype from './example/example.twig';
+import deck from './images/deck.png';
 import './example/example.scss';
 
 export default {
@@ -10,4 +11,4 @@ export default {
   },
 };
 
-export const Example = () => examplePrototype({ events });
+export const Example = () => examplePrototype({ events, deck });

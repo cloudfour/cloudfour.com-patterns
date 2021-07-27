@@ -10,6 +10,9 @@
             tag_name: 'h1',
             content: 'Designing Progressive Web Apps',
           } only %}
+          <p>
+            If you have a website—particularly one that generates revenue for your organization—you need a Progressive Web App. So where do you begin? How do you decide which features of a Progressive Web App make sense for your users? What tools can make the process easier (or harder)? In this practical session, Jason will guide you through the key design decisions you’ll need to make about your Progressive Web App and how those decisions impact the scope of your project. He'll also teach you how to avoid common pitfalls and help you take full advantage of Progressive Web App technology.
+          </p>
           {% embed '@cloudfour/objects/media/media.twig' %}
             {% block object %}
               {% include '@cloudfour/components/avatar/avatar.twig' with { src: 'https://cloudfour.com/wp-content/uploads/2016/07/jason.png' } only %}
@@ -19,9 +22,10 @@
               <p class="speaker-title">Co-founder</p>
             {% endblock %}
           {% endembed %}
-          <p>
-            If you have a website—particularly one that generates revenue for your organization—you need a Progressive Web App. So where do you begin? How do you decide which features of a Progressive Web App make sense for your users? What tools can make the process easier (or harder)? In this practical session, Jason will guide you through the key design decisions you’ll need to make about your Progressive Web App and how those decisions impact the scope of your project. He'll also teach you how to avoid common pitfalls and help you take full advantage of Progressive Web App technology.
-          </p>
+          {% include '@cloudfour/objects/embed/demo/image.twig' with {
+            "class": "o-embed--wide",
+            "src": deck
+          } only %}
           <div class="flex-title">
             {% include '@cloudfour/components/heading/heading.twig' with {
               level: 0,
@@ -67,7 +71,7 @@
               {% endfor %}
             {% endblock %}
           {% endembed %}
-          <div class="feature-box">
+          <div class="feature-box u-pad-1 u-pull-inline-1">
             {% embed '@cloudfour/objects/media/media.twig' with {
               "reverse": true,
             } only %}

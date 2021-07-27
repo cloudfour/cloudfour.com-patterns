@@ -13,8 +13,5 @@
 
   .feature-box {
     background-color: #{color.$base-gray-lighter};
-    margin-left: (-1 * ms.step(1));
-    margin-right: (-1 * ms.step(1));
-    padding: ms.step(1);
   }
 }

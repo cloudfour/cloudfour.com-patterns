@@ -1,0 +1,40 @@
+@use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../mixins/ms";
+
+#team-listings {
+
+  .c-button__content {
+    font-size: 1.25em;
+    @media (min-width: breakpoint.$l) {
+      font-size: 1.5em;
+    }
+  }
+
+  .team-container {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+    @media (min-width: breakpoint.$l) {
+      grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 1em 0;
+
+      .avatar-image {
+        margin-bottom: .75rem;
+        width: 12rem;
+        @media (min-width: breakpoint.$m) {
+          width: 12rem;
+        }
+        @media (min-width: breakpoint.$l) {
+          width: 13.5rem;
+        }
+      }
+    }
+  }
+}

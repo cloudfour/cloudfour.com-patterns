@@ -1,0 +1,389 @@
+<div id="team-member">
+  {% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
+    "include_main_demo": false,
+    "class": "t-dark",
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/contributes",
+          "title": "Labs"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        }
+      ]
+    }
+  } only %}
+
+  {% embed '@cloudfour/objects/container/container.twig' with { label: avatar.name, class: 'o-container--pad heading-container'} %}
+    {% block content %}
+      {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
+        {% block intro %}
+          <div class="left-column">
+          {% for avatar in avatars if avatar.name == "Jason Grigsby" %}
+            {% include '@cloudfour/components/avatar/avatar.twig' with {
+              "size": "full",
+              "src": avatar.image,
+              "class": "avatar-image",
+            } only %}
+          {% endfor %}
+          <ul class="link-list__upper">
+            <li><a href="#">Website link</a></li>
+            <li><a href="#">Website link</a></li>
+            <li><a href="#">Social media link</a></li>
+            <li><a href="#">Social media link</a></li>
+          </ul>
+          </div>
+        {% endblock %}
+        {% block content %}
+          {% embed '@cloudfour/objects/container/container.twig' with {
+            "prose": true,
+            "pad": [
+              "block",
+              "inline"
+            ],
+            "class": "o-container--prose right-column"
+          } %}
+            {% block content %}
+              {% embed '@cloudfour/objects/rhythm/rhythm.twig' with { class: 'o-rhythm--generous-headings heading' } %}
+                {% block content %}
+                  <div class="title-info">
+                    {% include '@cloudfour/components/heading/heading.twig' with {
+                      level: 0,
+                      content: 'Jason Grigsby',
+                    } only %}
+                      <p class="sub-heading">Co-founder</p>
+                  </div>
+                  <p>In 2000, Jason Grigsby got his first mobile phone. He became obsessed with how the world could be a better place if everyone had access to the world’s information in their pockets. When his soon-to-be-wife met him, he had covered the walls of his apartment with crazy mobile dreams. To this day, he remains baffled that
+                  she married him.</p>
+                  <p>Those mobile dreams hit the hard wall of reality: WAP was crap. So Jason went to work on the web until 2007, when the iPhone made it clear the time was right. He joined forces with the three smartest people he knew and started Cloud Four.</p>
+                  <p>He is the author of Progressive Web Apps from A Book Apart and co-author of Head First Mobile Web from O'Reilly. His writing and work helped define the new web standards for responsive images.</p>
+                  <p>He was the founder and president of Mobile Portland, a local nonprofit dedicated to promoting the mobile community where he started the first community device lab. There are now over 150 device labs in the world.</p>
+                  <p>Since co-founding Cloud Four, he has had the good fortune to work on many fantastic projects, including the Obama iPhone App and Walmart's responsive design. Jason is a sought‐after speaker and consultant on web technology and mobile.</p>
+                  <ul class="link-list__lower">
+                    <li><a href="#">Website link</a></li>
+                    <li><a href="#">Website link</a></li>
+                    <li><a href="#">Social media link</a></li>
+                    <li><a href="#">Social media link</a></li>
+                  </ul>
+                {% endblock %}
+              {% endembed %}
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+  {% embed '@cloudfour/objects/container/container.twig' with { label: avatar.name, class: 'o-container--pad article-container'} %}
+    {% block content %}
+      {% include '@cloudfour/components/heading/heading.twig' with {
+        level: 0,
+        content: 'Articles',
+        class: 'c-heading--light article-heading'
+      } only %}
+      {% include '@cloudfour/objects/deck/demo/articles.twig' with {
+        "items": [
+          {
+            "title": "Building Flexible Components With Transparency",
+            "pubDate": "2020-11-19 17:28:54",
+            "link": "https://cloudfour.com/thinks/building-flexible-components-with-transparency/",
+            "guid": "https://cloudfour.com/?p=6017",
+            "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/11/transparent-flexible.png",
+            "description": "By adding a touch of transparency, we can design components that automatically adapt to their backgrounds."
+          },
+          {
+            "title": "22 Panels That Always Work: Wally Wood’s Legendary Productivity Hack",
+            "pubDate": "2020-01-14 16:49:28",
+            "link": "https://cloudfour.com/thinks/22-panels-that-always-work-wally-woods-legendary-productivity-hack/",
+            "guid": "https://cloudfour.com/?p=5678",
+            "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/01/wallywood22panel1600.jpg",
+            "description": "Comic book artist Wally Wood’s “22 Panels That Always Work” is a legendary bit of productivity hacking. How can you reduce “noodling” in your work?"
+          },
+          {
+            "title": "An HTML attribute potentially worth $4.4M to Chipotle",
+            "pubDate": "2019-09-19 16:57:12",
+            "link": "https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/",
+            "guid": "https://cloudfour.com/?p=5555",
+            "thumbnail": "https://cloudfour.com/wp-content/uploads/2019/09/Screen-Shot-2019-09-19-at-9.52.57-AM.png",
+            "description": "My parents are retired. They continue to try to pay for meals. I don't want them to. So we often end up in a competition to see who can pay first. In this case, I knew I had an advantage. My card details were already stored in the browser. I just needed to use autofill..."
+          }
+        ],
+        "columns": 3,
+        "columnsBreakpoint": "none",
+        "horizontalItem": 1,
+        "horizontalBreakpoint": "none"
+      } only %}
+
+          {% include '@cloudfour/components/pagination/pagination.twig' with {
+            "pagination": {
+              "mid_size": 2,
+              "current": 2,
+              "total": 36,
+              "prev": {
+                "title": 1,
+                "text": 1,
+                "name": 1,
+                "current": false,
+                "link": "#page-1"
+              },
+              "next": {
+                "title": 3,
+                "text": 3,
+                "name": 3,
+                "current": false,
+                "link": "#page-3"
+              },
+              "pages": [
+                {
+                  "title": 1,
+                  "text": 1,
+                  "name": 1,
+                  "current": false,
+                  "link": "#page-1"
+                },
+                {
+                  "title": 2,
+                  "text": 2,
+                  "name": 2,
+                  "current": true,
+                  "link": false
+                },
+                {
+                  "title": 3,
+                  "text": 3,
+                  "name": 3,
+                  "current": false,
+                  "link": "#page-3"
+                },
+                {
+                  "title": 4,
+                  "text": 4,
+                  "name": 4,
+                  "current": false,
+                  "link": "#page-4"
+                },
+                {
+                  "title": 5,
+                  "text": 5,
+                  "name": 5,
+                  "current": false,
+                  "link": "#page-5"
+                }
+              ]
+            }
+          } only %}
+
+    {% endblock %}
+  {% endembed %}
+  {% embed '@cloudfour/objects/container/container.twig' with { label: avatar.name, class: 'o-container--pad talk-container'} %}
+    {% block content %}
+      {% include '@cloudfour/components/heading/heading.twig' with {
+        level: 0,
+        content: 'Talks',
+        class: 'c-heading--light talks-heading'
+      } only %}
+        {% include '@cloudfour/objects/deck/demo/articles.twig' with {
+          "items": [
+            {
+              "title": "Building Flexible Components With Transparency",
+              "pubDate": "2020-11-19 17:28:54",
+              "link": "https://cloudfour.com/thinks/building-flexible-components-with-transparency/",
+              "guid": "https://cloudfour.com/?p=6017",
+              "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/11/transparent-flexible.png",
+              "description": "By adding a touch of transparency, we can design components that automatically adapt to their backgrounds."
+            },
+            {
+              "title": "22 Panels That Always Work: Wally Wood’s Legendary Productivity Hack",
+              "pubDate": "2020-01-14 16:49:28",
+              "link": "https://cloudfour.com/thinks/22-panels-that-always-work-wally-woods-legendary-productivity-hack/",
+              "guid": "https://cloudfour.com/?p=5678",
+              "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/01/wallywood22panel1600.jpg",
+              "description": "Comic book artist Wally Wood’s “22 Panels That Always Work” is a legendary bit of productivity hacking. How can you reduce “noodling” in your work?"
+            },
+            {
+              "title": "An HTML attribute potentially worth $4.4M to Chipotle",
+              "pubDate": "2019-09-19 16:57:12",
+              "link": "https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/",
+              "guid": "https://cloudfour.com/?p=5555",
+              "thumbnail": "https://cloudfour.com/wp-content/uploads/2019/09/Screen-Shot-2019-09-19-at-9.52.57-AM.png",
+              "description": "My parents are retired. They continue to try to pay for meals. I don't want them to. So we often end up in a competition to see who can pay first. In this case, I knew I had an advantage. My card details were already stored in the browser. I just needed to use autofill..."
+            }
+          ],
+          "columns": 3,
+          "columnsBreakpoint": "none",
+          "horizontalItem": 1,
+          "horizontalBreakpoint": "none"
+        } only %}
+        {% include '@cloudfour/components/pagination/pagination.twig' with {
+          "pagination": {
+            "mid_size": 2,
+            "current": 2,
+            "total": 36,
+            "prev": {
+              "title": 1,
+              "text": 1,
+              "name": 1,
+              "current": false,
+              "link": "#page-1"
+            },
+            "next": {
+              "title": 3,
+              "text": 3,
+              "name": 3,
+              "current": false,
+              "link": "#page-3"
+            },
+            "pages": [
+              {
+                "title": 1,
+                "text": 1,
+                "name": 1,
+                "current": false,
+                "link": "#page-1"
+              },
+              {
+                "title": 2,
+                "text": 2,
+                "name": 2,
+                "current": true,
+                "link": false
+              },
+              {
+                "title": 3,
+                "text": 3,
+                "name": 3,
+                "current": false,
+                "link": "#page-3"
+              },
+              {
+                "title": 4,
+                "text": 4,
+                "name": 4,
+                "current": false,
+                "link": "#page-4"
+              },
+              {
+                "title": 5,
+                "text": 5,
+                "name": 5,
+                "current": false,
+                "link": "#page-5"
+              }
+            ]
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/contributes",
+          "title": "Labs"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        },
+        {
+          "link": "/portland-device-lab",
+          "title": "Device Lab"
+        },
+        {
+          "link": "https://cloudfour-patterns.netlify.app/",
+          "title": "Patterns"
+        },
+        {
+          "link": "https://www.responsivefieldday.com/",
+          "title": "Responsive Field Day"
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "link": "https://twitter.com/cloudfour",
+          "title": "Follow us on Twitter",
+          "icon": "brands/twitter"
+        },
+        {
+          "link": "https://github.com/cloudfour",
+          "title": "Find us on GitHub",
+          "icon": "brands/github"
+        },
+        {
+          "link": "https://www.instagram.com/cloudfourpdx/",
+          "title": "Follow us on Instagram",
+          "icon": "brands/instagram"
+        },
+        {
+          "link": "https://www.linkedin.com/company/cloud-four",
+          "title": "Follow us on LinkedIn",
+          "icon": "brands/linkedin"
+        }
+      ]
+    },
+    "action": {
+      "lead_in": "Let’s discuss your project!",
+      "title": "Email us",
+      "link": "mailto:info@cloudfour.com",
+      "icon": "envelope"
+    },
+    "organization": {
+      "name": "Cloud Four, Inc.",
+      "address": {
+        "street_address": "510 SW 3rd Ave, Suite 420",
+        "address_locality": "Portland",
+        "address_region": "Oregon",
+        "postal_code": "97204",
+        "address_country": "USA"
+      },
+      "email": "info@cloudfour.com",
+      "telephone": "+1 (503) 290-1090",
+      "url": "https://cloudfour.com/",
+      "founding_date": "2007-12-13"
+    }
+  } only %}
+</div>

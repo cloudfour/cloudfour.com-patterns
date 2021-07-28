@@ -1,0 +1,83 @@
+@use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../compiled/tokens/scss/color";
+@use "../../../mixins/ms";
+
+#team-member {
+  .avatar-image {
+    width: 12em;
+    margin: 0 auto;
+    @media (min-width: breakpoint.$l) {
+      margin: 0;
+      width: 14em;
+    }
+  }
+
+  .heading {
+    .sub-heading {
+      font-size: 20px;
+      padding-top: .5em;
+
+      @media (min-width: breakpoint.$l) {
+        font-size: 24px;
+        padding-top: .75em;
+        padding-bottom: 1em;
+      }
+    }
+  }
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .link-list__upper {
+      display: none;
+      padding-top: 1em;
+      text-align: center;
+      list-style: none;
+      margin-left: -1.25em;
+      @media (min-width: breakpoint.$l) {
+        display: inline;
+      }
+    }
+  }
+
+  .link-list__lower {
+    display: inline;
+    padding-top: 1em;
+    list-style: none;
+    @media (min-width: breakpoint.$l) {
+      display: none;
+    }
+  }
+
+  .heading-container {
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+
+  .article-container {
+    background-color: #{color.$base-gray-lighter};
+    padding-top: 4em;
+    padding-bottom: 4em;
+    .article-heading {
+      padding-bottom: 1.25em;
+    }
+  }
+
+  .talk-container {
+    padding-top: 4em;
+    padding-bottom: 4em;
+    .talks-heading {
+      padding-bottom: 1.25em;
+    }
+  }
+
+  .c-pagination {
+    padding-top: 4em;
+  }
+
+  .right-column {
+    padding-left: 0;
+  }
+}

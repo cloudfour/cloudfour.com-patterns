@@ -46,8 +46,30 @@ Containers help maintain consistent reading line lengths and prevent fixed-width
 
 The container's default width is generous, a good fit for content that can expand to fill multiple columns. For example, a grid of article summaries.
 
+<!--
+The object demo is not particularly helpful if its source is imported directly,
+so we've provided it manually to the docs add-on via parameters.
+-->
+
 <Canvas>
-  <Story name="Basic" height="300px" args={{ prose: false, pad: padOptions }}>
+  <Story
+    name="Basic"
+    height="300px"
+    args={{ prose: false, pad: padOptions }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad'
+} only %}
+  {% block content %}
+    {# content #}
+  {% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
     {basicDemoStory.bind({})}
   </Story>
 </Canvas>
@@ -56,8 +78,30 @@ The container's default width is generous, a good fit for content that can expan
 
 The `--prose` modifier is intended to be used with content that mostly consists of text, like an article. It helps improve readability by limiting line length.
 
+<!--
+The object demo is not particularly helpful if its source is imported directly,
+so we've provided it manually to the docs add-on via parameters.
+-->
+
 <Canvas>
-  <Story name="Prose" height="300px" args={{ prose: true, pad: padOptions }}>
+  <Story
+    name="Prose"
+    height="300px"
+    args={{ prose: true, pad: padOptions }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose o-container--pad'
+} only %}
+  {% block content %}
+    {# content #}
+  {% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
     {basicDemoStory.bind({})}
   </Story>
 </Canvas>

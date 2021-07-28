@@ -43,10 +43,19 @@
 }
 
 /**
+ * Alternate theme
+ */
+
+@include theme.props(alternate) {
+  --theme-color-background-base: var(--theme-color-background-secondary);
+}
+
+/**
  * Container styles
  */
 
 .t-light,
-.t-dark {
+.t-dark,
+.t-alternate {
   @include theme.rules();
 }

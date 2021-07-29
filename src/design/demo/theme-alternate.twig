@@ -1,0 +1,18 @@
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+  class: 'o-rhythm--generous o-container--pad'
+} %}
+  {% block content %}
+    <h1>t-{{theme}}</h1>
+    {% include '@cloudfour/design/typography/demo/inline-elements.twig' only %}
+    {% include '@cloudfour/components/button/demo/styles.twig' only %}
+  {% endblock %}
+{% endembed %}
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+  class: 'o-rhythm--generous o-container--pad t-alternate'
+} %}
+  {% block content %}
+    <h2>t-alternate within t-{{theme}}</h2>
+    {% include '@cloudfour/design/typography/demo/inline-elements.twig' only %}
+    {% include '@cloudfour/components/button/demo/styles.twig' only %}
+  {% endblock %}
+{% endembed %}

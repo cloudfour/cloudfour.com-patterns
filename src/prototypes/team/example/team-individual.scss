@@ -14,13 +14,12 @@
 
   .heading {
     .sub-heading {
-      font-size: 20px;
-      padding-top: .5em;
+      font-size: ms.step(1);
+      padding-top: ms.step(-3);
 
       @media (min-width: breakpoint.$l) {
-        font-size: 24px;
-        padding-top: .75em;
-        padding-bottom: 1em;
+        padding-top: ms.step(-1);
+        padding-bottom: ms.step(0);
       }
     }
   }
@@ -32,10 +31,10 @@
 
     .link-list__upper {
       display: none;
-      padding-top: 1em;
+      padding-top: ms.step(0);
       text-align: center;
       list-style: none;
-      margin-left: -1.25em;
+      margin-left: - ms.step(1);
       @media (min-width: breakpoint.$l) {
         display: inline;
       }
@@ -44,7 +43,7 @@
 
   .link-list__lower {
     display: inline;
-    padding-top: 1em;
+    padding-top: ms.step(0);
     list-style: none;
     @media (min-width: breakpoint.$l) {
       display: none;
@@ -52,29 +51,29 @@
   }
 
   .heading-container {
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: ms.step(6);
+    padding-bottom: ms.step(6);
   }
 
   .article-container {
     background-color: #{color.$base-gray-lighter};
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: ms.step(6);
+    padding-bottom: ms.step(6);
     .article-heading {
-      padding-bottom: 1.25em;
+      padding-bottom: ms.step(1);
     }
   }
 
   .talk-container {
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: ms.step(6);
+    padding-bottom: ms.step(6);
     .talks-heading {
-      padding-bottom: 1.25em;
+      padding-bottom: ms.step(1);
     }
   }
 
   .c-pagination {
-    padding-top: 4em;
+    padding-top: ms.step(6);
   }
 
   .right-column {

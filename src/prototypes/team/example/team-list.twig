@@ -68,7 +68,9 @@
                   "class": "avatar-image",
                 } only %}
               </a>
-              {% include '@cloudfour/components/button/button.twig' with { label: avatar.name, class: 'c-button--tertiary' } %}
+              <a href="#" class="c-card__link avatar-name">
+                {{avatar.name}}
+              </a>
               <p>{{avatar.role}}</p>
             </div>
           {% endfor %}

@@ -1,7 +1,11 @@
-{% embed '@cloudfour/objects/rhythm/rhythm.twig' with { class: 'o-rhythm--generous' } %}
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+  class: 'o-rhythm--generous'
+} only %}
   {% block content %}
     {% for i in 1..3 %}
-       {% embed '@cloudfour/objects/container/container.twig' with { class: 'o-container--prose' } only %}
+      {% embed '@cloudfour/objects/container/container.twig' with {
+        class: 'o-container--prose'
+      } only %}
         {% block content %}
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quam tellus, auctor non faucibus consequat, dictum et dui. Praesent vitae magna sit amet odio egestas semper. Duis nec tellus ligula. Pellentesque mollis varius pulvinar. Suspendisse eu ultrices quam. In dignissim felis efficitur lorem porttitor porttitor. Aliquam maximus tempus erat ut sagittis.</p>
         {% endblock %}

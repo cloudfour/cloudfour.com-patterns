@@ -1,8 +1,26 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we
+// are okay with the following Webpack-specific raw loader syntax. It's better
+// to leave the ESLint rule enabled globally, and only thoughtfully disable as
+// needed (e.g. within a Storybook docs page and not within an actual
+// component). This can be revisited in the future if Storybook no longer relies
+// on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import articleDemoSource from '!!raw-loader!./demo/article.twig';
 import articleDemo from './demo/article.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import listDemoSource from '!!raw-loader!./demo/list.twig';
 import listDemo from './demo/list.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import introDemoSource from '!!raw-loader!./demo/intro.twig';
 import introDemo from './demo/intro.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import sectionsDemoSource from '!!raw-loader!./demo/sections.twig';
 import sectionsDemo from './demo/sections.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import summaryDemoSource from '!!raw-loader!./demo/summary.twig';
 import summaryDemo from './demo/summary.twig';
 
 <Meta title="Objects/Rhythm" />
@@ -14,7 +32,12 @@ The `o-rhythm` class applies [consistent vertical spacing between child elements
 The default spacing works great for medium-to-long text content:
 
 <Canvas>
-  <Story name="Default">{introDemo}</Story>
+  <Story
+    name="Default"
+    parameters={{ docs: { source: { code: introDemoSource } } }}
+  >
+    {introDemo}
+  </Story>
 </Canvas>
 
 ## Modifiers
@@ -22,19 +45,34 @@ The default spacing works great for medium-to-long text content:
 For shorter summary content, use the `o-rhythm--condensed` modifier to tighten things up a bit:
 
 <Canvas>
-  <Story name="Condensed">{summaryDemo}</Story>
+  <Story
+    name="Condensed"
+    parameters={{ docs: { source: { code: summaryDemoSource } } }}
+  >
+    {summaryDemo}
+  </Story>
 </Canvas>
 
 `o-rhythm--compact` is best for shorter content chunks that just need a _pinch_ more space:
 
 <Canvas>
-  <Story name="Compact">{listDemo}</Story>
+  <Story
+    name="Compact"
+    parameters={{ docs: { source: { code: listDemoSource } } }}
+  >
+    {listDemo}
+  </Story>
 </Canvas>
 
 While `o-rhythm--generous` is intended for separating distinct content chunks with more whitespace:
 
 <Canvas>
-  <Story name="Generous">{sectionsDemo}</Story>
+  <Story
+    name="Generous"
+    parameters={{ docs: { source: { code: sectionsDemoSource } } }}
+  >
+    {sectionsDemo}
+  </Story>
 </Canvas>
 
 ## Heading Modifiers
@@ -47,7 +85,11 @@ behave as expected.
 -->
 
 <Canvas>
-  <Story name="Generous Headings" inline={false}>
+  <Story
+    name="Generous Headings"
+    inline={false}
+    parameters={{ docs: { source: { code: articleDemoSource } } }}
+  >
     {articleDemo}
   </Story>
 </Canvas>

@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import demo from './demo/theme.twig';
+import alternateDemo from './demo/theme-alternate.twig';
 const demoStory = (args) => demo(args);
 
 <Meta title="Design/Themes" />
@@ -29,6 +30,30 @@ Optimized for page intros and headings.
 <Canvas>
   <Story name="Dark" parameters={{ theme: 't-dark' }} args={{ theme: 'dark' }}>
     {demoStory.bind({})}
+  </Story>
+</Canvas>
+
+## Alternate
+
+An alternate, or secondary, theme that can offset a section of content visually from its surroundings. This may be helpful for distinguishing rows of content from one another in a subtle way.
+
+<Canvas>
+  <Story
+    name="Alternate with Light"
+    parameters={{ theme: 't-light' }}
+    args={{ theme: 'light' }}
+  >
+    {(args) => alternateDemo(args)}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Alternate with Dark"
+    parameters={{ theme: 't-dark' }}
+    args={{ theme: 'dark' }}
+  >
+    {(args) => alternateDemo(args)}
   </Story>
 </Canvas>
 

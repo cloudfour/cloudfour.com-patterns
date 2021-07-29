@@ -1,5 +1,15 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { useEffect } from '@storybook/client-api';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we
+// are okay with the following Webpack-specific raw loader syntax. It's better
+// to leave the ESLint rule enabled globally, and only thoughtfully disable as
+// needed (e.g. within a Storybook docs page and not within an actual
+// component). This can be revisited in the future if Storybook no longer relies
+// on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import exampleDemoSource from '!!raw-loader!./demo/example.twig';
 import exampleDemo from './demo/example.twig';
 
 <Meta
@@ -14,7 +24,11 @@ A wrapper for page body and footer content that keeps the footer at the bottom o
 For this to work correctly, each parent element needs to fill its container height. For best results, apply this to the `body` element directly or nested immediately within.
 
 <Canvas>
-  <Story name="Example" height="400px">
+  <Story
+    name="Example"
+    height="400px"
+    parameters={{ docs: { source: { code: exampleDemoSource } } }}
+  >
     {() => {
       useEffect(() => {
         // Override Storybook's `min-height` in the preview

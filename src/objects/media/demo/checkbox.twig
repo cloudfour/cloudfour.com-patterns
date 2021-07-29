@@ -1,4 +1,7 @@
-{% embed '@cloudfour/objects/media/media.twig' with { tag_name: 'label', inner_tag_name: 'span' } %}
+{% embed '@cloudfour/objects/media/media.twig' with {
+  tag_name: 'label',
+  inner_tag_name: 'span'
+} only %}
   {% block object %}
     {% include '@cloudfour/components/checkbox/checkbox.twig' with {
       class: 'o-media__object'

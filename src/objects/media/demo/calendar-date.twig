@@ -1,4 +1,6 @@
-{% embed '@cloudfour/objects/media/media.twig' with { reverse_markup: true } %}
+{% embed '@cloudfour/objects/media/media.twig' with {
+  reverse_markup: true
+} only %}
   {% block object %}
     {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
       datetime: '2020-08-17',

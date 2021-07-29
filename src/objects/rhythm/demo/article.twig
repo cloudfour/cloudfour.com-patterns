@@ -1,6 +1,10 @@
-{% embed '@cloudfour/objects/container/container.twig' with { class: 'o-container--prose' } only %}
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose'
+} only %}
   {% block content %}
-    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with { class: 'o-rhythm--generous-headings' } only %}
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+      class: 'o-rhythm--generous-headings'
+    } only %}
       {% block content %}
         <h1>Defining Responsiveness</h1>
         <p>When people say that something is responsive, what do they mean?</p>

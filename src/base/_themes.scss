@@ -44,6 +44,10 @@
 
 /**
  * Alternate theme
+ *
+ * An alternate, or secondary, theme that can offset a section of content visually
+ * from its surroundings. This may be helpful for distinguishing rows of content
+ * from one another in a subtle way.
  */
 
 @include theme.props(alternate) {

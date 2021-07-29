@@ -127,6 +127,30 @@
             "guid": "https://cloudfour.com/?p=5555",
             "thumbnail": "https://cloudfour.com/wp-content/uploads/2019/09/Screen-Shot-2019-09-19-at-9.52.57-AM.png",
             "description": "My parents are retired. They continue to try to pay for meals. I don't want them to. So we often end up in a competition to see who can pay first. In this case, I knew I had an advantage. My card details were already stored in the browser. I just needed to use autofill..."
+          },
+          {
+            "title": "Building Flexible Components With Transparency",
+            "pubDate": "2020-11-19 17:28:54",
+            "link": "https://cloudfour.com/thinks/building-flexible-components-with-transparency/",
+            "guid": "https://cloudfour.com/?p=6017",
+            "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/11/transparent-flexible.png",
+            "description": "By adding a touch of transparency, we can design components that automatically adapt to their backgrounds."
+          },
+          {
+            "title": "22 Panels That Always Work: Wally Wood’s Legendary Productivity Hack",
+            "pubDate": "2020-01-14 16:49:28",
+            "link": "https://cloudfour.com/thinks/22-panels-that-always-work-wally-woods-legendary-productivity-hack/",
+            "guid": "https://cloudfour.com/?p=5678",
+            "thumbnail": "https://cloudfour.com/wp-content/uploads/2020/01/wallywood22panel1600.jpg",
+            "description": "Comic book artist Wally Wood’s “22 Panels That Always Work” is a legendary bit of productivity hacking. How can you reduce “noodling” in your work?"
+          },
+          {
+            "title": "An HTML attribute potentially worth $4.4M to Chipotle",
+            "pubDate": "2019-09-19 16:57:12",
+            "link": "https://cloudfour.com/thinks/an-html-attribute-potentially-worth-4-4m-to-chipotle/",
+            "guid": "https://cloudfour.com/?p=5555",
+            "thumbnail": "https://cloudfour.com/wp-content/uploads/2019/09/Screen-Shot-2019-09-19-at-9.52.57-AM.png",
+            "description": "My parents are retired. They continue to try to pay for meals. I don't want them to. So we often end up in a competition to see who can pay first. In this case, I knew I had an advantage. My card details were already stored in the browser. I just needed to use autofill..."
           }
         ],
         "columns": 3,
@@ -135,64 +159,64 @@
         "horizontalBreakpoint": "none"
       } only %}
 
-          {% include '@cloudfour/components/pagination/pagination.twig' with {
-            "pagination": {
-              "mid_size": 2,
-              "current": 2,
-              "total": 36,
-              "prev": {
-                "title": 1,
-                "text": 1,
-                "name": 1,
-                "current": false,
-                "link": "#page-1"
-              },
-              "next": {
-                "title": 3,
-                "text": 3,
-                "name": 3,
-                "current": false,
-                "link": "#page-3"
-              },
-              "pages": [
-                {
-                  "title": 1,
-                  "text": 1,
-                  "name": 1,
-                  "current": false,
-                  "link": "#page-1"
-                },
-                {
-                  "title": 2,
-                  "text": 2,
-                  "name": 2,
-                  "current": true,
-                  "link": false
-                },
-                {
-                  "title": 3,
-                  "text": 3,
-                  "name": 3,
-                  "current": false,
-                  "link": "#page-3"
-                },
-                {
-                  "title": 4,
-                  "text": 4,
-                  "name": 4,
-                  "current": false,
-                  "link": "#page-4"
-                },
-                {
-                  "title": 5,
-                  "text": 5,
-                  "name": 5,
-                  "current": false,
-                  "link": "#page-5"
-                }
-              ]
+      {% include '@cloudfour/components/pagination/pagination.twig' with {
+        "pagination": {
+          "mid_size": 2,
+          "current": 2,
+          "total": 36,
+          "prev": {
+            "title": 1,
+            "text": 1,
+            "name": 1,
+            "current": false,
+            "link": "#page-1"
+          },
+          "next": {
+            "title": 3,
+            "text": 3,
+            "name": 3,
+            "current": false,
+            "link": "#page-3"
+          },
+          "pages": [
+            {
+              "title": 1,
+              "text": 1,
+              "name": 1,
+              "current": false,
+              "link": "#page-1"
+            },
+            {
+              "title": 2,
+              "text": 2,
+              "name": 2,
+              "current": true,
+              "link": false
+            },
+            {
+              "title": 3,
+              "text": 3,
+              "name": 3,
+              "current": false,
+              "link": "#page-3"
+            },
+            {
+              "title": 4,
+              "text": 4,
+              "name": 4,
+              "current": false,
+              "link": "#page-4"
+            },
+            {
+              "title": 5,
+              "text": 5,
+              "name": 5,
+              "current": false,
+              "link": "#page-5"
             }
-          } only %}
+          ]
+        }
+      } only %}
 
     {% endblock %}
   {% endembed %}
@@ -234,64 +258,6 @@
           "columnsBreakpoint": "none",
           "horizontalItem": 1,
           "horizontalBreakpoint": "none"
-        } only %}
-        {% include '@cloudfour/components/pagination/pagination.twig' with {
-          "pagination": {
-            "mid_size": 2,
-            "current": 2,
-            "total": 36,
-            "prev": {
-              "title": 1,
-              "text": 1,
-              "name": 1,
-              "current": false,
-              "link": "#page-1"
-            },
-            "next": {
-              "title": 3,
-              "text": 3,
-              "name": 3,
-              "current": false,
-              "link": "#page-3"
-            },
-            "pages": [
-              {
-                "title": 1,
-                "text": 1,
-                "name": 1,
-                "current": false,
-                "link": "#page-1"
-              },
-              {
-                "title": 2,
-                "text": 2,
-                "name": 2,
-                "current": true,
-                "link": false
-              },
-              {
-                "title": 3,
-                "text": 3,
-                "name": 3,
-                "current": false,
-                "link": "#page-3"
-              },
-              {
-                "title": 4,
-                "text": 4,
-                "name": 4,
-                "current": false,
-                "link": "#page-4"
-              },
-              {
-                "title": 5,
-                "text": 5,
-                "name": 5,
-                "current": false,
-                "link": "#page-5"
-              }
-            ]
-          }
         } only %}
       {% endblock %}
     {% endembed %}

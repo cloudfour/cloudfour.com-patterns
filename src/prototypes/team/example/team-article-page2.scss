@@ -1,7 +1,9 @@
+@use "../../../compiled/tokens/scss/breakpoint";
+
 #team-article-page2 {
 
   .article-container {
-    padding-top: 4em;
+    padding-top: 3em;
     padding-bottom: 4em;
     .article-heading {
       padding-bottom: 1.25em;
@@ -9,8 +11,12 @@
   }
 
   .main-container {
-    padding-top: 2em;
+    padding-top: 3em;
     padding-bottom: 4em;
+
+    @media (min-width: breakpoint.$l) {
+      padding-top: 2em;
+    }
   }
 
   .c-pagination {

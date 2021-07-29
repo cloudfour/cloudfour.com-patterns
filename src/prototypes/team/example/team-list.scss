@@ -4,8 +4,6 @@
 @use "../../../compiled/tokens/scss/ease";
 @use "../../../compiled/tokens/scss/transition";
 
-
-
 #team-listings {
 
   .avatar-name {
@@ -21,7 +19,7 @@
     grid-gap: ms.step(0);
     grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
     @media (min-width: breakpoint.$l) {
-      grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(15.25em, 1fr));
     }
 
     .team-member {

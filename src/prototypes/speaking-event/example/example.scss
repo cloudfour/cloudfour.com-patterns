@@ -1,4 +1,6 @@
+@use "../../../compiled/tokens/scss/breakpoint";
 @use "../../../compiled/tokens/scss/color";
+@use "../../../compiled/tokens/scss/size";
 @use "../../../mixins/ms";
 
 #speaking-event {
@@ -7,11 +9,16 @@
   }
 
   .flex-title {
-    align-items: flex-end;
-    display: flex;
+    @media (min-width: breakpoint.$s) {
+      align-items: baseline;
+      display: flex;
+    }
   }
 
   .feature-box {
     background-color: #{color.$base-gray-lighter};
+    @media (min-width: breakpoint.$l) {
+      border-radius: size.$border-radius-medium;
+    }
   }
 }

@@ -1,0 +1,194 @@
+<div id="speaking-event">
+  <div class="o-container o-container--prose o-container--pad">
+    <div class="o-container__content">
+      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+        class: 'o-rhythm--generous'
+      } %}
+        {% block content %}
+          {% include '@cloudfour/components/heading/heading.twig' with {
+            level: -1,
+            tag_name: 'h1',
+            content: 'Designing Progressive Web Apps',
+          } only %}
+          {% embed '@cloudfour/objects/media/media.twig' %}
+            {% block object %}
+              {% include '@cloudfour/components/avatar/avatar.twig' with { src: 'https://cloudfour.com/wp-content/uploads/2016/07/jason.png' } only %}
+            {% endblock %}
+            {% block content %}
+              <a href="https://cloudfour.com/is/jason-grigsby/">Jason Grigsby</a>
+              <p class="speaker-title">Co-founder</p>
+            {% endblock %}
+          {% endembed %}
+          <p>
+            If you have a website—particularly one that generates revenue for your organization—you need a Progressive Web App. So where do you begin? How do you decide which features of a Progressive Web App make sense for your users? What tools can make the process easier (or harder)? In this practical session, Jason will guide you through the key design decisions you’ll need to make about your Progressive Web App and how those decisions impact the scope of your project. He'll also teach you how to avoid common pitfalls and help you take full advantage of Progressive Web App technology.
+          </p>
+          {% include '@cloudfour/objects/embed/demo/image.twig' with {
+            "class": "o-embed--wide",
+            "src": deck
+          } only %}
+          <div class="flex-title u-pad-block-start-4">
+            {% include '@cloudfour/components/heading/heading.twig' with {
+              level: 1,
+              tag_name: 'h2',
+              content: 'Watch',
+              class: 'u-pad-inline-end-n2',
+            } only %}
+            <p>
+              Smashing Conference (Oct 23, 2018)
+            </p>
+          </div>
+          {% embed '@cloudfour/objects/embed/embed.twig' with { class: 'o-embed--wide'} %}
+            {% block content %}
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Ty5jtMZXbmk" allowfullscreen></iframe>
+            {% endblock %}
+          {% endembed %}
+          <div class="u-pad-block-start-4">
+            {% include '@cloudfour/components/heading/heading.twig' with {
+              level: 1,
+              tag_name: 'h2',
+              content: 'Presented at...',
+            } only %}
+          </div>
+          {% embed '@cloudfour/components/event-log/event-log.twig' %}
+            {% block content %}
+              {% for item in events %}
+                {% embed '@cloudfour/components/event-log/item.twig' with item %}
+                  {% block extra %}
+                    {%- if item.links -%}
+                      {% embed '@cloudfour/objects/list/list.twig' with {
+                        class: 'o-list--inline'
+                      } %}
+                        {% block content %}
+                          {% for link in item.links %}
+                            <li>
+                              <a href="{{link.link}}">
+                                {{link.title}}
+                              </a>
+                            </li>
+                          {% endfor %}
+                        {% endblock %}
+                      {% endembed %}
+                    {%- endif -%}
+                  {% endblock %}
+                {% endembed %}
+              {% endfor %}
+            {% endblock %}
+          {% endembed %}
+          <div class="feature-box u-pad-1 u-pull-inline-1">
+            {% embed '@cloudfour/objects/media/media.twig' with {
+              "reverse": true,
+            } only %}
+              {% block object %}
+                {% include '@cloudfour/components/avatar/avatar.twig' with { src: 'https://cloudfour.com/wp-content/uploads/2016/07/jason.png' } only %}
+              {% endblock %}
+              {% block content %}
+                <p><a href="https://cloudfour.com/is/jason-grigsby/"><strong>Jason Grigsby</strong></a> is one of the co-founders of Cloud Four, Mobile Portland and Responsive Field Day. He is the author of <a href="https://abookapart.com/products/progressive-web-apps">Progressive Web Apps</a> from A Book Apart. Follow him at <a href="https://twitter.com/grigs">@grigs</a>.</p>
+              {% endblock %}
+            {% endembed %}
+          </div>
+          <p>
+            <small>
+              Thumbnail image by <a href="https://www.pexels.com/photo/white-blank-notebook-733857/">Tirachard Kumtanom</a>.
+            </small>
+          </p>
+          {% include '@cloudfour/components/button/button.twig' with {
+            "content_start_icon": "arrow-left",
+            "class": "c-button--secondary",
+            "label": "All talks"
+          } only %}
+        {% endblock %}
+      {% endembed %}
+    </div>
+  </div>
+  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/contributes",
+          "title": "Labs"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        },
+        {
+          "link": "/portland-device-lab",
+          "title": "Device Lab"
+        },
+        {
+          "link": "https://cloudfour-patterns.netlify.app/",
+          "title": "Patterns"
+        },
+        {
+          "link": "https://www.responsivefieldday.com/",
+          "title": "Responsive Field Day"
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "link": "https://twitter.com/cloudfour",
+          "title": "Follow us on Twitter",
+          "icon": "brands/twitter"
+        },
+        {
+          "link": "https://github.com/cloudfour",
+          "title": "Find us on GitHub",
+          "icon": "brands/github"
+        },
+        {
+          "link": "https://www.instagram.com/cloudfourpdx/",
+          "title": "Follow us on Instagram",
+          "icon": "brands/instagram"
+        },
+        {
+          "link": "https://www.linkedin.com/company/cloud-four",
+          "title": "Follow us on LinkedIn",
+          "icon": "brands/linkedin"
+        }
+      ]
+    },
+    "action": {
+      "lead_in": "Let’s discuss your project!",
+      "title": "Email us",
+      "link": "mailto:info@cloudfour.com",
+      "icon": "envelope"
+    },
+    "organization": {
+      "name": "Cloud Four, Inc.",
+      "address": {
+        "street_address": "510 SW 3rd Ave, Suite 420",
+        "address_locality": "Portland",
+        "address_region": "Oregon",
+        "postal_code": "97204",
+        "address_country": "USA"
+      },
+      "email": "info@cloudfour.com",
+      "telephone": "+1 (503) 290-1090",
+      "url": "https://cloudfour.com/",
+      "founding_date": "2007-12-13"
+    }
+  } only %}
+</div>

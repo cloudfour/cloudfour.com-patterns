@@ -35,7 +35,8 @@
   .team-container {
     display: grid;
     grid-gap: ms.step(0);
-    grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(11.5em, 1fr));
+
     @media (min-width: breakpoint.$l) {
       grid-template-columns: repeat(auto-fill, minmax(15.25em, 1fr));
     }

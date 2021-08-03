@@ -9,8 +9,26 @@
   .avatar-name {
     font-weight: font-weight.$semibold;
     font-size: ms.step(1);
+
+    &:not(:hover) {
+    text-decoration: none;
+    }
+
     @media (min-width: breakpoint.$l) {
       font-size: ms.step(2);
+    }
+  }
+
+  .team-member {
+    text-align: center;
+    margin: ms.step(-2);
+
+    .c-card__cover {
+      border-radius: 50%;
+
+      &::before {
+        padding-bottom: 100%;
+      }
     }
   }
 
@@ -20,30 +38,6 @@
     grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
     @media (min-width: breakpoint.$l) {
       grid-template-columns: repeat(auto-fill, minmax(15.25em, 1fr));
-    }
-
-    .team-member {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: ms.step(0) 0;
-      transition: transform transition.$prompt ease.$out;
-
-      &:hover {
-        transform: scale(1.025);
-      }
-
-      .avatar-image {
-        margin-bottom: ms.step(-2);
-        width: 12rem;
-        @media (min-width: breakpoint.$m) {
-          width: 12rem;
-        }
-        @media (min-width: breakpoint.$l) {
-          width: 13.5rem;
-        }
-      }
     }
   }
 }

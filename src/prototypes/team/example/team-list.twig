@@ -60,19 +60,17 @@
     {% block content %}
       <div class="team-container">
           {% for avatar in avatars %}
-            <div class="team-member">
-              <a href="#">
-                {% include '@cloudfour/components/avatar/avatar.twig' with {
-                  "size": "full",
-                  "src": avatar.image,
-                  "class": "avatar-image",
-                } only %}
-              </a>
-              <a href="#" class="c-card__link avatar-name">
-                {{avatar.name}}
-              </a>
-              <p>{{avatar.role}}</p>
-            </div>
+            {% embed '@cloudfour/components/card/card.twig' with { href: '#', avatar: avatar, class: 'team-member' } only %}
+              {% block heading %}
+               {{avatar.name}}
+              {% endblock %}
+              {% block cover %}
+                <img src="{{avatar.image}}" alt="">
+              {% endblock %}
+              {% block content %}
+                <p>{{avatar.role}}</p>
+              {% endblock %}
+            {% endembed %}
           {% endfor %}
       </div>
     {% endblock %}

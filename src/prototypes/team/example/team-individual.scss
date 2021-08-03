@@ -1,0 +1,82 @@
+@use "../../../compiled/tokens/scss/breakpoint";
+@use "../../../compiled/tokens/scss/color";
+@use "../../../mixins/ms";
+
+#team-member {
+  .avatar-image {
+    width: 12em;
+    margin: 0 auto;
+    @media (min-width: breakpoint.$l) {
+      margin: 0;
+      width: 14em;
+    }
+  }
+
+  .heading {
+    .sub-heading {
+      font-size: ms.step(1);
+      padding-top: ms.step(-3);
+
+      @media (min-width: breakpoint.$l) {
+        padding-top: ms.step(-1);
+        padding-bottom: ms.step(0);
+      }
+    }
+  }
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .link-list__upper {
+      display: none;
+      padding-top: ms.step(0);
+      text-align: center;
+      list-style: none;
+      margin-left: - ms.step(1);
+      @media (min-width: breakpoint.$l) {
+        display: inline;
+      }
+    }
+  }
+
+  .link-list__lower {
+    display: inline;
+    padding-top: ms.step(0);
+    list-style: none;
+    @media (min-width: breakpoint.$l) {
+      display: none;
+    }
+  }
+
+  .heading-container {
+    padding-top: ms.step(6);
+    padding-bottom: ms.step(6);
+  }
+
+  .article-container {
+    background-color: #{color.$base-gray-lighter};
+    padding-top: ms.step(6);
+    padding-bottom: ms.step(6);
+    .article-heading {
+      padding-bottom: ms.step(1);
+    }
+  }
+
+  .talk-container {
+    padding-top: ms.step(6);
+    padding-bottom: ms.step(6);
+    .talks-heading {
+      padding-bottom: ms.step(1);
+    }
+  }
+
+  .c-pagination {
+    padding-top: ms.step(6);
+  }
+
+  .right-column {
+    padding-left: 0;
+  }
+}

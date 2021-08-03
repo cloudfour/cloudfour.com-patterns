@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Aileen Jeffries",
+    "role": "Co-founder",
+    "image": "media/team-avatars/aileen.png"
+  },
+  {
+    "name": "Jason Grigsby",
+    "role": "Co-founder",
+    "image": "media/team-avatars/jason.png"
+  },
+  {
+    "name": "Megan Notarte",
+    "role": "Partner, Vice President",
+    "image": "media/team-avatars/megan.png"
+  },
+  {
+    "name": "Tyler Sticka",
+    "role": "Partner, Vice President",
+    "image": "media/team-avatars/tyler.png"
+  },
+  {
+    "name": "Gerardo Rodriguez",
+    "role": "Senior Front-end Developer",
+    "image": "media/team-avatars/gerardo.png"
+  },
+  {
+    "name": "Caleb Eby",
+    "role": "Junior Front-end Developer",
+    "image": "media/team-avatars/caleb.png"
+  },
+  {
+    "name": "Arianna Chau",
+    "role": "Front-end Designer",
+    "image": "media/team-avatars/arianna.png"
+  },
+    {
+    "name": "Scott Vandehey",
+    "role": "Senior Front-end Developer",
+    "image": "media/team-avatars/scott.png"
+  },
+    {
+    "name": "Danielle Romo",
+    "role": "Front-end Designer",
+    "image": "media/team-avatars/danielle.png"
+  },
+    {
+    "name": "Joey Hays",
+    "role": "Digital Project Manager",
+    "image": "media/team-avatars/joey.png"
+  },
+    {
+    "name": "Paul Hebert",
+    "role": "Senior Designer-Developer",
+    "image": "media/team-avatars/paul.png"
+  }
+]

@@ -1,0 +1,169 @@
+<div id="team-listings">
+{% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
+  "class": "t-dark",
+  "menu": {
+    "items": [
+      {
+        "link": "/does",
+        "title": "What We Do",
+        "current": true
+      },
+      {
+        "link": "/believes",
+        "title": "Our Approach"
+      },
+      {
+        "link": "/made",
+        "title": "Our Work"
+      },
+      {
+        "link": "/thinks",
+        "title": "Articles"
+      },
+      {
+        "link": "/presents",
+        "title": "Speaking"
+      },
+      {
+        "link": "/contributes",
+        "title": "Labs"
+      },
+      {
+        "link": "/is",
+        "title": "Team"
+      }
+    ]
+  }
+} only %}
+  {% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
+    {% block content %}
+      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+        class: 'o-rhythm--condensed'
+      } only %}
+        {% block content %}
+          {% include '@cloudfour/components/heading/heading.twig' with {
+            level: -2,
+            content: 'Our Team'
+          } only %}
+          <p>
+            We are a small, versatile team who care passionately about the web.
+            We’re full of what our industry considers unicorns. Our designers
+            code. Our developers went to art school.
+          </p>
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@cloudfour/objects/container/container.twig' with {
+  "class": "o-container--pad" } %}
+    {% block content %}
+      <div class="team-container">
+          {% for avatar in avatars %}
+            {% embed '@cloudfour/components/card/card.twig' with { href: '#', avatar: avatar, class: 'team-member' } only %}
+              {% block heading %}
+               {{avatar.name}}
+              {% endblock %}
+              {% block cover %}
+                <img src="{{avatar.image}}" alt="">
+              {% endblock %}
+              {% block content %}
+                <p>{{avatar.role}}</p>
+              {% endblock %}
+            {% endembed %}
+          {% endfor %}
+      </div>
+    {% endblock %}
+  {% endembed %}
+  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/contributes",
+          "title": "Labs"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        },
+        {
+          "link": "/portland-device-lab",
+          "title": "Device Lab"
+        },
+        {
+          "link": "https://cloudfour-patterns.netlify.app/",
+          "title": "Patterns"
+        },
+        {
+          "link": "https://www.responsivefieldday.com/",
+          "title": "Responsive Field Day"
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "link": "https://twitter.com/cloudfour",
+          "title": "Follow us on Twitter",
+          "icon": "brands/twitter"
+        },
+        {
+          "link": "https://github.com/cloudfour",
+          "title": "Find us on GitHub",
+          "icon": "brands/github"
+        },
+        {
+          "link": "https://www.instagram.com/cloudfourpdx/",
+          "title": "Follow us on Instagram",
+          "icon": "brands/instagram"
+        },
+        {
+          "link": "https://www.linkedin.com/company/cloud-four",
+          "title": "Follow us on LinkedIn",
+          "icon": "brands/linkedin"
+        }
+      ]
+    },
+    "action": {
+      "lead_in": "Let’s discuss your project!",
+      "title": "Email us",
+      "link": "mailto:info@cloudfour.com",
+      "icon": "envelope"
+    },
+    "organization": {
+      "name": "Cloud Four, Inc.",
+      "address": {
+        "street_address": "510 SW 3rd Ave, Suite 420",
+        "address_locality": "Portland",
+        "address_region": "Oregon",
+        "postal_code": "97204",
+        "address_country": "USA"
+      },
+      "email": "info@cloudfour.com",
+      "telephone": "+1 (503) 290-1090",
+      "url": "https://cloudfour.com/",
+      "founding_date": "2007-12-13"
+    }
+  } only %}
+</div>

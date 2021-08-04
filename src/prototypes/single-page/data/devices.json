@@ -1,0 +1,358 @@
+[
+  {
+    "manufacturer": "Amazon",
+    "model": "Kindle Fire",
+    "os": "Android",
+    "version": "2.3"
+  },
+  {
+    "manufacturer": "Amazon",
+    "model": "Kindle Fire HD",
+    "os": "Android",
+    "version": "4.0"
+  },
+  {
+    "manufacturer": "Amazon",
+    "model": "Fire HD6",
+    "os": "Fire OS",
+    "version": "4.5.2"
+  },
+  {
+    "manufacturer": "Amazon",
+    "model": "Fire TV",
+    "os": "Fire OS",
+    "version": "3.0"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone (1st Gen)",
+    "os": "iOS"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPod Touch (4th gen)",
+    "os": "iOS",
+    "version": "4.3"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone 3G",
+    "os": "iOS",
+    "version": "4.2.1"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone 3G",
+    "os": "iOS",
+    "version": "4.0"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPad 2",
+    "os": "iOS",
+    "version": "6"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPad (3rd gen)",
+    "os": "iOS",
+    "version": "6.0"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone 4S",
+    "os": "iOS",
+    "version": "6.0"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone 5",
+    "os": "iOS",
+    "version": "6.0"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "TV",
+    "os": "iOS",
+    "version": "5.1"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone (1st gen)",
+    "os": "iOS",
+    "version": "3.1.3"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone 3GS",
+    "os": "iOS"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPad (1st Generation)",
+    "os": "iOS",
+    "version": "5.x"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPod Touch (5th gen)",
+    "os": "iOS",
+    "version": "6.x"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone 4",
+    "os": "iOS",
+    "version": "6.1.3"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Nexus 1",
+    "os": "Android"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Nexus S",
+    "os": "Android"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Galaxy Nexus",
+    "os": "Android",
+    "version": "4.1"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Chrome Box",
+    "os": "Chrome OS"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Nexus Q",
+    "os": "Other"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Nexus 7",
+    "os": "Android",
+    "version": "4.2"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Nexus 9",
+    "os": "Android",
+    "version": "5.0.1"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Nexus 9",
+    "os": "Android",
+    "version": "5.0.1"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Nexus 9",
+    "os": "Android",
+    "version": "5.0.1"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Chromecast",
+    "os": "Chrome OS",
+    "version": "22062"
+  },
+  {
+    "manufacturer": "Google",
+    "model": "Chromebook Pixel",
+    "os": "Chrome OS"
+  },
+  {
+    "manufacturer": "HTC",
+    "model": "G1",
+    "os": "Android",
+    "version": "1.6"
+  },
+  {
+    "manufacturer": "HTC",
+    "model": "8x",
+    "os": "Windows",
+    "version": "Windows 8"
+  },
+  {
+    "manufacturer": "Microsoft",
+    "model": "Xbox 360",
+    "os": "Xbox 360",
+    "version": "2.0.16197.0"
+  },
+  {
+    "manufacturer": "Microsoft",
+    "model": "Surface",
+    "os": "Windows",
+    "version": "Windows 8"
+  },
+  {
+    "manufacturer": "Motorola",
+    "model": "Backflip",
+    "os": "Android",
+    "version": "1.5"
+  },
+  {
+    "manufacturer": "Motorola",
+    "model": "Droid",
+    "os": "Android",
+    "version": "2.2.3"
+  },
+  {
+    "manufacturer": "Motorola",
+    "model": "RAZR i",
+    "os": "Android",
+    "version": "4.0.4"
+  },
+  {
+    "manufacturer": "Motorola",
+    "model": "RAZR i",
+    "os": "Android",
+    "version": "4.0.4"
+  },
+  {
+    "manufacturer": "Motorola",
+    "model": "Moto G",
+    "os": "Android",
+    "version": "4.4.4"
+  },
+  {
+    "manufacturer": "Motorola",
+    "model": "Motorola 360",
+    "os": "Android"
+  },
+  {
+    "manufacturer": "Mozilla",
+    "model": "Firefox Flame",
+    "os": "Firefox OS"
+  },
+  {
+    "manufacturer": "Nokia",
+    "model": "Lumia 800",
+    "os": "Windows",
+    "version": "7.5"
+  },
+  {
+    "manufacturer": "Nokia",
+    "model": "Lumia 820",
+    "os": "Windows",
+    "version": "8"
+  },
+  {
+    "manufacturer": "Pantech",
+    "model": "Matrix Pro",
+    "os": "Windows",
+    "version": "6.1"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry Playbook",
+    "os": "Blackberry",
+    "version": "PlayBook OS 2.0"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry 9330 Curve",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry 9800 Torch",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry Style 9670",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry Pearl",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry Torch (White)",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry 8320",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry 9760 Bold 2",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry 9550 Storm 2",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry 9300 Curve 3G",
+    "os": "Blackberry"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "Blackberry Z10",
+    "os": "Blackberry",
+    "version": "10"
+  },
+  {
+    "manufacturer": "RIM",
+    "model": "9790",
+    "os": "Blackberry OS",
+    "version": "7"
+  },
+  {
+    "manufacturer": "Samsung",
+    "model": "Epic 4G",
+    "os": "Android"
+  },
+  {
+    "manufacturer": "Samsung",
+    "model": "Galaxy S",
+    "os": "Android"
+  },
+  {
+    "manufacturer": "Samsung",
+    "model": "A237",
+    "os": "Feature phone OS"
+  },
+  {
+    "manufacturer": "Samsung",
+    "model": "SGH-R225",
+    "os": "Feature phone OS"
+  },
+  {
+    "manufacturer": "Samsung",
+    "model": "Series 7 11.6″ Slate",
+    "os": "Windows",
+    "version": "8"
+  },
+  {
+    "manufacturer": "Samsung",
+    "model": "Galaxy S5",
+    "os": "Android",
+    "version": "4.4.4"
+  },
+  {
+    "manufacturer": "Sony",
+    "model": "NSZ-GT1",
+    "os": "Google TV",
+    "version": "3.2"
+  },
+  {
+    "manufacturer": "Toshiba",
+    "model": "Thrive",
+    "os": "Android",
+    "version": "3.1"
+  }
+]

@@ -45,7 +45,6 @@ cloudfour.com-patterns
 │   └── tokens/*          # Design tokens (Style Dictionary)
 ├── .editorconfig         # Low-level code consistency
 ├── .nvmrc                # Node version (used by Netlify)
-├── .svgo.yml             # Inline SVG optimization settings
 ├── CONTRIBUTING.md       # ⬅️ You are here!
 ├── README.md             # Pattern library install instructions
 ├── netlify.toml          # Netlify build settings

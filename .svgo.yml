@@ -1,5 +1,0 @@
-multipass: true
-plugins:
-  - removeViewBox: false
-  - removeXMLNS: true
-  - removeUselessStrokeAndFill: false

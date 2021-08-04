@@ -3,13 +3,16 @@ const svgmin = require('gulp-svgmin');
 const rename = require('gulp-rename');
 const { obj } = require('through2');
 const ltx = require('ltx');
-const yaml = require('js-yaml');
-const path = require('path');
-const { readFileSync } = require('fs');
+const { extendDefaultPlugins } = require('svgo');
 
-// Load SVGO preferences from config file to keep things DRY
-const svgoPath = path.join(__dirname, '../../.svgo.yml');
-const svgoConfig = yaml.load(readFileSync(svgoPath, 'utf8'));
+const svgoConfig = {
+  multipass: true,
+  plugins: extendDefaultPlugins([
+    'removeViewBox',
+    'removeXMLNS',
+    'removeUselessStrokeAndFill',
+  ]),
+};
 
 // Properties to make configurable via Twig templates
 const dynamicSvgProps = [

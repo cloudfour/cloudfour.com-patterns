@@ -3,6 +3,7 @@
     font-family: $name;
     src: url('../src/assets/fonts/#{$path}/#{$parameter}.woff2') format('woff2'),
       url('../src/assets/fonts/#{$path}/#{$parameter}.woff') format('woff');
+    font-display: swap;
 
     @if (type-of($parameter) == 'number') {
       font-weight: $parameter;
@@ -16,6 +17,7 @@
   @font-face {
     font-family: 'Source Sans Pro Variable';
     font-style: $style;
+    font-display: swap;
     font-weight: 100 900;
     src: url('../src/assets/fonts/#{$path}.woff2') format('woff2-variations'),
       url('../src/assets/fonts/#{$path}.woff2') format('woff2');

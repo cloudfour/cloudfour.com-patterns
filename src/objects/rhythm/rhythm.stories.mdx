@@ -75,9 +75,11 @@ While `o-rhythm--generous` is intended for separating distinct content chunks wi
   </Story>
 </Canvas>
 
+To revert to the default spacing in nested rhythm objects, use the `o-rhythm--default` modifier.
+
 ## Heading Modifiers
 
-The `o-rhythm--generous-headings` modifier helps differentiate sections of articles (or similarly long prose content) by adding more whitespace before headings than other elements.
+The `o-rhythm--generous-headings` modifier helps differentiate sections of articles (or similarly long prose content) by adding more whitespace before headings (or elements with a class name containing `heading`, such as [our heading component](/docs/components-heading--levels#heading)).
 
 <!--
 This example isn't inlined so any media queries affecting the container will
@@ -107,6 +109,9 @@ If you have access to the markup, you can add the `o-rhythm` class to the child 
   <!-- ... -->
   <div class="o-rhythm">
     <!-- will also be condensed -->
+  </div>
+  <div class="o-rhythm o-rhythm--default">
+    <!-- will not be condensed -->
   </div>
   <!-- ... -->
 </div>

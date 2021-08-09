@@ -72,6 +72,16 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 
 .c-heading--light {
   font-weight: font-weight.$light;
+
+  /**
+   * Restore default font weight for bold/emphasis elements nested within light
+   * headings. Without this, `b` and `strong` elements will only be one step
+   * up in weight.
+   */
+  b,
+  strong {
+    font-weight: font-weight.$bold;
+  }
 }
 
 /**

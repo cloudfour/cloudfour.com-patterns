@@ -15,14 +15,19 @@
   }
 
   // Where custom properties are supported, also allow headings to receive their
-  // own rhythm.
+  // own rhythm. Note that we also apply this selector to classes containing
+  // `heading`, which covers cases like the `c-heading` component or element
+  // classes like `{component-name}__heading`. This encourages developers to
+  // use semantic markup for headings without worrying about compatibility with
+  // rhythm helpers.
   @supports (--custom: properties) {
     & > * + h1,
     & > * + h2,
     & > * + h3,
     & > * + h4,
     & > * + h5,
-    & > * + h6 {
+    & > * + h6,
+    & > * + [class*='heading'] {
       margin-top: var(--rhythm-headings);
     }
   }

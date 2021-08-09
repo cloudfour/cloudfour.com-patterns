@@ -17,7 +17,13 @@
           <li>Media queries</li>
         </ul>
         <p>That seems simple enough. But when it comes to defining what is responsive, things get a bit fuzzier.</p>
-        <h2>Is Google Plus responsive?</h2>
+
+        {% include '@cloudfour/components/heading/heading.twig' with {
+          level: 2,
+          content: 'Is Google Plus responsive?',
+          permalink: true,
+        } only %}
+
         <p>The best way to understand where the differences of opinion exist is by looking at an real life example: is <a href="http://plus.google.com">Google Plus</a> responsive?</p>
         {% embed '@cloudfour/objects/embed/embed.twig' with { class: 'o-embed--wide' } only %}
           {% block content %}

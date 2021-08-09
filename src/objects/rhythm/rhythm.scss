@@ -24,6 +24,10 @@
   --rhythm: #{size.$rhythm-generous};
 }
 
+.o-rhythm--default {
+  --rhythm: #{size.$rhythm-default};
+}
+
 // Heading modifiers
 
 .o-rhythm--generous-headings {

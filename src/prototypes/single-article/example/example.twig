@@ -40,7 +40,7 @@
     class: 'o-container--prose o-container--pad main-container'} %}
     {% block content %}
       {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-        class: 'o-rhythm--generous' } %}
+        class: 'o-rhythm--generous-headings' } %}
         {% block content %}
           {% include '@cloudfour/components/heading/heading.twig' with {
             level: 0,
@@ -60,7 +60,7 @@
 
 
           {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-          class: '' } %}
+          class: 'o-rhythm--generous' } %}
             {% block content %}
 
             {% embed '@cloudfour/objects/embed/embed.twig' with {

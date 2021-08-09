@@ -40,34 +40,54 @@
     class: 'o-container--prose o-container--pad main-container'} %}
     {% block content %}
       {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-        class: 'o-rhythm--generous' } %}
+        class: 'o-rhythm--generous-headings' } %}
         {% block content %}
           {% include '@cloudfour/components/heading/heading.twig' with {
             level: 0,
             content: 'Portland Open Device Lab',
           } only %}
-          <p>The <a href="#">Open Device Lab</a> movement started in Portland. If you would like to use the lab, please <a href="#">schedule a visit.</a></p>
-          {% include '@cloudfour/components/heading/heading.twig' with {
-            level: 3,
-            content: 'Devices in the lab',
-            permalink: true
-          } only %}
-          {% embed '@cloudfour/components/table/table.twig' with { table_class: 'c-table--striped table' } %}
-            {% block header %}
-              <th scope="col">Manufacturer</th>
-              <th scope="col">Model</th>
-              <th scope="col">OS</th>
-              <th scope="col">Version</th>
-            {% endblock %}
-            {% block body %}
-              {% for device in devices %}
-                <tr>
-                  <td>{{device.manufacturer}}</td>
-                  <td>{{device.model}}</td>
-                  <td>{{device.os}}</td>
-                  <td>{{device.version}}</td>
-                </tr>
-              {% endfor %}
+
+          {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+          class: 'o-rhythm--generous-default' } %}
+            {% block content %}
+
+              <p>The <a href="#">Open Device Lab</a> movement started in Portland. If you would like to use the lab, please <a href="#">schedule a visit.</a></p>
+              {% include '@cloudfour/components/heading/heading.twig' with {
+                level: 2,
+                content: 'Devices in the lab',
+                permalink: true
+              } only %}
+              {% embed '@cloudfour/components/table/table.twig' with { table_class: 'c-table--striped table' } %}
+                {% block header %}
+                  <th scope="col">Manufacturer</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">OS</th>
+                  <th scope="col">Version</th>
+                {% endblock %}
+                {% block body %}
+                  {% for device in devices %}
+                    <tr>
+                      <td>{{device.manufacturer}}</td>
+                      <td>{{device.model}}</td>
+                      <td>{{device.os}}</td>
+                      <td>{{device.version}}</td>
+                    </tr>
+                  {% endfor %}
+                {% endblock %}
+              {% endembed %}
+
+              {% include '@cloudfour/components/heading/heading.twig' with {
+                level: 2,
+                content: 'Another Heading'
+              } only %}
+
+              <p>They live in groups. The one with the longest, thickest, and most-scarred horns is the boss of the herd.Swablu loves to make things clean. If it spots something dirty, it will wipe and polish it with its cottony wings. If its wings become dirty, this Pokémon finds a stream and showers itself.The hair on Zigzagoon’s back is bristly. It rubs the hard back hair against trees to leave its territorial markings. This Pokémon may play dead to fool foes in battle.</p>
+
+              <p>Restored from DNA found in amber, this Pokémon exhibited ferocity that was greater than expected. Some casualties resulted.It’s not the strongest swimmer. It wags its tail to lure in its prey and then gulps them down as soon as they get close.Wynaut gather on moonlit nights to play by squeezing up against each other. By being squeezed, this Pokémon gains endurance and is trained to dole out powerful counterattacks.</p>
+
+              <p>Shiftry’s large fans generate awesome gusts of wind at a speed close to 100 feet per second. The whipped-up wind blows anything away. This Pokémon chooses to live quietly deep in forests.The flame that burns at the tip of its tail is an indication of its emotions.</p>
+
+              <p>Delicate equipment can malfunction in areas inhabited by Magneton, which send out mysterious electrical signals.It’s said that the patterns on its back are related to the stars in the night sky, but the details of that relationship remain unclear.The bug is mostly dead, with the mushroom on its back having become the main body. If the mushroom comes off, the bug stops moving.</p>
             {% endblock %}
           {% endembed %}
         {% endblock %}

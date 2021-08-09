@@ -44,8 +44,8 @@
     "prismjs": "1.24.1"
   },
   "devDependencies": {
-    "@babel/core": "7.14.8",
-    "@babel/preset-env": "7.14.8",
+    "@babel/core": "7.15.0",
+    "@babel/preset-env": "7.15.0",
     "@changesets/changelog-github": "0.4.0",
     "@changesets/cli": "2.16.0",
     "@cloudfour/eslint-plugin": "17.1.0",

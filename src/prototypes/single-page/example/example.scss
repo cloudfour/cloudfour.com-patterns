@@ -1,0 +1,9 @@
+@use "../../../mixins/ms";
+@use "../../../compiled/tokens/scss/size";
+
+#single-page {
+  .main-container {
+    padding-top: ms.step(6);
+    padding-bottom: ms.step(6);
+  }
+}

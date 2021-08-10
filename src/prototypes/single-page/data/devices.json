@@ -1,0 +1,31 @@
+[
+  {
+    "manufacturer": "Amazon",
+    "model": "Kindle Fire",
+    "os": "Android",
+    "version": "2.3"
+  },
+  {
+    "manufacturer": "Amazon",
+    "model": "Kindle Fire HD",
+    "os": "Android",
+    "version": "4.0"
+  },
+  {
+    "manufacturer": "Amazon",
+    "model": "Fire HD6",
+    "os": "Fire OS",
+    "version": "4.5.2"
+  },
+  {
+    "manufacturer": "Amazon",
+    "model": "Fire TV",
+    "os": "Fire OS",
+    "version": "3.0"
+  },
+  {
+    "manufacturer": "Apple",
+    "model": "iPhone (1st Gen)",
+    "os": "iOS"
+  }
+]

@@ -1,0 +1,188 @@
+<div id="single-page">
+  {% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
+    "class": "t-dark",
+    "include_main_demo": false,
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/contributes",
+          "title": "Labs"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        }
+      ]
+    }
+  } only %}
+  {% embed '@cloudfour/objects/container/container.twig' with {
+    class: 'o-container--prose o-container--pad main-container'} %}
+    {% block content %}
+      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+        class: 'o-rhythm--generous-headings' } %}
+        {% block content %}
+          {% include '@cloudfour/components/heading/heading.twig' with {
+            level: -1,
+            content: 'Portland Open Device Lab',
+          } only %}
+
+          {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+          class: 'o-rhythm--default' } %}
+            {% block content %}
+
+              <p>The <a href="#">Open Device Lab</a> movement started in Portland. If you would like to use the lab, please <a href="#">schedule a visit.</a></p>
+              {% include '@cloudfour/components/heading/heading.twig' with {
+                level: 2,
+                content: 'Devices in the lab',
+                permalink: true
+              } only %}
+              {% embed '@cloudfour/components/table/table.twig' with { table_class: 'c-table--striped table' } %}
+                {% block header %}
+                  <th scope="col">Manufacturer</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">OS</th>
+                  <th scope="col">Version</th>
+                {% endblock %}
+                {% block body %}
+                  {% for device in devices %}
+                    <tr>
+                      <td>{{device.manufacturer}}</td>
+                      <td>{{device.model}}</td>
+                      <td>{{device.os}}</td>
+                      <td>{{device.version}}</td>
+                    </tr>
+                  {% endfor %}
+                {% endblock %}
+              {% endembed %}
+
+              {% include '@cloudfour/components/heading/heading.twig' with {
+                level: 2,
+                content: 'Another Heading'
+              } only %}
+
+              <p>They live in groups. The one with the longest, thickest, and most-scarred horns is the boss of the herd.Swablu loves to make things clean. If it spots something dirty, it will wipe and polish it with its cottony wings. If its wings become dirty, this Pokémon finds a stream and showers itself.The hair on Zigzagoon’s back is bristly. It rubs the hard back hair against trees to leave its territorial markings. This Pokémon may play dead to fool foes in battle.</p>
+
+              <p>Restored from DNA found in amber, this Pokémon exhibited ferocity that was greater than expected. Some casualties resulted.It’s not the strongest swimmer. It wags its tail to lure in its prey and then gulps them down as soon as they get close.Wynaut gather on moonlit nights to play by squeezing up against each other. By being squeezed, this Pokémon gains endurance and is trained to dole out powerful counterattacks.</p>
+
+              <p>Shiftry’s large fans generate awesome gusts of wind at a speed close to 100 feet per second. The whipped-up wind blows anything away. This Pokémon chooses to live quietly deep in forests.The flame that burns at the tip of its tail is an indication of its emotions.</p>
+
+              <p>Delicate equipment can malfunction in areas inhabited by Magneton, which send out mysterious electrical signals.It’s said that the patterns on its back are related to the stars in the night sky, but the details of that relationship remain unclear.The bug is mostly dead, with the mushroom on its back having become the main body. If the mushroom comes off, the bug stops moving.</p>
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/contributes",
+          "title": "Labs"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        },
+        {
+          "link": "/portland-device-lab",
+          "title": "Device Lab"
+        },
+        {
+          "link": "https://cloudfour-patterns.netlify.app/",
+          "title": "Patterns"
+        },
+        {
+          "link": "https://www.responsivefieldday.com/",
+          "title": "Responsive Field Day"
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "link": "https://twitter.com/cloudfour",
+          "title": "Follow us on Twitter",
+          "icon": "brands/twitter"
+        },
+        {
+          "link": "https://github.com/cloudfour",
+          "title": "Find us on GitHub",
+          "icon": "brands/github"
+        },
+        {
+          "link": "https://www.instagram.com/cloudfourpdx/",
+          "title": "Follow us on Instagram",
+          "icon": "brands/instagram"
+        },
+        {
+          "link": "https://www.linkedin.com/company/cloud-four",
+          "title": "Follow us on LinkedIn",
+          "icon": "brands/linkedin"
+        }
+      ]
+    },
+    "action": {
+      "lead_in": "Let’s discuss your project!",
+      "title": "Email us",
+      "link": "mailto:info@cloudfour.com",
+      "icon": "envelope"
+    },
+    "organization": {
+      "name": "Cloud Four, Inc.",
+      "address": {
+        "street_address": "510 SW 3rd Ave, Suite 420",
+        "address_locality": "Portland",
+        "address_region": "Oregon",
+        "postal_code": "97204",
+        "address_country": "USA"
+      },
+      "email": "info@cloudfour.com",
+      "telephone": "+1 (503) 290-1090",
+      "url": "https://cloudfour.com/",
+      "founding_date": "2007-12-13"
+    }
+  } only %}
+</div>

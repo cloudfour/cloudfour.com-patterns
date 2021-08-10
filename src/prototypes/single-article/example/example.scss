@@ -1,9 +1,25 @@
 @use "../../../mixins/ms";
 @use "../../../compiled/tokens/scss/size";
+@use "../../../compiled/tokens/scss/breakpoint";
 
 #single-article {
   .main-container {
     padding-top: ms.step(6);
     padding-bottom: ms.step(6);
+  }
+
+
+  .bio-card {
+    @media (min-width: breakpoint.$s) {
+      margin-left: -1em;
+      margin-right: -1em;
+      border-radius: 0;
+    }
+
+    @media (min-width: breakpoint.$m) {
+      margin-left: 0;
+      margin-right: 0;
+      border-radius: size.$border-radius-medium;
+    }
   }
 }

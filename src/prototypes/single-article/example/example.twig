@@ -139,9 +139,10 @@
             {% endblock %}
           {% endembed %}
 
+
           {% embed '@cloudfour/components/card/card.twig' with {
             href: '#',
-            class: ' c-card--contained'
+            class: ' c-card--contained bio-card'
           } only %}
             {% block content %}
 
@@ -159,6 +160,7 @@
               {% endembed %}
             {% endblock %}
           {% endembed %}
+
 
           {% include '@cloudfour/components/heading/heading.twig' with {
             level: 2,

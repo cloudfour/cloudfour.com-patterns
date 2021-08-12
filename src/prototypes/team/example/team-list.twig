@@ -58,7 +58,11 @@
   {% embed '@cloudfour/objects/container/container.twig' with {
   "class": "o-container--pad" } %}
     {% block content %}
-      <div class="team-container">
+      {% embed '@cloudfour/objects/deck/deck.twig' with {
+        class: 'o-deck--2-column@s o-deck--4-column@l',
+        avatars: avatars
+      } only %}
+        {% block content %}
           {% for avatar in avatars %}
             {% embed '@cloudfour/components/card/card.twig' with { href: '#', avatar: avatar, class: 'team-member' } only %}
               {% block heading %}
@@ -72,7 +76,8 @@
               {% endblock %}
             {% endembed %}
           {% endfor %}
-      </div>
+        {% endblock %}
+      {% endembed %}
     {% endblock %}
   {% endembed %}
   {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {

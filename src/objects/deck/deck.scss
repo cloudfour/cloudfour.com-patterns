@@ -45,7 +45,7 @@
  * maximum or to coordinate with adjacent elements.
  */
 
-@for $i from 2 through 3 {
+@for $i from 2 through 4 {
   .o-deck--#{$i}-column {
     @include media-query.breakpoint-classes($from: s, $to: xl) {
       grid-template-columns: repeat(#{$i}, 1fr);

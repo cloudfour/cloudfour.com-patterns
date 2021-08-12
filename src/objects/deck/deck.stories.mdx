@@ -36,7 +36,7 @@ const articlesTemplateSource = (_src, storyContext) => {
       control: {
         type: 'range',
         min: 2,
-        max: 3,
+        max: 4,
         step: 1,
       },
       defaultValue: 3,
@@ -86,7 +86,7 @@ By default, the `o-deck` class will use CSS Grid Layout to arrange child element
 
 While automatic columns are convenient, there are times when a specific column count is desired. For example, you may want to limit a design to three columns at larger breakpoints to align with adjacent elements.
 
-To do this, add a modifier class in the format of `o-deck--X-column@Y`, where `X` is the desired column count (from 2 to 3) and `Y` is the desired [breakpoint](/docs/design-tokens-breakpoint--page) (from `s` to `xl`). In this example, we force the grid to display three columns starting from the `m` breakpoint.
+To do this, add a modifier class in the format of `o-deck--X-column@Y`, where `X` is the desired column count (from 2 to 4) and `Y` is the desired [breakpoint](/docs/design-tokens-breakpoint--page) (from `s` to `xl`). In this example, we force the grid to display three columns starting from the `m` breakpoint.
 
 <Canvas>
   <Story

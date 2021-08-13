@@ -4,7 +4,6 @@ import teamArticlePage2 from './example/team-articles-page2.twig';
 import avatars from './data/avatars.json';
 import './example/team-list.scss';
 import './example/team-individual.scss';
-import './example/team-article-page2.scss';
 
 export default {
   title: 'Prototypes/Team Page',

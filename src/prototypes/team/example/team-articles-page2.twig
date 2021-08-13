@@ -37,15 +37,18 @@
     }
   } only %}
 
-  {% embed '@cloudfour/objects/container/container.twig' with { label: avatar.name, class: 'o-container--pad heading-container'} %}
+  {% embed '@cloudfour/objects/container/container.twig' with {
+    label: avatar.name,
+    class: 'o-container--pad'
+  } %}
     {% block content %}
-      <div class="main-container">
+      <div class="u-pad-block-start-5 u-pad-block-start-3@l u-pad-block-end-6">
         {% include '@cloudfour/components/heading/heading.twig' with {
           level: 0,
           content: 'Articles by Jason, Page 2',
-          class: 'c-heading--light article-heading'
+          class: 'c-heading--light'
         } only %}
-        <div class="article-container">
+        <div class="u-pad-block-start-5 u-pad-block-end-6">
           {% include '@cloudfour/objects/deck/demo/articles.twig' with {
             "items": [
               {
@@ -127,64 +130,66 @@
             "horizontalBreakpoint": "none"
           } only %}
         </div>
-        {% include '@cloudfour/components/pagination/pagination.twig' with {
-          "pagination": {
-            "mid_size": 2,
-            "current": 2,
-            "total": 36,
-            "prev": {
-              "title": 1,
-              "text": 1,
-              "name": 1,
-              "current": false,
-              "link": "#page-1"
-            },
-            "next": {
-              "title": 3,
-              "text": 3,
-              "name": 3,
-              "current": false,
-              "link": "#page-3"
-            },
-            "pages": [
-              {
+        <div class="u-pad-block-start-6">
+          {% include '@cloudfour/components/pagination/pagination.twig' with {
+            "pagination": {
+              "mid_size": 2,
+              "current": 2,
+              "total": 36,
+              "prev": {
                 "title": 1,
                 "text": 1,
                 "name": 1,
                 "current": false,
                 "link": "#page-1"
               },
-              {
-                "title": 2,
-                "text": 2,
-                "name": 2,
-                "current": true,
-                "link": false
-              },
-              {
+              "next": {
                 "title": 3,
                 "text": 3,
                 "name": 3,
                 "current": false,
                 "link": "#page-3"
               },
-              {
-                "title": 4,
-                "text": 4,
-                "name": 4,
-                "current": false,
-                "link": "#page-4"
-              },
-              {
-                "title": 5,
-                "text": 5,
-                "name": 5,
-                "current": false,
-                "link": "#page-5"
-              }
-            ]
-          }
-        } only %}
+              "pages": [
+                {
+                  "title": 1,
+                  "text": 1,
+                  "name": 1,
+                  "current": false,
+                  "link": "#page-1"
+                },
+                {
+                  "title": 2,
+                  "text": 2,
+                  "name": 2,
+                  "current": true,
+                  "link": false
+                },
+                {
+                  "title": 3,
+                  "text": 3,
+                  "name": 3,
+                  "current": false,
+                  "link": "#page-3"
+                },
+                {
+                  "title": 4,
+                  "text": 4,
+                  "name": 4,
+                  "current": false,
+                  "link": "#page-4"
+                },
+                {
+                  "title": 5,
+                  "text": 5,
+                  "name": 5,
+                  "current": false,
+                  "link": "#page-5"
+                }
+              ]
+            }
+          } only %}
+        </div>
       </div>
     {% endblock %}
   {% endembed %}

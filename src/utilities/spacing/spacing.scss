@@ -1,15 +1,15 @@
-@use 'sass:math';
 @use "../../compiled/tokens/scss/scale";
+@use '../../mixins/media-query';
 @use '../../mixins/ms';
 
-@mixin direction-utilities($property, $name, $value) {
+@mixin _direction-utilities($property, $name, $value, $suffix: '') {
   $value: $value !important;
 
   @if $property != margin and $property != padding {
     @error 'Unknown direction utility property #{$property}.';
   }
 
-  &-#{$name} {
+  &-#{$name}#{$suffix} {
     @if $property == margin {
       margin: $value;
     } @else {
@@ -17,11 +17,9 @@
     }
   }
 
-  /**
-   * Ideally we could use the *-block shorthand, but it is not as well
-   * supported in browsers.
-   */
-  &-block-#{$name} {
+  // Ideally we could use the *-block shorthand, but it is not as well supported
+  // in browsers.
+  &-block-#{$name}#{$suffix} {
     @if $property == margin {
       margin-block-end: $value;
       margin-block-start: $value;
@@ -31,7 +29,7 @@
     }
   }
 
-  &-block-start-#{$name} {
+  &-block-start-#{$name}#{$suffix} {
     @if $property == margin {
       margin-block-start: $value;
     } @else {
@@ -39,7 +37,7 @@
     }
   }
 
-  &-block-end-#{$name} {
+  &-block-end-#{$name}#{$suffix} {
     @if $property == margin {
       margin-block-end: $value;
     } @else {
@@ -47,11 +45,9 @@
     }
   }
 
-  /**
-   * Ideally we could use the *-inline shorthand, but it is not as well
-   * supported in browsers.
-   */
-  &-inline-#{$name} {
+  // Ideally we could use the *-inline shorthand, but it is not as well
+  // supported in browsers.
+  &-inline-#{$name}#{$suffix} {
     @if $property == margin {
       margin-inline-end: $value;
       margin-inline-start: $value;
@@ -61,7 +57,7 @@
     }
   }
 
-  &-inline-start-#{$name} {
+  &-inline-start-#{$name}#{$suffix} {
     @if $property == margin {
       margin-inline-start: $value;
     } @else {
@@ -69,7 +65,7 @@
     }
   }
 
-  &-inline-end-#{$name} {
+  &-inline-end-#{$name}#{$suffix} {
     @if $property == margin {
       margin-inline-end: $value;
     } @else {
@@ -78,17 +74,19 @@
   }
 }
 
-@mixin scale-utilities(
+@mixin _scale-utilities(
   $property,
   $minimum-step: scale.$modular-minimum-step,
   $maximum-step: scale.$modular-maximum-step,
-  $base: 1em
+  $base: 1em,
+  $suffix: ''
 ) {
   @if $property == margin {
-    @include direction-utilities(
+    @include _direction-utilities(
       $property: $property,
       $name: auto,
-      $value: auto
+      $value: auto,
+      $suffix: $suffix
     );
   }
 
@@ -98,24 +96,46 @@
   {
     $name: ms.step-class-segment($step);
 
-    @include direction-utilities(
+    @include _direction-utilities(
       $property: $property,
       $name: $name,
-      $value: ms.step($step, $base)
+      $value: ms.step($step, $base),
+      $suffix: $suffix
     );
   }
 
-  @include direction-utilities($property: $property, $name: none, $value: 0);
+  @include _direction-utilities(
+    $property: $property,
+    $name: none,
+    $value: 0,
+    $suffix: $suffix
+  );
 }
 
 .u-pad {
-  @include scale-utilities($property: padding);
+  @include _scale-utilities($property: padding);
 }
 
 .u-space {
-  @include scale-utilities($property: margin);
+  @include _scale-utilities($property: margin);
 }
 
 .u-pull {
-  @include scale-utilities($property: margin, $base: -1em);
+  @include _scale-utilities($property: margin, $base: -1em);
+}
+
+@include media-query.breakpoint-loop() using ($key) {
+  $suffix: '\\@#{$key}';
+
+  .u-pad {
+    @include _scale-utilities($property: padding, $suffix: $suffix);
+  }
+
+  .u-space {
+    @include _scale-utilities($property: margin, $suffix: $suffix);
+  }
+
+  .u-pull {
+    @include _scale-utilities($property: margin, $base: -1em, $suffix: $suffix);
+  }
 }

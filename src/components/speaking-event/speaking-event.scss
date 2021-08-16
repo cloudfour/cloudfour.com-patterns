@@ -1,48 +1,17 @@
-@use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/size";
-@use '../../mixins/ratio-box';
-@use '../../mixins/theme';
 
-/**
- * Themed properties
- */
+$_focus-overflow: (size.$edge-large * -1);
 
-@include theme.props() {
-  --theme-color-background-avatar: #{color.$base-gray-light};
+.c-speaking-event {
+  position: relative;
 }
 
-@include theme.props(dark) {
-  --theme-color-background-avatar: #{color.$brand-primary-dark};
-}
-
-/**
- * Containing element
- *
- * 1. Because avatars are a good thing to lazy-load, we want to show a
- *    background color that will make that transition less jarring. This also
- *    lets this function as a placeholder if desired.
- * 2. Prevent this element from squashing or stretching within a flex container.
- * 3. The most common use cases for avatars use a consistent width, so we set
- *    that here.
- */
-
-.c-avatar {
-  // Ratio box hack lets us support fixed _and_ percentage widths with ease
-  @include ratio-box.core-styles();
-  background: var(--theme-color-background-avatar); /* 1 */
-  border-radius: size.$border-radius-full;
-  flex: none; /* 2 */
-  width: size.$square-avatar-medium; /* 3 */
-}
-
-/**
- * Size modifiers
- */
-
-.c-avatar--small {
-  width: size.$square-avatar-small;
-}
-
-.c-avatar--full {
-  width: size.$square-avatar-full;
+.c-speaking-event__link::after {
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }

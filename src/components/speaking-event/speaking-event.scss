@@ -1,7 +1,3 @@
-@use "../../compiled/tokens/scss/size";
-
-$_focus-overflow: (size.$edge-large * -1);
-
 .c-speaking-event {
   position: relative;
 }

@@ -1,3 +1,4 @@
+{% set heading_level = heading_level|default(3) %}
 {% set _note %}{% block note %}{{ note }}{% endblock %}{% endset %}
 
 <div class="c-speaking-event{% if class %} {{class}}{% endif %}">
@@ -17,14 +18,14 @@
       } only %}
     {% endblock %}
     {% block content %}
-      <h3>
+      <h{{ heading_level }}>
         <a
           href="{{ href }}"
           class="c-speaking-event__link"
         >
           {{ event }}
         </a>
-      </h3>
+      </h{{ heading_level }}>
       <p>{{ location }}</p>
       <p>{% if speakers|length > 1 %}
         Speakers:

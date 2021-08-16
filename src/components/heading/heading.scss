@@ -1,10 +1,11 @@
 @use 'sass:math';
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/ease";
+@use "../../compiled/tokens/scss/font-weight";
+@use "../../compiled/tokens/scss/line-height";
 @use "../../compiled/tokens/scss/opacity";
 @use "../../compiled/tokens/scss/size";
 @use "../../compiled/tokens/scss/transition";
-@use "../../compiled/tokens/scss/font-weight";
 @use '../../mixins/focus';
 @use '../../mixins/headings';
 @use '../../mixins/ms';
@@ -25,35 +26,26 @@ $permalink-radius: size.$border-radius-full; // 3
 $min-width-permalink-shift: size.$max-width-prose + $permalink-size * 4;
 $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 
-/**
- * This containing element may be applied to a heading directly to apply a
- * heading style, or to a containing element if you want to display a heading
- * and permalink.
- *
- * 1. We default to the lowest heading level supported by HTML5, which forces
- *    the template designer to specify an intended visual heading level.
- * 2. Sets up the optional permalink to position itself relative to the
- *    containing element.
- */
-
+/// This containing element may be applied to a heading directly to apply a
+/// heading style, or to a containing element if you want to display a heading
+/// and permalink.
+///
+/// We default to the lowest heading level supported by HTML5, which forces
+/// the template designer to specify an intended visual heading level.
 .c-heading {
-  @include headings.level(6); /* 1 */
-  position: relative; /* 2 */
+  @include headings.level(6);
 }
 
-/**
- * Level modifiers
- *
- * These will apply the styles for a specific heading level.
- *
- * We start at `-2` so template designers have three sizes larger than a default
- * `<h1>` to apply thoughtfully within templates.
- *
- * Even though distinct sizes end at level 3, we output modifier classes for all
- * 6 levels to encourage semantic sizing that will be future-friendly if that
- * ever changes.
- */
-
+/// Level modifiers
+///
+/// These will apply the styles for a specific heading level.
+///
+/// We start at `-2` so template designers have three sizes larger than a
+/// default `<h1>` to apply thoughtfully within templates.
+///
+/// Even though distinct sizes end at level 3, we output modifier classes for
+/// all 6 levels to encourage semantic sizing that will be future-friendly if
+/// that ever changes.
 @for $level from -2 through 6 {
   $level-segment: ms.step-class-segment($level);
 
@@ -62,90 +54,127 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
   }
 }
 
-/**
- * Weight modifier
- *
- * The default font weight for headings is normally defined by heading level.
- * This modifier will change the heading to font-weight.$light. We do this to
- * maintain the importance of headings without drowning out other content.
- */
-
+/// Weight modifier
+///
+/// The default font weight for headings is normally defined by heading level.
+/// This modifier will change the heading to font-weight.$light. We do this to
+/// maintain the importance of headings without drowning out other content.
 .c-heading--light {
   font-weight: font-weight.$light;
 
-  /**
-   * Restore default font weight for bold/emphasis elements nested within light
-   * headings. Without this, `b` and `strong` elements will only be one step
-   * up in weight.
-   */
+  // Restore default font weight for bold/emphasis elements nested within light
+  // headings. Without this, `b` and `strong` elements will only be one step
+  // up in weight.
   b,
   strong {
     font-weight: font-weight.$bold;
   }
 }
 
-/**
- * If `c-heading` is applied to a containing element, this class must be applied
- * to the inner heading to avoid unintended font sizes.
- */
-
-.c-heading__content {
-  font: inherit;
-
-  /**
-   * Prevent heading from overlapping permalink until the viewport is wide
-   * enough for the permalink to position itself outside the container.
-   */
-
-  @media (max-width: $max-width-permalink-shift) {
-    padding-right: unit.swap($permalink-size, rem);
+/// Modifier for when the heading contains a subheading. At large sizes, the
+/// subheading will position itself inline with the main heading.
+.c-heading--with-subheading {
+  @media (min-width: $min-width-permalink-shift) {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
-/**
- * Optional permalink to be included adjacent to the heading itself.
- *
- * 1. We define the element's `font-size` using `rem` so its size will remain
- *    consistent between differently sized headings in the same article.
- * 2. The link's shape is not visible unless focused, so applying some negative
- *    offset based on the inner padding makes the link appear better aligned
- *    with content above and below.
- *
- * @see http://codepen.io/marcysutton/pen/rLKvgZ
- */
+/// For complex headings (those that include a permalink and/or subheading), the
+/// heading content and optionally permalink are contained in this element. This
+/// gives us two benefits: We can position the permalink relative to the heading
+/// (and not a subheading), and the `line-height` of the larger heading will
+/// play a bit nicer when there's a wrapper element.
+.c-heading__main {
+  flex: none;
 
+  // When a permalink is present, we want to position it relative to this. We
+  // also want to make sure there's enough space for it since we'll be using
+  // absolute positioning.
+  .c-heading--with-permalink & {
+    position: relative;
+
+    @media (max-width: $max-width-permalink-shift) {
+      padding-right: unit.swap($permalink-size, rem);
+    }
+  }
+
+  // When a subheading is present and the container is large enough for the
+  // permalink (if any) to be positioned outside, we add some space between
+  // the main heading and subheading that is visually similar to the space
+  // between the permalink and main heading.
+  .c-heading--with-subheading & {
+    @media (min-width: $min-width-permalink-shift) {
+      margin-right: ms.step(-1, 1rem);
+    }
+  }
+}
+
+/// For complex headings (those containing a permalink and/or subheading), the
+/// actual `h*` element must be a child element, so we inherit the container's
+/// font styles. It's important the containing element retain the heading font
+/// styles for vertical rhythm to work as intended!
+.c-heading__content {
+  font: inherit;
+}
+
+/// The optional subheading element displays at the default/base font size and
+/// at a reduced weight. At larger sizes, it will follow the main heading inline
+/// unless it's long enough to break onto its own line.
+.c-heading__subheading {
+  flex: none;
+  font-size: ms.step(0, 1rem);
+  font-weight: font-weight.$medium;
+  line-height: line-height.$tight;
+  max-width: 100%;
+
+  .c-heading--light & {
+    font-weight: font-weight.$normal;
+  }
+
+  .c-heading--with-permalink & {
+    @media (max-width: $max-width-permalink-shift) {
+      padding-right: unit.swap($permalink-size, rem);
+    }
+  }
+}
+
+// Optional permalink to be included adjacent to the heading itself.
+//
+// 1. We define the element's `font-size` using `rem` so its size will remain
+//    consistent between differently sized headings in the same article.
+// 2. The link's shape is not visible unless focused, so applying some negative
+//    offset based on the inner padding makes the link appear better aligned
+//    with content above and below.
+//
+// @see http://codepen.io/marcysutton/pen/rLKvgZ
 .c-heading__permalink {
   align-items: center;
   border-radius: $permalink-radius;
   bottom: 0;
   display: flex;
-  font-size: unit.swap($permalink-icon-size, rem); /* 1 */
+  font-size: unit.swap($permalink-icon-size, rem); // 1
   height: $permalink-size;
   justify-content: center;
   margin: auto;
   position: absolute;
-  right: math.div($permalink-size - $permalink-icon-size, -2); /* 2 */
+  right: math.div($permalink-size - $permalink-icon-size, -2); // 2
   text-decoration: none;
   top: 0;
   transition: color transition.$quick ease.$out,
     opacity transition.$quick ease.$out;
   width: $permalink-size;
 
-  /**
-   * Above a certain size, we display the icon to the left of the heading but
-   * outside of the container (so it doesn't bump the heading to the right,
-   * which can disrupt the flow of reading the content).
-   */
-
+  // Above a certain size, we display the icon to the left of the heading but
+  // outside of the container (so it doesn't bump the heading to the right,
+  // which can disrupt the flow of reading the content).
   @media (min-width: $min-width-permalink-shift) {
     right: 100%;
   }
 
-  /**
-   * We use negation selectors to apply the non-hover style so the permalink
-   * inherits any existing theme link styles for free.
-   */
-
+  // We use negation selectors to apply the non-hover style so the permalink
+  // inherits any existing theme link styles for free.
   &:not(:hover):not(:focus):not(:active) {
     color: inherit;
     opacity: opacity.$muted;

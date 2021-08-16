@@ -1,7 +1,9 @@
+{% set _note %}{% block note %}{{ note }}{% endblock %}{% endset %}
+
 {% embed '@cloudfour/objects/media/media.twig' with {
   reverse_markup: true,
   datetime: datetime,
-  note: note,
+  note: _note,
   event: event,
   location: location,
   speakers: speakers

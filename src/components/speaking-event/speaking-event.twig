@@ -26,10 +26,10 @@
         </a>
       </h3>
       <p>{{ location }}</p>
-      <p>{% if speakers|length > 1 %}
-        Speakers:
-      {% else %}
+      <p>{% if speakers|length == 1 %}
         Speaker:
+      {% else %}
+        Speakers:
       {% endif %}
       {{ speakers|join(', ') }} </p>
     {% endblock %}

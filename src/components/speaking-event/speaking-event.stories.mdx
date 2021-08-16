@@ -5,7 +5,7 @@ import template from './speaking-event.twig';
 
 # Speaking Event
 
-Combines the [Media object](/?path=/docs/objects-media--image) and [Calendar Date component](/?path=/docs/components-calendar-date--basic) to display information for an upcoming speaking event.
+Combines the [Media object](/docs/objects-media--image) and [Calendar Date component](/docs/components-calendar-date--basic) to display information for an upcoming speaking event.
 
 <Canvas>
   <Story
@@ -36,8 +36,11 @@ Combines the [Media object](/?path=/docs/objects-media--image) and [Calendar Dat
 ## Template Properties
 
 - `class` (string): Append a class to the `c-avatar` element.
-- `datetime` (string): Refer to the [Calendar Date component](/?path=/docs/components-calendar-date--basic)
-- `note` (block): Refer to the [Calendar Date component](/?path=/docs/components-calendar-date--basic)
+- `datetime` (string): Refer to the [Calendar Date component](/docs/components-calendar-date--basic#template-properties)
+- `note` (block): Refer to the [Calendar Date component](/docs/components-calendar-date--basic#template-blocks)
 - `event` (string): The name of the event (e.g. `'Smashing Magazine'`)
 - `location` (string): The location of the event (e.g. `'Portland, OR'`)
-- `speakers` (string array): ...
+- `speakers` (string array): An array of string names of the speakers:
+  ```ts
+  ['Megan', 'Aileen'];
+  ```

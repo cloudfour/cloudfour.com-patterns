@@ -1,0 +1,70 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import template from './speaking-event.twig';
+const speakingEventStory = (args) => {
+  if (!args.datetime) {
+    args.datetime = '2021-10-03';
+  }
+  if (!args.speakers) {
+    args.speakers = ['Arianna'];
+  }
+  if (!args.event) {
+    args.event = 'Smashing Conference';
+  }
+  if (!args.location) {
+    args.location = 'Freiburg, Germany';
+  }
+  return template(args);
+};
+
+<Meta title="Components/Speaking Event" />
+
+# Speaking Event
+
+Displays a user, organization or product [avatar](<https://en.wikipedia.org/wiki/Avatar_(computing)>) or profile picture.
+
+The size is fixed to the value of [our `sizes.$avatar-medium` token by default](/docs/design-tokens-size--page#sizing), making this an ideal pattern to use within [a Media object](/docs/objects-media--image). If the pattern contains no image, it will show a plain color.
+
+<Canvas>
+  <Story
+    name="Empty"
+    args={{
+      datetime: '2021-10-03',
+      event: 'Smashing Magazine',
+      note: '3 day event',
+      location: 'New York, NY',
+      speakers: ['Megan', 'Aileen'],
+    }}
+  >
+    {(args) => speakingEventStory(args)}
+  </Story>
+  <Story
+    name="With Image"
+    args={{
+      datetime: '2021-12-09',
+      event: 'An Event Apart',
+      location: 'Seattle, WA',
+      speakers: ['Arianna'],
+    }}
+  >
+    {(args) => speakingEventStory(args)}
+  </Story>
+</Canvas>
+
+## Template Properties
+
+- `alt`: Value for the inner `img` element's `alt` attribute.
+- `class`: Append a class to the `c-avatar` element.
+- `content` (block): Directly specify content for the element. Useful for adding a `picture` or `svg` element directly.
+- `loading`: Value for the inner `img` element's `loading` attribute. Defaults to `lazy`.
+- `size`: Shorthand for appending a size modifier class, for example `full`.
+- `sizes`: Value for the inner `img` element's `sizes` attribute.
+- `src`: Value for the inner `img` element's `src` attribute. If omitted, no `img` will be output.
+- `srcset`: Value for the inner `img` element's `srcset` attribute.
+
+## See also…
+
+To display multiple avatars in a visual cluster, see [the Bunch object](/docs/objects-bunch--of-avatars).
+
+To display images and other embedded media at a fluid but consistent aspect ratio, see [the Embed object](/docs/objects-embed--image).
+
+To size and color icons based on surrounding text, see [the Icon component](/docs/components-icon--basic).

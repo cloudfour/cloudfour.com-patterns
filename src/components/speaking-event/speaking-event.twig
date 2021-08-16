@@ -7,7 +7,8 @@
     note: _note,
     event: event,
     location: location,
-    speakers: speakers
+    speakers: speakers,
+    href: href
   } only %}
     {% block object %}
       {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
@@ -18,7 +19,7 @@
     {% block content %}
       <h3>
         <a
-          href="#link-1"
+          href="{{ href }}"
           class="c-speaking-event__link"
         >
           {{event}}

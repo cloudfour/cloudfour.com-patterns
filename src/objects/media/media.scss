@@ -1,5 +1,14 @@
 @use "../../compiled/tokens/scss/size";
 
+/// The focus outline feels a little snug directly on the outer edge, but we
+/// don't want to extend _too_ far out for fear of colliding with adjacent
+/// content. Doubling the size of the focus edge felt like a nice compromise.
+///
+/// @type Number
+/// @access private
+
+$_focus-overflow: (size.$edge-large * -1);
+
 /**
  * We could use CSS Grid for this pattern and save ourselves some child element
  * styles, but it's such a simple component that it feels sort of unnecessary to
@@ -12,6 +21,18 @@
 .o-media {
   align-items: center; /* 1 */
   display: flex;
+  position: relative;
+}
+
+.o-media a::after {
+  //   border-radius: size.$border-radius-medium;
+  bottom: $_focus-overflow;
+  content: '';
+  left: $_focus-overflow;
+  position: absolute;
+  right: $_focus-overflow;
+  top: $_focus-overflow;
+  z-index: 1;
 }
 
 /**

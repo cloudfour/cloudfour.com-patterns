@@ -8,13 +8,6 @@
     color: var(--theme-color-text-muted);
   }
 
-  .flex-title {
-    @media (min-width: breakpoint.$s) {
-      align-items: baseline;
-      display: flex;
-    }
-  }
-
   .feature-box {
     background-color: #{color.$base-gray-lighter};
     @media (min-width: breakpoint.$l) {

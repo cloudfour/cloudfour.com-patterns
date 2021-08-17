@@ -1,0 +1,19 @@
+{% set _heading %}
+  {% embed '@cloudfour/components/heading/heading.twig' %}
+    {#
+      We set blocks using the `raw` filter so that stories can demonstrate
+      examples that include HTML without escaping it first.
+    #}
+    {% block content %}{{content|raw}}{% endblock %}
+    {% block subheading %}{{subheading|raw}}{% endblock %}
+  {% endembed %}
+{% endset %}
+
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose',
+  _heading: _heading
+} only %}
+  {% block content %}
+    {{_heading}}
+  {% endblock %}
+{% endembed %}

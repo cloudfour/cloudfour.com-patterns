@@ -26,7 +26,7 @@
   {% if tag_name == 'a' %}
     href="{{ href|default('#') }}"
   {% elseif tag_name == 'button' %}
-    type="{{ type|default('button') }}"
+    {% if type %}type="{{ type }}"{% endif %}
     {% if disabled %}
       disabled
     {% endif %}

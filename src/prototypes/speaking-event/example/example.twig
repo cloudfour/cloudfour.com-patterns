@@ -26,16 +26,16 @@
             "class": "o-embed--wide",
             "src": deck
           } only %}
-          <div class="flex-title u-pad-block-start-4">
-            {% include '@cloudfour/components/heading/heading.twig' with {
+          <div class="u-pad-block-start-4">
+            {% embed '@cloudfour/components/heading/heading.twig' with {
               level: 1,
               tag_name: 'h2',
               content: 'Watch',
-              class: 'u-pad-inline-end-n2',
             } only %}
-            <p>
-              Smashing Conference (Oct 23, 2018)
-            </p>
+              {% block subheading %}
+                Smashing Conference (<time datetime="2018-10-23">Oct 23, 2018</time>)
+              {% endblock %}
+            {% endembed %}
           </div>
           {% embed '@cloudfour/objects/embed/embed.twig' with { class: 'o-embed--wide'} %}
             {% block content %}

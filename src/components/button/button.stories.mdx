@@ -191,7 +191,7 @@ You can override the `content_start_icon` value to a different icon.
 - `href` (string): Converts the button to an anchor element and assigns the `href` value. Defaults to `#` if `a` is passed as the `tag_name`.
 - `label` (string, default `'Hello world'`): Sets the button's text content.
 - `tag_name` (string, default `'button'`): The tag for the button. Uses a `button` by default, an `a` when an `href` value is passed.
-- `type` (string, default `'button'`): Sets the button's `type` value.
+- `type` (string): Sets the button's `type` value. If none is passed the browser will default to `submit` or `button` depending on whether the button is in a form.
 
 ## Template Blocks
 

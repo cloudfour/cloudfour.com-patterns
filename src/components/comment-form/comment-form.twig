@@ -58,7 +58,7 @@
     {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
       {% block content %}
         {% include '@cloudfour/components/button/button.twig' with { label: 'Submit Reply' } only %}
-        {% include '@cloudfour/components/button/button.twig' with { label: 'Cancel', class: 'c-button--secondary js-cancel-reply' } only %}
+        {% include '@cloudfour/components/button/button.twig' with { label: 'Cancel', class: 'c-button--secondary js-cancel-reply', type: 'button' } only %}
       {% endblock %}
     {% endembed %}
   {% else %}

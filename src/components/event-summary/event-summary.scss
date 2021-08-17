@@ -1,8 +1,8 @@
-.c-speaking-event {
+.c-event-summary {
   position: relative;
 }
 
-.c-speaking-event__link::after {
+.c-event-summary__link::after {
   bottom: 0;
   content: '';
   left: 0;

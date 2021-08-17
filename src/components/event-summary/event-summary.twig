@@ -1,7 +1,7 @@
 {% set heading_level = heading_level|default(3) %}
 {% set _note %}{% block note %}{{ note }}{% endblock %}{% endset %}
 
-<div class="c-speaking-event{% if class %} {{class}}{% endif %}">
+<div class="c-event-summary{% if class %} {{class}}{% endif %}">
   {% embed '@cloudfour/objects/media/media.twig' with {
     reverse_markup: true,
     datetime: datetime,
@@ -21,7 +21,7 @@
       <h{{ heading_level }}>
         <a
           href="{{ href }}"
-          class="c-speaking-event__link"
+          class="c-event-summary__link"
         >
           {{ event }}
         </a>

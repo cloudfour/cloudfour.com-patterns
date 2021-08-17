@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs';
 import { makeTwigEmbedIfHtml } from '../../make-twig-include.js';
 import demo from './demo/demo.twig';
 
@@ -6,16 +6,17 @@ import demo from './demo/demo.twig';
   title="Components/Heading"
   argTypes={{
     content: {
-      type: 'string',
-      defaultValue: 'Hello world',
+      type: { name: 'string', required: true },
+      description: 'The content of the heading. Also available as a block.',
     },
     id: {
       type: 'string',
+      description: 'Used to identify the heading element for permalinks.',
     },
     level: {
       type: 'number',
-      description: 'TODO',
-      defaultValue: 1,
+      description:
+        'Determines the visual size and/or default `tag_name` of the heading.',
       control: {
         type: 'range',
         min: -2,
@@ -25,12 +26,17 @@ import demo from './demo/demo.twig';
     },
     permalink: {
       type: 'boolean',
+      description: 'Include an iconographic permalink handle with the heading.',
     },
     subheading: {
       type: 'string',
+      description:
+        'Content to follow the main heading. Also available as a block.',
     },
     tag_name: {
       type: 'string',
+      description:
+        'The semantic element to use for the heading, usually an `h*` element. If abscent, the `level` will be used to determine the best element.',
       control: {
         type: 'select',
         options: ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
@@ -38,6 +44,7 @@ import demo from './demo/demo.twig';
     },
     weight: {
       type: 'string',
+      description: 'The desired `font-weight` option for the heading.',
       control: {
         type: 'select',
         options: ['', 'light'],
@@ -67,7 +74,9 @@ It's important for accessibility and for search engines that page sections inclu
 The Heading component addresses these scenarios by applying heading styles for the desired heading level, with a few bonus features not possible via heading elements alone.
 
 <Canvas>
-  <Story name="Example">{(args) => demo(args)}</Story>
+  <Story name="Example" args={{ content: 'Hello world', level: 1 }}>
+    {(args) => demo(args)}
+  </Story>
 </Canvas>
 
 <ArgsTable story="Example" />
@@ -125,12 +134,16 @@ The size of the heading is set by the `level` property. A `level` of `1` will be
 By default, headings use the value of our `font-weight.$bold` token so they'll stand out from adjacent content. In some situations, a lighter weight may be helpful to differentiate larger headings from one another or to emphasize specific key words denoted via the `b` or `strong` elements.
 
 <Canvas isColumn>
-  <Story name="Default weight" args={{ content: 'Default weight' }}>
+  <Story name="Default weight" args={{ level: 1, content: 'Default weight' }}>
     {(args) => demo(args)}
   </Story>
   <Story
     name="Light weight"
-    args={{ weight: 'light', content: 'Light weight with <b>bold</b> word' }}
+    args={{
+      level: 1,
+      weight: 'light',
+      content: 'Light weight with <b>bold</b> word',
+    }}
   >
     {(args) => demo(args)}
   </Story>
@@ -149,7 +162,15 @@ You can specify an ID that will be used for the heading (and therefore the perma
 Note that the widescreen layout of this pattern is optimized for [our prose containers](/docs/objects-container--prose#prose) with generous horizontal whitespace.
 
 <Canvas>
-  <Story name="Permalink" args={{ permalink: true, id: 'permalink-example' }}>
+  <Story
+    name="Permalink"
+    args={{
+      content: 'Hello world',
+      level: 1,
+      permalink: true,
+      id: 'permalink-example',
+    }}
+  >
     {(args) => demo(args)}
   </Story>
 </Canvas>
@@ -164,6 +185,7 @@ This option does not use `hgroup` due to [its absence from any shipping outline 
   <Story
     name="Subheading"
     args={{
+      level: 1,
       content: 'Watch',
       subheading:
         'Smashing Conference (<time datetime="2018-10-23">Oct 23, 2018</time>)',

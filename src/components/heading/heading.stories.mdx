@@ -1,91 +1,144 @@
-import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import levelsDemo from './demo/levels.twig';
-import permalinksDemo from './demo/permalinks.twig';
-import subheadingDemo from './demo/subheading.twig';
-import weightsDemo from './demo/weights.twig';
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs/blocks';
+import { makeTwigEmbedIfHtml } from '../../make-twig-include.js';
+import demo from './demo/demo.twig';
 
-<Meta title="Components/Heading" />
+<Meta
+  title="Components/Heading"
+  argTypes={{
+    content: {
+      type: 'string',
+      defaultValue: 'Hello world',
+    },
+    id: {
+      type: 'string',
+    },
+    level: {
+      type: 'number',
+      description: 'TODO',
+      defaultValue: 1,
+      control: {
+        type: 'range',
+        min: -2,
+        max: 6,
+        step: 1,
+      },
+    },
+    permalink: {
+      type: 'boolean',
+    },
+    subheading: {
+      type: 'string',
+    },
+    tag_name: {
+      type: 'string',
+      control: {
+        type: 'select',
+        options: ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      },
+    },
+    weight: {
+      type: 'string',
+      control: {
+        type: 'select',
+        options: ['', 'light'],
+      },
+    },
+  }}
+  parameters={{
+    docs: {
+      transformSource: (_src, storyContext) =>
+        makeTwigEmbedIfHtml(
+          '@cloudfour/components/heading/heading.twig',
+          storyContext.args,
+          ['content', 'subheading']
+        ),
+    },
+  }}
+/>
 
 # Heading
 
 It's important for accessibility and for search engines that page sections include helpful heading elements in a logical, descending order ([more info](https://dequeuniversity.com/assets/html/jquery-summit/html5/slides/headings.html)). But there are times when [our default `<h1>` through `<h6>` styles](/docs/design-typography--headings) may not be enough:
 
 - The most appropriate heading element may look too small or too large visually.
-- You may want to apply heading styles to a different element: A short introductory `<p>`, a `<legend>`, etc.
-- Longer pages may benefit from additional features added to headings, such as permalinks.
+- A unique situation may call for a heading with an alternate visual style (such as a lighter weight).
+- Longer pages may benefit from additional features added to headings, such as permalinks or subheadings.
 
-The `c-heading` component class addresses these scenarios by applying heading styles for the desired heading level, with a few bonus features not possible via heading elements alone.
-
-## Level Modifiers
-
-You can control the appearance of a `c-heading` component by including a `c-heading--level-{amount}` modifier, where `{amount}` is a heading level. For example, `c-heading--level-2` will make the element look like our default `<h2>`.
-
-`c-heading` also supports _larger_ levels than `<h1>` for top-level banners and page titles:
-
-| Level | Heading | Modifier              |
-| ----- | ------- | --------------------- |
-| -2    | –       | `c-heading--level-n2` |
-| -1    | –       | `c-heading--level-n1` |
-| 0     | –       | `c-heading--level-0`  |
-| 1     | `<h1>`  | `c-heading--level-1`  |
-| 2     | `<h2>`  | `c-heading--level-2`  |
-| 3     | `<h3>`  | `c-heading--level-3`  |
-| 4     | `<h4>`  | `c-heading--level-4`  |
-| 5     | `<h5>`  | `c-heading--level-5`  |
-| 6     | `<h6>`  | `c-heading--level-6`  |
+The Heading component addresses these scenarios by applying heading styles for the desired heading level, with a few bonus features not possible via heading elements alone.
 
 <Canvas>
-  <Story
-    name="Levels"
-    parameters={{
-      docs: {
-        source: {
-          code: `{% include '@cloudfour/components/heading/heading.twig' with {
-  level: -2,
-  content: 'c-heading--level-n2',
-} only %}`,
-        },
-      },
-    }}
-  >
-    {levelsDemo}
+  <Story name="Example">{(args) => demo(args)}</Story>
+</Canvas>
+
+<ArgsTable story="Example" />
+
+Note that the `content` and `subheading` properties are also available as [blocks](https://twig.symfony.com/doc/3.x/tags/block.html), allowing you to include HTML or template logic where desired.
+
+## Levels
+
+The size of the heading is set by the `level` property. A `level` of `1` will be equal in size to a default `h1`, a `level` of `2` to a default `h2`, and so on. In addition to the six heading levels present in HTML, there are larger heading sizes available at even lower levels. These can help distinguish page-level banners and titles from the primary page content.
+
+| Level | HTML Heading | Modifier Class        |
+| ----- | ------------ | --------------------- |
+| -2    | –            | `c-heading--level-n2` |
+| -1    | –            | `c-heading--level-n1` |
+| 0     | –            | `c-heading--level-0`  |
+| 1     | `<h1>`       | `c-heading--level-1`  |
+| 2     | `<h2>`       | `c-heading--level-2`  |
+| 3     | `<h3>`       | `c-heading--level-3`  |
+| 4     | `<h4>`       | `c-heading--level-4`  |
+| 5     | `<h5>`       | `c-heading--level-5`  |
+| 6     | `<h6>`       | `c-heading--level-6`  |
+
+<Canvas isColumn>
+  <Story name="Level Minus 2" args={{ level: -2, content: 'Level -2' }}>
+    {(args) => demo(args)}
+  </Story>
+  <Story name="Level Minus 1" args={{ level: -1, content: 'Level -1' }}>
+    {(args) => demo(args)}
+  </Story>
+  <Story name="Level 0" args={{ level: 0, content: 'Level 0' }}>
+    {(args) => demo(args)}
+  </Story>
+  <Story name="Level 1" args={{ level: 1, content: 'Level 1' }}>
+    {(args) => demo(args)}
+  </Story>
+  <Story name="Level 2" args={{ level: 2, content: 'Level 2' }}>
+    {(args) => demo(args)}
+  </Story>
+  <Story name="Level 3" args={{ level: 3, content: 'Level 3' }}>
+    {(args) => demo(args)}
+  </Story>
+  <Story name="Level 4" args={{ level: 4, content: 'Level 4' }}>
+    {(args) => demo(args)}
+  </Story>
+  <Story name="Level 5" args={{ level: 5, content: 'Level 5' }}>
+    {(args) => demo(args)}
+  </Story>
+  <Story name="Level 6" args={{ level: 6, content: 'Level 6' }}>
+    {(args) => demo(args)}
   </Story>
 </Canvas>
 
-## Light Weight Modifier
+## Weights
 
-For headings that are large in `font-size` but should have a bit less visual emphasis than others, the `c-heading--light` modifier will apply a lighter weight. You may use `b` or `strong` elements to emphasize key words or phrases within these headings.
+By default, headings use the value of our `font-weight.$bold` token so they'll stand out from adjacent content. In some situations, a lighter weight may be helpful to differentiate larger headings from one another or to emphasize specific key words denoted via the `b` or `strong` elements.
 
-<Canvas>
+<Canvas isColumn>
+  <Story name="Default weight" args={{ content: 'Default weight' }}>
+    {(args) => demo(args)}
+  </Story>
   <Story
-    name="Weights"
-    parameters={{
-      docs: {
-        source: {
-          code: `{% include '@cloudfour/components/heading/heading.twig' with {
-  "level": 1,
-  "weight": "light",
-  "content": "Light weight"
-} only %}
-{% embed '@cloudfour/components/heading/heading.twig' with {
-  "level": 1,
-  "weight": "light",
-} only %}
-  {% block content %}
-    Light weight with <b>bold</b> text
-  {% endblock %}
-{% endembed %}`,
-        },
-      },
-    }}
+    name="Light weight"
+    args={{ weight: 'light', content: 'Light weight with <b>bold</b> word' }}
   >
-    {weightsDemo}
+    {(args) => demo(args)}
   </Story>
 </Canvas>
 
 ## Permalinks
 
-The `c-heading` class may include a permalink using [a technique from Marcy Sutton ](http://codepen.io/marcysutton/pen/rLKvgZ). Three elements are required:
+When the `permalink` property is `true`, we alter the markup of the heading based on [a technique from Marcy Sutton ](http://codepen.io/marcysutton/pen/rLKvgZ) that involves three elements:
 
 - `c-heading`: A container, ideally without any semantics (`<div>`).
 - `c-heading__content`: The actual semantic heading element (usually `<h1>` – `<h6>`), including the `id` referenced by `c-heading__permalink`.
@@ -93,36 +146,29 @@ The `c-heading` class may include a permalink using [a technique from Marcy Sutt
 
 You can specify an ID that will be used for the heading (and therefore the permalink hash) using the `id` property. (The `id` property can also be used without permalinking.)
 
-Note that the layout of this pattern is optimized for [our prose containers](/docs/objects-container--prose#prose) with generous horizontal whitespace.
-
-<!--
-This example isn't inlined so any media queries affecting the container will
-behave as expected.
--->
+Note that the widescreen layout of this pattern is optimized for [our prose containers](/docs/objects-container--prose#prose) with generous horizontal whitespace.
 
 <Canvas>
-  <Story
-    name="Permalinks"
-    height="300px"
-    inline={false}
-    parameters={{
-      docs: {
-        source: {
-          code: `{% include '@cloudfour/components/heading/heading.twig' with {
-  level: 1,
-  content: 'c-heading--level-1',
-  permalink: true
-} only %}`,
-        },
-      },
-    }}
-  >
-    {permalinksDemo}
+  <Story name="Permalink" args={{ permalink: true, id: 'permalink-example' }}>
+    {(args) => demo(args)}
   </Story>
 </Canvas>
 
 ## Subheadings
 
+The context of some headings may be reenforced by some adjacent content. In those cases, we provide a `subheading` property (or block) for including this content. At larger sizes, it will attempt to display itself inline as the content allows.
+
+This option does not use `hgroup` due to [its absence from any shipping outline algorithms](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup#usage_notes). Instead, a humble `p` element is used as described [in this W3C "common idiom"](https://www.w3.org/TR/html52/common-idioms-without-dedicated-elements.html#common-idioms-without-dedicated-elements).
+
 <Canvas>
-  <Story name="Subheading">{subheadingDemo}</Story>
+  <Story
+    name="Subheading"
+    args={{
+      content: 'Watch',
+      subheading:
+        'Smashing Conference (<time datetime="2018-10-23">Oct 23, 2018</time>)',
+    }}
+  >
+    {(args) => demo(args)}
+  </Story>
 </Canvas>

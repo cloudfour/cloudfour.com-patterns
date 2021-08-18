@@ -29,7 +29,8 @@
     {% block object %}
       {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
         datetime: datetime,
-        note: note
+        note: note,
+        class: 'c-event-summary__calendar-date'
       } only %}
     {% endblock %}
     {% block content %}

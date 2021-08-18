@@ -2,12 +2,38 @@
   position: relative;
 }
 
-.c-event-summary__link::after {
-  bottom: 0;
-  content: '';
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
+.c-event-summary__link {
+  /**
+   * Only show the underline on hover.
+   */
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
+
+  /**
+   * Cover the entire card with an absolute positioned pseudo element. This
+   * is easier to use for assistive devices than a block-level link or multiple
+   * redundant links and requires no JavaScript. It does sacrifice ease of text
+   * selection, but that shouldn't be a huge issue if a `Card` is linking to
+   * more information.
+   */
+
+  &::after {
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+.c-event-summary__calendar-date {
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.c-event-summary__calendar-date:hover {
+  transform: scale(1.05);
 }

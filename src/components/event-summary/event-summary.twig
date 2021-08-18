@@ -1,16 +1,30 @@
 {% set heading_level = heading_level|default(3) %}
 {% set _note %}{% block note %}{{ note }}{% endblock %}{% endset %}
 
+{# Default event details, can be overriden via the event_details block #}
+{% set _event_details %}
+  {% block event_details %}
+    <p>{{ location }}</p>
+    <p>
+      {% if speakers|length == 1 %}
+        Speaker:
+      {% else %}
+        Speakers:
+      {% endif %}
+      {{ speakers|join(', ') }}
+    </p>
+  {% endblock %}
+{% endset %}
+
 <div class="c-event-summary{% if class %} {{class}}{% endif %}">
   {% embed '@cloudfour/objects/media/media.twig' with {
     reverse_markup: true,
     datetime: datetime,
     note: _note,
     event: event,
-    location: location,
-    speakers: speakers,
     href: href,
-    heading_level: heading_level
+    heading_level: heading_level,
+    event_details: _event_details
   } only %}
     {% block object %}
       {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
@@ -27,13 +41,7 @@
           {{ event }}
         </a>
       </h{{ heading_level }}>
-      <p>{{ location }}</p>
-      <p>{% if speakers|length == 1 %}
-        Speaker:
-      {% else %}
-        Speakers:
-      {% endif %}
-      {{ speakers|join(', ') }} </p>
+      {{ event_details }}
     {% endblock %}
   {% endembed %}
 </div>

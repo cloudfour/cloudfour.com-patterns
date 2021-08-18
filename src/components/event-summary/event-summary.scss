@@ -1,5 +1,8 @@
 @use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use '../../compiled/tokens/scss/scale';
 @use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
 @use '../../mixins/focus';
 
 /// The focus outline feels a little snug directly on the outer edge, but we
@@ -55,9 +58,9 @@ $_focus-overflow: (size.$edge-large * -1);
 }
 
 .c-event-summary__calendar-date {
-  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform transition.$quick ease.$out;
 
   .c-event-summary:hover & {
-    transform: scale(1.05);
+    transform: scale(scale.$effect-grow);
   }
 }

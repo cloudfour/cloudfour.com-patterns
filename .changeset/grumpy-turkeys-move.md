@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add Speaking Event component
+Add Event Summary component

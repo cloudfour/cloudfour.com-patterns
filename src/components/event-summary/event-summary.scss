@@ -1,3 +1,16 @@
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/size";
+@use '../../mixins/focus';
+
+/// The focus outline feels a little snug directly on the outer edge, but we
+/// don't want to extend _too_ far out for fear of colliding with adjacent
+/// content. Doubling the size of the focus edge felt like a nice compromise.
+///
+/// @type Number
+/// @access private
+
+$_focus-overflow: (size.$edge-large * -1);
+
 .c-event-summary {
   position: relative;
 }
@@ -20,13 +33,24 @@
    */
 
   &::after {
-    bottom: 0;
+    border-radius: size.$border-radius-medium;
+    bottom: $_focus-overflow;
     content: '';
-    left: 0;
+    left: $_focus-overflow;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: $_focus-overflow;
+    top: $_focus-overflow;
     z-index: 1;
+  }
+
+  /**
+   * Keyboard focus styles take inspiration from buttons and similar elements
+   */
+
+  @include focus.focus-visible {
+    &::after {
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+    }
   }
 }
 

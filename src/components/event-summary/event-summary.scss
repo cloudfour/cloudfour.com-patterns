@@ -1,0 +1,66 @@
+@use "../../compiled/tokens/scss/color";
+@use "../../compiled/tokens/scss/ease";
+@use '../../compiled/tokens/scss/scale';
+@use "../../compiled/tokens/scss/size";
+@use "../../compiled/tokens/scss/transition";
+@use '../../mixins/focus';
+
+/// The focus outline feels a little snug directly on the outer edge, but we
+/// don't want to extend _too_ far out for fear of colliding with adjacent
+/// content. Doubling the size of the focus edge felt like a nice compromise.
+///
+/// @type Number
+/// @access private
+
+$_focus-overflow: (size.$edge-large * -1);
+
+.c-event-summary {
+  position: relative;
+}
+
+.c-event-summary__link {
+  /**
+   * Only show the underline on hover.
+   */
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
+
+  /**
+   * Cover the entire card with an absolute positioned pseudo element. This
+   * is easier to use for assistive devices than a block-level link or multiple
+   * redundant links and requires no JavaScript. It does sacrifice ease of text
+   * selection, but that shouldn't be a huge issue if a `Card` is linking to
+   * more information.
+   */
+
+  &::after {
+    border-radius: size.$border-radius-medium;
+    bottom: $_focus-overflow;
+    content: '';
+    left: $_focus-overflow;
+    position: absolute;
+    right: $_focus-overflow;
+    top: $_focus-overflow;
+    z-index: 1;
+  }
+
+  /**
+   * Keyboard focus styles take inspiration from buttons and similar elements
+   */
+
+  @include focus.focus-visible {
+    &::after {
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+    }
+  }
+}
+
+.c-event-summary__calendar-date {
+  transition: transform transition.$quick ease.$out;
+
+  .c-event-summary:hover & {
+    transform: scale(scale.$effect-grow);
+  }
+}

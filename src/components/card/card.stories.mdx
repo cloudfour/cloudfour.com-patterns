@@ -23,6 +23,9 @@ const singleDemoStory = (args) => {
   if (args.theme !== 'none') {
     classNames.push(`t-${args.theme}`);
   }
+  if (args.class) {
+    classNames.push(args.class);
+  }
   if (classNames.length > 0) {
     props.class = classNames.join(' ');
   }
@@ -157,6 +160,41 @@ If a card with a cover is meant to occupy its full container width, it may be pr
 
 Horizontal cards will attempt to span all available columns of a CSS Grid Layout. This comes in handy when displaying them [in a Deck](/docs/objects-deck--horizontal-card#with-horizontal-cards).
 
+## With circular cover
+
+The `c-card--circle-cover` modifier will change the appearance of the cover and adjacent content in the following ways:
+
+- The cover image's aspect ratio will be square.
+- The cover image will be fully rounded into a circle shape.
+- When vertical, the card's text alignment will be centered to better align with the circle.
+- When horizontal, the card's content will occupy more room than its image to account for the taller aspect ratio of the cover image.
+
+This variation is best suited for links to bio information, such as on our team page.
+
+<Canvas>
+  <Story
+    name="Circular Cover Image"
+    args={{ class: 'c-card--circle-cover', href: '#', horizontal: '@m' }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% embed '@cloudfour/components/card/card.twig' with {
+  class: 'c-card--circle-cover c-card--horizontal@m',
+  href: '#'
+} only %}
+  {% block heading %}Lorem ipsum dolor sit amet{% endblock %}
+  {% block cover %}<img src="https://placeimg.com/800/450/animals" alt="">{% endblock %}
+  {% block content %}<p>Consectetur adipiscing elit...</p>{% endblock %}
+  {% block footer %}<p>{{'now'|date('M j, Y')}}</p>{% endblock %}
+{% endembed %}`,
+        },
+      },
+    }}
+  >
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
 ## Contained
 
 A card with the `c-card--contained` class will gain a background color, padding and rounded corners. This can be helpful for offsetting the card visually from its surroundings.
@@ -230,5 +268,4 @@ When the card is a focal point and more contrast is desired, you may also attach
 
 ## Coming soon
 
-- Progressive enhancement based on CSS Grid support
 - Distinctly contained footers for PWA Stats (if necessary)

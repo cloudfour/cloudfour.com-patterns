@@ -2,7 +2,6 @@ import teamListPrototype from './example/team-list.twig';
 import teamIndividualPrototype from './example/team-individual.twig';
 import teamArticlePage2 from './example/team-articles-page2.twig';
 import avatars from './data/avatars.json';
-import './example/team-list.scss';
 import './example/team-individual.scss';
 
 export default {

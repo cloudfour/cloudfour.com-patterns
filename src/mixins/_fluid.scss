@@ -108,6 +108,23 @@
   }
 }
 
+@mixin margin-inline($min-width, $max-width, $min, $max, $include-min: true) {
+  @if $include-min {
+    margin-inline-end: $min;
+    margin-inline-start: $min;
+  }
+
+  @media (min-width: $min-width) {
+    margin-inline-end: fluid-calc($min-width, $max-width, $min, $max);
+    margin-inline-start: fluid-calc($min-width, $max-width, $min, $max);
+  }
+
+  @media (min-width: $max-width) {
+    margin-inline-end: $max;
+    margin-inline-start: $max;
+  }
+}
+
 @mixin padding($min-width, $max-width, $min, $max, $include-min: true) {
   @if $include-min {
     padding: $min;

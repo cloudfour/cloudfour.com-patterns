@@ -62,3 +62,52 @@ $pad-max: size.$padding-container-max;
     max-width: size.$max-width-prose;
   }
 }
+
+/**
+ * Child elements intended to "fill" the container width. This negates any
+ * inline padding and border radii.
+ */
+
+.o-container__fill,
+.o-container__fill-pad {
+  .o-container--pad &,
+  .o-container--pad-inline & {
+    @include fluid.margin-inline(
+      $pad-breakpoint-min,
+      $pad-breakpoint-max,
+      $pad-min * -1,
+      $pad-max * -1
+    );
+  }
+
+  .o-container:not(.o-container--prose) & {
+    @media (width < size.$max-width-spread) {
+      border-radius: 0;
+    }
+  }
+
+  .o-container--prose & {
+    @media (width < size.$max-width-prose) {
+      border-radius: 0;
+    }
+  }
+}
+
+/**
+ * The `__fill-pad` element differs from the `__fill` element in that it
+ * restores the parent element's padding (if any). This may be useful for cards
+ * and theme containers with inner content that wouldn't align with what was
+ * adjacent otherwise.
+ */
+
+.o-container__fill-pad {
+  .o-container--pad &,
+  .o-container--pad-inline & {
+    @include fluid.padding-inline(
+      $pad-breakpoint-min,
+      $pad-breakpoint-max,
+      $pad-min,
+      $pad-max
+    );
+  }
+}

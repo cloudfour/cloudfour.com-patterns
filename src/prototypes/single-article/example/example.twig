@@ -1,329 +1,327 @@
-<div id="single-article">
-  {% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
-    "class": "t-dark",
-    "include_main_demo": false,
-    "menu": {
-      "items": [
-        {
-          "link": "/does",
-          "title": "What We Do",
-          "current": true
-        },
-        {
-          "link": "/believes",
-          "title": "Our Approach"
-        },
-        {
-          "link": "/made",
-          "title": "Our Work"
-        },
-        {
-          "link": "/thinks",
-          "title": "Articles"
-        },
-        {
-          "link": "/presents",
-          "title": "Speaking"
-        },
-        {
-          "link": "/contributes",
-          "title": "Labs"
-        },
-        {
-          "link": "/is",
-          "title": "Team"
-        }
-      ]
-    }
-  } only %}
-  {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'o-container--prose o-container--pad main-container'} %}
-    {% block content %}
-      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-        class: 'o-rhythm--generous' } %}
-        {% block content %}
-          {% include '@cloudfour/components/heading/heading.twig' with {
-            level: -1,
-            content: 'A Cool Article Title for a Cool Article',
-          } only %}
+{% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
+  "class": "t-dark",
+  "include_main_demo": false,
+  "menu": {
+    "items": [
+      {
+        "link": "/does",
+        "title": "What We Do",
+        "current": true
+      },
+      {
+        "link": "/believes",
+        "title": "Our Approach"
+      },
+      {
+        "link": "/made",
+        "title": "Our Work"
+      },
+      {
+        "link": "/thinks",
+        "title": "Articles"
+      },
+      {
+        "link": "/presents",
+        "title": "Speaking"
+      },
+      {
+        "link": "/contributes",
+        "title": "Labs"
+      },
+      {
+        "link": "/is",
+        "title": "Team"
+      }
+    ]
+  }
+} only %}
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose o-container--pad u-pad-block-6'} %}
+  {% block content %}
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+      class: 'o-rhythm--generous' } %}
+      {% block content %}
+        {% include '@cloudfour/components/heading/heading.twig' with {
+          level: -1,
+          content: 'A Cool Article Title for a Cool Article',
+        } only %}
 
-          {% include '@cloudfour/components/author/author.twig' with {
-            "authors": [
-              {
-                "name": "Aileen Jeffries",
-                "avatar": "media/team-avatars/aileen.png",
-                "link": "#"
-              }
-            ],
-            "date": "2021-04-10T07:00:00.000Z"
-          } only %}
+        {% include '@cloudfour/components/author/author.twig' with {
+          "authors": [
+            {
+              "name": "Aileen Jeffries",
+              "avatar": "media/team-avatars/aileen.png",
+              "link": "#"
+            }
+          ],
+          "date": "2021-04-10T07:00:00.000Z"
+        } only %}
 
 
-          {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-            class: 'o-rhythm--default o-rhythm--generous-headings' } %}
-            {% block content %}
+        {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+          class: 'o-rhythm--default o-rhythm--generous-headings' } %}
+          {% block content %}
 
+            {% embed '@cloudfour/objects/embed/embed.twig' with {
+              "class": "o-embed--wide"
+            } only %}
+              {% block content %}
+                <img src="https://placeimg.com/640/480/nature"/>
+              {% endblock %}
+            {% endembed %}
+
+            <p>The color of its body changes with the water temperature. The coloration of Gorebyss in Alola is almost blindingly vivid. Numel stores magma of almost 2,200 degrees Fahrenheit within its body. If it gets wet, the magma cools and hardens. In that event, the Pokémon’s body grows heavy and its movements become sluggish. Recordings of Jigglypuff’s strange lullabies can be purchased from department stores. These CDs can be found near the bedding area.</p>
+
+            <p>Rapidash usually can be seen casually cantering in the fields and plains. However, when this Pokémon turns serious, its fiery manes flare and blaze as it gallops its way up to 150 mph. Individuals that have been set free by Trainers who could no longer raise them have become common, and they can now be found in Alola. When the bacteria living inside its antennae absorb Lanturn’s bodily fluids, a strong luminescent effect is produced.</p>
+
+            <figure>
               {% embed '@cloudfour/objects/embed/embed.twig' with {
                 "class": "o-embed--wide"
               } only %}
                 {% block content %}
-                  <img src="https://placeimg.com/640/480/nature"/>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/m_CUrv0aezI"
+                    allowfullscreen=""
+                  ></iframe>
                 {% endblock %}
               {% endembed %}
+              <figcaption>A husky being a loud baby.</figcaption>
+            </figure>
 
-              <p>The color of its body changes with the water temperature. The coloration of Gorebyss in Alola is almost blindingly vivid. Numel stores magma of almost 2,200 degrees Fahrenheit within its body. If it gets wet, the magma cools and hardens. In that event, the Pokémon’s body grows heavy and its movements become sluggish. Recordings of Jigglypuff’s strange lullabies can be purchased from department stores. These CDs can be found near the bedding area.</p>
+            <p>If Donphan were to tackle with its hard body, even a house could be destroyed. Using its massive strength, the Pokémon helps clear rock and mud slides that block mountain trails.Ralts has the ability to sense the emotions of people. If its Trainer is in a cheerful mood, this Pokémon grows cheerful and joyous in the same way.Rhyhorn’s brain is very small. It is so dense, while on a run it forgets why it started running in the first place. It apparently remembers sometimes if it demolishes something.</p>
 
-              <p>Rapidash usually can be seen casually cantering in the fields and plains. However, when this Pokémon turns serious, its fiery manes flare and blaze as it gallops its way up to 150 mph. Individuals that have been set free by Trainers who could no longer raise them have become common, and they can now be found in Alola. When the bacteria living inside its antennae absorb Lanturn’s bodily fluids, a strong luminescent effect is produced.</p>
+            {% include '@cloudfour/components/heading/heading.twig' with {
+              level: 2,
+              content: 'To Be or Not to Be?',
+              permalink: true
+            } only %}
 
-              <figure>
-                {% embed '@cloudfour/objects/embed/embed.twig' with {
-                  "class": "o-embed--wide"
-                } only %}
-                  {% block content %}
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/m_CUrv0aezI"
-                      allowfullscreen=""
-                    ></iframe>
-                  {% endblock %}
-                {% endembed %}
-                <figcaption>A husky being a loud baby.</figcaption>
-              </figure>
+            <p>Its two sharp scythes are more than just weapons. It uses them with dexterity to dress its prey before eating. Shuckle <a href="#">quietly hides itself under rocks</a>, keeping its body concealed inside its hard shell while eating berries it has stored away. The berries mix with its body fluids to become a juice. Motionless, it hangs from trees, waiting for its <a href="#">bug Pokémon</a> prey to come to it. Its favorite in Alola is Cutiefly.</p>
 
-              <p>If Donphan were to tackle with its hard body, even a house could be destroyed. Using its massive strength, the Pokémon helps clear rock and mud slides that block mountain trails.Ralts has the ability to sense the emotions of people. If its Trainer is in a cheerful mood, this Pokémon grows cheerful and joyous in the same way.Rhyhorn’s brain is very small. It is so dense, while on a run it forgets why it started running in the first place. It apparently remembers sometimes if it demolishes something.</p>
+            <blockquote>
+              <p><b>CSS Grid Layout</b> excels at dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives.</p>
+              <p>Like tables, grid layout enables an author to align elements into columns and rows. However, many more layouts are either possible or easier with CSS grid than they were with tables. For example, a grid container's child elements could position themselves so they actually overlap and layer, similar to CSS positioned elements.</p>
+              <footer>
+                <cite><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">MDN Web Docs</a></cite>
+              </footer>
+            </blockquote>
 
-              {% include '@cloudfour/components/heading/heading.twig' with {
-                level: 2,
-                content: 'To Be or Not to Be?',
-                permalink: true
-              } only %}
+            <p>The only thing unlucky about Absol is its appearance. It protects fields and warns people of disaster, so one ought to be grateful for it.It can be spotted near recreational facilities, intending to eat the pleasant dreams of children who enjoyed themselves there that day.</p>
 
-              <p>Its two sharp scythes are more than just weapons. It uses them with dexterity to dress its prey before eating. Shuckle <a href="#">quietly hides itself under rocks</a>, keeping its body concealed inside its hard shell while eating berries it has stored away. The berries mix with its body fluids to become a juice. Motionless, it hangs from trees, waiting for its <a href="#">bug Pokémon</a> prey to come to it. Its favorite in Alola is Cutiefly.</p>
+            {% include '@cloudfour/components/heading/heading.twig' with {
+              level: 2,
+              content: 'Yellow Submarine in Pepperland',
+              permalink: true
+            } only %}
 
-              <blockquote>
-                <p><b>CSS Grid Layout</b> excels at dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives.</p>
-                <p>Like tables, grid layout enables an author to align elements into columns and rows. However, many more layouts are either possible or easier with CSS grid than they were with tables. For example, a grid container's child elements could position themselves so they actually overlap and layer, similar to CSS positioned elements.</p>
-                <footer>
-                  <cite><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">MDN Web Docs</a></cite>
-                </footer>
-              </blockquote>
+            <p>There are some places where Slowpoke is worshiped because of a long-standing belief that whenever Slowpoke yawns, it rains. Carrying food through <code>Fearow’s territory is dangerous</code>. It will snatch the food away from you in a flash! Oddish searches for fertile, nutrient-rich soil, then plants itself. During the daytime, while it is planted, this <code>Pokémon’s feet</code> are thought to change shape and become similar to the roots of trees.</p>
 
-              <p>The only thing unlucky about Absol is its appearance. It protects fields and warns people of disaster, so one ought to be grateful for it.It can be spotted near recreational facilities, intending to eat the pleasant dreams of children who enjoyed themselves there that day.</p>
+            {% include '@cloudfour/design/typography/demo/code-block.twig' only %}
 
-              {% include '@cloudfour/components/heading/heading.twig' with {
-                level: 2,
-                content: 'Yellow Submarine in Pepperland',
-                permalink: true
-              } only %}
+            <p>In the distant past, they were fairly strong, but they have become gradually weaker over time. Although known for their splendid tail fins, Goldeen apparently compete among themselves to see whose horn is thickest and sharpest. Beautifly has a long mouth like a coiled needle, which is very convenient for collecting pollen from flowers. This Pokémon rides the spring winds as it flits around gathering pollen.</p>
 
-              <p>There are some places where Slowpoke is worshiped because of a long-standing belief that whenever Slowpoke yawns, it rains. Carrying food through <code>Fearow’s territory is dangerous</code>. It will snatch the food away from you in a flash! Oddish searches for fertile, nutrient-rich soil, then plants itself. During the daytime, while it is planted, this <code>Pokémon’s feet</code> are thought to change shape and become similar to the roots of trees.</p>
-
-              {% include '@cloudfour/design/typography/demo/code-block.twig' only %}
-
-              <p>In the distant past, they were fairly strong, but they have become gradually weaker over time. Although known for their splendid tail fins, Goldeen apparently compete among themselves to see whose horn is thickest and sharpest. Beautifly has a long mouth like a coiled needle, which is very convenient for collecting pollen from flowers. This Pokémon rides the spring winds as it flits around gathering pollen.</p>
-
-              {% include '@cloudfour/objects/list/list.twig' with {
-                "items": [
-                  "Design Tokens",
-                  "Objects",
-                  "Components",
-                  "Scope",
-                  "Utilities",
-                  "Themes"
-                ],
-                "tag_name": "ul"
-              } only %}
-
-              <p>Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as Wartortle ages. The scratches on its shell are evidence of this Pokémon’s toughness as a battler. Lombre’s entire body is covered by a slippery, slimy film.</p>
-            {% endblock %}
-          {% endembed %}
-
-
-          {% embed '@cloudfour/components/card/card.twig' with {
-            href: '#',
-            class: ' c-card--contained bio-card'
-          } only %}
-            {% block content %}
-
-              {% embed '@cloudfour/objects/media/media.twig' with {
-                reverse: true
-              } only %}
-                {% block object %}
-                  {% include '@cloudfour/components/avatar/avatar.twig' with {
-                    src: 'media/team-avatars/aileen.png'
-                  } only %}
-                {% endblock %}
-                {% block content %}
-                  <p><a href="#">Aileen Jeffries</a> Magna ea anim duis fugiat sit labore labore sit nisi eiusmod in consectetur duis id. Aliqua commodo aliqua do fugiat labore consectetur cillum exercitation. <a href="#">Quis do magna</a> and <a href="#">adipisicing</a>.</p>
-                {% endblock %}
-              {% endembed %}
-            {% endblock %}
-          {% endembed %}
-
-
-          {% include '@cloudfour/components/heading/heading.twig' with {
-            level: 2,
-            content: 'Comments'
-          } only %}
-
-          {% include '@cloudfour/components/comment/comment.twig' with {
-            "comment": {
-              "ID": "217",
-              "link": "#comment-217",
-              "date": "2021-08-05T21:48:51.435Z",
-              "avatar": "https://placeimg.com/92/92/people",
-              "author": {
-                "name": "Duruzit Lidofideh"
-              },
-              "comment_content": "<p>Design system talk repository UX sufficient contrast go input loxe. Ri accessible UX theming web standards lepaxenuti yab mockups nikil font-loading yitobubugo testing.</p><p>Pacirec Progressive Web App (PWA) lapohoba Progressive Web App (PWA) talk adaptive fa. Service worker accessibility prototype progressive enhancement responsive issue rayapeded ju experience agile kiwed rojomabod sufficient contrast hezeqotilo talk puboj community intuitive buce. Ru. SVG repository.</p>",
-              "is_child": false,
-              "children": [
-                {
-                  "ID": "218",
-                  "link": "#comment-218",
-                  "date": "2021-08-05T21:48:51.436Z",
-                  "avatar": "https://placeimg.com/92/92/animals",
-                  "author": {
-                    "name": "Rar Bopuma"
-                  },
-                  "comment_content": "<p>Tipiqi preload audience givob sirabino readable testing agile. Dimo coca benulob.</p><p>Fallback. Animation multidisciplinary kimob. Zegidutace automate mapateroni. Case study fallback hih cukirip issue polyfill. Web standards <code>picture</code> element input testing sketching.</p>",
-                  "is_child": true,
-                  "children": [],
-                  "approved": true
-                },
-                {
-                  "ID": "219",
-                  "link": "#comment-219",
-                  "date": "2021-08-05T21:48:51.436Z",
-                  "avatar": "https://placeimg.com/92/92/nature",
-                  "author": {
-                    "name": "Hemam Lolub"
-                  },
-                  "comment_content": "<p>Performance fodorebipi automate ceror sufficient contrast <code>picture</code> element multidisciplinary mockups input JavaScript. Cross-disciplinary be agile readable usability hunu. Specification UX specification. Audience reri cul dutohey. Jicidurok hat accessibility thank you celinob.</p><p>This <a href=\"https://cloudfour.com/thinks/progressive-web-apps-simply-make-sense/\">article</a> rubuhamot pe design token HTTP/2 tit. Baroga tubilimil. Web app cilodob prototype theming <code>picture</code> element ropup service worker mib mol HTML bu SVG issue..</p>",
-                  "is_child": true,
-                  "children": [],
-                  "approved": true
-                }
+            {% include '@cloudfour/objects/list/list.twig' with {
+              "items": [
+                "Design Tokens",
+                "Objects",
+                "Components",
+                "Scope",
+                "Utilities",
+                "Themes"
               ],
-              "approved": true
-            }
-          } only %}
+              "tag_name": "ul"
+            } only %}
 
-          {% include '@cloudfour/components/comment/comment.twig' with {
-            "comment": {
-              "ID": "213",
-              "link": "#comment-213",
-              "date": "2021-08-05T21:48:51.435Z",
-              "avatar": "https://placeimg.com/92/92/tech",
-              "author": {
-                "name": "Wuse Zelu"
+            <p>Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as Wartortle ages. The scratches on its shell are evidence of this Pokémon’s toughness as a battler. Lombre’s entire body is covered by a slippery, slimy film.</p>
+          {% endblock %}
+        {% endembed %}
+
+
+        {% embed '@cloudfour/components/card/card.twig' with {
+          href: '#',
+          class: 'c-card--contained o-container__fill-pad'
+        } only %}
+          {% block content %}
+
+            {% embed '@cloudfour/objects/media/media.twig' with {
+              reverse: true
+            } only %}
+              {% block object %}
+                {% include '@cloudfour/components/avatar/avatar.twig' with {
+                  src: 'media/team-avatars/aileen.png'
+                } only %}
+              {% endblock %}
+              {% block content %}
+                <p><a href="#">Aileen Jeffries</a> Magna ea anim duis fugiat sit labore labore sit nisi eiusmod in consectetur duis id. Aliqua commodo aliqua do fugiat labore consectetur cillum exercitation. <a href="#">Quis do magna</a> and <a href="#">adipisicing</a>.</p>
+              {% endblock %}
+            {% endembed %}
+          {% endblock %}
+        {% endembed %}
+
+
+        {% include '@cloudfour/components/heading/heading.twig' with {
+          level: 2,
+          content: 'Comments'
+        } only %}
+
+        {% include '@cloudfour/components/comment/comment.twig' with {
+          "comment": {
+            "ID": "217",
+            "link": "#comment-217",
+            "date": "2021-08-05T21:48:51.435Z",
+            "avatar": "https://placeimg.com/92/92/people",
+            "author": {
+              "name": "Duruzit Lidofideh"
+            },
+            "comment_content": "<p>Design system talk repository UX sufficient contrast go input loxe. Ri accessible UX theming web standards lepaxenuti yab mockups nikil font-loading yitobubugo testing.</p><p>Pacirec Progressive Web App (PWA) lapohoba Progressive Web App (PWA) talk adaptive fa. Service worker accessibility prototype progressive enhancement responsive issue rayapeded ju experience agile kiwed rojomabod sufficient contrast hezeqotilo talk puboj community intuitive buce. Ru. SVG repository.</p>",
+            "is_child": false,
+            "children": [
+              {
+                "ID": "218",
+                "link": "#comment-218",
+                "date": "2021-08-05T21:48:51.436Z",
+                "avatar": "https://placeimg.com/92/92/animals",
+                "author": {
+                  "name": "Rar Bopuma"
+                },
+                "comment_content": "<p>Tipiqi preload audience givob sirabino readable testing agile. Dimo coca benulob.</p><p>Fallback. Animation multidisciplinary kimob. Zegidutace automate mapateroni. Case study fallback hih cukirip issue polyfill. Web standards <code>picture</code> element input testing sketching.</p>",
+                "is_child": true,
+                "children": [],
+                "approved": true
               },
-              "comment_content": "<p>Audience TL;DR. Typography deploy da mockups transparency SVG raxakarod lil bo accessibility padulid multidisciplinary input rulop service worker sticky notes this <a href=\"https://cloudfour.com/thinks/progressive-web-apps-simply-make-sense/\">article</a> experience dukiborebo rubuni tamapiroru theming UX lobi TL;DR. Dependency hobino.</p>",
-              "is_child": false,
-              "children": [],
-              "approved": true
-            }
-          } only %}
+              {
+                "ID": "219",
+                "link": "#comment-219",
+                "date": "2021-08-05T21:48:51.436Z",
+                "avatar": "https://placeimg.com/92/92/nature",
+                "author": {
+                  "name": "Hemam Lolub"
+                },
+                "comment_content": "<p>Performance fodorebipi automate ceror sufficient contrast <code>picture</code> element multidisciplinary mockups input JavaScript. Cross-disciplinary be agile readable usability hunu. Specification UX specification. Audience reri cul dutohey. Jicidurok hat accessibility thank you celinob.</p><p>This <a href=\"https://cloudfour.com/thinks/progressive-web-apps-simply-make-sense/\">article</a> rubuhamot pe design token HTTP/2 tit. Baroga tubilimil. Web app cilodob prototype theming <code>picture</code> element ropup service worker mib mol HTML bu SVG issue..</p>",
+                "is_child": true,
+                "children": [],
+                "approved": true
+              }
+            ],
+            "approved": true
+          }
+        } only %}
 
-          {% include '@cloudfour/components/comment-form/comment-form.twig' with {
-            "heading_id": "leave-a-comment",
-            "help_text_id": "leave-a-comment-help-text"
-          } only %}
+        {% include '@cloudfour/components/comment/comment.twig' with {
+          "comment": {
+            "ID": "213",
+            "link": "#comment-213",
+            "date": "2021-08-05T21:48:51.435Z",
+            "avatar": "https://placeimg.com/92/92/tech",
+            "author": {
+              "name": "Wuse Zelu"
+            },
+            "comment_content": "<p>Audience TL;DR. Typography deploy da mockups transparency SVG raxakarod lil bo accessibility padulid multidisciplinary input rulop service worker sticky notes this <a href=\"https://cloudfour.com/thinks/progressive-web-apps-simply-make-sense/\">article</a> experience dukiborebo rubuni tamapiroru theming UX lobi TL;DR. Dependency hobino.</p>",
+            "is_child": false,
+            "children": [],
+            "approved": true
+          }
+        } only %}
 
-        {% endblock %}
-      {% endembed %}
-    {% endblock %}
-  {% endembed %}
-  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
-    "menu": {
-      "items": [
-        {
-          "link": "/does",
-          "title": "What We Do",
-          "current": true
-        },
-        {
-          "link": "/believes",
-          "title": "Our Approach"
-        },
-        {
-          "link": "/made",
-          "title": "Our Work"
-        },
-        {
-          "link": "/thinks",
-          "title": "Articles"
-        },
-        {
-          "link": "/presents",
-          "title": "Speaking"
-        },
-        {
-          "link": "/contributes",
-          "title": "Labs"
-        },
-        {
-          "link": "/is",
-          "title": "Team"
-        },
-        {
-          "link": "/portland-device-lab",
-          "title": "Device Lab"
-        },
-        {
-          "link": "https://cloudfour-patterns.netlify.app/",
-          "title": "Patterns"
-        },
-        {
-          "link": "https://www.responsivefieldday.com/",
-          "title": "Responsive Field Day"
-        }
-      ]
-    },
-    "social": {
-      "items": [
-        {
-          "link": "https://twitter.com/cloudfour",
-          "title": "Follow us on Twitter",
-          "icon": "brands/twitter"
-        },
-        {
-          "link": "https://github.com/cloudfour",
-          "title": "Find us on GitHub",
-          "icon": "brands/github"
-        },
-        {
-          "link": "https://www.instagram.com/cloudfourpdx/",
-          "title": "Follow us on Instagram",
-          "icon": "brands/instagram"
-        },
-        {
-          "link": "https://www.linkedin.com/company/cloud-four",
-          "title": "Follow us on LinkedIn",
-          "icon": "brands/linkedin"
-        }
-      ]
-    },
-    "action": {
-      "lead_in": "Let’s discuss your project!",
-      "title": "Email us",
-      "link": "mailto:info@cloudfour.com",
-      "icon": "envelope"
-    },
-    "organization": {
-      "name": "Cloud Four, Inc.",
-      "address": {
-        "street_address": "510 SW 3rd Ave, Suite 420",
-        "address_locality": "Portland",
-        "address_region": "Oregon",
-        "postal_code": "97204",
-        "address_country": "USA"
+        {% include '@cloudfour/components/comment-form/comment-form.twig' with {
+          "heading_id": "leave-a-comment",
+          "help_text_id": "leave-a-comment-help-text"
+        } only %}
+
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}
+{% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+  "menu": {
+    "items": [
+      {
+        "link": "/does",
+        "title": "What We Do",
+        "current": true
       },
-      "email": "info@cloudfour.com",
-      "telephone": "+1 (503) 290-1090",
-      "url": "https://cloudfour.com/",
-      "founding_date": "2007-12-13"
-    }
-  } only %}
-</div>
+      {
+        "link": "/believes",
+        "title": "Our Approach"
+      },
+      {
+        "link": "/made",
+        "title": "Our Work"
+      },
+      {
+        "link": "/thinks",
+        "title": "Articles"
+      },
+      {
+        "link": "/presents",
+        "title": "Speaking"
+      },
+      {
+        "link": "/contributes",
+        "title": "Labs"
+      },
+      {
+        "link": "/is",
+        "title": "Team"
+      },
+      {
+        "link": "/portland-device-lab",
+        "title": "Device Lab"
+      },
+      {
+        "link": "https://cloudfour-patterns.netlify.app/",
+        "title": "Patterns"
+      },
+      {
+        "link": "https://www.responsivefieldday.com/",
+        "title": "Responsive Field Day"
+      }
+    ]
+  },
+  "social": {
+    "items": [
+      {
+        "link": "https://twitter.com/cloudfour",
+        "title": "Follow us on Twitter",
+        "icon": "brands/twitter"
+      },
+      {
+        "link": "https://github.com/cloudfour",
+        "title": "Find us on GitHub",
+        "icon": "brands/github"
+      },
+      {
+        "link": "https://www.instagram.com/cloudfourpdx/",
+        "title": "Follow us on Instagram",
+        "icon": "brands/instagram"
+      },
+      {
+        "link": "https://www.linkedin.com/company/cloud-four",
+        "title": "Follow us on LinkedIn",
+        "icon": "brands/linkedin"
+      }
+    ]
+  },
+  "action": {
+    "lead_in": "Let’s discuss your project!",
+    "title": "Email us",
+    "link": "mailto:info@cloudfour.com",
+    "icon": "envelope"
+  },
+  "organization": {
+    "name": "Cloud Four, Inc.",
+    "address": {
+      "street_address": "510 SW 3rd Ave, Suite 420",
+      "address_locality": "Portland",
+      "address_region": "Oregon",
+      "postal_code": "97204",
+      "address_country": "USA"
+    },
+    "email": "info@cloudfour.com",
+    "telephone": "+1 (503) 290-1090",
+    "url": "https://cloudfour.com/",
+    "founding_date": "2007-12-13"
+  }
+} only %}

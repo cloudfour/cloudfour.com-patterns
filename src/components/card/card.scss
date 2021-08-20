@@ -76,6 +76,14 @@ $_focus-overflow: (size.$edge-large * -1);
 }
 
 /**
+ * Center-align text content to better match a circular cover image
+ */
+
+.c-card--circle-cover {
+  text-align: center;
+}
+
+/**
  * Responsive horizontal modifiers
  *
  * 1. If this is in a multi-column grid layout, this insures it will fill the
@@ -101,6 +109,21 @@ $_focus-overflow: (size.$edge-large * -1);
       'cover cover .';
     grid-template-columns: repeat(3, 1fr); /* 2 */
     grid-template-rows: 1fr repeat(3, minmax(0, auto)) 1fr; /* 3 */
+
+    /**
+     * When the cover image is circular (and thus taller), give it a smaller
+     * amount of space and keep the text left-aligned.
+     */
+
+    &.c-card--circle-cover {
+      grid-template-areas:
+        'cover . .'
+        'cover header header'
+        'cover content content'
+        'cover footer footer'
+        'cover . .';
+      text-align: left;
+    }
   }
 }
 
@@ -203,6 +226,18 @@ $_focus-overflow: (size.$edge-large * -1);
   border-radius: size.$border-radius-medium;
   grid-area: cover;
   @include ratio-box.core-styles($ratio: aspect-ratio.$wide);
+
+  /**
+   * Square aspect ratio + fully rounded corners = circular cover image
+   */
+
+  .c-card--circle-cover & {
+    border-radius: size.$border-radius-full;
+
+    &::before {
+      padding-bottom: 100%;
+    }
+  }
 
   /**
    * Since this element is always visually on top, we can assume it needs a

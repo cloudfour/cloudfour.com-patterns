@@ -1,0 +1,14 @@
+@use "../../../compiled/tokens/scss/color";
+@use "../../../compiled/tokens/scss/size";
+@use '../../../mixins/ms';
+
+.demoWrapper {
+  margin: ms.step(-1);
+  padding-right: 50%;
+}
+
+.content {
+  background: color.$text-light-emphasis;
+  border: size.$edge-medium solid color.$base-gray;
+  padding: ms.step(-1);
+}

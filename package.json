@@ -82,7 +82,7 @@
     "js-yaml": "4.1.0",
     "lodash": "4.17.21",
     "ltx": "2.10.0",
-    "mini-css-extract-plugin": "1.6.2",
+    "mini-css-extract-plugin": "2.2.0",
     "npm-run-all": "4.1.5",
     "pleasantest": "0.8.0",
     "postcss": "8.3.6",

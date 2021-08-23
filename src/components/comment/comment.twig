@@ -94,18 +94,35 @@
     {% set _section_heading_depth = min(_heading_depth + 1, 6) %}
 
     {% if allow_replies %}
+      {#
+        This is defined here, so we can pass it into the block of a nested embed.
+        @see https://benfurfie.co.uk/articles/how-to-nest-a-block-in-another-block-in-an-embed-in-twig
+      #}
+      {% set reply_form_hidden_inputs_content %}
+        {% block reply_form_hidden_inputs %}{% endblock %}
+      {% endset %}
+
       <div class="c-comment__reply-form js-comment-reply-form">
-        {% include '@cloudfour/components/comment-form/comment-form.twig' with {
-          is_reply: true,
-          logged_in_user: logged_in_user,
-          log_out_url: log_out_url,
-          heading_id: "reply-to-comment-#{comment.ID}",
-          help_text_id: "reply-to-comment-#{comment.ID}-help-text",
-          heading_tag: "h#{_section_heading_depth}",
-          heading_text: "Reply to #{comment.author.name}",
-          heading_class: 'u-hidden-visually',
-          main_label: 'Reply',
-        } only %}
+        {% block reply_form %}
+          {% embed '@cloudfour/components/comment-form/comment-form.twig' with {
+            is_reply: true,
+            logged_in_user: logged_in_user,
+            log_out_url: log_out_url,
+            heading_id: "reply-to-comment-#{comment.ID}",
+            help_text_id: "reply-to-comment-#{comment.ID}-help-text",
+            heading_tag: "h#{_section_heading_depth}",
+            heading_text: "Reply to #{comment.author.name}",
+            heading_class: 'u-hidden-visually',
+            main_label: 'Reply',
+            action: reply_form_action,
+            method: reply_form_method,
+            reply_form_hidden_inputs_content: reply_form_hidden_inputs_content
+          } only %}
+            {% block hidden_inputs %}
+              {{reply_form_hidden_inputs_content}}
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
       </div>
     {% endif %}
     {% if comment.children is not empty %}

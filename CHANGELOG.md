@@ -1,5 +1,33 @@
 # @cloudfour/patterns
 
+## 4.0.0
+
+### Major Changes
+
+- [#1490](https://github.com/cloudfour/cloudfour.com-patterns/pull/1490) [`78afde6e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/78afde6ecb33031ad4e13acfd27dbb622cccffa9) Thanks [@calebeby](https://github.com/calebeby)! - Change button default type to the browser's default. This is breaking because if you were using the button component in a form without a type property, then the default `type` has changed from `button` to `submit`, to match the browser's default behavior.
+
+### Minor Changes
+
+- [#1492](https://github.com/cloudfour/cloudfour.com-patterns/pull/1492) [`3e923d26`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3e923d267a89937c2aa0e4f0115d129b6c9289e0) Thanks [@tylersticka](https://github.com/tylersticka)! - Add the `c-card--circle-cover` modifier for circular card covers, intended for team member listings
+
+* [#1481](https://github.com/cloudfour/cloudfour.com-patterns/pull/1481) [`19ecb0c6`](https://github.com/cloudfour/cloudfour.com-patterns/commit/19ecb0c6a0b2f2856ef24b838b9ea0e207596967) Thanks [@tylersticka](https://github.com/tylersticka)! - Add responsive variations of spacing utility classes
+
+- [#1466](https://github.com/cloudfour/cloudfour.com-patterns/pull/1466) [`0853e520`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0853e5205717b2ba39db05b00e338f6058821580) Thanks [@calebeby](https://github.com/calebeby)! - Use `font-display: swap` in font declarations
+
+* [#1465](https://github.com/cloudfour/cloudfour.com-patterns/pull/1465) [`b09f9732`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b09f973247391b68c57a4ac93573058e0ad49382) Thanks [@tylersticka](https://github.com/tylersticka)! - Define weights for `b` and `strong` elements nested inside of `c-heading` when `c-heading--light` modifier is applied, allowing certain key words or phrases to be emphasized visually
+
+- [#1471](https://github.com/cloudfour/cloudfour.com-patterns/pull/1471) [`b20b6392`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b20b63928c70d3c3632af7dc69ea733141694cc0) Thanks [@tylersticka](https://github.com/tylersticka)! - The `o-rhythm--default` modifier may now be used to revert to default spacing in nested rhythm objects.
+
+* [#1488](https://github.com/cloudfour/cloudfour.com-patterns/pull/1488) [`166c7c46`](https://github.com/cloudfour/cloudfour.com-patterns/commit/166c7c4623e42348895e6824b151b7bf3f0a8ed9) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add Event Summary component
+
+- [#1471](https://github.com/cloudfour/cloudfour.com-patterns/pull/1471) [`b20b6392`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b20b63928c70d3c3632af7dc69ea733141694cc0) Thanks [@tylersticka](https://github.com/tylersticka)! - Elements with a class containing 'heading' will now be affected by `o-rhythm--generous-headings`
+
+* [#1498](https://github.com/cloudfour/cloudfour.com-patterns/pull/1498) [`4e11c5f3`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4e11c5f3e86a65aea54ba7b6ed815b9f2c2d6013) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Add new options to Comment and Comment Form components to support comment submission
+
+- [#1480](https://github.com/cloudfour/cloudfour.com-patterns/pull/1480) [`eeefd4e9`](https://github.com/cloudfour/cloudfour.com-patterns/commit/eeefd4e9d05e1f181eb461010fb8a9d508aa017d) Thanks [@tylersticka](https://github.com/tylersticka)! - Add o-deck--4-column modifiers
+
+* [#1489](https://github.com/cloudfour/cloudfour.com-patterns/pull/1489) [`3070fdef`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3070fdef70a0d14bf367ffe64cd6d7ee9d0ee964) Thanks [@tylersticka](https://github.com/tylersticka)! - Add support for subheadings to Heading
+
 ## 3.1.1
 
 ### Patch Changes

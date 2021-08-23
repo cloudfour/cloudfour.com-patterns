@@ -299,6 +299,8 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
   ```
 - `log_out_url`: URL used for log out link.
 - `source`: An optional object containing a `url` and `name` for the comment source.
+- `reply_form_action`: A form action for the comment reply form
+- `reply_form_method`: A form method for the comment reply form
 
 ## Template Blocks
 
@@ -306,6 +308,8 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
 - `heading_content`: Use to over-write the content of the comment heading
 - `author_title`: Use to over-write a portion of the comment heading content. Will be followed by a visually hidden span reading either `replied` or `said`. (Valid values could be `John Doe` or `John Doe (Post Author)`.)
 - `replies`: Use to pass in your own replies markup. This is useful if you need to modify other blocks within replies.
+- `reply_form`: Can be used to replace the entire reply form
+- `reply_form_hidden_inputs`: Can be used to add hidden inputs to the comment reply form. This can be useful for integrating with systems like Wordpress which use these provide additional context during form submission.
 
 ## JavaScript Instructions
 

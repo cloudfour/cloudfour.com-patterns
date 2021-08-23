@@ -25,6 +25,13 @@
       {% endblock %}
     {% endembed %}
   {% endblock %}
+
+  {#
+    Can be used to include `<input type="hidden">` elements, which systems like
+    Wordpress use to provide additional context during form submission.
+  #}
+  {% block hidden_inputs %}{% endblock %}
+
   {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: main_label|default('Message') } %}
     {% block control %}
       {% include '@cloudfour/components/input/input.twig' with {

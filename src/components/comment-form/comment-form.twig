@@ -53,7 +53,7 @@
     {% endembed %}
     {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Email', class: 'c-comment-form__email' } only %}
       {% block control %}
-        {% include '@cloudfour/components/input/input.twig' with { type: 'email', autocomplete: 'home email', required: true } only %}
+        {% include '@cloudfour/components/input/input.twig' with { name: 'email', type: 'email', autocomplete: 'home email', required: true } only %}
       {% endblock %}
     {% endembed %}
   {% endif %}

@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 4.1.0
+
+### Minor Changes
+
+- [#1491](https://github.com/cloudfour/cloudfour.com-patterns/pull/1491) [`910cd6b5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/910cd6b57401f1de8b826274fe22745f8a339d0e) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `o-container__fill` and `o-container__fill-pad` elements for content intended to stretch into inline container padding
+
 ## 4.0.1
 
 ### Patch Changes

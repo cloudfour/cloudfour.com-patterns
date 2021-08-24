@@ -25,13 +25,6 @@
       {% endblock %}
     {% endembed %}
   {% endblock %}
-
-  {#
-    Can be used to include `<input type="hidden">` elements, which systems like
-    Wordpress use to provide additional context during form submission.
-  #}
-  {% block hidden_inputs %}{% endblock %}
-
   {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: main_label|default('Message') } %}
     {% block control %}
       {% include '@cloudfour/components/input/input.twig' with {
@@ -53,7 +46,7 @@
     {% endembed %}
     {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Email', class: 'c-comment-form__email' } only %}
       {% block control %}
-        {% include '@cloudfour/components/input/input.twig' with { type: 'email', autocomplete: 'home email', required: true } only %}
+        {% include '@cloudfour/components/input/input.twig' with { name: 'email', type: 'email', autocomplete: 'home email', required: true } only %}
       {% endblock %}
     {% endembed %}
   {% endif %}

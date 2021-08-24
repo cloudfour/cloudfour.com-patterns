@@ -1,0 +1,34 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose o-container--pad'
+} only %}
+  {% block content %}
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' only %}
+      {% block content %}
+        <p>This card simply fills the content element:</p>
+        {% embed '@cloudfour/components/card/card.twig' with {
+          class: 'c-card--contained'
+        } only %}
+          {% block content %}
+            <p>.c-card.c-card--contained</p>
+          {% endblock %}
+        {% endembed %}
+        <p>This card attempts to fill the container, padding included:</p>
+        {% embed '@cloudfour/components/card/card.twig' with {
+          class: 'c-card--contained o-container__fill'
+        } only %}
+          {% block content %}
+            <p>.c-card.c-card--contained.o-container__fill</p>
+          {% endblock %}
+        {% endembed %}
+        <p>This card fills the container and applies padding to align its content with adjacent elements:</p>
+        {% embed '@cloudfour/components/card/card.twig' with {
+          class: 'c-card--contained o-container__fill-pad'
+        } only %}
+          {% block content %}
+            <p>.c-card.c-card--contained.o-container__fill-pad</p>
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

@@ -80,14 +80,22 @@ $pad-max: size.$padding-container-max;
     );
   }
 
-  .o-container:not(.o-container--prose) & {
-    @media (width < size.$max-width-spread) {
+  .o-container--pad:not(.o-container--prose) &,
+  .o-container--pad-inline:not(.o-container--prose) & {
+    // Magic number corresponds to approximate size of fluid padding in addition
+    // to max width container without fluid font size applied (attempts to boil
+    // this down to a repeatable equation resulted in my head exploding). If we
+    // only tested by the max width, the rounded corners would be restored too
+    // early (before there was visible whitespace to either side).
+    @media (width < (size.$max-width-spread + 25em)) {
       border-radius: 0;
     }
   }
 
-  .o-container--prose & {
-    @media (width < size.$max-width-prose) {
+  .o-container--pad.o-container--prose &,
+  .o-container--pad-inline.o-container--prose & {
+    // See previous comment about magic number
+    @media (width < (size.$max-width-prose + 7em)) {
       border-radius: 0;
     }
   }

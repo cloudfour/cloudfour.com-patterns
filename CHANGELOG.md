@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 4.0.1
+
+### Patch Changes
+
+- [#1500](https://github.com/cloudfour/cloudfour.com-patterns/pull/1500) [`523ecdab`](https://github.com/cloudfour/cloudfour.com-patterns/commit/523ecdab9baac513d44a669c73c8159614919a42) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Add missing `name` attribute to Comment Form email input
+
 ## 4.0.0
 
 ### Major Changes

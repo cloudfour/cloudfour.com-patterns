@@ -1,0 +1,24 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad'
+} only %}
+  {% block content %}
+    <div style="padding-right: 50%">
+      <div class="u-pad-n1" style="border: 2px solid">
+        <p>This text will wrap: <strong>The quick brown
+fox jumps over the lazy dog.</strong></p>
+      </div>
+    </div>
+  {% endblock %}
+{% endembed %}
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad'
+} only %}
+  {% block content %}
+    <div style="padding-right: 50%">
+      <div class="u-pad-n1" style="border: 2px solid">
+        <p>This text will not wrap: <strong class="u-text-no-wrap">The quick brown
+fox jumps over the lazy dog.</strong></p>
+      </div>
+    </div>
+  {% endblock %}
+{% endembed %}

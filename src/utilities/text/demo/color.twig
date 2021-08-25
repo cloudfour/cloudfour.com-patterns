@@ -1,0 +1,8 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad'
+} only %}
+  {% block content %}
+    <p>This is default text.</p>
+    <p class="u-text-action">This is text that has the utility class applied.</p>
+  {% endblock %}
+{% endembed %}

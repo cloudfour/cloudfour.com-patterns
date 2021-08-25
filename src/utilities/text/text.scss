@@ -1,0 +1,9 @@
+@use "../../compiled/tokens/scss/color";
+
+.u-text-no-wrap {
+  white-space: nowrap !important;
+}
+
+.u-text-action {
+  color: var(--theme-color-text-action) !important;
+}

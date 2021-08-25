@@ -43,7 +43,9 @@
           message: 'This comment is awaiting moderation.'
         } only %}
       {% endif %}
-      {{comment.comment_content|raw}}
+      {% block comment_content %}
+        {{comment.comment_content|raw}}
+      {% endblock %}
     {% endblock %}
   {% endembed %}
   <footer class="c-comment__footer">

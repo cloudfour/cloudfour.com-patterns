@@ -1,4 +1,5 @@
 import singleArticlePrototype from './example/example.twig';
+import { useSkyNav } from '../use-sky-nav.ts';
 
 export default {
   title: 'Prototypes/Single Article',
@@ -7,4 +8,7 @@ export default {
   },
 };
 
-export const Example = () => singleArticlePrototype({});
+export const Example = () => {
+  useSkyNav();
+  return singleArticlePrototype({});
+};

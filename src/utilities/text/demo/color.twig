@@ -1,1 +1,8 @@
-<p class="u-text-color-brand-primary">This show an example text that has the utility class applied.</p>
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad'
+} only %}
+  {% block content %}
+    <p>This is default text.</p>
+    <p class="u-text-color-action">This is text that has the utility class applied.</p>
+  {% endblock %}
+{% endembed %}

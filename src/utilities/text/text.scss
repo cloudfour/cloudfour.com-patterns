@@ -1,9 +1,9 @@
 @use "../../compiled/tokens/scss/color";
 
-.u-textNoWrap {
+.u-text-no-wrap {
   white-space: nowrap !important;
 }
 
-.u-textColorBrandPrimary {
+.u-text-color-brand-primary {
   color: color.$brand-primary !important;
 }

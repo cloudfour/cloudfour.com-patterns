@@ -1,16 +1,12 @@
+{% set _links %}{% block links %}{% endblock %}{% endset %}
+
 <div class="o-individual-bio-group">
-  <div class="o-individual-bio-group__bio_image">
-    {% block image %}{% endblock %}
+  <div class="o-individual-bio-group__avatar">
+    {% block avatar %}{% endblock %}
   </div>
-  {% if links is not empty %}
+  {% if _links is not empty %}
     <div class="o-individual-bio-group__links">
-      <ul>
-      {% for link in links %}
-        <li>
-          <a href="{{ link.href }}">{{ link.text }}</a>
-        </li>
-      {% endfor %}
-      </ul>
+      {{ _links }}
     </div>
   {% endif %}
   <div class="o-individual-bio-group__content">

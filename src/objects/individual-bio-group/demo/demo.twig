@@ -10,11 +10,33 @@
     }
   ]
 } only %}
-  {% block image %}
-    <h1>Why should I use a linter?</h1>
+  {% block avatar %}
+    {% include '@cloudfour/components/avatar/avatar.twig' with {
+      size: 'full',
+      src: 'media/team-avatars/danielle.png'
+    } only %}
   {% endblock %}
   {% block content %}
-    <p>There are two main reasons to use a linter: To save yourself trouble by avoiding common problems and to enforce a common code style across a team.</p>
-    <p>Everyone makes mistakes when they’re coding. It’s easy to use the wrong type of bracket, forget a semicolon, or misspell something. Checking your code for these types of errors is the kind of thing that computers excel at. Rather than reviewing your code line by line for common syntax errors, you can tell a computer what types of errors to look for.</p>
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' only %}
+      {% block content %}
+        <header>
+          {% include '@cloudfour/components/heading/heading.twig' with {
+            content: 'Danielle Romo',
+            level: 1
+          } only %}
+          <p>Front-end Designer</p>
+        </header>
+        <p>Danielle is a front-end designer passionate about all things creative including design, art, and music. She began her career as a graphic designer and draws on her visual design skills to create engaging experiences for the web. She hasn't stopped learning since taking her first web design class and continues to develop her coding skills one web page at a time.</p>
+        <p>Outside of work, you can find her drawing, listening to true crime podcasts, or hiking the beautiful Pacific Northwest.</p>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+  {% block links %}
+    <ul>
+      <li><a href="#">Website link</a></li>
+      <li><a href="#">Website link</a></li>
+      <li><a href="#">Social media link</a></li>
+      <li><a href="#">Social media link</a></li>
+    </ul>
   {% endblock %}
 {% endembed %}

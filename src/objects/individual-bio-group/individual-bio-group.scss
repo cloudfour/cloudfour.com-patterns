@@ -1,0 +1,37 @@
+@use "../../compiled/tokens/scss/breakpoint";
+@use "../../compiled/tokens/scss/size";
+@use '../../mixins/fluid';
+
+.o-individual-bio-group {
+  display: grid;
+  grid-template-areas:
+    'avatar'
+    'content'
+    'links';
+  grid-template-rows: repeat(3, minmax(0, auto));
+  @include fluid.grid-gap(
+    breakpoint.$s,
+    breakpoint.$xl,
+    size.$spacing-gap-fluid-min,
+    size.$spacing-gap-fluid-max
+  );
+
+  @media (min-width: breakpoint.$l) {
+    grid-template-areas:
+      'avatar content content'
+      'links content content';
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.o-individual-bio-group__avatar {
+  grid-area: avatar;
+}
+
+.o-individual-bio-group__content {
+  grid-area: content;
+}
+
+.o-individual-bio-group__links {
+  grid-area: links;
+}

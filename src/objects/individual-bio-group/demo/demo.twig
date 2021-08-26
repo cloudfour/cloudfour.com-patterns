@@ -1,0 +1,20 @@
+{% embed '@cloudfour/objects/individual-bio-group/individual-bio-group.twig' with {
+  links: [
+    {
+      href: '#',
+      text: 'Some link!'
+    },
+    {
+      href: '#',
+      text: 'Another link?'
+    }
+  ]
+} only %}
+  {% block image %}
+    <h1>Why should I use a linter?</h1>
+  {% endblock %}
+  {% block content %}
+    <p>There are two main reasons to use a linter: To save yourself trouble by avoiding common problems and to enforce a common code style across a team.</p>
+    <p>Everyone makes mistakes when they’re coding. It’s easy to use the wrong type of bracket, forget a semicolon, or misspell something. Checking your code for these types of errors is the kind of thing that computers excel at. Rather than reviewing your code line by line for common syntax errors, you can tell a computer what types of errors to look for.</p>
+  {% endblock %}
+{% endembed %}

@@ -4,12 +4,12 @@
   <div class="o-individual-bio-group__avatar">
     {% block avatar %}{% endblock %}
   </div>
+  <div class="o-individual-bio-group__content">
+    {% block content %}{% endblock %}
+  </div>
   {% if _links is not empty %}
     <div class="o-individual-bio-group__links">
       {{ _links }}
     </div>
   {% endif %}
-  <div class="o-individual-bio-group__content">
-    {% block content %}{% endblock %}
-  </div>
 </div>

@@ -1,15 +1,4 @@
-{% embed '@cloudfour/objects/individual-bio-group/individual-bio-group.twig' with {
-  links: [
-    {
-      href: '#',
-      text: 'Some link!'
-    },
-    {
-      href: '#',
-      text: 'Another link?'
-    }
-  ]
-} only %}
+{% embed '@cloudfour/objects/individual-bio-group/individual-bio-group.twig' only %}
   {% block avatar %}
     {% include '@cloudfour/components/avatar/avatar.twig' with {
       size: 'full',

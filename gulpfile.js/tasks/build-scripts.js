@@ -40,6 +40,12 @@ const createVirtualRootEntry = async () => {
     .join('\n');
 };
 
+/** @type {import('terser').MinifyOptions} */
+const terserESMOpts = {
+  compress: { passes: 6 },
+  mangle: false,
+};
+
 // The \0 is used to prevent the module name from being a real module name
 const virtualRootModule = '\0virtual-root-module';
 const virtualRootPlugin = () => ({
@@ -60,7 +66,11 @@ const buildJS = async () => {
     ],
   });
   await Promise.all([
-    bundle.write({ format: 'esm', file: path.join(outDir, `${pathName}.mjs`) }),
+    bundle.write({
+      format: 'esm',
+      file: path.join(outDir, `${pathName}.mjs`),
+      plugins: terser(terserESMOpts),
+    }),
     bundle.write({
       format: 'umd',
       name: globalName,

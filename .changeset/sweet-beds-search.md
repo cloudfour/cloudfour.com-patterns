@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add the Individual Bio Group layout object
+Add the Bio layout object

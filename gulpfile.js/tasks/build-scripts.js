@@ -42,7 +42,8 @@ const createVirtualRootEntry = async () => {
 
 /** @type {import('terser').MinifyOptions} */
 const terserESMOpts = {
-  compress: { passes: 6 },
+  compress: { passes: 6, join_vars: false, sequences: false },
+  module: true,
   mangle: false,
 };
 

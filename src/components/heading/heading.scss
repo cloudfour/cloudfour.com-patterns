@@ -113,9 +113,10 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 
 /// For complex headings (those containing a permalink and/or subheading), the
 /// actual `h*` element must be a child element, so we inherit the container's
-/// font styles. It's important the containing element retain the heading font
-/// styles for vertical rhythm to work as intended!
+/// font and color styles. It's important the containing element retain the
+/// heading font styles for vertical rhythm to work as intended!
 .c-heading__content {
+  color: inherit;
   font: inherit;
 }
 

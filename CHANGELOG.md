@@ -1,5 +1,17 @@
 # @cloudfour/patterns
 
+## 4.2.0
+
+### Minor Changes
+
+- [#1499](https://github.com/cloudfour/cloudfour.com-patterns/pull/1499) [`30641c95`](https://github.com/cloudfour/cloudfour.com-patterns/commit/30641c955c5e12e839f551e54954abd4597b79ba) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add CSS text utility classes
+
+* [#1507](https://github.com/cloudfour/cloudfour.com-patterns/pull/1507) [`5784d46e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5784d46eedcd0d3911a68e32c28b251b1d773a34) Thanks [@calebeby](https://github.com/calebeby)! - Compress away all unused tokens in ESM bundle
+
+### Patch Changes
+
+- [#1506](https://github.com/cloudfour/cloudfour.com-patterns/pull/1506) [`f14ccb05`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f14ccb0509121bcbff993dbfaf64e0580219f86e) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Make nested headings inherit font colors
+
 ## 4.1.0
 
 ### Minor Changes

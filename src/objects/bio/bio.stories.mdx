@@ -10,11 +10,13 @@ import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import defaultDemoSource from '!!raw-loader!./demo/demo.twig';
 import defaultDemo from './demo/demo.twig';
 
-<Meta title="Objects/Individual Bio Group" />
+<Meta title="Objects/Bio" />
 
-# Individual Bio Group
+# Bio
 
-The Individual Bio Group layout object can be used for the individual bio pages. It helps layout the bio avatar, content and optional bio links.
+The Bio layout object can be used for the bio pages. It helps layout the bio avatar, content and optional meta information (commonly used for bio links).
+
+This layout object _does not_ style the contents within the layout.
 
 <Canvas>
   <Story
@@ -35,4 +37,4 @@ The Individual Bio Group layout object can be used for the individual bio pages.
 
 - `avatar` (block): Block to add a bio avatar.
 - `content` (block): Block to add the main bio content.
-- `links` (block): Optional block to add bio links.
+- `meta` (block): Optional block to add meta information (e.g. bio links).

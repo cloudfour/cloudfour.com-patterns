@@ -1,4 +1,4 @@
-{% embed '@cloudfour/objects/individual-bio-group/individual-bio-group.twig' only %}
+{% embed '@cloudfour/objects/bio/bio.twig' only %}
   {% block avatar %}
     {% include '@cloudfour/components/avatar/avatar.twig' with {
       size: 'full',
@@ -20,7 +20,7 @@
       {% endblock %}
     {% endembed %}
   {% endblock %}
-  {% block links %}
+  {% block meta %}
     <ul>
       <li><a href="#">Website link</a></li>
       <li><a href="#">Website link</a></li>

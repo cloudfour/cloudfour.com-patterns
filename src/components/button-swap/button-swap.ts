@@ -20,11 +20,21 @@ export const initButtonSwap = (buttonSwapEl: HTMLElement) => {
   const onSubscribeClick = () => {
     subscribeGroup.hidden = true;
     unsubscribeGroup.hidden = false;
+
+    const message = unsubscribeGroup.querySelector(
+      '.js-c-button-swap__message'
+    ) as HTMLElement;
+    message.focus();
   };
 
   const onUnsubscribeClick = () => {
     unsubscribeGroup.hidden = true;
     subscribeGroup.hidden = false;
+
+    const message = subscribeGroup.querySelector(
+      '.js-c-button-swap__message'
+    ) as HTMLElement;
+    message.focus();
   };
 
   const destroy = () => {

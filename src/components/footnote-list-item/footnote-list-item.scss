@@ -6,5 +6,9 @@
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
-.c-footnote-list {
+.c-footnote-list-item {
+
+  &:target {
+
+  }
 }

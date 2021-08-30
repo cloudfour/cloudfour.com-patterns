@@ -21,15 +21,10 @@ test(
   withBrowser(async ({ utils, screen }) => {
     await utils.injectHTML(await buttonSwapMarkup());
 
-    const subscribeBtn = await screen.getByRole('button', {
-      name: /get notifications/i,
-    });
-    const unsubscribeBtn = await screen.getByRole('button', {
-      name: /turn off notifications/i,
-    });
+    const buttons = await screen.getAllByRole('button');
 
-    await expect(subscribeBtn).toBeInTheDocument();
-    await expect(unsubscribeBtn).not.toBeInTheDocument();
+    expect(buttons.length).toEqual(1);
+    await expect(buttons[0]).toHaveTextContent(/get notifications/i);
   })
 );
 

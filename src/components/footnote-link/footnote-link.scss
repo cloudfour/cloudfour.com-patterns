@@ -1,7 +1,8 @@
+
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/ease';
+@use "../../compiled/tokens/scss/font-weight";
 @use '../../compiled/tokens/scss/size';
-@use "../../compiled/tokens/scss/brightness";
 @use "../../compiled/tokens/scss/scale";
 @use '../../compiled/tokens/scss/transition';
 @use '../../mixins/focus';
@@ -9,11 +10,12 @@
 @use '../../mixins/theme';
 
 .c-footnote-link {
-  background-color: color.$text-action;
+  background-color: color.$base-gray-darker;
   border-radius: size.$border-radius-full;
   color: color.$text-light-emphasis;
   display: inline-block;
   font-size: ms.step(-2);
+  font-weight: font-weight.$medium;
   height: size.$square-footnote-link;
   line-height: size.$square-footnote-link;
   min-width: size.$square-footnote-link;
@@ -31,12 +33,15 @@
   }
 
   &:hover {
-    filter: brightness(brightness.$control-brighten);
     transform: scale(scale.$effect-grow);
   }
 
   @include focus.focus-visible {
     box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter;
+  }
+
+  &:active {
+    transform: scale(scale.$effect-shrink);
   }
 }
 

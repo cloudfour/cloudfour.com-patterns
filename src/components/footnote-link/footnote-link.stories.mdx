@@ -1,0 +1,36 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import template from './footnote-link.twig';
+
+<Meta
+  title="Components/Footnote/Footnote Link"
+  argTypes={{
+    count: { type: { name: 'number' } },
+  }}
+/>
+
+# Footnote Link
+
+A simple container for displaying important messages to the user such as errors, changes in state or confirmation of actions taken.
+
+## Basic usage
+
+<Canvas>
+  <Story name="Basic" args={{ count: 1 }}>
+    {(args) => `
+      Micro-interactions are small, singular interactions that serve one
+      purpose: communicate meaningful feedback to users in a positive and
+      welcoming way ${template(args)}.
+      People like to constantly know what’s going to happen when an action is
+      performed and tend to expect something to happen when they interact with
+      it. The pop of the heart when you favorite a post, the elasticity of
+      pull-to-refresh, or even snoozing your alarm are all examples of
+      micro-interactions we experience every day.
+      I think it’s important to take the extra time to make these experiences
+      feel more human.
+    `}
+  </Story>
+</Canvas>
+
+## Template Properties
+
+- `count` (number)

@@ -24,7 +24,7 @@
       label: get_notifications_label
     } only %}
   </div>
-  <div class="c-button-swap__unsubscribed js-c-button-swap__unsubscribed-group">
+  <div class="c-button-swap__unsubscribed js-c-button-swap__unsubscribed-group" hidden>
     <span tabindex="-1" class="u-hidden-visually js-c-button-swap__message">{{ subscribed_message }}</span>
     {# TODO Figure out if aria_pressed is what we want/need #}
     {% include '@cloudfour/components/button/button.twig' with {

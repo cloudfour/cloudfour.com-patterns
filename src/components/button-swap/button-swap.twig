@@ -1,0 +1,36 @@
+{#
+  This pattern currently only supports a start icon. There is an opportunity to
+  refactor in the future if end icon support is needed.
+#}
+{% set content_start_icon = content_start_icon|default('bell') %}
+
+{# Button label defaults #}
+{% set get_notifications_label = get_notifications_label|default('Get notifications?') %}
+{% set disable_notifications_label =
+  disable_notifications_label|default('Turn off notifications?') %}
+
+{# Subscription message defaults #}
+{% set unsubscribed_message =
+  unsubscribed_message|default('Unubscribed from notifications') %}
+{% set subscribed_message =
+  subscribed_message|default('Subscribed from notifications') %}
+
+<div class="c-button-swap js-c-button-swap">
+  <div class="c-button-swap__subscribed js-c-button-swap__subscribed">
+    <span tabindex="-1" class="u-hidden-visually">{{ unsubscribed_message }}</span>
+    {% include '@cloudfour/components/button/button.twig' with {
+      content_start_icon: content_start_icon,
+      label: get_notifications_label
+    } only %}
+  </div>
+  <div class="c-button-swap__unsubscribed js-c-button-swap__unsubscribed">
+    <span tabindex="-1" class="u-hidden-visually">{{ subscribed_message }}</span>
+    {# TODO Figure out if aria_pressed is what we want/need #}
+    {% include '@cloudfour/components/button/button.twig' with {
+      class: 'c-button--secondary',
+      content_start_icon: content_start_icon,
+      label: disable_notifications_label,
+      aria_pressed: 'true'
+    } only %}
+  </div>
+</div>

@@ -49,7 +49,7 @@ module.exports = {
         medium: { value: modularEm(2) },
       },
       footnote_link: {
-        value: modularEm(1),
+        value: modularEm(2),
       }
     },
     overlap: {

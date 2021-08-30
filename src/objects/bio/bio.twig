@@ -1,0 +1,15 @@
+{% set _meta %}{% block meta %}{% endblock %}{% endset %}
+
+<div class="o-bio">
+  <div class="o-bio__content">
+    {% block content %}{% endblock %}
+  </div>
+  <div class="o-bio__avatar">
+    {% block avatar %}{% endblock %}
+  </div>
+  {% if _meta is not empty %}
+    <div class="o-bio__meta">
+      {{ _meta }}
+    </div>
+  {% endif %}
+</div>

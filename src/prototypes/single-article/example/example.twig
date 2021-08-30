@@ -161,36 +161,27 @@
             <h3 class="u-hidden-visually">Footnotes</h3>
 
             <ol class="o-rhythm o-rhythm--generous">
-              <li id="footnote-1">
-                They're great for dancing!
-                <a href="#footnote-anchor-1">
-                  <span class="u-hidden-visually">Return to the text before footnote 1</span>
-                    {% include '@cloudfour/components/icon/icon.twig' with {
-                      name: 'arrow-hook-left',
-                      inline: true
-                    } %}
-                </a>
-              </li>
-              <li id="footnote-2">
-                Not to be confused with a cutiepie.
-                <a href="#footnote-anchor-2">
-                  <span class="u-hidden-visually">Return to the text before footnote 2</span>
-                    {% include '@cloudfour/components/icon/icon.twig' with {
-                      name: 'arrow-hook-left',
-                      inline: true
-                    } %}
-                </a>
-              </li>
-              <li id="footnote-3">
-                Warortle is not nearly as cute as Squirtle.
-                <a href="#footnote-anchor-3">
-                  <span class="u-hidden-visually">Return to the text before footnote 3</span>
-                    {% include '@cloudfour/components/icon/icon.twig' with {
-                      name: 'arrow-hook-left',
-                      inline: true
-                    } %}
-                </a>
-              </li>
+              {% embed '@cloudfour/components/footnote-details/footnote-details.twig' with {
+                  count: 1
+              } %}
+                {% block content %}
+                  They're great for dancing!
+                {% endblock %}
+              {% endembed %}
+              {% embed '@cloudfour/components/footnote-details/footnote-details.twig' with {
+                  count: 2
+              } %}
+                {% block content %}
+                  Not to be confused with a cutiepie.
+                {% endblock %}
+              {% endembed %}
+              {% embed '@cloudfour/components/footnote-details/footnote-details.twig' with {
+                  count: 3
+              } %}
+                {% block content %}
+                  Warortle is not nearly as cute as Squirtle.
+                {% endblock %}
+              {% endembed %}
             </ol>
           {% endblock %}
         {% endembed %}

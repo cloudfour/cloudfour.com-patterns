@@ -16,18 +16,19 @@
   subscribed_message|default('Subscribed from notifications') %}
 
 <div class="c-button-swap js-c-button-swap">
-  <div class="c-button-swap__subscribed js-c-button-swap__subscribed">
-    <span tabindex="-1" class="u-hidden-visually">{{ unsubscribed_message }}</span>
+  <div class="c-button-swap__subscribed js-c-button-swap__subscribed-group">
+    <span tabindex="-1" class="u-hidden-visually js-c-button-swap__message">{{ unsubscribed_message }}</span>
     {% include '@cloudfour/components/button/button.twig' with {
+      class: 'js-c-button-swap__button',
       content_start_icon: content_start_icon,
       label: get_notifications_label
     } only %}
   </div>
-  <div class="c-button-swap__unsubscribed js-c-button-swap__unsubscribed">
-    <span tabindex="-1" class="u-hidden-visually">{{ subscribed_message }}</span>
+  <div class="c-button-swap__unsubscribed js-c-button-swap__unsubscribed-group">
+    <span tabindex="-1" class="u-hidden-visually js-c-button-swap__message">{{ subscribed_message }}</span>
     {# TODO Figure out if aria_pressed is what we want/need #}
     {% include '@cloudfour/components/button/button.twig' with {
-      class: 'c-button--secondary',
+      class: 'c-button--secondary js-c-button-swap__button',
       content_start_icon: content_start_icon,
       label: disable_notifications_label,
       aria_pressed: 'true'

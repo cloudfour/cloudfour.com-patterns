@@ -1,7 +1,7 @@
 import path from 'path';
 import type { ElementHandle, PleasantestUtils } from 'pleasantest';
 import { withBrowser } from 'pleasantest';
-import { loadTwigTemplate } from '../../../test-utils';
+import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
 const buttonSwapMarkup = loadTwigTemplate(
   path.join(__dirname, './button-swap.twig')
@@ -17,59 +17,87 @@ const initButtonSwap = (utils: PleasantestUtils, buttonSwapEl: ElementHandle) =>
   );
 
 test(
-  'initial setup',
+  'initial state',
   withBrowser(async ({ utils, screen }) => {
     await utils.injectHTML(await buttonSwapMarkup());
+    await loadGlobalCSS(utils);
 
-    const buttons = await screen.getAllByRole('button');
+    await expect(
+      await screen.getByRole('button', {
+        name: /^get notifications$/i,
+      })
+    ).toBeVisible();
+    // Ensure visually hidden text is accessible
+    await expect(
+      await screen.getByText(/^unsubscribed from notifications$/i)
+    ).toBeVisible();
 
-    expect(buttons.length).toEqual(1);
-    await expect(buttons[0]).toHaveTextContent(/get notifications/i);
+    expect(
+      await screen.queryByRole('button', {
+        name: /^turn off notifications$/i,
+      })
+    ).toBeNull();
+    // Visually hidden text should not be accessible
+    await expect(
+      await screen.getByText(/^subscribed to notifications$/i)
+    ).not.toBeVisible();
   })
 );
 
-// test(
-//   'should render an anchor element when href is provided',
-//   withBrowser(async ({ utils, screen }) => {
-//     await utils.injectHTML(await buttonSwapMarkup({ href: '#' }));
+test(
+  'swap UI state when clicked',
+  withBrowser(async ({ utils, screen, user }) => {
+    await utils.injectHTML(await buttonSwapMarkup());
+    await loadGlobalCSS(utils);
 
-//     const linkButton = await screen.getByRole('link');
-//     await expect(linkButton).toHaveTextContent(/^hello world$/i);
-//   })
-// );
+    // I'd like to avoid using a test ID, but what's the alternative?
+    await initButtonSwap(utils, await screen.getByTestId('test-id'));
 
-// test(
-//   'should render a button when aria_pressed is set',
-//   withBrowser(async ({ utils, screen }) => {
-//     await utils.injectHTML(
-//       // The `aria_pressed` value should override the `tag_name` value and always
-//       // render a button element. This test verifies that expecation.
-//       await buttonSwapMarkup({
-//         tag_name: 'a',
-//         aria_pressed: 'false',
-//         label: 'I am a button',
-//       })
-//     );
+    let subscribeBtn = await screen.queryByRole('button', {
+      name: /^get notifications$/i,
+    });
 
-//     const button = await screen.getByRole('button');
-//     await expect(button).toHaveTextContent(/^i am a button$/i);
-//   })
-// );
+    await user.click(subscribeBtn);
 
-// test(
-//   'should toggle aria-pressed state',
-//   withBrowser(async ({ utils, screen, user }) => {
-//     await utils.injectHTML(await buttonSwapMarkup({ aria_pressed: 'false' }));
+    subscribeBtn = await screen.queryByRole('button', {
+      name: /^get notifications$/i,
+    });
+    expect(subscribeBtn).toBeNull();
+    await expect(
+      await screen.getByText(/^unsubscribed from notifications$/i)
+    ).not.toBeVisible();
 
-//     const togglingButton = await screen.getByRole('button');
-//     await initButtonSwap(utils, togglingButton);
+    expect(
+      await screen.getByRole('button', {
+        name: /^turn off notifications$/i,
+      })
+    ).toBeVisible();
+    // Visually hidden text should not be accessible
+    await expect(
+      await screen.getByText(/^subscribed to notifications$/i)
+    ).toBeVisible();
 
-//     await expect(togglingButton).toHaveAttribute('aria-pressed', 'false');
+    let unsubscribeBtn = await screen.queryByRole('button', {
+      name: /^turn off notifications$/i,
+    });
+    await user.click(unsubscribeBtn);
 
-//     await user.click(togglingButton);
-//     await expect(togglingButton).toHaveAttribute('aria-pressed', 'true');
+    unsubscribeBtn = await screen.queryByRole('button', {
+      name: /^turn off notifications$/i,
+    });
+    expect(unsubscribeBtn).toBeNull();
+    await expect(
+      await screen.getByText(/^subscribed to notifications$/i)
+    ).not.toBeVisible();
 
-//     await user.click(togglingButton);
-//     await expect(togglingButton).toHaveAttribute('aria-pressed', 'false');
-//   })
-// );
+    expect(
+      await screen.getByRole('button', {
+        name: /^get notifications$/i,
+      })
+    ).toBeVisible();
+    // Visually hidden text should not be accessible
+    await expect(
+      await screen.getByText(/^unsubscribed from notifications$/i)
+    ).toBeVisible();
+  })
+);

@@ -15,7 +15,7 @@
 {% set subscribed_message =
   subscribed_message|default('Subscribed to notifications') %}
 
-<section role="region" class="c-button-swap js-c-button-swap">
+<section role="region" data-testid="test-id" class="c-button-swap js-c-button-swap">
   <div class="c-button-swap__subscribe js-c-button-swap__subscribe-group">
     <span tabindex="-1" class="u-hidden-visually">{{ unsubscribed_message }}</span>
     {% include '@cloudfour/components/button/button.twig' with {

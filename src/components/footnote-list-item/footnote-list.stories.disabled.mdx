@@ -1,0 +1,23 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import template from './footnote-list.twig';
+
+<Meta
+  title="Components/Footnote/Footnote List Item"
+  argTypes={{
+    count: { type: { name: 'number' } },
+  }}
+/>
+
+# Footnote List Item
+
+A simple container for displaying important messages to the user such as errors, changes in state or confirmation of actions taken.
+
+## Basic usage
+
+<Canvas>
+  <Story name="Basic">{(args) => template(args)}</Story>
+</Canvas>
+
+## Template Properties
+
+- `count` (number)

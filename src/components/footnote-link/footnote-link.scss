@@ -6,6 +6,7 @@
 @use '../../compiled/tokens/scss/transition';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
+@use '../../mixins/theme';
 
 .c-footnote-link {
   background-color: color.$text-action;
@@ -24,6 +25,11 @@
   transition-timing-function: ease.$out;
   vertical-align: super;
 
+  @include theme.styles(dark) {
+    background-color: color.$base-gray-lighter;
+    color: color.$text-action;
+  }
+
   &:hover {
     filter: brightness(brightness.$control-brighten);
     transform: scale(scale.$effect-grow);
@@ -34,6 +40,4 @@
   }
 }
 
-// TODO: Hover styles
-// TODO: Focus styles
 // TODO: Active styles? :Target styles?

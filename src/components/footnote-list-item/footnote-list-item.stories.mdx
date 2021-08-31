@@ -5,6 +5,7 @@ import template from './demo/demo.twig';
   title="Components/Footnote/Footnote List Item"
   argTypes={{
     count: { type: { name: 'number' } },
+    id: { type: { name: 'number' } },
     content: { type: { name: 'string' } },
   }}
 />
@@ -31,3 +32,4 @@ TODO: code example
 ## Template Blocks
 
 - `content` The footnote contents
+- `id` (string) a unique ID for a footnote. Defaults to the `count` but can be customized if there are multiple sets of footnotes on one page

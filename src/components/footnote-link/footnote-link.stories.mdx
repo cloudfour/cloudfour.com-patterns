@@ -14,6 +14,7 @@ import footnoteLinkSource from '!!raw-loader!./demo/demo.twig';
   title="Components/Footnote/Footnote Link"
   argTypes={{
     count: { type: { name: 'number' } },
+    id: { type: { name: 'string' } },
   }}
 />
 
@@ -39,3 +40,4 @@ A simple container for displaying important messages to the user such as errors,
 ## Template Properties
 
 - `count` (number)
+- `id` (string) a unique ID for a footnote. Defaults to the `count` but can be customized if there are multiple sets of footnotes on one page

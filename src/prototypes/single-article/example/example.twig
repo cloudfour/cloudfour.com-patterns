@@ -121,7 +121,7 @@
               </footer>
             </blockquote>
 
-            <p>The only thing unlucky about Absol is its appearance. It protects fields and warns people of disaster, so one ought to be grateful for it.It can be spotted near recreational facilities, intending to eat the pleasant dreams of children who enjoyed themselves there that day.</p>
+            <p>The only thing unlucky about Absol is its appearance. It protects fields and warns people of disaster, so one ought to be grateful for it. It can be spotted near recreational facilities, intending to eat the pleasant dreams of children who enjoyed themselves there that day.</p>
 
             {% include '@cloudfour/components/heading/heading.twig' with {
               level: 2,
@@ -197,6 +197,33 @@
           content: 'Comments'
         } only %}
 
+        {% set footnote_comment_content %}
+          <p>
+            Design system talk repository UX sufficient contrast go input loxe.
+            Ri accessible UX theming web standards lepaxenuti yab mockups nikil
+            font-loading yitobubugo testing.{% include '@cloudfour/components/footnote-link/footnote-link.twig' with {
+              count: 1,
+              id: '1-comment-5000'
+            } %}
+          </p>
+          <p>
+            Pacirec Progressive Web App (PWA) lapohoba Progressive Web App (PWA){% include '@cloudfour/components/footnote-link/footnote-link.twig' with {
+              count: 2,
+              id: '2-comment-5000'
+            } %}
+            talk adaptive fa. Ru.
+          </p>
+
+          {% include '@cloudfour/components/footnotes/footnotes.twig' with {
+            compact: true,
+            id_suffix: '-comment-5000',
+            items: [
+              "SVG repository",
+              "Service worker accessibility prototype progressive enhancement responsive."
+            ]
+          } %}
+        {% endset %}
+
         {% include '@cloudfour/components/comment/comment.twig' with {
           "comment": {
             "ID": "217",
@@ -206,7 +233,7 @@
             "author": {
               "name": "Duruzit Lidofideh"
             },
-            "comment_content": "<p>Design system talk repository UX sufficient contrast go input loxe. Ri accessible UX theming web standards lepaxenuti yab mockups nikil font-loading yitobubugo testing.</p><p>Pacirec Progressive Web App (PWA) lapohoba Progressive Web App (PWA) talk adaptive fa. Service worker accessibility prototype progressive enhancement responsive issue rayapeded ju experience agile kiwed rojomabod sufficient contrast hezeqotilo talk puboj community intuitive buce. Ru. SVG repository.</p>",
+            "comment_content": footnote_comment_content,
             "is_child": false,
             "children": [
               {

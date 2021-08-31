@@ -4,8 +4,15 @@
   <ol class="c-footnotes__list">
     {% block content %}
       {% for item in items %}
+        {% set _id = loop.index %}
+
+        {% if id_suffix %}
+          {% set _id = _id ~ id_suffix %}
+        {% endif %}
+
         {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
           count: loop.index,
+          id: _id,
         } %}
           {% block content %}
             {{ item|raw }}

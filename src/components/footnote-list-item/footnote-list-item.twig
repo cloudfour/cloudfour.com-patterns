@@ -1,11 +1,12 @@
-<li id="footnote-{{count}}" class="c-footnote-list-item">
+<li id="footnote-{{id|default(count)}}" class="c-footnote-list-item">
   {% block content %}{% endblock %}
-  <a href="#footnote-anchor-{{count}}" class="c-footnote-link-item__return-link">
+
+  <a href="#footnote-anchor-{{id|default(count)}}" class="c-footnote-link-item__return-link">
     <span class="u-hidden-visually">Return to the text before footnote {{count}}</span>
       {% include '@cloudfour/components/icon/icon.twig' with {
         name: 'arrow-hook-left',
         aria_hidden: 'true',
         inline: true
-      } %}
+      } only %}
   </a>
 </li>

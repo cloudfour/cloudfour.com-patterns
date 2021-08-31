@@ -5,6 +5,7 @@ import template from './footnotes.twig';
   title="Components/Footnote/Footnotes"
   argTypes={{
     compact: { type: { name: 'boolean' } },
+    id_suffix: { type: { name: 'string' } },
   }}
 />
 
@@ -54,6 +55,7 @@ in blog comments.
 ## Template Properties
 
 - `items`: An array of strings
+- `id_suffix` (string) will be appended to the id of each footnote. Can be useful for ensuring unique IDs on a page with multiple sets of footnotes.
 
 ## Template Blocks
 

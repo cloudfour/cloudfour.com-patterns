@@ -26,5 +26,13 @@ $footnote-list-item-offset-left-negative: calc(
     z-index: -1;
   }
 
-  // arrow icon?
+  .c-footnote-link-item__return-link {
+    border-radius: size.$border-radius-full;
+    display: inline-block;
+    padding: 0 ms.step(-6);
+
+    @include focus.focus-visible {
+      box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter;
+    }
+  }
 }

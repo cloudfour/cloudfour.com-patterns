@@ -3,20 +3,26 @@
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
+$footnote-list-item-offset: ms.step(-2);
+$footnote-list-item-offset-negative: calc(#{$footnote-list-item-offset} * -1);
+$footnote-list-item-offset-left-negative: calc(
+  #{$footnote-list-item-offset-negative} +
+  #{ms.step(1)} * -1
+);
+
 .c-footnote-list-item {
   position: relative;
-  scroll-margin: ms.step(-2);
+  scroll-margin: $footnote-list-item-offset;
 
   &:target::before {
     background-color: color.$base-gray-lighter;
     border-radius: size.$border-radius-medium;
+    bottom: $footnote-list-item-offset-negative;
     content: '';
-    top: calc(#{ms.step(-2)} * -1);
-    // TODO: tidy this up and maybe manually set the :marker size?
-    bottom: calc(#{ms.step(-2)} * -1);
-    right: calc(#{ms.step(-2)} * -1);
-    left: calc(#{ms.step(3)} * -1);
+    left: $footnote-list-item-offset-left-negative;
     position: absolute;
+    right: $footnote-list-item-offset-negative;
+    top: $footnote-list-item-offset-negative;
     z-index: -1;
   }
 

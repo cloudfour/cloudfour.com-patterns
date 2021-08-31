@@ -189,7 +189,7 @@ $_masthead-height-sm: ms.step(7);
   @media (max-width: breakpoint.$s) {
     width: ms.step(7);
   }
-  
+
   /**
    * When the containing logo is hovered, scale up this element. Scaling this
    * element instead of the parent helps avoid any accidental overflow or

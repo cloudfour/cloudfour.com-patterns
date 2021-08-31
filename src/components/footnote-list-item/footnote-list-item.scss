@@ -1,5 +1,8 @@
 @use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/ease';
 @use '../../compiled/tokens/scss/size';
+@use '../../compiled/tokens/scss/scale';
+@use '../../compiled/tokens/scss/transition';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
@@ -30,9 +33,18 @@ $footnote-list-item-offset-left-negative: calc(
     border-radius: size.$border-radius-full;
     display: inline-block;
     padding: 0 ms.step(-6);
+    transition: transform transition.$quick ease.$out;
+
+    &:hover {
+      transform: scale(scale.$effect-grow);
+    }
 
     @include focus.focus-visible {
       box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter;
+    }
+
+    &:active {
+      transform: scale(scale.$effect-shrink);
     }
   }
 }

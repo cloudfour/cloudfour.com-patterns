@@ -1,10 +1,10 @@
 {% embed '@cloudfour/components/footnotes/footnotes.twig' with {
   count: count
-} %}
+} only %}
   {% block content %}
     {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
       count: count
-    } %}
+    } only %}
       {% block content %}
         This is the footnote content.
       {% endblock %}

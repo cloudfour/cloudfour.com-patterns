@@ -22,15 +22,12 @@ There are a couple things that are important to note when using footnotes:
 
 <Canvas>
   <Story name="Basic">
-    {(args) => template({
-      items: [
-        'Footnote 1',
-        'Footnote 2',
-        'Footnote 3',
-        'Footnote 4',
-      ],
-      ...args
-    })}
+    {(args) =>
+      template({
+        items: ['Footnote 1', 'Footnote 2', 'Footnote 3', 'Footnote 4'],
+        ...args,
+      })
+    }
   </Story>
 </Canvas>
 
@@ -41,18 +38,18 @@ as well as remove their top border. This can be helpful when styling footnotes
 in blog comments.
 
 <Canvas>
-  <Story name="Compact" args={{
-    compact: true,
-  }}>
-    {(args) => template({
-      items: [
-        'Footnote 1',
-        'Footnote 2',
-        'Footnote 3',
-        'Footnote 4',
-      ],
-      ...args
-    })}
+  <Story
+    name="Compact"
+    args={{
+      compact: true,
+    }}
+  >
+    {(args) =>
+      template({
+        items: ['Footnote 1', 'Footnote 2', 'Footnote 3', 'Footnote 4'],
+        ...args,
+      })
+    }
   </Story>
 </Canvas>
 

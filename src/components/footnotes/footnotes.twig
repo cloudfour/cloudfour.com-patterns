@@ -15,7 +15,8 @@
         {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
           count: loop.index,
           id: _id,
-        } %}
+          item: item
+        } only %}
           {% block content %}
             {{ item|raw }}
           {% endblock %}

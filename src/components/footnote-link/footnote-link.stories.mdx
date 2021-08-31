@@ -20,19 +20,22 @@ import footnoteLinkSource from '!!raw-loader!./demo/demo.twig';
 
 # Footnote Link
 
-A simple container for displaying important messages to the user such as errors, changes in state or confirmation of actions taken.
+A link to a footnote. Intended to be used in conjunction with Footnote List Items and Footnotes
 
 ## Basic usage
 
 <Canvas>
-  <Story name="Basic" args={{ count: 1 }}
+  <Story
+    name="Basic"
+    args={{ count: 1 }}
     parameters={{
       docs: {
         source: {
           code: footnoteLinkSource,
         },
       },
-    }}>
+    }}
+  >
     {(args) => template(args)}
   </Story>
 </Canvas>
@@ -40,4 +43,4 @@ A simple container for displaying important messages to the user such as errors,
 ## Template Properties
 
 - `count` (number)
-- `id` (string) a unique ID for a footnote. Defaults to the `count` but can be customized if there are multiple sets of footnotes on one page
+- `id` (string) a unique ID for a footnote. Defaults to the `count` but should be customized if there are multiple sets of footnotes on one page

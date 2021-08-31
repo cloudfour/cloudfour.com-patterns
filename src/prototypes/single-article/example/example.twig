@@ -156,9 +156,6 @@
               Lombre’s entire body is covered by a slippery, slimy film.
             </p>
 
-            TODO: This should move into the component?
-            <h3 class="u-hidden-visually">Footnotes</h3>
-
             {% include '@cloudfour/components/footnotes/footnotes.twig' with {
               items: [
                 "They're great for dancing!",
@@ -217,6 +214,7 @@
           {% include '@cloudfour/components/footnotes/footnotes.twig' with {
             compact: true,
             id_suffix: '-comment-5000',
+            heading_tag: 'h4',
             items: [
               "SVG repository",
               "Service worker accessibility prototype progressive enhancement responsive."

@@ -1,7 +1,9 @@
 <div class="c-footnotes{% if compact %} c-footnotes__compact{% endif %}">
-  {# H3 Stuff? #}
+  <{{heading_tag|default('h2')}} class="u-hidden-visually" id="footnotes-heading{{id_suffix}}">
+    {{heading_text|default('Footnotes')}}
+  </{{heading_tag|default('h2')}}>
 
-  <ol class="c-footnotes__list">
+  <ol class="c-footnotes__list" aria-labelledby="footnotes-heading{{id_suffix}}">
     {% block content %}
       {% for item in items %}
         {% set _id = loop.index %}

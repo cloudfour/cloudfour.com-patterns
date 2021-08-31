@@ -13,9 +13,13 @@ import template from './footnotes.twig';
 
 Used for displaying one or more Footnotes Items (TODO: link).
 
+There are a couple things that are important to note when using footnotes:
+
+- If you have more then one set of footnotes on a page, you'll need to pass in a `suffix_id` to footnote groups.
+- Footnotes include a hidden heading. By default it is an `h2` saying "Footnotes". This can be customized with the `heading_tag` and `heading_text` properties.
+
 ## Basic usage
 
-TODO: code example
 <Canvas>
   <Story name="Basic">
     {(args) => template({
@@ -55,7 +59,9 @@ in blog comments.
 ## Template Properties
 
 - `items`: An array of strings
-- `id_suffix` (string) will be appended to the id of each footnote. Can be useful for ensuring unique IDs on a page with multiple sets of footnotes.
+- `id_suffix` (string) should be used whenever there are multiple sets of footnotes on one page, to ensure the components use unique IDs.
+- `heading_tag` (string) the tag to use for the heading. Defaults to `h1`.
+- `heading_text` (string) the heading text. Defaults to `Footnotes`.
 
 ## Template Blocks
 

@@ -1,9 +1,13 @@
-<ol>
-  {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
-    count: count
-  } %}
-    {% block content %}
-      This is the footnote content.
-    {% endblock %}
-  {% endembed %}
-</ol>
+{% embed '@cloudfour/components/footnotes/footnotes.twig' with {
+  count: count
+} %}
+  {% block content %}
+    {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
+      count: count
+    } %}
+      {% block content %}
+        This is the footnote content.
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,17 @@
+<div class="c-footnotes{% if compact %} c-footnotes__compact{% endif %}">
+  {# H3 Stuff? #}
+
+  <ol class="c-footnotes__list">
+    {% block content %}
+      {% for item in items %}
+        {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
+          count: loop.index,
+        } %}
+          {% block content %}
+            {{ item|raw }}
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
+    {% endblock %}
+  </ol>
+</div>

@@ -1,0 +1,26 @@
+// TODO: Remove unused
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/focus';
+@use '../../mixins/ms';
+
+
+.c-footnotes {
+  --spacing-footnotes: #{ms.step(2)};
+
+  border-top: size.$edge-medium solid color.$base-gray-lighter;
+  margin-top: var(--spacing-footnotes);
+  padding-top: var(--spacing-footnotes);
+}
+
+.c-footnotes__list > * + * {
+  margin-top: var(--spacing-footnotes);
+}
+
+.c-footnotes__compact {
+  --spacing-footnotes: #{ms.step(1)};
+
+  border-top: none;
+  font-size: ms.step(-1);
+  padding-top: 0;
+}

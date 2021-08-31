@@ -20,6 +20,7 @@
   line-height: size.$square-footnote-link;
   min-width: size.$square-footnote-link;
   padding: 0 ms.step(-5);
+  scroll-margin: ms.step(4);
   text-align: center;
   text-decoration: none;
   transition-duration: transition.$quick;

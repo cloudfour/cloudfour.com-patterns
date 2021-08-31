@@ -1,0 +1,16 @@
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+  tag_name: 'ol',
+  class: 'c-footnote-list o-rhythm--generous'
+} %}
+  {% block content %}
+    {% for item in items %}
+      {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
+        count: loop.index,
+      } %}
+        {% block content %}
+          {{ item|raw }}
+        {% endblock %}
+      {% endembed %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

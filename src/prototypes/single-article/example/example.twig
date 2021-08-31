@@ -159,30 +159,13 @@
             <hr>
 
             <h3 class="u-hidden-visually">Footnotes</h3>
-
-            <ol class="o-rhythm o-rhythm--generous">
-              {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
-                  count: 1
-              } %}
-                {% block content %}
-                  They're great for dancing!
-                {% endblock %}
-              {% endembed %}
-              {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
-                  count: 2
-              } %}
-                {% block content %}
-                  Not to be confused with a cutiepie.
-                {% endblock %}
-              {% endembed %}
-              {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
-                  count: 3
-              } %}
-                {% block content %}
-                  Warortle is not nearly as cute as Squirtle.
-                {% endblock %}
-              {% endembed %}
-            </ol>
+            {% include '@cloudfour/components/footnote-list/footnote-list.twig' with {
+              items: [
+                "They're great for dancing!",
+                "Not to be confused with a cutiepie.",
+                "Warortle is not nearly as cute as Squirtle."
+              ]
+            } %}
           {% endblock %}
         {% endembed %}
 

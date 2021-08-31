@@ -183,7 +183,12 @@ $_masthead-height-sm: ms.step(7);
   margin: (ms.step(-6) * -1); /* 2 */
   transition: opacity transition.$slow ease.$out,
     transform transition.$quick ease.$out;
-  width: fluid.fluid-calc(breakpoint.$s, breakpoint.$l, ms.step(7), ms.step(9)); /* 3 */
+  width: fluid.fluid-calc(
+    breakpoint.$s,
+    breakpoint.$l,
+    ms.step(7),
+    ms.step(9) /* 3 */
+  );
   @media (min-width: breakpoint.$l) {
     width: ms.step(8);
   }

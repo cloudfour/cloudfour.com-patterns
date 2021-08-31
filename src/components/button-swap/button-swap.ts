@@ -16,25 +16,24 @@ export const initButtonSwap = (buttonSwapEl: HTMLElement) => {
   const unsubscribeBtn = unsubscribeGroup.querySelector(
     '.js-c-button-swap__button'
   ) as HTMLButtonElement;
+  // The visually hidden messages
+  const suscribedMessage = subscribeGroup.querySelector(
+    '.js-c-button-swap__message'
+  ) as HTMLElement;
+  const unsubscribedMessage = unsubscribeGroup.querySelector(
+    '.js-c-button-swap__message'
+  ) as HTMLElement;
 
   const onSubscribeClick = () => {
     subscribeGroup.hidden = true;
     unsubscribeGroup.hidden = false;
-
-    const message = unsubscribeGroup.querySelector(
-      '.js-c-button-swap__message'
-    ) as HTMLElement;
-    message.focus();
+    unsubscribedMessage.focus();
   };
 
   const onUnsubscribeClick = () => {
     unsubscribeGroup.hidden = true;
     subscribeGroup.hidden = false;
-
-    const message = subscribeGroup.querySelector(
-      '.js-c-button-swap__message'
-    ) as HTMLElement;
-    message.focus();
+    suscribedMessage.focus();
   };
 
   const destroy = () => {

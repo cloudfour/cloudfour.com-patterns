@@ -1,5 +1,9 @@
 /**
  * Button swap
+ *
+ * Swaps two buttons by toggling the `hidden` attribute on the wrapper for each
+ * button + visually hidden message group. Sets the focus on the visually hidden
+ * text after each toggle to allow a more inclusive experience via assistive technology.
  */
 export const initButtonSwap = (buttonSwapEl: HTMLElement) => {
   // The group wrappers
@@ -24,12 +28,20 @@ export const initButtonSwap = (buttonSwapEl: HTMLElement) => {
     '.js-c-button-swap__message'
   ) as HTMLElement;
 
+  /**
+   * Performs all "subscribe" actions
+   * @todo Figure out how to call a "subscribe" callback
+   */
   const onSubscribeClick = () => {
     subscribeGroup.hidden = true;
     unsubscribeGroup.hidden = false;
     unsubscribedMessage.focus();
   };
 
+  /**
+   * Performs all "unsubscribe" actions
+   * @todo Figure out how to call an "unsubscribe" callback
+   */
   const onUnsubscribeClick = () => {
     unsubscribeGroup.hidden = true;
     subscribeGroup.hidden = false;

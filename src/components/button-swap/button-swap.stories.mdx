@@ -16,7 +16,11 @@ import { initButtonSwap } from './button-swap.ts';
 const buttonSwapStory = (args) => {
   useEffect(() => {
     const { destroy } = initButtonSwap(
-      document.querySelector('.js-c-button-swap')
+      document.querySelector('.js-c-button-swap'),
+      {
+        subscribeCallback: () => console.log('Subscribed!'),
+        unsubscribeCallback: () => console.log('Unsubscribed!'),
+      }
     );
     return destroy;
   }, []);

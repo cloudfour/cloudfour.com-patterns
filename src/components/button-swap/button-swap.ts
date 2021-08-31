@@ -5,7 +5,12 @@
  * button + visually hidden message group. Sets the focus on the visually hidden
  * text after each toggle to allow a more inclusive experience via assistive technology.
  */
-export const initButtonSwap = (buttonSwapEl: HTMLElement) => {
+export const initButtonSwap = (
+  buttonSwapEl: HTMLElement,
+  { subscribeCallback, unsubscribeCallback }
+) => {
+  console.log('RECEIVED', subscribeCallback, unsubscribeCallback);
+
   // The group wrappers
   const subscribeGroup = buttonSwapEl.querySelector(
     '.js-c-button-swap__subscribe-group'
@@ -36,6 +41,9 @@ export const initButtonSwap = (buttonSwapEl: HTMLElement) => {
     subscribeGroup.hidden = true;
     unsubscribeGroup.hidden = false;
     unsubscribedMessage.focus();
+    if (subscribeCallback) {
+      subscribeCallback();
+    }
   };
 
   /**
@@ -46,6 +54,9 @@ export const initButtonSwap = (buttonSwapEl: HTMLElement) => {
     unsubscribeGroup.hidden = true;
     subscribeGroup.hidden = false;
     suscribedMessage.focus();
+    if (unsubscribeCallback) {
+      unsubscribeCallback();
+    }
   };
 
   const destroy = () => {

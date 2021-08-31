@@ -182,8 +182,14 @@ $_masthead-height-sm: ms.step(7);
   margin: (ms.step(-6) * -1); /* 2 */
   transition: opacity transition.$slow ease.$out,
     transform transition.$quick ease.$out;
-  width: ms.step(8);
-
+  width: fluid.fluid-calc(breakpoint.$s, breakpoint.$l, ms.step(7), ms.step(9));
+  @media (min-width: breakpoint.$l) {
+    width: ms.step(8);
+  }
+  @media (max-width: breakpoint.$s) {
+    width: ms.step(7);
+  }
+  
   /**
    * When the containing logo is hovered, scale up this element. Scaling this
    * element instead of the parent helps avoid any accidental overflow or

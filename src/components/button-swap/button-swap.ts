@@ -7,10 +7,8 @@
  */
 export const initButtonSwap = (
   buttonSwapEl: HTMLElement,
-  { subscribeCallback, unsubscribeCallback }
+  { subscribeCallback, unsubscribeCallback } = {}
 ) => {
-  console.log('RECEIVED', subscribeCallback, unsubscribeCallback);
-
   // The group wrappers
   const subscribeGroup = buttonSwapEl.querySelector(
     '.js-c-button-swap__subscribe-group'

@@ -9,8 +9,7 @@
 $footnote-offset: ms.step(-2);
 $footnote-offset-negative: calc(#{$footnote-offset} * -1);
 $footnote-offset-left-negative: calc(
-  #{$footnote-offset-negative} +
-  #{ms.step(1)} * -1
+  #{$footnote-offset-negative} + #{ms.step(1)} * -1
 );
 
 .c-footnote {

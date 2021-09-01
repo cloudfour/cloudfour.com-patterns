@@ -4,7 +4,6 @@
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
-
 .c-footnote-group {
   --spacing-footnotes: #{ms.step(2)};
 

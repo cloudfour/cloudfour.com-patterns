@@ -50,7 +50,7 @@ module.exports = {
       },
       footnote_link: {
         value: modularEm(2),
-      }
+      },
     },
     overlap: {
       small: {

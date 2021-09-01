@@ -9,9 +9,9 @@
 @use '../../mixins/theme';
 
 .c-footnote-link {
-  background-color: color.$base-gray-darker;
+  background-color: color.$base-gray-lighter;
   border-radius: size.$border-radius-full;
-  color: color.$text-light-emphasis;
+  color: color.$text-action;
   display: inline-block;
   font-size: ms.step(-2);
   font-weight: font-weight.$medium;
@@ -23,17 +23,23 @@
   text-align: center;
   text-decoration: none;
   transition-duration: transition.$quick;
-  transition-property: filter, transform;
+  transition-property: background-color, color, transform;
   transition-timing-function: ease.$out;
   vertical-align: super;
 
-  @include theme.styles(dark) {
-    background-color: color.$base-gray-lighter;
-    color: color.$text-action;
+  &:hover {
+    background-color: color.$text-action;
+    color: color.$text-light-emphasis;
   }
 
-  &:hover {
-    transform: scale(scale.$effect-grow);
+  @include theme.styles(dark) {
+    background-color: color.$brand-primary-dark;
+    color: color.$text-light-emphasis;
+
+    &:hover {
+      background-color: color.$text-light-emphasis;
+      color: color.$text-action;
+    }
   }
 
   @include focus.focus-visible {

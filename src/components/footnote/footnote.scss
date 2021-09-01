@@ -34,10 +34,6 @@ $footnote-offset-left-negative: calc(
     padding: 0 ms.step(-6);
     transition: transform transition.$quick ease.$out;
 
-    &:hover {
-      transform: scale(scale.$effect-grow);
-    }
-
     @include focus.focus-visible {
       box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter;
     }

@@ -5,7 +5,7 @@
 @use '../../mixins/ms';
 
 
-.c-footnotes {
+.c-footnote-group {
   --spacing-footnotes: #{ms.step(2)};
 
   border-top: size.$edge-medium solid color.$base-gray-lighter;
@@ -13,11 +13,11 @@
   padding-top: var(--spacing-footnotes);
 }
 
-.c-footnotes__list > * + * {
+.c-footnote-group__list > * + * {
   margin-top: var(--spacing-footnotes);
 }
 
-.c-footnotes__compact {
+.c-footnote-group__compact {
   --spacing-footnotes: #{ms.step(1)};
 
   border-top: none;

@@ -1,22 +1,22 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
-import template from './footnotes.twig';
+import template from './footnote-group.twig';
 
 <Meta
-  title="Components/Footnote/Footnotes"
+  title="Components/Footnote/Footnote Group"
   argTypes={{
     compact: { type: { name: 'boolean' } },
     id_suffix: { type: { name: 'string' } },
   }}
 />
 
-# Footnotes
+# Footnote Group
 
-Used for displaying one or more Footnotes Items (TODO: link).
+Used for displaying one or more Footnote List Items (TODO: link).
 
-There are a couple things that are important to note when using footnotes:
+There are a couple things that are important to note when using Footnote Groups:
 
-- If you have more then one set of footnotes on a page, you'll need to pass in a `suffix_id` to footnote groups.
-- Footnotes include a hidden heading. By default it is an `h2` saying "Footnotes". This can be customized with the `heading_tag` and `heading_text` properties.
+- If you have more then one Footnote Group on a page, you'll need to pass in a `suffix_id` to the Footnote Groups to ensure they use unique IDs.
+- Footnote Groups include a visually hidden (TODO: link) heading. By default it is an `h2` saying "Footnotes". This can be customized with the `heading_tag` and `heading_text` properties.
 
 ## Basic usage
 
@@ -33,9 +33,7 @@ There are a couple things that are important to note when using footnotes:
 
 ## Compact
 
-The Compact attribute can be added to reduce the size and spacing of footnotes,
-as well as remove their top border. This can be helpful when styling footnotes
-in blog comments.
+The Compact attribute can be added to reduce the size and spacing of footnote groups, as well as remove their top border. This can be helpful when styling footnote groups in blog comments.
 
 <Canvas>
   <Story

@@ -6,7 +6,7 @@ import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 const buttonSwapMarkup = loadTwigTemplate(
   path.join(__dirname, './button-swap.twig')
 );
-// Helper to test the JS-driven toggling button
+// Helper to initialize the button swap JS
 const initJS = (
   utils: PleasantestUtils,
   buttonSwapEl: ElementHandle,
@@ -32,25 +32,25 @@ test(
     await utils.injectHTML(await buttonSwapMarkup());
     await loadGlobalCSS(utils);
 
-    await expect(
-      await screen.getByRole('button', {
-        name: /^get notifications$/i,
-      })
-    ).toBeVisible();
-    // Ensure visually hidden text is accessible
-    await expect(
-      await screen.getByText(/^unsubscribed from notifications$/i)
-    ).toBeVisible();
+    const subscribeBtn = await screen.getByRole('button', {
+      name: /^get notifications$/i,
+    });
+    // Visually hidden text for a more inclusive experience
+    const unsubscribeMsg = await screen.getByText(
+      /^unsubscribed from notifications$/i
+    );
+    await expect(subscribeBtn).toBeVisible();
+    await expect(unsubscribeMsg).toBeVisible();
 
-    expect(
-      await screen.queryByRole('button', {
-        name: /^turn off notifications$/i,
-      })
-    ).toBeNull();
-    // Visually hidden text should not be accessible
-    await expect(
-      await screen.getByText(/^subscribed to notifications$/i)
-    ).not.toBeVisible();
+    const unsubscribeBtn = await screen.queryByRole('button', {
+      name: /^turn off notifications$/i,
+    });
+    // Visually hidden text for a more inclusive experience
+    const subscribeMsg = await screen.getByText(
+      /^subscribed to notifications$/i
+    );
+    expect(unsubscribeBtn).toBeNull();
+    await expect(subscribeMsg).not.toBeVisible();
   })
 );
 

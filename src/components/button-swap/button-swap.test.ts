@@ -7,17 +7,27 @@ const buttonSwapMarkup = loadTwigTemplate(
   path.join(__dirname, './button-swap.twig')
 );
 // Helper to test the JS-driven toggling button
-const initJS = (utils: PleasantestUtils, buttonSwapEl: ElementHandle, opts) =>
+const initJS = (
+  utils: PleasantestUtils,
+  buttonSwapEl: ElementHandle,
+  subscribeCallback?: () => void,
+  unsubscribeCallback?: () => void
+) =>
   utils.runJS(
     `
     import { initButtonSwap } from './button-swap'
-    export default (buttonSwapEl, opts) => initButtonSwap(buttonSwapEl, opts)
+    export default (buttonSwapEl, subscribeCallback, unsubscribeCallback) => {
+      initButtonSwap(buttonSwapEl, {
+        subscribeCallback,
+        unsubscribeCallback
+      })
+    }
     `,
-    [buttonSwapEl, opts]
+    [buttonSwapEl, subscribeCallback, unsubscribeCallback]
   );
 
 test(
-  'initial state',
+  'Initial state',
   withBrowser(async ({ utils, screen }) => {
     await utils.injectHTML(await buttonSwapMarkup());
     await loadGlobalCSS(utils);
@@ -45,20 +55,14 @@ test(
 );
 
 test(
-  'swap UI state when clicked',
+  'Swap UI state when clicked',
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await buttonSwapMarkup());
     await loadGlobalCSS(utils);
 
-    const mockSubscribeCallback = jest.fn();
-    const mockUnsubscribeCallback = jest.fn();
-
     // I'd like to avoid using a test ID, but I couldn't figure out a different way.
     // @todo Can this be done without at test ID?
-    await initJS(utils, await screen.getByTestId('test-id'), {
-      subscribeCallback: mockSubscribeCallback,
-      unsubscribeCallback: mockUnsubscribeCallback,
-    });
+    await initJS(utils, await screen.getByTestId('test-id'));
 
     let subscribeBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
@@ -108,8 +112,9 @@ test(
   })
 );
 
+// @todo Unskip test once a new version of Pleasantest is released
 test(
-  'callback functions are called',
+  'Callback functions are called',
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await buttonSwapMarkup());
 
@@ -118,15 +123,16 @@ test(
 
     // I'd like to avoid using a test ID, but I couldn't figure out a different way.
     // @todo Can this be done without at test ID?
-    await initJS(utils, await screen.getByTestId('test-id'), {
-      subscribeCallback: mockSubscribeCallback,
-      unsubscribeCallback: mockUnsubscribeCallback,
-    });
+    await initJS(
+      utils,
+      await screen.getByTestId('test-id'),
+      mockSubscribeCallback,
+      mockUnsubscribeCallback
+    );
 
     const subscribeBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
-
     await user.click(subscribeBtn);
 
     expect(mockSubscribeCallback).toBeCalledTimes(1);

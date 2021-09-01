@@ -4,6 +4,7 @@
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
+/// Footnote groups are used to group footnotes together in a list
 .c-footnote-group {
   --spacing-footnotes: #{ms.step(2)};
 
@@ -16,6 +17,8 @@
   margin-top: var(--spacing-footnotes);
 }
 
+/// Compact footnote groups have smaller text, smaller gaps, and no top
+/// border/padding
 .c-footnote-group__compact {
   --spacing-footnotes: #{ms.step(1)};
 

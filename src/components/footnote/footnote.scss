@@ -1,8 +1,5 @@
 @use '../../compiled/tokens/scss/color';
-@use '../../compiled/tokens/scss/ease';
 @use '../../compiled/tokens/scss/size';
-@use '../../compiled/tokens/scss/scale';
-@use '../../compiled/tokens/scss/transition';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
@@ -12,10 +9,17 @@ $footnote-offset-left-negative: calc(
   #{$footnote-offset-negative} + #{ms.step(1)} * -1
 );
 
+/// Footnotes are list items with return links after their content
+///
+/// 1. Since footnotes are linked to using hash links, we give them a little
+///    vertical offset so the text isn't right at the top of the screen
 .c-footnote {
   position: relative;
-  scroll-margin: $footnote-offset;
+  scroll-margin: $footnote-offset; /* 1 */
 
+  /// When a footnote is target by the URL hash we apply a background color to it
+  /// We use an absolutely positioned pseudo-element so our background will extend
+  /// beneath the list item ::marker
   &:target::before {
     background-color: color.$base-gray-lighter;
     border-radius: size.$border-radius-medium;
@@ -28,18 +32,15 @@ $footnote-offset-left-negative: calc(
     z-index: -1;
   }
 
+  /// We apply some basic styles to the return link.
+  /// These are so the links get nice focus styles.
   .c-footnote-link-item__return-link {
     border-radius: size.$border-radius-full;
     display: inline-block;
     padding: 0 ms.step(-6);
-    transition: transform transition.$quick ease.$out;
 
     @include focus.focus-visible {
       box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter;
-    }
-
-    &:active {
-      transform: scale(scale.$effect-shrink);
     }
   }
 }

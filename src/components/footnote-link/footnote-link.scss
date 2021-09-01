@@ -8,24 +8,33 @@
 @use '../../mixins/ms';
 @use '../../mixins/theme';
 
+/// Footnote links are small numbered circles within a body of text that
+/// link to a footnote below
+///
+/// 1. They start off as circles but if their content gets wide they turn into pills
+/// 2. Since they can be linked to we assign them a margin offset, so when they're
+///    linked they're not right at the top of the screen
+/// 3. They have a higher vertical baseline than the text around them. (This is
+///    similar to the `<sup>` element. Since `<sup>` has no semantic meaning, we
+///    apply these styles via CSS
 .c-footnote-link {
   background-color: color.$base-gray-lighter;
-  border-radius: size.$border-radius-full;
+  border-radius: size.$border-radius-full; /* 1 */
   color: color.$text-action;
   display: inline-block;
   font-size: ms.step(-2);
   font-weight: font-weight.$medium;
-  height: size.$square-footnote-link;
+  height: size.$square-footnote-link; /* 1 */
   line-height: size.$square-footnote-link;
-  min-width: size.$square-footnote-link;
-  padding: 0 ms.step(-5);
-  scroll-margin: ms.step(4);
+  min-width: size.$square-footnote-link; /* 1 */
+  padding: 0 ms.step(-5); /* 1 */
+  scroll-margin: ms.step(4); /* 2 */
   text-align: center;
   text-decoration: none;
   transition-duration: transition.$quick;
   transition-property: background-color, color, transform;
   transition-timing-function: ease.$out;
-  vertical-align: super;
+  vertical-align: super; /* 3 */
 
   &:hover {
     background-color: color.$text-action;

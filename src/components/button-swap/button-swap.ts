@@ -7,7 +7,13 @@
  */
 export const initButtonSwap = (
   buttonSwapEl: HTMLElement,
-  { subscribeCallback, unsubscribeCallback } = {}
+  {
+    subscribeCallback,
+    unsubscribeCallback,
+  }: {
+    subscribeCallback?: () => void;
+    unsubscribeCallback?: () => void;
+  } = {}
 ) => {
   // The group wrappers
   const subscribeGroup = buttonSwapEl.querySelector(

@@ -59,7 +59,6 @@ test(
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await buttonSwapMarkup());
     await loadGlobalCSS(utils);
-
     // I'd like to avoid using a test ID, but I couldn't figure out a different way.
     // @todo Can this be done without at test ID?
     await initJS(utils, await screen.getByTestId('test-id'));
@@ -67,45 +66,49 @@ test(
     let subscribeBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
+    expect(subscribeBtn).toHaveAttribute('aria-pressed', 'false');
 
+    // Subscribe action
     await user.click(subscribeBtn);
 
+    // Query for subscribe button again in its new state
     subscribeBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
     expect(subscribeBtn).toBeNull();
-    await expect(
-      await screen.getByText(/^unsubscribed from notifications$/i)
-    ).not.toBeVisible();
-    expect(
-      await screen.getByRole('button', {
-        name: /^turn off notifications$/i,
-      })
-    ).toBeVisible();
-    // Visually hidden text should not be accessible
-    await expect(
-      await screen.getByText(/^subscribed to notifications$/i)
-    ).toBeVisible();
 
     let unsubscribeBtn = await screen.queryByRole('button', {
       name: /^turn off notifications$/i,
     });
+    expect(unsubscribeBtn).toBeVisible();
+    expect(unsubscribeBtn).toHaveAttribute('aria-pressed', 'true');
+
+    await expect(
+      await screen.getByText(/^unsubscribed from notifications$/i)
+    ).not.toBeVisible();
+    await expect(
+      await screen.getByText(/^subscribed to notifications$/i)
+    ).toBeVisible();
+
+    // Unsubscribe action
     await user.click(unsubscribeBtn);
 
+    // Query for unsubscribe button again in its new state
     unsubscribeBtn = await screen.queryByRole('button', {
       name: /^turn off notifications$/i,
     });
     expect(unsubscribeBtn).toBeNull();
+
+    // Query for subscribe button again in its new state
+    subscribeBtn = await screen.queryByRole('button', {
+      name: /^get notifications$/i,
+    });
+    expect(subscribeBtn).toBeVisible();
+    expect(subscribeBtn).toHaveAttribute('aria-pressed', 'false');
+
     await expect(
       await screen.getByText(/^subscribed to notifications$/i)
     ).not.toBeVisible();
-
-    expect(
-      await screen.getByRole('button', {
-        name: /^get notifications$/i,
-      })
-    ).toBeVisible();
-    // Visually hidden text should not be accessible
     await expect(
       await screen.getByText(/^unsubscribed from notifications$/i)
     ).toBeVisible();

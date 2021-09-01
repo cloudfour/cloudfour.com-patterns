@@ -36,21 +36,18 @@ test(
       name: /^get notifications$/i,
     });
     // Visually hidden text for a more inclusive experience
-    const unsubscribeMsg = await screen.getByText(
+    const unsubscribeMsg = await screen.getByRole('status');
+    await expect(subscribeBtn).toBeVisible();
+    await expect(unsubscribeMsg).toHaveTextContent(
       /^unsubscribed from notifications$/i
     );
-    await expect(subscribeBtn).toBeVisible();
-    await expect(unsubscribeMsg).toBeVisible();
 
     const unsubscribeBtn = await screen.queryByRole('button', {
       name: /^turn off notifications$/i,
     });
-    // Visually hidden text for a more inclusive experience
-    const subscribeMsg = await screen.getByText(
-      /^subscribed to notifications$/i
-    );
+    const statusMsgs = await screen.getAllByRole('status');
+    expect(statusMsgs.length).toBe(1);
     expect(unsubscribeBtn).toBeNull();
-    await expect(subscribeMsg).not.toBeVisible();
   })
 );
 

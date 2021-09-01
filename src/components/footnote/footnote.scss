@@ -6,26 +6,26 @@
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
-$footnote-list-item-offset: ms.step(-2);
-$footnote-list-item-offset-negative: calc(#{$footnote-list-item-offset} * -1);
-$footnote-list-item-offset-left-negative: calc(
-  #{$footnote-list-item-offset-negative} +
+$footnote-offset: ms.step(-2);
+$footnote-offset-negative: calc(#{$footnote-offset} * -1);
+$footnote-offset-left-negative: calc(
+  #{$footnote-offset-negative} +
   #{ms.step(1)} * -1
 );
 
-.c-footnote-list-item {
+.c-footnote {
   position: relative;
-  scroll-margin: $footnote-list-item-offset;
+  scroll-margin: $footnote-offset;
 
   &:target::before {
     background-color: color.$base-gray-lighter;
     border-radius: size.$border-radius-medium;
-    bottom: $footnote-list-item-offset-negative;
+    bottom: $footnote-offset-negative;
     content: '';
-    left: $footnote-list-item-offset-left-negative;
+    left: $footnote-offset-left-negative;
     position: absolute;
-    right: $footnote-list-item-offset-negative;
-    top: $footnote-list-item-offset-negative;
+    right: $footnote-offset-negative;
+    top: $footnote-offset-negative;
     z-index: -1;
   }
 

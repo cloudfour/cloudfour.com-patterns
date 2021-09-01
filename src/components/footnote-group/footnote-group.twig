@@ -12,7 +12,7 @@
           {% set _id = _id ~ id_suffix %}
         {% endif %}
 
-        {% embed '@cloudfour/components/footnote-list-item/footnote-list-item.twig' with {
+        {% embed '@cloudfour/components/footnote/footnote.twig' with {
           count: loop.index,
           id: _id,
           item: item

@@ -55,6 +55,41 @@ test(
 );
 
 test(
+  'Set custom messages and labels',
+  withBrowser(async ({ utils, screen, user }) => {
+    await utils.injectHTML(
+      await buttonSwapMarkup({
+        get_notifications_label: 'Hello world',
+        disable_notifications_label: 'Have a great day',
+        unsubscribed_message: 'Unsubscribed',
+        subscribed_message: 'Subscribed',
+      })
+    );
+    await loadGlobalCSS(utils);
+    // I'd like to avoid using a test ID, but I couldn't figure out a different way.
+    // @todo Can this be done without at test ID?
+    await initJS(utils, await screen.getByTestId('test-id'));
+
+    const subscribeBtn = await screen.getByRole('button', {
+      name: /^hello world$/i,
+    });
+    await expect(subscribeBtn).toBeVisible();
+    // Ensure visually hidden text is accessible
+    await expect(await screen.getByText(/^unsubscribed$/i)).toBeVisible();
+
+    // Subscribe action
+    await user.click(subscribeBtn);
+
+    const unsubscribeBtn = await screen.queryByRole('button', {
+      name: /^have a great day$/i,
+    });
+    await expect(unsubscribeBtn).toBeVisible();
+    // Ensure visually hidden text is accessible
+    await expect(await screen.getByText(/^subscribed$/i)).toBeVisible();
+  })
+);
+
+test(
   'Swap UI state when clicked',
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await buttonSwapMarkup());

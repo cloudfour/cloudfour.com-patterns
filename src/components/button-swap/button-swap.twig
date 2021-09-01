@@ -2,36 +2,35 @@
   This pattern currently only supports a start icon. There is an opportunity to
   refactor in the future if end icon support is needed.
 #}
-{% set content_start_icon = content_start_icon|default('bell') %}
+{% set _content_start_icon = content_start_icon|default('bell') %}
 
 {# Button label defaults #}
-{% set get_notifications_label = get_notifications_label|default('Get notifications') %}
-{% set disable_notifications_label =
+{% set _get_notifications_label = get_notifications_label|default('Get notifications') %}
+{% set _disable_notifications_label =
   disable_notifications_label|default('Turn off notifications') %}
 
 {# Subscription message defaults #}
-{% set unsubscribed_message =
+{% set _unsubscribed_message =
   unsubscribed_message|default('Unsubscribed from notifications') %}
-{% set subscribed_message =
+{% set _subscribed_message =
   subscribed_message|default('Subscribed to notifications') %}
 
 <section role="region" data-testid="test-id" class="c-button-swap js-c-button-swap">
   <div class="c-button-swap__subscribe js-c-button-swap__subscribe-group">
-    <span tabindex="-1" class="u-hidden-visually js-c-button-swap__message">{{ unsubscribed_message }}</span>
+    <span tabindex="-1" class="u-hidden-visually js-c-button-swap__message">{{ _unsubscribed_message }}</span>
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'js-c-button-swap__button',
-      content_start_icon: content_start_icon,
-      label: get_notifications_label,
+      content_start_icon: _content_start_icon,
+      label: _get_notifications_label,
       aria_pressed: 'false'
     } only %}
   </div>
   <div class="c-button-swap__unsubscribe js-c-button-swap__unsubscribe-group" hidden>
-    <span tabindex="-1" class="u-hidden-visually js-c-button-swap__message">{{ subscribed_message }}</span>
-    {# TODO Figure out if aria_pressed is what we want/need #}
+    <span tabindex="-1" class="u-hidden-visually js-c-button-swap__message">{{ _subscribed_message }}</span>
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'c-button--secondary js-c-button-swap__button',
       content_start_icon: content_start_icon,
-      label: disable_notifications_label,
+      label: _disable_notifications_label,
       aria_pressed: 'true'
     } only %}
   </div>

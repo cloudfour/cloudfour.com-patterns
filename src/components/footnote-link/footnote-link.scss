@@ -51,11 +51,28 @@
     }
   }
 
+  /// We add a subtle animation to the footnote link when it is targeted via the
+  /// URL hash. This is meant to provide a visual cue about where you landed.
+  /// We use a temporary animation to avoid it being confused with a focus or
+  /// hover style.
+  &:target {
+    animation: footnote-link-target-circle transition.$glacial ease.$out;
+  }
+
   @include focus.focus-visible {
     box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter;
   }
 
   &:active {
     transform: scale(scale.$effect-shrink);
+  }
+}
+
+@keyframes footnote-link-target-circle {
+  from {
+    box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-light;
+  }
+  to {
+    box-shadow: 0 0 0 size.$edge-medium transparent;
   }
 }

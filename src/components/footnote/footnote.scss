@@ -16,9 +16,9 @@ $footnote-offset-left-negative: calc(
 ///    vertical offset so the text isn't right at the top of the screen
 .c-footnote {
   position: relative;
-  scroll-margin: $footnote-offset; /* 1 */
+  scroll-margin: calc(#{$footnote-offset} + #{ms.step(-2)}); /* 1 */
 
-  /// When a footnote is target by the URL hash we apply a background color to it
+  /// When a footnote is targeted by the URL hash we apply a background color to it
   /// We use an absolutely positioned pseudo-element so our background will extend
   /// beneath the list item ::marker
   &:target::before {

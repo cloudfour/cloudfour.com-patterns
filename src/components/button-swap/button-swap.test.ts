@@ -129,24 +129,24 @@ test(
     await initJS(utils, await screen.getByTestId('test-id'));
 
     // Visually hidden text for a more inclusive UX
-    let message = await screen.getByRole('status');
-    await expect(message).toHaveTextContent(/^unsubscribed$/i);
+    let statusMsg = await screen.getByRole('status');
+    await expect(statusMsg).toHaveTextContent(/^unsubscribed$/i);
 
     const firstBtn = await screen.getByRole('button');
     await expect(firstBtn).toHaveTextContent(/^hello world$/i);
 
+    // Button swap action
     await user.click(firstBtn);
 
     // Visually hidden text for a more inclusive UX
-    message = await screen.getByRole('alert');
-    await expect(message).toHaveTextContent(/^subscribed$/i);
+    statusMsg = await screen.getByRole('alert');
+    await expect(statusMsg).toHaveTextContent(/^subscribed$/i);
 
     const secondBtn = await screen.queryByRole('button');
     await expect(secondBtn).toHaveTextContent(/have a great day/i);
   })
 );
 
-// @todo Unskip test once a new version of Pleasantest is released
 test(
   'Callback functions are called',
   withBrowser(async ({ utils, screen, user }) => {

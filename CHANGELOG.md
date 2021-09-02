@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 4.3.0
+
+### Minor Changes
+
+- [#1519](https://github.com/cloudfour/cloudfour.com-patterns/pull/1519) [`2947ed21`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2947ed219f34a4660fa0fe4b98d2e2252724c592) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Introduce `is-slashed` CSS state class, remove `aria-pressed` logic
+
+* [#1505](https://github.com/cloudfour/cloudfour.com-patterns/pull/1505) [`567d70be`](https://github.com/cloudfour/cloudfour.com-patterns/commit/567d70be65241a04ea28809e438790a693acf19a) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add the Bio layout object
+
+- [#1517](https://github.com/cloudfour/cloudfour.com-patterns/pull/1517) [`09079e1a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/09079e1a75f82e0635b9d2e6dba8cdefb7c931e0) Thanks [@calebeby](https://github.com/calebeby)! - Adjust sizing of logo in sky nav
+
 ## 4.2.0
 
 ### Minor Changes

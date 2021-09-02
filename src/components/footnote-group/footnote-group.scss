@@ -1,6 +1,7 @@
 // TODO: Remove unused
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/size';
+@use '../../mixins/theme';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
@@ -11,6 +12,10 @@
   border-top: size.$edge-medium solid color.$base-gray-lighter;
   margin-top: var(--spacing-footnotes);
   padding-top: var(--spacing-footnotes);
+
+  @include theme.styles(dark) {
+    border-color: color.$brand-primary-light;
+  }
 }
 
 .c-footnote-group__list > * + * {

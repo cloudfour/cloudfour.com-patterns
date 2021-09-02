@@ -67,7 +67,7 @@ test(
     let firstBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
-    await expect(firstBtn).not.toHaveClass('is-pressed');
+    await expect(firstBtn).not.toHaveClass('is-slashed');
 
     // Button swap action
     await user.click(firstBtn);
@@ -87,7 +87,7 @@ test(
       name: /^turn off notifications$/i,
     });
     await expect(secondBtn).toBeVisible();
-    await expect(secondBtn).toHaveClass('is-pressed');
+    await expect(secondBtn).toHaveClass('is-slashed');
 
     // Button swap action
     await user.click(secondBtn);
@@ -110,7 +110,7 @@ test(
       name: /^get notifications$/i,
     });
     await expect(firstBtn).toBeVisible();
-    await expect(firstBtn).not.toHaveClass('is-pressed');
+    await expect(firstBtn).not.toHaveClass('is-slashed');
   })
 );
 

@@ -12,6 +12,9 @@ import stylesDemo from './demo/styles.twig';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import iconButtonCustomDemoSource from '!!raw-loader!./demo/icon-button-custom-demo.twig';
 import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import slashedIconButtonCustomDemoSource from '!!raw-loader!./demo/slashed-icon-button-custom-demo.twig';
+import slashedIconButtonCustomDemo from './demo/slashed-icon-button-custom-demo.twig';
 import button from './button.twig';
 const iconControlConfig = {
   type: { name: 'string' },
@@ -140,7 +143,7 @@ The `content_start`/`content_end` blocks override the
 
 ## Icon with slash
 
-To add a slash across the icon(s), use the `c-button--slashed` modifier.
+To add a slash across the icon(s), use the `is-slashed` state modifier CSS class.
 
 If no `content_start_icon`/`content_end_icon` or `content_start`/`content_end` block content is passed in, the `'bell'` icon will be used by default as the `content_start_icon` value.
 
@@ -150,7 +153,7 @@ You can override the `content_start_icon` value to a different icon.
   <Story
     name="Slashed Icon"
     args={{
-      class: 'c-button--slashed',
+      class: 'is-slashed',
     }}
   >
     {(args) => buttonStory(args)}
@@ -158,7 +161,7 @@ You can override the `content_start_icon` value to a different icon.
   <Story
     name="Secondary Button with Slashed Icon"
     args={{
-      class: 'c-button--secondary c-button--slashed',
+      class: 'c-button--secondary is-slashed',
     }}
   >
     {(args) => buttonStory(args)}
@@ -166,7 +169,7 @@ You can override the `content_start_icon` value to a different icon.
   <Story
     name="Tertiary Button with Slashed Icon"
     args={{
-      class: 'c-button--tertiary c-button--slashed',
+      class: 'c-button--tertiary is-slashed',
     }}
   >
     {(args) => buttonStory(args)}
@@ -174,10 +177,10 @@ You can override the `content_start_icon` value to a different icon.
   <Story
     name="Slashed Custom Icon"
     parameters={{
-      docs: { source: { code: iconButtonCustomDemoSource } },
+      docs: { source: { code: slashedIconButtonCustomDemoSource } },
     }}
   >
-    {(args) => iconButtonCustomDemo(args)}
+    {(args) => slashedIconButtonCustomDemo(args)}
   </Story>
 </Canvas>
 

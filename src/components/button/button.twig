@@ -1,12 +1,10 @@
 {% set tag_name = tag_name|default(href ? 'a' : 'button') %}
-{# Check if the 'slashed' modifier exists #}
-{% set is_slashed = 'c-button--slashed' in class %}
 {# Check for 'content_start' and 'content_end' content #}
 {% set _content_start = block('content_start') %}
 {% set _content_end = block('content_end') %}
-{# Set a default icon if is_slashed is set and no icon (or block content) was supplied #}
+{# Set a default icon if `is-slashed` exists and no icon (or block content) was supplied #}
 {% if
-  is_slashed and
+  'is-slashed' in class and
   content_start_icon is empty and
   content_end_icon is empty and
   _content_start|trim is empty and

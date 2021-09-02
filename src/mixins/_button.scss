@@ -111,7 +111,7 @@
   /**
    * Adds a slash across the "extra" content (most times "extra" content is an icon).
    */
-  &.c-button--slashed {
+  &.is-slashed {
     .c-button__extra {
       &::after {
         background: currentColor;

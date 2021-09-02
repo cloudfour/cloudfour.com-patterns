@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Introduce `c-button--slashed` modifier, remove `aria-pressed` logic
+Introduce `is-slashed` CSS state class, remove `aria-pressed` logic

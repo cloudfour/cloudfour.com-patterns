@@ -1,4 +1,6 @@
-{% embed '@cloudfour/components/button/button.twig' only %}
+{% embed '@cloudfour/components/button/button.twig' with {
+  class: 'is-slashed'
+} only %}
   {% block content %}Button with a custom icon{% endblock %}
   {% block content_end %}
     <svg viewBox="0 0 24 24" width="24" height="24" class="c-icon">

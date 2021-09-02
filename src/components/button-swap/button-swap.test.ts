@@ -63,7 +63,7 @@ test(
     let subscribeBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
-    expect(subscribeBtn).toHaveAttribute('aria-pressed', 'false');
+    await expect(subscribeBtn).toHaveAttribute('aria-pressed', 'false');
 
     // Subscribe action
     await user.click(subscribeBtn);
@@ -77,15 +77,13 @@ test(
     let unsubscribeBtn = await screen.queryByRole('button', {
       name: /^turn off notifications$/i,
     });
-    expect(unsubscribeBtn).toBeVisible();
-    expect(unsubscribeBtn).toHaveAttribute('aria-pressed', 'true');
+    await expect(unsubscribeBtn).toBeVisible();
+    await expect(unsubscribeBtn).toHaveAttribute('aria-pressed', 'true');
 
-    await expect(
-      await screen.getByText(/^unsubscribed from notifications$/i)
-    ).not.toBeVisible();
-    await expect(
-      await screen.getByText(/^subscribed to notifications$/i)
-    ).toBeVisible();
+    // Visually hidden text for a more inclusive UX
+    let statusMsg = await screen.getByRole('alert');
+    await expect(statusMsg).toHaveTextContent(/^subscribed to notifications$/i);
+    await expect(statusMsg).toHaveFocus();
 
     // Unsubscribe action
     await user.click(unsubscribeBtn);
@@ -100,15 +98,15 @@ test(
     subscribeBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
-    expect(subscribeBtn).toBeVisible();
-    expect(subscribeBtn).toHaveAttribute('aria-pressed', 'false');
+    await expect(subscribeBtn).toBeVisible();
+    await expect(subscribeBtn).toHaveAttribute('aria-pressed', 'false');
 
-    await expect(
-      await screen.getByText(/^subscribed to notifications$/i)
-    ).not.toBeVisible();
-    await expect(
-      await screen.getByText(/^unsubscribed from notifications$/i)
-    ).toBeVisible();
+    // Visually hidden text for a more inclusive UX
+    statusMsg = await screen.getByRole('alert');
+    await expect(statusMsg).toHaveTextContent(
+      /^unsubscribed from notifications$/i
+    );
+    await expect(statusMsg).toHaveFocus();
   })
 );
 
@@ -128,24 +126,21 @@ test(
     // @todo Can this be done without at test ID?
     await initJS(utils, await screen.getByTestId('test-id'));
 
-    const subscribeBtn = await screen.getByRole('button', {
-      name: /^hello world$/i,
-    });
-    // Visually hidden text for a more inclusive experience
-    const unsubscribeMsg = await screen.getByText(/^unsubscribed$/i);
-    await expect(subscribeBtn).toBeVisible();
-    await expect(unsubscribeMsg).toBeVisible();
+    // Visually hidden text for a more inclusive UX
+    let message = await screen.getByRole('status');
+    await expect(message).toHaveTextContent(/^unsubscribed$/i);
 
-    // Subscribe action
-    await user.click(subscribeBtn);
+    const firstBtn = await screen.getByRole('button');
+    await expect(firstBtn).toHaveTextContent(/^hello world$/i);
 
-    const unsubscribeBtn = await screen.queryByRole('button', {
-      name: /^have a great day$/i,
-    });
-    // Visually hidden text for a more inclusive experience
-    const subscribeMsg = await screen.getByText(/^subscribed$/i);
-    await expect(unsubscribeBtn).toBeVisible();
-    await expect(subscribeMsg).toBeVisible();
+    await user.click(firstBtn);
+
+    // Visually hidden text for a more inclusive UX
+    message = await screen.getByRole('alert');
+    await expect(message).toHaveTextContent(/^subscribed$/i);
+
+    const secondBtn = await screen.queryByRole('button');
+    await expect(secondBtn).toHaveTextContent(/have a great day/i);
   })
 );
 

@@ -1,4 +1,16 @@
 /**
+ * Helper to get the button from the supplied group element
+ */
+const getButton = (group: HTMLElement) =>
+  group.querySelector('.js-c-button-swap__button') as HTMLButtonElement;
+
+/**
+ * Helper to get the status message from the supplied group element
+ */
+const getStatusMessage = (group: HTMLElement) =>
+  group.querySelector('.js-c-button-swap__message') as HTMLElement;
+
+/**
  * Button swap
  *
  * Swaps two buttons by toggling the `hidden` attribute on the wrapper for each
@@ -11,8 +23,8 @@ export const initButtonSwap = (
     subscribeCallback,
     unsubscribeCallback,
   }: {
-    subscribeCallback?: () => void;
-    unsubscribeCallback?: () => void;
+    subscribeCallback?: (event: Event) => void;
+    unsubscribeCallback?: (event: Event) => void;
   } = {}
 ) => {
   // The group wrappers
@@ -22,44 +34,40 @@ export const initButtonSwap = (
   const unsubscribeGroup = buttonSwapEl.querySelector(
     '.js-c-button-swap__unsubscribe-group'
   ) as HTMLElement;
+
   // The buttons
-  const subscribeBtn = subscribeGroup.querySelector(
-    '.js-c-button-swap__button'
-  ) as HTMLButtonElement;
-  const unsubscribeBtn = unsubscribeGroup.querySelector(
-    '.js-c-button-swap__button'
-  ) as HTMLButtonElement;
-  // The visually hidden messages
-  const suscribedMessage = subscribeGroup.querySelector(
-    '.js-c-button-swap__message'
-  ) as HTMLElement;
-  const unsubscribedMessage = unsubscribeGroup.querySelector(
-    '.js-c-button-swap__message'
-  ) as HTMLElement;
+  const subscribeBtn = getButton(subscribeGroup);
+  const unsubscribeBtn = getButton(unsubscribeGroup);
 
   /**
    * Performs all "subscribe" actions
-   * @todo Figure out how to call a "subscribe" callback
    */
-  const onSubscribeClick = () => {
+  const onSubscribeClick = (event: Event) => {
     subscribeGroup.hidden = true;
     unsubscribeGroup.hidden = false;
-    unsubscribedMessage.focus();
+
+    const statusMsg = getStatusMessage(unsubscribeGroup);
+    statusMsg.setAttribute('role', 'alert');
+    statusMsg.focus();
+
     if (subscribeCallback) {
-      subscribeCallback();
+      subscribeCallback(event);
     }
   };
 
   /**
    * Performs all "unsubscribe" actions
-   * @todo Figure out how to call an "unsubscribe" callback
    */
-  const onUnsubscribeClick = () => {
+  const onUnsubscribeClick = (event: Event) => {
     unsubscribeGroup.hidden = true;
     subscribeGroup.hidden = false;
-    suscribedMessage.focus();
+
+    const statusMsg = getStatusMessage(subscribeGroup);
+    statusMsg.setAttribute('role', 'alert');
+    statusMsg.focus();
+
     if (unsubscribeCallback) {
-      unsubscribeCallback();
+      unsubscribeCallback(event);
     }
   };
 

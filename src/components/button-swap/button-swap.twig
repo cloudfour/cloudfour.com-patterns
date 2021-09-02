@@ -21,8 +21,7 @@
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'js-c-button-swap__button',
       content_start_icon: _content_start_icon,
-      label: _get_notifications_label,
-      aria_pressed: 'false'
+      label: _get_notifications_label
     } only %}
   </div>
   <div class="c-button-swap__unsubscribe js-c-button-swap__second-btn-wrapper" hidden>
@@ -30,8 +29,7 @@
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'c-button--secondary js-c-button-swap__button',
       content_start_icon: content_start_icon,
-      label: _disable_notifications_label,
-      aria_pressed: 'true'
+      label: _disable_notifications_label
     } only %}
   </div>
 </section>

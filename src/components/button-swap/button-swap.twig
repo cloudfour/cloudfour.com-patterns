@@ -2,34 +2,27 @@
   This pattern currently only supports a start icon. There is an opportunity to
   refactor in the future if end icon support is needed.
 #}
-{% set _content_start_icon = content_start_icon|default('bell') %}
-
-{# Button label defaults #}
-{% set _get_notifications_label = get_notifications_label|default('Get notifications') %}
-{% set _disable_notifications_label =
-  disable_notifications_label|default('Turn off notifications') %}
-
-{# Subscription message defaults #}
-{% set _unsubscribed_message =
-  unsubscribed_message|default('Unsubscribed from notifications') %}
-{% set _subscribed_message =
-  subscribed_message|default('Subscribed to notifications') %}
-
 <section role="region" data-testid="test-id" class="c-button-swap js-c-button-swap">
   <div class="c-button-swap__subscribe js-c-button-swap__first-btn-wrapper">
-    <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">{{ _unsubscribed_message }}</span>
+    <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">
+      {{ unsubscribed_message|default('Unsubscribed from notifications') }}
+    </span>
+
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'js-c-button-swap__button',
-      content_start_icon: _content_start_icon,
-      label: _get_notifications_label
+      content_start_icon: content_start_icon|default('bell'),
+      label: get_notifications_label|default('Get notifications')
     } only %}
   </div>
   <div class="c-button-swap__unsubscribe js-c-button-swap__second-btn-wrapper" hidden>
-    <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">{{ _subscribed_message }}</span>
+    <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">
+      {{ subscribed_message|default('Subscribed to notifications') }}
+    </span>
+
     {% include '@cloudfour/components/button/button.twig' with {
-      class: 'c-button--secondary js-c-button-swap__button',
+      class: 'c-button--secondary is-slashed js-c-button-swap__button',
       content_start_icon: content_start_icon,
-      label: _disable_notifications_label
+      label: disable_notifications_label|default('Turn off notifications')
     } only %}
   </div>
 </section>

@@ -1,5 +1,6 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/size';
+@use '../../mixins/theme';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
@@ -30,6 +31,10 @@ $footnote-offset-left-negative: calc(
     right: $footnote-offset-negative;
     top: $footnote-offset-negative;
     z-index: -1;
+
+    @include theme.styles(dark) {
+      background-color: color.$brand-primary-dark;
+    }
   }
 
   /// We apply some basic styles to the return link.

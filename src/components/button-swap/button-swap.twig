@@ -16,7 +16,7 @@
   subscribed_message|default('Subscribed to notifications') %}
 
 <section role="region" data-testid="test-id" class="c-button-swap js-c-button-swap">
-  <div class="c-button-swap__subscribe js-c-button-swap__subscribe-group">
+  <div class="c-button-swap__subscribe js-c-button-swap__first-btn-wrapper">
     <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">{{ _unsubscribed_message }}</span>
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'js-c-button-swap__button',
@@ -25,7 +25,7 @@
       aria_pressed: 'false'
     } only %}
   </div>
-  <div class="c-button-swap__unsubscribe js-c-button-swap__unsubscribe-group" hidden>
+  <div class="c-button-swap__unsubscribe js-c-button-swap__second-btn-wrapper" hidden>
     <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">{{ _subscribed_message }}</span>
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'c-button--secondary js-c-button-swap__button',

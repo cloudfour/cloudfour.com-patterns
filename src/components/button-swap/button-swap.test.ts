@@ -10,20 +10,20 @@ const buttonSwapMarkup = loadTwigTemplate(
 const initJS = (
   utils: PleasantestUtils,
   buttonSwapEl: ElementHandle,
-  subscribeCallback?: () => void,
-  unsubscribeCallback?: () => void
+  firstBtnCallback?: () => void,
+  secondBtnCallback?: () => void
 ) =>
   utils.runJS(
     `
     import { initButtonSwap } from './button-swap'
-    export default (buttonSwapEl, subscribeCallback, unsubscribeCallback) => {
+    export default (buttonSwapEl, firstBtnCallback, secondBtnCallback) => {
       initButtonSwap(buttonSwapEl, {
-        subscribeCallback,
-        unsubscribeCallback
+        firstBtnCallback,
+        secondBtnCallback
       })
     }
     `,
-    [buttonSwapEl, subscribeCallback, unsubscribeCallback]
+    [buttonSwapEl, firstBtnCallback, secondBtnCallback]
   );
 
 test(
@@ -152,30 +152,32 @@ test(
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await buttonSwapMarkup());
 
-    const mockSubscribeCallback = jest.fn();
-    const mockUnsubscribeCallback = jest.fn();
+    const mockFirstBtnCallback = jest.fn();
+    const mockSecondBtnCallback = jest.fn();
 
-    // I'd like to avoid using a test ID, but I couldn't figure out a different way.
-    // @todo Can this be done without at test ID?
     await initJS(
       utils,
+      // I'd like to avoid using a test ID, but I couldn't figure out a different way.
+      // @todo Can this be done without at test ID?
       await screen.getByTestId('test-id'),
-      mockSubscribeCallback,
-      mockUnsubscribeCallback
+      mockFirstBtnCallback,
+      mockSecondBtnCallback
     );
 
-    const subscribeBtn = await screen.queryByRole('button', {
+    const firstBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
-    await user.click(subscribeBtn);
 
-    expect(mockSubscribeCallback).toBeCalledTimes(1);
+    await user.click(firstBtn);
 
-    const unsubscribeBtn = await screen.queryByRole('button', {
+    expect(mockFirstBtnCallback).toBeCalledTimes(1);
+
+    const secondBtn = await screen.queryByRole('button', {
       name: /^turn off notifications$/i,
     });
-    await user.click(unsubscribeBtn);
 
-    expect(mockUnsubscribeCallback).toBeCalledTimes(1);
+    await user.click(secondBtn);
+
+    expect(mockSecondBtnCallback).toBeCalledTimes(1);
   })
 );

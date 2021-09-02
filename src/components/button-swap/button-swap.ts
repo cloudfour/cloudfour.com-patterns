@@ -15,43 +15,43 @@ const getStatusMessage = (group: HTMLElement) =>
  *
  * Swaps two buttons by toggling the `hidden` attribute on the wrapper for each
  * button + visually hidden message group. Sets the focus on the visually hidden
- * text after each toggle to allow a more inclusive experience via assistive technology.
+ * text after each swap to allow a more inclusive UX via assistive technology.
  */
 export const initButtonSwap = (
   buttonSwapEl: HTMLElement,
   {
-    subscribeCallback,
-    unsubscribeCallback,
+    firstBtnCallback,
+    secondBtnCallback,
   }: {
-    subscribeCallback?: (event: Event) => void;
-    unsubscribeCallback?: (event: Event) => void;
+    firstBtnCallback?: (event: Event) => void;
+    secondBtnCallback?: (event: Event) => void;
   } = {}
 ) => {
   // The group wrappers
-  const subscribeGroup = buttonSwapEl.querySelector(
-    '.js-c-button-swap__subscribe-group'
+  const firstBtnWrapper = buttonSwapEl.querySelector(
+    '.js-c-button-swap__first-btn-wrapper'
   ) as HTMLElement;
-  const unsubscribeGroup = buttonSwapEl.querySelector(
-    '.js-c-button-swap__unsubscribe-group'
+  const secondBtnWrapper = buttonSwapEl.querySelector(
+    '.js-c-button-swap__second-btn-wrapper'
   ) as HTMLElement;
 
   // The buttons
-  const subscribeBtn = getButton(subscribeGroup);
-  const unsubscribeBtn = getButton(unsubscribeGroup);
+  const subscribeBtn = getButton(firstBtnWrapper);
+  const unsubscribeBtn = getButton(secondBtnWrapper);
 
   /**
    * Performs all "subscribe" actions
    */
   const onSubscribeClick = (event: Event) => {
-    subscribeGroup.hidden = true;
-    unsubscribeGroup.hidden = false;
+    firstBtnWrapper.hidden = true;
+    secondBtnWrapper.hidden = false;
 
-    const statusMsg = getStatusMessage(unsubscribeGroup);
+    const statusMsg = getStatusMessage(secondBtnWrapper);
     statusMsg.setAttribute('role', 'alert');
     statusMsg.focus();
 
-    if (subscribeCallback) {
-      subscribeCallback(event);
+    if (firstBtnCallback) {
+      firstBtnCallback(event);
     }
   };
 
@@ -59,15 +59,15 @@ export const initButtonSwap = (
    * Performs all "unsubscribe" actions
    */
   const onUnsubscribeClick = (event: Event) => {
-    unsubscribeGroup.hidden = true;
-    subscribeGroup.hidden = false;
+    secondBtnWrapper.hidden = true;
+    firstBtnWrapper.hidden = false;
 
-    const statusMsg = getStatusMessage(subscribeGroup);
+    const statusMsg = getStatusMessage(firstBtnWrapper);
     statusMsg.setAttribute('role', 'alert');
     statusMsg.focus();
 
-    if (unsubscribeCallback) {
-      unsubscribeCallback(event);
+    if (secondBtnCallback) {
+      secondBtnCallback(event);
     }
   };
 

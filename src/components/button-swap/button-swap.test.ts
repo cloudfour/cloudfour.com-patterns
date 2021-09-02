@@ -3,10 +3,12 @@ import type { ElementHandle, PleasantestUtils } from 'pleasantest';
 import { withBrowser } from 'pleasantest';
 import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
-const buttonSwapMarkup = loadTwigTemplate(
+// Helper to load the Twig template file
+const componentMarkup = loadTwigTemplate(
   path.join(__dirname, './button-swap.twig')
 );
-// Helper to initialize the button swap JS
+
+// Helper to initialize the component JS
 const initJS = (
   utils: PleasantestUtils,
   buttonSwapEl: ElementHandle,
@@ -29,7 +31,7 @@ const initJS = (
 test(
   'Initial state',
   withBrowser(async ({ utils, screen }) => {
-    await utils.injectHTML(await buttonSwapMarkup());
+    await utils.injectHTML(await componentMarkup());
     await loadGlobalCSS(utils);
 
     // Visually hidden text for a more inclusive UX
@@ -56,7 +58,7 @@ test(
 test(
   'Swap UI state when clicked',
   withBrowser(async ({ utils, screen, user }) => {
-    await utils.injectHTML(await buttonSwapMarkup());
+    await utils.injectHTML(await componentMarkup());
     await loadGlobalCSS(utils);
     // I'd like to avoid using a test ID, but I couldn't figure out a different way.
     // @todo Can this be done without at test ID?
@@ -116,7 +118,7 @@ test(
   'Set custom messages and labels',
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(
-      await buttonSwapMarkup({
+      await componentMarkup({
         get_notifications_label: 'Hello world',
         disable_notifications_label: 'Have a great day',
         unsubscribed_message: 'Unsubscribed',
@@ -150,7 +152,7 @@ test(
 test(
   'Callback functions are called',
   withBrowser(async ({ utils, screen, user }) => {
-    await utils.injectHTML(await buttonSwapMarkup());
+    await utils.injectHTML(await componentMarkup());
 
     const mockFirstBtnCallback = jest.fn();
     const mockSecondBtnCallback = jest.fn();

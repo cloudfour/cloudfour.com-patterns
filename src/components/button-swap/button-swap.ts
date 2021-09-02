@@ -1,21 +1,21 @@
 /**
- * Helper to get the button from the supplied group element
+ * Helper to get the button from the supplied wrapper element
  */
-const getButton = (group: HTMLElement) =>
-  group.querySelector('.js-c-button-swap__button') as HTMLButtonElement;
+const getButton = (wrapper: HTMLElement) =>
+  wrapper.querySelector('.js-c-button-swap__button') as HTMLButtonElement;
 
 /**
- * Helper to get the status message from the supplied group element
+ * Helper to get the status message from the supplied wrapper element
  */
-const getStatusMessage = (group: HTMLElement) =>
-  group.querySelector('.js-c-button-swap__message') as HTMLElement;
+const getStatusMessage = (wrapper: HTMLElement) =>
+  wrapper.querySelector('.js-c-button-swap__message') as HTMLElement;
 
 /**
  * Button swap
  *
  * Swaps two buttons by toggling the `hidden` attribute on the wrapper for each
- * button + visually hidden message group. Sets the focus on the visually hidden
- * text after each swap to allow a more inclusive UX via assistive technology.
+ * button + visually hidden message group; only one button + visually hidden
+ * message is displayed at a time.
  */
 export const initButtonSwap = (
   buttonSwapEl: HTMLElement,
@@ -40,7 +40,7 @@ export const initButtonSwap = (
   const secondBtn = getButton(secondBtnWrapper);
 
   /**
-   * Performs all "subscribe" actions
+   * Performs all firstBtn click actions
    */
   const onFirstBtnClick = (event: Event) => {
     firstBtnWrapper.hidden = true;
@@ -56,7 +56,7 @@ export const initButtonSwap = (
   };
 
   /**
-   * Performs all "unsubscribe" actions
+   * Performs all secondBtn click actions
    */
   const onSecondBtnClick = (event: Event) => {
     secondBtnWrapper.hidden = true;

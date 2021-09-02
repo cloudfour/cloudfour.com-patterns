@@ -48,6 +48,9 @@ module.exports = {
       toggle: {
         medium: { value: modularEm(2) },
       },
+      footnote_link: {
+        value: modularEm(2),
+      },
     },
     overlap: {
       small: {

@@ -98,7 +98,20 @@
               permalink: true
             } only %}
 
-            <p>Its two sharp scythes are more than just weapons. It uses them with dexterity to dress its prey before eating. Shuckle <a href="#">quietly hides itself under rocks</a>, keeping its body concealed inside its hard shell while eating berries it has stored away. The berries mix with its body fluids to become a juice. Motionless, it hangs from trees, waiting for its <a href="#">bug Pokémon</a> prey to come to it. Its favorite in Alola is Cutiefly.</p>
+            <p>
+              Its two sharp scythes are more than just weapons.{% include '@cloudfour/components/footnote-link/footnote-link.twig' with {
+                count: 1
+              } only %}
+              It uses them with dexterity to dress its prey before eating.
+              Shuckle <a href="#">quietly hides itself under rocks</a>,
+              keeping its body concealed inside its hard shell while eating berries it has stored away.
+              The berries mix with its body fluids to become a juice.
+              Motionless, it hangs from trees, waiting for its <a href="#">bug Pokémon</a> prey to come to it.
+              Its favorite in Alola is Cutiefly.{% include '@cloudfour/components/footnote-link/footnote-link.twig' with {
+                count: 2
+              } only %}
+
+            </p>
 
             <blockquote>
               <p><b>CSS Grid Layout</b> excels at dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives.</p>
@@ -108,7 +121,7 @@
               </footer>
             </blockquote>
 
-            <p>The only thing unlucky about Absol is its appearance. It protects fields and warns people of disaster, so one ought to be grateful for it.It can be spotted near recreational facilities, intending to eat the pleasant dreams of children who enjoyed themselves there that day.</p>
+            <p>The only thing unlucky about Absol is its appearance. It protects fields and warns people of disaster, so one ought to be grateful for it. It can be spotted near recreational facilities, intending to eat the pleasant dreams of children who enjoyed themselves there that day.</p>
 
             {% include '@cloudfour/components/heading/heading.twig' with {
               level: 2,
@@ -134,7 +147,22 @@
               "tag_name": "ul"
             } only %}
 
-            <p>Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as Wartortle ages. The scratches on its shell are evidence of this Pokémon’s toughness as a battler. Lombre’s entire body is covered by a slippery, slimy film.</p>
+            <p>
+              Its tail is large and covered with a rich, thick fur.
+              The tail becomes increasingly deeper in color as Wartortle ages.
+              The scratches on its shell are evidence of this Pokémon’s toughness as a battler.{% include '@cloudfour/components/footnote-link/footnote-link.twig' with {
+                count: 3
+              } only %}
+              Lombre’s entire body is covered by a slippery, slimy film.
+            </p>
+
+            {% include '@cloudfour/components/footnote-group/footnote-group.twig' with {
+              items: [
+                "They're great for dancing!",
+                "Not to be confused with a cutiepie.",
+                "Wartortle is not nearly as cute as Squirtle."
+              ]
+            } only %}
           {% endblock %}
         {% endembed %}
 
@@ -166,6 +194,34 @@
           content: 'Comments'
         } only %}
 
+        {% set footnote_comment_content %}
+          <p>
+            Design system talk repository UX sufficient contrast go input loxe.
+            Ri accessible UX theming web standards lepaxenuti yab mockups nikil
+            font-loading yitobubugo testing.{% include '@cloudfour/components/footnote-link/footnote-link.twig' with {
+              count: 1,
+              id: '1-comment-5000'
+            } only %}
+          </p>
+          <p>
+            Pacirec Progressive Web App (PWA) lapohoba Progressive Web App (PWA){% include '@cloudfour/components/footnote-link/footnote-link.twig' with {
+              count: 2,
+              id: '2-comment-5000'
+            } only %}
+            talk adaptive fa. Ru.
+          </p>
+
+          {% include '@cloudfour/components/footnote-group/footnote-group.twig' with {
+            compact: true,
+            id_suffix: '-comment-5000',
+            heading_tag: 'h4',
+            items: [
+              "SVG repository",
+              "Service worker accessibility prototype progressive enhancement responsive."
+            ]
+          } only %}
+        {% endset %}
+
         {% include '@cloudfour/components/comment/comment.twig' with {
           "comment": {
             "ID": "217",
@@ -175,7 +231,7 @@
             "author": {
               "name": "Duruzit Lidofideh"
             },
-            "comment_content": "<p>Design system talk repository UX sufficient contrast go input loxe. Ri accessible UX theming web standards lepaxenuti yab mockups nikil font-loading yitobubugo testing.</p><p>Pacirec Progressive Web App (PWA) lapohoba Progressive Web App (PWA) talk adaptive fa. Service worker accessibility prototype progressive enhancement responsive issue rayapeded ju experience agile kiwed rojomabod sufficient contrast hezeqotilo talk puboj community intuitive buce. Ru. SVG repository.</p>",
+            "comment_content": footnote_comment_content,
             "is_child": false,
             "children": [
               {

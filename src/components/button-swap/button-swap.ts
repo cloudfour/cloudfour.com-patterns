@@ -36,13 +36,13 @@ export const initButtonSwap = (
   ) as HTMLElement;
 
   // The buttons
-  const subscribeBtn = getButton(firstBtnWrapper);
-  const unsubscribeBtn = getButton(secondBtnWrapper);
+  const firstBtn = getButton(firstBtnWrapper);
+  const secondBtn = getButton(secondBtnWrapper);
 
   /**
    * Performs all "subscribe" actions
    */
-  const onSubscribeClick = (event: Event) => {
+  const onFirstBtnClick = (event: Event) => {
     firstBtnWrapper.hidden = true;
     secondBtnWrapper.hidden = false;
 
@@ -58,7 +58,7 @@ export const initButtonSwap = (
   /**
    * Performs all "unsubscribe" actions
    */
-  const onUnsubscribeClick = (event: Event) => {
+  const onSecondBtnClick = (event: Event) => {
     secondBtnWrapper.hidden = true;
     firstBtnWrapper.hidden = false;
 
@@ -73,13 +73,13 @@ export const initButtonSwap = (
 
   const destroy = () => {
     // Clean up event listeners
-    subscribeBtn.removeEventListener('click', onSubscribeClick);
-    unsubscribeBtn.removeEventListener('click', onUnsubscribeClick);
+    firstBtn.removeEventListener('click', onFirstBtnClick);
+    secondBtn.removeEventListener('click', onSecondBtnClick);
   };
 
   // Intialize
-  subscribeBtn.addEventListener('click', onSubscribeClick);
-  unsubscribeBtn.addEventListener('click', onUnsubscribeClick);
+  firstBtn.addEventListener('click', onFirstBtnClick);
+  secondBtn.addEventListener('click', onSecondBtnClick);
 
   // Return a public API for consumers of this component
   return { destroy };

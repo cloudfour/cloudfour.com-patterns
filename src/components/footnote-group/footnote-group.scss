@@ -12,7 +12,7 @@
   padding-top: var(--spacing-footnotes);
 
   @include theme.styles(dark) {
-    border-color: color.$brand-primary-light;
+    border-color: color.$brand-primary-darker;
   }
 }
 

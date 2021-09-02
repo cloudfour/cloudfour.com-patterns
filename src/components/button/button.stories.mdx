@@ -12,6 +12,9 @@ import stylesDemo from './demo/styles.twig';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import iconButtonCustomDemoSource from '!!raw-loader!./demo/icon-button-custom-demo.twig';
 import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import slashedIconButtonCustomDemoSource from '!!raw-loader!./demo/slashed-icon-button-custom-demo.twig';
+import slashedIconButtonCustomDemo from './demo/slashed-icon-button-custom-demo.twig';
 import button from './button.twig';
 const iconControlConfig = {
   type: { name: 'string' },
@@ -57,10 +60,6 @@ const buttonStory = (args) => {
     disabled: { type: { name: 'boolean' }, defaultValue: false },
     content_start_icon: iconControlConfig,
     content_end_icon: iconControlConfig,
-    aria_pressed: {
-      type: { name: 'enum' },
-      control: { type: 'inline-radio', options: ['true', 'false'] },
-    },
   }}
 />
 
@@ -142,48 +141,52 @@ The `content_start`/`content_end` blocks override the
   </Story>
 </Canvas>
 
-## Toggling button
+## Icon with slash
 
-Pass an `aria_pressed` value (`'true'` or `'false'`) to enable a toggling button. If no `content_start_icon`/`content_end_icon` or `content_start`/`content_end` block content is passed in, the `'bell'` icon will be used by default as the `content_start_icon` value.
+To add a slash across the icon(s), use the `is-slashed` state modifier CSS class.
+
+If no `content_start_icon`/`content_end_icon` or `content_start`/`content_end` block content is passed in, the `'bell'` icon will be used by default as the `content_start_icon` value.
 
 You can override the `content_start_icon` value to a different icon.
 
 <Canvas>
   <Story
-    name="Toggling Button"
+    name="Slashed Icon"
     args={{
-      aria_pressed: 'true',
+      class: 'is-slashed',
     }}
   >
     {(args) => buttonStory(args)}
   </Story>
   <Story
-    name="Secondary Toggling Button"
+    name="Secondary Button with Slashed Icon"
     args={{
-      class: 'c-button--secondary',
-      aria_pressed: 'true',
+      class: 'c-button--secondary is-slashed',
     }}
   >
     {(args) => buttonStory(args)}
   </Story>
   <Story
-    name="Tertiary Toggling Button"
+    name="Tertiary Button with Slashed Icon"
     args={{
-      class: 'c-button--tertiary',
-      aria_pressed: 'true',
+      class: 'c-button--tertiary is-slashed',
     }}
   >
     {(args) => buttonStory(args)}
   </Story>
-  <Story name="Custom Icon Toggling Button" args={{ aria_pressed: 'true' }}>
-    {(args) => iconButtonCustomDemo(args)}
+  <Story
+    name="Slashed Custom Icon"
+    parameters={{
+      docs: { source: { code: slashedIconButtonCustomDemoSource } },
+    }}
+  >
+    {(args) => slashedIconButtonCustomDemo(args)}
   </Story>
 </Canvas>
 
 ## Template Properties
 
 - `aria_expanded` (string, `'true'`/`'false'`): Sets the button's `aria-expanded` attribute.
-- `aria_pressed` (string, `'true'`/`'false'`): Sets the button's `aria-pressed` attribute.
 - `class` (string): Append a class to the root element.
 - `content_start_icon` (string): The name of the [icon](/docs/design-icons--page) to render in the `content_start` block.
 - `content_end_icon` (string): The name of the [icon](/docs/design-icons--page) to render in the `content_end` block.

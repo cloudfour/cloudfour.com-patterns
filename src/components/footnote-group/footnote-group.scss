@@ -16,10 +16,6 @@
   }
 }
 
-.c-footnote-group__list > * + * {
-  margin-top: var(--spacing-footnotes);
-}
-
 /// Compact footnote groups have smaller text, smaller gaps, and no top
 /// border/padding
 .c-footnote-group--compact {
@@ -28,4 +24,8 @@
   border-top: none;
   font-size: ms.step(-1);
   padding-top: 0;
+}
+
+.c-footnote-group__list > * + * {
+  margin-top: var(--spacing-footnotes);
 }

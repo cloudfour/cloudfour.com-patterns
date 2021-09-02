@@ -62,46 +62,33 @@ test(
     // @todo Can this be done without at test ID?
     await initJS(utils, await screen.getByTestId('test-id'));
 
-    let subscribeBtn = await screen.queryByRole('button', {
+    let firstBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
-    await expect(subscribeBtn).toHaveAttribute('aria-pressed', 'false');
+    await expect(firstBtn).toHaveAttribute('aria-pressed', 'false');
 
-    // Subscribe action
-    await user.click(subscribeBtn);
-
-    // Query for subscribe button again in its new state
-    subscribeBtn = await screen.queryByRole('button', {
-      name: /^get notifications$/i,
-    });
-    expect(subscribeBtn).toBeNull();
-
-    let unsubscribeBtn = await screen.queryByRole('button', {
-      name: /^turn off notifications$/i,
-    });
-    await expect(unsubscribeBtn).toBeVisible();
-    await expect(unsubscribeBtn).toHaveAttribute('aria-pressed', 'true');
+    // Button swap action
+    await user.click(firstBtn);
 
     // Visually hidden text for a more inclusive UX
     let statusMsg = await screen.getByRole('alert');
     await expect(statusMsg).toHaveTextContent(/^subscribed to notifications$/i);
     await expect(statusMsg).toHaveFocus();
 
-    // Unsubscribe action
-    await user.click(unsubscribeBtn);
-
-    // Query for unsubscribe button again in its new state
-    unsubscribeBtn = await screen.queryByRole('button', {
-      name: /^turn off notifications$/i,
-    });
-    expect(unsubscribeBtn).toBeNull();
-
-    // Query for subscribe button again in its new state
-    subscribeBtn = await screen.queryByRole('button', {
+    // Query for first button again in its new state
+    firstBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
     });
-    await expect(subscribeBtn).toBeVisible();
-    await expect(subscribeBtn).toHaveAttribute('aria-pressed', 'false');
+    expect(firstBtn).toBeNull();
+
+    let secondBtn = await screen.queryByRole('button', {
+      name: /^turn off notifications$/i,
+    });
+    await expect(secondBtn).toBeVisible();
+    await expect(secondBtn).toHaveAttribute('aria-pressed', 'true');
+
+    // Button swap action
+    await user.click(secondBtn);
 
     // Visually hidden text for a more inclusive UX
     statusMsg = await screen.getByRole('alert');
@@ -109,6 +96,19 @@ test(
       /^unsubscribed from notifications$/i
     );
     await expect(statusMsg).toHaveFocus();
+
+    // Query for second button again in its new state
+    secondBtn = await screen.queryByRole('button', {
+      name: /^turn off notifications$/i,
+    });
+    expect(secondBtn).toBeNull();
+
+    // Query for first button again in its new state
+    firstBtn = await screen.queryByRole('button', {
+      name: /^get notifications$/i,
+    });
+    await expect(firstBtn).toBeVisible();
+    await expect(firstBtn).toHaveAttribute('aria-pressed', 'false');
   })
 );
 

@@ -109,11 +109,9 @@
   }
 
   /**
-   * Toggling button
-   * This adds a slash across the icon to visually show the state has changed
-   * when `aria-pressed` is `'true'`.
+   * Adds a slash across the "extra" content (most times "extra" content is an icon).
    */
-  &[aria-pressed='true'] {
+  &.is-slashed {
     .c-button__extra {
       &::after {
         background: currentColor;

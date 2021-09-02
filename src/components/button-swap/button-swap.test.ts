@@ -33,13 +33,13 @@ test(
     await loadGlobalCSS(utils);
 
     // Visually hidden text for a more inclusive UX
-    const message = await screen.getByRole('status');
-    await expect(message).toHaveTextContent(
+    const statusMsg = await screen.getByRole('status');
+    await expect(statusMsg).toHaveTextContent(
       /^unsubscribed from notifications$/i
     );
 
-    const messages = await screen.getAllByRole('status');
-    expect(messages.length).toBe(1);
+    const statusMsgs = await screen.getAllByRole('status');
+    expect(statusMsgs.length).toBe(1);
 
     const firstBtn = await screen.getByRole('button', {
       name: /^get notifications$/i,

@@ -1,5 +1,6 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/size';
+@use '../../mixins/icon';
 @use '../../mixins/theme';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
@@ -38,14 +39,24 @@ $footnote-offset-left-negative: calc(
   }
 
   /// We apply some basic styles to the return link.
-  /// These are so the links get nice focus styles.
+  /// 1. Center its icon
+  /// 2. We shift the link up slightly so its icon appears vertically aligned
+  ///    with the surrounding text. We apply that to the link instead of the
+  ///    inner icon to ensure the focus ring is centered correctly.
+  /// 3. Add some focus styles
   .c-footnote-link-item__return-link {
+    align-items: center; /* 1 */
     border-radius: size.$border-radius-full;
-    display: inline-block;
-    padding: 0 ms.step(-6);
+    display: inline-flex; /* 1 */
+    justify-content: center; /* 1 */
+    padding: ms.step(-6); /* 1 */
+    position: relative; /* 2 */
+    vertical-align: middle; /* 1 */
+
+    @include icon.inline(); /* 2 */
 
     @include focus.focus-visible {
-      box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter;
+      box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter; /* 3 */
     }
   }
 }

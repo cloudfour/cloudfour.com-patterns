@@ -32,22 +32,24 @@ test(
     await utils.injectHTML(await buttonSwapMarkup());
     await loadGlobalCSS(utils);
 
-    const subscribeBtn = await screen.getByRole('button', {
-      name: /^get notifications$/i,
-    });
-    // Visually hidden text for a more inclusive experience
-    const unsubscribeMsg = await screen.getByRole('status');
-    await expect(subscribeBtn).toBeVisible();
-    await expect(unsubscribeMsg).toHaveTextContent(
+    // Visually hidden text for a more inclusive UX
+    const message = await screen.getByRole('status');
+    await expect(message).toHaveTextContent(
       /^unsubscribed from notifications$/i
     );
 
-    const unsubscribeBtn = await screen.queryByRole('button', {
+    const messages = await screen.getAllByRole('status');
+    expect(messages.length).toBe(1);
+
+    const firstBtn = await screen.getByRole('button', {
+      name: /^get notifications$/i,
+    });
+    await expect(firstBtn).toBeVisible();
+
+    const secondBtn = await screen.queryByRole('button', {
       name: /^turn off notifications$/i,
     });
-    const statusMsgs = await screen.getAllByRole('status');
-    expect(statusMsgs.length).toBe(1);
-    expect(unsubscribeBtn).toBeNull();
+    expect(secondBtn).toBeNull();
   })
 );
 

@@ -27,7 +27,15 @@ const buttonSwapStory = (args) => {
   return buttonSwap(args);
 };
 
-<Meta title="Components/Button Swap" />
+<Meta
+  title="Components/Button Swap"
+  argTypes={{
+    first_button_visually_hidden_text: { type: { name: 'string' } },
+    first_button_label: { type: { name: 'string' } },
+    second_button_visually_hidden_text: { type: { name: 'string' } },
+    second_button_label: { type: { name: 'string' } },
+  }}
+/>
 
 # Button Swap
 

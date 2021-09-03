@@ -1,35 +1,35 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { makeTwigInclude } from '../../make-twig-include';
 import { useEffect } from '@storybook/client-api';
-// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
-// See: https://github.com/webpack-contrib/raw-loader#examples
-// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
-// okay with the following Webpack-specific raw loader syntax. It's better to leave
-// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
-// within a Storybook docs page and not within an actual component).
-// This can be revisited in the future if Storybook no longer relies on Webpack.
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-// import iconButtonCustomDemoSource from '!!raw-loader!./demo/icon-button-custom-demo.twig';
-// import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
 import buttonSwap from './button-swap.twig';
 import { initButtonSwap } from './button-swap.ts';
 // Helper function to initialize toggling button JS
 const buttonSwapStory = (args) => {
   useEffect(() => {
-    const { destroy } = initButtonSwap(
-      document.querySelector('.js-c-button-swap'),
-      {
+    const buttonSwapEls = [
+      ...document.querySelectorAll('.js-c-button-swap'),
+    ].map((buttonSwapEl) =>
+      initButtonSwap(buttonSwapEl, {
         firstBtnCallback: () => console.log('Subscribed!'),
         secondBtnCallback: () => console.log('Unsubscribed!'),
-      }
+      })
     );
-    return destroy;
-  }, []);
+    return () =>
+      buttonSwapEls.forEach((buttonSwapEl) => buttonSwapEl.destroy());
+  });
   return buttonSwap(args);
 };
 
 <Meta
   title="Components/Button Swap"
   argTypes={{
+    content_start_icon: {
+      type: { name: 'string' },
+      control: {
+        type: 'select',
+        options: ['bell', 'magnifying-glass'],
+      },
+    },
     first_button_visually_hidden_text: { type: { name: 'string' } },
     first_button_label: { type: { name: 'string' } },
     second_button_visually_hidden_text: { type: { name: 'string' } },
@@ -39,18 +39,125 @@ const buttonSwapStory = (args) => {
 
 # Button Swap
 
-The `c-button-swap` class may be applied to button and link elements. The button appears filled by default so that the actionable element is clearly distinguished from surrounding text.
+The Button Swap component was built with the article Push Notifications use case in mind. It has two buttons that are swapped on click representing two visual states accompanied with visually hidden text for a more inclusive experience.
+
+You have the ability to pass `firstBtnCallback` and `secondBtnCallback` callback functions to the `initButtonSwap` initialization function to add custom actions for when each of the buttons is clicked.
 
 <Canvas>
-  <Story name="Default" inline={false}>
+  <Story
+    name="Default"
+    inline={false}
+    args={{
+      first_button_visually_hidden_text: 'Notifications have been turned off.',
+      first_button_label: 'Give me all the notifications!',
+      second_button_visually_hidden_text: 'Notifications have been turned on.',
+      second_button_label: 'Just kidding, stop notifications, please.',
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/button-swap/button-swap.twig',
+            {
+              first_button_visually_hidden_text:
+                'Notifications have been turned off.',
+              first_button_label: 'Give me all the notifications!',
+              second_button_visually_hidden_text:
+                'Notifications have been turned on.',
+              second_button_label: 'Just kidding, stop notifications, please.',
+            }
+          ),
+        },
+      },
+    }}
+  >
     {(args) => buttonSwapStory(args)}
   </Story>
 </Canvas>
 
 ## Template Properties
 
-- `content_start_icon` (string, default `'bell'`): The button icon (applied to both buttons).
+- `class` (string): Appends a CSS class(es) to the root element.
+- `content_start_icon` (string, default `'bell'`): The button [icon](/docs/design-icons--page) (the same icon is applied to both buttons).
 - `first_button_visually_hidden_text` (string, default `'Unsubscribed from notifications'`): The first button visually hidden text.
 - `first_button_label` (string, default `'Get notifications'`): The first button label.
 - `second_button_visually_hidden_text` (string, default `'Subscribed to notifications'`): The second button visually hidden text.
 - `second_button_label` (string, default `'Turn off notifications'`): The second button label.
+
+## JavaScript
+
+You'll need to use JavaScript to select the Button Swap component via the `js-c-button-swap` CSS class and initialize it using the `initButtonSwap` function.
+
+### Syntax
+
+```js
+initButtonSwap(buttonSwapEl, options);
+```
+
+### Parameters
+
+#### `buttonSwapEl`
+
+The `.js-c-button-swap` Button Swap wrapper element.
+
+#### `options` (optional)
+
+An object which allows you to optionally pass `firstBtnCallback` and `secondBtnCallback` functions to be called when each button is clicked.
+
+```js
+options?: {
+  firstBtnCallback?: (event: Event) => void;
+  secondBtnCallback?: (event: Event) => void;
+}
+```
+
+### Return value
+
+An object with a `destroy` function that removes event listeners.
+
+```js
+{ destroy: () => void }
+```
+
+### Examples
+
+#### Single Button Swap component on the page
+
+```js
+// Initialize
+const buttonSwapEl = initButtonSwap(
+  document.querySelector('.js-c-button-swap'),
+  {
+    firstBtnCallback: () => console.log('Subscribed!'),
+    secondBtnCallback: () => console.log('Unsubscribed!'),
+  }
+);
+
+// Remove all event listeners
+buttonSwapEl.destroy();
+```
+
+#### Multiple Button Swap components on the page
+
+```js
+// Initialize
+const buttonSwapEls = [...document.querySelectorAll('.js-c-button-swap')].map(
+  (buttonSwapEl) =>
+    initButtonSwap(buttonSwapEl, {
+      firstBtnCallback: () => console.log('Subscribed!'),
+      secondBtnCallback: () => console.log('Unsubscribed!'),
+    })
+);
+
+// Remove all event listeners
+buttonSwapEls.forEach((buttonSwapEl) => {
+  buttonSwapEl.destroy();
+});
+```
+
+## Unsupported features
+
+The following features are not supported but can be in the future if the need arises. The decision was made to forego these features for now since a use case did not exist when developing this component.
+
+- No `content_end_icon` template property support
+- No `content_start`, `content`, or `content_end` block support

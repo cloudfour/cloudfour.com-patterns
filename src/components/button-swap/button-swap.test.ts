@@ -119,10 +119,10 @@ test(
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(
       await componentMarkup({
-        get_notifications_label: 'Hello world',
-        disable_notifications_label: 'Have a great day',
-        unsubscribed_message: 'Unsubscribed',
-        subscribed_message: 'Subscribed',
+        first_button_label: 'Hello world',
+        second_button_label: 'Have a great day',
+        first_button_visually_hidden_text: 'Unsubscribed',
+        second_button_visually_hidden_text: 'Subscribed',
       })
     );
     await loadGlobalCSS(utils);

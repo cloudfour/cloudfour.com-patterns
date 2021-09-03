@@ -1,28 +1,28 @@
 {#
-  This pattern currently only supports a start icon. There is an opportunity to
-  refactor in the future if end icon support is needed.
+  This pattern currently only supports a start icon.
+  End icon support can be added in the future if needed.
 #}
 <section role="region" data-testid="test-id" class="c-button-swap js-c-button-swap">
   <div class="c-button-swap__subscribe js-c-button-swap__first-btn-wrapper">
     <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">
-      {{ unsubscribed_message|default('Unsubscribed from notifications') }}
+      {{ first_button_visually_hidden_text|default('Unsubscribed from notifications') }}
     </span>
 
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'js-c-button-swap__button',
       content_start_icon: content_start_icon|default('bell'),
-      label: get_notifications_label|default('Get notifications')
+      label: first_button_label|default('Get notifications')
     } only %}
   </div>
   <div class="c-button-swap__unsubscribe js-c-button-swap__second-btn-wrapper" hidden>
     <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">
-      {{ subscribed_message|default('Subscribed to notifications') }}
+      {{ second_button_visually_hidden_text|default('Subscribed to notifications') }}
     </span>
 
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'c-button--secondary is-slashed js-c-button-swap__button',
-      content_start_icon: content_start_icon,
-      label: disable_notifications_label|default('Turn off notifications')
+      content_start_icon: content_start_icon|default('bell'),
+      label: second_button_label|default('Turn off notifications')
     } only %}
   </div>
 </section>

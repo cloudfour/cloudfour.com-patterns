@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/addon-docs/blocks';
 import { extname, basename } from 'path';
 import imageDeck from './demo/image-deck.twig';
+import responsiveImage from '../assets/illustrations/test.svg';
 import avatarDefaultSrc from '../assets/illustrations/avatar-default.svg';
 const featureImageDir = require.context(
   '../assets/illustrations/feature',
@@ -29,6 +30,24 @@ Images may represent more than one topic. For example, the `paintbrush` illustra
 
 <Story name="Feature images">
   {() => imageDeck({ images: featureImageData })}
+</Story>
+
+## Responsive fallback image
+
+An SVG that's used as a fallback image by our service worker when an image request fails.
+
+What's unique about this image is its responsiveness. If you scale the size of its container, you'll notice that portions of the image repeat or fix to the side rather than squashing or stretching.
+
+We should craft a new image that's more consistent with those feature images but fulfills the purpose of the service worker fallback.
+
+<Story name="Test" height="200px">
+  {`
+  <div style="display: flex; gap: 1em; justify-content: center; flex-wrap: wrap; align-items: center;">
+  <img src="${responsiveImage}" alt="Responsive fallback image" style="aspect-ratio: 16 / 9; height: 15em;">
+  <img src="${responsiveImage}" alt="Responsive fallback image" style="aspect-ratio: 9 / 16; height: 15em;">
+  <img src="${responsiveImage}" alt="Responsive fallback image" style="aspect-ratio: 1 / 1; height: 15em;">
+  </div>
+  `}
 </Story>
 
 ## Default avatar

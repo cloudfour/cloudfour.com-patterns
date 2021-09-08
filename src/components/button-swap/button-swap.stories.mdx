@@ -14,8 +14,9 @@ const buttonSwapStory = (args) => {
         secondBtnCallback: () => console.log('Unsubscribed!'),
       })
     );
-    return () =>
+    return () => {
       for (const buttonSwapEl of buttonSwapEls) buttonSwapEl.destroy();
+    };
   });
   return buttonSwap(args);
 };

@@ -12,20 +12,20 @@ const componentMarkup = loadTwigTemplate(
 const initJS = (
   utils: PleasantestUtils,
   buttonSwapEl: ElementHandle,
-  firstBtnCallback?: () => void,
-  secondBtnCallback?: () => void
+  initialCallback?: () => void,
+  swappedCallback?: () => void
 ) =>
   utils.runJS(
     `
     import { initButtonSwap } from './button-swap'
-    export default (buttonSwapEl, firstBtnCallback, secondBtnCallback) => {
+    export default (buttonSwapEl, initialCallback, swappedCallback) => {
       initButtonSwap(buttonSwapEl, {
-        firstBtnCallback,
-        secondBtnCallback
+        initialCallback,
+        swappedCallback
       })
     }
     `,
-    [buttonSwapEl, firstBtnCallback, secondBtnCallback]
+    [buttonSwapEl, initialCallback, swappedCallback]
   );
 
 test(
@@ -156,16 +156,16 @@ test(
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await componentMarkup());
 
-    const mockFirstBtnCallback = jest.fn();
-    const mockSecondBtnCallback = jest.fn();
+    const mockInitialCallback = jest.fn();
+    const mockSwappedCallback = jest.fn();
 
     await initJS(
       utils,
       // I'd like to avoid using a test ID, but I couldn't figure out a different way.
       // @todo Can this be done without at test ID?
       await screen.getByTestId('test-id'),
-      mockFirstBtnCallback,
-      mockSecondBtnCallback
+      mockInitialCallback,
+      mockSwappedCallback
     );
 
     const firstBtn = await screen.queryByRole('button', {
@@ -174,7 +174,7 @@ test(
 
     await user.click(firstBtn);
 
-    expect(mockFirstBtnCallback).toBeCalledTimes(1);
+    expect(mockInitialCallback).toBeCalledTimes(1);
 
     const secondBtn = await screen.queryByRole('button', {
       name: /^turn off notifications$/i,
@@ -182,6 +182,6 @@ test(
 
     await user.click(secondBtn);
 
-    expect(mockSecondBtnCallback).toBeCalledTimes(1);
+    expect(mockSwappedCallback).toBeCalledTimes(1);
   })
 );

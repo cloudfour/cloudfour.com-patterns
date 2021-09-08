@@ -9,8 +9,8 @@ const buttonSwapStory = (args) => {
     const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
       (buttonSwapEl) =>
         initButtonSwap(buttonSwapEl, {
-          firstBtnCallback: () => console.log('Subscribed!'),
-          secondBtnCallback: () => console.log('Unsubscribed!'),
+          initialCallback: () => console.log('Subscribed!'),
+          swappedCallback: () => console.log('Unsubscribed!'),
         })
     );
     return () => {
@@ -41,7 +41,7 @@ const buttonSwapStory = (args) => {
 
 The Button Swap component was built with the article Push Notifications use case in mind. It has two buttons that are swapped on click representing two visual states accompanied with visually hidden text for a more inclusive experience.
 
-You have the ability to pass `firstBtnCallback` and `secondBtnCallback` callback functions to the `initButtonSwap` initialization function to add custom actions for when each of the buttons is clicked.
+You have the ability to pass `initialCallback` and `swappedCallback` callback functions to the `initButtonSwap` initialization function to add custom actions for when each of the buttons is clicked.
 
 <Canvas>
   <Story
@@ -100,12 +100,12 @@ The `.js-button-swap` Button Swap wrapper element.
 
 #### `options` (optional)
 
-An object which allows you to optionally pass `firstBtnCallback` and `secondBtnCallback` functions to be called when each button is clicked.
+An object which allows you to optionally pass `initialCallback` and `swappedCallback` functions to be called when each button is clicked.
 
 ```js
 options?: {
-  firstBtnCallback?: (event: Event) => void;
-  secondBtnCallback?: (event: Event) => void;
+  initialCallback?: (event: Event) => void;
+  swappedCallback?: (event: Event) => void;
 }
 ```
 
@@ -124,8 +124,8 @@ An object with a `destroy` function that removes event listeners.
 ```js
 // Initialize
 const buttonSwapEl = initButtonSwap(document.querySelector('.js-button-swap'), {
-  firstBtnCallback: () => console.log('Subscribed!'),
-  secondBtnCallback: () => console.log('Unsubscribed!'),
+  initialCallback: () => console.log('Subscribed!'),
+  swappedCallback: () => console.log('Unsubscribed!'),
 });
 
 // Remove all event listeners
@@ -139,8 +139,8 @@ buttonSwapEl.destroy();
 const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
   (buttonSwapEl) =>
     initButtonSwap(buttonSwapEl, {
-      firstBtnCallback: () => console.log('Subscribed!'),
-      secondBtnCallback: () => console.log('Unsubscribed!'),
+      initialCallback: () => console.log('Subscribed!'),
+      swappedCallback: () => console.log('Unsubscribed!'),
     })
 );
 

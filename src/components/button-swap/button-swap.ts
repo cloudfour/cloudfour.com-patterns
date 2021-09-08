@@ -20,11 +20,11 @@ const getStatusMessage = (wrapper: HTMLElement) =>
 export const initButtonSwap = (
   buttonSwapEl: HTMLElement,
   {
-    firstBtnCallback,
-    secondBtnCallback,
+    initialCallback,
+    swappedCallback,
   }: {
-    firstBtnCallback?: (event: Event) => void;
-    secondBtnCallback?: (event: Event) => void;
+    initialCallback?: (event: Event) => void;
+    swappedCallback?: (event: Event) => void;
   } = {}
 ) => {
   // The group wrappers
@@ -50,8 +50,8 @@ export const initButtonSwap = (
     statusMsg.setAttribute('role', 'alert');
     statusMsg.focus();
 
-    if (firstBtnCallback) {
-      firstBtnCallback(event);
+    if (initialCallback) {
+      initialCallback(event);
     }
   };
 
@@ -66,8 +66,8 @@ export const initButtonSwap = (
     statusMsg.setAttribute('role', 'alert');
     statusMsg.focus();
 
-    if (secondBtnCallback) {
-      secondBtnCallback(event);
+    if (swappedCallback) {
+      swappedCallback(event);
     }
   };
 

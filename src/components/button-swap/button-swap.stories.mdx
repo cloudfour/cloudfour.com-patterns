@@ -15,7 +15,7 @@ const buttonSwapStory = (args) => {
       })
     );
     return () =>
-      buttonSwapEls.forEach((buttonSwapEl) => buttonSwapEl.destroy());
+      for (const buttonSwapEl of buttonSwapEls) buttonSwapEl.destroy();
   });
   return buttonSwap(args);
 };

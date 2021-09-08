@@ -2,13 +2,13 @@
  * Helper to get the button from the supplied wrapper element
  */
 const getButton = (wrapper: HTMLElement) =>
-  wrapper.querySelector('.js-c-button-swap__button') as HTMLButtonElement;
+  wrapper.querySelector('.js-button-swap__button') as HTMLButtonElement;
 
 /**
  * Helper to get the status message from the supplied wrapper element
  */
 const getStatusMessage = (wrapper: HTMLElement) =>
-  wrapper.querySelector('.js-c-button-swap__message') as HTMLElement;
+  wrapper.querySelector('.js-button-swap__message') as HTMLElement;
 
 /**
  * Button swap
@@ -29,10 +29,10 @@ export const initButtonSwap = (
 ) => {
   // The group wrappers
   const firstBtnWrapper = buttonSwapEl.querySelector(
-    '.js-c-button-swap__first-btn-wrapper'
+    '.js-button-swap__first-btn-wrapper'
   ) as HTMLElement;
   const secondBtnWrapper = buttonSwapEl.querySelector(
-    '.js-c-button-swap__second-btn-wrapper'
+    '.js-button-swap__second-btn-wrapper'
   ) as HTMLElement;
 
   // The buttons

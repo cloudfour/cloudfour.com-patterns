@@ -6,13 +6,12 @@ import { initButtonSwap } from './button-swap.ts';
 // Helper function to initialize toggling button JS
 const buttonSwapStory = (args) => {
   useEffect(() => {
-    const buttonSwapEls = [
-      ...document.querySelectorAll('.js-c-button-swap'),
-    ].map((buttonSwapEl) =>
-      initButtonSwap(buttonSwapEl, {
-        firstBtnCallback: () => console.log('Subscribed!'),
-        secondBtnCallback: () => console.log('Unsubscribed!'),
-      })
+    const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
+      (buttonSwapEl) =>
+        initButtonSwap(buttonSwapEl, {
+          firstBtnCallback: () => console.log('Subscribed!'),
+          secondBtnCallback: () => console.log('Unsubscribed!'),
+        })
     );
     return () => {
       for (const buttonSwapEl of buttonSwapEls) buttonSwapEl.destroy();
@@ -85,7 +84,7 @@ You have the ability to pass `firstBtnCallback` and `secondBtnCallback` callback
 
 ## JavaScript
 
-You'll need to use JavaScript to select the Button Swap component via the `js-c-button-swap` CSS class and initialize it using the `initButtonSwap` function.
+You'll need to use JavaScript to select the Button Swap component via the `js-button-swap` CSS class and initialize it using the `initButtonSwap` function.
 
 ### Syntax
 
@@ -97,7 +96,7 @@ initButtonSwap(buttonSwapEl, options);
 
 #### `buttonSwapEl`
 
-The `.js-c-button-swap` Button Swap wrapper element.
+The `.js-button-swap` Button Swap wrapper element.
 
 #### `options` (optional)
 
@@ -124,13 +123,10 @@ An object with a `destroy` function that removes event listeners.
 
 ```js
 // Initialize
-const buttonSwapEl = initButtonSwap(
-  document.querySelector('.js-c-button-swap'),
-  {
-    firstBtnCallback: () => console.log('Subscribed!'),
-    secondBtnCallback: () => console.log('Unsubscribed!'),
-  }
-);
+const buttonSwapEl = initButtonSwap(document.querySelector('.js-button-swap'), {
+  firstBtnCallback: () => console.log('Subscribed!'),
+  secondBtnCallback: () => console.log('Unsubscribed!'),
+});
 
 // Remove all event listeners
 buttonSwapEl.destroy();
@@ -140,7 +136,7 @@ buttonSwapEl.destroy();
 
 ```js
 // Initialize
-const buttonSwapEls = [...document.querySelectorAll('.js-c-button-swap')].map(
+const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
   (buttonSwapEl) =>
     initButtonSwap(buttonSwapEl, {
       firstBtnCallback: () => console.log('Subscribed!'),

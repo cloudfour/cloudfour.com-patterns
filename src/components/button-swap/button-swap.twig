@@ -2,25 +2,25 @@
   This pattern currently only supports a start icon.
   End icon support can be added in the future if needed.
 #}
-<section role="region" data-testid="test-id" class="c-button-swap js-c-button-swap{% if class %} {{ class }}{% endif %}">
-  <div class="c-button-swap__subscribe js-c-button-swap__first-btn-wrapper">
-    <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">
+<section data-testid="test-id" class="c-button-swap js-button-swap{% if class %} {{ class }}{% endif %}">
+  <div class="c-button-swap__subscribe js-button-swap__first-btn-wrapper">
+    <span tabindex="-1" role="status" class="u-hidden-visually js-button-swap__message">
       {{ initial_label|default('Unsubscribed from notifications') }}
     </span>
 
     {% include '@cloudfour/components/button/button.twig' with {
-      class: 'js-c-button-swap__button',
+      class: 'js-button-swap__button',
       content_start_icon: content_start_icon|default('bell'),
       label: initial_visual_label|default('Get notifications')
     } only %}
   </div>
-  <div class="c-button-swap__unsubscribe js-c-button-swap__second-btn-wrapper" hidden>
-    <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">
+  <div class="c-button-swap__unsubscribe js-button-swap__second-btn-wrapper" hidden>
+    <span tabindex="-1" role="status" class="u-hidden-visually js-button-swap__message">
       {{ swapped_label|default('Subscribed to notifications') }}
     </span>
 
     {% include '@cloudfour/components/button/button.twig' with {
-      class: 'c-button--secondary is-slashed js-c-button-swap__button',
+      class: 'c-button--secondary is-slashed js-button-swap__button',
       content_start_icon: content_start_icon|default('bell'),
       label: swapped_visual_label|default('Turn off notifications')
     } only %}

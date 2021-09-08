@@ -37,7 +37,7 @@ test(
     // Visually hidden text for a more inclusive UX
     const statusMsg = await screen.getByRole('status');
     await expect(statusMsg).toHaveTextContent(
-      /^unsubscribed from notifications$/i
+      /^currently unsubscribed from notifications$/i
     );
 
     const statusMsgs = await screen.getAllByRole('status');
@@ -74,7 +74,9 @@ test(
 
     // Visually hidden text for a more inclusive UX
     let statusMsg = await screen.getByRole('alert');
-    await expect(statusMsg).toHaveTextContent(/^subscribed to notifications$/i);
+    await expect(statusMsg).toHaveTextContent(
+      /^currently subscribed to notifications$/i
+    );
     await expect(statusMsg).toHaveFocus();
 
     // Query for first button again in its new state
@@ -95,7 +97,7 @@ test(
     // Visually hidden text for a more inclusive UX
     statusMsg = await screen.getByRole('alert');
     await expect(statusMsg).toHaveTextContent(
-      /^unsubscribed from notifications$/i
+      /^currently unsubscribed from notifications$/i
     );
     await expect(statusMsg).toHaveFocus();
 

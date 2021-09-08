@@ -1,0 +1,10 @@
+{% spaceless %}
+<a
+  class="c-footnote-link"
+  href="#footnote-{{id|default(count)}}"
+  id="footnote-anchor-{{id|default(count)}}"
+>
+  <span class="u-hidden-visually">Footnote</span>
+  {{count}}
+</a>
+{% endspaceless %}

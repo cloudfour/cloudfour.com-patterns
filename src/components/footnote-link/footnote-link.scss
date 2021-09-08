@@ -1,0 +1,77 @@
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/ease';
+@use "../../compiled/tokens/scss/font-weight";
+@use '../../compiled/tokens/scss/size';
+@use "../../compiled/tokens/scss/scale";
+@use '../../compiled/tokens/scss/transition';
+@use '../../mixins/focus';
+@use '../../mixins/ms';
+@use '../../mixins/theme';
+
+/// Footnote links are small numbered circles within a body of text that
+/// link to a footnote below
+///
+/// 1. They start off as circles but if their content gets wide they turn into pills
+/// 2. Since they can be linked to we assign them a margin offset, so when they're
+///    linked they're not right at the top of the screen
+/// 3. They have a higher vertical baseline than the text around them. (This is
+///    similar to the `<sup>` element. Since `<sup>` has no semantic meaning, we
+///    apply these styles via CSS
+.c-footnote-link {
+  background-color: color.$base-gray-lighter;
+  border-radius: size.$border-radius-full; /* 1 */
+  color: color.$text-action;
+  display: inline-block;
+  font-size: ms.step(-2);
+  font-weight: font-weight.$medium;
+  line-height: size.$square-footnote-link; /* 1 */
+  min-width: size.$square-footnote-link; /* 1 */
+  padding: 0 ms.step(-5); /* 1 */
+  scroll-margin: ms.step(4); /* 2 */
+  text-align: center;
+  text-decoration: none;
+  transition-duration: transition.$quick;
+  transition-property: background-color, color, transform;
+  transition-timing-function: ease.$out;
+  vertical-align: super; /* 3 */
+
+  &:hover {
+    background-color: color.$text-action;
+    color: color.$text-light-emphasis;
+  }
+
+  @include theme.styles(dark) {
+    background-color: color.$brand-primary-dark;
+    color: color.$text-light-emphasis;
+
+    &:hover {
+      background-color: color.$text-light-emphasis;
+      color: color.$text-action;
+    }
+  }
+
+  /// We add a subtle animation to the footnote link when it is targeted via the
+  /// URL hash. This is meant to provide a visual cue about where you landed.
+  /// We use a temporary animation to avoid it being confused with a focus or
+  /// hover style.
+  &:target {
+    animation: footnote-link-target-circle transition.$glacial ease.$out;
+  }
+
+  @include focus.focus-visible {
+    box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter;
+  }
+
+  &:active {
+    transform: scale(scale.$effect-shrink);
+  }
+}
+
+@keyframes footnote-link-target-circle {
+  from {
+    box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-light;
+  }
+  to {
+    box-shadow: 0 0 0 size.$edge-medium transparent;
+  }
+}

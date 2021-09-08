@@ -1,6 +1,6 @@
 @use "sass:math";
 @use "../../mixins/svg";
-@use "../../mixins/unit";
+@use "../../mixins/icon";
 
 .c-icon {
   @include svg.inherit-color;
@@ -12,15 +12,8 @@
 
 /**
  * Apply a small vertical adjustment to properly align with adjacent text.
- *
- * 1. We convert a pixel value to rems so it will scale with the root font size
- *    but not with the icon itself. If we scale the adjustment with the icon
- *    itself, it will appear too dramatic the larger the icon is in comparison
- *    to adjacent text.
- *
- * @see https://cloudfour.com/thinks/some-imaginary-css/#align-to-typeface-median
  */
 
 .c-icon--inline {
-  top: unit.px-to-rem(-2px); /* 1 */
+  @include icon.inline();
 }

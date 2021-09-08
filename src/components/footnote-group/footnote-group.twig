@@ -1,0 +1,27 @@
+<div class="c-footnote-group{% if compact %} c-footnote-group--compact{% endif %}">
+  <{{heading_tag|default('h2')}} class="u-hidden-visually" id="footnote-group-heading{{id_suffix}}">
+    {{heading_text|default('Footnotes')}}
+  </{{heading_tag|default('h2')}}>
+
+  <ol class="c-footnote-group__list" aria-labelledby="footnote-group-heading{{id_suffix}}">
+    {% block content %}
+      {% for item in items %}
+        {% set _id = loop.index %}
+
+        {% if id_suffix %}
+          {% set _id = _id ~ id_suffix %}
+        {% endif %}
+
+        {% embed '@cloudfour/components/footnote/footnote.twig' with {
+          count: loop.index,
+          id: _id,
+          item: item
+        } only %}
+          {% block content %}
+            {{ item|raw }}
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
+    {% endblock %}
+  </ol>
+</div>

@@ -5,24 +5,24 @@
 <section role="region" data-testid="test-id" class="c-button-swap js-c-button-swap{% if class %} {{ class }}{% endif %}">
   <div class="c-button-swap__subscribe js-c-button-swap__first-btn-wrapper">
     <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">
-      {{ first_button_visually_hidden_text|default('Unsubscribed from notifications') }}
+      {{ initial_label|default('Unsubscribed from notifications') }}
     </span>
 
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'js-c-button-swap__button',
       content_start_icon: content_start_icon|default('bell'),
-      label: first_button_label|default('Get notifications')
+      label: initial_visual_label|default('Get notifications')
     } only %}
   </div>
   <div class="c-button-swap__unsubscribe js-c-button-swap__second-btn-wrapper" hidden>
     <span tabindex="-1" role="status" class="u-hidden-visually js-c-button-swap__message">
-      {{ second_button_visually_hidden_text|default('Subscribed to notifications') }}
+      {{ swapped_label|default('Subscribed to notifications') }}
     </span>
 
     {% include '@cloudfour/components/button/button.twig' with {
       class: 'c-button--secondary is-slashed js-c-button-swap__button',
       content_start_icon: content_start_icon|default('bell'),
-      label: second_button_label|default('Turn off notifications')
+      label: swapped_visual_label|default('Turn off notifications')
     } only %}
   </div>
 </section>

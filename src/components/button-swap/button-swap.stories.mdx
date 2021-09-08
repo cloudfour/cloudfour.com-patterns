@@ -30,10 +30,10 @@ const buttonSwapStory = (args) => {
         options: ['bell', 'magnifying-glass'],
       },
     },
-    first_button_visually_hidden_text: { type: { name: 'string' } },
-    first_button_label: { type: { name: 'string' } },
-    second_button_visually_hidden_text: { type: { name: 'string' } },
-    second_button_label: { type: { name: 'string' } },
+    initial_label: { type: { name: 'string' } },
+    initial_visual_label: { type: { name: 'string' } },
+    swapped_label: { type: { name: 'string' } },
+    swapped_visual_label: { type: { name: 'string' } },
   }}
 />
 
@@ -48,10 +48,10 @@ You have the ability to pass `firstBtnCallback` and `secondBtnCallback` callback
     name="Default"
     inline={false}
     args={{
-      first_button_visually_hidden_text: 'Notifications have been turned off.',
-      first_button_label: 'Give me all the notifications!',
-      second_button_visually_hidden_text: 'Notifications have been turned on.',
-      second_button_label: 'Just kidding, stop notifications, please.',
+      initial_label: 'Notifications have been turned off.',
+      initial_visual_label: 'Give me all the notifications!',
+      swapped_label: 'Notifications have been turned on.',
+      swapped_visual_label: 'Just kidding, stop notifications, please.',
     }}
     parameters={{
       docs: {
@@ -59,12 +59,10 @@ You have the ability to pass `firstBtnCallback` and `secondBtnCallback` callback
           code: makeTwigInclude(
             '@cloudfour/components/button-swap/button-swap.twig',
             {
-              first_button_visually_hidden_text:
-                'Notifications have been turned off.',
-              first_button_label: 'Give me all the notifications!',
-              second_button_visually_hidden_text:
-                'Notifications have been turned on.',
-              second_button_label: 'Just kidding, stop notifications, please.',
+              initial_label: 'Notifications have been turned off.',
+              initial_visual_label: 'Give me all the notifications!',
+              swapped_label: 'Notifications have been turned on.',
+              swapped_visual_label: 'Just kidding, stop notifications, please.',
             }
           ),
         },
@@ -79,10 +77,10 @@ You have the ability to pass `firstBtnCallback` and `secondBtnCallback` callback
 
 - `class` (string): Appends a CSS class(es) to the root element.
 - `content_start_icon` (string, default `'bell'`): The button [icon](/docs/design-icons--page) (the same icon is applied to both buttons).
-- `first_button_visually_hidden_text` (string, default `'Unsubscribed from notifications'`): The first button visually hidden text.
-- `first_button_label` (string, default `'Get notifications'`): The first button label.
-- `second_button_visually_hidden_text` (string, default `'Subscribed to notifications'`): The second button visually hidden text.
-- `second_button_label` (string, default `'Turn off notifications'`): The second button label.
+- `initial_label` (string, default `'Unsubscribed from notifications'`): The first button visually hidden text.
+- `initial_visual_label` (string, default `'Get notifications'`): The first button label.
+- `swapped_label` (string, default `'Subscribed to notifications'`): The second button visually hidden text.
+- `swapped_visual_label` (string, default `'Turn off notifications'`): The second button label.
 
 ## JavaScript
 

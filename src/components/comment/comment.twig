@@ -12,22 +12,23 @@
 <article
   class="c-comment {{_comment_modifiers}}"
   id="comment-{{comment.ID}}"
+  aria-labelledby="comment-heading-{{comment.ID}}"
 >
-<header class="c-comment__header">
-  {% block header_content %}
-    <h{{_heading_depth}} class="c-comment__heading">
-      {% block heading_content %}
-        {% block author_title %}
-          {{comment.author.name}}
-        {% endblock %}
+  <header class="c-comment__header">
+    {% block header_content %}
+      <h{{_heading_depth}} class="c-comment__heading" id="comment-heading-{{comment.ID}}">
+        {% block heading_content %}
+          {% block author_title %}
+            {{comment.author.name}}
+          {% endblock %}
 
-        <span class="u-hidden-visually">
-          {% if comment.is_child %}replied{% else %}said{% endif %}:
-        </span>
-      {% endblock %}
-    </h{{_heading_depth}}>
-  {% endblock %}
-</header>
+          <span class="u-hidden-visually">
+            {% if comment.is_child %}replied{% else %}said{% endif %}:
+          </span>
+        {% endblock %}
+      </h{{_heading_depth}}>
+    {% endblock %}
+  </header>
   <div class="c-comment__object">
     {% include '@cloudfour/components/avatar/avatar.twig' with {
       src: comment.avatar,

@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/addon-docs/blocks';
 import { extname, basename } from 'path';
 import imageDeck from './demo/image-deck.twig';
 import responsiveImageDeck from './demo/responsive-image-deck.twig';
-import responsiveImage from '../assets/illustrations/test.svg';
+import responsiveImage from '../assets/illustrations/responsive-fallback.svg';
 import avatarDefaultSrc from '../assets/illustrations/avatar-default.svg';
 const featureImageDir = require.context(
   '../assets/illustrations/feature',
@@ -39,7 +39,7 @@ An SVG that's used as a fallback image when an image request fails for whatever 
 
 What's unique about this image is its responsiveness. Depending on the size of the broken image, portions of the image repeat or fix to the side to fit the aspect ratio of the image rather than squashing or stretching.
 
-<Story name="Test" height="200px">
+<Story name="Responsive fallback image" height="200px">
   {() =>
     responsiveImageDeck({
       ratios: ['1 / 1', '16 / 9', '9 / 16'],

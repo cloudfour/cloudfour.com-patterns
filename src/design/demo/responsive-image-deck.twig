@@ -1,0 +1,12 @@
+{% embed '@cloudfour/objects/deck/deck.twig' with {
+  class: 'o-deck--3-column@l'
+} %}
+  {% block content %}
+    {% for ratio in ratios %}
+      <figure>
+        <img src="{{source}}" alt="" style="aspect-ratio: {{ratio}}; max-height: 15em;">
+        <figcaption>{{ratio}}</figcaption>
+      </figure>
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

@@ -11,6 +11,32 @@ const getStatusMessage = (wrapper: HTMLElement) =>
   wrapper.querySelector('.js-button-swap__message') as HTMLElement;
 
 /**
+ * Performs click actions
+ */
+const onClick = ({
+  event,
+  hiddenWrapper,
+  visibleWrapper,
+  callback,
+}: {
+  event: Event;
+  hiddenWrapper: HTMLElement;
+  visibleWrapper: HTMLElement;
+  callback?: (event: Event) => void;
+}) => {
+  hiddenWrapper.hidden = true;
+  visibleWrapper.hidden = false;
+
+  const statusMsg = getStatusMessage(visibleWrapper);
+  statusMsg.setAttribute('role', 'alert');
+  statusMsg.focus();
+
+  if (callback) {
+    callback(event);
+  }
+};
+
+/**
  * Button swap
  *
  * Swaps two buttons by toggling the `hidden` attribute on the wrapper for each
@@ -28,58 +54,44 @@ export const initButtonSwap = (
   } = {}
 ) => {
   // The group wrappers
-  const firstBtnWrapper = buttonSwapEl.querySelector(
-    '.js-button-swap__first-btn-wrapper'
+  const initialButtonWrapper = buttonSwapEl.querySelector(
+    '.js-button-swap__initial-button-wrapper'
   ) as HTMLElement;
-  const secondBtnWrapper = buttonSwapEl.querySelector(
-    '.js-button-swap__second-btn-wrapper'
+  const swappedButtonWrapper = buttonSwapEl.querySelector(
+    '.js-button-swap__swapped-button-wrapper'
   ) as HTMLElement;
 
   // The buttons
-  const firstBtn = getButton(firstBtnWrapper);
-  const secondBtn = getButton(secondBtnWrapper);
+  const initialButton = getButton(initialButtonWrapper);
+  const swappedButton = getButton(swappedButtonWrapper);
 
-  /**
-   * Performs all firstBtn click actions
-   */
-  const onFirstBtnClick = (event: Event) => {
-    firstBtnWrapper.hidden = true;
-    secondBtnWrapper.hidden = false;
-
-    const statusMsg = getStatusMessage(secondBtnWrapper);
-    statusMsg.setAttribute('role', 'alert');
-    statusMsg.focus();
-
-    if (initialCallback) {
-      initialCallback(event);
-    }
+  const onInitialButtonClick = (event: Event) => {
+    onClick({
+      event,
+      hiddenWrapper: initialButtonWrapper,
+      visibleWrapper: swappedButtonWrapper,
+      callback: initialCallback,
+    });
   };
 
-  /**
-   * Performs all secondBtn click actions
-   */
-  const onSecondBtnClick = (event: Event) => {
-    secondBtnWrapper.hidden = true;
-    firstBtnWrapper.hidden = false;
-
-    const statusMsg = getStatusMessage(firstBtnWrapper);
-    statusMsg.setAttribute('role', 'alert');
-    statusMsg.focus();
-
-    if (swappedCallback) {
-      swappedCallback(event);
-    }
+  const onSwappedButtonClick = (event: Event) => {
+    onClick({
+      event,
+      hiddenWrapper: swappedButtonWrapper,
+      visibleWrapper: initialButtonWrapper,
+      callback: swappedCallback,
+    });
   };
 
   const destroy = () => {
     // Clean up event listeners
-    firstBtn.removeEventListener('click', onFirstBtnClick);
-    secondBtn.removeEventListener('click', onSecondBtnClick);
+    initialButton.removeEventListener('click', onInitialButtonClick);
+    swappedButton.removeEventListener('click', onSwappedButtonClick);
   };
 
   // Intialize
-  firstBtn.addEventListener('click', onFirstBtnClick);
-  secondBtn.addEventListener('click', onSecondBtnClick);
+  initialButton.addEventListener('click', onInitialButtonClick);
+  swappedButton.addEventListener('click', onSwappedButtonClick);
 
   // Return a public API for consumers of this component
   return { destroy };

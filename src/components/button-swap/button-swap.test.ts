@@ -1,5 +1,5 @@
 import path from 'path';
-import type { ElementHandle, PleasantestUtils } from 'pleasantest';
+import type { PleasantestUtils } from 'pleasantest';
 import { withBrowser } from 'pleasantest';
 import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
@@ -11,21 +11,20 @@ const componentMarkup = loadTwigTemplate(
 // Helper to initialize the component JS
 const initJS = (
   utils: PleasantestUtils,
-  buttonSwapEl: ElementHandle,
   initialCallback?: () => void,
   swappedCallback?: () => void
 ) =>
   utils.runJS(
     `
     import { initButtonSwap } from './button-swap'
-    export default (buttonSwapEl, initialCallback, swappedCallback) => {
-      initButtonSwap(buttonSwapEl, {
+    export default (initialCallback, swappedCallback) => {
+      initButtonSwap(document.querySelector('.js-button-swap'), {
         initialCallback,
         swappedCallback
       })
     }
     `,
-    [buttonSwapEl, initialCallback, swappedCallback]
+    [initialCallback, swappedCallback]
   );
 
 test(
@@ -62,7 +61,7 @@ test(
     await loadGlobalCSS(utils);
     // I'd like to avoid using a test ID, but I couldn't figure out a different way.
     // @todo Can this be done without at test ID?
-    await initJS(utils, await screen.getByRole('region'));
+    await initJS(utils);
 
     let firstBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
@@ -128,7 +127,7 @@ test(
       })
     );
     await loadGlobalCSS(utils);
-    await initJS(utils, await screen.getByRole('region'));
+    await initJS(utils);
 
     // Visually hidden text for a more inclusive UX
     let statusMsg = await screen.getByRole('status');
@@ -157,12 +156,7 @@ test(
     const mockInitialCallback = jest.fn();
     const mockSwappedCallback = jest.fn();
 
-    await initJS(
-      utils,
-      await screen.getByRole('region'),
-      mockInitialCallback,
-      mockSwappedCallback
-    );
+    await initJS(utils, mockInitialCallback, mockSwappedCallback);
 
     const firstBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,

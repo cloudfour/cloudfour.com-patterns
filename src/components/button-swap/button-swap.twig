@@ -2,8 +2,7 @@
   This pattern currently only supports a start icon.
   End icon support can be added in the future if needed.
 #}
-<section aria-labelledby="some-cool-id" class="c-button-swap js-button-swap{% if class %} {{ class }}{% endif %}">
-  <h3 class="u-hidden-visually" id="blah">THis is the name</h3>
+<div class="c-button-swap js-button-swap{% if class %} {{ class }}{% endif %}">
   <div class="c-button-swap__subscribe js-button-swap__initial-button-wrapper">
     <span tabindex="-1" role="status" class="u-hidden-visually js-button-swap__message">
       {{ initial_label|default('Currently unsubscribed from notifications') }}
@@ -26,4 +25,4 @@
       label: swapped_visual_label|default('Turn off notifications')
     } only %}
   </div>
-</section>
+</div>

@@ -62,7 +62,7 @@ test(
     await loadGlobalCSS(utils);
     // I'd like to avoid using a test ID, but I couldn't figure out a different way.
     // @todo Can this be done without at test ID?
-    await initJS(utils, await screen.getByTestId('test-id'));
+    await initJS(utils, await screen.getByRole('region'));
 
     let firstBtn = await screen.queryByRole('button', {
       name: /^get notifications$/i,
@@ -128,9 +128,7 @@ test(
       })
     );
     await loadGlobalCSS(utils);
-    // I'd like to avoid using a test ID, but I couldn't figure out a different way.
-    // @todo Can this be done without at test ID?
-    await initJS(utils, await screen.getByTestId('test-id'));
+    await initJS(utils, await screen.getByRole('region'));
 
     // Visually hidden text for a more inclusive UX
     let statusMsg = await screen.getByRole('status');
@@ -161,9 +159,7 @@ test(
 
     await initJS(
       utils,
-      // I'd like to avoid using a test ID, but I couldn't figure out a different way.
-      // @todo Can this be done without at test ID?
-      await screen.getByTestId('test-id'),
+      await screen.getByRole('region'),
       mockInitialCallback,
       mockSwappedCallback
     );

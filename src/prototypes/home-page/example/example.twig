@@ -1,0 +1,98 @@
+<div id="home-page">
+  {% embed '@cloudfour/objects/container/container.twig' with {
+    class: 'o-container--pad'
+  } only %}
+    {% block content %}
+      {% embed '@cloudfour/objects/deck/deck.twig' only %}
+        {% block content %}
+          {% embed '@cloudfour/components/card/card.twig' with { goals: goals } only %}
+            {% block heading %}Our goals are audacious.{% endblock %}
+            {% block cover %}<img src="{{goals}}" alt="">{% endblock %}
+            {% block content %}<p>We believe a small company like ours can have an outsized impact on our customers and the world. We bring this perspective to everything we do.</p>{% endblock %}
+            {% block footer %}
+              {% include '@cloudfour/components/button/button.twig' with {
+                "content_end_icon": "arrow-right",
+                "label": "What Sets Us Apart"
+              } only %}
+            {% endblock %}
+          {% endembed %}
+          {% embed '@cloudfour/components/card/card.twig' with { cpe: cpe } only %}
+            {% block heading %}We know the terrain.{% endblock %}
+            {% block cover %}<img src="{{cpe}}" alt="">{% endblock %}
+            {% block content %}<p>Responsive websites, JavaScript applications, hybrid apps, pattern libraries, you name it… if it’s mobile, we’ve built it.</p>{% endblock %}
+            {% block footer %}
+            {% include '@cloudfour/components/button/button.twig' with {
+              "content_end_icon": "arrow-right",
+              "label": "Our Work"
+            } only %}
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+
+  <div class="t-alternate">
+    {% embed '@cloudfour/objects/container/container.twig' with {
+    class: 'o-container--pad'
+    } only %}
+      {% block content %}
+        {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
+          {% block intro %}
+
+            {% include '@cloudfour/components/heading/heading.twig' with {
+              "level": 1,
+              "weight": "light",
+              "content": "Featured Articles"
+            } only %}
+          {% endblock %}
+          {% block content %}
+            {% embed '@cloudfour/objects/deck/deck.twig' only %}
+              {% block content %}
+                {% embed '@cloudfour/components/card/card.twig' with { speedy: speedy, href: '#' } only %}
+                  {% block heading %}Faster Integration with Web Components{% endblock %}
+                  {% block cover %}<img src="{{speedy}}" alt="">{% endblock %}
+                  {% block content %}<p>Web components promise speedier integration. At some level, I understood this. I've even made this…</p>{% endblock %}
+                  {% block footer %}
+                    {% include '@cloudfour/components/author/author.twig' with {
+                      "authors": [
+                        {
+                          "name": "Jason Grigsby",
+                          "avatar": "media/team-avatars/jason.png",
+                          "link": "https://cloudfour.com/is/jason"
+                        }
+                      ],
+                      "date": "2021-05-17T07:00:00.000Z"
+                    } only %}
+                  {% endblock %}
+                {% endembed %}
+
+                {% embed '@cloudfour/components/card/card.twig' with { plugins: plugins, href: '#' } only %}
+                  {% block heading %}Cooperative Design Systems{% endblock %}
+                  {% block cover %}<img src="{{plugins}}" alt="">{% endblock %}
+                  {% block content %}<p>Strategies for when the goals of your project, team or users diverge from those of…</p>
+                  {% endblock %}
+                  {% block footer %}
+                    {% include '@cloudfour/components/author/author.twig' with {
+                      "authors": [
+                        {
+                          "name": "Tyler Sticka",
+                          "avatar": "media/team-avatars/tyler.png",
+                          "link": "https://cloudfour.com/is/tyler"
+                        }
+                      ],
+                      "date": "2019-09-09T07:00:00.000Z"
+                    } only %}
+                  {% endblock %}
+
+
+                {% endembed %}
+
+              {% endblock %}
+            {% endembed %}
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+  </div>
+</div>

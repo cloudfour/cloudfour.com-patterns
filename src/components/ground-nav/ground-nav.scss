@@ -7,7 +7,7 @@
 
 // Whitespace used for gaps, padding and margin
 // (It uses `rem` so space will be consistent throughout the component)
-$_ground-nav-space: ms.step(1, 1rem);
+$_ground-nav-space: ms.step(3, 1rem);
 // Negative value used to reduce the space around elements as well as position elements.
 $_ground-nav-negative-space: ($_ground-nav-space * -1);
 $_ground-nav-border-width: size.$edge-medium;

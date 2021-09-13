@@ -39,8 +39,9 @@ test(
       /^currently unsubscribed from notifications$/i
     );
 
-    const statusMsgs = await screen.getAllByRole('status');
-    expect(statusMsgs.length).toBe(1);
+    // Confirm only one is accessible, throws if more than one exists
+    // https://testing-library.com/docs/dom-testing-library/cheatsheet/#queries
+    await screen.getByRole('status');
 
     const firstBtn = await screen.getByRole('button', {
       name: /^get notifications$/i,

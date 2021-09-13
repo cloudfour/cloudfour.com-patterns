@@ -59,8 +59,6 @@ test(
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await componentMarkup());
     await loadGlobalCSS(utils);
-    // I'd like to avoid using a test ID, but I couldn't figure out a different way.
-    // @todo Can this be done without at test ID?
     await initJS(utils);
 
     let firstBtn = await screen.queryByRole('button', {

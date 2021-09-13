@@ -131,20 +131,20 @@ test(
 
     // Visually hidden text for a more inclusive UX
     let statusMsg = await screen.getByRole('status');
-    await expect(statusMsg).toHaveTextContent(/^unsubscribed$/i);
+    await expect(statusMsg).toHaveTextContent('Unsubscribed');
 
     const firstBtn = await screen.getByRole('button');
-    await expect(firstBtn).toHaveTextContent(/^hello world$/i);
+    await expect(firstBtn).toHaveTextContent('Hello world');
 
     // Button swap action
     await user.click(firstBtn);
 
     // Visually hidden text for a more inclusive UX
     statusMsg = await screen.getByRole('alert');
-    await expect(statusMsg).toHaveTextContent(/^subscribed$/i);
+    await expect(statusMsg).toHaveTextContent('Subscribed');
 
     const secondBtn = await screen.queryByRole('button');
-    await expect(secondBtn).toHaveTextContent(/have a great day/i);
+    await expect(secondBtn).toHaveTextContent('Have a great day');
   })
 );
 

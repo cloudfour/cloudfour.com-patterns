@@ -22,7 +22,7 @@ const onClick = ({
   event: Event;
   hiddenWrapper: HTMLElement;
   visibleWrapper: HTMLElement;
-  callback?: (event: Event) => void;
+  callback: (event: Event) => void;
 }) => {
   hiddenWrapper.hidden = true;
   visibleWrapper.hidden = false;
@@ -31,9 +31,7 @@ const onClick = ({
   statusMsg.setAttribute('role', 'alert');
   statusMsg.focus();
 
-  if (callback) {
-    callback(event);
-  }
+  callback(event);
 };
 
 /**

@@ -47,9 +47,9 @@ export const initButtonSwap = (
     initialCallback,
     swappedCallback,
   }: {
-    initialCallback?: (event: Event) => void;
-    swappedCallback?: (event: Event) => void;
-  } = {}
+    initialCallback: (event: Event) => void;
+    swappedCallback: (event: Event) => void;
+  }
 ) => {
   // The group wrappers
   const initialButtonWrapper = buttonSwapEl.querySelector(

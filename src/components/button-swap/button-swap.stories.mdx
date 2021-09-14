@@ -1,0 +1,158 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { makeTwigInclude } from '../../make-twig-include';
+import { useEffect } from '@storybook/client-api';
+import buttonSwap from './button-swap.twig';
+import { initButtonSwap } from './button-swap.ts';
+// Helper function to initialize toggling button JS
+const buttonSwapStory = (args) => {
+  useEffect(() => {
+    const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
+      (buttonSwapEl) =>
+        initButtonSwap(buttonSwapEl, {
+          initialCallback: () => console.log('Subscribed!'),
+          swappedCallback: () => console.log('Unsubscribed!'),
+        })
+    );
+    return () => {
+      for (const buttonSwapEl of buttonSwapEls) buttonSwapEl.destroy();
+    };
+  });
+  return buttonSwap(args);
+};
+
+<Meta
+  title="Components/Button Swap"
+  argTypes={{
+    content_start_icon: {
+      type: { name: 'string' },
+      control: {
+        type: 'select',
+        options: ['bell', 'magnifying-glass'],
+      },
+    },
+    initial_label: { type: { name: 'string' } },
+    initial_visual_label: { type: { name: 'string' } },
+    swapped_label: { type: { name: 'string' } },
+    swapped_visual_label: { type: { name: 'string' } },
+  }}
+/>
+
+# Button Swap
+
+The Button Swap component was built with the article Push Notifications use case in mind. It has two buttons that are swapped on click representing two visual states accompanied with visually hidden text for a more inclusive experience.
+
+You have the ability to pass `initialCallback` and `swappedCallback` callback functions to the `initButtonSwap` initialization function to add custom actions for when each of the buttons is clicked.
+
+<Canvas>
+  <Story
+    name="Default"
+    inline={false}
+    args={{
+      initial_label: 'Notifications have been turned off.',
+      initial_visual_label: 'Give me all the notifications!',
+      swapped_label: 'Notifications have been turned on.',
+      swapped_visual_label: 'Just kidding, stop notifications, please.',
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/button-swap/button-swap.twig',
+            {
+              initial_label: 'Notifications have been turned off.',
+              initial_visual_label: 'Give me all the notifications!',
+              swapped_label: 'Notifications have been turned on.',
+              swapped_visual_label: 'Just kidding, stop notifications, please.',
+            }
+          ),
+        },
+      },
+    }}
+  >
+    {(args) => buttonSwapStory(args)}
+  </Story>
+</Canvas>
+
+## Template Properties
+
+- `class` (string): Appends a CSS class(es) to the root element.
+- `content_start_icon` (string, default `'bell'`): The button [icon](/docs/design-icons--page) (the same icon is applied to both buttons).
+- `initial_label` (string, default `'Unsubscribed from notifications'`): The first button visually hidden text.
+- `initial_visual_label` (string, default `'Get notifications'`): The first button label.
+- `swapped_label` (string, default `'Subscribed to notifications'`): The second button visually hidden text.
+- `swapped_visual_label` (string, default `'Turn off notifications'`): The second button label.
+
+## JavaScript
+
+You'll need to use JavaScript to select the Button Swap component via the `js-button-swap` CSS class and initialize it using the `initButtonSwap` function.
+
+### Syntax
+
+```js
+initButtonSwap(buttonSwapEl, options);
+```
+
+### Parameters
+
+#### `buttonSwapEl`
+
+The `.js-button-swap` Button Swap wrapper element.
+
+#### `options` (optional)
+
+An object which allows you to optionally pass `initialCallback` and `swappedCallback` functions to be called when each button is clicked.
+
+```js
+options?: {
+  initialCallback?: (event: Event) => void;
+  swappedCallback?: (event: Event) => void;
+}
+```
+
+### Return value
+
+An object with a `destroy` function that removes event listeners.
+
+```js
+{ destroy: () => void }
+```
+
+### Examples
+
+#### Single Button Swap component on the page
+
+```js
+// Initialize
+const buttonSwapEl = initButtonSwap(document.querySelector('.js-button-swap'), {
+  initialCallback: () => console.log('Subscribed!'),
+  swappedCallback: () => console.log('Unsubscribed!'),
+});
+
+// Remove all event listeners
+buttonSwapEl.destroy();
+```
+
+#### Multiple Button Swap components on the page
+
+```js
+// Initialize
+const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
+  (buttonSwapEl) =>
+    initButtonSwap(buttonSwapEl, {
+      initialCallback: () => console.log('Subscribed!'),
+      swappedCallback: () => console.log('Unsubscribed!'),
+    })
+);
+
+// Remove all event listeners
+buttonSwapEls.forEach((buttonSwapEl) => {
+  buttonSwapEl.destroy();
+});
+```
+
+## Unsupported features
+
+The following features are not supported but can be in the future if the need arises. The decision was made to forego these features for now since a use case did not exist when developing this component.
+
+- No `content_end_icon` template property support
+- No `content_start`, `content`, or `content_end` block support

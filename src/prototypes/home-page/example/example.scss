@@ -3,8 +3,10 @@
 
 #home-page {
 
+  // Container styles for the PWA book section
   .book-container {
     padding-top: ms.step(6);
+    padding-left: ms.step(1);
     .book-image {
     width: 7em;
     transform: rotate(-5deg);
@@ -12,20 +14,24 @@
     }
   }
 
+ // Upper and lower padding for main containers
   .container-spacing {
     padding-top: ms.step(6);
     padding-bottom: ms.step(6);
   }
 
+  // Adjusts size and positioning of the "Our goals are audacious" cover image
   .cover-image {
     object-position: top;
     height: 28em;
   }
 
+  // Blurb below the Featured Articles heading
   .feature-content {
     padding-top: ms.step(1);
   }
 
+ // Non-card link styles
   .link {
     .link__inner {
       color: #215cca;

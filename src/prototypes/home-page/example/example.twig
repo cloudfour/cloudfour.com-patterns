@@ -1,13 +1,52 @@
 <div id="home-page">
+
+
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose o-container--pad book-container'
+} only %}
+  {% block content %}
+
+
+    {% embed '@cloudfour/objects/media/media.twig' only %}
+      {% block object %}
+        <img src="media/home-page/bookicon.png" class="book-image" />
+      {% endblock %}
+      {% block content %}
+        {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+          class: 'o-rhythm--condensed'
+        } only %}
+          {% block content %}
+            {% include '@cloudfour/components/heading/heading.twig' with {
+              "level": 2,
+              "content": "Progressive Web Apps"
+            } only %}
+            <p>Jason Grigsby answers the what, why, and how of PWAs, from making the case in your organization to reaching your users in bold, new ways.</p>
+            {% include '@cloudfour/components/button/button.twig' with {
+              "content_end_icon": "arrow-right",
+              "label": "Available Now"
+            } only %}
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+
+
+
+
+
+  {% endblock %}
+{% endembed %}
+
+
   {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'o-container--pad'
+    class: 'o-container--pad container-spacing'
   } only %}
     {% block content %}
       {% embed '@cloudfour/objects/deck/deck.twig' only %}
         {% block content %}
-          {% embed '@cloudfour/components/card/card.twig' with { goals: goals } only %}
+          {% embed '@cloudfour/components/card/card.twig' only %}
             {% block heading %}Our goals are audacious.{% endblock %}
-            {% block cover %}<img src="{{goals}}" alt="">{% endblock %}
+            {% block cover %}<img class="cover-image" src="media/home-page/home-goals.svg" alt="">{% endblock %}
             {% block content %}<p>We believe a small company like ours can have an outsized impact on our customers and the world. We bring this perspective to everything we do.</p>{% endblock %}
             {% block footer %}
               {% include '@cloudfour/components/button/button.twig' with {
@@ -16,9 +55,9 @@
               } only %}
             {% endblock %}
           {% endembed %}
-          {% embed '@cloudfour/components/card/card.twig' with { cpe: cpe } only %}
+          {% embed '@cloudfour/components/card/card.twig' only %}
             {% block heading %}We know the terrain.{% endblock %}
-            {% block cover %}<img src="{{cpe}}" alt="">{% endblock %}
+            {% block cover %}<img src="media/home-page/collage-cpe.jpg" alt="">{% endblock %}
             {% block content %}<p>Responsive websites, JavaScript applications, hybrid apps, pattern libraries, you name it… if it’s mobile, we’ve built it.</p>{% endblock %}
             {% block footer %}
             {% include '@cloudfour/components/button/button.twig' with {
@@ -32,26 +71,28 @@
     {% endblock %}
   {% endembed %}
 
+
   <div class="t-alternate">
     {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'o-container--pad'
+    class: 'o-container--pad container-spacing'
     } only %}
       {% block content %}
         {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
           {% block intro %}
-
             {% include '@cloudfour/components/heading/heading.twig' with {
-              "level": 1,
+              "level": 0,
               "weight": "light",
               "content": "Featured Articles"
             } only %}
+
+            <p class="feature-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           {% endblock %}
           {% block content %}
             {% embed '@cloudfour/objects/deck/deck.twig' only %}
               {% block content %}
-                {% embed '@cloudfour/components/card/card.twig' with { speedy: speedy, href: '#' } only %}
+                {% embed '@cloudfour/components/card/card.twig' with { href: '#' } only %}
                   {% block heading %}Faster Integration with Web Components{% endblock %}
-                  {% block cover %}<img src="{{speedy}}" alt="">{% endblock %}
+                  {% block cover %}<img src="media/home-page/speedy-web-components.png" alt="">{% endblock %}
                   {% block content %}<p>Web components promise speedier integration. At some level, I understood this. I've even made this…</p>{% endblock %}
                   {% block footer %}
                     {% include '@cloudfour/components/author/author.twig' with {
@@ -67,9 +108,9 @@
                   {% endblock %}
                 {% endembed %}
 
-                {% embed '@cloudfour/components/card/card.twig' with { plugins: plugins, href: '#' } only %}
+                {% embed '@cloudfour/components/card/card.twig' with { href: '#' } only %}
                   {% block heading %}Cooperative Design Systems{% endblock %}
-                  {% block cover %}<img src="{{plugins}}" alt="">{% endblock %}
+                  {% block cover %}<img src="media/home-page/cooperative-plugins.png" alt="">{% endblock %}
                   {% block content %}<p>Strategies for when the goals of your project, team or users diverge from those of…</p>
                   {% endblock %}
                   {% block footer %}
@@ -84,15 +125,184 @@
                       "date": "2019-09-09T07:00:00.000Z"
                     } only %}
                   {% endblock %}
-
-
                 {% endembed %}
 
               {% endblock %}
             {% endembed %}
           {% endblock %}
+          {% block action %}
+            {% include '@cloudfour/components/button/button.twig' with {
+              class: 'c-button--secondary',
+              "content_end_icon": "arrow-right",
+              "label": "More Articles"
+            } only %}
+          {% endblock %}
         {% endembed %}
       {% endblock %}
     {% endembed %}
   </div>
+
+  {% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad container-spacing'
+  } only %}
+    {% block content %}
+      {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
+        {% block intro %}
+          {% include '@cloudfour/components/heading/heading.twig' with {
+            "level": 0,
+            "weight": "light",
+            "content": "Upcoming Talks"
+          } only %}
+        {% endblock %}
+        {% block content %}
+          {% embed '@cloudfour/objects/deck/deck.twig' with {
+            class: 'o-deck--2-column@m'
+          } only %}
+            {% block content %}
+
+              {% embed '@cloudfour/objects/media/media.twig' with {
+                reverse_markup: true
+              } only %}
+                {% block object %}
+                  {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
+                    datetime: '2021-10-07',
+                  } only %}
+                {% endblock %}
+                {% block content %}
+                  <a href="#" class="link">
+                    {% include '@cloudfour/components/heading/heading.twig' with {
+                      class: "link__inner",
+                      "level": 2,
+                      "content": "PWA Summit"
+                    } only %}
+                  </a>
+                  <p>Online</p>
+                  <p>Speaker: Jason, Gerardo</p>
+                {% endblock %}
+              {% endembed %}
+
+              {% embed '@cloudfour/objects/media/media.twig' with {
+                reverse_markup: true,
+              } only %}
+                {% block object %}
+                  {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
+                    datetime: '2020-10-13',
+                  } only %}
+                {% endblock %}
+                {% block content %}
+                  <a href="#" class="link">
+                    {% include '@cloudfour/components/heading/heading.twig' with {
+                      class: "link__inner",
+                      "level": 2,
+                      "content": "An Event Apart Full Summit"
+                    } only %}
+                  </a>
+                  <p>Online</p>
+                  <p>Speaker: Jason</p>
+                {% endblock %}
+              {% endembed %}
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
+        {% block action %}
+          {% include '@cloudfour/components/button/button.twig' with {
+            class: 'c-button--secondary',
+            "content_end_icon": "arrow-right",
+            "label": "Our Talks"
+          } only %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/contributes",
+          "title": "Labs"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        },
+        {
+          "link": "/portland-device-lab",
+          "title": "Device Lab"
+        },
+        {
+          "link": "https://cloudfour-patterns.netlify.app/",
+          "title": "Patterns"
+        },
+        {
+          "link": "https://www.responsivefieldday.com/",
+          "title": "Responsive Field Day"
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "link": "https://twitter.com/cloudfour",
+          "title": "Follow us on Twitter",
+          "icon": "brands/twitter"
+        },
+        {
+          "link": "https://github.com/cloudfour",
+          "title": "Find us on GitHub",
+          "icon": "brands/github"
+        },
+        {
+          "link": "https://www.instagram.com/cloudfourpdx/",
+          "title": "Follow us on Instagram",
+          "icon": "brands/instagram"
+        },
+        {
+          "link": "https://www.linkedin.com/company/cloud-four",
+          "title": "Follow us on LinkedIn",
+          "icon": "brands/linkedin"
+        }
+      ]
+    },
+    "action": {
+      "lead_in": "Let’s discuss your project!",
+      "title": "Email us",
+      "link": "mailto:info@cloudfour.com",
+      "icon": "envelope"
+    },
+    "organization": {
+      "name": "Cloud Four, Inc.",
+      "address": {
+        "street_address": "510 SW 3rd Ave, Suite 420",
+        "address_locality": "Portland",
+        "address_region": "Oregon",
+        "postal_code": "97204",
+        "address_country": "USA"
+      },
+      "email": "info@cloudfour.com",
+      "telephone": "+1 (503) 290-1090",
+      "url": "https://cloudfour.com/",
+      "founding_date": "2007-12-13"
+    }
+  } only %}
 </div>

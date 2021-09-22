@@ -1,0 +1,33 @@
+@use "../../../mixins/ms";
+@use "../../../compiled/tokens/scss/size";
+@use "../../../compiled/tokens/scss/color";
+
+#error404 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .main-container {
+    // border: 1px solid salmon;
+    max-width: 65em;
+  }
+
+    img {
+    // border: 1px solid salmon;
+    width: 30em;
+  }
+}
+
+#offline {
+  .main-container {
+    padding-top: ms.step(6);
+    padding-bottom: ms.step(6);
+    // background-color: red;
+  }
+
+  img {
+    width: 12em;
+    height: 12em;
+  }
+}

@@ -1,0 +1,45 @@
+<div id="error404" class="t-dark">
+
+  {% embed '@cloudfour/objects/container/container.twig' with {
+    class: 'o-container--pad main-container'
+  } only %}
+    {% block content %}
+      {% embed '@cloudfour/objects/media/media.twig' with {
+        reverse: true
+      } only %}
+        {% block object %}
+          <img src="media/404-robot.svg" />
+        {% endblock %}
+        {% block content %}
+          {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+            class: 'o-rhythm--condensed'
+          } only %}
+            {% block content %}
+              {% include '@cloudfour/components/heading/heading.twig' with {
+                level: -2,
+                content: 'Cloud 404!'
+              } only %}
+              <p>We can't seem to find the page you're looking for. But don't give up! Try browsing our <a href="#">list of topics</a> to find something of interest.</p>
+              {% embed '@cloudfour/objects/input-group/input-group.twig' %}
+                {% block content %}
+                  {% include '@cloudfour/components/input/input.twig' only %}
+                  {% embed '@cloudfour/components/button/button.twig' with {
+                    class: 'search-btn'
+                  }  %}
+                    {% block content %}
+                      {% include '@cloudfour/components/icon/icon.twig' with {
+                        name: 'magnifying-glass'
+                      } %}
+                    {% endblock %}
+                  {% endembed %}
+                {% endblock %}
+              {% endembed %}
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+
+</div>
+

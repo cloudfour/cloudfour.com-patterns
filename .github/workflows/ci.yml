@@ -88,7 +88,5 @@ jobs:
         run: npm ci
       - name: Run Preprocess
         run: npm run preprocess
-      - name: Run Build (necessary for including css file in tests)
-        run: npm run build
       - name: Run Tests
         run: npm run test

@@ -1,33 +1,133 @@
 @use "../../../mixins/ms";
 @use "../../../compiled/tokens/scss/size";
 @use "../../../compiled/tokens/scss/color";
+@use "../../../compiled/tokens/scss/breakpoint";
 
 #error404 {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  .main-container {
-    // border: 1px solid salmon;
-    max-width: 65em;
-  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: breakpoint.$l) {
+      padding-top: 4em;
+    }
+
+    .o-media {
+      max-width: 70em;
+      display: grid;
+      grid-template-areas:
+      'object'
+      'content';
+      @media (min-width: breakpoint.$l) {
+        grid-template-areas:
+        'content object';
+        grid-template-columns: repeat( 1, 2fr);
+      }
+
+      &__object {
+        grid-area: object;
+      }
+
+      &__content {
+        grid-area: content;
+      }
+    }
+
+    .heading {
+      font-size: 3em;
+
+      @media (min-width: breakpoint.$l) {
+        font-size: 6em;
+      }
+    }
 
     img {
-    // border: 1px solid salmon;
-    width: 30em;
+      padding-bottom: ms.step(0);
+      width: 100%;
+      @media (min-width: breakpoint.$l) {
+        padding-left: ms.step(5);
+        width:40em;
+      }
+    }
+  }
+
+    .c-cloud-cover {
+      height: 9.5em;
+      @media (min-width: breakpoint.$l) {
+        height: 11em;
+      }
+    }
+
+  .footer-content {
+    margin-top: .5em;
+    @media (min-width: breakpoint.$l) {
+      margin-top: -3em;
+    }
   }
 }
 
+
 #offline {
-  .main-container {
-    padding-top: ms.step(6);
-    padding-bottom: ms.step(6);
-    // background-color: red;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: breakpoint.$l) {
+      padding-top: 4em;
+    }
+
+    .o-media {
+      max-width: 70em;
+      display: grid;
+      grid-template-areas:
+      'object'
+      'content';
+      @media (min-width: breakpoint.$l) {
+        grid-template-areas:
+        'content object';
+        grid-template-columns: repeat( 1, 2fr);
+      }
+
+      &__object {
+        grid-area: object;
+      }
+
+      &__content {
+        grid-area: content;
+      }
+    }
+
+    .heading {
+      font-size: 3em;
+
+      @media (min-width: breakpoint.$l) {
+        font-size: 4em;
+      }
+    }
+
+    img {
+      padding-bottom: ms.step(0);
+      width: 100%;
+      @media (min-width: breakpoint.$l) {
+        padding-left: ms.step(5);
+        width:40em;
+      }
+    }
   }
 
-  img {
-    width: 12em;
-    height: 12em;
+    .c-cloud-cover {
+      height: 9.5em;
+      @media (min-width: breakpoint.$l) {
+        height: 11em;
+      }
+    }
+
+  .footer-content {
+    margin-top: .5em;
+    @media (min-width: breakpoint.$l) {
+      margin-top: -3em;
+    }
   }
 }

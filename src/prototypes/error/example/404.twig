@@ -1,39 +1,86 @@
-<div id="error404" class="t-dark">
+<div id="error404">
 
+  {% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
+    "class": "t-dark",
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/contributes",
+          "title": "Labs"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        }
+      ]
+    }
+  } only %}
   {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'o-container--pad main-container'
+    class: 'wrapper t-dark'
   } only %}
     {% block content %}
-      {% embed '@cloudfour/objects/media/media.twig' with {
-        reverse: true
+      {% embed '@cloudfour/objects/container/container.twig' with {
+        class: 'o-container--pad'
       } only %}
-        {% block object %}
-          <img src="media/404-robot.svg" />
-        {% endblock %}
         {% block content %}
-          {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-            class: 'o-rhythm--condensed'
+
+          {% embed '@cloudfour/objects/media/media.twig' with {
+            reverse: true,
           } only %}
+
+            {% block object %}
+              <img src="media/404-robot.svg" />
+            {% endblock %}
+
             {% block content %}
-              {% include '@cloudfour/components/heading/heading.twig' with {
-                level: -2,
-                content: 'Cloud 404!'
+
+              {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+                class: 'o-rhythm--condensed'
               } only %}
-              <p>We can't seem to find the page you're looking for. But don't give up! Try browsing our <a href="#">list of topics</a> to find something of interest.</p>
-              {% embed '@cloudfour/objects/input-group/input-group.twig' %}
                 {% block content %}
-                  {% include '@cloudfour/components/input/input.twig' only %}
-                  {% embed '@cloudfour/components/button/button.twig' with {
-                    class: 'search-btn'
-                  }  %}
-                    {% block content %}
-                      {% include '@cloudfour/components/icon/icon.twig' with {
-                        name: 'magnifying-glass'
-                      } %}
-                    {% endblock %}
-                  {% endembed %}
-                {% endblock %}
-              {% endembed %}
+
+                {% include '@cloudfour/components/heading/heading.twig' with {
+                  "content": "Cloud 404!",
+                  class: 'heading'
+                } only %}
+                <p>We can't seem to find the page you're looking for. But don't give up! Try browsing our <a href="#">list of topics</a> or use this handy-dandy search...</p>
+                {% embed '@cloudfour/objects/input-group/input-group.twig' %}
+                  {% block content %}
+                    {% include '@cloudfour/components/input/input.twig' only %}
+                    {% embed '@cloudfour/components/button/button.twig' with {
+                      class: 'search-btn'
+                    }  %}
+                      {% block content %}
+                        {% include '@cloudfour/components/icon/icon.twig' with {
+                          name: 'magnifying-glass'
+                        } %}
+                      {% endblock %}
+                    {% endembed %}
+                  {% endblock %}
+                {% endembed %}
+              {% endblock %}
+            {% endembed %}
             {% endblock %}
           {% endembed %}
         {% endblock %}
@@ -41,5 +88,12 @@
     {% endblock %}
   {% endembed %}
 
+  {% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
+    {% block content %}
+      <p class="footer-content">
+        © 2007 - 2021 Cloud Four, Inc.
+      </p>
+    {% endblock %}
+  {% endembed %}
 </div>
 

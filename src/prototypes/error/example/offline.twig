@@ -36,26 +36,37 @@
       ]
     }
   } only %}
-
   {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'o-container--prose o-container--pad main-container'
+    class: 'wrapper t-dark'
   } only %}
-    {% block content %}
-      {% embed '@cloudfour/objects/media/media.twig' only %}
-        {% block object %}
-          <img src="media/wifi.svg" />
-        {% endblock %}
-        {% block content %}
 
-          {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-            class: 'o-rhythm--condensed'
+    {% block content %}
+      {% embed '@cloudfour/objects/container/container.twig' with {
+        class: 'o-container--pad'
+      } only %}
+        {% block content %}
+          {% embed '@cloudfour/objects/media/media.twig' with {
+            reverse: true,
           } only %}
+            {% block object %}
+              <img src="media/404-robot.svg" />
+            {% endblock %}
+
             {% block content %}
-              {% include '@cloudfour/components/heading/heading.twig' with {
-                level: 2,
-                content: 'Your Device is Offline'
+
+              {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+                class: 'o-rhythm--condensed'
               } only %}
-              <p>Here at Cloud Four, we scout the frontier of the web to find practical uses for new technology. Like, offline web pages and progressive web apps. Sorry you have no connection at the moment. Let’s work together to make the web a good place for on and offline experiences!</p>
+                {% block content %}
+
+                {% include '@cloudfour/components/heading/heading.twig' with {
+                  "content": "Your Device is Offline!",
+                  class: 'heading'
+                } only %}
+                  <p>Here at Cloud Four, we scout the frontier of the web to find practical uses for new technology. Like, offline web pages and progressive web apps. Sorry you have no connection at the moment. Let’s work together to make the web a good place for on and offline experiences!</p>
+
+                {% endblock %}
+              {% endembed %}
             {% endblock %}
           {% endembed %}
         {% endblock %}
@@ -63,96 +74,12 @@
     {% endblock %}
   {% endembed %}
 
-  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
-    "menu": {
-      "items": [
-        {
-          "link": "/does",
-          "title": "What We Do",
-          "current": true
-        },
-        {
-          "link": "/believes",
-          "title": "Our Approach"
-        },
-        {
-          "link": "/made",
-          "title": "Our Work"
-        },
-        {
-          "link": "/thinks",
-          "title": "Articles"
-        },
-        {
-          "link": "/presents",
-          "title": "Speaking"
-        },
-        {
-          "link": "/contributes",
-          "title": "Labs"
-        },
-        {
-          "link": "/is",
-          "title": "Team"
-        },
-        {
-          "link": "/portland-device-lab",
-          "title": "Device Lab"
-        },
-        {
-          "link": "https://cloudfour-patterns.netlify.app/",
-          "title": "Patterns"
-        },
-        {
-          "link": "https://www.responsivefieldday.com/",
-          "title": "Responsive Field Day"
-        }
-      ]
-    },
-    "social": {
-      "items": [
-        {
-          "link": "https://twitter.com/cloudfour",
-          "title": "Follow us on Twitter",
-          "icon": "brands/twitter"
-        },
-        {
-          "link": "https://github.com/cloudfour",
-          "title": "Find us on GitHub",
-          "icon": "brands/github"
-        },
-        {
-          "link": "https://www.instagram.com/cloudfourpdx/",
-          "title": "Follow us on Instagram",
-          "icon": "brands/instagram"
-        },
-        {
-          "link": "https://www.linkedin.com/company/cloud-four",
-          "title": "Follow us on LinkedIn",
-          "icon": "brands/linkedin"
-        }
-      ]
-    },
-    "action": {
-      "lead_in": "Let’s discuss your project!",
-      "title": "Email us",
-      "link": "mailto:info@cloudfour.com",
-      "icon": "envelope"
-    },
-    "organization": {
-      "name": "Cloud Four, Inc.",
-      "address": {
-        "street_address": "510 SW 3rd Ave, Suite 420",
-        "address_locality": "Portland",
-        "address_region": "Oregon",
-        "postal_code": "97204",
-        "address_country": "USA"
-      },
-      "email": "info@cloudfour.com",
-      "telephone": "+1 (503) 290-1090",
-      "url": "https://cloudfour.com/",
-      "founding_date": "2007-12-13"
-    }
-  } only %}
-
+  {% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
+    {% block content %}
+      <p class="footer-content">
+        © 2007 - 2021 Cloud Four, Inc.
+      </p>
+    {% endblock %}
+  {% endembed %}
 </div>
+

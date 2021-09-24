@@ -143,7 +143,7 @@
     "lint:prettier:check": "prettier . --check",
     "test": "jest",
     "test:watch": "jest --watch",
-    "validate": "run-s test lint:check type",
+    "validate": "run-s build test lint:check type",
     "version": "changeset version && prettier --write .",
     "release": "npm run build && changeset publish"
   }

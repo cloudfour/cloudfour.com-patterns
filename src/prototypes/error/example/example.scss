@@ -19,6 +19,7 @@
       grid-template-areas:
       'object'
       'content';
+      gap: 10px;
       @media (min-width: breakpoint.$l) {
         grid-template-areas:
         'content object';
@@ -34,21 +35,16 @@
       }
     }
 
-    .heading {
-      font-size: 3em;
-      // line-height: .75em;
-
-      @media (min-width: breakpoint.$l) {
-        font-size: 6em;
-      }
-    }
-
     img {
       padding-bottom: ms.step(0);
       width: 100%;
       @media (min-width: breakpoint.$l) {
         padding-left: ms.step(5);
-        width:40em;
+        width: 31em;
+      }
+      @media (min-width: breakpoint.$xl) {
+        padding-left: ms.step(5);
+        width: 35em;
       }
     }
   }
@@ -100,20 +96,16 @@
       }
     }
 
-    .heading {
-      font-size: 3em;
-
-      @media (min-width: breakpoint.$l) {
-        font-size: 4em;
-      }
-    }
-
     img {
       padding-bottom: ms.step(0);
       width: 100%;
       @media (min-width: breakpoint.$l) {
         padding-left: ms.step(5);
-        width:40em;
+        width: 32em;
+      }
+      @media (min-width: breakpoint.$xl) {
+        padding-left: ms.step(5);
+        width: 35em;
       }
     }
   }

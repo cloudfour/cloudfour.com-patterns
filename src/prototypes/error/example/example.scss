@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     @media (min-width: breakpoint.$l) {
-      padding-top: 4em;
+      padding-top: 3em;
     }
 
     .o-media {
@@ -50,10 +50,7 @@
   }
 
   .c-cloud-cover {
-    height: 10em;
-    @media (min-width: breakpoint.$l) {
-      height: 11em;
-    }
+    height: 12em;
   }
 
   .footer-content {
@@ -61,7 +58,7 @@
     margin-top: 1.5em;
 
     @media (min-width: breakpoint.$m) {
-      margin-top: 0;
+      margin-top: -1.5em;
       width: 100%;
     }
   }
@@ -114,18 +111,15 @@
   }
 
   .c-cloud-cover {
-    height: 10em;
-    @media (min-width: breakpoint.$l) {
-      height: 11em;
+      height: 12em;
     }
-  }
 
   .footer-content {
     width: 55%;
     margin-top: 1.5em;
 
     @media (min-width: breakpoint.$m) {
-      margin-top: 0;
+      margin-top: -1.5em;
       width: 100%;
     }
   }

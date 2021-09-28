@@ -49,17 +49,20 @@
     }
   }
 
-    .c-cloud-cover {
-      height: 9.5em;
-      @media (min-width: breakpoint.$l) {
-        height: 11em;
-      }
+  .c-cloud-cover {
+    height: 10em;
+    @media (min-width: breakpoint.$l) {
+      height: 11em;
     }
+  }
 
   .footer-content {
-    margin-top: .5em;
-    @media (min-width: breakpoint.$l) {
-      margin-top: -3em;
+    width: 55%;
+    margin-top: 1.5em;
+
+    @media (min-width: breakpoint.$m) {
+      margin-top: 0;
+      width: 100%;
     }
   }
 }
@@ -110,17 +113,20 @@
     }
   }
 
-    .c-cloud-cover {
-      height: 11.5em;
-      @media (min-width: breakpoint.$l) {
-        height: 11em;
-      }
+  .c-cloud-cover {
+    height: 10em;
+    @media (min-width: breakpoint.$l) {
+      height: 11em;
     }
+  }
 
   .footer-content {
-    margin-top: -.5em;
-    @media (min-width: breakpoint.$l) {
-      margin-top: -3em;
+    width: 55%;
+    margin-top: 1.5em;
+
+    @media (min-width: breakpoint.$m) {
+      margin-top: 0;
+      width: 100%;
     }
   }
 }

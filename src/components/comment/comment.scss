@@ -83,10 +83,9 @@
   margin-top: math.div(size.$rhythm-condensed, -4);
 }
 
-
- // We added default styles to the blockquote element using the `wp-block-quote`
- // class. We're applying those same styles here, so comment blockquotes look
- // the similar.
+// We added default styles to the blockquote element using the `wp-block-quote`
+// class. We're applying those same styles here, so comment blockquotes look
+// the similar.
 
 .c-comment__content blockquote {
   border-left: size.$edge-medium solid color.$base-gray-light;

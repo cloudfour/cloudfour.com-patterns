@@ -204,8 +204,14 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   padding: ms.step(1);
 }
 
+/**
+ * 1. Adjacent children of blockquotes have vertical spacing. Making `cite`
+ *    a block level element so that it has the same spacing.
+ */
+
 .wp-block-pullquote cite,
 .wp-block-quote cite {
+  display: block; /* 1 */
   font-style: normal;
 }
 
@@ -267,10 +273,6 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   }
 
   cite {
-    font-size: ms.step(0);
-  }
-
-  footer {
     font-size: ms.step(0);
     text-align: left;
   }

@@ -83,6 +83,24 @@
   margin-top: math.div(size.$rhythm-condensed, -4);
 }
 
+
+ // We added default styles to the blockquote element using the `wp-block-quote`
+ // class. We're applying those same styles here, so comment blockquotes look
+ // the similar.
+
+.c-comment__content blockquote {
+  border-left: size.$edge-medium solid color.$base-gray-light;
+  color: color.$base-gray-dark;
+}
+
+.c-comment__content blockquote cite {
+  font-style: normal;
+}
+
+.c-comment__content blockquote cite::before {
+  content: '\2014';
+}
+
 .c-comment__footer {
   grid-area: footer;
 }

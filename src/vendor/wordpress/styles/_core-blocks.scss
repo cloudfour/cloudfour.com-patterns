@@ -182,7 +182,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 }
 
 /**
- * 1. Reset margin
+ * 1. Reset bottom margin
  * 2. Reset padding
  * 3. Reset text alignment
  */
@@ -190,7 +190,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 .wp-block-pullquote {
   background-color: color.$base-gray-lighter;
   border-radius: size.$border-radius-medium;
-  margin: 0; /* 1 */
+  margin-bottom: 0; /* 1 */
   padding: 0; /* 2 */
   text-align: left; /* 3 */
 }
@@ -215,7 +215,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 
 .wp-block-pullquote cite::before,
 .wp-block-quote cite::before {
-  content: '\2014',
+  content: '\2014';
 }
 
 /**
@@ -234,7 +234,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  * Reset the max-width so the text spans the width of the container.
  */
 
- .wp-block-pullquote.is-style-solid-color {
+.wp-block-pullquote.is-style-solid-color {
   blockquote {
     max-width: 100%;
   }
@@ -257,9 +257,9 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 */
 .wp-block-quote.is-style-large,
 .wp-block-quote.is-large {
-  margin: 0;  /* 1 */
-  padding-left: ms.step(1);  /* 1 */
-  padding-right: 0;  /* 1 */
+  margin: 0; /* 1 */
+  padding-left: ms.step(1); /* 1 */
+  padding-right: 0; /* 1 */
 
   p {
     font-size: ms.step(0);

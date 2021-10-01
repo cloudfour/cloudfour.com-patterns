@@ -1,0 +1,7 @@
+/**
+ * Create an em dash.
+ */
+
+@mixin content {
+  content: '\2014';
+}

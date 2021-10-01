@@ -10,6 +10,9 @@
           "value": "9999px",
           "comment": "A value of 50% would be more intuitive, but results in unexpectedly oblong rounding for non-square shapes. We use `px` to save the browser the trouble of recalculating the stupidly large value."
         }
+      },
+      "width": {
+        "blockquote": { "value": "{size.edge.medium.value}" }
       }
     }
   }

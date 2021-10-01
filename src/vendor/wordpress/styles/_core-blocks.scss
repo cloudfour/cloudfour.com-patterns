@@ -4,6 +4,7 @@
 @use "../../../compiled/tokens/scss/line-height";
 @use "../../../compiled/tokens/scss/size";
 @use "../../../mixins/button";
+@use "../../../mixins/emdash";
 @use "../../../mixins/ms";
 @use "../../../mixins/table";
 
@@ -178,7 +179,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 
 .wp-block-pullquote,
 .wp-block-quote {
-  color: color.$base-gray-dark;
+  color: color.$text-blockquote;
 }
 
 /**
@@ -221,7 +222,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 
 .wp-block-pullquote cite::before,
 .wp-block-quote cite::before {
-  content: '\2014';
+  @include emdash.content;
 }
 
 /**
@@ -254,7 +255,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 }
 
 .wp-block-quote {
-  border-left: size.$edge-medium solid color.$base-gray-light;
+  border-left: size.$border-width-blockquote solid color.$border-blockquote;
 }
 
 /**

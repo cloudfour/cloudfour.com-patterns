@@ -1,0 +1,7 @@
+{
+  "color": {
+    "border": {
+      "blockquote": { "value": "{color.base.gray_light.value}" }
+    }
+  }
+}

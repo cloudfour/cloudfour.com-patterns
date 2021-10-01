@@ -2,6 +2,7 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/size';
+@use '../../mixins/emdash';
 @use '../../mixins/headings';
 @use '../../mixins/theme';
 
@@ -88,16 +89,17 @@
 // the similar.
 
 .c-comment__content blockquote {
-  border-left: size.$edge-medium solid color.$base-gray-light;
-  color: color.$base-gray-dark;
+  border-left: size.$border-width-blockquote solid color.$border-blockquote;
+  color: color.$text-blockquote;
 }
 
 .c-comment__content blockquote cite {
   font-style: normal;
+
 }
 
 .c-comment__content blockquote cite::before {
-  content: '\2014';
+  @include emdash.content;
 }
 
 .c-comment__footer {

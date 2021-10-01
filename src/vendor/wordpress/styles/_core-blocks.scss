@@ -16,7 +16,6 @@
 @include theme.props() {
   --theme-color-border-blockquote: #{color.$border-blockquote-light};
   --theme-color-text-blockquote: #{color.$text-blockquote-light};
-
 }
 
 @include theme.props(dark) {
@@ -278,9 +277,8 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 }
 
 .wp-block-quote {
-  border-left: size.$border-width-blockquote solid var(--theme-color-border-blockquote);
-
-
+  border-left: size.$border-width-blockquote solid
+    var(--theme-color-border-blockquote);
 }
 
 /**

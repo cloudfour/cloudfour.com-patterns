@@ -22,7 +22,13 @@
         "comment": "Accessible on white and lighter-gray."
       },
       "blockquote": {
-        "value": "{color.base.gray_dark.value}"
+        "dark": {
+          "value": "{color.text.light.value}"
+        },
+        "light": {
+          "value": "{color.base.gray_dark.value}"
+        }
+
       }
     }
   }

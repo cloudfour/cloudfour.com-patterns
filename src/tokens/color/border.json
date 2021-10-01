@@ -1,7 +1,14 @@
 {
   "color": {
     "border": {
-      "blockquote": { "value": "{color.base.gray_light.value}" }
+      "blockquote": {
+        "dark": {
+          "value": "{color.base.blue_darker.value}"
+        },
+        "light": {
+          "value": "{color.base.gray_light.value}"
+        }
+      }
     }
   }
 }

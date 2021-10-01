@@ -26,7 +26,7 @@
 /// those comments visually with their parent.
 .c-comment.is-replying::after,
 .c-comment--thread::after {
-  background-color: var(--theme-color-border-kbd);
+  background-color: var(--theme-color-border-text-group);
   border-radius: size.$border-radius-full;
   content: '';
   display: block;

@@ -6,20 +6,6 @@
 @use '../../mixins/headings';
 @use '../../mixins/theme';
 
-/**
- * Themed properties
- */
-
-@include theme.props() {
-  --theme-color-border-blockquote: #{color.$border-blockquote-light};
-  --theme-color-text-blockquote: #{color.$text-blockquote-light};
-}
-
-@include theme.props(dark) {
-  --theme-color-border-blockquote: #{color.$border-blockquote-dark};
-  --theme-color-text-blockquote: #{color.$text-blockquote-dark};
-}
-
 .c-comment {
   display: grid;
   grid-column-gap: size.$spacing-gap-inline-medium;
@@ -40,6 +26,7 @@
 /// those comments visually with their parent.
 .c-comment.is-replying::after,
 .c-comment--thread::after {
+  background-color: var(--theme-color-border-kbd);
   border-radius: size.$border-radius-full;
   content: '';
   display: block;
@@ -48,14 +35,6 @@
   margin-left: auto;
   margin-right: auto;
   width: size.$edge-medium;
-
-  @include theme.styles() {
-    background-color: color.$base-gray-light;
-  }
-
-  @include theme.styles(dark) {
-    background-color: color.$base-blue-darker;
-  }
 }
 
 /// Comment reply forms are hidden until someone starts a reply.
@@ -103,9 +82,8 @@
 // the similar.
 
 .c-comment__content blockquote {
-  border-left: size.$border-width-blockquote solid
-    var(--theme-color-border-blockquote);
-  color: var(--theme-color-text-blockquote);
+  border-left: size.$border-width-blockquote solid var(--theme-color-border-kbd);
+  color: var(--theme-color-text-muted);
 }
 
 .c-comment__content blockquote cite {

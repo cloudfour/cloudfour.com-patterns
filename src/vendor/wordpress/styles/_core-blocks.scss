@@ -10,20 +10,6 @@
 @use "../../../mixins/theme";
 
 /**
- * Themed properties
- */
-
-@include theme.props() {
-  --theme-color-border-blockquote: #{color.$border-blockquote-light};
-  --theme-color-text-blockquote: #{color.$text-blockquote-light};
-}
-
-@include theme.props(dark) {
-  --theme-color-border-blockquote: #{color.$border-blockquote-dark};
-  --theme-color-text-blockquote: #{color.$text-blockquote-dark};
-}
-
-/**
  * Gutenberg block: Button
  * Applies our pattern library styles to buttons generated via Gutenberg blocks.
  */
@@ -194,7 +180,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 
 .wp-block-pullquote,
 .wp-block-quote {
-  color: var(--theme-color-text-blockquote);
+  color: var(--theme-color-text-muted);
 }
 
 /**
@@ -204,18 +190,11 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 
 .wp-block-pullquote {
+  background-color: var(--theme-color-background-secondary);
   border-radius: size.$border-radius-medium;
   margin-bottom: 0; /* 1 */
   padding: 0; /* 2 */
   text-align: left; /* 3 */
-
-  @include theme.styles() {
-    background-color: color.$base-gray-lighter;
-  }
-
-  @include theme.styles(dark) {
-    background-color: color.$brand-primary-dark;
-  }
 }
 
 /**
@@ -277,8 +256,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 }
 
 .wp-block-quote {
-  border-left: size.$border-width-blockquote solid
-    var(--theme-color-border-blockquote);
+  border-left: size.$border-width-blockquote solid var(--theme-color-border-kbd);
 }
 
 /**

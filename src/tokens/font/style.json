@@ -1,8 +1,0 @@
-{
-  "font": {
-    "style": {
-      "normal": { "value": "normal" },
-      "blockquote": { "value": "{font.style.normal.value}" }
-    }
-  }
-}

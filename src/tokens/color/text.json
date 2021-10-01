@@ -20,14 +20,6 @@
       "action": {
         "value": "{color.base.blue.value}",
         "comment": "Accessible on white and lighter-gray."
-      },
-      "blockquote": {
-        "dark": {
-          "value": "{color.text.light.value}"
-        },
-        "light": {
-          "value": "{color.base.gray_dark.value}"
-        }
       }
     }
   }

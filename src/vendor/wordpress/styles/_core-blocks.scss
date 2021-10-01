@@ -256,7 +256,8 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 }
 
 .wp-block-quote {
-  border-left: size.$border-width-blockquote solid var(--theme-color-border-text-group);
+  border-left: size.$border-width-blockquote solid
+    var(--theme-color-border-text-group);
 }
 
 /**

@@ -43,13 +43,12 @@
 
       {% embed '@cloudfour/components/alert/alert.twig' with {
         "dismissable": true,
+        floating: true,
+        icon_name: 'bell',
         class: 'alert-container'
       } only %}
         {% block content %}
-          <div class="icon">
-            <img src="media/offline.svg" />
-          </div>
-          <p class="text">
+          <p>
           You appear to be offline. <a href="#">Try again</a>.
           </p>
         {% endblock %}

@@ -48,6 +48,27 @@
   }
 }
 
+// Adds a box shadow to add the appearance of the alert floating
+// above the containers below. Floating has a white background for higher
+// contrast between the background and the shadow.
+.c-alert--floating {
+  background-color: white;
+  box-shadow: 0 0 0 2px hsla(224, 65%, 16%, 0.2),
+    4px 4px 0 2px hsla(224, 65%, 16%, 0.1);
+}
+
+.c-alert--icon {
+  align-items: center;
+  background-color: lighten(color.$base-orange, 30%);
+  border-bottom-left-radius: size.$border-radius-medium;
+  border-top-left-radius: size.$border-radius-medium;
+  color: color.$base-orange;
+  display: flex;
+  grid-area: icon;
+  justify-content: center;
+  width: ms.step(5);
+}
+
 .c-alert__content {
   grid-area: content;
 }
@@ -88,25 +109,4 @@
   .c-alert__dismiss:active & {
     transform: scale(scale.$effect-shrink);
   }
-}
-
-.c-alert__icon {
-  align-items: center;
-  background-color: lighten(color.$base-orange, 30%);
-  border-bottom-left-radius: size.$border-radius-medium;
-  border-top-left-radius: size.$border-radius-medium;
-  color: color.$base-orange;
-  display: flex;
-  grid-area: icon;
-  justify-content: center;
-  width: ms.step(5);
-}
-
-// Adds a box shadow to add the appearance of the alert floating
-// above the containers below. Floating has a white background for higher
-// contrast between the background and the shadow.
-.c-alert__floating {
-  background-color: white;
-  box-shadow: 0 0 0 2px hsla(224, 65%, 16%, 0.2),
-    4px 4px 0 2px hsla(224, 65%, 16%, 0.1);
 }

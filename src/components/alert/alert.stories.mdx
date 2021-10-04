@@ -68,11 +68,47 @@ By default, alerts assume they'll display within page content. For alerts meant 
   </Story>
 </Canvas>
 
+## Icon
+
+An option to add an icon to the alert. You can add any icon name from our library in the `icon_name` property. Right now, the color is hardcoded to orange, but it would be nice to add more color options in the future.
+
+<Canvas>
+  <Story
+    name="Icon"
+    args={{
+      message: 'Your action was completed successfully! 🎉',
+      icon_name: 'check',
+    }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
+## Floating
+
+By adding `floating: true`, a light border and shadow will be added to the alert for a floating effect. The background is white to improve the contrast between the border, shadow and background. In the future, we could make it a possibilty to change the background color by itself.
+
+<Canvas>
+  <Story
+    name="Floating"
+    args={{
+      message: 'You appear to be offline. 🤔',
+      dismissable: true,
+      floating: true,
+      icon_name: 'bell',
+    }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
 ## Template Properties
 
 - `class` (string)
+- `icon_name` (string)
 - `dismissable` (boolean, default `false`)
 - `full_width` (boolean, default `false`)
+- `floating` (boolean, default `false`)
 - `message` (string, default `'Hello world!'`)
 - `tag_name` (string, default `'div'`)
 

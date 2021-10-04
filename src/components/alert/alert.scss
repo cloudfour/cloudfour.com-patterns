@@ -35,10 +35,10 @@
   display: grid;
   grid-column-gap: ms.step(1);
   grid-template-areas:
-    '. . dismiss'
-    '. content dismiss'
-    '. . dismiss';
-  grid-template-columns: 0 1fr minmax(0, auto);
+    'icon .       dismiss'
+    'icon content dismiss'
+    'icon .       dismiss';
+  grid-template-columns: minmax(0, auto) 1fr minmax(0, auto);
   grid-template-rows: ms.step(-1) minmax(0, auto) ms.step(-1);
 
   /// We only bother constraining this element when it's full-width.
@@ -88,4 +88,25 @@
   .c-alert__dismiss:active & {
     transform: scale(scale.$effect-shrink);
   }
+}
+
+.c-alert__icon {
+  align-items: center;
+  background-color: lighten(color.$base-orange, 30%);
+  border-bottom-left-radius: size.$border-radius-medium;
+  border-top-left-radius: size.$border-radius-medium;
+  color: color.$base-orange;
+  display: flex;
+  grid-area: icon;
+  justify-content: center;
+  width: ms.step(5);
+}
+
+// Adds a box shadow to add the appearance of the alert floating
+// above the containers below. Floating has a white background for higher
+// contrast between the background and the shadow.
+.c-alert__floating {
+  background-color: white;
+  box-shadow: 0 0 0 2px hsla(224, 65%, 16%, 0.2),
+    4px 4px 0 2px hsla(224, 65%, 16%, 0.1);
 }

@@ -1,7 +1,19 @@
 {% set tag_name = tag_name|default('div') %}
 
-<{{ tag_name }} class="c-alert{% if full_width %} c-alert--full-width{% endif %}{% if class %} {{ class }}{% endif %}">
+<{{ tag_name }} class="c-alert{% if full_width %} c-alert--full-width{% endif %} {% if floating %} c-alert__floating {% endif %}{% if class %} {{ class }}{% endif %}">
   <div class="c-alert__inner">
+    {% if block('icon')|trim or icon_name %}
+      <span class="c-alert__icon">
+        {% block icon %}
+          {% if icon_name %}
+            {% include '@cloudfour/components/icon/icon.twig' with {
+              name: icon_name,
+              aria_hidden: true
+            } only %}
+          {% endif %}
+        {% endblock %}
+      </span>
+    {% endif %}
     <div class="c-alert__content">
       {% block content %}
         <p>

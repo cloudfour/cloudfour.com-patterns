@@ -2,6 +2,7 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/size';
+@use '../../mixins/emdash';
 @use '../../mixins/headings';
 @use '../../mixins/theme';
 
@@ -25,6 +26,7 @@
 /// those comments visually with their parent.
 .c-comment.is-replying::after,
 .c-comment--thread::after {
+  background-color: var(--theme-color-border-text-group);
   border-radius: size.$border-radius-full;
   content: '';
   display: block;
@@ -33,14 +35,6 @@
   margin-left: auto;
   margin-right: auto;
   width: size.$edge-medium;
-
-  @include theme.styles() {
-    background-color: color.$base-gray-light;
-  }
-
-  @include theme.styles(dark) {
-    background-color: color.$base-blue-darker;
-  }
 }
 
 /// Comment reply forms are hidden until someone starts a reply.
@@ -81,6 +75,23 @@
   // The fluid heading size changes depending on the viewport, but the content
   // always looks just a *tad* close to the header. This offsets that.
   margin-top: math.div(size.$rhythm-condensed, -4);
+}
+
+// We added default styles to the blockquote element using the `wp-block-quote`
+// class. We're applying those same styles here, so comment blockquotes look
+// the similar.
+
+.c-comment__content blockquote {
+  border-left: size.$border-width-blockquote solid var(--theme-color-border-kbd);
+  color: var(--theme-color-text-muted);
+}
+
+.c-comment__content blockquote cite {
+  font-style: normal;
+}
+
+.c-comment__content blockquote cite::before {
+  @include emdash.content;
 }
 
 .c-comment__footer {

@@ -14,4 +14,5 @@ export default {
 
 export const SingleSpeaker = () => singleSpeakerPrototype({ events, deck });
 
-export const MultipleSpeakers = () => multipleSpeakersPrototype({ events, deck });
+export const MultipleSpeakers = () =>
+  multipleSpeakersPrototype({ events, deck });

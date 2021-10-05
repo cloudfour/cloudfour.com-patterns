@@ -5,6 +5,17 @@
 @use '../../compiled/tokens/scss/transition';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
+@use '../../mixins/theme';
+
+@include theme.props() {
+  --theme-color-background-icon: #{lighten(color.$base-orange, 30%)};
+  --theme-color-icon: #{color.$base-orange};
+}
+
+@include theme.props(dark) {
+  --theme-color-background-icon: #{color.$base-orange};
+  --theme-color-icon: #{lighten(color.$base-orange, 30%)};
+}
 
 .c-alert {
   background: var(--theme-color-background-secondary);
@@ -59,10 +70,10 @@
 
 .c-alert--icon {
   align-items: center;
-  background-color: lighten(color.$base-orange, 30%);
+  background-color: var(--theme-color-background-icon);
   border-bottom-left-radius: size.$border-radius-medium;
   border-top-left-radius: size.$border-radius-medium;
-  color: color.$base-orange;
+  color: var(--theme-color-icon);
   display: flex;
   grid-area: icon;
   justify-content: center;

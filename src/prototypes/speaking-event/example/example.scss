@@ -14,4 +14,8 @@
       border-radius: size.$border-radius-medium;
     }
   }
+
+  .muted-text {
+    color: color.$text-dark-muted;
+  }
 }

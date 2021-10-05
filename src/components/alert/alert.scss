@@ -1,4 +1,5 @@
 @use '../../compiled/tokens/scss/color';
+@use 'sass:color' as sass-color;
 @use '../../compiled/tokens/scss/ease';
 @use '../../compiled/tokens/scss/scale';
 @use '../../compiled/tokens/scss/size';
@@ -10,11 +11,13 @@
 @include theme.props() {
   --theme-color-background-icon: #{lighten(color.$base-orange, 30%)};
   --theme-color-icon: #{color.$base-orange};
+  // --theme-color-text: #{color.$text-light-emphasis};
 }
 
 @include theme.props(dark) {
   --theme-color-background-icon: #{color.$base-orange};
   --theme-color-icon: #{lighten(color.$base-orange, 30%)};
+  // --theme-color-text: #{color.$text-dark};
 }
 
 .c-alert {
@@ -63,9 +66,12 @@
 // above the containers below. Floating has a white background for higher
 // contrast between the background and the shadow.
 .c-alert--floating {
-  background-color: white;
-  box-shadow: 0 0 0 2px hsla(224, 65%, 16%, 0.2),
-    4px 4px 0 2px hsla(224, 65%, 16%, 0.1);
+  background-color: color.$text-light-emphasis;
+  box-shadow: 0 0 0 size.$edge-medium
+      sass-color.change(color.$brand-primary-darker, $alpha: 0.2),
+    size.$edge-large size.$edge-large 0 size.$edge-medium
+      sass-color.change(color.$brand-primary-darker, $alpha: 0.1);
+  color: color.$text-dark;
 }
 
 /**

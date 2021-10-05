@@ -11,13 +11,11 @@
 @include theme.props() {
   --theme-color-background-icon: #{lighten(color.$base-orange, 30%)};
   --theme-color-icon: #{color.$base-orange};
-  // --theme-color-text: #{color.$text-light-emphasis};
 }
 
 @include theme.props(dark) {
   --theme-color-background-icon: #{color.$base-orange};
   --theme-color-icon: #{lighten(color.$base-orange, 30%)};
-  // --theme-color-text: #{color.$text-dark};
 }
 
 .c-alert {
@@ -66,12 +64,29 @@
 // above the containers below. Floating has a white background for higher
 // contrast between the background and the shadow.
 .c-alert--floating {
-  background-color: color.$text-light-emphasis;
-  box-shadow: 0 0 0 size.$edge-medium
-      sass-color.change(color.$brand-primary-darker, $alpha: 0.2),
+  box-shadow: 0 0 0 size.$edge-medium var(--theme-color-shadow-inner),
     size.$edge-large size.$edge-large 0 size.$edge-medium
-      sass-color.change(color.$brand-primary-darker, $alpha: 0.1);
-  color: color.$text-dark;
+      var(--theme-color-shadow-outer);
+  @include theme.styles() {
+    --theme-color-shadow-inner: #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.2
+      )};
+    --theme-color-shadow-outer: #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.1
+      )};
+  }
+  @include theme.styles(dark) {
+    --theme-color-shadow-inner: #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.6
+      )};
+    --theme-color-shadow-outer: #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.4
+      )};
+  }
 }
 
 /**

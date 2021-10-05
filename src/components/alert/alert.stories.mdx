@@ -102,6 +102,26 @@ By adding `floating: true`, a light border and shadow will be added to the alert
   </Story>
 </Canvas>
 
+When more contrast is desired, you may also attach a theme class to the the floating variation. In this example, the card has a class of `t-light` within a `t-dark` container:
+
+<Canvas>
+  <Story
+    name="Themed Floating"
+    parameters={{
+      theme: 't-dark',
+    }}
+    args={{
+      message: 'You appear to be offline. 🤔',
+      dismissable: true,
+      floating: true,
+      icon_name: 'bell',
+      class: 't-light',
+    }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
 ## Template Properties
 
 - `class` (string)

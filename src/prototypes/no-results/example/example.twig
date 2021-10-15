@@ -63,52 +63,13 @@
           {% endembed %}
         {% endblock %}
         {% block content %}
-          <div class="u-pad-block-end-3  u-pad-block-start-3@m">
+          <div class="u-pad-block-end-6 u-pad-block-start-8 u-text-center">
             {% include '@cloudfour/components/heading/heading.twig' with {
-              "level": 1,
+              "level": 2,
               "content": "Sorry, we didn’t find any results."
             } only %}
-            <p class="u-pad-block-start-n2">Try searching with different keywords or check out one of our popular articles.</p>
+            <p class="u-pad-block-start-n2">Try searching with different keywords or check out one of our <a href="">recent articles</a>.</p>
           </div>
-          {% embed '@cloudfour/objects/deck/deck.twig' with {
-            class: 'o-deck--3-column@l'
-          } %}
-            {% block content %}
-              {% for article in fallback.articles %}
-                {% embed '@cloudfour/components/card/card.twig' with {
-                  class: _card_class,
-                  href: article.link
-                } %}
-                  {% block heading %}
-                    {{article.title}}
-                  {% endblock %}
-                  {% block cover %}
-                    <img src="{{article.thumbnail}}" alt="">
-                  {% endblock %}
-                  {% block content %}
-                    <p>
-                      {% if article.description|length > 140 %}
-                        {{article.description|slice(0, 140)|trim}}…
-                      {% else %}
-                        {{article.description}}
-                      {% endif %}
-                    </p>
-                  {% endblock %}
-                  {% block footer %}
-                    <div class="c-author o-media">
-                      <div class="o-media__object">
-                        {% include '@cloudfour/components/avatar/avatar.twig' with { src: article.avatar } only %}
-                      </div>
-                      <div class="o-media__content">
-                        <p<a href="#">{{article.author}}</a></p>
-                        <p>{{article.pubDate|date('M j, Y')}}</p>
-                      </div>
-                    </div>
-                  {% endblock %}
-                {% endembed %}
-              {% endfor %}
-            {% endblock %}
-          {% endembed %}
         {% endblock %}
       {% endembed %}
     </div>

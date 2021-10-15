@@ -63,12 +63,23 @@
           {% endembed %}
         {% endblock %}
         {% block content %}
-          <div class="u-pad-block-end-6 u-pad-block-start-8 u-text-center">
-            {% include '@cloudfour/components/heading/heading.twig' with {
-              "level": 2,
-              "content": "Sorry, we didn’t find any results."
+          <div class="u-text-center u-space-block-start-4 u-pad-block-4">
+            {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+              class: 'o-rhythm--compact'
             } only %}
-            <p class="u-pad-block-start-n2">Try searching with different keywords or check out one of our <a href="">recent articles</a>.</p>
+              {% block content %}
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  name: 'magnifying-glass',
+                  class: 'large-icon'
+                } %}
+                {% include '@cloudfour/components/heading/heading.twig' with {
+                  "level": 2,
+                  "content": "Sorry, we didn’t find any results."
+                } only %}
+                <p class="u-pad-block-start-n2">Try searching with different keywords or check out one of our <a href="">recent articles</a>.</p>
+              {% endblock %}
+            {% endembed %}
+
           </div>
         {% endblock %}
       {% endembed %}

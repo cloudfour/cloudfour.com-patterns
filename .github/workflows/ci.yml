@@ -23,7 +23,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       - name: Update npm
-        uses: npm i -g npm@7
+        run: npm i -g npm@7
       - name: Install Dependencies
         run: npm ci
       - name: Run Preprocess
@@ -46,7 +46,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       - name: Update npm
-        uses: npm i -g npm@7
+        run: npm i -g npm@7
       - name: Install Dependencies
         run: npm ci
       - name: Run Preprocess
@@ -69,7 +69,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       - name: Update npm
-        uses: npm i -g npm@7
+        run: npm i -g npm@7
       - name: Install Dependencies
         run: npm ci
       - name: Run Build
@@ -91,7 +91,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       - name: Update npm
-        uses: npm i -g npm@7
+        run: npm i -g npm@7
       - name: Install Dependencies
         run: npm ci
       - name: Run Preprocess

@@ -1,8 +1,8 @@
-@use "../compiled/tokens/scss/color";
-@use "../compiled/tokens/scss/font-weight";
-@use "../compiled/tokens/scss/size";
-@use "./ms";
-@use "./theme";
+@use '../compiled/tokens/scss/color';
+@use '../compiled/tokens/scss/font-weight';
+@use '../compiled/tokens/scss/size';
+@use './ms';
+@use './theme';
 
 $table-border-color: color.$base-gray-light;
 $table-border-thin: size.$edge-small solid $table-border-color;

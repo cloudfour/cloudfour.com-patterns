@@ -1,5 +1,5 @@
-@use "../../compiled/tokens/scss/size";
-@use "../../mixins/spacing";
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/spacing';
 
 :root {
   --rhythm: #{size.$rhythm-default};

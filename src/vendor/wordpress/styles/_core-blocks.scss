@@ -1,13 +1,13 @@
-@use "sass:math";
-@use "../../../compiled/tokens/scss/breakpoint";
-@use "../../../compiled/tokens/scss/color";
-@use "../../../compiled/tokens/scss/line-height";
-@use "../../../compiled/tokens/scss/size";
-@use "../../../mixins/button";
-@use "../../../mixins/emdash";
-@use "../../../mixins/ms";
-@use "../../../mixins/table";
-@use "../../../mixins/theme";
+@use 'sass:math';
+@use '../../../compiled/tokens/scss/breakpoint';
+@use '../../../compiled/tokens/scss/color';
+@use '../../../compiled/tokens/scss/line-height';
+@use '../../../compiled/tokens/scss/size';
+@use '../../../mixins/button';
+@use '../../../mixins/emdash';
+@use '../../../mixins/ms';
+@use '../../../mixins/table';
+@use '../../../mixins/theme';
 
 /**
  * Gutenberg block: Button

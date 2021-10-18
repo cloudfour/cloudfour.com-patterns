@@ -1,6 +1,6 @@
-@use "sass:math";
-@use "../../mixins/svg";
-@use "../../mixins/icon";
+@use 'sass:math';
+@use '../../mixins/svg';
+@use '../../mixins/icon';
 
 .c-icon {
   @include svg.inherit-color;

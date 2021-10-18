@@ -1,10 +1,10 @@
-@use "_fonts";
-@use "../compiled/tokens/scss/breakpoint";
-@use "../compiled/tokens/scss/font-family";
-@use "../compiled/tokens/scss/line-height";
-@use "../mixins/fluid";
-@use "../mixins/headings";
-@use "../mixins/ms";
+@use '_fonts';
+@use '../compiled/tokens/scss/breakpoint';
+@use '../compiled/tokens/scss/font-family';
+@use '../compiled/tokens/scss/line-height';
+@use '../mixins/fluid';
+@use '../mixins/headings';
+@use '../mixins/ms';
 
 /**
  * 1. Adjust base font size between a min and max value based on viewport width.

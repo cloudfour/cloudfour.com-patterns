@@ -1,6 +1,6 @@
-@use "sass:math";
-@use "../../compiled/tokens/scss/breakpoint";
-@use "../../compiled/tokens/scss/size";
+@use 'sass:math';
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/size';
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
 

@@ -1,7 +1,7 @@
-@use "sass:math";
-@use "../../compiled/tokens/scss/breakpoint";
-@use "../../compiled/tokens/scss/color";
-@use "../../mixins/ms";
+@use 'sass:math';
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/color';
+@use '../../mixins/ms';
 
 /// We can't use `grid-gap` exclusively due to some containers only being present
 /// some of the time, so we re-use this value for `grid-gap` and for `margin`

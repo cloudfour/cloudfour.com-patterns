@@ -1,6 +1,6 @@
-@use "../../compiled/tokens/scss/breakpoint";
-@use "../../compiled/tokens/scss/size";
-@use "../../mixins/fluid";
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/fluid';
 
 $pad-breakpoint-min: breakpoint.$s;
 $pad-breakpoint-max: breakpoint.$xl;

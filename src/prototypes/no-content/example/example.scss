@@ -1,0 +1,13 @@
+@use "../../../compiled/tokens/scss/color";
+@use "../../../mixins/ms";
+
+#no-content {
+  .large-icon {
+    color: #{color.$base-gray-light};
+    font-size: ms.step(5);
+  }
+
+  .u-text-center {
+    text-align: center;
+  }
+}

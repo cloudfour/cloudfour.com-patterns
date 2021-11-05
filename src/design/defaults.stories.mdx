@@ -105,14 +105,10 @@ For syntax highlighting, see [our Prism theme](/docs/vendor-prism--bash-shell).
 <Canvas>
   <Story name="Code block">
     {() => {
-      const example = `<button class="Button">
-  <span class="Button-inner">
-    Example
-  </span>
-  <!-- badge, etc. -->
-</button>`;
-      const escapedExample = new Option(example).innerHTML;
-      return `<pre><code class="language-markup">${escapedExample}</code></pre>`;
+      const example = `* {
+  box-sizing: border-box;
+}`;
+      return `<pre><code>${example}</code></pre>`;
     }}
   </Story>
 </Canvas>

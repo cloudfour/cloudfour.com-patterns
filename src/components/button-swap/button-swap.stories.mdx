@@ -24,11 +24,9 @@ const buttonSwapStory = (args) => {
   title="Components/Button Swap"
   argTypes={{
     content_start_icon: {
+      options: ['bell', 'magnifying-glass'],
       type: { name: 'string' },
-      control: {
-        type: 'select',
-        options: ['bell', 'magnifying-glass'],
-      },
+      control: { type: 'select' },
     },
     initial_label: { type: { name: 'string' } },
     initial_visual_label: { type: { name: 'string' } },

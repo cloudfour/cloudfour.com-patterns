@@ -23,8 +23,9 @@ const avatarStory = (args) => {
   }}
   argTypes={{
     size: {
-      type: { name: 'enum' },
-      control: { type: 'select', options: ['medium', 'full'] },
+      options: ['medium', 'full'],
+      type: { name: 'string' },
+      control: { type: 'select' },
     },
     src: { type: { name: 'string' } },
     srcset: { type: { name: 'string' } },

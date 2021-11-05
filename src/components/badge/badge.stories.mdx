@@ -13,10 +13,10 @@ const badgeStory = (args) => {
   argTypes={{
     label: { type: { name: 'string' } },
     icon: {
+      options: ['', 'check', 'heart', 'pencil'],
       type: { name: 'string' },
       control: {
         type: 'select',
-        options: ['', 'check', 'heart', 'pencil'],
       },
     },
   }}

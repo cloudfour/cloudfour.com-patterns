@@ -47,11 +47,9 @@ const articlesTemplateSource = (_src, storyContext) => {
       },
     },
     columnsBreakpoint: {
+      options: ['none', '@s', '@m', '@l', '@xl'],
       type: { name: 'string' },
-      control: {
-        type: 'inline-radio',
-        options: ['none', '@s', '@m', '@l', '@xl'],
-      },
+      control: { type: 'inline-radio' },
     },
     horizontalItem: {
       control: {
@@ -62,8 +60,9 @@ const articlesTemplateSource = (_src, storyContext) => {
       },
     },
     horizontalBreakpoint: {
+      options: ['none', '@m', '@l', '@xl'],
       type: { name: 'string' },
-      control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
+      control: { type: 'inline-radio' },
     },
   }}
 />

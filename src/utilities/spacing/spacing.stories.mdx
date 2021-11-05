@@ -41,8 +41,9 @@ Observe how the direction of the same utility classes change depending on the pa
     argTypes={{
       ...defaultArgTypes,
       name: {
-        type: { name: 'enum' },
-        control: { type: 'inline-radio', options: ['space', 'pad'] },
+        options: ['space', 'pad'],
+        type: { name: 'string' },
+        control: { type: 'inline-radio' },
       },
     }}
   >

@@ -21,8 +21,9 @@ const tagNames = ['ul', 'ol'];
     class: { type: { name: 'string' } },
     items: { type: { name: 'array' } },
     tag_name: {
+      options: tagNames,
       type: { name: 'enum' },
-      control: { type: 'inline-radio', options: tagNames },
+      control: { type: 'inline-radio' },
     },
   }}
 />

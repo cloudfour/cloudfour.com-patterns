@@ -41,20 +41,22 @@ const singleDemoStory = (args) => {
   }}
   argTypes={{
     show: {
+      options: ['heading', 'cover', 'content', 'footer'],
       control: {
         type: 'inline-check',
-        options: ['heading', 'cover', 'content', 'footer'],
       },
     },
     href: { type: { name: 'string' } },
     horizontal: {
+      options: ['none', '@m', '@l', '@xl'],
       type: { name: 'string' },
-      control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
+      control: { type: 'inline-radio' },
     },
     contained: { type: { name: 'boolean' } },
     theme: {
+      options: ['none', 'light', 'dark'],
       type: { name: 'string' },
-      control: { type: 'inline-radio', options: ['none', 'light', 'dark'] },
+      control: { type: 'inline-radio' },
     },
   }}
 />

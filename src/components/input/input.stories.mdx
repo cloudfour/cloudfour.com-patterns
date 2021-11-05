@@ -50,10 +50,10 @@ The `c-input` class styles text and text-like form elements in a consistent way.
     }}
     argTypes={{
       type: {
-        type: { name: 'enum' },
+        options: ['text', 'email', 'search', 'date', 'textarea'],
+        type: { name: 'string' },
         control: {
           type: 'select',
-          options: ['text', 'email', 'search', 'date', 'textarea'],
         },
       },
       value: { type: { name: 'string' } },

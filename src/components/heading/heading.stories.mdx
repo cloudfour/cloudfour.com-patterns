@@ -37,18 +37,14 @@ import demo from './demo/demo.twig';
       type: 'string',
       description:
         'The semantic element to use for the heading, usually an `h*` element. If abscent, the `level` will be used to determine the best element.',
-      control: {
-        type: 'select',
-        options: ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-      },
+      options: ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'select' },
     },
     weight: {
       type: 'string',
       description: 'The desired `font-weight` option for the heading.',
-      control: {
-        type: 'select',
-        options: ['', 'light'],
-      },
+      options: ['', 'light'],
+      control: { type: 'select' },
     },
     class: {
       type: 'string',

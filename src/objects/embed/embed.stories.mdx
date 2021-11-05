@@ -15,8 +15,9 @@ const modifierClasses = [
 ];
 const defaultArgTypes = {
   class: {
-    type: { name: 'enum' },
-    control: { type: 'select', options: modifierClasses },
+    options: modifierClasses,
+    type: { name: 'string' },
+    control: { type: 'select' },
   },
   aspect_ratio: { type: { name: 'string' } },
 };

@@ -1,0 +1,15 @@
+@use 'sass:math';
+@use '../compiled/tokens/scss/size';
+
+/// Apply `border-radius` but only when the element is narrower than
+/// the viewport width.
+///
+/// @link https://ishadeed.com/article/conditional-border-radius/
+/// @param {Number} $amount - The amount of border radii to apply.
+@mixin conditional($amount: size.$border-radius-card-contained) {
+  border-radius: clamp(
+    0px,
+    ((100vw - #{math.div($amount, 2)}) - 100%) * 9999,
+    #{$amount}
+  );
+}

@@ -3,20 +3,14 @@
 @use '../../compiled/tokens/scss/scale';
 @use '../../compiled/tokens/scss/size';
 @use '../../compiled/tokens/scss/transition';
+@use '../../mixins/border-radius';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
 
 .c-alert {
   background: var(--theme-color-background-secondary);
-  border-radius: size.$border-radius-medium;
   color: var(--theme-color-text-emphasis);
-}
-
-/// When alert is meant to span the full viewport width, we omit its rounded
-/// corners to avoid awkward counter spaces where the background shows through
-/// those corners.
-.c-alert--full-width {
-  border-radius: 0;
+  @include border-radius.conditional(size.$border-radius-medium);
 }
 
 /// We use a separate inner element so we can constrain it when the alert is

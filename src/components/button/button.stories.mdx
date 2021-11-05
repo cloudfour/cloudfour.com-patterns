@@ -29,7 +29,6 @@ const iconControlConfig = {
       'brands/twitter',
     ],
   },
-  defaultValue: '',
 };
 const buttonStory = (args) => {
   // Don't bother with the inline options if they don't exist or are defaults
@@ -50,14 +49,17 @@ const buttonStory = (args) => {
 
 <Meta
   title="Components/Button"
+  args={{
+    type: 'button',
+    disabled: false,
+  }}
   argTypes={{
     href: { type: { name: 'string' } },
     type: {
       type: { name: 'enum' },
       control: { type: 'inline-radio', options: ['button', 'submit'] },
-      defaultValue: 'button',
     },
-    disabled: { type: { name: 'boolean' }, defaultValue: false },
+    disabled: { type: { name: 'boolean' } },
     content_start_icon: iconControlConfig,
     content_end_icon: iconControlConfig,
   }}

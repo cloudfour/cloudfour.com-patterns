@@ -21,10 +21,12 @@ const megan = {
 
 <Meta
   title="Components/Author"
+  args={{
+    count: 2,
+  }}
   argTypes={{
     count: {
       type: 'number',
-      defaultValue: 2,
       description: 'Number of authors to show',
       control: {
         type: 'range',

@@ -38,14 +38,16 @@ const initCommentReplyForms = () => {
 
 <Meta
   title="Components/Comment"
+  args={{
+    isLoggedIn: false,
+    allowReplies: false,
+  }}
   argTypes={{
     isLoggedIn: {
       type: { name: 'boolean' },
-      defaultValue: false,
     },
     allowReplies: {
       type: { name: 'boolean' },
-      defaultValue: false,
     },
   }}
 />

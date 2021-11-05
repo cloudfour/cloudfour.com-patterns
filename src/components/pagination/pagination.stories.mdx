@@ -15,10 +15,15 @@ As the viewport widens, individual numbers may drift awkwardly far apart. You ca
 <Canvas>
   <Story
     name="Example"
+    args={{
+      current: 2,
+      midSize: 2,
+      total: 36,
+    }}
     argTypes={{
-      current: { type: { name: 'number' }, defaultValue: 2 },
-      midSize: { type: { name: 'number' }, defaultValue: 2 },
-      total: { type: { name: 'number' }, defaultValue: 36 },
+      current: { type: { name: 'number' } },
+      midSize: { type: { name: 'number' } },
+      total: { type: { name: 'number' } },
     }}
   >
     {(args) => template({ pagination: mockPaginationData(args) })}

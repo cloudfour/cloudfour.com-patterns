@@ -40,13 +40,15 @@ const imageDemoTransformSource = (_src, storyContext) => {
 
 <Meta
   title="Objects/Media"
+  args={{
+    imgSrc: meganProfileImage,
+    text: exampleText,
+    reverse: false,
+  }}
   argTypes={{
-    imgSrc: {
-      type: { name: 'string', required: true },
-      defaultValue: meganProfileImage,
-    },
-    text: { type: { name: 'string' }, defaultValue: exampleText },
-    reverse: { type: { name: 'boolean' }, defaultValue: false },
+    imgSrc: { type: { name: 'string', required: true } },
+    text: { type: { name: 'string' } },
+    reverse: { type: { name: 'boolean' } },
   }}
 />
 

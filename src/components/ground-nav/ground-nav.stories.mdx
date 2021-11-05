@@ -16,56 +16,36 @@ import pwaStatsDemoSource from '!!raw-loader!./demo/pwa-stats.twig';
 import pwaStatsDemo from './demo/pwa-stats.twig';
 const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
 const defaultArgTypes = {
-  buttonLeadIn: {
-    type: { name: 'string' },
-    defaultValue: 'Let’s discuss your project!',
-  },
-  buttonTitle: { type: { name: 'string' }, defaultValue: 'Email us' },
-  buttonLink: {
-    type: { name: 'string' },
-    defaultValue: 'mailto:info@cloudfour.com',
-  },
-  buttonIcon: { type: { name: 'string' }, defaultValue: 'envelope' },
-  organizationName: {
-    type: { name: 'string' },
-    defaultValue: organization.name,
-  },
-  organizationStreetAddress: {
-    type: { name: 'string' },
-    defaultValue: organization.address.street_address,
-  },
-  organizationAddressLocality: {
-    type: { name: 'string' },
-    defaultValue: organization.address.address_locality,
-  },
-  organizationAddressRegion: {
-    type: { name: 'string' },
-    defaultValue: organization.address.address_region,
-  },
-  organizationPostalCode: {
-    type: { name: 'string' },
-    defaultValue: organization.address.postal_code,
-  },
-  organizationAddressCountry: {
-    type: { name: 'string' },
-    defaultValue: organization.address.address_country,
-  },
-  organizationEmail: {
-    type: { name: 'string' },
-    defaultValue: organization.email,
-  },
-  organizationTelephone: {
-    type: { name: 'string' },
-    defaultValue: organization.telephone,
-  },
-  organizationUrl: {
-    type: { name: 'string' },
-    defaultValue: organization.url,
-  },
-  organizationFoundingDate: {
-    type: { name: 'string' },
-    defaultValue: organization.founding_date,
-  },
+  buttonLeadIn: { type: { name: 'string' } },
+  buttonTitle: { type: { name: 'string' } },
+  buttonLink: { type: { name: 'string' } },
+  buttonIcon: { type: { name: 'string' } },
+  organizationName: { type: { name: 'string' } },
+  organizationStreetAddress: { type: { name: 'string' } },
+  organizationAddressLocality: { type: { name: 'string' } },
+  organizationAddressRegion: { type: { name: 'string' } },
+  organizationPostalCode: { type: { name: 'string' } },
+  organizationAddressCountry: { type: { name: 'string' } },
+  organizationEmail: { type: { name: 'string' } },
+  organizationTelephone: { type: { name: 'string' } },
+  organizationUrl: { type: { name: 'string' } },
+  organizationFoundingDate: { type: { name: 'string' } },
+};
+const defaultArgs = {
+  buttonLeadIn: 'Let’s discuss your project!',
+  buttonTitle: 'Email us',
+  buttonLink: 'mailto:info@cloudfour.com',
+  buttonIcon: 'envelope',
+  organizationName: organization.name,
+  organizationStreetAddress: organization.address.street_address,
+  organizationAddressLocality: organization.address.address_locality,
+  organizationAddressRegion: organization.address.address_region,
+  organizationPostalCode: organization.address.postal_code,
+  organizationAddressCountry: organization.address.address_country,
+  organizationEmail: organization.email,
+  organizationTelephone: organization.telephone,
+  organizationUrl: organization.url,
+  organizationFoundingDate: organization.founding_date,
 };
 
 <!--
@@ -91,6 +71,7 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
     // So for now we are just making them all top-level
     // https://github.com/storybookjs/storybook/issues/11525
     // https://github.com/storybookjs/storybook/issues/10979
+    args={defaultArgs}
     argTypes={defaultArgTypes}
   >
     {(args) =>
@@ -129,6 +110,7 @@ The menu’s contents may differ between projects. This example is based on the 
     name="PWA Stats"
     argTypes={defaultArgTypes}
     args={{
+      ...defaultArgs,
       buttonLeadIn: 'Help us build this resource!',
       buttonTitle: 'Contribute a story',
       buttonLink:

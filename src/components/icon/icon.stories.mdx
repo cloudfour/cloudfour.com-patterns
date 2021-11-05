@@ -29,10 +29,14 @@ For a list of available icons, visit [the Icons page](/docs/design-icons--page).
 <Canvas>
   <Story
     name="Basic"
+    args={{
+      name: 'heart',
+      inline: false,
+    }}
     argTypes={{
-      name: { type: { name: 'string' }, defaultValue: 'heart' },
+      name: { type: { name: 'string' } },
       fallback: { type: { name: 'string' } },
-      inline: { type: { name: 'boolean' }, defaultValue: false },
+      inline: { type: { name: 'boolean' } },
       class: { type: { name: 'string' } },
     }}
   >

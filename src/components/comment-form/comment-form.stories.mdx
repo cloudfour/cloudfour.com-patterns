@@ -10,14 +10,16 @@ const tyler = {
 
 <Meta
   title="Components/Comment Form"
+  args={{
+    isLoggedIn: false,
+    isReply: false,
+  }}
   argTypes={{
     isLoggedIn: {
       type: { name: 'boolean' },
-      defaultValue: false,
     },
     isReply: {
       type: { name: 'boolean' },
-      defaultValue: false,
     },
   }}
 />

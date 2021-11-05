@@ -31,6 +31,12 @@ const articlesTemplateSource = (_src, storyContext) => {
       transformSource: articlesTemplateSource,
     },
   }}
+  args={{
+    columns: 3,
+    columnsBreakpoint: 'none',
+    horizontalItem: 1,
+    horizontalBreakpoint: 'none',
+  }}
   argTypes={{
     columns: {
       control: {
@@ -39,7 +45,6 @@ const articlesTemplateSource = (_src, storyContext) => {
         max: 4,
         step: 1,
       },
-      defaultValue: 3,
     },
     columnsBreakpoint: {
       type: { name: 'string' },
@@ -47,7 +52,6 @@ const articlesTemplateSource = (_src, storyContext) => {
         type: 'inline-radio',
         options: ['none', '@s', '@m', '@l', '@xl'],
       },
-      defaultValue: 'none',
     },
     horizontalItem: {
       control: {
@@ -56,12 +60,10 @@ const articlesTemplateSource = (_src, storyContext) => {
         max: articles.length,
         step: 1,
       },
-      defaultValue: 1,
     },
     horizontalBreakpoint: {
       type: { name: 'string' },
       control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
-      defaultValue: 'none',
     },
   }}
 />

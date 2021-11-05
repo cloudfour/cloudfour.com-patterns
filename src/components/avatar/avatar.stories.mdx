@@ -18,11 +18,13 @@ const avatarStory = (args) => {
 
 <Meta
   title="Components/Avatar"
+  args={{
+    size: 'medium',
+  }}
   argTypes={{
     size: {
       type: { name: 'enum' },
       control: { type: 'select', options: ['medium', 'full'] },
-      defaultValue: 'medium',
     },
     src: { type: { name: 'string' } },
     srcset: { type: { name: 'string' } },

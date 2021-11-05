@@ -13,13 +13,16 @@ const tagNames = ['ul', 'ol'];
 <Meta
   title="Objects/List"
   parameters={{ docs: { inlineStories: false } }}
+  args={{
+    items: defaultItems,
+    tag_name: tagNames[0],
+  }}
   argTypes={{
     class: { type: { name: 'string' } },
-    items: { type: { name: 'array' }, defaultValue: defaultItems },
+    items: { type: { name: 'array' } },
     tag_name: {
       type: { name: 'enum' },
       control: { type: 'inline-radio', options: tagNames },
-      defaultValue: tagNames[0],
     },
   }}
 />

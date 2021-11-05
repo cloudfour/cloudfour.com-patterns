@@ -34,25 +34,27 @@ const singleDemoStory = (args) => {
 
 <Meta
   title="Components/Card"
+  args={{
+    show: ['heading', 'cover', 'content', 'footer'],
+    horizontal: 'none',
+    theme: 'none',
+  }}
   argTypes={{
     show: {
       control: {
         type: 'inline-check',
         options: ['heading', 'cover', 'content', 'footer'],
       },
-      defaultValue: ['heading', 'cover', 'content', 'footer'],
     },
     href: { type: { name: 'string' } },
     horizontal: {
       type: { name: 'string' },
       control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
-      defaultValue: 'none',
     },
     contained: { type: { name: 'boolean' } },
     theme: {
       type: { name: 'string' },
       control: { type: 'inline-radio', options: ['none', 'light', 'dark'] },
-      defaultValue: 'none',
     },
   }}
 />

@@ -3,15 +3,17 @@ import demo from './demo/demo.twig';
 
 <Meta
   title="Objects/Button Group"
+  args={{
+    grow: false,
+    count: 2,
+  }}
   argTypes={{
     grow: {
       type: { name: 'boolean' },
-      defaultValue: false,
       description: 'Controls the button full width modifier',
     },
     count: {
       type: { name: 'number' },
-      defaultValue: 2,
       description: 'Number of buttons to render',
       control: {
         type: 'range',

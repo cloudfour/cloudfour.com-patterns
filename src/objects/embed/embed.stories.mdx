@@ -17,9 +17,11 @@ const defaultArgTypes = {
   class: {
     type: { name: 'enum' },
     control: { type: 'select', options: modifierClasses },
-    defaultValue: 'o-embed--wide',
   },
   aspect_ratio: { type: { name: 'string' } },
+};
+const defaultArgs = {
+  class: 'o-embed--wide',
 };
 // Custom embed source function to preserve args in source code examples
 const embedTransformSource = (_src, storyContext) => {
@@ -54,7 +56,7 @@ Embed objects support two methods for specifying the desired aspect ratio:
 ### Image
 
 <Canvas>
-  <Story name="Image" argTypes={defaultArgTypes}>
+  <Story name="Image" args={defaultArgs} argTypes={defaultArgTypes}>
     {(args) => imageDemo({ ...args, src: imageDemoImgSrc })}
   </Story>
 </Canvas>
@@ -62,7 +64,7 @@ Embed objects support two methods for specifying the desired aspect ratio:
 ### Picture
 
 <Canvas>
-  <Story name="Picture" argTypes={defaultArgTypes}>
+  <Story name="Picture" args={defaultArgs} argTypes={defaultArgTypes}>
     {(args) =>
       pictureDemo({
         ...args,
@@ -76,7 +78,7 @@ Embed objects support two methods for specifying the desired aspect ratio:
 ### Video
 
 <Canvas>
-  <Story name="Video" argTypes={defaultArgTypes}>
+  <Story name="Video" args={defaultArgs} argTypes={defaultArgTypes}>
     {(args) => videoDemo(args)}
   </Story>
 </Canvas>
@@ -111,11 +113,11 @@ In this example, the aspect ratio starts square but becomes wider with each succ
 <Canvas>
   <Story
     name="Responsive"
+    args={{
+      class: 'o-embed--full@s o-embed--wide@m o-embed--cinema@l',
+    }}
     argTypes={{
-      class: {
-        type: { name: 'string' },
-        defaultValue: 'o-embed--full@s o-embed--wide@m o-embed--cinema@l',
-      },
+      class: { type: { name: 'string' } },
       aspect_ratio: defaultArgTypes.aspect_ratio,
     }}
   >

@@ -17,10 +17,12 @@ const avatarsDemoSrc = `{% embed '@cloudfour/objects/bunch/bunch.twig' only %}
 
 <Meta
   title="Objects/Bunch"
+  args={{
+    count: 3,
+  }}
   argTypes={{
     count: {
       type: 'number',
-      defaultValue: 3,
       description: 'Number of avatars to show',
       control: {
         type: 'range',

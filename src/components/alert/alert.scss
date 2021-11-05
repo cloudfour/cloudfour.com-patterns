@@ -34,12 +34,8 @@
     '. . dismiss';
   grid-template-columns: 0 1fr minmax(0, auto);
   grid-template-rows: ms.step(-1) minmax(0, auto) ms.step(-1);
-
-  /// We only bother constraining this element when it's full-width.
-  .c-alert--full-width & {
-    margin: 0 auto;
-    max-width: size.$max-width-spread;
-  }
+  margin: 0 auto;
+  max-width: size.$max-width-spread;
 }
 
 .c-alert__content {

@@ -23,9 +23,8 @@ A short note may be included, for example the event length ("3-day event"), type
   </Story>
   <Story
     name="With Note"
-    args={{ datetime: Date.now() }}
     argTypes={argTypes}
-    args={{ note: '3-day event' }}
+    args={{ datetime: Date.now(), note: '3-day event' }}
   >
     {({ datetime, note }) => template({ datetime: new Date(datetime), note })}
   </Story>

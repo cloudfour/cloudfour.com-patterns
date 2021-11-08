@@ -76,7 +76,7 @@
     "gulp-run": "1.7.1",
     "gulp-sass": "5.0.0",
     "gulp-svgmin": "3.0.0",
-    "html-to-react": "1.4.5",
+    "html-to-react": "1.4.7",
     "jabber": "1.2.2",
     "jest": "27.3.0",
     "js-yaml": "4.1.0",

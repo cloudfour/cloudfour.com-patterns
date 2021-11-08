@@ -37,18 +37,14 @@ import demo from './demo/demo.twig';
       type: 'string',
       description:
         'The semantic element to use for the heading, usually an `h*` element. If abscent, the `level` will be used to determine the best element.',
-      control: {
-        type: 'select',
-        options: ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-      },
+      options: ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'select' },
     },
     weight: {
       type: 'string',
       description: 'The desired `font-weight` option for the heading.',
-      control: {
-        type: 'select',
-        options: ['', 'light'],
-      },
+      options: ['', 'light'],
+      control: { type: 'select' },
     },
     class: {
       type: 'string',
@@ -69,7 +65,7 @@ import demo from './demo/demo.twig';
 
 # Heading
 
-It's important for accessibility and for search engines that page sections include helpful heading elements in a logical, descending order ([more info](https://dequeuniversity.com/assets/html/jquery-summit/html5/slides/headings.html)). But there are times when [our default `<h1>` through `<h6>` styles](/docs/design-typography--headings) may not be enough:
+It's important for accessibility and for search engines that page sections include helpful heading elements in a logical, descending order ([more info](https://dequeuniversity.com/assets/html/jquery-summit/html5/slides/headings.html)). But there are times when [our default `<h1>` through `<h6>` styles](/docs/design-defaults--heading-level-1#headings) may not be enough:
 
 - The most appropriate heading element may look too small or too large visually.
 - A unique situation may call for a heading with an alternate visual style (such as a lighter weight).

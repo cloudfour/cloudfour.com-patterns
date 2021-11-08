@@ -3,6 +3,7 @@
 @use '../../../compiled/tokens/scss/color';
 @use '../../../compiled/tokens/scss/line-height';
 @use '../../../compiled/tokens/scss/size';
+@use '../../../mixins/border-radius';
 @use '../../../mixins/button';
 @use '../../../mixins/emdash';
 @use '../../../mixins/ms';
@@ -191,10 +192,10 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 
 .wp-block-pullquote {
   background-color: var(--theme-color-background-secondary);
-  border-radius: size.$border-radius-medium;
   margin-bottom: 0; /* 1 */
   padding: 0; /* 2 */
   text-align: left; /* 3 */
+  @include border-radius.conditional();
 }
 
 /**
@@ -278,31 +279,5 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   cite {
     font-size: ms.step(0);
     text-align: left;
-  }
-}
-
-/**
- * Groups
- * Rounds the corners for groups when the has-background class is applied.
- * 1. This value is added to keep the Cloud Four card containers and
- * the Gutenberg styles consistent.
- * 2. When the alignfull class is applied the border radius will go
- * back to 0 to keep the corners flush with the edge of the page.
- * 3. The alignwide class will have the border-radius set to 0 until it hits
- * the large breakpoint because at that point, it no longer sits along the
- * edge of the screen. It's intended to be applied within a container.
- */
-
-.wp-block-group.has-background {
-  border-radius: size.$border-radius-card-contained; /* 1 */
-
-  &.alignfull {
-    border-radius: 0; /* 2 */
-  }
-
-  &.alignwide {
-    @media (width < breakpoint.$l) {
-      border-radius: 0; /* 3 */
-    }
   }
 }

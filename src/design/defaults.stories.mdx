@@ -112,3 +112,17 @@ For syntax highlighting, see [our Prism theme](/docs/vendor-prism--bash-shell).
     }}
   </Story>
 </Canvas>
+
+## Horizontal rule
+
+Only use `hr` elements to represent a "thematic break" in content, such as a change in topic within a section. For divisions that are purely presentational, use CSS instead.
+
+To add space between the `hr` and adjacent elements, consider wrapping the section of content in [a Rhythm object](/docs/objects-rhythm--default-story).
+
+<Canvas>
+  <Story name="Horizontal rule">
+    {`<p>…and so ends this topic.</p>
+<hr>
+<p>Shifting our focus to something else entirely…</p>`}
+  </Story>
+</Canvas>

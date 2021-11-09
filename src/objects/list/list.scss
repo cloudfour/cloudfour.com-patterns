@@ -47,13 +47,13 @@
 @for $i from 2 through 3 {
   .o-list--#{$i}-column {
     @include media-query.breakpoint-classes($from: s, $to: xl) {
-      columns: #{$i};
-      @include fluid.column-gap(
-        breakpoint.$s,
-        breakpoint.$xl,
+      column-gap: fluid.fluid-clamp(
         size.$spacing-gap-fluid-min,
-        size.$spacing-gap-fluid-max
+        size.$spacing-gap-fluid-max,
+        breakpoint.$s,
+        breakpoint.$xl
       );
+      columns: #{$i};
     }
   }
 }

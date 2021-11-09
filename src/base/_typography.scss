@@ -16,11 +16,11 @@
  */
 
 html {
-  @include fluid.font-size(
-    breakpoint.$xs,
-    breakpoint.$xl,
+  font-size: fluid.fluid-clamp(
     ms.step(0, 1rem),
-    ms.step(1, 1rem)
+    ms.step(1, 1rem),
+    breakpoint.$xs,
+    breakpoint.$xl
   ); /* 1 */
   line-sizing: normal; /* 2 */
 }

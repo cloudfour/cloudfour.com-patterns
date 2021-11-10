@@ -1,16 +1,22 @@
-
 @use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/fluid';
 @use '../../mixins/ms';
 
 /**
  * Provides a layout for a group of media elements. When using the modifier, media objects align vertically.
- * The specific spacing values were inferred from the Case Study Listing prototype.
  */
 
 @supports (display: grid) {
   .o-media-group {
     display: grid;
     grid-gap: calc(#{ms.step(0)} * 3);
+    @include fluid.grid-gap(
+    breakpoint.$s,
+    breakpoint.$xl,
+    size.$spacing-gap-fluid-min,
+    size.$spacing-gap-fluid-max
+  );
 
     @media (min-width: breakpoint.$l) {
       grid-template-columns: repeat(2, 1fr);

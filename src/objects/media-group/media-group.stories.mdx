@@ -1,0 +1,33 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
+// okay with the following Webpack-specific raw loader syntax. It's better to leave
+// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
+// within a Storybook docs page and not within an actual component).
+// This can be revisited in the future if Storybook no longer relies on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import defaultDemoSource from '!!raw-loader!./demo/demo.twig';
+import defaultDemo from './demo/demo.twig';
+import objects from './demo/objects.json';
+
+<Meta title="Objects/Media Group" />
+
+# Media Group
+
+Media Group can be used to display a group of media items. On small screens items in the group are vertically stacked with consistent spacing. On larger screens, items are split into columns and media objects are vertically aligned.
+
+<Canvas>
+  <Story
+    name="Default"
+    parameters={{ docs: { source: { code: defaultDemoSource } } }}
+  >
+    {defaultDemo({ items: objects })}
+  </Story>
+</Canvas>
+
+## Template blocks
+
+- `items` - should contain individual media items. Each item has two parts, an `object` and `content`.
+- `object` - for the static object, like an image, avatar, etc. This element will be sized auto, so it should have a defined width.
+- `content` - for the wrapping content. Content is top-aligned with the object.

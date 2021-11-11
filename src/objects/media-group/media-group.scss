@@ -43,6 +43,9 @@
     display: grid;
     grid-column-gap:  ms.step(0);
     grid-template-columns: minmax(0, auto) 2fr;
-    justify-items: center;
+  }
+
+  .o-media-group__object {
+    justify-self: center;
   }
 }

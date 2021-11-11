@@ -11,11 +11,16 @@ import defaultDemoSource from '!!raw-loader!./demo/demo.twig';
 import defaultDemo from './demo/demo.twig';
 import objects from './demo/objects.json';
 
-<Meta title="Objects/Media Group" />
+<Meta
+  title="Objects/Media Group"
+  args={{
+    class: { type: { name: 'string' } },
+  }}
+/>
 
 # Media Group
 
-Media Group can be used to display a group of media items. On small screens items in the group are vertically stacked with consistent spacing. On larger screens, items are split into columns and media objects are vertically aligned.
+Media Group can be used to display a group of media items. By default items in the group are vertically stacked with consistent spacing.
 
 <Canvas>
   <Story
@@ -26,8 +31,24 @@ Media Group can be used to display a group of media items. On small screens item
   </Story>
 </Canvas>
 
+## Columns
+
+Media Group can be divided into columns using the modifier class `o-media-group--X-column@Y`. `X` represents the number of columns (from 2 to 4) and `Y` is the desired breakpoint (from `s` to `xl`).
+
+When using the modifier, media object and content containers are sized consistently. This helps the media object and content to align vertically with the other items in their column.
+
+<Canvas>
+  <Story
+    name="Columns"
+    parameters={{ docs: { source: { code: defaultDemoSource } } }}
+    args={{ class: 'o-media-group--2-column@l' }}
+  >
+    {(args) => defaultDemo({ ...args, items: objects })}
+  </Story>
+</Canvas>
+
 ## Template blocks
 
 - `items` - should contain individual media items. Each item has two parts, an `object` and `content`.
-- `object` - for the static object, like an image, avatar, etc. This element will be sized auto, so it should have a defined width.
+- `object` - for the static object, like an image, avatar, etc.
 - `content` - for the wrapping content. Content is top-aligned with the object.

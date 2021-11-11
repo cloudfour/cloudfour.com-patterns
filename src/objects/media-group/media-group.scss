@@ -1,6 +1,7 @@
 @use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/fluid';
+@use '../../mixins/media-query';
 @use '../../mixins/ms';
 
 /**
@@ -17,9 +18,23 @@
     size.$spacing-gap-fluid-min,
     size.$spacing-gap-fluid-max
   );
+  }
 
-    @media (min-width: breakpoint.$l) {
-      grid-template-columns: repeat(2, 1fr);
+  @for $i from 2 through 4 {
+    .o-media-group--#{$i}-column {
+      @include media-query.breakpoint-classes($from: s, $to: xl) {
+        grid-template-columns: repeat(#{$i}, 1fr);
+        @include fluid.column-gap(
+          breakpoint.$s,
+          breakpoint.$xl,
+          size.$spacing-gap-fluid-min,
+          size.$spacing-gap-fluid-max
+        );
+
+        .o-media-group__item {
+          grid-template-columns: 1fr 2fr;
+        }
+      }
     }
   }
 
@@ -29,9 +44,5 @@
     grid-column-gap:  ms.step(0);
     grid-template-columns: minmax(0, auto) 2fr;
     justify-items: center;
-
-    @media (min-width: breakpoint.$l) {
-      grid-template-columns: 1fr 2fr;
-    }
   }
 }

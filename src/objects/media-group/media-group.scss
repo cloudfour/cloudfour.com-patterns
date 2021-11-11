@@ -13,11 +13,11 @@
     display: grid;
     grid-gap: calc(#{ms.step(0)} * 3);
     @include fluid.grid-gap(
-    breakpoint.$s,
-    breakpoint.$xl,
-    size.$spacing-gap-fluid-min,
-    size.$spacing-gap-fluid-max
-  );
+      breakpoint.$s,
+      breakpoint.$xl,
+      size.$spacing-gap-fluid-min,
+      size.$spacing-gap-fluid-max
+    );
   }
 
   @for $i from 2 through 4 {
@@ -41,7 +41,7 @@
   .o-media-group__item {
     align-items: start;
     display: grid;
-    grid-column-gap:  ms.step(0);
+    grid-column-gap: ms.step(0);
     grid-template-columns: minmax(0, auto) 2fr;
   }
 

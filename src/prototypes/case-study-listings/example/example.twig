@@ -154,6 +154,56 @@
     </div>
   </div>
 
+  <div class="wrapper t-alternate">
+    <div class="o-container o-container--pad">
+      <div class="o-container__content u-pad-block-2">
+        {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
+          {% block intro %}
+            <h2 class="c-heading c-heading--level-0 c-heading--light">
+              Books we’ve written
+            </h2>
+          {% endblock %}
+          {% block content %}
+            {% embed '@cloudfour/objects/deck/deck.twig' with {
+              class: 'o-deck--1-column@s o-deck--2-column@l'
+            } only %}
+              {% block content %}
+                <div class="item">
+                  <img
+                    src="static/media/src/prototypes/case-study-listings/images/bookicon.png"
+                    alt=""
+                    loading="lazy"
+                    class="book-img"
+                    />
+                  <div class="item-content">
+                    <h3 class="">
+                      <a href="#" class="c-card__link">Progressive Web Apps</a>
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <img
+                  src="static/media/src/prototypes/case-study-listings/images/bookicon2.png"
+                  alt=""
+                  loading="lazy"
+                  class="book-img"
+                  />
+                  <div class="item-content">
+                    <h3 class="">
+                      <a href="#" class="c-card__link">Head First Mobile Web</a>
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
+                  </div>
+                </div>
+              {% endblock %}
+            {% endembed %}
+          {% endblock %}
+        {% endembed %}
+      </div>
+    </div>
+  </div>
+
 
   <div class="wrapper">
     <div class="o-container o-container--pad">

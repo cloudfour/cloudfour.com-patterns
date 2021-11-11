@@ -281,3 +281,16 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
     text-align: left;
   }
 }
+
+/**
+ * Gutenberg block: Separator
+ *
+ * The default separator is intended to be partial-width, so we apply those
+ * styles selectively here rather than un-applying them to the other modifiers.
+ */
+
+.wp-block-separator.is-style-default {
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% / 3);
+}

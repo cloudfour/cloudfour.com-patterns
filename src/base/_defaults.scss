@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use '../compiled/tokens/scss/color';
 @use '../compiled/tokens/scss/size';
 @use '../mixins/border-radius';
@@ -267,4 +268,22 @@ figcaption {
 
 address {
   font-style: normal;
+}
+
+/**
+ * Horizontal rules
+ *
+ * We use border styles and `currentColor` for greater compatibility with
+ * the WordPress Gutenberg "Separator" block.
+ *
+ * 1. Our goal is for the borders to add together to form the total desired
+ *    width. We do this because that's what WordPress's Gutenberg block does
+ *    in order to support weird border+background style combinations.
+ */
+
+hr {
+  border-color: currentColor;
+  border-style: solid;
+  border-width: math.div(size.$edge-medium, 2) 0; /* 1 */
+  color: var(--theme-color-border-text-group);
 }

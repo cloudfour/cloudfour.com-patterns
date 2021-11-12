@@ -78,12 +78,10 @@
   }
 
   /**
-   * 1. Reset fallback styles, we use `grid-gap` when CSS Grid is supported
-   * 2. Give media objects a max-width to prevent them from becoming to large
+   * Reset fallback styles, we use `grid-gap` when CSS Grid is supported
    */
   .o-media__object {
-    margin-right: 0; /* 1 */
-    max-width: size.$max-width-media-object;
+    margin-right: 0;
   }
 
   .o-media--reverse .o-media__object {

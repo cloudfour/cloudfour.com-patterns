@@ -15,16 +15,6 @@
 }
 
 /**
- *  Modifier: Align Start
- *
- * Items remain top aligned
- */
-
-.o-media--align-start {
-  align-items: start;
-}
-
-/**
  * 1. This will take effect when the object is shorter than the content, making
  *    the whole element appear top-aligned in that case.
  * 2. To encourage a semantic document outline, we decouple this element's

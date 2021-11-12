@@ -38,6 +38,7 @@ const articlesTemplateSource = (_src, storyContext) => {
     horizontalBreakpoint: 'none',
   }}
   argTypes={{
+    class: { type: { name: 'string' } },
     columns: {
       control: {
         type: 'range',
@@ -79,6 +80,20 @@ By default, the `o-deck` class will use CSS Grid Layout to arrange child element
 
 <Canvas>
   <Story name="Basic" height="400px">
+    {articlesStory.bind({})}
+  </Story>
+</Canvas>
+
+## Alignment
+
+The `o-deck--align-start` modifier can be used to top-align deck items.
+
+<Canvas>
+  <Story
+    name="Alignment"
+    height="400px"
+    args={{ class: 'o-deck--align-start' }}
+  >
     {articlesStory.bind({})}
   </Story>
 </Canvas>

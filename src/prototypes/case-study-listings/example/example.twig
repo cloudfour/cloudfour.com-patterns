@@ -114,48 +114,6 @@
 
   <div class="wrapper t-alternate">
     <div class="o-container o-container--pad">
-      <div class="o-container__content">
-        <div class="grid-wrapper">
-          <div class="intro">
-            <h2 class="c-heading c-heading--level-0">Books we’ve written</h2>
-          </div>
-          <div class="content">
-            <div class="item">
-              <img
-              src="{{book}}"
-              alt=""
-              loading="lazy"
-              class="book-img"
-              />
-              <div class="item-content">
-                <h3 class="">
-                  <a href="#" class="c-card__link">Progressive Web Apps</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
-              </div>
-            </div>
-            <div class="item">
-              <img
-              src="{{mobile}}"
-              alt=""
-              loading="lazy"
-              class="book-img"
-              />
-              <div class="item-content">
-                <h3 class="">
-                  <a href="#" class="c-card__link">Head First Mobile Web</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrapper t-alternate">
-    <div class="o-container o-container--pad">
       <div class="o-container__content u-pad-block-2">
         {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
           {% block intro %}
@@ -168,34 +126,42 @@
               class: 'o-deck--1-column@s o-deck--2-column@l'
             } only %}
               {% block content %}
-                <div class="item">
-                  <img
-                    src="static/media/src/prototypes/case-study-listings/images/bookicon.png"
-                    alt=""
-                    loading="lazy"
-                    class="book-img"
+                {% embed '@cloudfour/objects/media/media.twig' with {
+                  class: 'o-media--1by2-column@l'
+                } only %}
+                  {% block object %}
+                    <img
+                      src="static/media/src/prototypes/case-study-listings/images/bookicon.png"
+                      alt=""
+                      loading="lazy"
+                      class="book-img"
                     />
-                  <div class="item-content">
-                    <h3 class="">
+                  {% endblock %}
+                  {% block content %}
+                    <h3 class="u-pad-block-n2">
                       <a href="#" class="c-card__link">Progressive Web Apps</a>
                     </h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
-                  </div>
-                </div>
-                <div class="item">
-                  <img
-                  src="static/media/src/prototypes/case-study-listings/images/bookicon2.png"
-                  alt=""
-                  loading="lazy"
-                  class="book-img"
-                  />
-                  <div class="item-content">
-                    <h3 class="">
+                  {% endblock %}
+                {% endembed %}
+                {% embed '@cloudfour/objects/media/media.twig' with {
+                  class: 'o-media--1by2-column@l'
+                } only %}
+                  {% block object %}
+                    <img
+                      src="static/media/src/prototypes/case-study-listings/images/bookicon2.png"
+                      alt=""
+                      loading="lazy"
+                      class="book-img"
+                    />
+                  {% endblock %}
+                  {% block content %}
+                    <h3 class="u-pad-block-n2">
                       <a href="#" class="c-card__link">Head First Mobile Web</a>
                     </h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
-                  </div>
-                </div>
+                  {% endblock %}
+                {% endembed %}
               {% endblock %}
             {% endembed %}
           {% endblock %}
@@ -204,83 +170,120 @@
     </div>
   </div>
 
-
   <div class="wrapper">
     <div class="o-container o-container--pad">
-      <div class="o-container__content">
-        <div class="grid-wrapper">
-          <div class="intro">
-            <h2 class="c-heading c-heading--level-0">Our open source projects</h2>
-            <footer>
-            <button class="button-largeScreen c-button c-button--secondary" type="button">Follow Cloud Four on GitHub</button>
-            </footer>
-          </div>
-          <div class="content">
-            <div class="item">
-              {% include '@cloudfour/components/avatar/avatar.twig' with {
-                "src": pwa,
-                "sizes": "60px"
-              } only %}
-              <div class="item-content">
-                <h3 class="">
-                  <a href="#" class="c-card__link">PWA Stats</a>
-                </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
-              </div>
-            </div>
-            <div class="item">
-              {% include '@cloudfour/components/avatar/avatar.twig' with {
-                "src": responsive,
-                "sizes": "60px"
-              } only %}
-              <div class="item-content">
-                <h3 class="">
-                  <a href="#" class="c-card__link">Responsive Images</a>
-                </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
-              </div>
-            </div>
-            <div class="item">
-              {% include '@cloudfour/components/avatar/avatar.twig' with {
-                "src": svg,
-                "sizes": "60px"
-              } only %}
-              <div class="item-content">
-                <h3 class="">
-                  <a href="#" class="c-card__link">Simple SVG Placeholder</a>
-                </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
-              </div>
-            </div>
-            <div class="item">
-              {% include '@cloudfour/components/avatar/avatar.twig' with {
-                "src": pwa,
-                "sizes": "60px"
-              } only %}
-              <div class="item-content">
-                <h3 class="">
-                  <a href="#" class="c-card__link">A Project</a>
-                </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
-              </div>
-            </div>
-            <div class="item">
-              {% include '@cloudfour/components/avatar/avatar.twig' with {
-                "src": responsive,
-                "sizes": "60px"
-              } only %}
-              <div class="item-content">
-                <h3 class="">
-                  <a href="#" class="c-card__link">Another Project</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor incididunt ut...</p>
-              </div>
-            </div>
-            <footer>
-              <button class="button-smallScreen c-button c-button--secondary" type="button">Follow Cloud Four on GitHub</button>
-            </footer>
-          </div>
-        </div>
+      <div class="o-container__content u-pad-block-2">
+        {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
+          {% block intro %}
+            <h2 class="c-heading c-heading--level-0 c-heading--light">
+              Our open source projects
+            </h2>
+          {% endblock %}
+          {% block content %}
+            {% embed '@cloudfour/objects/deck/deck.twig' with {
+              class: 'o-deck--1-column@s o-deck--2-column@l'
+            } only %}
+              {% block content %}
+                {% embed '@cloudfour/objects/media/media.twig' with {
+                  class: 'o-media--1by2-column@l'
+                } only %}
+                  {% block object %}
+                    {% include '@cloudfour/components/avatar/avatar.twig' with {
+                      "src": "static/media/src/prototypes/case-study-listings/images/pwastat.jpg",
+                      "sizes": "60px"
+                    } only %}
+                  {% endblock %}
+                  {% block content %}
+                    <h3 class="">
+                      <a href="#" class="c-card__link">PWA Stats</a>
+                    </h3>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...
+                    </p>
+                  {% endblock %}
+                {% endembed %}
+                {% embed '@cloudfour/objects/media/media.twig' with {
+                  class: 'o-media--1by2-column@l'
+                } only %}
+                  {% block object %}
+                    {% include '@cloudfour/components/avatar/avatar.twig' with {
+                      "src": "static/media/src/prototypes/case-study-listings/images/responsive.svg",
+                      "sizes": "60px"
+                    } only %}
+                  {% endblock %}
+                  {% block content %}
+                    <h3 class="">
+                      <a href="#" class="c-card__link">Responsive Images</a>
+                    </h3>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...
+                    </p>
+                  {% endblock %}
+                {% endembed %}
+                {% embed '@cloudfour/objects/media/media.twig' with {
+                  class: 'o-media--1by2-column@l'
+                } only %}
+                  {% block object %}
+                    {% include '@cloudfour/components/avatar/avatar.twig' with {
+                      "src": "static/media/src/prototypes/case-study-listings/images/placeholder.jpg",
+                      "sizes": "60px"
+                    } only %}
+                  {% endblock %}
+                  {% block content %}
+                    <h3 class="">
+                      <a href="#" class="c-card__link">Simple SVG Placeholder</a>
+                    </h3>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...
+                    </p>
+                  {% endblock %}
+                {% endembed %}
+                {% embed '@cloudfour/objects/media/media.twig' with {
+                  class: 'o-media--1by2-column@l'
+                } only %}
+                  {% block object %}
+                    {% include '@cloudfour/components/avatar/avatar.twig' with {
+                      "src": "static/media/src/prototypes/case-study-listings/images/pwastat.jpg",
+                      "sizes": "60px"
+                    } only %}
+                  {% endblock %}
+                  {% block content %}
+                    <h3 class="">
+                      <a href="#" class="c-card__link">A Project</a>
+                    </h3>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...
+                    </p>
+                  {% endblock %}
+                {% endembed %}
+                {% embed '@cloudfour/objects/media/media.twig' with {
+                  class: 'o-media--1by2-column@l'
+                } only %}
+                  {% block object %}
+                    {% include '@cloudfour/components/avatar/avatar.twig' with {
+                      "src": "static/media/src/prototypes/case-study-listings/images/responsive.svg",
+                      "sizes": "60px"
+                    } only %}
+                  {% endblock %}
+                  {% block content %}
+                    <h3 class="">
+                      <a href="#" class="c-card__link">Another Project</a>
+                    </h3>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...
+                    </p>
+                  {% endblock %}
+                {% endembed %}
+              {% endblock %}
+            {% endembed %}
+          {% endblock %}
+          {% block action %}
+            {% include '@cloudfour/components/button/button.twig' with {
+              class: "c-button--secondary",
+              "label": "Follow Cloud Four on GitHub"
+            } only %}
+          {% endblock %}
+        {% endembed %}
       </div>
     </div>
   </div>

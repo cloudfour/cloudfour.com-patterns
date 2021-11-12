@@ -1,4 +1,6 @@
+@use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/size';
+@use '../../mixins/media-query';
 
 /**
  * We could use CSS Grid for this pattern and save ourselves some child element
@@ -49,4 +51,42 @@
 
 .o-media__content {
   flex: 1;
+}
+
+/**
+ * We use CSS grid when supported by the browser.
+ */
+
+@supports (display: grid) {
+  .o-media {
+    align-items: center;
+    display: grid;
+    grid-gap: size.$spacing-media-gap;
+    grid-template-columns: minmax(0, auto) 1fr;
+  }
+
+  @for $i from 1 through 4 {
+    .o-media--1by#{$i}-column {
+      @include media-query.breakpoint-classes($from: s, $to: xl) {
+        grid-template-columns: 1fr #{$i}fr;
+
+        .o-media__object {
+          justify-self: center;
+        }
+      }
+    }
+  }
+
+  /**
+   * 1. Reset fallback styles, we use `grid-gap` when CSS Grid is supported
+   * 2. Give media objects a max-width to prevent them from becoming to large
+   */
+  .o-media__object {
+    margin-right: 0; /* 1 */
+    max-width: size.$max-width-media-object;
+  }
+
+  .o-media--reverse .o-media__object {
+    margin-left: 0;
+  }
 }

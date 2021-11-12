@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add Media Group object
+Update Deck columns modifier. Update Media to use CSS Grid and add modifier to size content.

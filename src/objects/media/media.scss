@@ -66,7 +66,7 @@
   }
 
   @for $i from 1 through 4 {
-    .o-media--1by#{$i} {
+    .o-media--1-by-#{$i} {
       @include media-query.breakpoint-classes($from: s, $to: xl) {
         grid-template-columns: 1fr #{$i}fr;
 

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 import tokens from '../compiled/tokens/js/tokens';
 const _ = require('lodash');
 const modularScale = tokens.number.scale.modular;
@@ -23,7 +23,7 @@ const modularScaleRows = Object.keys(modularScale).map((key) => {
 # Modular Scale
 
 ```scss
-@use "../../compiled/tokens/scss/scale";
+@use '../../compiled/tokens/scss/scale';
 $example: scale.$modular-ratio; // => 1.25
 ```
 

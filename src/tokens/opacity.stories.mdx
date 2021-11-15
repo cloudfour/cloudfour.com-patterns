@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 import tokens from '../compiled/tokens/js/tokens';
 const _ = require('lodash');
 const opacities = tokens.number.opacity;
@@ -19,7 +19,7 @@ const opacityRows = Object.keys(opacities).map((key) => {
 # Opacity
 
 ```scss
-@use "../../compiled/tokens/scss/opacity";
+@use '../../compiled/tokens/scss/opacity';
 $example: opacity.$muted; // => 0.65
 ```
 

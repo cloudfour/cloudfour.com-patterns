@@ -1,6 +1,6 @@
-@use "../../compiled/tokens/scss/breakpoint";
-@use "../../compiled/tokens/scss/size";
-@use "../../mixins/fluid";
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/fluid';
 
 $pad-breakpoint-min: breakpoint.$s;
 $pad-breakpoint-max: breakpoint.$xl;
@@ -18,29 +18,29 @@ $pad-max: size.$padding-container-max;
  */
 
 .o-container--pad {
-  @include fluid.padding(
-    $pad-breakpoint-min,
-    $pad-breakpoint-max,
+  padding: fluid.fluid-clamp(
     $pad-min,
-    $pad-max
+    $pad-max,
+    $pad-breakpoint-min,
+    $pad-breakpoint-max
   );
 }
 
 .o-container--pad-block {
-  @include fluid.padding-block(
-    $pad-breakpoint-min,
-    $pad-breakpoint-max,
+  padding-block: fluid.fluid-clamp(
     $pad-min,
-    $pad-max
+    $pad-max,
+    $pad-breakpoint-min,
+    $pad-breakpoint-max
   );
 }
 
 .o-container--pad-inline {
-  @include fluid.padding-inline(
-    $pad-breakpoint-min,
-    $pad-breakpoint-max,
+  padding-inline: fluid.fluid-clamp(
     $pad-min,
-    $pad-max
+    $pad-max,
+    $pad-breakpoint-min,
+    $pad-breakpoint-max
   );
 }
 
@@ -72,32 +72,12 @@ $pad-max: size.$padding-container-max;
 .o-container__fill-pad {
   .o-container--pad &,
   .o-container--pad-inline & {
-    @include fluid.margin-inline(
-      $pad-breakpoint-min,
-      $pad-breakpoint-max,
+    margin-inline: fluid.fluid-clamp(
       $pad-min * -1,
-      $pad-max * -1
+      $pad-max * -1,
+      $pad-breakpoint-min,
+      $pad-breakpoint-max
     );
-  }
-
-  .o-container--pad:not(.o-container--prose) &,
-  .o-container--pad-inline:not(.o-container--prose) & {
-    // Magic number corresponds to approximate size of fluid padding in addition
-    // to max width container without fluid font size applied (attempts to boil
-    // this down to a repeatable equation resulted in my head exploding). If we
-    // only tested by the max width, the rounded corners would be restored too
-    // early (before there was visible whitespace to either side).
-    @media (width < (size.$max-width-spread + 25em)) {
-      border-radius: 0;
-    }
-  }
-
-  .o-container--pad.o-container--prose &,
-  .o-container--pad-inline.o-container--prose & {
-    // See previous comment about magic number
-    @media (width < (size.$max-width-prose + 7em)) {
-      border-radius: 0;
-    }
   }
 }
 
@@ -111,11 +91,11 @@ $pad-max: size.$padding-container-max;
 .o-container__fill-pad {
   .o-container--pad &,
   .o-container--pad-inline & {
-    @include fluid.padding-inline(
-      $pad-breakpoint-min,
-      $pad-breakpoint-max,
+    padding-inline: fluid.fluid-clamp(
       $pad-min,
-      $pad-max
+      $pad-max,
+      $pad-breakpoint-min,
+      $pad-breakpoint-max
     );
   }
 }

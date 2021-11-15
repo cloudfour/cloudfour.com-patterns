@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs';
 // The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
 // See: https://github.com/webpack-contrib/raw-loader#examples
 // For now, it seems likely Storybook is pretty tied to Webpack, therefore, we
@@ -40,13 +40,16 @@ const imageDemoTransformSource = (_src, storyContext) => {
 
 <Meta
   title="Objects/Media"
+  args={{
+    imgSrc: meganProfileImage,
+    text: exampleText,
+    reverse: false,
+  }}
   argTypes={{
-    imgSrc: {
-      type: { name: 'string', required: true },
-      defaultValue: meganProfileImage,
-    },
-    text: { type: { name: 'string' }, defaultValue: exampleText },
-    reverse: { type: { name: 'boolean' }, defaultValue: false },
+    imgSrc: { type: { name: 'string', required: true } },
+    text: { type: { name: 'string' } },
+    class: { type: { name: 'string' } },
+    reverse: { type: { name: 'boolean' } },
   }}
 />
 
@@ -81,6 +84,26 @@ The order of `o-media__object` and `o-media__content` will not affect this patte
   <Story
     name="Image Reversed"
     args={{ reverse: true }}
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
+  >
+    {(args) => imageDemo(args)}
+  </Story>
+</Canvas>
+
+## Specifying Content Size
+
+`o-media__object` and `o-media__content` can be sized relative to each other using fractional units. This is useful when you want to align the content of a media object with other media objects.
+
+To do this, use the modifier class `o-media--1byX@Y`. The number `1` represents the width of `o-media__object` and `X` represents the relative size of `o-media__content` (from 1 to 4). Y can be used to specify the desired breakpoint (from `s` to `xl`).
+
+<Canvas>
+  <Story
+    name="Relative Size"
+    args={{ class: 'o-media--1-by-3' }}
     parameters={{
       docs: {
         transformSource: imageDemoTransformSource,

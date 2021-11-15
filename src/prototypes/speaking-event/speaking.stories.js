@@ -1,5 +1,6 @@
 import events from './data/events.json';
-import examplePrototype from './example/example.twig';
+import singleSpeakerPrototype from './example/single-speaker.twig';
+import multipleSpeakersPrototype from './example/multiple-speakers.twig';
 import deck from './images/deck.png';
 import './example/example.scss';
 
@@ -11,4 +12,7 @@ export default {
   },
 };
 
-export const Example = () => examplePrototype({ events, deck });
+export const SingleSpeaker = () => singleSpeakerPrototype({ events, deck });
+
+export const MultipleSpeakers = () =>
+  multipleSpeakersPrototype({ events, deck });

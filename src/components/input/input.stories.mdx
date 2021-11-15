@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include';
 // The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
@@ -41,23 +41,26 @@ The `c-input` class styles text and text-like form elements in a consistent way.
 <Canvas>
   <Story
     name="Text Elements"
+    args={{
+      type: 'text',
+      placeholder: 'Placeholder text…',
+      id: 'demo-input',
+      readonly: false,
+      disabled: false,
+    }}
     argTypes={{
       type: {
-        type: { name: 'enum' },
-        defaultValue: 'text',
+        options: ['text', 'email', 'search', 'date', 'textarea'],
+        type: { name: 'string' },
         control: {
           type: 'select',
-          options: ['text', 'email', 'search', 'date', 'textarea'],
         },
       },
       value: { type: { name: 'string' } },
-      placeholder: {
-        type: { name: 'string' },
-        defaultValue: 'Placeholder text…',
-      },
-      id: { type: { name: 'string' }, defaultValue: 'demo-input' },
-      readonly: { type: { name: 'boolean' }, defaultValue: false },
-      disabled: { type: { name: 'boolean' }, defaultValue: false },
+      placeholder: { type: { name: 'string' } },
+      id: { type: { name: 'string' } },
+      readonly: { type: { name: 'boolean' } },
+      disabled: { type: { name: 'boolean' } },
     }}
   >
     {(args) => input(args)}
@@ -69,9 +72,13 @@ You can also add `c-input` to `<select>` elements, in which case you’ll get a 
 <Canvas>
   <Story
     name="Select Element"
+    args={{
+      id: 'demo-select',
+      disabled: false,
+    }}
     argTypes={{
-      id: { type: { name: 'string' }, defaultValue: 'demo-input' },
-      disabled: { type: { name: 'boolean' }, defaultValue: false },
+      id: { type: { name: 'string' } },
+      disabled: { type: { name: 'boolean' } },
     }}
     parameters={{ docs: { source: { code: selectDemoSource } } }}
   >
@@ -90,13 +97,14 @@ If the `rows` attribute is set, it will be used as the minimum height.
     name="Elastic Textarea"
     height="250px"
     argTypes={{
-      rows: { type: { name: 'number' }, defaultValue: 2 },
-      class: {
-        type: { name: 'string' },
-        defaultValue: 'c-input--elastic js-elastic-textarea',
-      },
+      rows: { type: { name: 'number' } },
+      class: { type: { name: 'string' } },
     }}
-    args={elasticTextAreaConfig}
+    args={{
+      ...elasticTextAreaConfig,
+      rows: 2,
+      class: 'c-input--elastic js-elastic-textarea',
+    }}
     parameters={{
       docs: {
         source: {

@@ -1,20 +1,20 @@
-@use "../../compiled/tokens/scss/breakpoint";
-@use "../../compiled/tokens/scss/size";
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/size';
 @use '../../mixins/fluid';
 
 .o-bio {
   display: grid;
+  grid-gap: fluid.fluid-clamp(
+    size.$spacing-gap-fluid-min,
+    size.$spacing-gap-fluid-max,
+    breakpoint.$s,
+    breakpoint.$xl
+  );
   grid-template-areas:
     'avatar'
     'content'
     'meta';
   grid-template-rows: repeat(3, minmax(0, auto));
-  @include fluid.grid-gap(
-    breakpoint.$s,
-    breakpoint.$xl,
-    size.$spacing-gap-fluid-min,
-    size.$spacing-gap-fluid-max
-  );
 
   @media (min-width: breakpoint.$l) {
     grid-template-areas:

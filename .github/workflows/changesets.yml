@@ -19,6 +19,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 12
+      - name: Update npm
+        run: npm i -g npm@7
       - name: Install Dependencies
         run: CYPRESS_INSTALL_BINARY=0 npm ci
       - name: Run Preprocess

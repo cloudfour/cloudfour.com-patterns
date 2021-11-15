@@ -1,5 +1,5 @@
-@use "../../compiled/tokens/scss/breakpoint";
-@use "../../compiled/tokens/scss/size";
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/size';
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
 
@@ -14,11 +14,11 @@
 .o-deck {
   display: grid;
   grid-auto-flow: dense; /* 1 */
-  @include fluid.grid-gap(
-    breakpoint.$s,
-    breakpoint.$xl,
+  grid-gap: fluid.fluid-clamp(
     size.$spacing-gap-fluid-min,
-    size.$spacing-gap-fluid-max
+    size.$spacing-gap-fluid-max,
+    breakpoint.$s,
+    breakpoint.$xl
   );
 
   /**
@@ -45,10 +45,18 @@
  * maximum or to coordinate with adjacent elements.
  */
 
-@for $i from 2 through 4 {
+@for $i from 1 through 4 {
   .o-deck--#{$i}-column {
     @include media-query.breakpoint-classes($from: s, $to: xl) {
       grid-template-columns: repeat(#{$i}, 1fr);
     }
   }
+}
+
+/**
+ * Content alignment modifier
+ */
+
+.o-deck--align-start {
+  align-items: start;
 }

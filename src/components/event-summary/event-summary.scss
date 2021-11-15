@@ -1,8 +1,8 @@
-@use "../../compiled/tokens/scss/color";
-@use "../../compiled/tokens/scss/ease";
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/ease';
 @use '../../compiled/tokens/scss/scale';
-@use "../../compiled/tokens/scss/size";
-@use "../../compiled/tokens/scss/transition";
+@use '../../compiled/tokens/scss/size';
+@use '../../compiled/tokens/scss/transition';
 @use '../../mixins/focus';
 
 /// The focus outline feels a little snug directly on the outer edge, but we

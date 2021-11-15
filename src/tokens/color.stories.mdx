@@ -1,4 +1,4 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
 import tokens from '../compiled/tokens/js/tokens';
 const generateColorPalette = (props) => {
   const propsArray = Object.values(props);
@@ -24,7 +24,7 @@ const textColorPalette = generateColorPalette(tokens.color.text);
 # Color
 
 ```scss
-@use "../../compiled/tokens/scss/color";
+@use '../../compiled/tokens/scss/color';
 $example: color.$text-dark; // => rgba(0, 0, 0, 0.85)
 ```
 

@@ -1,6 +1,6 @@
 {% set tag_name = tag_name|default('div') %}
 
-<{{ tag_name }} class="c-alert{% if full_width %} c-alert--full-width{% endif %}{% if floating %} c-alert--floating {% endif %}{% if class %} {{ class }}{% endif %}">
+<{{ tag_name }} class="c-alert{% if full_width %} c-alert--full-width{% endif %}{% if floating %} c-alert--floating{% endif %}{% if class %} {{ class }}{% endif %}">
   <div class="c-alert__inner">
     {% if block('icon')|trim or icon_name %}
       <span class="c-alert--icon">

@@ -1,6 +1,7 @@
-import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs';
 import articles from './demo/articles.json';
 import articlesDemo from './demo/articles.twig';
+import alignmentDemo from './demo/alignment.twig';
 const articlesStory = (args) => articlesDemo({ items: articles, ...args });
 // Custom function for generating story source from args given
 const articlesTemplateSource = (_src, storyContext) => {
@@ -31,23 +32,26 @@ const articlesTemplateSource = (_src, storyContext) => {
       transformSource: articlesTemplateSource,
     },
   }}
+  args={{
+    columns: 3,
+    columnsBreakpoint: 'none',
+    horizontalItem: 1,
+    horizontalBreakpoint: 'none',
+  }}
   argTypes={{
+    class: { type: { name: 'string' } },
     columns: {
       control: {
         type: 'range',
-        min: 2,
+        min: 1,
         max: 4,
         step: 1,
       },
-      defaultValue: 3,
     },
     columnsBreakpoint: {
+      options: ['none', '@s', '@m', '@l', '@xl'],
       type: { name: 'string' },
-      control: {
-        type: 'inline-radio',
-        options: ['none', '@s', '@m', '@l', '@xl'],
-      },
-      defaultValue: 'none',
+      control: { type: 'inline-radio' },
     },
     horizontalItem: {
       control: {
@@ -56,12 +60,11 @@ const articlesTemplateSource = (_src, storyContext) => {
         max: articles.length,
         step: 1,
       },
-      defaultValue: 1,
     },
     horizontalBreakpoint: {
+      options: ['none', '@m', '@l', '@xl'],
       type: { name: 'string' },
-      control: { type: 'inline-radio', options: ['none', '@m', '@l', '@xl'] },
-      defaultValue: 'none',
+      control: { type: 'inline-radio' },
     },
   }}
 />
@@ -82,11 +85,21 @@ By default, the `o-deck` class will use CSS Grid Layout to arrange child element
   </Story>
 </Canvas>
 
+## Alignment
+
+The `o-deck--align-start` modifier can be used to top-align deck items. This modifier is helpful when the deck items have different alignment. For example, the `o-media` object can be middle or top aligned depending on the length of the content. The modifier forces all deck objects to have the same alignment.
+
+<Canvas>
+  <Story name="Alignment" height="200px">
+    {(args) => alignmentDemo(args)}
+  </Story>
+</Canvas>
+
 ## Specifying Columns
 
 While automatic columns are convenient, there are times when a specific column count is desired. For example, you may want to limit a design to three columns at larger breakpoints to align with adjacent elements.
 
-To do this, add a modifier class in the format of `o-deck--X-column@Y`, where `X` is the desired column count (from 2 to 4) and `Y` is the desired [breakpoint](/docs/design-tokens-breakpoint--page) (from `s` to `xl`). In this example, we force the grid to display three columns starting from the `m` breakpoint.
+To do this, add a modifier class in the format of `o-deck--X-column@Y`, where `X` is the desired column count (from 1 to 4) and `Y` is the desired [breakpoint](/docs/design-tokens-breakpoint--page) (from `s` to `xl`). In this example, we force the grid to display three columns starting from the `m` breakpoint.
 
 <Canvas>
   <Story

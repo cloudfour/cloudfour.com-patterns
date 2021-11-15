@@ -1,7 +1,8 @@
 @use 'sass:meta';
-@use "../../../compiled/tokens/scss/breakpoint";
-@use "../../../compiled/tokens/scss/color-base";
-@use "../../../compiled/tokens/scss/size";
+@use '../../../compiled/tokens/scss/breakpoint';
+@use '../../../compiled/tokens/scss/color-base';
+@use '../../../compiled/tokens/scss/size';
+@use '../../../mixins/border-radius';
 @use '../../../mixins/headings';
 @use '../../../mixins/ms';
 
@@ -30,17 +31,7 @@
 /// element unless the element has alignment that will cause it to meet the
 /// viewport edge.
 .has-background {
-  border-radius: size.$border-radius-card-contained;
-
-  &.alignfull {
-    border-radius: 0;
-  }
-
-  &.alignwide {
-    @media (width < breakpoint.$l) {
-      border-radius: 0;
-    }
-  }
+  @include border-radius.conditional();
 }
 
 /// Utilities for Block Color Palettes

@@ -1,5 +1,5 @@
-@use "../compiled/tokens/scss/color";
-@use "../compiled/tokens/scss/opacity";
+@use '../compiled/tokens/scss/color';
+@use '../compiled/tokens/scss/opacity';
 @use '../mixins/theme';
 
 /**
@@ -17,6 +17,7 @@
   --theme-color-background-kbd: transparent;
   --theme-color-background-secondary: #{color.$base-gray-lighter};
   --theme-color-border-kbd: #{color.$base-gray-light};
+  --theme-color-border-text-group: #{color.$base-gray-light};
   --theme-color-text-action: #{color.$text-action};
   --theme-color-text-base: #{color.$text-dark};
   --theme-color-text-code: #{color.$base-fuchsia};
@@ -34,6 +35,7 @@
   --theme-color-background-kbd: #{color.$brand-primary-dark};
   --theme-color-background-secondary: #{color.$brand-primary-dark};
   --theme-color-border-kbd: #{color.$brand-primary-darker};
+  --theme-color-border-text-group: #{color.$brand-primary-darker};
   --theme-color-text-action: var(--theme-color-text-emphasis);
   --theme-color-text-base: #{color.$text-light};
   --theme-color-text-code: var(--theme-color-text-emphasis);

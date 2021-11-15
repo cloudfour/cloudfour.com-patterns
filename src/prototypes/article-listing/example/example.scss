@@ -22,11 +22,11 @@
   .section {
     display: grid;
     grid-auto-flow: dense;
-    @include fluid.grid-gap(
-      breakpoint.$s,
-      breakpoint.$xl,
+    grid-gap: fluid.fluid-clamp(
       size.$spacing-gap-fluid-min,
-      size.$spacing-gap-fluid-max
+      size.$spacing-gap-fluid-max,
+      breakpoint.$s,
+      breakpoint.$xl
     );
 
     @media (min-width: breakpoint.$m) {

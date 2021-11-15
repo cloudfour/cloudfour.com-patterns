@@ -1,14 +1,14 @@
-@use "../compiled/tokens/scss/brightness";
-@use "../compiled/tokens/scss/color";
-@use "../compiled/tokens/scss/ease";
-@use "../compiled/tokens/scss/font-weight";
-@use "../compiled/tokens/scss/scale";
-@use "../compiled/tokens/scss/size";
-@use "../compiled/tokens/scss/transition";
-@use "./focus";
-@use "./ms";
-@use "./unit";
-@use "./theme";
+@use '../compiled/tokens/scss/brightness';
+@use '../compiled/tokens/scss/color';
+@use '../compiled/tokens/scss/ease';
+@use '../compiled/tokens/scss/font-weight';
+@use '../compiled/tokens/scss/scale';
+@use '../compiled/tokens/scss/size';
+@use '../compiled/tokens/scss/transition';
+@use './focus';
+@use './ms';
+@use './unit';
+@use './theme';
 
 /**
  * Themed properties

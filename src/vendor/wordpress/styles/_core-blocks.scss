@@ -1,9 +1,14 @@
-@use "sass:math";
-@use "../../../compiled/tokens/scss/breakpoint";
-@use "../../../compiled/tokens/scss/line-height";
-@use "../../../compiled/tokens/scss/size";
-@use "../../../mixins/button";
-@use "../../../mixins/table";
+@use 'sass:math';
+@use '../../../compiled/tokens/scss/breakpoint';
+@use '../../../compiled/tokens/scss/color';
+@use '../../../compiled/tokens/scss/line-height';
+@use '../../../compiled/tokens/scss/size';
+@use '../../../mixins/border-radius';
+@use '../../../mixins/button';
+@use '../../../mixins/emdash';
+@use '../../../mixins/ms';
+@use '../../../mixins/table';
+@use '../../../mixins/theme';
 
 /**
  * Gutenberg block: Button
@@ -174,71 +179,118 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  * Styles for quotes and pull-quotes
  */
 
+.wp-block-pullquote,
+.wp-block-quote {
+  color: var(--theme-color-text-muted);
+}
+
+/**
+ * 1. Reset bottom margin
+ * 2. Reset padding
+ * 3. Reset text alignment
+ */
+
+.wp-block-pullquote {
+  background-color: var(--theme-color-background-secondary);
+  margin-bottom: 0; /* 1 */
+  padding: 0; /* 2 */
+  text-align: left; /* 3 */
+  @include border-radius.conditional();
+}
+
+/**
+ * Our default styles for the blockquote element include `padding-left`.
+ * Pullquotes get padding on every side.
+ */
+
+.wp-block-pullquote blockquote {
+  padding: ms.step(1);
+}
+
+/**
+ * 1. Adjacent children of blockquotes have vertical spacing. Making `cite`
+ *    a block level element so that it has the same spacing.
+ */
+
+.wp-block-pullquote cite,
+.wp-block-quote cite {
+  display: block; /* 1 */
+  font-style: normal;
+}
+
+/**
+ * Add an em dash before the citation.
+ */
+
+.wp-block-pullquote cite::before,
+.wp-block-quote cite::before {
+  @include emdash.content;
+}
+
 /**
  * Makes the line-height more consistent with existing typographic styles.
  */
+
+.wp-block-pullquote,
 .wp-block-quote.is-large,
-.wp-block-pullquote {
+.wp-block-quote.is-style-large {
   p {
     line-height: line-height.$tight;
   }
 }
 
-.wp-block-pullquote {
-  padding: size.$padding-control-vertical 0;
+/**
+ * Reset the max-width so the text spans the width of the container.
+ */
+
+.wp-block-pullquote.is-style-solid-color {
+  blockquote {
+    max-width: 100%;
+  }
 }
 
-/**
- * The quote itself defaults to being italic, this straightens out the quote
- */
-.wp-block-quote.is-style-large p,
-.wp-block-quote.is-large p {
-  font-style: normal;
-}
-
-/**
- * The pull-quote isn't italic at all, so for consistency, the cite is
- * italicized.
- */
-.wp-block-pullquote.is-style-solid-color blockquote cite {
-  font-style: italic;
-}
-
-/**
- * The quote is a little squished on small screens so the max width
- * is increased.
- */
+.wp-block-pullquote,
 .wp-block-pullquote.is-style-solid-color blockquote {
-  @media (min-width: breakpoint.$xs) {
-    max-width: 80%;
+  p {
+    font-size: ms.step(1);
   }
-  @media (min-width: breakpoint.$m) {
-    max-width: 60%;
+}
+
+.wp-block-quote {
+  border-left: size.$border-width-blockquote solid
+    var(--theme-color-border-text-group);
+}
+
+/**
+* 1. Reset margins and padding
+* 2. The quote itself defaults to being italic, this straightens out the quote
+*/
+.wp-block-quote.is-style-large,
+.wp-block-quote.is-large {
+  margin: 0; /* 1 */
+  padding-left: ms.step(1); /* 1 */
+  padding-right: 0; /* 1 */
+
+  p {
+    font-size: ms.step(0);
+    font-style: normal; /* 2 */
+  }
+
+  cite {
+    font-size: ms.step(0);
+    text-align: left;
   }
 }
 
 /**
- * Groups
- * Rounds the corners for groups when the has-background class is applied.
- * 1. This value is added to keep the Cloud Four card containers and
- * the Gutenberg styles consistent.
- * 2. When the alignfull class is applied the border radius will go
- * back to 0 to keep the corners flush with the edge of the page.
- * 3. The alignwide class will have the border-radius set to 0 until it hits
- * the large breakpoint because at that point, it no longer sits along the
- * edge of the screen. It's intended to be applied within a container.
+ * Gutenberg block: Separator
+ *
+ * The default separator is intended to be partial-width, so we apply those
+ * styles selectively here rather than un-applying them to the other modifiers.
  */
 
-.wp-block-group.has-background {
-  border-radius: size.$border-radius-card-contained; /* 1 */
-
-  &.alignfull {
-    border-radius: 0; /* 2 */
-  }
-
-  &.alignwide {
-    @media (width < breakpoint.$l) {
-      border-radius: 0; /* 3 */
-    }
-  }
+.wp-block-separator.is-style-default {
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% / 3);
 }

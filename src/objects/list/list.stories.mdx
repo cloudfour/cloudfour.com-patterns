@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, Meta } from '@storybook/addon-docs';
 import template from './list.twig';
 const defaultItems = [
   'Design Tokens',
@@ -13,13 +13,17 @@ const tagNames = ['ul', 'ol'];
 <Meta
   title="Objects/List"
   parameters={{ docs: { inlineStories: false } }}
+  args={{
+    items: defaultItems,
+    tag_name: tagNames[0],
+  }}
   argTypes={{
     class: { type: { name: 'string' } },
-    items: { type: { name: 'array' }, defaultValue: defaultItems },
+    items: { type: { name: 'array' } },
     tag_name: {
+      options: tagNames,
       type: { name: 'enum' },
-      control: { type: 'inline-radio', options: tagNames },
-      defaultValue: tagNames[0],
+      control: { type: 'inline-radio' },
     },
   }}
 />

@@ -76,11 +76,11 @@
         }
       }
     }
+  }
 
-    .book-img {
-      @media (max-width: 959px) {
-        max-width: 7em;
-      }
+  .book-img {
+    @media (max-width: 959px) {
+      max-width: 7em;
     }
   }
 

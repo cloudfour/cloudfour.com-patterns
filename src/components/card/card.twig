@@ -12,11 +12,12 @@
 <{{ tag_name }} class="
   c-card
   {% if href %}c-card--with-link{% endif %}
-  {% if class %}{{ class }}{% endif %}">
+  {% if class %}{{ class }}{% endif %}"
+  {% if heading_id and _heading_block is not empty %}aria-labelledby="{{heading_id}}"{% endif %}>
 
   {% if _heading_block is not empty %}
     <{{ header_tag_name }} class="c-card__header">
-      <h{{ heading_level }} class="c-card__heading">
+      <h{{ heading_level }} class="c-card__heading"{% if heading_id %} id="{{heading_id}}"{% endif %}>
         {% if href %}
           <a href="{{ href }}" class="c-card__link">
             {{ _heading_block }}

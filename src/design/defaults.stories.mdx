@@ -1,0 +1,128 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import figureImage from './demo/tiny-web-stacks.png';
+
+<Meta title="Design/Defaults" />
+
+# Default element styles
+
+To keep our styles manageable and avoid conflicts of specificity, our default HTML elements are pretty modest. That said, it's important to have a solid foundation so our markup doesn't become a murky soup of utility classes and bespoke styles.
+
+## Headings
+
+More options are available via [the Heading component](/docs/components-heading--example).
+
+<Canvas isColumn>
+  <Story name="Heading level 1">{`<h1>Heading level 1</h1>`}</Story>
+  <Story name="Heading level 2">{`<h2>Heading level 2</h2>`}</Story>
+  <Story name="Heading level 3">{`<h3>Heading level 3</h3>`}</Story>
+  <Story name="Heading level 4">{`<h4>Heading level 4</h4>`}</Story>
+  <Story name="Heading level 5">{`<h5>Heading level 5</h5>`}</Story>
+  <Story name="Heading level 6">{`<h6>Heading level 6</h6>`}</Story>
+</Canvas>
+
+## Inline elements
+
+<Canvas>
+  <Story name="Inline elements">
+    {`<p>
+  <b>Progressive Web Apps</b> are awesome, <em>especially</em> when they make the <del>best</del> <ins>most</ins> of the web! That means using both tried and true <abbr title="HyperText Markup Language">HTML</abbr> techniques like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">links</a> alongside new techniques like <code>display: grid</code> or <a href="https://github.com/WICG/focus-visible"><code>focus-visible</code></a>! You can use <kbd>ctrl</kbd> + <kbd>c</kbd> on Windows and <kbd>⌘</kbd> + <kbd>c</kbd> on Mac.
+</p>`}
+  </Story>
+</Canvas>
+
+## Blockquote
+
+<Canvas>
+  <Story name="Blockquote">
+    {`<blockquote>
+  <p><b>CSS Grid Layout</b> excels at dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives.</p>
+  <p>Like tables, grid layout enables an author to align elements into columns and rows. However, many more layouts are either possible or easier with CSS grid than they were with tables. For example, a grid container's child elements could position themselves so they actually overlap and layer, similar to CSS positioned elements.</p>
+  <footer>
+    <cite><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">MDN Web Docs</a></cite>
+  </footer>
+</blockquote>`}
+  </Story>
+</Canvas>
+
+## Lists
+
+See [the List object](/docs/objects-list--default-story) for help styling custom or complex lists.
+
+<Canvas isColumn>
+  <Story name="Unordered list">
+    {`<ul>
+  <li>HTML</li>
+  <li>CSS
+    <ul>
+      <li>Color</li>
+      <li>Layout</li>
+      <li>Typography</li>
+    </ul>
+  </li>
+  <li>JavaScript</li>
+</ul>`}
+  </Story>
+  <Story name="Ordered list">
+    {`<ol>
+  <li>HTML</li>
+  <li>CSS
+    <ol>
+      <li>Color</li>
+      <li>Layout</li>
+      <li>Typography</li>
+    </ol>
+  </li>
+  <li>JavaScript</li>
+</ol>`}
+  </Story>
+  <Story name="Description list">
+    {`<dl>
+  <dt>HTML</dt>
+  <dd>Describes content.</dd>
+  <dt>CSS</dt>
+  <dd>Describes presentation.</dd>
+  <dt>JavaScript</dt>
+  <dd>Describes functionality and behavior.</dd>
+</dl>`}
+  </Story>
+</Canvas>
+
+## Figure
+
+<Canvas>
+  <Story name="Figure">
+    {`<figure>
+  <img src="${figureImage}" width="800" height="450" alt="pancakes">
+  <figcaption>I’m a picture with a caption.</figcaption>
+</figure>`}
+  </Story>
+</Canvas>
+
+## Code block
+
+For syntax highlighting, see [our Prism theme](/docs/vendor-prism--bash-shell).
+
+<Canvas>
+  <Story name="Code block">
+    {() => {
+      const example = `* {
+  box-sizing: border-box;
+}`;
+      return `<pre><code>${example}</code></pre>`;
+    }}
+  </Story>
+</Canvas>
+
+## Horizontal rule
+
+Only use `hr` elements to represent a "thematic break" in content, such as a change in topic within a section. For divisions that are purely presentational, use CSS instead.
+
+To add space between the `hr` and adjacent elements, consider wrapping the section of content in [a Rhythm object](/docs/objects-rhythm--default-story).
+
+<Canvas>
+  <Story name="Horizontal rule">
+    {`<p>…and so ends this topic.</p>
+<hr>
+<p>Shifting our focus to something else entirely…</p>`}
+  </Story>
+</Canvas>

@@ -1,9 +1,9 @@
-@use "sass:math";
-@use "../../compiled/tokens/scss/color";
-@use "../../compiled/tokens/scss/ease";
-@use "../../compiled/tokens/scss/size";
-@use "../../compiled/tokens/scss/transition";
-@use "../../mixins/theme";
+@use 'sass:math';
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/ease';
+@use '../../compiled/tokens/scss/size';
+@use '../../compiled/tokens/scss/transition';
+@use '../../mixins/theme';
 
 /**
  * Themed properties

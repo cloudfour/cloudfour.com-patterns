@@ -1,7 +1,7 @@
-@use "../compiled/tokens/scss/breakpoint";
-@use "../compiled/tokens/scss/font-weight";
-@use "../compiled/tokens/scss/line-height";
-@use "../compiled/tokens/scss/size";
+@use '../compiled/tokens/scss/breakpoint';
+@use '../compiled/tokens/scss/font-weight';
+@use '../compiled/tokens/scss/line-height';
+@use '../compiled/tokens/scss/size';
 @use 'fluid';
 @use 'ms';
 @use 'sass:map';
@@ -23,11 +23,11 @@ $size-tokens: meta.module-variables('size');
   // If tokens were found...
   @if $min-size and $max-size {
     // Output a fluid font size
-    @include fluid.font-size(
-      breakpoint.$xs,
-      breakpoint.$l,
+    font-size: fluid.fluid-clamp(
       $min-size,
-      $max-size
+      $max-size,
+      breakpoint.$xs,
+      breakpoint.$l
     );
 
     // Line heights above standard heading levels should be tighter

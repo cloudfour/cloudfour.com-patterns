@@ -56,13 +56,14 @@ $_masthead-height-sm: ms.step(7);
   /**
    * Fluidly add more vertical whitespace as the viewport width increases
    */
-  @include fluid.padding-block(
-    $_breakpoint-wide,
-    $_breakpoint-grow-max,
-    $_grow-vertical-min,
-    $_grow-vertical-max,
-    false
-  );
+  @media (min-width: $_breakpoint-wide) {
+    padding-block: fluid.fluid-clamp(
+      $_grow-vertical-min,
+      $_grow-vertical-max,
+      $_breakpoint-wide,
+      $_breakpoint-grow-max
+    );
+  }
 }
 
 /**
@@ -184,10 +185,10 @@ $_masthead-height-sm: ms.step(7);
   transition: opacity transition.$slow ease.$out,
     transform transition.$quick ease.$out;
   width: fluid.fluid-calc(
-    breakpoint.$s,
-    breakpoint.$l,
     ms.step(7),
-    ms.step(9) /* 3 */
+    ms.step(9),
+    /* 3 */ breakpoint.$s,
+    breakpoint.$l
   );
   @media (min-width: breakpoint.$l) {
     width: ms.step(8);

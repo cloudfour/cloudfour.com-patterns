@@ -1,32 +1,29 @@
+@use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/size';
+@use '../../mixins/media-query';
 
 /**
- * We could use CSS Grid for this pattern and save ourselves some child element
- * styles, but it's such a simple component that it feels sort of unnecessary to
- * provide a bunch of fallback CSS.
- *
  * 1. Middle-align child elements. This will take effect when the content is
  *    shorter than the object.
  */
 
 .o-media {
   align-items: center; /* 1 */
-  display: flex;
+  display: grid;
+  grid-gap: size.$spacing-media-gap;
+  grid-template-columns: minmax(0, auto) 1fr;
 }
 
 /**
  * 1. This will take effect when the object is shorter than the content, making
  *    the whole element appear top-aligned in that case.
- * 2. Prevent unintended distortion of this element's dimensions.
- * 3. To encourage a semantic document outline, we decouple this element's
+ * 2. To encourage a semantic document outline, we decouple this element's
  *    visual order from its markup order.
  */
 
 .o-media__object {
-  align-self: flex-start; /* 1 */
-  flex: none; /* 2 */
-  margin-right: size.$spacing-media-gap;
-  order: -1; /* 3 */
+  align-self: start; /* 1 */
+  order: -1; /* 2 */
 }
 
 /**
@@ -36,17 +33,25 @@
  */
 
 .o-media--reverse .o-media__object {
-  margin-left: size.$spacing-media-gap;
-  margin-right: 0;
   order: 1;
 }
 
 /**
- * Without this style, shorter flex content will not fill the available space.
- * This can have unexpected consequences if the box is ever made visible via a
- * background color, border, etc.
+ *  Modifier: Content Sizing
+ *
+ * This modifier lets us use fractional units to size media content in relation
+ * to the object. This should make it easier to align the content of multiple
+ * media elements, even when the objects differ in size.
  */
 
-.o-media__content {
-  flex: 1;
+@for $i from 1 through 4 {
+  .o-media--1-by-#{$i} {
+    @include media-query.breakpoint-classes($from: s, $to: xl) {
+      grid-template-columns: 1fr #{$i}fr;
+
+      .o-media__object {
+        justify-self: center;
+      }
+    }
+  }
 }

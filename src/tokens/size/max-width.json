@@ -1,6 +1,7 @@
 {
   "size": {
     "max_width": {
+      "media_object": { "value": "7em" },
       "prose": { "value": "{size.m.value}" },
       "spread": { "value": "{size.xl.value}" }
     }

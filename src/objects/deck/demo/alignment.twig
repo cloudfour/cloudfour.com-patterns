@@ -1,0 +1,45 @@
+{% embed '@cloudfour/objects/deck/deck.twig' with {
+  class: 'o-deck--align-start o-deck--3-column@m'
+} only %}
+  {% block content %}
+    {% embed '@cloudfour/objects/media/media.twig' %}
+      {% block object %}
+        {% include '@cloudfour/components/avatar/avatar.twig' with {
+          "src": "https://placeimg.com/200/200/animals",
+          "sizes": "60px"
+        } only %}
+      {% endblock %}
+      {% block content %}
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      {% endblock %}
+    {% endembed %}
+    {% embed '@cloudfour/objects/media/media.twig' %}
+      {% block object %}
+        {% include '@cloudfour/components/avatar/avatar.twig' with {
+          "src": "https://placeimg.com/200/200/animals",
+          "sizes": "60px"
+        } only %}
+      {% endblock %}
+      {% block content %}
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      {% endblock %}
+    {% endembed %}
+    {% embed '@cloudfour/objects/media/media.twig' %}
+      {% block object %}
+        {% include '@cloudfour/components/avatar/avatar.twig' with {
+          "src": "https://placeimg.com/200/200/animals",
+          "sizes": "60px"
+        } only %}
+      {% endblock %}
+      {% block content %}
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

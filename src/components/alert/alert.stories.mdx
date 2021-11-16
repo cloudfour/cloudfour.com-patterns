@@ -68,14 +68,14 @@ Alerts work well even when displayed at full width. Their contents will constrai
 
 ## Icon
 
-An option to add an icon to the alert. You can add any icon name from our library in the `icon_name` property. Right now, the color is hardcoded to orange to satisfy the current use case of our offline notification, but it would be nice to add more color options in the future.
+An option to add an icon to the alert. You can add any icon name from our library in the `icon` property. Right now, the color is hardcoded to orange to satisfy the current use case of our offline notification, but it would be nice to add more color options in the future.
 
 <Canvas>
   <Story
     name="Icon"
     args={{
       message: 'Your action was completed successfully! 🎉',
-      icon_name: 'check',
+      icon: 'check',
     }}
   >
     {(args) => template(args)}
@@ -93,7 +93,7 @@ By adding `floating: true`, a light border and shadow will be added to the alert
       message: 'You appear to be offline. 🤔',
       dismissable: true,
       floating: true,
-      icon_name: 'bell',
+      icon: 'bell',
     }}
   >
     {(args) => template(args)}
@@ -112,7 +112,7 @@ When more contrast is desired, you may also attach a theme class to the the floa
       message: 'You appear to be offline. 🤔',
       dismissable: true,
       floating: true,
-      icon_name: 'bell',
+      icon: 'bell',
       class: 't-light',
     }}
   >
@@ -123,7 +123,7 @@ When more contrast is desired, you may also attach a theme class to the the floa
 ## Template Properties
 
 - `class` (string)
-- `icon_name` (string)
+- `icon` (string)
 - `dismissable` (boolean, default `false`)
 - `floating` (boolean, default `false`)
 - `message` (string, default `'Hello world!'`)

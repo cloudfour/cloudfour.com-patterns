@@ -1,17 +1,21 @@
 {% set tag_name = tag_name|default('div') %}
 
+{% set _icon_block %}
+  {% block icon %}
+    {% if icon %}
+      {% include '@cloudfour/components/icon/icon.twig' with {
+        name: icon,
+        aria_hidden: true
+      } only %}
+    {% endif %}
+  {% endblock %}
+{% endset %}
+
 <{{ tag_name }} class="c-alert{% if floating %} c-alert--floating{% endif %}{% if class %} {{ class }}{% endif %}">
   <div class="c-alert__inner">
-    {% if block('icon')|trim or icon %}
+    {% if _icon_block|trim is not empty %}
       <span class="c-alert__extra">
-        {% block icon %}
-          {% if icon %}
-            {% include '@cloudfour/components/icon/icon.twig' with {
-              name: icon,
-              aria_hidden: true
-            } only %}
-          {% endif %}
-        {% endblock %}
+        {{_icon_block}}
       </span>
     {% endif %}
     <div class="c-alert__content">

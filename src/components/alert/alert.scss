@@ -1,3 +1,4 @@
+@use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/color';
 @use 'sass:color' as sass-color;
 @use '../../compiled/tokens/scss/ease';
@@ -93,6 +94,14 @@
   grid-area: icon;
   justify-content: center;
   width: ms.step(5); /* 1 */
+
+  // On large screens, when the alert content reaches it's max width and
+  // the icon no longer touches the edge of its container, we change the
+  // icon style so it's self contained.
+  @media (min-width: breakpoint.$xxl) {
+    border: ms.step(-4) solid var(--theme-color-background-secondary);
+    border-radius: size.$border-radius-full;
+  }
 }
 
 .c-alert__content {

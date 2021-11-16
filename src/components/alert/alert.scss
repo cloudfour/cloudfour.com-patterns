@@ -83,7 +83,7 @@
  * 1. This number was chosen because in combination with the usual
  * single-line height of the element, it makes a perfect square.
  */
-.c-alert--icon {
+.c-alert__extra {
   align-items: center;
   background-color: var(--theme-color-background-icon);
   border-bottom-left-radius: size.$border-radius-medium;

@@ -6,6 +6,7 @@
   @include svg.inherit-color;
   @include svg.inherit-size;
   display: inline-block;
+  font-size: var(--icon-size, inherit);
   position: relative;
   vertical-align: middle;
 }

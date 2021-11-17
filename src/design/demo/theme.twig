@@ -3,7 +3,7 @@
 } %}
   {% block content %}
     <h1>t-{{theme}}</h1>
-    {% include '@cloudfour/design/typography/demo/inline-elements.twig' only %}
+    {% include '@cloudfour/design/demo/theme-content.twig' only %}
     {% include '@cloudfour/components/button/demo/styles.twig' only %}
     {% set _card_class = 'c-card--horizontal@m c-card--contained' %}
     {% include '@cloudfour/components/card/demo/single.twig' with {

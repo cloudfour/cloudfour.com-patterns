@@ -85,6 +85,7 @@
  * single-line height of the element, it makes a perfect square.
  */
 .c-alert__extra {
+  --icon-size: #{size.$icon-medium};
   align-items: center;
   background-color: var(--theme-color-background-icon);
   border-bottom-left-radius: size.$border-radius-medium;

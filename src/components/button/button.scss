@@ -19,3 +19,19 @@
 .c-button--tertiary {
   @include button.tertiary;
 }
+
+/**
+ * Element: Extra
+ */
+
+.c-button__extra {
+  @include button.extra;
+
+  /**
+   * Show visual slash through element when button is in slashed state
+   */
+
+  .c-button.is-slashed & {
+    @include button.extra-slashed;
+  }
+}

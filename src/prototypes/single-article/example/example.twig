@@ -35,6 +35,14 @@
     ]
   }
 } only %}
+{% set content %}
+<button class="Button">
+  <span class="Button-inner">
+    Example
+  </span>
+  <!-- badge, etc. -->
+</button>
+{% endset %}
 {% embed '@cloudfour/objects/container/container.twig' with {
   class: 'o-container--prose o-container--pad u-pad-block-6'} %}
   {% block content %}
@@ -131,7 +139,7 @@
 
             <p>There are some places where Slowpoke is worshiped because of a long-standing belief that whenever Slowpoke yawns, it rains. Carrying food through <code>Fearow’s territory is dangerous</code>. It will snatch the food away from you in a flash! Oddish searches for fertile, nutrient-rich soil, then plants itself. During the daytime, while it is planted, this <code>Pokémon’s feet</code> are thought to change shape and become similar to the roots of trees.</p>
 
-            {% include '@cloudfour/design/typography/demo/code-block.twig' only %}
+            <pre><code class="language-markup">{{content|trim|escape}}</code></pre>
 
             <p>In the distant past, they were fairly strong, but they have become gradually weaker over time. Although known for their splendid tail fins, Goldeen apparently compete among themselves to see whose horn is thickest and sharpest. Beautifly has a long mouth like a coiled needle, which is very convenient for collecting pollen from flowers. This Pokémon rides the spring winds as it flits around gathering pollen.</p>
 

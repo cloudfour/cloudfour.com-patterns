@@ -107,7 +107,7 @@
     "style-loader": "2.0.0",
     "stylelint": "13.13.1",
     "stylelint-config-cloudfour": "4.0.0",
-    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-prettier": "9.0.3",
     "through2": "4.0.2",
     "tiny-glob": "0.2.9",
     "twing": "3.1.1",

@@ -19,8 +19,9 @@
  * little easier to read while also supporting swapping of source order if
  * that's ever something that content calls for.
  *
- * 1. By default grid items have min-width:auto which is breaking layout
- *    on blog posts with long code samples.
+ * 1. By default grid items have `min-width:auto` which is breaking layout on
+ *    blog posts with long code samples. Setting `min-width:0` allows the grid
+ *    items to shrink, regardless of their intrinsic size.
  *    @see https://ishadeed.com/article/min-content-size-css-grid/
  */
 

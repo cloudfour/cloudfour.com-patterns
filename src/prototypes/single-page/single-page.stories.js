@@ -6,7 +6,7 @@ import { useSkyNav } from '../use-sky-nav.ts';
 export default {
   title: 'Prototypes/Single Page',
   parameters: {
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

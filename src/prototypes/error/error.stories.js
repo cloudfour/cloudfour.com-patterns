@@ -6,7 +6,7 @@ export default {
   title: 'Prototypes/Error Pages',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

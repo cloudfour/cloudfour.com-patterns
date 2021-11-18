@@ -66,10 +66,66 @@ Alerts work well even when displayed at full width. Their contents will constrai
   </Story>
 </Canvas>
 
+## Icon
+
+An option to add an icon to the alert. You can add any icon name from our library in the `icon` property. Right now, the color is hardcoded to orange to satisfy the current use case of our offline notification, but it would be nice to add more color options in the future.
+
+<Canvas>
+  <Story
+    name="Icon"
+    args={{
+      message: 'Your action was completed successfully! 🎉',
+      icon: 'check',
+    }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
+## Floating
+
+By adding `floating: true`, a light border and shadow will be added to the alert for a floating effect. The background is white to improve the contrast between the border, shadow and background. In the future, we could make it a possibility to change the background color by itself.
+
+<Canvas>
+  <Story
+    name="Floating"
+    args={{
+      message: 'You appear to be offline. 🤔',
+      dismissable: true,
+      floating: true,
+      icon: 'bell',
+    }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
+When more contrast is desired, you may also attach a theme class to the the floating variation. In this example, the card has a class of `t-light` within a `t-dark` container:
+
+<Canvas>
+  <Story
+    name="Themed Floating"
+    parameters={{
+      theme: 't-dark',
+    }}
+    args={{
+      message: 'You appear to be offline. 🤔',
+      dismissable: true,
+      floating: true,
+      icon: 'bell',
+      class: 't-light',
+    }}
+  >
+    {(args) => template(args)}
+  </Story>
+</Canvas>
+
 ## Template Properties
 
 - `class` (string)
+- `icon` (string)
 - `dismissable` (boolean, default `false`)
+- `floating` (boolean, default `false`)
 - `message` (string, default `'Hello world!'`)
 - `tag_name` (string, default `'div'`)
 

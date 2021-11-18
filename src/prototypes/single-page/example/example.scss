@@ -1,9 +1,22 @@
 @use "../../../mixins/ms";
 @use "../../../compiled/tokens/scss/size";
+@use "../../../compiled/tokens/scss/breakpoint";
+
 
 #single-page {
   .main-container {
     padding-top: ms.step(6);
     padding-bottom: ms.step(6);
+    position: relative;
+  }
+
+  .alert-container {
+    position: absolute;
+    top: -.5em;
+    left: 10%;
+    @media (min-width: breakpoint.$l) {
+      top: -1.5em;
+      left: 35%;
+    }
   }
 }

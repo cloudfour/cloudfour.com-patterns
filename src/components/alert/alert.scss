@@ -1,4 +1,6 @@
+@use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/color';
+@use 'sass:color' as sass-color;
 @use '../../compiled/tokens/scss/ease';
 @use '../../compiled/tokens/scss/scale';
 @use '../../compiled/tokens/scss/size';
@@ -6,6 +8,17 @@
 @use '../../mixins/border-radius';
 @use '../../mixins/focus';
 @use '../../mixins/ms';
+@use '../../mixins/theme';
+
+@include theme.props() {
+  --theme-color-background-icon: #{lighten(color.$base-orange, 30%)};
+  --theme-color-icon: #{color.$base-orange};
+}
+
+@include theme.props(dark) {
+  --theme-color-background-icon: #{color.$base-orange};
+  --theme-color-icon: #{lighten(color.$base-orange, 30%)};
+}
 
 .c-alert {
   background: var(--theme-color-background-secondary);
@@ -29,13 +42,67 @@
   display: grid;
   grid-column-gap: ms.step(1);
   grid-template-areas:
-    '. . dismiss'
-    '. content dismiss'
-    '. . dismiss';
-  grid-template-columns: 0 1fr minmax(0, auto);
+    'icon .       dismiss'
+    'icon content dismiss'
+    'icon .       dismiss';
+  grid-template-columns: minmax(0, auto) 1fr minmax(0, auto);
   grid-template-rows: ms.step(-1) minmax(0, auto) ms.step(-1);
   margin: 0 auto;
   max-width: size.$max-width-spread;
+}
+
+// Adds a box shadow to add the appearance of the alert floating
+// above the containers below. Floating has a white background for higher
+// contrast between the background and the shadow.
+.c-alert--floating {
+  box-shadow: 0 0 0 size.$edge-medium var(--theme-color-shadow-inner),
+    size.$edge-large size.$edge-large 0 size.$edge-medium
+      var(--theme-color-shadow-outer);
+  @include theme.styles() {
+    --theme-color-shadow-inner: #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.2
+      )};
+    --theme-color-shadow-outer: #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.1
+      )};
+  }
+  @include theme.styles(dark) {
+    --theme-color-shadow-inner: #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.6
+      )};
+    --theme-color-shadow-outer: #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.4
+      )};
+  }
+}
+
+/**
+ * 1. This number was chosen because in combination with the usual
+ * single-line height of the element, it makes a perfect square.
+ */
+.c-alert__extra {
+  --icon-size: #{size.$icon-medium};
+  align-items: center;
+  background-color: var(--theme-color-background-icon);
+  border-bottom-left-radius: size.$border-radius-medium;
+  border-top-left-radius: size.$border-radius-medium;
+  color: var(--theme-color-icon);
+  display: flex;
+  grid-area: icon;
+  justify-content: center;
+  width: ms.step(5); /* 1 */
+
+  // On large screens, when the alert content reaches it's max width and
+  // the icon no longer touches the edge of its container, we change the
+  // icon style so it's self contained.
+  @media (min-width: breakpoint.$xxl) {
+    border: ms.step(-4) solid var(--theme-color-background-secondary);
+    border-radius: size.$border-radius-full;
+  }
 }
 
 .c-alert__content {

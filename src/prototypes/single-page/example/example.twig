@@ -39,6 +39,21 @@
   {% embed '@cloudfour/objects/container/container.twig' with {
     class: 'o-container--prose o-container--pad main-container'} %}
     {% block content %}
+
+
+      {% embed '@cloudfour/components/alert/alert.twig' with {
+        dismissable: true,
+        floating: true,
+        icon: 'cloud-slash',
+        class: 'alert-container'
+      } only %}
+        {% block content %}
+          <p>
+          You appear to be offline. <a href="#">Try again</a>.
+          </p>
+        {% endblock %}
+      {% endembed %}
+
       {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
         class: 'o-rhythm--generous-headings' } %}
         {% block content %}

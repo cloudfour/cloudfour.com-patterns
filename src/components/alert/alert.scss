@@ -113,6 +113,7 @@
 }
 
 /// Reset the dismissal button's appearance and center-align its content
+/// 1. This is a magic number but it just feels right, y'know?
 .c-alert__dismiss {
   align-items: center;
   appearance: none;
@@ -126,7 +127,7 @@
   grid-area: dismiss;
   justify-content: center;
   margin: 0;
-  min-width: ms.step(5); // This is a magic number but it just feels right, y'know?
+  min-width: ms.step(5); // 1
   padding: 0;
 
   @include focus.focus-visible {

@@ -13,20 +13,6 @@ const breakpoints = tokens.size.breakpoint;
 // Extend the languages Storybook will highlight
 ReactSyntaxHighlighter.registerLanguage('twig', twig);
 
-// Padding values from modular scale
-const paddings = { values: [], default: 'Step 0' };
-for (let i = -3; i <= 6; i++) {
-  paddings.values.push({
-    name: `Step ${i}`,
-    // `toFixed` keeps the values from extending past two decimal points.
-    // The leading `+` keeps values from having decimal points where they don't
-    // need them, so `1.00` becomes `1`.
-    value: `${+Math.pow(tokens.number.scale.modular.ratio.value, i).toFixed(
-      2
-    )}em`,
-  });
-}
-
 // Create viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).map((name) => {
   return {
@@ -90,7 +76,6 @@ export const parameters = {
       ...INITIAL_VIEWPORTS,
     },
   },
-  paddings,
 };
 
 export const globalTypes = {

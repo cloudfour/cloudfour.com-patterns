@@ -5,7 +5,7 @@ export default {
   title: 'Prototypes/Comment Thread',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

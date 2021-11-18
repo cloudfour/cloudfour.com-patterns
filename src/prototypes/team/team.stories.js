@@ -9,7 +9,7 @@ export default {
   title: 'Prototypes/Team Page',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

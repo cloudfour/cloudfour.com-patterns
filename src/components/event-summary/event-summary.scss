@@ -20,6 +20,16 @@ $_focus-overflow: (size.$edge-large * -1);
 
 .c-event-summary__link {
   /**
+   * Keyboard focus styles take inspiration from buttons and similar elements
+   */
+
+  @include focus.focus-visible {
+    &::after {
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+    }
+  }
+
+  /**
    * Only show the underline on hover.
    */
 
@@ -44,16 +54,6 @@ $_focus-overflow: (size.$edge-large * -1);
     right: $_focus-overflow;
     top: $_focus-overflow;
     z-index: 1;
-  }
-
-  /**
-   * Keyboard focus styles take inspiration from buttons and similar elements
-   */
-
-  @include focus.focus-visible {
-    &::after {
-      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
-    }
   }
 }
 

@@ -9,7 +9,7 @@
     border-radius: size.$border-radius-medium;
   }
 
-  & > div {
+  > div {
     background: color.$base-gray-light;
     overflow: hidden;
   }
@@ -43,7 +43,7 @@
     border-radius: size.$border-radius-medium;
   }
 
-  & > div {
+  > div {
     background: color.$base-gray-light;
     padding: ms.step(-1);
   }

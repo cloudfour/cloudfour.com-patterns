@@ -12,7 +12,7 @@
  * Light theme (default)
  */
 
-@include theme.props() {
+@include theme.props {
   --theme-color-background-base: #{color.$text-light-emphasis};
   --theme-color-background-kbd: transparent;
   --theme-color-background-secondary: #{color.$base-gray-lighter};
@@ -63,5 +63,5 @@
 .t-light,
 .t-dark,
 .t-alternate {
-  @include theme.rules();
+  @include theme.rules;
 }

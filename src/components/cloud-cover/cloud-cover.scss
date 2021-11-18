@@ -88,14 +88,14 @@ $_gap: ms.step(1);
       fill=color.$brand-primary-lighter,
       width= '480',
       height= '220',
-      viewBox= '0 0 480 220'
+      viewbox= '0 0 480 220'
     ),
     svg-load(
       'clouds/small.svg',
       fill=color.$brand-primary-light,
       width= '580',
       height= '140',
-      viewBox= '0 0 580 140'
+      viewbox= '0 0 580 140'
     );
   background-size: auto (math.div(220, 300) * 100%),
     auto (math.div(140, 300) * 100%); /* 1 */
@@ -111,7 +111,7 @@ $_gap: ms.step(1);
     fill=color.$text-light-emphasis,
     width= '320',
     height= '300',
-    viewBox= '0 0 320 300'
+    viewbox= '0 0 320 300'
   );
   background-position: bottom right;
   background-size: auto 100%;

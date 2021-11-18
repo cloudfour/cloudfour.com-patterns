@@ -13,7 +13,7 @@ $radius: size.$border-radius-medium;
  * Themed properties
  */
 
-@include theme.props() {
+@include theme.props {
   --theme-color-border-calendar-date: #{color.$base-gray-light};
 }
 

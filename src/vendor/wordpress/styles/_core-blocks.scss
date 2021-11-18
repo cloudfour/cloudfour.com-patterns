@@ -158,7 +158,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 .wp-block-table.is-style-stripes {
   border-bottom: 0;
 
-  & tbody tr:nth-of-type(2n - 1) {
+  tbody tr:nth-of-type(2n - 1) {
     @include table.t-striped;
   }
 }
@@ -169,7 +169,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 .wp-block-table.c-table--numeric table {
   @include table.t-numeric;
 
-  & th {
+  th {
     text-align: right;
   }
 }
@@ -191,11 +191,11 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 
 .wp-block-pullquote {
+  @include border-radius.conditional;
   background-color: var(--theme-color-background-secondary);
   margin-bottom: 0; /* 1 */
   padding: 0; /* 2 */
   text-align: left; /* 3 */
-  @include border-radius.conditional();
 }
 
 /**

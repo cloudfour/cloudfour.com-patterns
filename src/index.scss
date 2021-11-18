@@ -1,4 +1,5 @@
 @use './base';
+
 // The "as" is necessary because otherwise Sass tries to generate a namespace
 // from the glob pattern and fails
 @use './objects/*/*.scss' as objects;

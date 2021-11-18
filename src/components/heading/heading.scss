@@ -141,15 +141,15 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
   }
 }
 
-// Optional permalink to be included adjacent to the heading itself.
-//
-// 1. We define the element's `font-size` using `rem` so its size will remain
-//    consistent between differently sized headings in the same article.
-// 2. The link's shape is not visible unless focused, so applying some negative
-//    offset based on the inner padding makes the link appear better aligned
-//    with content above and below.
-//
-// @see http://codepen.io/marcysutton/pen/rLKvgZ
+/// Optional permalink to be included adjacent to the heading itself.
+///
+/// 1. We define the element's `font-size` using `rem` so its size will remain
+///    consistent between differently sized headings in the same article.
+/// 2. The link's shape is not visible unless focused, so applying some negative
+///    offset based on the inner padding makes the link appear better aligned
+///    with content above and below.
+///
+/// @see http://codepen.io/marcysutton/pen/rLKvgZ
 .c-heading__permalink {
   align-items: center;
   border-radius: $permalink-radius;
@@ -167,11 +167,8 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
     opacity transition.$quick ease.$out;
   width: $permalink-size;
 
-  // Above a certain size, we display the icon to the left of the heading but
-  // outside of the container (so it doesn't bump the heading to the right,
-  // which can disrupt the flow of reading the content).
-  @media (min-width: $min-width-permalink-shift) {
-    right: 100%;
+  @include focus.focus-visible {
+    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
   }
 
   // We use negation selectors to apply the non-hover style so the permalink
@@ -181,7 +178,10 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
     opacity: opacity.$muted;
   }
 
-  @include focus.focus-visible {
-    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+  // Above a certain size, we display the icon to the left of the heading but
+  // outside of the container (so it doesn't bump the heading to the right,
+  // which can disrupt the flow of reading the content).
+  @media (min-width: $min-width-permalink-shift) {
+    right: 100%;
   }
 }

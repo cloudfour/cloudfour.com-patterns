@@ -10,20 +10,23 @@
 @use '../../mixins/ms';
 @use '../../mixins/theme';
 
-@include theme.props() {
-  --theme-color-background-icon: #{lighten(color.$base-orange, 30%)};
+@include theme.props {
+  --theme-color-background-icon: #{sass-color.adjust(
+      color.$base-orange,
+      $lightness: 30%
+    )};
   --theme-color-icon: #{color.$base-orange};
 }
 
 @include theme.props(dark) {
   --theme-color-background-icon: #{color.$base-orange};
-  --theme-color-icon: #{lighten(color.$base-orange, 30%)};
+  --theme-color-icon: #{sass-color.adjust(color.$base-orange, $lightness: 30%)};
 }
 
 .c-alert {
+  @include border-radius.conditional(size.$border-radius-medium);
   background: var(--theme-color-background-secondary);
   color: var(--theme-color-text-emphasis);
-  @include border-radius.conditional(size.$border-radius-medium);
 }
 
 /// We use a separate inner element so we can constrain it when the alert is
@@ -58,7 +61,7 @@
   box-shadow: 0 0 0 size.$edge-medium var(--theme-color-shadow-inner),
     size.$edge-large size.$edge-large 0 size.$edge-medium
       var(--theme-color-shadow-outer);
-  @include theme.styles() {
+  @include theme.styles {
     --theme-color-shadow-inner: #{sass-color.change(
         color.$brand-primary-darker,
         $alpha: 0.2
@@ -123,8 +126,7 @@
   grid-area: dismiss;
   justify-content: center;
   margin: 0;
-  // This is a magic number but it just feels right, y'know?
-  min-width: ms.step(5);
+  min-width: ms.step(5); // This is a magic number but it just feels right, y'know?
   padding: 0;
 
   @include focus.focus-visible {

@@ -9,7 +9,7 @@
  * Themed properties
  */
 
-@include theme.props() {
+@include theme.props {
   --theme-color-background-input-disabled: #{color.$base-gray-light};
   --theme-color-border-input-disabled: #{color.$base-gray};
   --theme-color-border-input-hover: #{color.$brand-primary};

@@ -17,13 +17,16 @@
 
 // Minimum viewport width where links are exposed
 $_breakpoint-wide: breakpoint.$m;
+
 // Minimum viewport width where links are no longer multi-line
 $_breakpoint-nowrap: breakpoint.$l;
+
 // Viewport where vertical expansion maxes out
 $_breakpoint-grow-max: breakpoint.$xxl;
 
 // Maximum viewport width where links are stacked and hidden initially
 $_breakpoint-narrow-max: math.div($_breakpoint-wide * 16 - 1, 16);
+
 // Maximum viewport width where links are multi-line
 $_breakpoint-wide-max: math.div($_breakpoint-nowrap * 16 - 1, 16);
 
@@ -95,7 +98,7 @@ $_masthead-height-sm: ms.step(7);
    * Only expose the link to screen readers until it is focused.
    */
   &:not(:focus) {
-    @include a11y.sr-only();
+    @include a11y.sr-only;
   }
 }
 
@@ -232,6 +235,7 @@ $_masthead-height-sm: ms.step(7);
 /**
  * Expose the outline when the logo element has keyboard focus.
  */
+// stylelint-disable-next-line no-duplicate-selectors
 .c-sky-nav__logo {
   @include focus.focus-visible {
     .c-sky-nav__logo-outline {
@@ -465,6 +469,7 @@ $_masthead-height-sm: ms.step(7);
 /**
  * Apply outline to label when actions are focused by keyboard.
  */
+// stylelint-disable-next-line no-duplicate-selectors
 .c-sky-nav__menu-action {
   @include focus.focus-visible {
     .c-sky-nav__menu-label {

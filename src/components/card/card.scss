@@ -68,10 +68,10 @@ $_focus-overflow: (size.$edge-large * -1);
 }
 
 .c-card--contained {
+  @include border-radius.conditional;
   padding: ms.step(1);
-  @include border-radius.conditional();
 
-  @include theme.unthemed-styles() {
+  @include theme.unthemed-styles {
     background-color: var(--theme-color-background-secondary);
   }
 }
@@ -164,6 +164,16 @@ $_focus-overflow: (size.$edge-large * -1);
 
 .c-card__link {
   /**
+   * Keyboard focus styles take inspiration from buttons and similar elements
+   */
+
+  @include focus.focus-visible {
+    &::after {
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+    }
+  }
+
+  /**
    * Only show the underline on hover.
    */
 
@@ -200,16 +210,6 @@ $_focus-overflow: (size.$edge-large * -1);
       top: 0;
     }
   }
-
-  /**
-   * Keyboard focus styles take inspiration from buttons and similar elements
-   */
-
-  @include focus.focus-visible {
-    &::after {
-      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
-    }
-  }
 }
 
 /**
@@ -223,10 +223,10 @@ $_focus-overflow: (size.$edge-large * -1);
  */
 
 .c-card__cover {
+  @include ratio-box.core-styles($ratio: aspect-ratio.$wide);
   background-color: var(--theme-color-background-secondary); /* 1 */
   border-radius: size.$border-radius-medium;
   grid-area: cover;
-  @include ratio-box.core-styles($ratio: aspect-ratio.$wide);
 
   /**
    * Square aspect ratio + fully rounded corners = circular cover image

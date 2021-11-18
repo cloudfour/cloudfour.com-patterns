@@ -12,7 +12,7 @@
   flex-wrap: wrap;
   margin: calc(var(--gap) / -2); /* 1 */
 
-  & > * {
+  > * {
     margin: calc(var(--gap) / 2); /* 1 */
   }
 }

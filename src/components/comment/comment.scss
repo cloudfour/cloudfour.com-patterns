@@ -6,6 +6,10 @@
 @use '../../mixins/headings';
 @use '../../mixins/theme';
 
+/// 1. We set the object column size directly (instead of relying on `auto`)
+///    because the container for child comments will be setting a negative
+///    margin based on this value, and we don't want the layout to break if the
+///    wrong avatar size is set in the HTML.
 .c-comment {
   display: grid;
   grid-column-gap: size.$spacing-gap-inline-medium;
@@ -14,11 +18,7 @@
     'object header'
     'thread-line content'
     'thread-line footer';
-  // We set the object column size directly (instead of relying on `auto`)
-  // because the container for child comments will be setting a negative margin
-  // based on this value, and we don't want the layout to break if the wrong
-  // avatar size is set in the HTML.
-  grid-template-columns: #{size.$square-avatar-small} 1fr;
+  grid-template-columns: #{size.$square-avatar-small} 1fr; // 1
   grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
 }
 
@@ -42,12 +42,12 @@
   display: none;
 }
 
+/// 1. The top margin matches the grid gap spacing applied to the comment form.
+///    Otherwise, the form's help text appears visually closer to the comment
+///    you're responding to than to the form.
 .c-comment.is-replying .c-comment__reply-form {
   display: block;
-  /// The top margin matches the grid gap spacing applied to the comment form.
-  /// Otherwise, the form's help text appears visually closer to the comment
-  /// you're responding to than to the form.
-  margin-top: size.$spacing-gap-comment-form-vertical;
+  margin-top: size.$spacing-gap-comment-form-vertical; // 1
 }
 
 /// Named object for consistency with the Media component.
@@ -55,10 +55,10 @@
   grid-area: object;
 }
 
+/// 1. We generally want comment contents to align to the start/top, but the
+///    heading looks better center-aligned with the avatar.
 .c-comment__header {
-  // We generally want comment contents to align to the start/top, but the
-  // heading looks better center-aligned with the avatar.
-  align-self: center;
+  align-self: center; // 1
   grid-area: header;
 }
 
@@ -70,11 +70,11 @@
   font-weight: font-weight.$semibold;
 }
 
+/// 1. The fluid heading size changes depending on the viewport, but the content
+///    always looks just a *tad* close to the header. This offsets that.
 .c-comment__content {
   grid-area: content;
-  // The fluid heading size changes depending on the viewport, but the content
-  // always looks just a *tad* close to the header. This offsets that.
-  margin-top: math.div(size.$rhythm-condensed, -4);
+  margin-top: math.div(size.$rhythm-condensed, -4); // 1
 }
 
 // We added default styles to the blockquote element using the `wp-block-quote`
@@ -123,7 +123,7 @@
 .c-comment__meta-control {
   // If the edge and padding sizes for controls use the same units, just crunch
   // the numbers in Sass. Otherwise, use `calc` to do it in the browser.
-  @if (math.compatible(size.$edge-control, size.$padding-control-vertical)) {
+  @if math.compatible(size.$edge-control, size.$padding-control-vertical) {
     margin: ((size.$edge-control + size.$padding-control-vertical) * -1)
       (math.div((size.$edge-control + size.$padding-control-horizontal), -2));
   } @else {
@@ -145,12 +145,12 @@
   }
 }
 
+/// 1. Visually centers the child avatars with the indentation of the parent
+///    comment. Without this, the replies feel nested too far to the right.
+/// 2. Since the replies are likely wrapped in a Rhythm object intended to
+///    inherit the parent rhythm, we can use that custom property to inherit
+///    that same spacing between the meta and replies.
 .c-comment__replies {
-  // Visually centers the child avatars with the indentation of the parent
-  // comment. Without this, the replies feel nested too far to the right.
-  margin-left: math.div(size.$square-avatar-small, -2);
-  // Since the replies are likely wrapped in a Rhythm object intended to inherit
-  // the parent rhythm, we can use that custom property to inherit that same
-  // spacing between the meta and replies.
-  margin-top: var(--rhythm, #{size.$rhythm-default});
+  margin-left: math.div(size.$square-avatar-small, -2); // 1
+  margin-top: var(--rhythm, #{size.$rhythm-default}); // 2
 }

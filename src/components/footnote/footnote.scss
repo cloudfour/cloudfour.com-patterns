@@ -45,6 +45,7 @@ $footnote-offset-left-negative: calc(
   ///    inner icon to ensure the focus ring is centered correctly.
   /// 3. Add some focus styles
   .c-footnote-link-item__return-link {
+    @include icon.inline; /* 2 */
     align-items: center; /* 1 */
     border-radius: size.$border-radius-full;
     display: inline-flex; /* 1 */
@@ -52,8 +53,6 @@ $footnote-offset-left-negative: calc(
     padding: ms.step(-6); /* 1 */
     position: relative; /* 2 */
     vertical-align: middle; /* 1 */
-
-    @include icon.inline(); /* 2 */
 
     @include focus.focus-visible {
       box-shadow: 0 0 0 size.$edge-medium color.$brand-primary-lighter; /* 3 */

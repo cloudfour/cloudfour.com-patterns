@@ -124,7 +124,7 @@ export const globalTypes = {
   textFlow: {
     name: 'Text flow',
     toolbar: {
-      icon: 'globe',
+      icon: 'redirect',
       showName: true,
       items: [
         {

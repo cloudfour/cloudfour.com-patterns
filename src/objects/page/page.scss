@@ -1,16 +1,17 @@
 /**
  * Page container
  *
- * Attempts to fill the available area (assuming `height: 100%` is correctly
- * applied to all parent elements) and keeps the footer at the bottom of that
- * area.
- *
- * @see https://css-tricks.com/couple-takes-sticky-footer/#there-is-grid
+ * 1. Avoid grid blowouts by specifying the `min-width` of the column.
+ *    @see https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/
+ * 2. Attempts to fill the available area (assuming `height: 100%` is applied
+ *    to all parent elements) & keep the footer at the bottom of that area.
+ *    @see https://css-tricks.com/couple-takes-sticky-footer/#there-is-grid
  */
 
 .o-page {
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-columns: minmax(0, 1fr); // 1
+  grid-template-rows: 1fr auto; // 2
   min-height: 100%;
 }
 
@@ -18,19 +19,12 @@
  * These classes aren't strictly required, but they keep the HTML source a
  * little easier to read while also supporting swapping of source order if
  * that's ever something that content calls for.
- *
- * 1. By default grid items have `min-width:auto` which is breaking layout on
- *    blog posts with long code samples. Setting `min-width:0` allows the grid
- *    items to shrink, regardless of their intrinsic size.
- *    @see https://ishadeed.com/article/min-content-size-css-grid/
  */
 
 .o-page__content {
   grid-row: 1;
-  min-width: 0; // 1
 }
 
 .o-page__footer {
   grid-row: 2;
-  min-width: 0; // 1
 }

@@ -111,12 +111,22 @@ export const globalTypes = {
         {
           value: 't-light',
           title: 'Light',
-          icon: 'circlehollow',
+          right: '.t-light',
         },
         {
           value: 't-dark',
           title: 'Dark',
-          icon: 'circle',
+          right: '.t-dark',
+        },
+        {
+          value: 't-light,t-alternate',
+          title: 'Light Alt',
+          right: '.t-light.t-alternate',
+        },
+        {
+          value: 't-dark,t-alternate',
+          title: 'Dark Alt',
+          right: '.t-dark.t-alternate',
         },
       ],
     },

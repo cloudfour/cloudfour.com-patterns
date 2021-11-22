@@ -35,31 +35,31 @@
 /**
  * Button object
  *
- * 1. More overtly actionable cursor appearance. Recently this tweak has come
+ * 1. We set a height to coordinate consistently with `c-input`. Unfortunately
+ *    browsers don't consistently size inputs without setting `height`.
+ * 2. More overtly actionable cursor appearance. Recently this tweak has come
  *    with some contention, but our experience has been that the average user
  *    doesn't differentiate cursor styles between different styles of action.
- * 2. Although we will be overtly setting some typographic properties, the
+ * 3. Although we will be overtly setting some typographic properties, the
  *    shorthand is helpful for completely overriding all system font styles as
  *    a starting point.
- * 3. We set a height to coordinate consistently with `c-input`. Unfortunately
- *    browsers don't consistently size inputs without setting `height`.
  */
 
 @mixin default {
   --icon-size: #{size.$icon-medium};
   align-items: center;
   background: var(--theme-color-background-button-default);
+  block-size: size.$height-control-default; /* 1 */
   border-color: var(--theme-color-border-button-default);
   border-radius: size.$border-radius-medium;
   border-style: solid;
   border-width: size.$edge-control;
   color: color.$text-light-emphasis;
-  cursor: pointer; /* 1 */
+  cursor: pointer; /* 2 */
   display: inline-flex;
-  font: inherit; /* 2 */
+  font: inherit; /* 3 */
   font-style: normal;
   font-weight: font-weight.$semibold;
-  height: size.$height-control-default; /* 3 */
   justify-content: center;
   line-height: normal;
   padding: size.$padding-control-vertical size.$padding-control-horizontal;
@@ -126,11 +126,11 @@
   position: relative;
 
   &:first-child {
-    margin-left: size.$spacing-gap-button-extra * -1;
+    margin-inline-start: size.$spacing-gap-button-extra * -1;
   }
 
   &:last-child {
-    margin-right: size.$spacing-gap-button-extra * -1;
+    margin-inline-end: size.$spacing-gap-button-extra * -1;
   }
 }
 
@@ -150,14 +150,14 @@ $extra-slashed-clip-path: polygon(
 @mixin extra-slashed {
   &::after {
     background: currentColor;
+    block-size: size.$edge-medium;
     border-radius: size.$border-radius-full;
     content: '';
-    height: size.$edge-medium;
-    left: 0;
+    inline-size: 100%;
+    inset-block-start: 50%;
+    inset-inline-start: 0;
     position: absolute;
-    top: 50%;
     transform: rotate(-30deg);
-    width: 100%;
   }
 
   // 1. Fixes a bug where some browsers would render the element as

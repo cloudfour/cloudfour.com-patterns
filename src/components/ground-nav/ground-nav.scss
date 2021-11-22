@@ -23,8 +23,7 @@ $_ground-nav-border-color: color.$base-gray-light;
  */
 
 .c-ground-nav__action {
-  padding-bottom: $_ground-nav-space; /* 1 */
-  padding-top: $_ground-nav-space; /* 1 */
+  padding-block: $_ground-nav-space; /* 1 */
   position: relative; /* 2 */
 }
 
@@ -49,7 +48,7 @@ $_ground-nav-border-color: color.$base-gray-light;
  * 2. Adds horizontal space when these elements are side by side.
  */
 .c-ground-nav__action-title {
-  margin-top: $_ground-nav-space; /* 1 */
+  margin-block-start: $_ground-nav-space; /* 1 */
 
   @media (min-width: breakpoint.$l) {
     margin: ms.step(4) $_ground-nav-space; /* 2 */
@@ -63,10 +62,10 @@ $_ground-nav-border-color: color.$base-gray-light;
  */
 
 .c-ground-nav__action-illustration {
-  bottom: 0;
+  inline-size: 40%;
+  inset-block-end: 0;
+  inset-inline-end: 0;
   position: absolute;
-  right: 0;
-  width: 40%;
 
   /**
    * We position ourselves relative to a max-width container starting at this
@@ -75,12 +74,12 @@ $_ground-nav-border-color: color.$base-gray-light;
    */
 
   @media (min-width: breakpoint.$m) {
-    bottom: $_ground-nav-negative-space;
-    width: calc(100% / 3);
+    inline-size: calc(100% / 3);
+    inset-block-end: $_ground-nav-negative-space;
   }
 
   @media (min-width: breakpoint.$l) {
-    width: 25%;
+    inline-size: 25%;
   }
 }
 
@@ -88,7 +87,7 @@ $_ground-nav-border-color: color.$base-gray-light;
  * Creates vertical space between elements when grid isn't supported.
  */
 .c-ground-nav__content-inner > * + * {
-  margin-top: $_ground-nav-space;
+  margin-block-start: $_ground-nav-space;
 }
 
 /**
@@ -96,7 +95,7 @@ $_ground-nav-border-color: color.$base-gray-light;
  *    aligned with the other footer elements
  */
 .c-ground-nav__organization {
-  margin-top: 0; /* 1 */
+  margin-block-start: 0; /* 1 */
 }
 
 .c-ground-nav__organization-name {
@@ -108,9 +107,9 @@ $_ground-nav-border-color: color.$base-gray-light;
 }
 
 .c-ground-nav__menu {
-  border-bottom: $_ground-nav-border-width $_ground-nav-border-style
+  border-block-end: $_ground-nav-border-width $_ground-nav-border-style
     $_ground-nav-border-color;
-  border-top: $_ground-nav-border-width $_ground-nav-border-style
+  border-block-start: $_ground-nav-border-width $_ground-nav-border-style
     $_ground-nav-border-color;
   padding: $_ground-nav-space 0;
 }
@@ -184,18 +183,18 @@ $_ground-nav-border-color: color.$base-gray-light;
 
   .c-ground-nav__social {
     @media (min-width: breakpoint.$m) {
-      border-bottom: $_ground-nav-border-width $_ground-nav-border-style
+      border-block-end: $_ground-nav-border-width $_ground-nav-border-style
         $_ground-nav-border-color;
       grid-column: 1/3;
-      padding-bottom: $_ground-nav-space;
+      padding-block-end: $_ground-nav-space;
     }
 
     @media (min-width: breakpoint.$l) {
-      border-bottom: none;
+      border-block-end: none;
       grid-column: 3/4;
       grid-row: 1/2;
       justify-self: end;
-      padding-bottom: 0;
+      padding-block-end: 0;
     }
   }
 

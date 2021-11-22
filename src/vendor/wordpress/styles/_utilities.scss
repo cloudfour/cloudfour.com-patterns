@@ -13,8 +13,7 @@
 /// @link https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
 .alignfull,
 .alignwide {
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  margin-inline: calc(-50vw + 50%);
 }
 
 /// Applies an opinionated wide-image width that allows an image element to
@@ -22,8 +21,7 @@
 /// a certain container size in its current form.
 .alignwide {
   @media (width >= breakpoint.$l) {
-    margin-left: -6vw;
-    margin-right: -6vw;
+    margin-inline: -6vw;
   }
 }
 
@@ -68,4 +66,14 @@ $color-map: meta.module-variables('color-base');
   .has-heading-#{$level-segment}-font-size {
     @include headings.level($level, false);
   }
+}
+
+// Use logical properties for text alignment
+
+.has-text-align-left {
+  text-align: start;
+}
+
+.has-text-align-right {
+  text-align: end;
 }

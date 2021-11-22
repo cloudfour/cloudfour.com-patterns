@@ -20,7 +20,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 .wp-block-buttons {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: $wp-button-gap * -1;
+  margin-block-end: $wp-button-gap * -1;
 }
 
 /**
@@ -30,8 +30,8 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   flex: none; /* 1 */
 
   .wp-block-buttons & {
-    margin-bottom: $wp-button-gap;
-    margin-right: $wp-button-gap;
+    margin-block-end: $wp-button-gap;
+    margin-inline-end: $wp-button-gap;
   }
 
   .wp-block-button__link {
@@ -52,7 +52,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
    * 1. Prevents stacked file buttons from collapsing on each other.
    */
   + .wp-block-file {
-    margin-top: $wp-button-gap; /* 1 */
+    margin-block-start: $wp-button-gap; /* 1 */
   }
 
   /**
@@ -103,7 +103,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  *    unnecessary, so we remove it here.
  */
 .wp-block-image {
-  margin-bottom: 0; /* 1 */
+  margin-block-end: 0; /* 1 */
   position: relative;
 
   /**
@@ -111,7 +111,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
    * breaking layout when placed after a right-aligned image in a post.
    */
   &.aligncenter {
-    width: 100%;
+    inline-size: 100%;
   }
 
   /* Since we are applying `margin-top` to CMS content via our o-rhythm
@@ -119,7 +119,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
    * elements is unnecessary, so we remove it here.
    */
   figcaption {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 }
 
@@ -156,7 +156,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  * Striped table
  */
 .wp-block-table.is-style-stripes {
-  border-bottom: 0;
+  border-block-end: 0;
 
   tbody tr:nth-of-type(2n - 1) {
     @include table.t-striped;
@@ -170,7 +170,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   @include table.t-numeric;
 
   th {
-    text-align: right;
+    text-align: end;
   }
 }
 
@@ -193,9 +193,9 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 .wp-block-pullquote {
   @include border-radius.conditional;
   background-color: var(--theme-color-background-secondary);
-  margin-bottom: 0; /* 1 */
+  margin-block-end: 0; /* 1 */
   padding: 0; /* 2 */
-  text-align: left; /* 3 */
+  text-align: start; /* 3 */
 }
 
 /**
@@ -245,7 +245,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 
 .wp-block-pullquote.is-style-solid-color {
   blockquote {
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 }
 
@@ -257,7 +257,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 }
 
 .wp-block-quote {
-  border-left: size.$border-width-blockquote solid
+  border-inline-start: size.$border-width-blockquote solid
     var(--theme-color-border-text-group);
 }
 
@@ -268,8 +268,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 .wp-block-quote.is-style-large,
 .wp-block-quote.is-large {
   margin: 0; /* 1 */
-  padding-left: ms.step(1); /* 1 */
-  padding-right: 0; /* 1 */
+  padding-inline: ms.step(1) 0; /* 1 */
 
   p {
     font-size: ms.step(0);
@@ -278,7 +277,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 
   cite {
     font-size: ms.step(0);
-    text-align: left;
+    text-align: start;
   }
 }
 
@@ -290,7 +289,6 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 
 .wp-block-separator.is-style-default {
-  margin-left: auto;
-  margin-right: auto;
-  width: calc(100% / 3);
+  inline-size: calc(100% / 3);
+  margin-inline: auto;
 }

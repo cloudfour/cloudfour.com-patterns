@@ -51,7 +51,7 @@
   grid-template-columns: minmax(0, auto) 1fr minmax(0, auto);
   grid-template-rows: ms.step(-1) minmax(0, auto) ms.step(-1);
   margin: 0 auto;
-  max-width: size.$max-width-spread;
+  max-inline-size: size.$max-width-spread;
 }
 
 // Adds a box shadow to add the appearance of the alert floating
@@ -96,8 +96,8 @@
   color: var(--theme-color-icon);
   display: flex;
   grid-area: icon;
+  inline-size: ms.step(5); /* 1 */
   justify-content: center;
-  width: ms.step(5); /* 1 */
 
   // On large screens, when the alert content reaches it's max width and
   // the icon no longer touches the edge of its container, we change the
@@ -127,7 +127,7 @@
   grid-area: dismiss;
   justify-content: center;
   margin: 0;
-  min-width: ms.step(5); // 1
+  min-inline-size: ms.step(5); // 1
   padding: 0;
 
   @include focus.focus-visible {

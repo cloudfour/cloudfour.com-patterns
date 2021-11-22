@@ -12,5 +12,5 @@
  */
 
 @mixin inline() {
-  top: unit.px-to-rem(-2px); /* 1 */
+  inset-block-start: unit.px-to-rem(-2px); /* 1 */
 }

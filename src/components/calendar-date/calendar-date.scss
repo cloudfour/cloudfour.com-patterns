@@ -22,14 +22,14 @@ $radius: size.$border-radius-medium;
 }
 
 .c-calendar-date {
+  block-size: $size;
   display: flex;
   flex-direction: column;
   font-weight: font-weight.$medium;
-  height: $size;
+  inline-size: $size;
   line-height: line-height.$tight;
   text-align: center;
   user-select: none;
-  width: $size;
 }
 
 /**
@@ -41,15 +41,15 @@ $radius: size.$border-radius-medium;
 .c-calendar-date__header {
   align-items: center;
   background-color: color.$base-gray-dark; /* 1 */
+  block-size: ms.step(3);
   border: $edge-size solid color.$base-gray-darker; /* 1 */
-  border-bottom-width: 0;
+  border-block-end-width: 0;
   border-top-left-radius: $radius;
   border-top-right-radius: $radius;
   color: color.$text-light-emphasis;
   display: flex;
   flex: none;
   font-weight: font-weight.$semibold;
-  height: ms.step(3);
   justify-content: center;
   text-transform: uppercase;
 
@@ -90,9 +90,9 @@ $radius: size.$border-radius-medium;
   align-items: center;
   background-color: color.$text-light-emphasis;
   border: $edge-size solid var(--theme-color-border-calendar-date);
+  border-block-start-width: 0;
   border-bottom-left-radius: $radius;
   border-bottom-right-radius: $radius;
-  border-top-width: 0;
   color: color.$text-dark;
   display: flex;
   flex: 1;
@@ -110,9 +110,9 @@ $radius: size.$border-radius-medium;
 
 .c-calendar-date__note {
   font-size: size.$font-small;
+  inline-size: 100%; /* 1 */
   overflow: hidden; /* 1 */
   padding: 0 size.$spacing-control-text-inset;
   text-overflow: ellipsis; /* 1 */
   white-space: nowrap; /* 1 */
-  width: 100%; /* 1 */
 }

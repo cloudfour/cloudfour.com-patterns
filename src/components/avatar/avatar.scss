@@ -32,7 +32,7 @@
   background: var(--theme-color-background-avatar); /* 1 */
   border-radius: size.$border-radius-full;
   flex: none; /* 2 */
-  width: size.$square-avatar-medium; /* 3 */
+  inline-size: size.$square-avatar-medium; /* 3 */
 }
 
 /**
@@ -40,9 +40,9 @@
  */
 
 .c-avatar--small {
-  width: size.$square-avatar-small;
+  inline-size: size.$square-avatar-small;
 }
 
 .c-avatar--full {
-  width: size.$square-avatar-full;
+  inline-size: size.$square-avatar-full;
 }

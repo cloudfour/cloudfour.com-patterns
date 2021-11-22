@@ -68,7 +68,7 @@ $indicator-width-current: $indicator-height-current;
 .c-pagination__items {
   display: flex; /* 1 */
   list-style: none; /* 2 */
-  padding-left: 0; /* 2 */
+  padding-inline-start: 0; /* 2 */
   position: relative; /* 3 */
 }
 
@@ -105,8 +105,8 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__action {
   align-items: center;
+  block-size: $action-size;
   display: flex;
-  height: $action-size;
   justify-content: center;
   text-decoration: none;
   user-select: none;
@@ -133,17 +133,16 @@ $indicator-width-current: $indicator-height-current;
   background-position: center;
   background-repeat: no-repeat;
   background-size: size.$square-control-icon;
+  block-size: $action-size;
   border: size.$edge-small solid var(--theme-color-border-pagination-control);
   border-radius: size.$border-radius-full;
-  bottom: 0;
   content: '';
-  height: $action-size;
+  inline-size: $action-size;
+  inset-block: 0;
   margin: auto;
   position: absolute;
-  top: 0;
   transition: filter transition.$slow ease.$out,
     transform transition.$quick ease.$out;
-  width: $action-size;
 }
 
 /**
@@ -170,7 +169,7 @@ $indicator-width-current: $indicator-height-current;
  */
 
 .c-pagination__action.is-previous::before {
-  left: 0;
+  inset-inline-start: 0;
 
   /**
    * Inline SVGs aren't aware of custom properties, so we have to do a bit
@@ -193,7 +192,7 @@ $indicator-width-current: $indicator-height-current;
 }
 
 .c-pagination__action.is-next::after {
-  right: 0;
+  inset-inline-end: 0;
 
   /**
    * Inline SVGs aren't aware of custom properties, so we have to do a bit
@@ -229,15 +228,15 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__number {
   align-items: center;
+  block-size: ($action-size - $action-pad * 2); /* 1 */
   border-radius: size.$border-radius-full; /* 1 */
   display: flex;
   font-weight: font-weight.$medium;
-  height: ($action-size - $action-pad * 2); /* 1 */
+  inline-size: 100%; /* 1 */
   justify-content: center;
   line-height: line-height.$tighter; /* 2 */
-  max-width: ($action-size - $action-pad * 2); /* 1 */
+  max-inline-size: ($action-size - $action-pad * 2); /* 1 */
   position: relative; /* 3 */
-  width: 100%; /* 1 */
 }
 
 /**
@@ -263,18 +262,17 @@ $indicator-width-current: $indicator-height-current;
 
 .c-pagination__number::after {
   background: currentColor;
+  block-size: $indicator-height;
   border-radius: size.$border-radius-full;
   content: '';
-  height: $indicator-height;
-  left: 0;
+  inline-size: $indicator-width;
+  inset-block-start: 100%; /* 1 */
+  inset-inline: 0;
   margin: auto;
   position: absolute;
-  right: 0;
-  top: 100%; /* 1 */
   transition-duration: transition.$quick;
   transition-property: opacity, transform;
   transition-timing-function: ease.$out;
-  width: $indicator-width;
 
   /**
    * Unless the containing action is the current page or is being hovered,
@@ -294,7 +292,7 @@ $indicator-width-current: $indicator-height-current;
   */
 
   .c-pagination__action[aria-current] & {
-    height: $indicator-height-current;
-    width: $indicator-width-current;
+    block-size: $indicator-height-current;
+    inline-size: $indicator-width-current;
   }
 }

@@ -19,8 +19,8 @@
  * 2. Makes element overflow as a text element would.
  */
 @mixin inherit-size {
+  block-size: 1em;
   flex: none; /* 1 */
-  height: 1em;
-  max-width: none; /* 2 */
-  width: 1em;
+  inline-size: 1em;
+  max-inline-size: none; /* 2 */
 }

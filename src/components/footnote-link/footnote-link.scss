@@ -25,7 +25,7 @@
   font-size: ms.step(-2);
   font-weight: font-weight.$medium;
   line-height: size.$square-footnote-link; /* 1 */
-  min-width: size.$square-footnote-link; /* 1 */
+  min-inline-size: size.$square-footnote-link; /* 1 */
   padding: 0 ms.step(-5); /* 1 */
   scroll-margin: ms.step(4); /* 2 */
   text-align: center;

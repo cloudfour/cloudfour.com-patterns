@@ -25,12 +25,10 @@ $footnote-offset-left-negative: calc(
   &:target::before {
     background-color: color.$base-gray-lighter;
     border-radius: size.$border-radius-medium;
-    bottom: $footnote-offset-negative;
     content: '';
-    left: $footnote-offset-left-negative;
+    inset: $footnote-offset-negative;
+    inset-inline-start: $footnote-offset-left-negative;
     position: absolute;
-    right: $footnote-offset-negative;
-    top: $footnote-offset-negative;
     z-index: -1;
 
     @include theme.styles(dark) {

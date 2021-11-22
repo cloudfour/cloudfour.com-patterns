@@ -149,7 +149,7 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 ///    offset based on the inner padding makes the link appear better aligned
 ///    with content above and below.
 ///
-/// @see http://codepen.io/marcysutton/pen/rLKvgZ
+/// @link http://codepen.io/marcysutton/pen/rLKvgZ
 .c-heading__permalink {
   align-items: center;
   border-radius: $permalink-radius;

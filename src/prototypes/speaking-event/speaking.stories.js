@@ -8,7 +8,7 @@ export default {
   title: 'Prototypes/Speaking Event',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

@@ -23,7 +23,8 @@ const updateTheme = (element, theme) => {
   }
 
   if (theme) {
-    element.classList.add(theme);
+    const newThemes = theme.split(',');
+    element.classList.add(...newThemes);
   }
 };
 

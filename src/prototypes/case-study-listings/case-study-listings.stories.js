@@ -9,7 +9,7 @@ export default {
   title: 'Prototypes/Case Study Listings',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

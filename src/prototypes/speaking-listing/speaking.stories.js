@@ -7,7 +7,7 @@ export default {
   title: 'Prototypes/Speaking Listing',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

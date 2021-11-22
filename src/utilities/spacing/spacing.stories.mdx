@@ -1,5 +1,4 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs';
-import logicalPropertiesDemo from './demo/logical-properties.twig';
 import directionsDemo from './demo/directions.twig';
 import responsiveDemo from './demo/responsive.twig';
 import './demo/styles.scss';
@@ -32,25 +31,6 @@ Spacing utilities exist for these use cases.
 
 All of our utilities use [logical properties](https://www.w3.org/TR/css-logical-1/) instead of specific directions [in supported browsers](https://caniuse.com/#feat=css-logical-props) to simplify potential localization projects.
 
-Observe how the direction of the same utility classes change depending on the page's [direction](https://developer.mozilla.org/en-US/docs/Web/CSS/direction) and [writing mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode):
-
-<Canvas>
-  <Story
-    name="Logical Properties"
-    args={{ ...defaultArgs, name: 'space' }}
-    argTypes={{
-      ...defaultArgTypes,
-      name: {
-        options: ['space', 'pad'],
-        type: { name: 'string' },
-        control: { type: 'inline-radio' },
-      },
-    }}
-  >
-    {(args) => logicalPropertiesDemo(args)}
-  </Story>
-</Canvas>
-
 The following table maps the traditional physical property for `direction: ltr` and `writing-mode: horizontal-tb` to its equivalent logical property:
 
 | Physical Property | Logical Property |
@@ -59,6 +39,8 @@ The following table maps the traditional physical property for `direction: ltr` 
 | `bottom`          | `block-end`      |
 | `left`            | `inline-start`   |
 | `right`           | `inline-end`     |
+
+You can observe how utilities respond to various `direction` and `writing-mode` values by selecting a different "Text flow" in this project's toolbar.
 
 ## Padding
 

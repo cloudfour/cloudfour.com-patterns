@@ -8,7 +8,7 @@ export default {
   title: 'Prototypes/Article Listing',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

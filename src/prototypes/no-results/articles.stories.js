@@ -6,7 +6,7 @@ export default {
   title: 'Prototypes/No Results',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

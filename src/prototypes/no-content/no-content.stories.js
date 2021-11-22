@@ -5,7 +5,7 @@ export default {
   title: 'Prototypes/No Content',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

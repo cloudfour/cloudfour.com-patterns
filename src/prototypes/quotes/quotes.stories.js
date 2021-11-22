@@ -4,7 +4,7 @@ export default {
   title: 'Prototypes/Quotes',
   parameters: {
     docs: { page: null },
-    paddings: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

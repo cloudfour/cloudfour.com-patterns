@@ -1,5 +1,45 @@
 # @cloudfour/patterns
 
+## 5.0.0
+
+### Major Changes
+
+- [#1578](https://github.com/cloudfour/cloudfour.com-patterns/pull/1578) [`42e87b2b`](https://github.com/cloudfour/cloudfour.com-patterns/commit/42e87b2bff79c99a396a624e6894264b36b31302) Thanks [@tylersticka](https://github.com/tylersticka)! - Use `clamp` instead of media queries to simplify fluid logic.
+
+### Minor Changes
+
+- [#1556](https://github.com/cloudfour/cloudfour.com-patterns/pull/1556) [`c37e4645`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c37e4645b21f6cf4dff2572f469ab8b2a4c100a9) Thanks [@dromo77](https://github.com/dromo77)! - Update pull quote and block quote styles
+
+* [#1579](https://github.com/cloudfour/cloudfour.com-patterns/pull/1579) [`98ffb8b7`](https://github.com/cloudfour/cloudfour.com-patterns/commit/98ffb8b72de0fb4f4e4da399e0c50a2cfe7a4edf) Thanks [@dromo77](https://github.com/dromo77)! - Add `o-media--1-by-X` modifier so we can size media objects and content relative to each other. This is especially useful when you want to align the object of one media element with another.
+
+- [#1575](https://github.com/cloudfour/cloudfour.com-patterns/pull/1575) [`c51b1648`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c51b1648ba844c71d1238e849a2139df65df9fa4) Thanks [@tylersticka](https://github.com/tylersticka)! - Add default hr styles and improved WordPress Separator block styles
+
+* [#1570](https://github.com/cloudfour/cloudfour.com-patterns/pull/1570) [`ba905bfa`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ba905bfad3543b15b6f0b09eac710869cafc9e1e) Thanks [@tylersticka](https://github.com/tylersticka)! - Styles that relied on media queries or complicated nesting to negate rounded corners have been simplified using [conditional border radius](https://ishadeed.com/article/conditional-border-radius/). Some elements like code blocks now benefit from conditional rounded corners as well. The Alert component's `full-width` modifier and `full_width` template options are no longer necessary.
+
+- [#1586](https://github.com/cloudfour/cloudfour.com-patterns/pull/1586) [`98192431`](https://github.com/cloudfour/cloudfour.com-patterns/commit/98192431ee3c3063cdaf1d6083fa12ba9503b0db) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `--icon-size` CSS custom property to the Icon component to allow sizing via CSS without impacting `font-size` or selector depth.
+
+* [#1579](https://github.com/cloudfour/cloudfour.com-patterns/pull/1579) [`98ffb8b7`](https://github.com/cloudfour/cloudfour.com-patterns/commit/98ffb8b72de0fb4f4e4da399e0c50a2cfe7a4edf) Thanks [@dromo77](https://github.com/dromo77)! - `o-deck` automatically creates columns so sometimes there are multiple columns when only 1 column is desired. The `o-deck--X-column@Y` modifier has been updated so we can specify when we want 1 column.
+
+  When using multiple media objects inside of a deck, some media objects were top-aligned and some were middle-aligned. To fix the mismatched alignment, we've also added the `o-deck--align-start` modifier, which forces all content to align-top.
+
+- [#1533](https://github.com/cloudfour/cloudfour.com-patterns/pull/1533) [`61716c5f`](https://github.com/cloudfour/cloudfour.com-patterns/commit/61716c5fc9fdf012fa1c1903cebf02fbfca39a5d) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Increase whitespace in the ground-nav component
+
+* [#1516](https://github.com/cloudfour/cloudfour.com-patterns/pull/1516) [`b1bbff48`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b1bbff485aa6d171c35811282efa930949e66761) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add a button swap component pattern
+
+- [#1529](https://github.com/cloudfour/cloudfour.com-patterns/pull/1529) [`d32385de`](https://github.com/cloudfour/cloudfour.com-patterns/commit/d32385deea5f42dba0f64df93987b10dd6701947) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Add responsive fallback image
+
+* [#1577](https://github.com/cloudfour/cloudfour.com-patterns/pull/1577) [`1561c598`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1561c59868e0fee9f6596ce202af6baccbd83f90) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `heading_id` attribute to Card component to improve experience in the VoiceOver rotor
+
+- [#1557](https://github.com/cloudfour/cloudfour.com-patterns/pull/1557) [`ba570508`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ba570508933c570dd2fb6b8930e4c8053b5e2ee7) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Add optional icon and floating modifier to the Alert component
+
+### Patch Changes
+
+- [#1586](https://github.com/cloudfour/cloudfour.com-patterns/pull/1586) [`98192431`](https://github.com/cloudfour/cloudfour.com-patterns/commit/98192431ee3c3063cdaf1d6083fa12ba9503b0db) Thanks [@tylersticka](https://github.com/tylersticka)! - Remove extra `.c-button__extra` selectors from WordPress block button styles.
+
+* [#1530](https://github.com/cloudfour/cloudfour.com-patterns/pull/1530) [`6c444f96`](https://github.com/cloudfour/cloudfour.com-patterns/commit/6c444f96ee0f0718df8a35ea3527a3bb4da3c98e) Thanks [@Paul-Hebert](https://github.com/Paul-Hebert)! - Add accessible names to comments
+
+- [#1586](https://github.com/cloudfour/cloudfour.com-patterns/pull/1586) [`98192431`](https://github.com/cloudfour/cloudfour.com-patterns/commit/98192431ee3c3063cdaf1d6083fa12ba9503b0db) Thanks [@tylersticka](https://github.com/tylersticka)! - Size Icons consistently in Buttons. Previously, Icon-only Buttons achieved by including an Icon as the primary content were inconsistently sized compared to Icons included before or after a label.
+
 ## 4.3.0
 
 ### Minor Changes

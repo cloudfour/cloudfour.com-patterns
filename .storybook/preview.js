@@ -3,6 +3,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import ReactSyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
 import twig from 'react-syntax-highlighter/dist/esm/languages/prism/twig';
 import { withTheme } from './theme-decorator';
+import { withTextFlow } from './text-flow-decorator';
 import tokens from '../src/compiled/tokens/js/tokens';
 import 'focus-visible';
 import '../src/index-with-dependencies.scss';
@@ -78,26 +79,72 @@ export const parameters = {
   },
 };
 
+const directions = ['ltr', 'rtl'];
+const writingModes = ['horizontal-tb', 'vertical-lr', 'vertical-rl'];
+const textFlowItems = directions
+  .map((direction) =>
+    writingModes.map((writingMode) => {
+      return {
+        value: JSON.stringify({ direction, writingMode }),
+        title: writingMode,
+        left: direction,
+      };
+    })
+  )
+  .flat();
+
 export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
     toolbar: {
       icon: 'paintbrush',
+      showName: true,
       items: [
         {
           // 'null' value supports a "no value selected" state, if 'undefined'
           // there are sometimes missing 'key' errors in console
           value: null,
           title: 'No theme',
+          right: '(default)',
+        },
+        {
+          value: 't-light',
+          title: 'Light',
+          right: '.t-light',
         },
         {
           value: 't-dark',
           title: 'Dark',
+          right: '.t-dark',
         },
+        {
+          value: 't-light,t-alternate',
+          title: 'Light Alt',
+          right: '.t-light.t-alternate',
+        },
+        {
+          value: 't-dark,t-alternate',
+          title: 'Dark Alt',
+          right: '.t-dark.t-alternate',
+        },
+      ],
+    },
+  },
+  textFlow: {
+    name: 'Text flow',
+    toolbar: {
+      icon: 'redirect',
+      showName: true,
+      items: [
+        {
+          value: null,
+          title: 'Default text flow',
+        },
+        ...textFlowItems,
       ],
     },
   },
 };
 
-export const decorators = [withTheme];
+export const decorators = [withTheme, withTextFlow];

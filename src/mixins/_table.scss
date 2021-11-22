@@ -12,7 +12,7 @@ $table-border-thick: size.$edge-medium solid $table-border-color;
  * Themed properties
  */
 
-@include theme.props() {
+@include theme.props {
   --theme-color-table-striped: #{color.$base-gray-lighter};
   --theme-color-table-caption: #{color.$base-gray-dark};
 }
@@ -92,11 +92,11 @@ $table-border-thick: size.$edge-medium solid $table-border-color;
 @mixin t-numeric {
   text-align: right; /* 1 */
 
-  & td {
+  td {
     font-variant-numeric: tabular-nums; /* 2 */
   }
 
-  & [scope='row'] {
+  [scope='row'] {
     text-align: right;
   }
 }

@@ -22,6 +22,7 @@ html {
     breakpoint.$xs,
     breakpoint.$xl
   ); /* 1 */
+  // stylelint-disable-next-line property-no-unknown
   line-sizing: normal; /* 2 */
 }
 

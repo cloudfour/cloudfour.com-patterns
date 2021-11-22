@@ -9,7 +9,7 @@
  * Themed properties
  */
 
-@include theme.props() {
+@include theme.props {
   --theme-color-text-checkbox-checked-hover: var(
     --theme-color-text-checkbox-hover
   );
@@ -57,6 +57,17 @@
     transition-timing-function: ease.$out;
     vertical-align: middle;
     width: size.$square-toggle-medium;
+
+    /**
+     * State: Focused
+     *
+     * We use `focus-visible` here because checkboxes do not inherently require
+     * keyboard interactions.
+     */
+
+    @include focus.focus-visible {
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+    }
 
     /**
      * We add the check mark via a pseudo element so we can easily apply
@@ -120,17 +131,6 @@
     }
 
     /**
-     * State: Focused
-     *
-     * We use `focus-visible` here because checkboxes do not inherently require
-     * keyboard interactions.
-     */
-
-    @include focus.focus-visible {
-      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
-    }
-
-    /**
      * State: Disabled
      *
      * 1. We want the checkbox to appear "read-only." A transparent background
@@ -150,7 +150,7 @@
          * of theming trickery here
          */
 
-        @include theme.styles() {
+        @include theme.styles {
           background-image: svg-load(
             'icons/check.svg',
             stroke=color.$base-gray-dark

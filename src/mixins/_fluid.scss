@@ -29,6 +29,7 @@
 ) {
   $delta: unit.strip($max - $min);
   $delta-width: unit.strip($max-width - $min-width);
+
   // We need to convert the `min-width` value to `rem` so the `calc` won't be
   // influenced by the current `font-size`, which would cause the fluid
   // transformation to fall out of step with the viewport.

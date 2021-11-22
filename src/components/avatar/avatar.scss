@@ -7,7 +7,7 @@
  * Themed properties
  */
 
-@include theme.props() {
+@include theme.props {
   --theme-color-background-avatar: #{color.$base-gray-light};
 }
 
@@ -28,7 +28,7 @@
 
 .c-avatar {
   // Ratio box hack lets us support fixed _and_ percentage widths with ease
-  @include ratio-box.core-styles();
+  @include ratio-box.core-styles;
   background: var(--theme-color-background-avatar); /* 1 */
   border-radius: size.$border-radius-full;
   flex: none; /* 2 */

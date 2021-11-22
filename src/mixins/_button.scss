@@ -14,7 +14,7 @@
  * Themed properties
  */
 
-@include theme.props() {
+@include theme.props {
   --theme-color-background-button-default: #{color.$brand-primary};
   --theme-color-background-button-secondary: transparent;
   --theme-color-border-button-default: #{color.$brand-primary-dark};
@@ -72,6 +72,10 @@
   vertical-align: middle;
   white-space: nowrap;
 
+  @include focus.focus-visible {
+    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+  }
+
   /**
    * Transform, opacity and filter changes are performant and will work across
    * many more stylistic modifiers than specific color shifts.
@@ -92,10 +96,6 @@
     filter: grayscale(60%);
     opacity: 0.85;
     transform: none;
-  }
-
-  @include focus.focus-visible {
-    box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
   }
 }
 
@@ -163,7 +163,7 @@ $extra-slashed-clip-path: polygon(
   // 1. Fixes a bug where some browsers would render the element as
   //    slightly offset from others.
   // 2. Helps normalize the box the clipping path renders to.
-  & > * {
+  > * {
     clip-path: $extra-slashed-clip-path;
     transform: translate(0, 0); // 1
 

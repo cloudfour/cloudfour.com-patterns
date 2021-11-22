@@ -74,6 +74,9 @@ $_gap: ms.step(1);
   }
 }
 
+// Stylelint wants to change `viewBox` to `viewbox`, which will break
+// stylelint-disable value-keyword-case
+
 /**
  * The background clouds. We adjust the colors and viewboxes here rather than
  * in the SVG to give us better control of the style and
@@ -117,6 +120,8 @@ $_gap: ms.step(1);
   background-size: auto 100%;
   z-index: 2;
 }
+
+// stylelint-enable value-keyword-case
 
 /**
  * This element is where the layout is defined. It's most likely the

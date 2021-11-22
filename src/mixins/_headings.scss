@@ -15,8 +15,10 @@ $size-tokens: meta.module-variables('size');
 @mixin level($level, $include-weight: true) {
   // Build token name to check for
   $token-name-root: 'font-heading-' + ms.step-class-segment($level);
+
   // Get minimum size token
   $min-size: map.get($size-tokens, $token-name-root + '-min');
+
   // Get maximum size token
   $max-size: map.get($size-tokens, $token-name-root + '-max');
 

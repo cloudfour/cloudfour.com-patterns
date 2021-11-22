@@ -31,7 +31,7 @@
 /// element unless the element has alignment that will cause it to meet the
 /// viewport edge.
 .has-background {
-  @include border-radius.conditional();
+  @include border-radius.conditional;
 }
 
 /// Utilities for Block Color Palettes

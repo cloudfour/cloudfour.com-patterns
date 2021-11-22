@@ -61,7 +61,7 @@ $last-breakpoint: list.nth($breakpoint-keys, -1);
   $to: $last-breakpoint,
   $include-default: true
 ) {
-  @if ($include-default) {
+  @if $include-default {
     @content;
   }
 

@@ -38,13 +38,14 @@
   -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
   appearance: none; /* 1 */
   background-color: color.$text-light;
+  block-size: size.$height-control-default; /* 2 */
   border: size.$edge-control solid currentColor;
   border-radius: size.$border-radius-medium;
   color: color.$text-dark;
   display: block;
   font: inherit;
   font-style: normal;
-  height: size.$height-control-default; /* 2 */
+  inline-size: 100%;
   line-height: normal; /* 3 */
   outline: none;
   padding: size.$padding-control-vertical size.$spacing-control-text-inset;
@@ -53,7 +54,6 @@
   transition-property: background-color, border-color;
   transition-timing-function: ease.$out;
   vertical-align: middle;
-  width: 100%;
 
   /**
    * For certain single-line input types, using `text-indent` instead of
@@ -66,7 +66,7 @@
 
   &[type='email'],
   &[type='text'] {
-    padding-left: 0;
+    padding-inline-start: 0;
     text-indent: size.$spacing-control-text-inset;
   }
 
@@ -75,14 +75,14 @@
    */
 
   @at-root textarea#{&} {
-    height: size.$height-control-multiline;
+    block-size: size.$height-control-multiline;
   }
 
   /**
    * Elastic Inputs get their height from javascript.
    */
   &.c-input--elastic {
-    height: auto;
+    block-size: auto;
   }
 
   /**
@@ -104,9 +104,9 @@
     background-position: right size.$spacing-control-icon-inset center;
     background-repeat: no-repeat;
     background-size: size.$square-control-icon 100%; /* 1 */
-    padding-bottom: math.div(size.$padding-control-vertical, 2); /* 2 */
-    padding-right: size.$spacing-control-icon-inset + size.$square-control-icon; /* 3 */
-    padding-top: math.div(size.$padding-control-vertical, 2); /* 2 */
+    padding-block: math.div(size.$padding-control-vertical, 2); /* 2 */
+    padding-inline-end: size.$spacing-control-icon-inset +
+      size.$square-control-icon; /* 3 */
   }
 
   &:hover:not(:disabled):not([readonly]) {

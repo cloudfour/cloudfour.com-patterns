@@ -47,12 +47,9 @@ $_focus-overflow: (size.$edge-large * -1);
 
   &::after {
     border-radius: size.$border-radius-medium;
-    bottom: $_focus-overflow;
     content: '';
-    left: $_focus-overflow;
+    inset: $_focus-overflow;
     position: absolute;
-    right: $_focus-overflow;
-    top: $_focus-overflow;
     z-index: 1;
   }
 }

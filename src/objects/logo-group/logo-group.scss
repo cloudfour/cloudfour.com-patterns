@@ -16,6 +16,6 @@
  */
 
 .o-logo-group > * {
+  inline-size: size.$width-logo-group-item-width;
   margin: size.$spacing-gap-logo-group; /* 1 */
-  width: size.$width-logo-group-item-width;
 }

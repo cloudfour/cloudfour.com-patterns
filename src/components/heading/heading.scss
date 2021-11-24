@@ -96,7 +96,7 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
     position: relative;
 
     @media (max-width: $max-width-permalink-shift) {
-      padding-right: unit.swap($permalink-size, rem);
+      padding-inline-end: unit.swap($permalink-size, rem);
     }
   }
 
@@ -106,7 +106,7 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
   // between the permalink and main heading.
   .c-heading--with-subheading & {
     @media (min-width: $min-width-permalink-shift) {
-      margin-right: ms.step(-1, 1rem);
+      margin-inline-end: ms.step(-1, 1rem);
     }
   }
 }
@@ -128,7 +128,7 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
   font-size: ms.step(0, 1rem);
   font-weight: font-weight.$medium;
   line-height: line-height.$tight;
-  max-width: 100%;
+  max-inline-size: 100%;
 
   .c-heading--light & {
     font-weight: font-weight.$normal;
@@ -136,7 +136,7 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 
   .c-heading--with-permalink & {
     @media (max-width: $max-width-permalink-shift) {
-      padding-right: unit.swap($permalink-size, rem);
+      padding-inline-end: unit.swap($permalink-size, rem);
     }
   }
 }
@@ -152,20 +152,19 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 /// @link http://codepen.io/marcysutton/pen/rLKvgZ
 .c-heading__permalink {
   align-items: center;
+  block-size: $permalink-size;
   border-radius: $permalink-radius;
-  bottom: 0;
   display: flex;
   font-size: unit.swap($permalink-icon-size, rem); // 1
-  height: $permalink-size;
+  inline-size: $permalink-size;
+  inset-block: 0;
+  inset-inline-end: math.div($permalink-size - $permalink-icon-size, -2); // 2
   justify-content: center;
   margin: auto;
   position: absolute;
-  right: math.div($permalink-size - $permalink-icon-size, -2); // 2
   text-decoration: none;
-  top: 0;
   transition: color transition.$quick ease.$out,
     opacity transition.$quick ease.$out;
-  width: $permalink-size;
 
   @include focus.focus-visible {
     box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
@@ -182,6 +181,6 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
   // outside of the container (so it doesn't bump the heading to the right,
   // which can disrupt the flow of reading the content).
   @media (min-width: $min-width-permalink-shift) {
-    right: 100%;
+    inset-inline-end: 100%;
   }
 }

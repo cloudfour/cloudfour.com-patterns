@@ -1,4 +1,5 @@
 module.exports = {
+  plugins: ['stylelint-use-logical-spec'],
   extends: ['stylelint-config-cloudfour', 'stylelint-config-prettier'],
   rules: {
     // disable stylelint-scss rules that conflict with prettier
@@ -38,5 +39,12 @@ module.exports = {
     'suitcss/custom-property-no-outside-root': null,
     // we want to be able to compose :root for theme selectors (#1056)
     'suitcss/selector-root-no-composition': null,
+    'liberty/use-logical-spec': [
+      'always',
+      {
+        // Until Safari 15 adoption is higher
+        except: ['clear', 'float', /^border-.+-radius$/i],
+      },
+    ],
   },
 };

@@ -7,9 +7,9 @@
 .c-footnote-group {
   --spacing-footnotes: #{ms.step(2)};
 
-  border-top: size.$edge-medium solid color.$base-gray-lighter;
-  margin-top: var(--spacing-footnotes);
-  padding-top: var(--spacing-footnotes);
+  border-block-start: size.$edge-medium solid color.$base-gray-lighter;
+  margin-block-start: var(--spacing-footnotes);
+  padding-block-start: var(--spacing-footnotes);
 
   @include theme.styles(dark) {
     border-color: color.$brand-primary-darker;
@@ -21,11 +21,11 @@
 .c-footnote-group--compact {
   --spacing-footnotes: #{ms.step(1)};
 
-  border-top: none;
+  border-block-start: none;
   font-size: ms.step(-1);
-  padding-top: 0;
+  padding-block-start: 0;
 }
 
 .c-footnote-group__list > * + * {
-  margin-top: var(--spacing-footnotes);
+  margin-block-start: var(--spacing-footnotes);
 }

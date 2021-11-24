@@ -9,10 +9,10 @@
 /// @param {Number} $space - The default space between.
 @mixin vertical-rhythm($space: size.$rhythm-default) {
   > * + * {
-    margin-top: $space;
+    margin-block-start: $space;
 
     // Allow space to be overridden using custom properties
-    margin-top: var(--rhythm);
+    margin-block-start: var(--rhythm);
   }
 
   // Where custom properties are supported, also allow headings to receive their
@@ -29,7 +29,7 @@
     > * + h5,
     > * + h6,
     > * + [class*='heading'] {
-      margin-top: var(--rhythm-headings);
+      margin-block-start: var(--rhythm-headings);
     }
   }
 }

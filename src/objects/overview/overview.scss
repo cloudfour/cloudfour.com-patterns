@@ -10,11 +10,11 @@
  */
 
 .o-overview__header {
-  margin-bottom: ms.step(1);
+  margin-block-end: ms.step(1);
 }
 
 .o-overview__actions {
-  margin-bottom: ms.step(3);
+  margin-block-end: ms.step(3);
 }
 
 @supports (display: grid) {

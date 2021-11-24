@@ -27,14 +27,13 @@
 .c-comment.is-replying::after,
 .c-comment--thread::after {
   background-color: var(--theme-color-border-text-group);
+  block-size: 100%;
   border-radius: size.$border-radius-full;
   content: '';
   display: block;
   grid-area: thread-line;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  width: size.$edge-medium;
+  inline-size: size.$edge-medium;
+  margin-inline: auto;
 }
 
 /// Comment reply forms are hidden until someone starts a reply.
@@ -47,7 +46,7 @@
 ///    you're responding to than to the form.
 .c-comment.is-replying .c-comment__reply-form {
   display: block;
-  margin-top: size.$spacing-gap-comment-form-vertical; // 1
+  margin-block-start: size.$spacing-gap-comment-form-vertical; // 1
 }
 
 /// Named object for consistency with the Media component.
@@ -74,7 +73,7 @@
 ///    always looks just a *tad* close to the header. This offsets that.
 .c-comment__content {
   grid-area: content;
-  margin-top: math.div(size.$rhythm-condensed, -4); // 1
+  margin-block-start: math.div(size.$rhythm-condensed, -4); // 1
 }
 
 // We added default styles to the blockquote element using the `wp-block-quote`
@@ -82,7 +81,8 @@
 // the similar.
 
 .c-comment__content blockquote {
-  border-left: size.$border-width-blockquote solid var(--theme-color-border-kbd);
+  border-inline-start: size.$border-width-blockquote solid
+    var(--theme-color-border-kbd);
   color: var(--theme-color-text-muted);
 }
 
@@ -108,7 +108,7 @@
   color: var(--theme-color-text-muted);
 
   &:not(:last-child) {
-    margin-right: size.$spacing-gap-inline-small;
+    margin-inline-end: size.$spacing-gap-inline-small;
   }
 }
 
@@ -145,12 +145,12 @@
   }
 }
 
-/// 1. Visually centers the child avatars with the indentation of the parent
-///    comment. Without this, the replies feel nested too far to the right.
-/// 2. Since the replies are likely wrapped in a Rhythm object intended to
+/// 1. Since the replies are likely wrapped in a Rhythm object intended to
 ///    inherit the parent rhythm, we can use that custom property to inherit
 ///    that same spacing between the meta and replies.
+/// 2. Visually centers the child avatars with the indentation of the parent
+///    comment. Without this, the replies feel nested too far to the right.
 .c-comment__replies {
-  margin-left: math.div(size.$square-avatar-small, -2); // 1
-  margin-top: var(--rhythm, #{size.$rhythm-default}); // 2
+  margin-block-start: var(--rhythm, #{size.$rhythm-default}); // 1
+  margin-inline-start: math.div(size.$square-avatar-small, -2); // 2
 }

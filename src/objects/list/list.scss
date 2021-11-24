@@ -14,7 +14,7 @@
 
 .o-list {
   list-style: none;
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 /**
@@ -35,13 +35,11 @@
 .o-list--inline {
   display: flex;
   flex-wrap: wrap;
-  margin-left: math.div(size.$spacing-list-inline-gap, -2);
-  margin-right: math.div(size.$spacing-list-inline-gap, -2);
+  margin-inline: math.div(size.$spacing-list-inline-gap, -2);
 }
 
 .o-list--inline > * {
-  margin-left: math.div(size.$spacing-list-inline-gap, 2);
-  margin-right: math.div(size.$spacing-list-inline-gap, 2);
+  margin-inline: math.div(size.$spacing-list-inline-gap, 2);
 }
 
 @for $i from 2 through 3 {

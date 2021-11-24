@@ -48,11 +48,11 @@ $table-border-thick: size.$edge-medium solid $table-border-color;
  * Table headers and footers are separated from the table body with strokes.
  */
 @mixin t-head {
-  border-bottom: $table-border-thick;
+  border-block-end: $table-border-thick;
 }
 
 @mixin t-foot {
-  border-top: $table-border-thick;
+  border-block-start: $table-border-thick;
 }
 
 @mixin t-caption {
@@ -68,7 +68,7 @@ $table-border-thick: size.$edge-medium solid $table-border-color;
  * This is achieved by adding a class to the table itself.
  */
 @mixin t-ruled {
-  border-bottom: $table-border-thin;
+  border-block-end: $table-border-thin;
 }
 
 @mixin t-striped {
@@ -90,13 +90,13 @@ $table-border-thick: size.$edge-medium solid $table-border-color;
  *    content they label and in some cases improves scannability.
  */
 @mixin t-numeric {
-  text-align: right; /* 1 */
+  text-align: end; /* 1 */
 
   td {
     font-variant-numeric: tabular-nums; /* 2 */
   }
 
   [scope='row'] {
-    text-align: right;
+    text-align: end;
   }
 }

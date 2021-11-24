@@ -64,12 +64,12 @@ $_breakpoint-wide: breakpoint.$m;
    */
 
   &:not(:first-child) {
-    border-top: 1px solid var(--theme-color-border-event-log-item);
-    padding-top: size.$padding-cell-vertical;
+    border-block-start: 1px solid var(--theme-color-border-event-log-item);
+    padding-block-start: size.$padding-cell-vertical;
   }
 
   &:not(:last-child) {
-    padding-bottom: size.$padding-cell-vertical;
+    padding-block-end: size.$padding-cell-vertical;
   }
 }
 
@@ -122,7 +122,7 @@ $_breakpoint-wide: breakpoint.$m;
    */
 
   @media (width >= $_breakpoint-wide) {
-    margin-right: size.$spacing-gap-inline-medium;
+    margin-inline-end: size.$spacing-gap-inline-medium;
   }
 }
 
@@ -140,7 +140,7 @@ $_breakpoint-wide: breakpoint.$m;
    */
 
   @media (width >= $_breakpoint-wide) {
-    margin-right: 1ch;
+    margin-inline-end: 1ch;
   }
 }
 

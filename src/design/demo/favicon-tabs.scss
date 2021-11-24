@@ -11,18 +11,18 @@
   list-style: none;
   overflow: hidden;
   padding: 4px;
-  padding-bottom: 0;
+  padding-block-end: 0;
   user-select: none;
   white-space: nowrap;
 
   li {
     align-items: center;
+    block-size: 36px;
     border-top-left-radius: size.$border-radius-medium;
     border-top-right-radius: size.$border-radius-medium;
     display: flex;
     flex: 1;
-    height: 36px;
-    max-width: 220px;
+    max-inline-size: 220px;
     padding: 0 12px;
   }
 
@@ -34,13 +34,13 @@
   li:last-child::after {
     content: '×';
     font-size: 24px;
-    margin-left: auto;
+    margin-inline-start: auto;
   }
 
   svg {
+    block-size: 16px;
     flex: none;
-    height: 16px;
-    margin-right: 8px;
-    width: 16px;
+    inline-size: 16px;
+    margin-inline-end: 8px;
   }
 }

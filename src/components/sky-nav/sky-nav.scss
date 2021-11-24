@@ -76,9 +76,9 @@ $_masthead-height-sm: ms.step(7);
  *    visible.
  */
 .c-sky-nav__skip {
-  left: 50%;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
   position: absolute;
-  top: 50%;
   white-space: nowrap;
   z-index: 1; /* 1 */
 
@@ -110,7 +110,7 @@ $_masthead-height-sm: ms.step(7);
 .c-sky-nav__content {
   display: flex;
   margin: 0 auto;
-  max-width: $_max-width;
+  max-inline-size: $_max-width;
   transition: opacity transition.$quick ease.$out; /* 1 */
 
   /**
@@ -140,33 +140,33 @@ $_masthead-height-sm: ms.step(7);
  */
 .c-sky-nav__masthead {
   align-items: center;
+  block-size: $_masthead-height-sm; /* 1 */
   display: flex;
-  height: $_masthead-height-sm; /* 1 */
   justify-content: space-between;
 
   @media (min-width: $_breakpoint-wide) {
-    height: auto;
+    block-size: auto;
   }
 }
 
 /**
  * The logo link element.
  *
- * 1. Prevents Flexbox squashing when menu items overflow.
- * 2. We apply whitespace to this element directly so its hit area is larger
+ * 1. We apply whitespace to this element directly so its hit area is larger
  *    than it would be if whitespace were applied to the parent element.
+ * 2. Prevents Flexbox squashing when menu items overflow.
  */
 .c-sky-nav__logo {
   align-items: center;
+  block-size: 100%; /* 1 */
   display: flex;
-  flex: none; /* 1 */
-  height: 100%; /* 2 */
-  padding: 0 $_space-horizontal; /* 2 */
+  flex: none; /* 2 */
+  padding: 0 $_space-horizontal; /* 1 */
 
   @media (min-width: $_breakpoint-wide) {
+    block-size: auto;
     display: block;
-    height: auto;
-    padding: $_space-vertical $_space-horizontal; /* 2 */
+    padding: $_space-vertical $_space-horizontal; /* 1 */
   }
 }
 
@@ -181,23 +181,23 @@ $_masthead-height-sm: ms.step(7);
  * 3. ms.step(9) is used instead of ms.step(8) because ms.step(8) leads to a big jump at the large breakpoint
  */
 .c-sky-nav__logo-object {
+  block-size: auto;
   display: block; /* 1 */
   fill: currentColor;
-  height: auto;
-  margin: (ms.step(-6) * -1); /* 2 */
-  transition: opacity transition.$slow ease.$out,
-    transform transition.$quick ease.$out;
-  width: fluid.fluid-calc(
+  inline-size: fluid.fluid-calc(
     ms.step(7),
     ms.step(9),
     /* 3 */ breakpoint.$s,
     breakpoint.$l
   );
+  margin: (ms.step(-6) * -1); /* 2 */
+  transition: opacity transition.$slow ease.$out,
+    transform transition.$quick ease.$out;
   @media (min-width: breakpoint.$l) {
-    width: ms.step(8);
+    inline-size: ms.step(8);
   }
   @media (max-width: breakpoint.$s) {
-    width: ms.step(7);
+    inline-size: ms.step(7);
   }
 
   /**
@@ -251,9 +251,11 @@ $_masthead-height-sm: ms.step(7);
  *    container for this one element.
  */
 .c-sky-nav__menu-toggle {
-  bottom: calc((#{$_masthead-height-sm} - #{size.$height-control-default}) / 2);
+  inset-block-end: calc(
+    (#{$_masthead-height-sm} - #{size.$height-control-default}) / 2
+  );
+  inset-inline-end: $_space-horizontal; /* 1 */
   position: absolute;
-  right: $_space-horizontal; /* 1 */
 
   /**
    * Hide once the menu contents are always exposed.
@@ -314,8 +316,8 @@ $_masthead-height-sm: ms.step(7);
    *    the incorrect edge.
    */
   @media (min-width: $_breakpoint-wide) and (max-width: $_breakpoint-wide-max) {
-    margin-left: auto; /* 1 */
-    max-width: math.div(100%, 3) * 2; /* 2 */
+    margin-inline-start: auto; /* 1 */
+    max-inline-size: math.div(100%, 3) * 2; /* 2 */
     padding: math.div($_space-vertical, 2) math.div($_space-horizontal, 2); /* 3 */
   }
 
@@ -325,7 +327,7 @@ $_masthead-height-sm: ms.step(7);
    * element feels balanced in comparison to those to its left.
    */
   @media (min-width: $_breakpoint-nowrap) {
-    padding-right: math.div($_space-horizontal, 2);
+    padding-inline-end: math.div($_space-horizontal, 2);
   }
 }
 
@@ -339,7 +341,7 @@ $_masthead-height-sm: ms.step(7);
  */
 .c-sky-nav__menu-items {
   list-style: none; /* 1 */
-  padding-left: 0; /* 1 */
+  padding-inline-start: 0; /* 1 */
 
   /**
    * When the layout is wide enough to expose these items…
@@ -397,19 +399,19 @@ $_masthead-height-sm: ms.step(7);
   align-items: center; /* 1 */
   display: flex; /* 2 */
   font-size: size.$font-big;
+  inline-size: 100%; /* 2 */
   justify-content: center; /* 1 */
   line-height: line-height.$tight;
   text-align: center; /* 1 */
   text-decoration: none;
   transition: opacity transition.$quick ease.$out;
   user-select: none; /* 3 */
-  width: 100%; /* 2 */
 
   /**
    * Displayed as a ruled stack on narrow screens
    */
   @media (max-width: $_breakpoint-narrow-max) {
-    border-bottom: size.$edge-small solid color.$base-gray-light;
+    border-block-end: size.$edge-small solid color.$base-gray-light;
     padding: $_space-vertical $_space-horizontal;
 
     /**
@@ -418,7 +420,7 @@ $_masthead-height-sm: ms.step(7);
      */
 
     @include theme.styles(dark) {
-      border-bottom-color: sass-color.change(
+      border-block-end-color: sass-color.change(
         color.$brand-primary-darker,
         $alpha: 0.5
       );

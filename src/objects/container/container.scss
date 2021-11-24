@@ -50,7 +50,7 @@ $pad-max: size.$padding-container-max;
 
 .o-container__content {
   margin: 0 auto;
-  max-width: size.$max-width-spread;
+  max-inline-size: size.$max-width-spread;
 }
 
 /**
@@ -59,7 +59,7 @@ $pad-max: size.$padding-container-max;
 
 .o-container--prose {
   .o-container__content {
-    max-width: size.$max-width-prose;
+    max-inline-size: size.$max-width-prose;
   }
 }
 

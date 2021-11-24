@@ -30,18 +30,18 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
   &::before {
     content: '';
     display: block;
-    padding-bottom: $padding;
+    padding-block-end: $padding;
   }
 
   > *,
   > picture > img {
-    height: 100%;
-    left: 0;
+    block-size: 100%;
+    inline-size: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     object-fit: cover;
     object-position: center;
     position: absolute;
-    top: 0;
-    width: 100%;
   }
 }
 
@@ -58,7 +58,7 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
   > *,
   > picture > img {
     display: block;
-    width: 100%;
+    inline-size: 100%;
   }
 
   @supports (--custom: property) {

@@ -43,20 +43,20 @@
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
     appearance: none; /* 2 */
     background-color: color.$text-light;
+    block-size: size.$square-toggle-medium;
     border: size.$edge-control solid currentColor;
     border-radius: size.$border-radius-medium;
     color: color.$text-dark;
     cursor: pointer;
     flex: none; /* 3 */
     font: inherit; /* 4 */
-    height: size.$square-toggle-medium;
+    inline-size: size.$square-toggle-medium;
     padding: 0;
     position: relative;
     transition-duration: transition.$quick;
     transition-property: background-color, border-color, color;
     transition-timing-function: ease.$out;
     vertical-align: middle;
-    width: size.$square-toggle-medium;
 
     /**
      * State: Focused
@@ -87,13 +87,10 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      bottom: size.$edge-control; /* 1 */
       content: '';
-      left: size.$edge-control; /* 1 */
+      inset: size.$edge-control; /* 1 */
       opacity: 0; /* 2 */
       position: absolute;
-      right: size.$edge-control; /* 1 */
-      top: size.$edge-control; /* 1 */
       transform: scale(0); /* 2 */
       transition-duration: transition.$quick;
       transition-property: opacity, transform;

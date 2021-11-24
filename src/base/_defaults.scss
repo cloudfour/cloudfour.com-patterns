@@ -56,7 +56,7 @@ ul {
 
 html,
 body {
-  height: 100%;
+  block-size: 100%;
 }
 
 /**
@@ -94,7 +94,7 @@ object,
 svg,
 video {
   display: block; /* 1 */
-  max-width: 100%; /* 3 */
+  max-inline-size: 100%; /* 3 */
   vertical-align: middle; /* 2 */
 }
 
@@ -107,7 +107,7 @@ canvas,
 img,
 svg,
 video {
-  height: auto;
+  block-size: auto;
 }
 
 /**
@@ -115,7 +115,7 @@ video {
  */
 
 audio {
-  width: 100%;
+  inline-size: 100%;
 }
 
 /**
@@ -158,7 +158,7 @@ pre {
   border-radius: size.$border-radius-small;
   box-shadow: 0 size.$edge-small 0 0 var(--theme-color-border-kbd); /* 1 */
   display: inline-block;
-  min-width: ms.step(2); /* 2 */
+  min-inline-size: ms.step(2); /* 2 */
   padding: 0 ms.step(-6);
   text-align: center;
 }
@@ -215,7 +215,7 @@ section {
 ul,
 ol,
 blockquote {
-  padding-left: size.$spacing-type-block-indent;
+  padding-inline-start: size.$spacing-type-block-indent;
 }
 
 /**
@@ -226,19 +226,29 @@ blockquote {
  */
 
 blockquote > * + * {
-  margin-top: size.$rhythm-default;
+  margin-block-start: size.$rhythm-default;
 }
 
 /**
  * Apply some sensible defaults to tables
  */
 
+/**
+ * `text-align: start` does not work reliably on tables, but `inherit` does when
+ * applied to both the `table` element and cells
+ */
+
+table,
+th,
+td {
+  text-align: inherit;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  inline-size: 100%;
   overflow-x: auto;
-  text-align: left;
-  width: 100%;
 }
 
 /*
@@ -251,12 +261,11 @@ figure {
   margin: 0; /* 1 */
 
   > * {
-    margin-left: auto; /* 2 */
-    margin-right: auto; /* 2 */
+    margin-inline: auto; /* 2 */
   }
 
   > * + * {
-    margin-top: ms.step(-1); /* 3 */
+    margin-block-start: ms.step(-1); /* 3 */
   }
 }
 

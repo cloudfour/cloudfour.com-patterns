@@ -58,7 +58,7 @@
     "@storybook/html": "6.3.12",
     "@svgr/webpack": "5.5.0",
     "@types/jest": "27.0.3",
-    "@types/lodash": "4.14.176",
+    "@types/lodash": "4.14.177",
     "@types/prismjs": "1.16.6",
     "@whitespace/storybook-addon-html": "5.0.0",
     "@wordpress/block-library": "3.2.9",

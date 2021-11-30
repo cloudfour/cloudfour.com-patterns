@@ -1,0 +1,42 @@
+<div class="c-speaker o-media{% if class %} {{ class }}{% endif %}">
+
+  {% embed '@cloudfour/objects/bunch/bunch.twig' with {
+    class: 'o-media__object'
+  }%}
+    {% block content %}
+      {% for speaker in speakers %}
+        {% include '@cloudfour/components/avatar/avatar.twig' with {
+          src: speaker.avatar
+        } only %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
+  <div class="o-media__content">
+    {# {% for speaker in speakers %}
+      <div>
+        <span class="u-hidden-visually">presented by</span>
+        {% if loop.last and loop.length > 1 %}and {% endif %}
+          <a href="{{ speaker.link }}">{{ speaker.name }}</a>
+        {%- if not loop.last and loop.length > 2 %},{% endif %}
+      </div>
+      {% if loop.length == 1 %}
+        <span>{{speaker.job_title}}</span>
+      {% endif %}
+    {% endfor %} #}
+
+    <div>
+      <span class="u-hidden-visually">presented by</span>
+      {% for speaker in speakers %}
+        {% if loop.last and loop.length > 1 %}and {% endif %}
+        <a href="{{ speaker.link }}">{{ speaker.name }}</a>
+        {%- if not loop.last and loop.length > 2 %},{% endif %}
+      {% endfor %}
+    </div>
+    {# Only show the speaker title if there is only one speaker #}
+    {% if speakers|length == 1 %}
+      {% set speaker = speakers|first %}
+      <span>{{speaker.job_title}}</span>
+    {% endif %}
+  </div>
+</div>

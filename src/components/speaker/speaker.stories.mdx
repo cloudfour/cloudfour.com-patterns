@@ -3,39 +3,39 @@ import template from './speaker.twig';
 import meganImage from './demo/megan.png';
 import danielleImage from './demo/danielle.png';
 import ariannaImage from './demo/arianna.png';
-const speakers = (count) =>
-  [
-    {
-      name: 'Megan Notarte',
-      avatar: meganImage,
-      link: 'https://cloudfour.com/is/megnotarte',
-      job_title: 'Partner, Vice President',
-    },
-    {
-      name: 'Arianna Chau',
-      avatar: ariannaImage,
-      link: 'https://cloudfour.com/is/arianna',
-      job_title: 'Front-end Designer',
-    },
-    {
-      name: 'Danielle Romo',
-      avatar: danielleImage,
-      link: 'https://cloudfour.com/is/danielle',
-      job_title: 'Front-end Designer',
-    },
-  ].slice(0, count);
+const allSpeakers = [
+  {
+    name: 'Megan Notarte',
+    avatar: meganImage,
+    link: 'https://cloudfour.com/is/megnotarte',
+    job_title: 'Partner, Vice President',
+  },
+  {
+    name: 'Arianna Chau',
+    avatar: ariannaImage,
+    link: 'https://cloudfour.com/is/arianna',
+    job_title: 'Front-end Designer',
+  },
+  {
+    name: 'Danielle Romo',
+    avatar: danielleImage,
+    link: 'https://cloudfour.com/is/danielle',
+    job_title: 'Front-end Designer',
+  },
+];
+const speakers = (count) => allSpeakers.slice(0, count);
 
 <Meta
   title="Components/Speaker"
   argTypes={{
     count: {
       type: 'number',
-      defaultValue: 2,
+      defaultValue: 1,
       description: 'Number of speakers to show',
       control: {
         type: 'range',
         min: 1,
-        max: 3,
+        max: allSpeakers.length,
         step: 1,
       },
     },

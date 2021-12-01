@@ -3,24 +3,27 @@ import template from './speaker.twig';
 import meganImage from './demo/megan.png';
 import danielleImage from './demo/danielle.png';
 import ariannaImage from './demo/arianna.png';
-const megan = {
-  name: 'Megan Notarte',
-  avatar: meganImage,
-  link: 'https://cloudfour.com/is/megnotarte',
-  job_title: 'Partner, Vice President',
-};
-const arianna = {
-  name: 'Arianna Chau',
-  avatar: ariannaImage,
-  link: 'https://cloudfour.com/is/arianna',
-  job_title: 'Front-end Designer',
-};
-const danielle = {
-  name: 'Danielle Romo',
-  avatar: danielleImage,
-  link: 'https://cloudfour.com/is/danielle',
-  job_title: 'Front-end Designer',
-};
+const speakers = (count) =>
+  [
+    {
+      name: 'Megan Notarte',
+      avatar: meganImage,
+      link: 'https://cloudfour.com/is/megnotarte',
+      job_title: 'Partner, Vice President',
+    },
+    {
+      name: 'Arianna Chau',
+      avatar: ariannaImage,
+      link: 'https://cloudfour.com/is/arianna',
+      job_title: 'Front-end Designer',
+    },
+    {
+      name: 'Danielle Romo',
+      avatar: danielleImage,
+      link: 'https://cloudfour.com/is/danielle',
+      job_title: 'Front-end Designer',
+    },
+  ].slice(0, count);
 
 <Meta
   title="Components/Speaker"
@@ -51,7 +54,7 @@ A single speaker displays the avatar, linked speaker name and speaker title.
   <Story name="Single Speaker" args={{ count: 1 }}>
     {(args) =>
       template({
-        speakers: [arianna, danielle, megan].slice(0, args.count),
+        speakers: speakers(args.count),
       })
     }
   </Story>
@@ -67,7 +70,7 @@ The speakers' titles are not displayed when multipe speakers are rendered.
   <Story name="Two Speakers" args={{ count: 2 }}>
     {(args) =>
       template({
-        speakers: [arianna, danielle, megan].slice(0, args.count),
+        speakers: speakers(args.count),
       })
     }
   </Story>
@@ -79,7 +82,7 @@ The speakers' titles are not displayed when multipe speakers are rendered.
   <Story name="Three Speakers" args={{ count: 3 }}>
     {(args) =>
       template({
-        speakers: [arianna, danielle, megan].slice(0, args.count),
+        speakers: speakers(args.count),
       })
     }
   </Story>

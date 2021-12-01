@@ -21,10 +21,11 @@
         {%- if not loop.last and loop.length > 2 %},{% endif %}
       {% endfor %}
     </div>
-    {# Only show the speaker title if there is only one speaker #}
+    {# The speaker title is rendered when there is one speaker only #}
     {% if speakers|length == 1 %}
       {% set speaker = speakers|first %}
       <span>{{speaker.job_title}}</span>
     {% endif %}
   </div>
+
 </div>

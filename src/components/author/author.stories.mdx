@@ -79,6 +79,8 @@ Will display the author `job_title` when `date` is not defined.
 
 The speakers' titles are not displayed when multipe speakers are rendered.
 
+TODO: When "presenter" mode, do not display date!
+
 ### Two Speakers
 
 <Canvas>
@@ -86,6 +88,7 @@ The speakers' titles are not displayed when multipe speakers are rendered.
     {(args) =>
       template({
         authors: authors(args.count),
+        date: new Date('March 31, 2021'),
       })
     }
   </Story>

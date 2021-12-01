@@ -27,6 +27,13 @@
           <span class="c-author__title">{{author.job_title}}</span>
         {% endif %}
       </div>
+    {% else %}
+      {% if date is defined %}
+        <div>
+          <span class="u-hidden-visually">Published on</span>
+          <time datetime="{{ date|date('Y-m-d') }}">{{ date|date('F jS, Y') }}</time>
+        </div>
+      {% endif %}
     {% endif %}
   </div>
 </div>

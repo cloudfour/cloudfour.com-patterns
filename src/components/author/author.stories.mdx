@@ -3,35 +3,37 @@ import template from './author.twig';
 import gerardoImage from './demo/gerardo.png';
 import tylerImage from './demo/tyler.png';
 import meganImage from './demo/megan.png';
-const gerardo = {
-  name: 'Gerardo Rodriguez',
-  avatar: gerardoImage,
-  link: 'https://cloudfour.com/is/gerardo',
-};
-const tyler = {
-  name: 'Tyler Sticka',
-  avatar: tylerImage,
-  link: 'https://cloudfour.com/is/tyler',
-};
-const megan = {
-  name: 'Megan Notarte',
-  avatar: meganImage,
-  link: 'https://cloudfour.com/is/megnotarte',
-};
+const allAuthors = [
+  {
+    name: 'Megan Notarte',
+    avatar: meganImage,
+    link: 'https://cloudfour.com/is/megnotarte',
+    job_title: 'Partner, Vice President',
+  },
+  {
+    name: 'Tyler Sticka',
+    avatar: tylerImage,
+    link: 'https://cloudfour.com/is/tyler',
+  },
+  {
+    name: 'Gerardo Rodriguez',
+    avatar: gerardoImage,
+    link: 'https://cloudfour.com/is/gerardo',
+  },
+];
+const authors = (count) => allAuthors.slice(0, count);
 
 <Meta
   title="Components/Author"
-  args={{
-    count: 2,
-  }}
   argTypes={{
     count: {
       type: 'number',
+      defaultValue: 1,
       description: 'Number of authors to show',
       control: {
         type: 'range',
         min: 1,
-        max: 3,
+        max: allAuthors.length,
         step: 1,
       },
     },
@@ -42,12 +44,60 @@ const megan = {
 
 Displays an author, or set of authors, for article bylines.
 
+## Single Author
+
+### With `date` defined
+
+Will display the `date` when it is defined.
+
 <Canvas>
-  <Story name="Default">
+  <Story name="With date" args={{ count: 1 }}>
     {(args) =>
       template({
-        authors: [gerardo, tyler, megan].slice(0, args.count),
+        authors: authors(args.count),
         date: new Date('March 31, 2021'),
+      })
+    }
+  </Story>
+</Canvas>
+
+### Without `date` defined
+
+Will display the author `job_title` when `date` is not defined.
+
+<Canvas>
+  <Story name="Without date" args={{ count: 1 }}>
+    {(args) =>
+      template({
+        authors: authors(args.count),
+      })
+    }
+  </Story>
+</Canvas>
+
+## Multiple Authors
+
+The speakers' titles are not displayed when multipe speakers are rendered.
+
+### Two Speakers
+
+<Canvas>
+  <Story name="Two Speakers" args={{ count: 2 }}>
+    {(args) =>
+      template({
+        authors: authors(args.count),
+      })
+    }
+  </Story>
+</Canvas>
+
+### Three Speakers
+
+<Canvas>
+  <Story name="Three Speakers" args={{ count: 3 }}>
+    {(args) =>
+      template({
+        authors: authors(args.count),
       })
     }
   </Story>
@@ -55,15 +105,17 @@ Displays an author, or set of authors, for article bylines.
 
 ## Template Properties
 
-- `class`: Append a class to the root element.
-- `authors`: Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+`class`: Append a class to the root element.
 
-  ```ts
-  {
-    name: string | () => string;
-    avatar: string | () => string;
-    link: string | () => string;
-  }
-  ```
+`authors`: Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
 
-- `date`: A date object representing the publication date
+```ts
+ {
+   name: string | () => string;
+   avatar: string | () => string;
+   link: string | () => string;
+   job_title: string | () => string;
+ }
+```
+
+`date` (optional): A date object representing the publication date

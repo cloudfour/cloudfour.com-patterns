@@ -15,9 +15,18 @@
         {%- if not loop.last and loop.length > 2 %},{% endif %}
       {% endfor %}
     </div>
-    <div>
-      <span class="u-hidden-visually">Published on</span>
-      <time datetime="{{ date|date('Y-m-d') }}">{{ date|date('F jS, Y') }}</time>
-    </div>
+
+    {# The speaker title is rendered when there is one speaker only #}
+    {% if  authors|length == 1 %}
+      <div>
+        {% if date is defined %}
+          <span class="u-hidden-visually">Published on</span>
+          <time datetime="{{ date|date('Y-m-d') }}">{{ date|date('F jS, Y') }}</time>
+        {% else %}
+          {% set author = authors|first %}
+          <span class="c-author__title">{{author.job_title}}</span>
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
 </div>

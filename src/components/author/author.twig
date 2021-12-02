@@ -18,9 +18,14 @@
 
     {% if date is defined %}
       <p>
+        {# This provides a more pleasant screen reader experience #}
         <span class="u-hidden-visually">
           Published on {{ date|date('F jS, Y') }}
         </span>
+        {#
+          The <time> element is not well supported by screen readers
+          @see: https://twitter.com/LeonieWatson/status/1333078194925264898
+        #}
         <time aria-hidden="true" datetime="{{ date|date('Y-m-d') }}">
           {{ date|date('F jS, Y') }}
         </time>

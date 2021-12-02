@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add a Speaker pattern
+Refactor the Author component to work for article or presentation bylines

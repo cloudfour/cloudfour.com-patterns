@@ -14,11 +14,13 @@ const allAuthors = [
     name: 'Tyler Sticka',
     avatar: tylerImage,
     link: 'https://cloudfour.com/is/tyler',
+    job_title: 'Partner, Vice President',
   },
   {
     name: 'Gerardo Rodriguez',
     avatar: gerardoImage,
     link: 'https://cloudfour.com/is/gerardo',
+    job_title: 'Senior Front-end Developer',
   },
 ];
 const authors = (count) => allAuthors.slice(0, count);
@@ -42,13 +44,15 @@ const authors = (count) => allAuthors.slice(0, count);
 
 # Author
 
-Displays an author, or set of authors, for article bylines.
+Displays an author, or set of authors, for article or presentation bylines.
 
 ## Single Author
 
+A single author displays either the `date` or author `job_title`.
+
 ### With `date` defined
 
-Will display the `date` when it is defined.
+If the `date` is defined, it will take precedence and render.
 
 <Canvas>
   <Story name="With date" args={{ count: 1 }}>
@@ -63,7 +67,7 @@ Will display the `date` when it is defined.
 
 ### Without `date` defined
 
-Will display the author `job_title` when `date` is not defined.
+If the `date` is _not_ defined, the author `job_title` is rendered.
 
 <Canvas>
   <Story name="Without date" args={{ count: 1 }}>
@@ -77,11 +81,11 @@ Will display the author `job_title` when `date` is not defined.
 
 ## Multiple Authors
 
-The speakers' titles are not displayed when multipe speakers are rendered.
+Multiple authors can be displayed as well. The authors' `job_title` values are not rendered when multiple authors are provided to this component.
 
-TODO: When "presenter" mode, do not display date!
+### With `date` defined
 
-### Two Speakers
+If the `date` is defined, it will render.
 
 <Canvas>
   <Story name="Two Speakers" args={{ count: 2 }}>
@@ -94,7 +98,9 @@ TODO: When "presenter" mode, do not display date!
   </Story>
 </Canvas>
 
-### Three Speakers
+### Without `date` defined
+
+If the `date` is _not_ defined, no additional information is rendered.
 
 <Canvas>
   <Story name="Three Speakers" args={{ count: 3 }}>
@@ -108,9 +114,9 @@ TODO: When "presenter" mode, do not display date!
 
 ## Template Properties
 
-`class`: Append a class to the root element.
+`class` (string): CSS class(es) to append to the root element
 
-`authors`: Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+`authors` (array): Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
 
 ```ts
  {

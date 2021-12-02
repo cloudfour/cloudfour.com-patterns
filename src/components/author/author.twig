@@ -8,7 +8,7 @@
   {% endembed %}
   <div class="o-media__content">
     <div>
-      <span class="u-hidden-visually">Authored by</span>
+      <span class="u-hidden-visually">By</span>
       {% for author in authors %}
         {% if loop.last and loop.length > 1 %}and {% endif %}
         <a href="{{ author.link }}">{{ author.name }}</a>

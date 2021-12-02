@@ -1,9 +1,23 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs';
 import template from './author.twig';
+import ariannaImage from './demo/arianna.png';
+import danielleImage from './demo/danielle.png';
 import gerardoImage from './demo/gerardo.png';
 import tylerImage from './demo/tyler.png';
 import meganImage from './demo/megan.png';
 const allAuthors = [
+  {
+    name: 'Arianna Chau',
+    avatar: ariannaImage,
+    link: 'https://cloudfour.com/is/arianna',
+    job_title: 'Front-end Designer',
+  },
+  {
+    name: 'Danielle Romo',
+    avatar: danielleImage,
+    link: 'https://cloudfour.com/is/danielle',
+    job_title: 'Front-end Designer',
+  },
   {
     name: 'Megan Notarte',
     avatar: meganImage,
@@ -55,7 +69,7 @@ A single author displays either the `date` or author `job_title`.
 If the `date` is defined, it will take precedence and render.
 
 <Canvas>
-  <Story name="With date" args={{ count: 1 }}>
+  <Story name="Single author with date" args={{ count: 1 }}>
     {(args) =>
       template({
         authors: authors(args.count),
@@ -70,7 +84,7 @@ If the `date` is defined, it will take precedence and render.
 If the `date` is _not_ defined, the author `job_title` is rendered.
 
 <Canvas>
-  <Story name="Without date" args={{ count: 1 }}>
+  <Story name="Single author without date" args={{ count: 1 }}>
     {(args) =>
       template({
         authors: authors(args.count),
@@ -88,7 +102,7 @@ Multiple authors can be displayed as well. The authors' `job_title` values are n
 If the `date` is defined, it will render.
 
 <Canvas>
-  <Story name="Two Speakers" args={{ count: 2 }}>
+  <Story name="Multiple authors with date" args={{ count: 2 }}>
     {(args) =>
       template({
         authors: authors(args.count),
@@ -103,7 +117,7 @@ If the `date` is defined, it will render.
 If the `date` is _not_ defined, no additional information is rendered.
 
 <Canvas>
-  <Story name="Three Speakers" args={{ count: 3 }}>
+  <Story name="Multiple authors without date" args={{ count: 5 }}>
     {(args) =>
       template({
         authors: authors(args.count),

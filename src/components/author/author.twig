@@ -23,8 +23,21 @@
           Published on {{ date|date('F jS, Y') }}
         </span>
         {#
-          The <time> element is not well supported by screen readers
+          The <time> element is not well supported by screen readers, therefore,
+          it is aria-hidden. On macOS VoiceOver, for example, the date would be
+          read twice, which was a confusing experience.
+
           @see: https://twitter.com/LeonieWatson/status/1333078194925264898
+
+          The `<time>` element was not removed because per MDN Web Docs,
+          it allows for better search engine results:
+
+          > The `<time>` HTML element represents a specific period in time.
+          It may include the `datetime` attribute to translate dates into
+          machine-readable format, allowing for better search engine results or
+          custom features such as reminders.
+
+          @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
         #}
         <time aria-hidden="true" datetime="{{ date|date('Y-m-d') }}">
           {{ date|date('F jS, Y') }}

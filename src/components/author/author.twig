@@ -7,31 +7,24 @@
     {% endblock %}
   {% endembed %}
   <div class="o-media__content">
-    <div>
+    <p>
       <span class="u-hidden-visually">By</span>
       {% for author in authors %}
         {% if loop.last and loop.length > 1 %}and {% endif %}
         <a href="{{ author.link }}">{{ author.name }}</a>
         {%- if not loop.last and loop.length > 2 %},{% endif %}
       {% endfor %}
-    </div>
+    </p>
 
-    {% if  authors|length == 1 %}
-      <div>
-        {% if date is defined %}
-          <span class="u-hidden-visually">Published on</span>
-          <time datetime="{{ date|date('Y-m-d') }}">{{ date|date('F jS, Y') }}</time>
-        {% else %}
-          {% set author = authors|first %}
-          <span class="c-author__title">{{author.job_title}}</span>
-        {% endif %}
-      </div>
+    {% if date is defined %}
+      <p>
+        <span class="u-hidden-visually">Published on</span>
+        <time datetime="{{ date|date('Y-m-d') }}">{{ date|date('F jS, Y') }}</time>
+      </p>
     {% else %}
-      {% if date is defined %}
-        <div>
-          <span class="u-hidden-visually">Published on</span>
-          <time datetime="{{ date|date('Y-m-d') }}">{{ date|date('F jS, Y') }}</time>
-        </div>
+      {% if authors|length == 1 %}
+        {% set author = authors|first %}
+        <p class="c-author__title">{{author.job_title}}</p>
       {% endif %}
     {% endif %}
   </div>

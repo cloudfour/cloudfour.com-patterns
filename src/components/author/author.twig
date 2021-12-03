@@ -1,13 +1,9 @@
 {#
-  This component accepts the following properties
-  - `meta` (optional, string)
-  - `date` (optional, date object)
-
   If both the `meta` and `date` properties contain values, the `meta` value has
   a higher priority and will override the `date` value.
 
-  It is recommened to use the `date` property when wanted to render a date as the
-  meta data so that a more a accessible user experience can be rendered.
+  If rendering a date as meta data, it is recommended to use the `date` property.
+  There is extra template logic to create a more accessible user experience.
 #}
 {% set _meta_content %}
   {% block meta_content %}

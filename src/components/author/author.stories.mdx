@@ -10,31 +10,26 @@ const allAuthors = [
     name: 'Arianna Chau',
     avatar: ariannaImage,
     link: 'https://cloudfour.com/is/arianna',
-    job_title: 'Front-end Designer',
   },
   {
     name: 'Danielle Romo',
     avatar: danielleImage,
     link: 'https://cloudfour.com/is/danielle',
-    job_title: 'Front-end Designer',
   },
   {
     name: 'Megan Notarte',
     avatar: meganImage,
     link: 'https://cloudfour.com/is/megnotarte',
-    job_title: 'Partner, Vice President',
   },
   {
     name: 'Tyler Sticka',
     avatar: tylerImage,
     link: 'https://cloudfour.com/is/tyler',
-    job_title: 'Partner, Vice President',
   },
   {
     name: 'Gerardo Rodriguez',
     avatar: gerardoImage,
     link: 'https://cloudfour.com/is/gerardo',
-    job_title: 'Senior Front-end Developer',
   },
 ];
 const authors = (count) => allAuthors.slice(0, count);
@@ -58,18 +53,43 @@ const authors = (count) => allAuthors.slice(0, count);
 
 # Author
 
-Displays an author, or set of authors, for article or presentation bylines.
-
-## Single Author
-
-A single author displays either the `date` or author `job_title`.
-
-### With `date` defined
-
-If the `date` is defined, it will take precedence and render.
+Displays an author, or set of authors, with optional meta content.
 
 <Canvas>
-  <Story name="Single author with date" args={{ count: 1 }}>
+  <Story name="Basic usage" args={{ count: 1 }}>
+    {(args) =>
+      template({
+        authors: authors(args.count),
+      })
+    }
+  </Story>
+</Canvas>
+
+## With `meta` content
+
+You can use the `meta` property to add meta content, for example, the author title.
+
+<Canvas>
+  <Story name="With meta content" args={{ count: 1 }}>
+    {(args) =>
+      template({
+        authors: authors(args.count),
+        meta: 'Front-end Designer',
+      })
+    }
+  </Story>
+</Canvas>
+
+## With `date` content
+
+If a date is desired for the meta content, use the `date` property with a
+date object value. The Author template has extra logic to create a more
+accessible user experience.
+
+**Note:** The `meta` property will override the `date` if both are set.
+
+<Canvas>
+  <Story name="With date content" args={{ count: 1 }}>
     {(args) =>
       template({
         authors: authors(args.count),
@@ -79,48 +99,16 @@ If the `date` is defined, it will take precedence and render.
   </Story>
 </Canvas>
 
-### Without `date` defined
+## Multiple authors
 
-If the `date` is _not_ defined, the author `job_title` is rendered.
-
-<Canvas>
-  <Story name="Single author without date" args={{ count: 1 }}>
-    {(args) =>
-      template({
-        authors: authors(args.count),
-      })
-    }
-  </Story>
-</Canvas>
-
-## Multiple Authors
-
-Multiple authors can be displayed as well. The authors' `job_title` values are not rendered when multiple authors are provided to this component.
-
-### With `date` defined
-
-If the `date` is defined, it will render.
+Multiple authors are also supported.
 
 <Canvas>
-  <Story name="Multiple authors with date" args={{ count: 2 }}>
+  <Story name="Basic multiple authors" args={{ count: 3 }}>
     {(args) =>
       template({
         authors: authors(args.count),
         date: new Date('March 31, 2021'),
-      })
-    }
-  </Story>
-</Canvas>
-
-### Without `date` defined
-
-If the `date` is _not_ defined, no additional information is rendered.
-
-<Canvas>
-  <Story name="Multiple authors without date" args={{ count: 5 }}>
-    {(args) =>
-      template({
-        authors: authors(args.count),
       })
     }
   </Story>
@@ -137,8 +125,9 @@ If the `date` is _not_ defined, no additional information is rendered.
    name: string | () => string;
    avatar: string | () => string;
    link: string | () => string;
-   job_title: string | () => string;
  }
 ```
 
-`date` (optional): A date object representing the publication date
+`meta` (optional, string): Extra information to be rendered below the author name(s)
+
+`date` (optional, date object): Represents a publication date

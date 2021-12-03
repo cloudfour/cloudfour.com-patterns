@@ -1,24 +1,21 @@
-<div class="c-author o-media{% if class %} {{ class }}{% endif %}">
-  {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: 'o-media__object' } %}
-    {% block content %}
-      {% for author in authors %}
-        {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar } only %}
-      {% endfor %}
-    {% endblock %}
-  {% endembed %}
-  <div class="o-media__content">
-    <p>
-      <span class="u-hidden-visually">By</span>
-      {% for author in authors %}
-        {% if loop.last and loop.length > 1 %}and {% endif %}
-        <a href="{{ author.link }}">{{ author.name }}</a>
-        {%- if not loop.last and loop.length > 2 %},{% endif %}
-      {% endfor %}
-    </p>
+{#
+  This component accepts the following properties
+  - `meta` (optional, string)
+  - `date` (optional, date object)
 
-    {% if date is defined %}
+  If both the `meta` and `date` properties contain values, the `meta` value has
+  a higher priority and will override the `date` value.
+
+  It is recommened to use the `date` property when wanted to render a date as the
+  meta data so that a more a accessible user experience can be rendered.
+#}
+{% set _meta_content %}
+  {% block meta_content %}
+    {% if meta %}
+      <p>{{ meta }}</p>
+    {% elseif date %}
       <p>
-        {# This provides a more pleasant screen reader experience #}
+        {# This creates a more accessible, and less confusing, user experience #}
         <span class="u-hidden-visually">
           Published on {{ date|date('F jS, Y') }}
         </span>
@@ -43,12 +40,37 @@
           {{ date|date('F jS, Y') }}
         </time>
       </p>
-    {% else %}
-      {# The job title should render when there is only one author #}
-      {% if authors|length == 1 %}
-        {% set author = authors|first %}
-        <p class="c-author__title">{{author.job_title}}</p>
-      {% endif %}
+    {% endif %}
+  {% endblock %}
+{% endset %}
+
+<div class="c-author o-media{% if class %} {{ class }}{% endif %}">
+  {# Avatar(s) #}
+  {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: 'o-media__object' } %}
+    {% block content %}
+      {% for author in authors %}
+        {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar } only %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
+  {# Author content #}
+  <div class="c-author__content-container o-media__content">
+    {# Author links #}
+    <p class="c-author__author">
+      <span class="u-hidden-visually">By</span>
+      {% for author in authors %}
+        {% if loop.last and loop.length > 1 %}and {% endif %}
+        <a href="{{ author.link }}">{{ author.name }}</a>
+        {%- if not loop.last and loop.length > 2 %},{% endif %}
+      {% endfor %}
+    </p>
+
+    {# Author meta content #}
+    {% if _meta_content|trim %}
+      <div class="c-author__meta">
+        {{ _meta_content }}
+      </div>
     {% endif %}
   </div>
 </div>

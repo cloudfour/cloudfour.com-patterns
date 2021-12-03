@@ -1,4 +1,47 @@
+{#
+  If both the `meta` and `date` properties contain values, the `meta` value has
+  a higher priority and will override the `date` value.
+
+  If rendering a date as meta data, it is recommended to use the `date` property.
+  There is extra template logic to create a more accessible user experience.
+#}
+{% set _meta_content %}
+  {% block meta_content %}
+    {% if meta %}
+      <p>{{ meta }}</p>
+    {% elseif date %}
+      <p>
+        {# This creates a more accessible, and less confusing, user experience #}
+        <span class="u-hidden-visually">
+          {{ date_prefix|default('Published on') }} {{ date|date('F jS, Y') }}
+        </span>
+        {#
+          The <time> element is not well supported by screen readers, therefore,
+          it is aria-hidden. On macOS VoiceOver, for example, the date would be
+          read twice, which was a confusing experience.
+
+          @see: https://twitter.com/LeonieWatson/status/1333078194925264898
+
+          The `<time>` element was not removed because per MDN Web Docs,
+          it allows for better search engine results:
+
+          > The `<time>` HTML element represents a specific period in time.
+          It may include the `datetime` attribute to translate dates into
+          machine-readable format, allowing for better search engine results or
+          custom features such as reminders.
+
+          @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
+        #}
+        <time aria-hidden="true" datetime="{{ date|date('Y-m-d') }}">
+          {{ date|date('F jS, Y') }}
+        </time>
+      </p>
+    {% endif %}
+  {% endblock %}
+{% endset %}
+
 <div class="c-author o-media{% if class %} {{ class }}{% endif %}">
+  {# Avatar(s) #}
   {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: 'o-media__object' } %}
     {% block content %}
       {% for author in authors %}
@@ -6,18 +49,24 @@
       {% endfor %}
     {% endblock %}
   {% endembed %}
-  <div class="o-media__content">
-    <div>
-      <span class="u-hidden-visually">Authored by</span>
+
+  {# Author content #}
+  <div class="c-author__content-container o-media__content">
+    {# Author links #}
+    <p class="c-author__author">
+      <span class="u-hidden-visually">{{ author_prefix|default("By") }}</span>
       {% for author in authors %}
         {% if loop.last and loop.length > 1 %}and {% endif %}
         <a href="{{ author.link }}">{{ author.name }}</a>
         {%- if not loop.last and loop.length > 2 %},{% endif %}
       {% endfor %}
-    </div>
-    <div>
-      <span class="u-hidden-visually">Published on</span>
-      <time datetime="{{ date|date('Y-m-d') }}">{{ date|date('F jS, Y') }}</time>
-    </div>
+    </p>
+
+    {# Author meta content #}
+    {% if _meta_content|trim %}
+      <div class="c-author__meta">
+        {{ _meta_content }}
+      </div>
+    {% endif %}
   </div>
 </div>

@@ -13,7 +13,7 @@
       <p>
         {# This creates a more accessible, and less confusing, user experience #}
         <span class="u-hidden-visually">
-          Published on {{ date|date('F jS, Y') }}
+          {{ date_prefix|default('Published on') }} {{ date|date('F jS, Y') }}
         </span>
         {#
           The <time> element is not well supported by screen readers, therefore,

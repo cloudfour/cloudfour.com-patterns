@@ -54,7 +54,7 @@
   <div class="c-author__content-container o-media__content">
     {# Author links #}
     <p class="c-author__author">
-      <span class="u-hidden-visually">By</span>
+      <span class="u-hidden-visually">{{ author_prefix|default("By") }}</span>
       {% for author in authors %}
         {% if loop.last and loop.length > 1 %}and {% endif %}
         <a href="{{ author.link }}">{{ author.name }}</a>

@@ -21,11 +21,12 @@ describe('Author', () => {
             },
           ],
           date: new Date('March 31, 2021'),
+          date_prefix: 'Presented on',
         })
       );
 
       // Confirm a more accessible user experience
-      await screen.getByText('Published on March 31st, 2021');
+      await screen.getByText('Presented on March 31st, 2021');
     })
   );
 

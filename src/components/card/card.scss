@@ -209,18 +209,24 @@ $_focus-overflow: (size.$edge-large * -1);
 /**
  * Cover area
  *
- * 1. In case the image is missing or slow to load.
- * 2. We re-use the embed object's styles instead of allowing the embed object
+ * 1. We re-use the embed object's styles instead of allowing the embed object
  *    to be included directly so that the horizontal layout will squash more
  *    gracefully. This also lets us apply more opinionated interaction effects
  *    because we can assume more about the content therein.
+ * 2. In case the image is missing or slow to load.
+ * 3. Fix for Safari bug where transitions cause overflow to no longer be
+ *    respected. Although other fixes seem to use 3D transforms, this does not
+ *    appear to be necessary when the child effect is not 3D.
+ *    @see https://bugs.webkit.org/show_bug.cgi?id=68196
+ *    @see https://stackoverflow.com/questions/14383632/
  */
 
 .c-card__cover {
-  @include ratio-box.core-styles($ratio: aspect-ratio.$wide);
-  background-color: var(--theme-color-background-secondary); /* 1 */
+  @include ratio-box.core-styles($ratio: aspect-ratio.$wide); /* 1 */
+  background-color: var(--theme-color-background-secondary); /* 2 */
   border-radius: size.$border-radius-medium;
   grid-area: cover;
+  transform: translate(0, 0); /* 3 */
 
   /**
    * Square aspect ratio + fully rounded corners = circular cover image

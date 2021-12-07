@@ -50,13 +50,13 @@
       columns: #{$i};
       position: relative;
 
-      // Safari has some odd bugs related to CSS multi-column. Specifically:
-      //
-      // 1. Without this, the top of an item may appear in one column with the
-      //    bottom half in the following column.
-      // 2. Without this, `position: absolute` elements will impact the overall
-      //    window scroll height, even if they're invisible (as with our
-      //    `u-hidden-visually` utility).
+      /// Safari has some odd bugs related to CSS multi-column. Specifically:
+      ///
+      /// 1. Without this, the top of an item may appear in one column with the
+      ///    bottom half in the following column.
+      /// 2. Without this, `position: absolute` elements will impact the overall
+      ///    window scroll height, even if they're invisible (as with our
+      ///    `u-hidden-visually` utility).
       > * {
         break-inside: avoid; // 1
         position: relative; // 2

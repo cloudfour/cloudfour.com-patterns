@@ -203,7 +203,11 @@
           } %}
             {% block content %}
               {% for topic in topics %}
-                <li class="u-space-block-end-0">
+                {#
+                  We must use padding between items because Safari likes to
+                  carry margin across columns.
+                #}
+                <li class="u-pad-block-end-0">
                   {% include '@cloudfour/components/dot-leader/dot-leader.twig' with {
                     label: topic.title,
                     count: topic.count,

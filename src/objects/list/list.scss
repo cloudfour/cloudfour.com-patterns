@@ -4,33 +4,29 @@
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
 
-/**
- * Override browser defaults. Note that this means it's very important to
- * include `[role="list"]` to prevent disruption of list navigation in Safari
- * VoiceOver.
- *
- * @see https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
- */
+/// Override browser defaults. Note that this means it's very important to
+/// include `[role="list"]` to prevent disruption of list navigation in Safari
+/// VoiceOver, unless the content itself makes its nature obvious.
+///
+/// @link https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
 
 .o-list {
   list-style: none;
   padding-inline-start: 0;
 }
 
-/**
- * Modifier: Inline
- *
- * By default, this uses negative margins on the sides to account for extra
- * margin between child elements. This allows child elements to reach the edges
- * of their parent while maintaining consistent gaps between.
- *
- * This would be a _lot_ more elegant if it used the Flexbox-compatible `gap`
- * property. But unfortunately there is no way to test for that without false
- * positives as of this writing.
- *
- * @see https://medium.com/@schofeld/mind-the-flex-gap-c9cd1b4b35d8
- * @see https://github.com/w3c/csswg-drafts/issues/3559
- */
+/// Modifier: Inline
+///
+/// By default, this uses negative margins on the sides to account for extra
+/// margin between child elements. This allows child elements to reach the edges
+/// of their parent while maintaining consistent gaps between.
+///
+/// This would be a _lot_ more elegant if it used the Flexbox-compatible `gap`
+/// property. But unfortunately there is no way to test for that without false
+/// positives as of this writing.
+///
+/// @link https://medium.com/@schofeld/mind-the-flex-gap-c9cd1b4b35d8
+/// @link https://github.com/w3c/csswg-drafts/issues/3559
 
 .o-list--inline {
   display: flex;
@@ -52,6 +48,19 @@
         breakpoint.$xl
       );
       columns: #{$i};
+      position: relative;
+
+      /// Safari has some odd bugs related to CSS multi-column. Specifically:
+      ///
+      /// 1. Without this, the top of an item may appear in one column with the
+      ///    bottom half in the following column.
+      /// 2. Without this, `position: absolute` elements will impact the overall
+      ///    window scroll height, even if they're invisible (as with our
+      ///    `u-hidden-visually` utility).
+      > * {
+        break-inside: avoid; // 1
+        position: relative; // 2
+      }
     }
   }
 }

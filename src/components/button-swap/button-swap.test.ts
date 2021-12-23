@@ -1,6 +1,6 @@
 import path from 'path';
-import type { PleasantestUtils } from 'pleasantest';
-import { withBrowser } from 'pleasantest';
+import type { ElementHandle, PleasantestUtils } from 'pleasantest';
+import { withBrowser, getAccessibilityTree } from 'pleasantest';
 import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
 // Helper to load the Twig template file
@@ -28,62 +28,46 @@ const initJS = (
   );
 
 test(
-  'Initial state',
-  withBrowser(async ({ utils, screen }) => {
-    await utils.injectHTML(await componentMarkup());
-    await loadGlobalCSS(utils);
-
-    // Visually hidden text for a more inclusive UX
-    const statusMsg = await screen.getByRole('status');
-    await expect(statusMsg).toHaveTextContent(
-      /^currently unsubscribed from notifications$/i
-    );
-
-    // Confirm only one is accessible, throws if more than one exists
-    // https://testing-library.com/docs/dom-testing-library/cheatsheet/#queries
-    await screen.getByRole('status');
-
-    const firstBtn = await screen.getByRole('button', {
-      name: /^get notifications$/i,
-    });
-    await expect(firstBtn).toBeVisible();
-
-    const secondBtn = await screen.queryByRole('button', {
-      name: /^turn off notifications$/i,
-    });
-    expect(secondBtn).toBeNull();
-  })
-);
-
-test(
   'Swap UI state when clicked',
-  withBrowser(async ({ utils, screen, user }) => {
+  withBrowser(async ({ utils, screen, user, page }) => {
     await utils.injectHTML(await componentMarkup());
     await loadGlobalCSS(utils);
+
+    // Before JS initializes
+    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      status
+        text "Currently unsubscribed from notifications"
+      button "Get notifications"
+    `);
+
+    let firstBtn = await screen.getByRole('button');
+    await expect(firstBtn).toBeVisible();
+    await expect(firstBtn).not.toHaveClass('is-slashed');
+
     await initJS(utils);
 
-    let firstBtn = await screen.queryByRole('button', {
-      name: /^get notifications$/i,
-    });
+    // After JS initializes it should be the same
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      status
+        text "Currently unsubscribed from notifications"
+      button "Get notifications"
+    `);
+
+    firstBtn = await screen.queryByRole('button');
+    await expect(firstBtn).toBeVisible();
     await expect(firstBtn).not.toHaveClass('is-slashed');
 
     // Button swap action
     await user.click(firstBtn);
 
-    // Visually hidden text for a more inclusive UX
-    let statusMsg = await screen.getByRole('alert');
-    await expect(statusMsg).toHaveTextContent(
-      /^currently subscribed to notifications$/i
-    );
-    await expect(statusMsg).toHaveFocus();
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      alert (focused)
+        text "Currently subscribed to notifications"
+      button "Turn off notifications"
+    `);
 
-    // Query for first button again in its new state
-    firstBtn = await screen.queryByRole('button', {
-      name: /^get notifications$/i,
-    });
-    expect(firstBtn).toBeNull();
-
-    let secondBtn = await screen.queryByRole('button', {
+    const secondBtn = await screen.queryByRole('button', {
       name: /^turn off notifications$/i,
     });
     await expect(secondBtn).toBeVisible();
@@ -92,23 +76,14 @@ test(
     // Button swap action
     await user.click(secondBtn);
 
-    // Visually hidden text for a more inclusive UX
-    statusMsg = await screen.getByRole('alert');
-    await expect(statusMsg).toHaveTextContent(
-      /^currently unsubscribed from notifications$/i
-    );
-    await expect(statusMsg).toHaveFocus();
-
-    // Query for second button again in its new state
-    secondBtn = await screen.queryByRole('button', {
-      name: /^turn off notifications$/i,
-    });
-    expect(secondBtn).toBeNull();
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      alert (focused)
+        text "Currently unsubscribed from notifications"
+      button "Get notifications"
+    `);
 
     // Query for first button again in its new state
-    firstBtn = await screen.queryByRole('button', {
-      name: /^get notifications$/i,
-    });
+    firstBtn = await screen.queryByRole('button');
     await expect(firstBtn).toBeVisible();
     await expect(firstBtn).not.toHaveClass('is-slashed');
   })
@@ -116,7 +91,7 @@ test(
 
 test(
   'Set custom messages and labels',
-  withBrowser(async ({ utils, screen, user }) => {
+  withBrowser(async ({ utils, screen, user, page }) => {
     await utils.injectHTML(
       await componentMarkup({
         initial_visual_label: 'Hello world',
@@ -128,22 +103,21 @@ test(
     await loadGlobalCSS(utils);
     await initJS(utils);
 
-    // Visually hidden text for a more inclusive UX
-    let statusMsg = await screen.getByRole('status');
-    await expect(statusMsg).toHaveTextContent('Unsubscribed');
-
-    const firstBtn = await screen.getByRole('button');
-    await expect(firstBtn).toHaveTextContent('Hello world');
+    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      status
+        text "Unsubscribed"
+      button "Hello world"
+    `);
 
     // Button swap action
-    await user.click(firstBtn);
+    await user.click(await screen.getByRole('button'));
 
-    // Visually hidden text for a more inclusive UX
-    statusMsg = await screen.getByRole('alert');
-    await expect(statusMsg).toHaveTextContent('Subscribed');
-
-    const secondBtn = await screen.queryByRole('button');
-    await expect(secondBtn).toHaveTextContent('Have a great day');
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      alert (focused)
+        text "Subscribed"
+      button "Have a great day"
+    `);
   })
 );
 

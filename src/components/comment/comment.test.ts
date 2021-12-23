@@ -1,6 +1,6 @@
 import path from 'path';
-import type { PleasantestUtils } from 'pleasantest';
-import { withBrowser } from 'pleasantest';
+import type { ElementHandle, PleasantestUtils } from 'pleasantest';
+import { withBrowser, getAccessibilityTree } from 'pleasantest';
 import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
 const commentMarkup = loadTwigTemplate(path.join(__dirname, 'comment.twig'));
@@ -13,7 +13,7 @@ const initCommentsJs = (utils: PleasantestUtils) =>
 
 test(
   'reply form can be opened and closed',
-  withBrowser(async ({ utils, screen, user }) => {
+  withBrowser(async ({ utils, screen, user, page }) => {
     await utils.injectHTML(
       await commentMarkup({
         comment: {
@@ -22,9 +22,9 @@ test(
           date: new Date(),
           avatar: '',
           author: {
-            name: 'Test',
+            name: 'Test author name',
           },
-          comment_content: 'Test',
+          comment_content: 'Test content',
           approved: true,
         },
         allow_replies: true,
@@ -35,6 +35,21 @@ test(
 
     await initCommentsJs(utils);
 
+    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      article "Test author name said:"
+        banner
+          heading "Test author name said:"
+            text "Test author name"
+            text "said:"
+        text "Test content"
+        contentinfo
+          link "Permalink to Test author name’s Dec 22, 2021 comment"
+            text "Permalink to Test author name’s"
+            text "Dec 22, 2021"
+            text "comment"
+          button "Reply"
+    `);
     const form = await screen.getByRole('form', { hidden: true });
     const replyButton = await screen.getByRole('button', {
       name: /reply/i,
@@ -44,17 +59,44 @@ test(
     await expect(form).not.toBeVisible();
 
     await user.click(replyButton);
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      article "Test author name said:"
+        banner
+          heading "Test author name said:"
+            text "Test author name"
+            text "said:"
+        text "Test content"
+        contentinfo
+          link "Permalink to Test author name’s Dec 22, 2021 comment"
+            text "Permalink to Test author name’s"
+            text "Dec 22, 2021"
+            text "comment"
+          form "Reply to Test author name"
+            heading "Reply to Test author name"
+              text "Reply to Test author name"
+            text "Please be kind, courteous and constructive.
+                      You may use simple HTML or"
+            link "Markdown"
+              text "Markdown"
+            text "in your comments.
+                      All fields are required."
+            text "Reply"
+            textbox "Reply" (focused)
+              ↳ description: "Please be kind, courteous and constructive. You may use simple HTML or Markdown in your comments. All fields are required."
+            text "Name"
+            textbox "Name"
+            text "Email"
+            textbox "Email"
+            checkbox "Notify me of follow-up comments by email."
+            text "Notify me of follow-up comments by email."
+            button "Submit Reply"
+            button "Cancel"
+    `);
 
     // Updated state: reply form is no longer hidden
     await expect(form).toBeVisible();
     // Reply button is hidden
     await expect(replyButton).not.toBeVisible();
-    // The first input or textarea should be focused.
-    // (In practice this will always be a textarea, but if the form is
-    // changed to lead with an input in the future, and that input is selected,
-    // this test should still pass.)
-    const inputs = await screen.getAllByRole(/textbox|input/);
-    await expect(inputs[0]).toHaveFocus();
 
     // Click the cancel button to get back to our initial state
     const cancelButton = await screen.getByRole('button', {

@@ -23,9 +23,7 @@ test(
       })
     );
     await loadGlobalCSS(utils);
-    const textarea = (await screen.getByRole(
-      'textbox'
-    )) as ElementHandle<HTMLTextAreaElement>;
+    const textarea = await screen.getByRole('textbox');
     await initTextareaJS(utils, textarea);
 
     textarea.evaluate((el) => (el.style.maxWidth = '500px'));
@@ -60,9 +58,7 @@ test(
         rows: 1,
       })
     );
-    const textarea = (await screen.getByRole(
-      'textbox'
-    )) as ElementHandle<HTMLTextAreaElement>;
+    const textarea = await screen.getByRole('textbox');
     await initTextareaJS(utils, textarea);
     await textarea.evaluate((el) => (el.style.maxWidth = '500px'));
 

@@ -19,7 +19,7 @@ test(
         comment: {
           ID: 1,
           link: '#comment-1',
-          date: new Date(),
+          date: new Date('January 1 2000'),
           avatar: '',
           author: {
             name: 'Test author name',
@@ -44,9 +44,9 @@ test(
             text "said:"
         text "Test content"
         contentinfo
-          link "Permalink to Test author name’s Dec 22, 2021 comment"
+          link "Permalink to Test author name’s Jan 1, 2000 comment"
             text "Permalink to Test author name’s"
-            text "Dec 22, 2021"
+            text "Jan 1, 2000"
             text "comment"
           button "Reply"
     `);
@@ -67,9 +67,9 @@ test(
             text "said:"
         text "Test content"
         contentinfo
-          link "Permalink to Test author name’s Dec 22, 2021 comment"
+          link "Permalink to Test author name’s Jan 1, 2000 comment"
             text "Permalink to Test author name’s"
-            text "Dec 22, 2021"
+            text "Jan 1, 2000"
             text "comment"
           form "Reply to Test author name"
             heading "Reply to Test author name"

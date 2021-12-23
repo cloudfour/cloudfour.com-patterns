@@ -4,7 +4,7 @@ import { withBrowser, getAccessibilityTree } from 'pleasantest';
 import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
 const commentMarkup = loadTwigTemplate(path.join(__dirname, 'comment.twig'));
-const initCommentsJs = (utils: PleasantestUtils) =>
+const initCommentsJS = (utils: PleasantestUtils) =>
   utils.runJS(`
     import { initCommentReplyForm } from './comment';
 
@@ -33,7 +33,7 @@ test(
 
     await loadGlobalCSS(utils);
 
-    await initCommentsJs(utils);
+    await initCommentsJS(utils);
 
     const body = await page.evaluateHandle<ElementHandle>(() => document.body);
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`

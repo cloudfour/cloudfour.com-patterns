@@ -36,20 +36,15 @@ test(
     await initCommentsJS(utils);
 
     const body = await page.evaluateHandle<ElementHandle>(() => document.body);
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      article "Test author name said:"
-        banner
-          heading "Test author name said:"
-            text "Test author name"
-            text "said:"
-        text "Test content"
-        contentinfo
-          link "Permalink to Test author name’s Jan 1, 2000 comment"
-            text "Permalink to Test author name’s"
-            text "Jan 1, 2000"
-            text "comment"
-          button "Reply"
-    `);
+    expect(await getAccessibilityTree(body, { includeText: false }))
+      .toMatchInlineSnapshot(`
+        article "Test author name said:"
+          banner
+            heading "Test author name said:"
+          contentinfo
+            link "Permalink to Test author name’s Jan 1, 2000 comment"
+            button "Reply"
+      `);
     const form = await screen.getByRole('form', { hidden: true });
     const replyButton = await screen.getByRole('button', {
       name: /reply/i,
@@ -59,44 +54,25 @@ test(
     await expect(form).not.toBeVisible();
 
     await user.click(replyButton);
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      article "Test author name said:"
-        banner
-          heading "Test author name said:"
-            text "Test author name"
-            text "said:"
-        text "Test content"
-        contentinfo
-          link "Permalink to Test author name’s Jan 1, 2000 comment"
-            text "Permalink to Test author name’s"
-            text "Jan 1, 2000"
-            text "comment"
-          form "Reply to Test author name"
-            heading "Reply to Test author name"
-              text "Reply to Test author name"
-            text "Please be kind, courteous and constructive.
-                      You may use simple HTML or"
-            link "Markdown"
-              text "Markdown"
-            text "in your comments.
-                      All fields are required."
-            text "Reply"
-            textbox "Reply" (focused)
-              ↳ description: "Please be kind, courteous and constructive. You may use simple HTML or Markdown in your comments. All fields are required."
-            text "Name"
-            textbox "Name"
-            text "Email"
-            textbox "Email"
-            checkbox "Notify me of follow-up comments by email."
-            text "Notify me of follow-up comments by email."
-            button "Submit Reply"
-            button "Cancel"
-    `);
 
     // Updated state: reply form is no longer hidden
     await expect(form).toBeVisible();
     // Reply button is hidden
     await expect(replyButton).not.toBeVisible();
+    // Check that all the fields appear and have correct labels and the first textbox should be focused
+    expect(await getAccessibilityTree(form, { includeText: false }))
+      .toMatchInlineSnapshot(`
+        form "Reply to Test author name"
+          heading "Reply to Test author name"
+          link "Markdown"
+          textbox "Reply" (focused)
+            ↳ description: "Please be kind, courteous and constructive. You may use simple HTML or Markdown in your comments. All fields are required."
+          textbox "Name"
+          textbox "Email"
+          checkbox "Notify me of follow-up comments by email."
+          button "Submit Reply"
+          button "Cancel"
+    `);
 
     // Click the cancel button to get back to our initial state
     const cancelButton = await screen.getByRole('button', {

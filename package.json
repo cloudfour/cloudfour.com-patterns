@@ -57,7 +57,7 @@
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/html": "6.3.12",
     "@svgr/webpack": "5.5.0",
-    "@types/jest": "27.0.3",
+    "@types/jest": "27.4.0",
     "@types/lodash": "4.14.178",
     "@types/prismjs": "1.16.6",
     "@whitespace/storybook-addon-html": "5.0.0",

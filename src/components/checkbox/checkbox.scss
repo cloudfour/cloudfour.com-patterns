@@ -44,7 +44,7 @@
     appearance: none; /* 2 */
     background-color: color.$text-light;
     block-size: size.$square-toggle-medium;
-    border: size.$edge-control solid currentColor;
+    border: size.$edge-control solid currentcolor;
     border-radius: size.$border-radius-medium;
     color: color.$text-dark;
     cursor: pointer;
@@ -111,7 +111,7 @@
      */
 
     &:checked {
-      background-color: currentColor;
+      background-color: currentcolor;
 
       /**
        * End state of animation

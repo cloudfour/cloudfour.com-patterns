@@ -7,8 +7,8 @@
  *    makes visible strokes opt-in.
  */
 @mixin inherit-color {
-  fill: currentColor;
-  stroke: currentColor;
+  fill: currentcolor;
+  stroke: currentcolor;
   stroke-width: 0; /* 1 */
 }
 

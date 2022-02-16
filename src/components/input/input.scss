@@ -18,7 +18,7 @@
 @include theme.props(dark) {
   --theme-color-background-input-disabled: #{color.$brand-primary-lighter};
   --theme-color-border-input-disabled: #{color.$brand-primary-dark};
-  --theme-color-border-input-hover: currentColor;
+  --theme-color-border-input-hover: currentcolor;
 }
 
 /**
@@ -39,7 +39,7 @@
   appearance: none; /* 1 */
   background-color: color.$text-light;
   block-size: size.$height-control-default; /* 2 */
-  border: size.$edge-control solid currentColor;
+  border: size.$edge-control solid currentcolor;
   border-radius: size.$border-radius-medium;
   color: color.$text-dark;
   display: block;

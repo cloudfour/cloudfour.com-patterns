@@ -149,7 +149,7 @@ $extra-slashed-clip-path: polygon(
 // Styles for extra specific to slashed button state
 @mixin extra-slashed {
   &::after {
-    background: currentColor;
+    background: currentcolor;
     block-size: size.$edge-medium;
     border-radius: size.$border-radius-full;
     content: '';

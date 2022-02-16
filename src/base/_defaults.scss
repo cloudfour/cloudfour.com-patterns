@@ -291,7 +291,7 @@ address {
  */
 
 hr {
-  border-color: currentColor;
+  border-color: currentcolor;
   border-style: solid;
   border-width: math.div(size.$edge-medium, 2) 0; /* 1 */
   color: var(--theme-color-border-text-group);

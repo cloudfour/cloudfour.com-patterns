@@ -183,7 +183,7 @@ $_masthead-height-sm: ms.step(7);
 .c-sky-nav__logo-object {
   block-size: auto;
   display: block; /* 1 */
-  fill: currentColor;
+  fill: currentcolor;
   inline-size: fluid.fluid-calc(
     ms.step(7),
     ms.step(9),

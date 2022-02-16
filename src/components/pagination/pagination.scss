@@ -261,7 +261,7 @@ $indicator-width-current: $indicator-height-current;
  */
 
 .c-pagination__number::after {
-  background: currentColor;
+  background: currentcolor;
   block-size: $indicator-height;
   border-radius: size.$border-radius-full;
   content: '';

@@ -78,7 +78,7 @@
     "gulp-svgmin": "3.0.0",
     "html-to-react": "1.4.8",
     "jabber": "1.2.2",
-    "jest": "27.4.7",
+    "jest": "27.5.1",
     "js-yaml": "4.1.0",
     "lodash": "4.17.21",
     "ltx": "3.0.0",

@@ -16,7 +16,7 @@ jobs:
           # Fetch all git history for correct changelog commits
           fetch-depth: 0
       - name: Use Node.js 12
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 12
       - name: Update npm

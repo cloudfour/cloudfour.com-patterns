@@ -1,0 +1,20 @@
+<div class="c-disclosure-widget js-disclosure-widget{% if class %} {{ class }}{% endif %}">
+  {% include '@cloudfour/components/button-swap/button-swap.twig' with {
+    "initial_label": "Notifications have been turned off.",
+    "initial_visual_label": "Get notifications",
+    "swapped_label": "Notifications have been turned on.",
+    "swapped_visual_label": "Turn off notifications"
+  } only %}
+
+  {% include '@cloudfour/components/button/button.twig' with {
+    class: 'js-disclosure-widget__button',
+    label: initial_visual_label|default('Get Weekly Digests'),
+    content_start_icon: 'envelope'
+  } only %}
+
+  <div class="c-disclosure-widget__content">
+    {% block content %}
+      <p>This is the default Weekly Digest content</div>
+    {% endblock %}
+  </div>
+</div>

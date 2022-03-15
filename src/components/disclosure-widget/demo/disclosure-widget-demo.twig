@@ -1,5 +1,7 @@
-{% embed '@cloudfour/components/disclosure-widget/disclosure-widget.twig' only %}
-  {% block content %}
+{% embed '@cloudfour/components/disclosure-widget/disclosure-widget.twig' with{
+  body_content_id: 'example-demo'
+} only %}
+  {% block body_content %}
     <form>
       <label>
         Test

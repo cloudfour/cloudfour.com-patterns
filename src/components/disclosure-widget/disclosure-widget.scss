@@ -1,0 +1,37 @@
+@use '../../compiled/tokens/scss/breakpoint';
+
+button[aria-expanded='false'] + .c-disclosure-widget__content {
+  display: none;
+}
+
+.c-disclosure-widget {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    'extra-content'
+    'control'
+    'control-content';
+
+  @media (min-width: breakpoint.$m) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'extra-content control'
+      'control-content control-content';
+  }
+}
+
+.c-disclosure-widget .c-button {
+  width: 100%;
+}
+
+.c-disclosure-widget__extra-content {
+  grid-area: extra-content;
+}
+
+.c-disclosure-widget__button {
+  grid-area: control;
+}
+
+.c-disclosure-widget__content {
+  grid-area: control-content;
+}

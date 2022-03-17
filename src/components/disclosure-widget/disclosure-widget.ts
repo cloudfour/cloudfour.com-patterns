@@ -6,6 +6,10 @@
  * message is displayed at a time.
  */
 export const initDisclosureWidget = (containerEl: HTMLElement) => {
+  const SHOW_FORM_CLASS = 'activate-form';
+  const BLUR_TIMEOUT = 1000; // Milliseconds
+
+  // Keeps track of active setTimeouts
   let blurTimeoutId: number;
 
   const getWeeklyDigestsBtn = containerEl.querySelector(
@@ -17,22 +21,20 @@ export const initDisclosureWidget = (containerEl: HTMLElement) => {
     '.js-disclosure-widget__control'
   );
 
-  // Click handler
   const onClick = (event: Event) => {
     event.preventDefault();
-
-    containerEl.classList.add('show-form');
+    containerEl.classList.add(SHOW_FORM_CLASS);
     formEl.querySelector('input')?.focus();
   };
 
   const onControlFocus = () => {
     clearBlurTimeout();
-    containerEl.classList.remove('show-form');
+    containerEl.classList.remove(SHOW_FORM_CLASS);
   };
 
   const onFormFocus = () => {
     clearBlurTimeout();
-    containerEl.classList.add('show-form');
+    containerEl.classList.add(SHOW_FORM_CLASS);
   };
 
   const onFormBlur = () => {
@@ -47,10 +49,9 @@ export const initDisclosureWidget = (containerEl: HTMLElement) => {
 
   const startBlurTimeout = () => {
     clearBlurTimeout();
-
     blurTimeoutId = window.setTimeout(() => {
-      containerEl.classList.remove('show-form');
-    }, 1000);
+      containerEl.classList.remove(SHOW_FORM_CLASS);
+    }, BLUR_TIMEOUT);
   };
 
   // Clean up event listeners
@@ -59,6 +60,9 @@ export const initDisclosureWidget = (containerEl: HTMLElement) => {
     for (const formChildEl of formChildEls) {
       formChildEl.removeEventListener('blur', onFormBlur);
       formChildEl.removeEventListener('focus', onFormFocus);
+    }
+    for (const controlEl of controlEls) {
+      controlEl.removeEventListener('focus', onControlFocus);
     }
   };
 

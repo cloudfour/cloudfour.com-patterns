@@ -31,7 +31,7 @@ body {
   top: 0;
   width: 100%;
 
-  .c-disclosure-widget:not(.show-form) &:not(:target):not(:focus-within) {
+  .c-disclosure-widget:not(.activate-form) &:not(:target):not(:focus-within) {
     @include a11y.sr-only;
   }
 }

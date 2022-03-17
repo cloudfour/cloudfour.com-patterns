@@ -1,13 +1,14 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
-import template from './disclosure-widget.twig';
-import { initDisclosureWidget } from './disclosure-widget.ts';
+import template from './subscription-choices.twig';
+import { initSubscriptionChoices } from './subscription-choices.ts';
 // Helper function to initialize toggling button JS
 const templateStory = (args) => {
+  console.log('templateStory');
   useEffect(() => {
     const templateEls = [
-      ...document.querySelectorAll('.js-disclosure-widget'),
-    ].map((templateEl) => initDisclosureWidget(templateEl));
+      ...document.querySelectorAll('.js-subscription-choices'),
+    ].map((templateEl) => initSubscriptionChoices(templateEl));
     return () => {
       for (const templateEl of templateEls) templateEl.destroy();
     };
@@ -15,16 +16,17 @@ const templateStory = (args) => {
   return template(args);
 };
 
-<Meta title="Components/Disclosure Widget" />
+<Meta title="Components/Subscription Choices" />
 
-# Disclosure Widget
+# Subscription Choices
 
 @TODO Update this!
 
-Displays a Disclosure Widget, or set of Disclosure Widgets, with optional meta content.
+Displays a Subscription Choices, or set of Subscription Choicess, with optional meta content.
 
 <Canvas>
   <Story
+    inline={false}
     name="Basic usage"
     args={{
       form_id: 'example-demo',
@@ -38,7 +40,7 @@ Displays a Disclosure Widget, or set of Disclosure Widgets, with optional meta c
 
 `class` (string): CSS class(es) to append to the root element
 
-`Disclosure Widgets` (array): Array of [Disclosure Widget objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+`Subscription Choicess` (array): Array of [Subscription Choices objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
 
 ```ts
  {
@@ -48,10 +50,10 @@ Displays a Disclosure Widget, or set of Disclosure Widgets, with optional meta c
  }
 ```
 
-`Disclosure Widget_prefix` (optional, string, default "By"): Used to create a more
-accessible user experience by adding visually hidden text, prefixes the Disclosure Widget name (e.g. "By Arianna Chau")
+`Subscription Choices_prefix` (optional, string, default "By"): Used to create a more
+accessible user experience by adding visually hidden text, prefixes the Subscription Choices name (e.g. "By Arianna Chau")
 
-`meta` (optional, string): Extra information to be rendered below the Disclosure Widget name(s)
+`meta` (optional, string): Extra information to be rendered below the Subscription Choices name(s)
 
 `date` (optional, date object): Represents a publication date
 

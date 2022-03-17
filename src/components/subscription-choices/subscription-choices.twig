@@ -1,15 +1,15 @@
 <div
-  class="c-disclosure-widget js-disclosure-widget{% if class %} {{ class }}{% endif %}"
+  class="c-subscription-choices js-subscription-choices{% if class %} {{ class }}{% endif %}"
   {% if form_bg_color %}
     style="--form-bg-color: {{form_bg_color}};"
   {% endif %}
 >
 
-  <div class="c-disclosure-widget__controls">
+  <div class="c-subscription-choices__controls">
     {% include '@cloudfour/components/button-swap/button-swap.twig' with {
       button_class: '
-        c-disclosure-widget__control
-        js-disclosure-widget__control
+        c-subscription-choices__control
+        js-subscription-choices__control
       ',
       initial_label: 'Notifications have been turned off.',
       initial_visual_label: 'Get notifications',
@@ -20,9 +20,9 @@
     {% include '@cloudfour/components/button/button.twig' with {
       href: "##{ form_id }",
       class: '
-        c-disclosure-widget__control
-        js-disclosure-widget__control
-        js-disclosure-widget__get-weekly-digests-btn
+        c-subscription-choices__control
+        js-subscription-choices__control
+        js-subscription-choices__get-weekly-digests-btn
       ',
       label: button_label|default('Get Weekly Digests'),
       content_start_icon: button_icon|default('envelope')
@@ -30,7 +30,7 @@
   </div>
 
 
-  <form id="{{ form_id }}" class="c-disclosure-widget__form">
+  <form id="{{ form_id }}" class="c-subscription-choices__form">
     <label for="{{form_id}}-subscription-email">Email</label>
     <input id="{{form_id}}-subscription-email" type="text" />
     <button>Submit</button>

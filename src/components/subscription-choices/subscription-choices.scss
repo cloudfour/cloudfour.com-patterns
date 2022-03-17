@@ -8,17 +8,17 @@ body {
   }
 }
 
-.c-disclosure-widget {
+.c-subscription-choices {
   display: grid;
   gap: 1rem;
   position: relative;
 }
 
-.c-disclosure-widget__control {
+.c-subscription-choices__control {
   width: 100%;
 }
 
-.c-disclosure-widget__form {
+.c-subscription-choices__form {
   background-color: var(--form-bg-color, color.$base-white);
   position: absolute;
   height: 100%;
@@ -26,7 +26,8 @@ body {
   top: 0;
   width: 100%;
 
-  .c-disclosure-widget:not(.activate-form) &:not(:target):not(:focus-within) {
+  .c-subscription-choices:not(.activate-form)
+    &:not(:target):not(:focus-within) {
     @include a11y.sr-only;
   }
 }

@@ -5,44 +5,46 @@
  * button + visually hidden message group; only one button + visually hidden
  * message is displayed at a time.
  */
-export const initDisclosureWidget = (containerEl: HTMLElement) => {
+export const initSubscriptionChoices = (containerEl: HTMLElement) => {
+  console.log('INIT initSubscriptionChoices');
+
   const SHOW_FORM_CLASS = 'activate-form';
   const BLUR_TIMEOUT = 1000; // Milliseconds
 
   // Keeps track of active setTimeouts
   let blurTimeoutId: number;
 
+  // Query all the required elements
   const getWeeklyDigestsBtn = containerEl.querySelector(
-    '.js-disclosure-widget__get-weekly-digests-btn'
-  ) as HTMLButtonElement;
-  const formEl = containerEl.querySelector('form') as HTMLFormElement;
+    '.js-subscription-choices__get-weekly-digests-btn'
+  );
+  const formEl = containerEl.querySelector('form');
   const formChildEls = containerEl.querySelectorAll('form > *');
   const controlEls = containerEl.querySelectorAll(
-    '.js-disclosure-widget__control'
+    '.js-subscription-choices__control'
   );
 
-  const clearBlurTimeout = () => {
-    if (blurTimeoutId) {
-      clearTimeout(blurTimeoutId);
-    }
-  };
+  // Confirm we have what we need to proceed
+  if (!getWeeklyDigestsBtn || !formEl) {
+    return;
+  }
 
   // Remove the form anytime a control gets focus
   const onControlFocus = () => {
-    clearBlurTimeout();
+    clearTimeout(blurTimeoutId);
     containerEl.classList.remove(SHOW_FORM_CLASS);
   };
 
   // Show the form anytime any form element gets focus
   // The form is always accessible by keyboard, it's only visually hidden
   const onFormFocus = () => {
-    clearBlurTimeout();
+    clearTimeout(blurTimeoutId);
     containerEl.classList.add(SHOW_FORM_CLASS);
   };
 
   // Hide the form after a delay anytime focus is removed from a form element
   const onFormBlur = () => {
-    clearBlurTimeout();
+    clearTimeout(blurTimeoutId);
     blurTimeoutId = window.setTimeout(() => {
       containerEl.classList.remove(SHOW_FORM_CLASS);
     }, BLUR_TIMEOUT);

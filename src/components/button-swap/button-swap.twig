@@ -9,7 +9,7 @@
     </span>
 
     {% include '@cloudfour/components/button/button.twig' with {
-      class: 'js-button-swap__button',
+      class: ['js-button-swap__button', button_class]|join(' '),
       content_start_icon: content_start_icon|default('bell'),
       label: initial_visual_label|default('Get notifications')
     } only %}
@@ -20,7 +20,12 @@
     </span>
 
     {% include '@cloudfour/components/button/button.twig' with {
-      class: 'c-button--secondary is-slashed js-button-swap__button',
+      class: [
+        'c-button--secondary',
+        'is-slashed',
+        'js-button-swap__button',
+        button_class
+      ]|join(' '),
       content_start_icon: content_start_icon|default('bell'),
       label: swapped_visual_label|default('Turn off notifications')
     } only %}

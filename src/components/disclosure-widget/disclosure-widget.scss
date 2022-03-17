@@ -2,6 +2,13 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../mixins/a11y';
 
+body {
+  @media (prefers-color-scheme: dark) {
+    // Don't wake up baby
+    background-color: black !important;
+  }
+}
+
 // button[aria-expanded='false'] + .c-disclosure-widget__form {
 //   // display: none;
 // }

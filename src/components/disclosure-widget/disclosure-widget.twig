@@ -7,7 +7,7 @@
 
   <div class="c-disclosure-widget__controls">
     {% include '@cloudfour/components/button-swap/button-swap.twig' with {
-      class: 'c-disclosure-widget__extra-content',
+      class: 'c-disclosure-widget__button',
       initial_label: 'Notifications have been turned off.',
       initial_visual_label: 'Get notifications',
       swapped_label: 'Notifications have been turned on.',
@@ -16,7 +16,7 @@
 
     {% include '@cloudfour/components/button/button.twig' with {
       href: "##{ body_content_id }",
-      class: 'c-disclosure-widget__button js-disclosure-widget__button',
+      class: 'c-disclosure-widget__button js-disclosure-widget__get-weekly-digests-btn',
       label: button_label|default('Get Weekly Digests'),
       content_start_icon: button_icon|default('envelope')
     } only %}

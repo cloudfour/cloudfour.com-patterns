@@ -13,6 +13,9 @@ export const initDisclosureWidget = (containerEl: HTMLElement) => {
   ) as HTMLButtonElement;
   const formEl = containerEl.querySelector('form') as HTMLFormElement;
   const formChildEls = containerEl.querySelectorAll('form > *');
+  const controlEls = containerEl.querySelectorAll(
+    '.js-disclosure-widget__control'
+  );
 
   // Click handler
   const onClick = (event: Event) => {
@@ -20,6 +23,11 @@ export const initDisclosureWidget = (containerEl: HTMLElement) => {
 
     containerEl.classList.add('show-form');
     formEl.querySelector('input')?.focus();
+  };
+
+  const onControlFocus = () => {
+    clearBlurTimeout();
+    containerEl.classList.remove('show-form');
   };
 
   const onFormFocus = () => {
@@ -59,6 +67,9 @@ export const initDisclosureWidget = (containerEl: HTMLElement) => {
     for (const formChildEl of formChildEls) {
       formChildEl.addEventListener('blur', onFormBlur);
       formChildEl.addEventListener('focus', onFormFocus);
+    }
+    for (const controlEl of controlEls) {
+      controlEl.addEventListener('focus', onControlFocus);
     }
   };
 

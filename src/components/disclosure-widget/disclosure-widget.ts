@@ -21,42 +21,43 @@ export const initDisclosureWidget = (containerEl: HTMLElement) => {
     '.js-disclosure-widget__control'
   );
 
-  const onClick = (event: Event) => {
-    event.preventDefault();
-    containerEl.classList.add(SHOW_FORM_CLASS);
-    formEl.querySelector('input')?.focus();
-  };
-
-  const onControlFocus = () => {
-    clearBlurTimeout();
-    containerEl.classList.remove(SHOW_FORM_CLASS);
-  };
-
-  const onFormFocus = () => {
-    clearBlurTimeout();
-    containerEl.classList.add(SHOW_FORM_CLASS);
-  };
-
-  const onFormBlur = () => {
-    startBlurTimeout();
-  };
-
   const clearBlurTimeout = () => {
     if (blurTimeoutId) {
       clearTimeout(blurTimeoutId);
     }
   };
 
-  const startBlurTimeout = () => {
+  // Remove the form anytime a control gets focus
+  const onControlFocus = () => {
+    clearBlurTimeout();
+    containerEl.classList.remove(SHOW_FORM_CLASS);
+  };
+
+  // Show the form anytime any form element gets focus
+  // The form is always accessible by keyboard, it's only visually hidden
+  const onFormFocus = () => {
+    clearBlurTimeout();
+    containerEl.classList.add(SHOW_FORM_CLASS);
+  };
+
+  // Hide the form after a delay anytime focus is removed from a form element
+  const onFormBlur = () => {
     clearBlurTimeout();
     blurTimeoutId = window.setTimeout(() => {
       containerEl.classList.remove(SHOW_FORM_CLASS);
     }, BLUR_TIMEOUT);
   };
 
+  // Handler for the button click
+  const onGetWeeklyDigestsClick = (event: Event) => {
+    event.preventDefault();
+    containerEl.classList.add(SHOW_FORM_CLASS);
+    formEl.querySelector('input')?.focus();
+  };
+
   // Clean up event listeners
   const destroy = () => {
-    getWeeklyDigestsBtn.removeEventListener('click', onClick);
+    getWeeklyDigestsBtn.removeEventListener('click', onGetWeeklyDigestsClick);
     for (const formChildEl of formChildEls) {
       formChildEl.removeEventListener('blur', onFormBlur);
       formChildEl.removeEventListener('focus', onFormFocus);
@@ -66,8 +67,9 @@ export const initDisclosureWidget = (containerEl: HTMLElement) => {
     }
   };
 
+  // Set up all event listeners
   const init = () => {
-    getWeeklyDigestsBtn.addEventListener('click', onClick);
+    getWeeklyDigestsBtn.addEventListener('click', onGetWeeklyDigestsClick);
     for (const formChildEl of formChildEls) {
       formChildEl.addEventListener('blur', onFormBlur);
       formChildEl.addEventListener('focus', onFormFocus);

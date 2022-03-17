@@ -25,7 +25,14 @@ const templateStory = (args) => {
 Displays a Disclosure Widget, or set of Disclosure Widgets, with optional meta content.
 
 <Canvas>
-  <Story name="Basic usage">{(args) => templateStory(args)}</Story>
+  <Story
+    name="Basic usage"
+    args={{
+      body_content_id: 'example-demo',
+    }}
+  >
+    {(args) => templateStory(args)}
+  </Story>
   <Story name="Another">{(args) => disclosureWidgetDemo(args)}</Story>
 </Canvas>
 

@@ -1,27 +1,32 @@
-<div class="c-disclosure-widget js-disclosure-widget{% if class %} {{ class }}{% endif %}">
+<div
+  class="c-disclosure-widget js-disclosure-widget{% if class %} {{ class }}{% endif %}"
+  {% if form_bg_color %}
+    style="--form-bg-color: {{form_bg_color}};"
+  {% endif %}
+>
 
-  <div class="c-disclosure-widget__extra-content">
-    {% block header_content %}
-      {% include '@cloudfour/components/button-swap/button-swap.twig' with {
-        initial_label: 'Notifications have been turned off.',
-        initial_visual_label: 'Get notifications',
-        swapped_label: 'Notifications have been turned on.',
-        swapped_visual_label: 'Turn off notifications'
-      } only %}
-    {% endblock %}
+  <div class="c-disclosure-widget__controls js-disclosure-widget__controls">
+    {% include '@cloudfour/components/button-swap/button-swap.twig' with {
+      class: 'c-disclosure-widget__extra-content',
+      initial_label: 'Notifications have been turned off.',
+      initial_visual_label: 'Get notifications',
+      swapped_label: 'Notifications have been turned on.',
+      swapped_visual_label: 'Turn off notifications'
+    } only %}
+
+    {% include '@cloudfour/components/button/button.twig' with {
+      href: "##{ body_content_id }",
+      class: 'c-disclosure-widget__button js-disclosure-widget__button',
+      label: button_label|default('Get Weekly Digests'),
+      content_start_icon: button_icon|default('envelope')
+    } only %}
   </div>
 
-  {% include '@cloudfour/components/button/button.twig' with {
-    class: 'c-disclosure-widget__button js-disclosure-widget__button',
-    label: button_label|default('Get Weekly Digests'),
-    content_start_icon: button_icon|default('envelope'),
-    aria_expanded: aria_expanded|default('false'),
-    aria_controls: body_content_id
-  } only %}
 
-  <div id="{{ body_content_id }}" class="c-disclosure-widget__content">
-    {% block body_content %}
-      <p>This is the default Weekly Digest content</div>
-    {% endblock %}
-  </div>
+  <form id="{{ body_content_id }}" class="c-disclosure-widget__form">
+    <label for="subscription-email">Email</label>
+    <input id="subscription-email" type="text" />
+    <button>Submit</button>
+  </form>
+
 </div>

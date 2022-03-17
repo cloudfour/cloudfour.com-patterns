@@ -1,37 +1,30 @@
 @use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/color';
+@use '../../mixins/a11y';
 
-button[aria-expanded='false'] + .c-disclosure-widget__content {
-  display: none;
-}
+// button[aria-expanded='false'] + .c-disclosure-widget__form {
+//   // display: none;
+// }
 
 .c-disclosure-widget {
   display: grid;
   gap: 1rem;
-  grid-template-areas:
-    'extra-content'
-    'control'
-    'control-content';
-
-  @media (min-width: breakpoint.$m) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      'extra-content control'
-      'control-content control-content';
-  }
+  position: relative;
 }
 
 .c-disclosure-widget .c-button {
   width: 100%;
 }
 
-.c-disclosure-widget__extra-content {
-  grid-area: extra-content;
-}
+.c-disclosure-widget__form {
+  background-color: var(--form-bg-color, color.$base-white);
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
 
-.c-disclosure-widget__button {
-  grid-area: control;
-}
-
-.c-disclosure-widget__content {
-  grid-area: control-content;
+  .c-disclosure-widget:not(.show-form) &:not(:target):not(:focus-within) {
+    @include a11y.sr-only;
+  }
 }

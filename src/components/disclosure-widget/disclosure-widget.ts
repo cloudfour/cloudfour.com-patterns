@@ -6,62 +6,52 @@
  * message is displayed at a time.
  */
 export const initDisclosureWidget = (disclosureWidgetEl: HTMLElement) => {
-  const HIDDEN_VISUALLY_CSS_CLASS = 'u-hidden-visually';
   let isExpanded: boolean;
 
-  let getDigestsLink: HTMLButtonElement;
-  let controlsEl: HTMLElement;
-  let formTargetEl: HTMLElement;
-  let formEl: HTMLFormElement;
-  // let disclosureWidgetTargetId: string;
+  const getWeeklyDigestsBtn = disclosureWidgetEl.querySelector(
+    '.js-disclosure-widget__button'
+  ) as HTMLButtonElement;
+
+  const formEl = disclosureWidgetEl.querySelector('form') as HTMLFormElement;
 
   // Click handler
   const onClick = (event: Event) => {
     event.preventDefault();
     // Toggle state
-    isExpanded = !isExpanded;
+    // isExpanded = !isExpanded;
     // Update DOM with new value
-    // getDigestsLink.setAttribute('aria-expanded', String(isExpanded));
-    controlsEl.classList.add(HIDDEN_VISUALLY_CSS_CLASS);
-    formTargetEl.classList.remove(HIDDEN_VISUALLY_CSS_CLASS);
-    const inputEl = formTargetEl.querySelector('input');
-    console.log('inputEl', inputEl);
-    inputEl?.focus();
+    // getWeeklyDigestsBtn.setAttribute('aria-expanded', String(isExpanded));
+    // controlsEl.classList.add(HIDDEN_VISUALLY_CSS_CLASS);
+    // formEl.classList.remove(HIDDEN_VISUALLY_CSS_CLASS);
+    formEl.querySelector('input')?.focus();
   };
 
   const onFormBlur = () => {
     console.log('The FOrm BLURRED');
     setTimeout(() => {
-      controlsEl.classList.remove(HIDDEN_VISUALLY_CSS_CLASS);
-      formTargetEl.classList.add(HIDDEN_VISUALLY_CSS_CLASS);
+      // controlsEl.classList.remove(HIDDEN_VISUALLY_CSS_CLASS);
+      // formEl.classList.add(HIDDEN_VISUALLY_CSS_CLASS);
     }, 1000);
   };
 
   const destroy = () => {
     // Clean up event listeners
-    getDigestsLink.removeEventListener('click', onClick);
+    getWeeklyDigestsBtn.removeEventListener('click', onClick);
   };
 
   const init = () => {
-    getDigestsLink = disclosureWidgetEl.querySelector(
-      '.js-disclosure-widget__button'
-    ) as HTMLButtonElement;
+    // controlsEl = disclosureWidgetEl.querySelector(
+    //   '.js-disclosure-widget__controls'
+    // ) as HTMLElement;
 
-    controlsEl = disclosureWidgetEl.querySelector(
-      '.js-disclosure-widget__controls'
-    ) as HTMLElement;
+    // const inputs = formEl.querySelectorAll('input') as HTMLFormElement;
 
-    const targetId = getDigestsLink.getAttribute('href') as string;
-    formTargetEl = document.querySelector(targetId) as HTMLElement;
+    // getWeeklyDigestsBtn.setAttribute('aria-expanded', 'false');
+    // formEl.classList.add(HIDDEN_VISUALLY_CSS_CLASS);
+    // formEl.setAttribute('tabindex', '-1');
 
-    const inputs = formTargetEl.querySelectorAll('form') as HTMLFormElement;
-
-    // getDigestsLink.setAttribute('aria-expanded', 'false');
-    // formTargetEl.classList.add(HIDDEN_VISUALLY_CSS_CLASS);
-    // formTargetEl.setAttribute('tabindex', '-1');
-
-    // isExpanded = getDigestsLink.getAttribute('aria-expanded') === 'true';
-    getDigestsLink.addEventListener('click', onClick);
+    // isExpanded = getWeeklyDigestsBtn.getAttribute('aria-expanded') === 'true';
+    getWeeklyDigestsBtn.addEventListener('click', onClick);
     // formEl.addEventListener('blur', onFormBlur);
   };
 

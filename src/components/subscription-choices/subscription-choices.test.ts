@@ -21,21 +21,21 @@ test(
   'Swap UI state when clicked',
   withBrowser.headed(async ({ utils, screen, user, page }) => {
     await loadGlobalCSS(utils);
-    await utils.injectHTML(await componentMarkup());
     await utils.loadCSS('./subscription-choices.scss');
+    await utils.injectHTML(await componentMarkup());
     await initJS(utils);
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      status
-        text "Notifications have been turned off."
-      button "Get notifications"
-      link "Get Weekly Digests"
-        text "Get Weekly Digests"
-      form
-        text "Email"
-        textbox "Email"
-        button "Submit"
+    expect(await getAccessibilityTree(page)).toMatchInlineSnapshot(`
+      document
+        status
+          text "Notifications have been turned off."
+        button "Get notifications"
+        link "Get Weekly Digests"
+          text "Get Weekly Digests"
+        form
+          text "Email"
+          textbox "Email"
+          button "Submit"
     `);
 
     // Confirm the form is visually hidden by default

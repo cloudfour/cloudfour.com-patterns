@@ -1,5 +1,5 @@
 import path from 'path';
-import type { ElementHandle, PleasantestUtils } from 'pleasantest';
+import type { PleasantestUtils } from 'pleasantest';
 import { withBrowser, getAccessibilityTree } from 'pleasantest';
 import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
@@ -51,26 +51,30 @@ describe('Subscription Choices', () => {
     withBrowser(async ({ utils, screen, user, page }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscription-choices.scss');
-      await utils.injectHTML(await componentMarkup());
+      await utils.injectHTML(await componentMarkup({ form_id: 'test' }));
       await initJS(utils);
 
       // Confirm the form is visually hidden by default
       const form = await screen.getByRole('form', {
         name: 'Get Weekly Digests',
       });
-      let formHeight = await form.evaluate((formEl) => formEl.clientHeight);
-      let formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+      let { formHeight, formWidth } = await form.evaluate((formEl) => ({
+        formHeight: formEl.clientHeight,
+        formWidth: formEl.clientWidth,
+      }));
       expect(formHeight).toBeLessThanOrEqual(1);
       expect(formWidth).toBeLessThanOrEqual(1);
 
       // Tab all the way to the form email input
       await page.keyboard.press('Tab'); // Notifications button
-      await page.keyboard.press('Tab'); // Weekly Digests button
+      await page.keyboard.press('Tab'); // Weekly Digests link
       await page.keyboard.press('Tab'); // Email input
 
       // Confirm the form is now "active" (not visually hidden)
-      formHeight = await form.evaluate((formEl) => formEl.clientHeight);
-      formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+      ({ formHeight, formWidth } = await form.evaluate((formEl) => ({
+        formHeight: formEl.clientHeight,
+        formWidth: formEl.clientWidth,
+      })));
       expect(formHeight).toBeGreaterThan(1);
       expect(formWidth).toBeGreaterThan(1);
 
@@ -78,7 +82,7 @@ describe('Subscription Choices', () => {
       const emailInput = await screen.getByRole('textbox', { name: 'Email' });
       await expect(emailInput).toHaveFocus();
 
-      // Tab again to get to the Submit button, the form should still be visible
+      // Tab again to get to the Submit button
       await page.keyboard.press('Tab');
 
       // Submit button should be in focus
@@ -86,16 +90,46 @@ describe('Subscription Choices', () => {
       await expect(submitBtn).toHaveFocus();
 
       // Confirm the form is still "active" (not visually hidden)
-      formHeight = await form.evaluate((formEl) => formEl.clientHeight);
-      formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+      ({ formHeight, formWidth } = await form.evaluate((formEl) => ({
+        formHeight: formEl.clientHeight,
+        formWidth: formEl.clientWidth,
+      })));
       expect(formHeight).toBeGreaterThan(1);
       expect(formWidth).toBeGreaterThan(1);
 
-      await page.keyboard.press('Shift');
+      // Navigate back up to the Weekly Digests link
+      await page.keyboard.down('Shift');
+      await page.keyboard.press('Tab'); // Email input
+      await page.keyboard.down('Shift');
+      await page.keyboard.press('Tab'); // Weekly Digests link
 
-      const getWeeklyDigestsBtn = await screen.getByRole('link', {
+      // Confirm the focus has moved to the Weekly Digests link
+      const weeklyDigestsBtn = await screen.getByRole('link', {
         name: 'Get Weekly Digests',
       });
+      await expect(weeklyDigestsBtn).toHaveFocus();
+
+      // The form should now be visually hidden again
+      ({ formHeight, formWidth } = await form.evaluate((formEl) => ({
+        formHeight: formEl.clientHeight,
+        formWidth: formEl.clientWidth,
+      })));
+      expect(formHeight).toBeLessThanOrEqual(1);
+      expect(formWidth).toBeLessThanOrEqual(1);
+
+      // Navigate forward past the Submit to activate the form hide timeout
+      await page.keyboard.press('Tab'); // Email input
+      await page.keyboard.press('Tab'); // Submit button
+      await page.keyboard.press('Tab'); // Out of the form
+
+      // Confirm the form is still "active" (not visually hidden)
+      ({ formHeight, formWidth } = await form.evaluate((formEl) => ({
+        formHeight: formEl.clientHeight,
+        formWidth: formEl.clientWidth,
+      })));
+      expect(formHeight).toBeGreaterThan(1);
+      expect(formWidth).toBeGreaterThan(1);
+
       // Button swap action
       // await user.click(firstBtn);
 
@@ -129,7 +163,7 @@ describe('Subscription Choices', () => {
       await utils.loadCSS('./subscription-choices.scss');
 
       // No customization
-      await utils.injectHTML(await componentMarkup());
+      await utils.injectHTML(await componentMarkup({ form_id: 'test' }));
 
       // Confirm default heading tag
       await screen.getByRole('heading', {
@@ -151,6 +185,7 @@ describe('Subscription Choices', () => {
       // Customize the component
       await utils.injectHTML(
         await componentMarkup({
+          form_id: 'test',
           heading_tag: 'h3',
           weekly_digests_heading: 'Weekly digests available',
           never_miss_article_heading: "Don't miss out!",
@@ -178,6 +213,7 @@ describe('Subscription Choices', () => {
       formBgColor = await form.evaluate(
         (formEl) => window.getComputedStyle(formEl).backgroundColor
       );
+      // `backgroundColor` returns an RGB value
       expect(formBgColor).toBe('rgb(0, 128, 0)');
 
       // Confirm custom notifications button

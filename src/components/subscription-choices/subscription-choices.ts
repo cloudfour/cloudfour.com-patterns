@@ -6,8 +6,6 @@
  * message is displayed at a time.
  */
 export const initSubscriptionChoices = (containerEl: HTMLElement) => {
-  console.log('INIT initSubscriptionChoices');
-
   const SHOW_FORM_CLASS = 'activate-form';
   const BLUR_TIMEOUT = 1000; // Milliseconds
 
@@ -28,8 +26,6 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
   if (!getWeeklyDigestsBtn || !formEl) {
     return;
   }
-
-  console.log('We got it');
 
   // Remove the form anytime a control gets focus
   const onControlFocus = () => {

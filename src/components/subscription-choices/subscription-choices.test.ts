@@ -20,8 +20,7 @@ const initJS = (utils: PleasantestUtils) =>
 describe('Subscription Choices', () => {
   test(
     'Should use semantic markup',
-    // withBrowser.headed(async ({ utils, screen, user, page }) => {
-    withBrowser(async ({ utils, screen, user, page }) => {
+    withBrowser(async ({ utils, page }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscription-choices.scss');
       await utils.injectHTML(await componentMarkup());
@@ -49,7 +48,6 @@ describe('Subscription Choices', () => {
 
   test(
     'Should be keyboard accessible',
-    // withBrowser.headed(async ({ utils, screen, user, page }) => {
     withBrowser(async ({ utils, screen, user, page }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscription-choices.scss');
@@ -57,7 +55,9 @@ describe('Subscription Choices', () => {
       await initJS(utils);
 
       // Confirm the form is visually hidden by default
-      const form = await screen.getByRole('form');
+      const form = await screen.getByRole('form', {
+        name: 'Get Weekly Digests',
+      });
       let formHeight = await form.evaluate((formEl) => formEl.clientHeight);
       let formWidth = await form.evaluate((formEl) => formEl.clientWidth);
       expect(formHeight).toBeLessThanOrEqual(1);

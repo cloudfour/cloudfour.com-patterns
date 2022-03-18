@@ -1,3 +1,5 @@
+{% set _heading_tag = heading_tag|default('h2') %}
+
 <div
   class="c-subscription-choices js-subscription-choices{% if class %} {{ class }}{% endif %}"
   {% if form_bg_color %}
@@ -7,7 +9,7 @@
 
   <div class="c-subscription-choices__controls">
     {# @todo Allow for a specific heading tag #}
-    <h2>Never miss an article!</h2>
+   <h2>Never miss an article!</h2>
     {% include '@cloudfour/components/button-swap/button-swap.twig' with {
       button_class: '
         c-subscription-choices__control

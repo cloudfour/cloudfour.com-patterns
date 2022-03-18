@@ -17,15 +17,18 @@ const initJS = (utils: PleasantestUtils) =>
     )
   `);
 
-test(
-  'Swap UI state when clicked',
-  withBrowser.headed(async ({ utils, screen, user, page }) => {
-    await loadGlobalCSS(utils);
-    await utils.loadCSS('./subscription-choices.scss');
-    await utils.injectHTML(await componentMarkup());
-    await initJS(utils);
+describe('Subscription Choices', () => {
+  test(
+    'Should be keyboard accessible',
+    // withBrowser.headed(async ({ utils, screen, user, page }) => {
+    withBrowser(async ({ utils, screen, user, page }) => {
+      await loadGlobalCSS(utils);
+      await utils.loadCSS('./subscription-choices.scss');
+      await utils.injectHTML(await componentMarkup());
+      await initJS(utils);
 
-    expect(await getAccessibilityTree(page)).toMatchInlineSnapshot(`
+      // Get baseline accessibility tree snapshot
+      expect(await getAccessibilityTree(page)).toMatchInlineSnapshot(`
       document
         status
           text "Notifications have been turned off."
@@ -38,123 +41,130 @@ test(
           button "Submit"
     `);
 
-    // Confirm the form is visually hidden by default
-    let form = await screen.getByRole('form');
-    let formHeight = await form.evaluate((formEl) => formEl.clientHeight);
-    let formWidth = await form.evaluate((formEl) => formEl.clientWidth);
-    expect(formHeight).toBeLessThanOrEqual(1);
-    expect(formWidth).toBeLessThanOrEqual(1);
+      // Confirm the form is visually hidden by default
+      const form = await screen.getByRole('form');
+      let formHeight = await form.evaluate((formEl) => formEl.clientHeight);
+      let formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+      expect(formHeight).toBeLessThanOrEqual(1);
+      expect(formWidth).toBeLessThanOrEqual(1);
 
-    // Tab all the way to the form email input
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
+      // Tab all the way to the form email input
+      await page.keyboard.press('Tab'); // Notifications button
+      await page.keyboard.press('Tab'); // Weekly Digests button
+      await page.keyboard.press('Tab'); // Email input
 
-    // Confirm the form is now "active" (not visually hidden)
-    form = await screen.getByRole('form');
-    formHeight = await form.evaluate((formEl) => formEl.clientHeight);
-    formWidth = await form.evaluate((formEl) => formEl.clientWidth);
-    expect(formHeight).toBeGreaterThan(1);
-    expect(formWidth).toBeGreaterThan(1);
+      // Confirm the form is now "active" (not visually hidden)
+      formHeight = await form.evaluate((formEl) => formEl.clientHeight);
+      formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+      expect(formHeight).toBeGreaterThan(1);
+      expect(formWidth).toBeGreaterThan(1);
 
-    // Confirm the email input is focused
-    const emailInput = await screen.getByRole('textbox', { name: 'Email' });
-    await expect(emailInput).toHaveFocus();
+      // Email input should be in focus
+      const emailInput = await screen.getByRole('textbox', { name: 'Email' });
+      await expect(emailInput).toHaveFocus();
 
-    // Tab again to get to the Submit button, the form should still be visible
-    await page.keyboard.press('Tab');
+      // Tab again to get to the Submit button, the form should still be visible
+      await page.keyboard.press('Tab');
 
-    // Confirm the form is still "active" (not visually hidden)
-    form = await screen.getByRole('form');
-    formHeight = await form.evaluate((formEl) => formEl.clientHeight);
-    formWidth = await form.evaluate((formEl) => formEl.clientWidth);
-    expect(formHeight).toBeGreaterThan(1);
-    expect(formWidth).toBeGreaterThan(1);
+      // Submit button should be in focus
+      const submitButton = await screen.getByRole('button', { name: 'Submit' });
+      await expect(submitButton).toHaveFocus();
 
-    const getWeeklyDigestsBtn = await screen.getByRole('link', {
-      name: 'Get Weekly Digests',
-    });
-    // Button swap action
-    // await user.click(firstBtn);
+      // Confirm the form is still "active" (not visually hidden)
+      formHeight = await form.evaluate((formEl) => formEl.clientHeight);
+      formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+      expect(formHeight).toBeGreaterThan(1);
+      expect(formWidth).toBeGreaterThan(1);
 
-    // const secondBtn = await screen.queryByRole('button', {
-    //   name: /^turn off notifications$/i,
-    // });
-    // await expect(secondBtn).toBeVisible();
-    // await expect(secondBtn).toHaveClass('is-slashed');
+      await page.keyboard.press('Shift');
 
-    // Button swap action
-    // await user.click(secondBtn);
+      const getWeeklyDigestsBtn = await screen.getByRole('link', {
+        name: 'Get Weekly Digests',
+      });
+      // Button swap action
+      // await user.click(firstBtn);
 
-    // expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-    //   alert (focused)
-    //     text "Currently unsubscribed from notifications"
-    //   button "Get notifications"
-    // `);
+      // const secondBtn = await screen.queryByRole('button', {
+      //   name: /^turn off notifications$/i,
+      // });
+      // await expect(secondBtn).toBeVisible();
+      // await expect(secondBtn).toHaveClass('is-slashed');
 
-    // // Query for first button again in its new state
-    // firstBtn = await screen.queryByRole('button');
-    // await expect(firstBtn).toBeVisible();
-    // await expect(firstBtn).not.toHaveClass('is-slashed');
-  })
-);
+      // Button swap action
+      // await user.click(secondBtn);
 
-test.skip(
-  'Set custom messages and labels',
-  withBrowser(async ({ utils, screen, user, page }) => {
-    await utils.injectHTML(
-      await componentMarkup({
-        initial_visual_label: 'Hello world',
-        swapped_visual_label: 'Have a great day',
-        initial_label: 'Unsubscribed',
-        swapped_label: 'Subscribed',
-      })
-    );
-    await loadGlobalCSS(utils);
-    await initJS(utils);
+      // expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      //   alert (focused)
+      //     text "Currently unsubscribed from notifications"
+      //   button "Get notifications"
+      // `);
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      // // Query for first button again in its new state
+      // firstBtn = await screen.queryByRole('button');
+      // await expect(firstBtn).toBeVisible();
+      // await expect(firstBtn).not.toHaveClass('is-slashed');
+    })
+  );
+
+  test.skip(
+    'Set custom messages and labels',
+    withBrowser(async ({ utils, screen, user, page }) => {
+      await utils.injectHTML(
+        await componentMarkup({
+          initial_visual_label: 'Hello world',
+          swapped_visual_label: 'Have a great day',
+          initial_label: 'Unsubscribed',
+          swapped_label: 'Subscribed',
+        })
+      );
+      await loadGlobalCSS(utils);
+      await initJS(utils);
+
+      const body = await page.evaluateHandle<ElementHandle>(
+        () => document.body
+      );
+      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       status
         text "Unsubscribed"
       button "Hello world"
     `);
 
-    // Button swap action
-    await user.click(await screen.getByRole('button'));
+      // Button swap action
+      await user.click(await screen.getByRole('button'));
 
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       alert (focused)
         text "Subscribed"
       button "Have a great day"
     `);
-  })
-);
+    })
+  );
 
-test.skip(
-  'Callback functions are called',
-  withBrowser(async ({ utils, screen, user }) => {
-    await utils.injectHTML(await componentMarkup());
+  test.skip(
+    'Callback functions are called',
+    withBrowser(async ({ utils, screen, user }) => {
+      await utils.injectHTML(await componentMarkup());
 
-    const mockInitialCallback = jest.fn();
-    const mockSwappedCallback = jest.fn();
+      const mockInitialCallback = jest.fn();
+      const mockSwappedCallback = jest.fn();
 
-    await initJS(utils, mockInitialCallback, mockSwappedCallback);
+      await initJS(utils, mockInitialCallback, mockSwappedCallback);
 
-    const firstBtn = await screen.queryByRole('button', {
-      name: /^get notifications$/i,
-    });
+      const firstBtn = await screen.queryByRole('button', {
+        name: /^get notifications$/i,
+      });
 
-    await user.click(firstBtn);
+      await user.click(firstBtn);
 
-    expect(mockInitialCallback).toBeCalledTimes(1);
+      expect(mockInitialCallback).toBeCalledTimes(1);
 
-    const secondBtn = await screen.queryByRole('button', {
-      name: /^turn off notifications$/i,
-    });
+      const secondBtn = await screen.queryByRole('button', {
+        name: /^turn off notifications$/i,
+      });
 
-    await user.click(secondBtn);
+      await user.click(secondBtn);
 
-    expect(mockSwappedCallback).toBeCalledTimes(1);
-  })
-);
+      expect(mockSwappedCallback).toBeCalledTimes(1);
+    })
+  );
+});

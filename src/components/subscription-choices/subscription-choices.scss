@@ -1,10 +1,14 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../mixins/a11y';
 
+:root {
+  color-scheme: dark light;
+}
+
 body {
   @media (prefers-color-scheme: dark) {
     // Don't wake up baby
-    background-color: black !important;
+    // background-color: black !important;
   }
 }
 

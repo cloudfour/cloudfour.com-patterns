@@ -19,7 +19,7 @@ const initJS = (utils: PleasantestUtils) =>
 
 describe('Subscription Choices', () => {
   test(
-    'Should be keyboard accessible',
+    'Should use semantic markup',
     // withBrowser.headed(async ({ utils, screen, user, page }) => {
     withBrowser(async ({ utils, screen, user, page }) => {
       await loadGlobalCSS(utils);
@@ -29,17 +29,32 @@ describe('Subscription Choices', () => {
 
       // Get baseline accessibility tree snapshot
       expect(await getAccessibilityTree(page)).toMatchInlineSnapshot(`
-      document
-        status
-          text "Notifications have been turned off."
-        button "Get notifications"
-        link "Get Weekly Digests"
-          text "Get Weekly Digests"
-        form
-          text "Email"
-          textbox "Email"
-          button "Submit"
-    `);
+        document
+          heading "Never miss an article!"
+            text "Never miss an article!"
+          status
+            text "Notifications have been turned off."
+          button "Get notifications"
+          link "Get Weekly Digests"
+            text "Get Weekly Digests"
+          form "Get Weekly Digests"
+            heading "Get Weekly Digests"
+              text "Get Weekly Digests"
+            text "Email"
+            textbox "Email"
+            button "Submit"
+      `);
+    })
+  );
+
+  test(
+    'Should be keyboard accessible',
+    // withBrowser.headed(async ({ utils, screen, user, page }) => {
+    withBrowser(async ({ utils, screen, user, page }) => {
+      await loadGlobalCSS(utils);
+      await utils.loadCSS('./subscription-choices.scss');
+      await utils.injectHTML(await componentMarkup());
+      await initJS(utils);
 
       // Confirm the form is visually hidden by default
       const form = await screen.getByRole('form');
@@ -124,19 +139,19 @@ describe('Subscription Choices', () => {
         () => document.body
       );
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      status
-        text "Unsubscribed"
-      button "Hello world"
-    `);
+              status
+                text "Unsubscribed"
+              button "Hello world"
+          `);
 
       // Button swap action
       await user.click(await screen.getByRole('button'));
 
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      alert (focused)
-        text "Subscribed"
-      button "Have a great day"
-    `);
+              alert (focused)
+                text "Subscribed"
+              button "Have a great day"
+          `);
     })
   );
 

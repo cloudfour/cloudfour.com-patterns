@@ -6,6 +6,8 @@
 >
 
   <div class="c-subscription-choices__controls">
+    {# @todo Allow for a specific heading tag #}
+    <h2>Never miss an article!</h2>
     {% include '@cloudfour/components/button-swap/button-swap.twig' with {
       button_class: '
         c-subscription-choices__control
@@ -32,9 +34,10 @@
 
   <form
     id="subscription-choices-{{ form_id }}"
-    name="subscription-choices-{{ form_id }}-form"
     class="c-subscription-choices__form"
+    aria-labelledby="weekly-digests-heading"
   >
+    <h2 id="weekly-digests-heading">Get Weekly Digests</h2>
     <label for="subscription-email-{{form_id}}">Email</label>
     <input id="subscription-email-{{form_id}}" type="text" />
     <button>Submit</button>

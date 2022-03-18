@@ -29,6 +29,8 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
     return;
   }
 
+  console.log('We got it');
+
   // Remove the form anytime a control gets focus
   const onControlFocus = () => {
     clearTimeout(blurTimeoutId);

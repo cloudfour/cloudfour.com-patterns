@@ -18,7 +18,7 @@
     } only %}
 
     {% include '@cloudfour/components/button/button.twig' with {
-      href: "##{ form_id }",
+      href: "#subscription-choices-#{ form_id }",
       class: '
         c-subscription-choices__control
         js-subscription-choices__control
@@ -30,9 +30,13 @@
   </div>
 
 
-  <form id="{{ form_id }}" class="c-subscription-choices__form">
-    <label for="{{form_id}}-subscription-email">Email</label>
-    <input id="{{form_id}}-subscription-email" type="text" />
+  <form
+    id="subscription-choices-{{ form_id }}"
+    name="subscription-choices-{{ form_id }}-form"
+    class="c-subscription-choices__form"
+  >
+    <label for="subscription-email-{{form_id}}">Email</label>
+    <input id="subscription-email-{{form_id}}" type="text" />
     <button>Submit</button>
   </form>
 

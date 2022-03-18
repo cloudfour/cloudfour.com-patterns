@@ -19,63 +19,83 @@ const initJS = (utils: PleasantestUtils) =>
 
 test(
   'Swap UI state when clicked',
-  withBrowser(async ({ utils, screen, user, page }) => {
-    await utils.injectHTML(await componentMarkup());
+  withBrowser.headed(async ({ utils, screen, user, page }) => {
     await loadGlobalCSS(utils);
+    await utils.injectHTML(await componentMarkup());
+    await utils.loadCSS('./subscription-choices.scss');
+    await initJS(utils);
 
-    // Before JS initializes
     const body = await page.evaluateHandle<ElementHandle>(() => document.body);
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       status
-        text "Currently unsubscribed from notifications"
+        text "Notifications have been turned off."
       button "Get notifications"
+      link "Get Weekly Digests"
+        text "Get Weekly Digests"
+      form
+        text "Email"
+        textbox "Email"
+        button "Submit"
     `);
 
-    let firstBtn = await screen.getByRole('button');
-    await expect(firstBtn).toBeVisible();
-    await expect(firstBtn).not.toHaveClass('is-slashed');
+    // Confirm the form is visually hidden by default
+    let form = await screen.getByRole('form');
+    let formHeight = await form.evaluate((formEl) => formEl.clientHeight);
+    let formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+    expect(formHeight).toBeLessThanOrEqual(1);
+    expect(formWidth).toBeLessThanOrEqual(1);
 
-    await initJS(utils);
+    // Tab all the way to the form email input
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
 
-    // After JS initializes it should be the same
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      status
-        text "Currently unsubscribed from notifications"
-      button "Get notifications"
-    `);
+    // Confirm the form is now "active" (not visually hidden)
+    form = await screen.getByRole('form');
+    formHeight = await form.evaluate((formEl) => formEl.clientHeight);
+    formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+    expect(formHeight).toBeGreaterThan(1);
+    expect(formWidth).toBeGreaterThan(1);
 
-    firstBtn = await screen.queryByRole('button');
-    await expect(firstBtn).toBeVisible();
-    await expect(firstBtn).not.toHaveClass('is-slashed');
+    // Confirm the email input is focused
+    const emailInput = await screen.getByRole('textbox', { name: 'Email' });
+    await expect(emailInput).toHaveFocus();
 
-    // Button swap action
-    await user.click(firstBtn);
+    // Tab again to get to the Submit button, the form should still be visible
+    await page.keyboard.press('Tab');
 
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      alert (focused)
-        text "Currently subscribed to notifications"
-      button "Turn off notifications"
-    `);
+    // Confirm the form is still "active" (not visually hidden)
+    form = await screen.getByRole('form');
+    formHeight = await form.evaluate((formEl) => formEl.clientHeight);
+    formWidth = await form.evaluate((formEl) => formEl.clientWidth);
+    expect(formHeight).toBeGreaterThan(1);
+    expect(formWidth).toBeGreaterThan(1);
 
-    const secondBtn = await screen.queryByRole('button', {
-      name: /^turn off notifications$/i,
+    const getWeeklyDigestsBtn = await screen.getByRole('link', {
+      name: 'Get Weekly Digests',
     });
-    await expect(secondBtn).toBeVisible();
-    await expect(secondBtn).toHaveClass('is-slashed');
+    // Button swap action
+    // await user.click(firstBtn);
+
+    // const secondBtn = await screen.queryByRole('button', {
+    //   name: /^turn off notifications$/i,
+    // });
+    // await expect(secondBtn).toBeVisible();
+    // await expect(secondBtn).toHaveClass('is-slashed');
 
     // Button swap action
-    await user.click(secondBtn);
+    // await user.click(secondBtn);
 
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      alert (focused)
-        text "Currently unsubscribed from notifications"
-      button "Get notifications"
-    `);
+    // expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+    //   alert (focused)
+    //     text "Currently unsubscribed from notifications"
+    //   button "Get notifications"
+    // `);
 
-    // Query for first button again in its new state
-    firstBtn = await screen.queryByRole('button');
-    await expect(firstBtn).toBeVisible();
-    await expect(firstBtn).not.toHaveClass('is-slashed');
+    // // Query for first button again in its new state
+    // firstBtn = await screen.queryByRole('button');
+    // await expect(firstBtn).toBeVisible();
+    // await expect(firstBtn).not.toHaveClass('is-slashed');
   })
 );
 

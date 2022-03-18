@@ -157,7 +157,9 @@ describe('Subscription Choices', () => {
           form_bg_color: 'green',
           notifications_btn_class: 'hello',
           notifications_btn_initial_visual_label: 'Yes to notifications',
-          get_weekly_digests_btn_class: 'world',
+          weekly_digests_btn_class: 'world',
+          weekly_digests_btn_label: 'I want weekly digests',
+          weekly_digests_submit_btn_label: 'Sign up',
         })
       );
 
@@ -183,6 +185,17 @@ describe('Subscription Choices', () => {
         name: 'Yes to notifications',
       });
       await expect(notificationsBtn).toHaveClass('hello');
+
+      // Confirm custom weekly digests link
+      const weeklyDigestsLink = await screen.getByRole('link', {
+        name: 'I want weekly digests',
+      });
+      await expect(weeklyDigestsLink).toHaveClass('world');
+
+      // Confirm custom weekly digests submit button
+      await screen.getByRole('button', {
+        name: 'Sign up',
+      });
     })
   );
 

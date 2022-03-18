@@ -22,13 +22,13 @@ js-subscription-choices__control
     } only %}
 
     {% include '@cloudfour/components/button/button.twig' with {
-      href: "#subscription-choices-#{ form_id }",
+      href: "#subscription-choices-#{form_id}",
       class: "c-subscription-choices__control
 js-subscription-choices__control
 js-subscription-choices__get-weekly-digests-btn
-#{get_weekly_digests_btn_class|default('')}",
-      label: button_label|default('Get Weekly Digests'),
-      content_start_icon: button_icon|default('envelope')
+#{weekly_digests_btn_class|default('')}",
+      label: weekly_digests_btn_label|default('Get Weekly Digests'),
+      content_start_icon: weekly_digests_btn_icon|default('envelope')
     } only %}
   </div>
 
@@ -43,7 +43,6 @@ js-subscription-choices__get-weekly-digests-btn
     </{{_heading_tag}}>
     <label for="subscription-email-{{form_id}}">Email</label>
     <input id="subscription-email-{{form_id}}" type="text" />
-    <button>Submit</button>
+    <button>{{weekly_digests_submit_btn_label|default('Submit')}}</button>
   </form>
-
 </div>

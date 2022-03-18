@@ -8,26 +8,25 @@
 >
 
   <div class="c-subscription-choices__controls">
-    {# @todo Allow for a specific heading tag #}
-   <{{_heading_tag}}>Never miss an article!</{{_heading_tag}}>
+   <{{_heading_tag}}>
+    {{never_miss_article_heading|default('Never miss an article!')}}
+   </{{_heading_tag}}>
     {% include '@cloudfour/components/button-swap/button-swap.twig' with {
-      button_class: '
-        c-subscription-choices__control
-        js-subscription-choices__control
-      ',
-      initial_label: 'Notifications have been turned off.',
-      initial_visual_label: 'Get notifications',
-      swapped_label: 'Notifications have been turned on.',
-      swapped_visual_label: 'Turn off notifications'
+      button_class: "c-subscription-choices__control
+js-subscription-choices__control
+#{notifications_btn_class|default('')}",
+      initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
+      initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
+      swapped_label: notifications_btn_swapped_label|default('Notifications have been turned on.'),
+      swapped_visual_label: notifications_btn_swapped_visual_label|default('Turn off notifications'),
     } only %}
 
     {% include '@cloudfour/components/button/button.twig' with {
       href: "#subscription-choices-#{ form_id }",
-      class: '
-        c-subscription-choices__control
-        js-subscription-choices__control
-        js-subscription-choices__get-weekly-digests-btn
-      ',
+      class: "c-subscription-choices__control
+js-subscription-choices__control
+js-subscription-choices__get-weekly-digests-btn
+#{get_weekly_digests_btn_class|default('')}",
       label: button_label|default('Get Weekly Digests'),
       content_start_icon: button_icon|default('envelope')
     } only %}
@@ -35,12 +34,12 @@
 
 
   <form
-    id="subscription-choices-{{ form_id }}"
+    id="subscription-choices-{{form_id}}"
     class="c-subscription-choices__form"
-    aria-labelledby="get-weekly-digests"
+    aria-labelledby="get-weekly-digests-{{form_id}}"
   >
-    <{{_heading_tag}} id="get-weekly-digests">
-      Get Weekly Digests
+    <{{_heading_tag}} id="get-weekly-digests-{{form_id}}">
+      {{weekly_digests_heading|default('Get Weekly Digests')}}
     </{{_heading_tag}}>
     <label for="subscription-email-{{form_id}}">Email</label>
     <input id="subscription-email-{{form_id}}" type="text" />

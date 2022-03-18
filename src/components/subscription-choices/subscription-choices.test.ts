@@ -82,8 +82,8 @@ describe('Subscription Choices', () => {
       await page.keyboard.press('Tab');
 
       // Submit button should be in focus
-      const submitButton = await screen.getByRole('button', { name: 'Submit' });
-      await expect(submitButton).toHaveFocus();
+      const submitBtn = await screen.getByRole('button', { name: 'Submit' });
+      await expect(submitBtn).toHaveFocus();
 
       // Confirm the form is still "active" (not visually hidden)
       formHeight = await form.evaluate((formEl) => formEl.clientHeight);
@@ -124,17 +124,65 @@ describe('Subscription Choices', () => {
   test(
     'Should be customizable',
     withBrowser(async ({ utils, screen, user, page }) => {
-      // Confirm default options
-      await utils.injectHTML(await componentMarkup());
-      await screen.getAllByRole('heading', { level: 2 });
+      // Set up CSS
+      await loadGlobalCSS(utils);
+      await utils.loadCSS('./subscription-choices.scss');
 
-      // Should allow customization
+      // No customization
+      await utils.injectHTML(await componentMarkup());
+
+      // Confirm default heading tag
+      await screen.getByRole('heading', {
+        name: 'Never miss an article!',
+        level: 2,
+      });
+      await screen.getByRole('heading', {
+        name: 'Get Weekly Digests',
+        level: 2,
+      });
+
+      // Confirm default background color
+      let form = await screen.getByRole('form');
+      let formBgColor = await form.evaluate(
+        (formEl) => window.getComputedStyle(formEl).backgroundColor
+      );
+      expect(formBgColor).toBe('rgb(255, 255, 255)');
+
+      // Customize the component
       await utils.injectHTML(
         await componentMarkup({
           heading_tag: 'h3',
+          weekly_digests_heading: 'Weekly digests available',
+          never_miss_article_heading: "Don't miss out!",
+          form_bg_color: 'green',
+          notifications_btn_class: 'hello',
+          notifications_btn_initial_visual_label: 'Yes to notifications',
+          get_weekly_digests_btn_class: 'world',
         })
       );
-      await screen.getAllByRole('heading', { level: 3 });
+
+      // Confirm custom headings
+      await screen.getByRole('heading', {
+        name: 'Weekly digests available',
+        level: 3,
+      });
+      await screen.getByRole('heading', {
+        name: "Don't miss out!",
+        level: 3,
+      });
+
+      // Confirm custom form background color
+      form = await screen.getByRole('form');
+      formBgColor = await form.evaluate(
+        (formEl) => window.getComputedStyle(formEl).backgroundColor
+      );
+      expect(formBgColor).toBe('rgb(0, 128, 0)');
+
+      // Confirm custom notifications button
+      const notificationsBtn = await screen.getByRole('button', {
+        name: 'Yes to notifications',
+      });
+      await expect(notificationsBtn).toHaveClass('hello');
     })
   );
 

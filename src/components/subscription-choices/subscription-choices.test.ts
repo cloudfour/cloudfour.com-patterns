@@ -121,65 +121,82 @@ describe('Subscription Choices', () => {
     })
   );
 
-  test.skip(
-    'Set custom messages and labels',
+  test(
+    'Should be customizable',
     withBrowser(async ({ utils, screen, user, page }) => {
+      // Confirm default options
+      await utils.injectHTML(await componentMarkup());
+      await screen.getAllByRole('heading', { level: 2 });
+
+      // Should allow customization
       await utils.injectHTML(
         await componentMarkup({
-          initial_visual_label: 'Hello world',
-          swapped_visual_label: 'Have a great day',
-          initial_label: 'Unsubscribed',
-          swapped_label: 'Subscribed',
+          heading_tag: 'h3',
         })
       );
-      await loadGlobalCSS(utils);
-      await initJS(utils);
-
-      const body = await page.evaluateHandle<ElementHandle>(
-        () => document.body
-      );
-      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-              status
-                text "Unsubscribed"
-              button "Hello world"
-          `);
-
-      // Button swap action
-      await user.click(await screen.getByRole('button'));
-
-      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-              alert (focused)
-                text "Subscribed"
-              button "Have a great day"
-          `);
+      await screen.getAllByRole('heading', { level: 3 });
     })
   );
 
-  test.skip(
-    'Callback functions are called',
-    withBrowser(async ({ utils, screen, user }) => {
-      await utils.injectHTML(await componentMarkup());
+  // test.skip(
+  //   'Set custom messages and labels',
+  //   withBrowser(async ({ utils, screen, user, page }) => {
+  //     await utils.injectHTML(
+  //       await componentMarkup({
+  //         initial_visual_label: 'Hello world',
+  //         swapped_visual_label: 'Have a great day',
+  //         initial_label: 'Unsubscribed',
+  //         swapped_label: 'Subscribed',
+  //       })
+  //     );
+  //     await loadGlobalCSS(utils);
+  //     await initJS(utils);
 
-      const mockInitialCallback = jest.fn();
-      const mockSwappedCallback = jest.fn();
+  //     const body = await page.evaluateHandle<ElementHandle>(
+  //       () => document.body
+  //     );
+  //     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+  //             status
+  //               text "Unsubscribed"
+  //             button "Hello world"
+  //         `);
 
-      await initJS(utils, mockInitialCallback, mockSwappedCallback);
+  //     // Button swap action
+  //     await user.click(await screen.getByRole('button'));
 
-      const firstBtn = await screen.queryByRole('button', {
-        name: /^get notifications$/i,
-      });
+  //     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+  //             alert (focused)
+  //               text "Subscribed"
+  //             button "Have a great day"
+  //         `);
+  //   })
+  // );
 
-      await user.click(firstBtn);
+  // test.skip(
+  //   'Callback functions are called',
+  //   withBrowser(async ({ utils, screen, user }) => {
+  //     await utils.injectHTML(await componentMarkup());
 
-      expect(mockInitialCallback).toBeCalledTimes(1);
+  //     const mockInitialCallback = jest.fn();
+  //     const mockSwappedCallback = jest.fn();
 
-      const secondBtn = await screen.queryByRole('button', {
-        name: /^turn off notifications$/i,
-      });
+  //     await initJS(utils, mockInitialCallback, mockSwappedCallback);
 
-      await user.click(secondBtn);
+  //     const firstBtn = await screen.queryByRole('button', {
+  //       name: /^get notifications$/i,
+  //     });
 
-      expect(mockSwappedCallback).toBeCalledTimes(1);
-    })
-  );
+  //     await user.click(firstBtn);
+
+  //     expect(mockInitialCallback).toBeCalledTimes(1);
+
+  //     const secondBtn = await screen.queryByRole('button', {
+  //       name: /^turn off notifications$/i,
+  //     });
+
+  //     await user.click(secondBtn);
+
+  //     expect(mockSwappedCallback).toBeCalledTimes(1);
+  //   })
+  // );
 });

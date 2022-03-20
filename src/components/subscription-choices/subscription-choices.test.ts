@@ -7,6 +7,7 @@ import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 const componentMarkup = loadTwigTemplate(
   path.join(__dirname, './subscription-choices.twig')
 );
+const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));
 
 // Helper to initialize the component JS
 const initJS = (utils: PleasantestUtils) =>
@@ -19,7 +20,7 @@ const initJS = (utils: PleasantestUtils) =>
 
 describe('Subscription Choices', () => {
   test(
-    'Should use semantic markup',
+    'should use semantic markup',
     withBrowser(async ({ utils, page }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscription-choices.scss');
@@ -47,11 +48,11 @@ describe('Subscription Choices', () => {
   );
 
   test(
-    'Should be keyboard accessible',
-    withBrowser(async ({ utils, screen, user, page }) => {
+    'should be keyboard accessible',
+    withBrowser(async ({ utils, screen, waitFor, page }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscription-choices.scss');
-      await utils.injectHTML(await componentMarkup({ form_id: 'test' }));
+      await utils.injectHTML(await demoMarkup());
       await initJS(utils);
 
       // Confirm the form is visually hidden by default
@@ -98,10 +99,10 @@ describe('Subscription Choices', () => {
       expect(formWidth).toBeGreaterThan(1);
 
       // Navigate back up to the Weekly Digests link
-      await page.keyboard.down('Shift');
+      await page.keyboard.down('Shift'); // Navigate backwards
       await page.keyboard.press('Tab'); // Email input
-      await page.keyboard.down('Shift');
       await page.keyboard.press('Tab'); // Weekly Digests link
+      await page.keyboard.up('Shift'); // Release Shift key
 
       // Confirm the focus has moved to the Weekly Digests link
       const weeklyDigestsBtn = await screen.getByRole('link', {
@@ -119,8 +120,14 @@ describe('Subscription Choices', () => {
 
       // Navigate forward past the Submit to activate the form hide timeout
       await page.keyboard.press('Tab'); // Email input
+      await page.evaluate(() => {
+        console.log('active 5', document.activeElement);
+      });
       await page.keyboard.press('Tab'); // Submit button
       await page.keyboard.press('Tab'); // Out of the form
+      await page.evaluate(() => {
+        console.log('active 5', document.activeElement);
+      });
 
       // Confirm the form is still "active" (not visually hidden)
       ({ formHeight, formWidth } = await form.evaluate((formEl) => ({
@@ -130,34 +137,27 @@ describe('Subscription Choices', () => {
       expect(formHeight).toBeGreaterThan(1);
       expect(formWidth).toBeGreaterThan(1);
 
-      // Button swap action
-      // await user.click(firstBtn);
-
-      // const secondBtn = await screen.queryByRole('button', {
-      //   name: /^turn off notifications$/i,
-      // });
-      // await expect(secondBtn).toBeVisible();
-      // await expect(secondBtn).toHaveClass('is-slashed');
-
-      // Button swap action
-      // await user.click(secondBtn);
-
-      // expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      //   alert (focused)
-      //     text "Currently unsubscribed from notifications"
-      //   button "Get notifications"
-      // `);
-
-      // // Query for first button again in its new state
-      // firstBtn = await screen.queryByRole('button');
-      // await expect(firstBtn).toBeVisible();
-      // await expect(firstBtn).not.toHaveClass('is-slashed');
+      // After a timeout, the form eventually visually hides
+      await waitFor(
+        async () => {
+          ({ formHeight, formWidth } = await form.evaluate((formEl) => ({
+            formHeight: formEl.clientHeight,
+            formWidth: formEl.clientWidth,
+          })));
+          expect(formHeight).toBeLessThanOrEqual(1);
+          expect(formWidth).toBeLessThanOrEqual(1);
+        },
+        {
+          timeout: 2000,
+          interval: 1000,
+        }
+      );
     })
   );
 
   test(
-    'Should be customizable',
-    withBrowser(async ({ utils, screen, user, page }) => {
+    'should be customizable',
+    withBrowser(async ({ utils, screen }) => {
       // Set up CSS
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscription-choices.scss');

@@ -56,6 +56,11 @@ describe('Subscription Choices', () => {
       await initJS(utils);
 
       // Helper function used throughout this test
+      //
+      // I eslint-disabled because it was wanted me to pull this function
+      // outside of the scope of this test, but, I feel collocating the function
+      // within the only test that uses the function makes more sense.
+      //
       // eslint-disable-next-line @cloudfour/unicorn/consistent-function-scoping
       const getFormDimensions = (formEl: HTMLElement) => ({
         formHeight: formEl.clientHeight,

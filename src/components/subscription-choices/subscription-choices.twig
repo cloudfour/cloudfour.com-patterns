@@ -11,25 +11,28 @@
     <{{_heading_tag}}>
       {{never_miss_article_heading|default('Never miss an article!')}}
     </{{_heading_tag}}>
-    {% include '@cloudfour/components/button-swap/button-swap.twig' with {
-      button_class: "c-subscription-choices__control
+
+    <div class="c-subscription-choices__controls-wrapper">
+      {% include '@cloudfour/components/button-swap/button-swap.twig' with {
+        button_class: "c-subscription-choices__control
 js-subscription-choices__control
 #{notifications_btn_class|default('')}",
-      initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
-      initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
-      swapped_label: notifications_btn_swapped_label|default('Notifications have been turned on.'),
-      swapped_visual_label: notifications_btn_swapped_visual_label|default('Turn off notifications'),
-    } only %}
+        initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
+        initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
+        swapped_label: notifications_btn_swapped_label|default('Notifications have been turned on.'),
+        swapped_visual_label: notifications_btn_swapped_visual_label|default('Turn off notifications'),
+      } only %}
 
-    {% include '@cloudfour/components/button/button.twig' with {
-      href: "#subscription-choices-#{form_id}",
-      class: "c-subscription-choices__control
+      {% include '@cloudfour/components/button/button.twig' with {
+        href: "#subscription-choices-#{form_id}",
+        class: "c-subscription-choices__control
 js-subscription-choices__control
 js-subscription-choices__get-weekly-digests-btn
 #{weekly_digests_btn_class|default('')}",
-      label: weekly_digests_btn_label|default('Get Weekly Digests'),
-      content_start_icon: weekly_digests_btn_icon|default('envelope')
-    } only %}
+        label: weekly_digests_btn_label|default('Get Weekly Digests'),
+        content_start_icon: weekly_digests_btn_icon|default('envelope')
+      } only %}
+    </div>
   </div>
 
 
@@ -41,8 +44,20 @@ js-subscription-choices__get-weekly-digests-btn
     <{{_heading_tag}} id="get-weekly-digests-{{form_id}}">
       {{weekly_digests_heading|default('Get Weekly Digests')}}
     </{{_heading_tag}}>
-    <label for="subscription-email-{{form_id}}">Email</label>
-    <input id="subscription-email-{{form_id}}" type="text" />
-    <button>{{weekly_digests_submit_btn_label|default('Submit')}}</button>
+
+    <div class="c-subscription-choices__input-group">
+      <label for="subscription-email-{{form_id}}">
+        {{weekly_digests_email_input_label|default('Email')}}
+      </label>
+      <input
+        id="subscription-email-{{form_id}}"
+        class="c-input"
+        type="text"
+        placeholder="{{weekly_digests_submit_btn_placeholder|default('Your Email Address')}}"
+      />
+      <button class="c-button">
+        {{weekly_digests_submit_btn_label|default('Subscribe')}}
+      </button>
+    </div>
   </form>
 </div>

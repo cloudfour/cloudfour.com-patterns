@@ -38,6 +38,9 @@ js-subscription-choices__get-weekly-digests-btn
 
   <form
     id="subscription-choices-{{form_id}}"
+    action="{{form_action|default('https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67')}}"
+    method="post"
+    target="_blank"
     class="c-subscription-choices__form"
     aria-labelledby="get-weekly-digests-{{form_id}}"
   >
@@ -54,6 +57,8 @@ js-subscription-choices__get-weekly-digests-btn
         class="c-input"
         type="text"
         placeholder="{{weekly_digests_submit_btn_placeholder|default('Your Email Address')}}"
+        autocomplete="home email",
+        required
       />
       <button class="c-button">
         {{weekly_digests_submit_btn_label|default('Subscribe')}}

@@ -37,11 +37,12 @@
 }
 
 .c-subscription-choices__input-group {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1em;
   margin: size.$rhythm-default 0;
 
   @media (min-width: breakpoint.$s) {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
   }
 }

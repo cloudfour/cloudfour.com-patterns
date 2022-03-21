@@ -4,7 +4,6 @@ import template from './subscription-choices.twig';
 import { initSubscriptionChoices } from './subscription-choices.ts';
 // Helper function to initialize toggling button JS
 const templateStory = (args) => {
-  console.log('templateStory');
   useEffect(() => {
     const templateEls = [
       ...document.querySelectorAll('.js-subscription-choices'),
@@ -16,13 +15,56 @@ const templateStory = (args) => {
   return template(args);
 };
 
-<Meta title="Components/Subscription Choices" />
+<Meta
+  title="Components/Subscription Choices"
+  argTypes={{
+    form_id: {
+      type: { name: 'string', required: true },
+      description: 'The ID used for the email subscription form',
+    },
+    class: {
+      type: 'string',
+      description: 'CSS class(es) to add to the root element',
+    },
+    heading_tag: {
+      type: 'string',
+      defaultValue: 'h2',
+      description: 'The heading value for the headings',
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      control: 'select',
+    },
+    never_miss_article_heading: {
+      type: 'string',
+      defaultValue: 'Never miss an article!',
+    },
+    form_bg_color: {
+      defaultValue: '#fff',
+      description:
+        'The background color of the form; allows the component to work in different contexts.',
+      control: 'color',
+    },
+    weekly_digests_btn_label: {
+      type: 'string',
+      defaultValue: 'Get Weekly Digests',
+    },
+    weekly_digests_heading: {
+      type: 'string',
+      defaultValue: 'Get Weekly Digests',
+    },
+    weekly_digests_email_input_placeholder: {
+      type: 'string',
+      defaultValue: 'Your Email Address',
+    },
+    weekly_digests_submit_btn_label: {
+      type: 'string',
+      defaultValue: 'Subscribe',
+    },
+  }}
+/>
 
 # Subscription Choices
 
-@TODO Update this!
-
-Displays a Subscription Choices, or set of Subscription Choicess, with optional meta content.
+The Subscription Choices component provides the UI to subscribe to notifications and/or email weekly digests.
 
 <Canvas>
   <Story
@@ -38,24 +80,105 @@ Displays a Subscription Choices, or set of Subscription Choicess, with optional 
 
 ## Template Properties
 
-`class` (string): CSS class(es) to append to the root element
+### Required
 
-`Subscription Choicess` (array): Array of [Subscription Choices objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+| property  | type   | default | description                                                          |
+| --------- | ------ | ------- | -------------------------------------------------------------------- |
+| `form_id` | string | `''`    | Appends this value to the weekly digest form `id`, should be unique. |
 
-```ts
- {
-   name: string | () => string;
-   avatar: string | () => string;
-   link: string | () => string;
- }
+### Optional
+
+| property                                 | type   | default                                 | description                                                                                                                   |
+| ---------------------------------------- | ------ | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `class`                                  | string | `''`                                    | Appends a CSS class(es) to the root element.                                                                                  |
+| `form_bg_color`                          | string | `#ffffff`                               | Sets the background color of the subscription form. The `--form-bg-color` CSS custom property can alternatively be used also. |
+| `form_action`                            | string | TBD                                     | The subscription form `action` value                                                                                          |
+| `heading_tag`                            | string | `'h2'`                                  | The heading value (`h1`-`h6`)                                                                                                 |
+| `never_miss_article_heading`             | string | `'Never miss an article!'`              | The default heading                                                                                                           |
+| `notifications_btn_class`                | string | `''`                                    | Appends a CSS class(es) to the "Get notifications" button                                                                     |
+| `notifications_btn_initial_label`        | string | `'Notifications have been turned off.'` | See [Button Swap `initial_label`](?path=/docs/components-button-swap--default-story#template-properties)                      |
+| `notifications_btn_initial_visual_label` | string | `'Get notifications'`                   | See [Button Swap `initial_visual_label`](?path=/docs/components-button-swap--default-story#template-properties)               |
+| `notifications_btn_swapped_label`        | string | `'Notifications have been turned on.'`  | See [Button Swap `swapped_label`](?path=/docs/components-button-swap--default-story#template-properties)                      |
+| `notifications_btn_swapped_visual_label` | string | `'Turn off notifications'`              | See [Button Swap `swapped_visual_label`](?path=/docs/components-button-swap--default-story#template-properties)               |
+| `weekly_digests_btn_class`               | string | `''`                                    | Appends a CSS class(es) to the "Get notifications" button                                                                     |
+| `weekly_digests_btn_label`               | string | `'Get Weekly Digests'`                  | The "Weekly Digests" button label                                                                                             |
+| `weekly_digests_btn_icon`                | string | `'envelope' `                           | The "Weekly Digests" button [icon](?path=/docs/design-icons--page)                                                            |
+| `weekly_digests_heading`                 | string | `'Get Weekly Digests'`                  | The subscription form heading                                                                                                 |
+| `weekly_digests_email_input_label`       | string | `'Email'`                               | The email input label                                                                                                         |
+| `weekly_digests_email_input_placeholder` | string | `'Your Email Address'`                  | The email input placeholder text                                                                                              |
+| `weekly_digests_submit_btn_label`        | string | `'Subscribe'`                           | The subscription form submit button label                                                                                     |
+
+## JavaScript
+
+You'll need to use JavaScript to select the Button Swap component via the `js-button-swap` CSS class and initialize it using the `initButtonSwap` function.
+
+### Syntax
+
+```js
+initButtonSwap(buttonSwapEl, options);
 ```
 
-`Subscription Choices_prefix` (optional, string, default "By"): Used to create a more
-accessible user experience by adding visually hidden text, prefixes the Subscription Choices name (e.g. "By Arianna Chau")
+### Parameters
 
-`meta` (optional, string): Extra information to be rendered below the Subscription Choices name(s)
+#### `buttonSwapEl`
 
-`date` (optional, date object): Represents a publication date
+The `.js-button-swap` Button Swap wrapper element.
 
-`date_prefix` (optional, string, default "Published on"): Used to create a more
-accessible user experience by adding visually hidden text, prefixes the date value (e.g. "Published on March 31st, 2021")
+#### `options` (optional)
+
+An object which allows you to optionally pass `initialCallback` and `swappedCallback` functions to be called when each button is clicked.
+
+```js
+options?: {
+  initialCallback?: (event: Event) => void;
+  swappedCallback?: (event: Event) => void;
+}
+```
+
+### Return value
+
+An object with a `destroy` function that removes event listeners.
+
+```js
+{ destroy: () => void }
+```
+
+### Examples
+
+#### Single Button Swap component on the page
+
+```js
+// Initialize
+const buttonSwapEl = initButtonSwap(document.querySelector('.js-button-swap'), {
+  initialCallback: () => console.log('Subscribed!'),
+  swappedCallback: () => console.log('Unsubscribed!'),
+});
+
+// Remove all event listeners
+buttonSwapEl.destroy();
+```
+
+#### Multiple Button Swap components on the page
+
+```js
+// Initialize
+const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
+  (buttonSwapEl) =>
+    initButtonSwap(buttonSwapEl, {
+      initialCallback: () => console.log('Subscribed!'),
+      swappedCallback: () => console.log('Unsubscribed!'),
+    })
+);
+
+// Remove all event listeners
+buttonSwapEls.forEach((buttonSwapEl) => {
+  buttonSwapEl.destroy();
+});
+```
+
+## Unsupported features
+
+The following features are not supported but can be in the future if the need arises. The decision was made to forego these features for now since a use case did not exist when developing this component.
+
+- No `content_end_icon` template property support
+- No `content_start`, `content`, or `content_end` block support

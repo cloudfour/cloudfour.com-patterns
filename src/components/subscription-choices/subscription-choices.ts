@@ -17,7 +17,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
     '.js-subscription-choices__get-weekly-digests-btn'
   );
   const formEl = containerEl.querySelector('form');
-  const formChildEls = containerEl.querySelectorAll('form > *');
+  const formFocusableEls = containerEl.querySelectorAll('label, input, button');
   const controlEls = containerEl.querySelectorAll(
     '.js-subscription-choices__control'
   );
@@ -58,9 +58,9 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
   // Clean up event listeners
   const destroy = () => {
     getWeeklyDigestsBtn.removeEventListener('click', onGetWeeklyDigestsClick);
-    for (const formChildEl of formChildEls) {
-      formChildEl.removeEventListener('blur', onFormBlur);
-      formChildEl.removeEventListener('focus', onFormFocus);
+    for (const formFocusableEl of formFocusableEls) {
+      formFocusableEl.removeEventListener('blur', onFormBlur);
+      formFocusableEl.removeEventListener('focus', onFormFocus);
     }
     for (const controlEl of controlEls) {
       controlEl.removeEventListener('focus', onControlFocus);
@@ -70,9 +70,9 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
   // Set up all event listeners
   const init = () => {
     getWeeklyDigestsBtn.addEventListener('click', onGetWeeklyDigestsClick);
-    for (const formChildEl of formChildEls) {
-      formChildEl.addEventListener('blur', onFormBlur);
-      formChildEl.addEventListener('focus', onFormFocus);
+    for (const formFocusableEl of formFocusableEls) {
+      formFocusableEl.addEventListener('blur', onFormBlur);
+      formFocusableEl.addEventListener('focus', onFormFocus);
     }
     for (const controlEl of controlEls) {
       controlEl.addEventListener('focus', onControlFocus);

@@ -120,14 +120,8 @@ describe('Subscription Choices', () => {
 
       // Navigate forward past the Submit to activate the form hide timeout
       await page.keyboard.press('Tab'); // Email input
-      await page.evaluate(() => {
-        console.log('active 5', document.activeElement);
-      });
       await page.keyboard.press('Tab'); // Submit button
       await page.keyboard.press('Tab'); // Out of the form
-      await page.evaluate(() => {
-        console.log('active 5', document.activeElement);
-      });
 
       // Confirm the form is still "active" (not visually hidden)
       ({ formHeight, formWidth } = await form.evaluate((formEl) => ({

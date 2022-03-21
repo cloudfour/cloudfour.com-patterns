@@ -1,21 +1,20 @@
+@use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/size';
 @use '../../mixins/a11y';
 
-:root {
-  // color-scheme: dark light;
-}
-
-body {
-  @media (prefers-color-scheme: dark) {
-    // Don't wake up baby
-    // background-color: black !important;
-  }
-}
-
 .c-subscription-choices {
-  display: grid;
-  gap: 1rem;
   position: relative;
+}
+
+.c-subscription-choices__controls-wrapper {
+  display: grid;
+  gap: 1em;
+  margin: size.$rhythm-default 0;
+
+  @media (min-width: breakpoint.$s) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .c-subscription-choices__control {
@@ -30,8 +29,19 @@ body {
   top: 0;
   width: 100%;
 
+  label,
   .c-subscription-choices:not(.activate-form)
     &:not(:target):not(:focus-within) {
     @include a11y.sr-only;
+  }
+}
+
+.c-subscription-choices__input-group {
+  display: grid;
+  gap: 1em;
+  margin: size.$rhythm-default 0;
+
+  @media (min-width: breakpoint.$s) {
+    grid-template-columns: 1fr 1fr;
   }
 }

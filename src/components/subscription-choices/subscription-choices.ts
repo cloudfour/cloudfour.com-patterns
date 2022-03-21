@@ -27,7 +27,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
     return;
   }
 
-  // Remove the form anytime a control gets focus
+  // Hide the form anytime a `js-subscription-choices__control` gets focus
   const onControlFocus = () => {
     clearTimeout(blurTimeoutId);
     containerEl.classList.remove(SHOW_FORM_CLASS);
@@ -52,6 +52,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
   const onGetWeeklyDigestsClick = (event: Event) => {
     event.preventDefault();
     containerEl.classList.add(SHOW_FORM_CLASS);
+    // Jump the focus to the first input element
     formEl.querySelector('input')?.focus();
   };
 

@@ -169,17 +169,26 @@ describe('Subscription Choices', () => {
         level: 2,
       });
 
-      // Confirm default background color
+      // Confirm default form values
       let form = await screen.getByRole('form');
-      let formBgColor = await form.evaluate(
-        (formEl) => window.getComputedStyle(formEl).backgroundColor
-      );
+      let { formBgColor, formAction, emailInputPlaceHolder } =
+        await form.evaluate((formEl) => ({
+          formBgColor: window.getComputedStyle(formEl).backgroundColor,
+          formAction: formEl.getAttribute('action'),
+          emailInputPlaceHolder: formEl.querySelector('input')?.placeholder,
+        }));
+      // `backgroundColor` returns an RGB value
       expect(formBgColor).toBe('rgb(255, 255, 255)');
+      expect(formAction).toBe(
+        'https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67'
+      );
+      expect(emailInputPlaceHolder).toBe('Your Email Address');
 
       // Customize the component
       await utils.injectHTML(
         await componentMarkup({
           form_id: 'test',
+          form_action: 'test-action.com',
           heading_tag: 'h3',
           weekly_digests_heading: 'Weekly digests available',
           never_miss_article_heading: "Don't miss out!",
@@ -188,6 +197,7 @@ describe('Subscription Choices', () => {
           notifications_btn_initial_visual_label: 'Yes to notifications',
           weekly_digests_btn_class: 'world',
           weekly_digests_btn_label: 'I want weekly digests',
+          weekly_digests_email_input_placeholder: 'Gimme email',
           weekly_digests_submit_btn_label: 'Sign up',
         })
       );
@@ -202,13 +212,19 @@ describe('Subscription Choices', () => {
         level: 3,
       });
 
-      // Confirm custom form background color
+      // Confirm custom form values
       form = await screen.getByRole('form');
-      formBgColor = await form.evaluate(
-        (formEl) => window.getComputedStyle(formEl).backgroundColor
-      );
+      ({ formBgColor, formAction, emailInputPlaceHolder } = await form.evaluate(
+        (formEl) => ({
+          formBgColor: window.getComputedStyle(formEl).backgroundColor,
+          formAction: formEl.getAttribute('action'),
+          emailInputPlaceHolder: formEl.querySelector('input')?.placeholder,
+        })
+      ));
       // `backgroundColor` returns an RGB value
       expect(formBgColor).toBe('rgb(0, 128, 0)');
+      expect(formAction).toBe('test-action.com');
+      expect(emailInputPlaceHolder).toBe('Gimme email');
 
       // Confirm custom notifications button
       const notificationsBtn = await screen.getByRole('button', {

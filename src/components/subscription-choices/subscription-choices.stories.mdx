@@ -66,10 +66,12 @@ const templateStory = (args) => {
 
 The Subscription Choices component provides the UI to subscribe to notifications and/or email weekly digests.
 
+This component embeds the [Button Swap component](?path=/docs/components-button-swap--default-story) for the "Get Notifications" button.
+
 <Canvas>
   <Story
     inline={false}
-    name="Basic usage"
+    name="Default"
     args={{
       form_id: 'example-demo',
     }}
@@ -90,7 +92,7 @@ The Subscription Choices component provides the UI to subscribe to notifications
 
 | property                                 | type   | default                                 | description                                                                                                                   |
 | ---------------------------------------- | ------ | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `class`                                  | string | `''`                                    | Appends a CSS class(es) to the root element.                                                                                  |
+| `class`                                  | string | `''`                                    | Appends a CSS class(es) to the root `.c-subscription-choices` element.                                                        |
 | `form_bg_color`                          | string | `#ffffff`                               | Sets the background color of the subscription form. The `--form-bg-color` CSS custom property can alternatively be used also. |
 | `form_action`                            | string | TBD                                     | The subscription form `action` value                                                                                          |
 | `heading_tag`                            | string | `'h2'`                                  | The heading value (`h1`-`h6`)                                                                                                 |
@@ -110,30 +112,19 @@ The Subscription Choices component provides the UI to subscribe to notifications
 
 ## JavaScript
 
-You'll need to use JavaScript to select the Button Swap component via the `js-button-swap` CSS class and initialize it using the `initButtonSwap` function.
+JavaScript is required for the Subscription Choices component to work.
 
 ### Syntax
 
 ```js
-initButtonSwap(buttonSwapEl, options);
+initSubscriptionChoices(subscriptionChoicesEl);
 ```
 
 ### Parameters
 
-#### `buttonSwapEl`
+#### `subscriptionChoicesEl`
 
-The `.js-button-swap` Button Swap wrapper element.
-
-#### `options` (optional)
-
-An object which allows you to optionally pass `initialCallback` and `swappedCallback` functions to be called when each button is clicked.
-
-```js
-options?: {
-  initialCallback?: (event: Event) => void;
-  swappedCallback?: (event: Event) => void;
-}
-```
+The `.js-subscription-choices` Subscription Choices wrapper element.
 
 ### Return value
 
@@ -145,40 +136,32 @@ An object with a `destroy` function that removes event listeners.
 
 ### Examples
 
-#### Single Button Swap component on the page
+#### Single Subscription Choices component on the page
 
 ```js
 // Initialize
-const buttonSwapEl = initButtonSwap(document.querySelector('.js-button-swap'), {
-  initialCallback: () => console.log('Subscribed!'),
-  swappedCallback: () => console.log('Unsubscribed!'),
-});
-
-// Remove all event listeners
-buttonSwapEl.destroy();
-```
-
-#### Multiple Button Swap components on the page
-
-```js
-// Initialize
-const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
-  (buttonSwapEl) =>
-    initButtonSwap(buttonSwapEl, {
-      initialCallback: () => console.log('Subscribed!'),
-      swappedCallback: () => console.log('Unsubscribed!'),
-    })
+const subscriptionChoicesEl = initSubscriptionChoices(
+  document.querySelector('.js-subscription-choices')
 );
 
 // Remove all event listeners
-buttonSwapEls.forEach((buttonSwapEl) => {
-  buttonSwapEl.destroy();
-});
+subscriptionChoicesEl.destroy();
 ```
 
-## Unsupported features
+#### Multiple Subscription Choices components on the page
 
-The following features are not supported but can be in the future if the need arises. The decision was made to forego these features for now since a use case did not exist when developing this component.
+```js
+// Initialize
+const subscriptionChoiceEls = [
+  ...document.querySelectorAll('.js-subscription-choices'),
+].map((subscriptionChoiceEl) => initSubscriptionChoices(subscriptionChoiceEl));
 
-- No `content_end_icon` template property support
-- No `content_start`, `content`, or `content_end` block support
+// Remove all event listeners
+for (const subscriptionChoiceEl of subscriptionChoiceEls) {
+  subscriptionChoiceEl.destroy();
+}
+```
+
+### Note
+
+You will also need to initialize the "Get Notifications" [Button Swap component](?path=/docs/components-button-swap--default-story#javascript).

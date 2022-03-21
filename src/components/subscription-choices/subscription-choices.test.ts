@@ -7,6 +7,7 @@ import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 const componentMarkup = loadTwigTemplate(
   path.join(__dirname, './subscription-choices.twig')
 );
+// Helper to load the demo Twig template file
 const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));
 
 // Helper to initialize the component JS

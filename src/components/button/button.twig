@@ -18,9 +18,6 @@
   {% if aria_expanded %}
     aria-expanded="{{ aria_expanded }}"
   {% endif %}
-  {% if aria_controls %}
-    aria-controls="{{ aria_controls }}"
-  {% endif %}
   {% if tag_name == 'a' %}
     href="{{ href|default('#') }}"
   {% elseif tag_name == 'button' %}

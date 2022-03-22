@@ -20,7 +20,7 @@
 
 // Alternate theme
 @include theme.props(alternate) {
-  --theme-color-background-subscription-form: #{color.$base-gray-light};
+  --theme-color-background-subscription-form: #{color.$base-gray-lighter};
 }
 
 ///

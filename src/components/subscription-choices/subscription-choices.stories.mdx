@@ -110,7 +110,9 @@ This component embeds the [Button Swap component](?path=/docs/components-button-
 
 ## JavaScript
 
-JavaScript is required for the Subscription Choices component to work.
+JavaScript can be used to enhance the UX for the Subscription Choices component
+by adding a form hide delay when `:focus` is moved away from the
+Subscription Choices component elements.
 
 ### Syntax
 
@@ -122,14 +124,16 @@ initSubscriptionChoices(subscriptionChoicesEl);
 
 #### `subscriptionChoicesEl`
 
-The `.js-subscription-choices` Subscription Choices wrapper element.
+The Subscription Choices component `.js-subscription-choices` root element.
 
 ### Return value
 
-An object with a `destroy` function that removes event listeners.
+An object with a `destroy` function that removes all event listeners added by this component.
 
 ```js
-{ destroy: () => void }
+{
+  destroy: () => void
+}
 ```
 
 ### Examples
@@ -162,4 +166,6 @@ for (const subscriptionChoiceEl of subscriptionChoiceEls) {
 
 ### Note
 
-You will also need to initialize the "Get Notifications" [Button Swap component](?path=/docs/components-button-swap--default-story#javascript).
+You will need to initialize the "Get Notifications" button as well, see the
+[Button Swap component](?path=/docs/components-button-swap--default-story#javascript)
+for initialization docs.

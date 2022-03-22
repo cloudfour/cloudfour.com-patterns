@@ -32,17 +32,27 @@
 }
 
 .c-subscription-choices__controls-wrapper {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1em;
   margin: size.$rhythm-default 0;
 
+  .c-button-swap {
+    flex-grow: 1;
+  }
+
+  .c-button-swap__subscribe {
+    display: flex;
+  }
+
   @media (min-width: breakpoint.$s) {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
   }
 }
 
 .c-subscription-choices__control {
-  inline-size: 100%;
+  // inline-size: 100%;
+  flex-grow: 1;
 }
 
 .c-subscription-choices__form {

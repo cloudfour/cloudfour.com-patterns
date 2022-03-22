@@ -93,7 +93,9 @@ describe('Subscription Choices', () => {
       await page.keyboard.press('Tab');
 
       // Submit button should be in focus
-      const subscribeBtn = await screen.getByRole('button', { name: 'Subscribe' });
+      const subscribeBtn = await screen.getByRole('button', {
+        name: 'Subscribe',
+      });
       await expect(subscribeBtn).toHaveFocus();
 
       // Confirm the form is still "active" (not visually hidden)

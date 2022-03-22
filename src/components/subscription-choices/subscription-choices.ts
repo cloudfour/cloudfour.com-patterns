@@ -1,9 +1,9 @@
 /**
- * Button swap
+ * Subscription Choices
  *
- * Swaps two buttons by toggling the `hidden` attribute on the wrapper for each
- * button + visually hidden message group; only one button + visually hidden
- * message is displayed at a time.
+ * Progressively enhances the UX for the Subscription Choices component. Adds a
+ * form hide delay when the focus exits the Subscriptoin Choices component if
+ * the form is open.
  */
 export const initSubscriptionChoices = (containerEl: HTMLElement) => {
   const SHOW_FORM_CLASS = 'activate-form';

@@ -19,7 +19,7 @@
   margin: size.$rhythm-default 0;
 
   .c-button-swap {
-    flex-grow: 1;
+    flex: 1;
   }
 
   .c-button-swap__subscribe {
@@ -32,7 +32,7 @@
 }
 
 .c-subscription-choices__control {
-  flex-grow: 1;
+  flex: 1;
 }
 
 ///

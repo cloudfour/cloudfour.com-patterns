@@ -52,7 +52,7 @@
   ///    visually hidden when elements within the form are not in focus.
   ///
 
-  label,
+  .c-subscription-choices__input-label,
   .c-subscription-choices:not(.activate-form) // 1
     &:not(:target):not(:focus-within) {
     @include a11y.sr-only;

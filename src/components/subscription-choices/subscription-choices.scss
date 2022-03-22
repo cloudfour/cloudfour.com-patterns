@@ -18,16 +18,16 @@
 }
 
 .c-subscription-choices__control {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .c-subscription-choices__form {
   background-color: var(--form-bg-color, color.$base-white);
+  block-size: 100%;
+  inline-size: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   position: absolute;
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: 100%;
 
   label,
   .c-subscription-choices:not(.activate-form)

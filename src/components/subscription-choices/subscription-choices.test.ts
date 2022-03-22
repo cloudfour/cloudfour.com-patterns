@@ -184,17 +184,15 @@ describe('Subscription Choices', () => {
       });
 
       // Confirm default form values
-      let form = await screen.getByRole('form');
-      let { formAction, emailInputPlaceHolder } = await form.evaluate(
-        (formEl) => ({
-          formAction: formEl.getAttribute('action'),
-          emailInputPlaceHolder: formEl.querySelector('input')?.placeholder,
-        })
-      );
-      expect(formAction).toBe(
+      let form = await screen.getByRole('form', {
+        name: 'Get Weekly Digests',
+      });
+      expect(form).toHaveAttribute(
+        'action',
         'https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67'
       );
-      expect(emailInputPlaceHolder).toBe('Your Email Address');
+      let emailInput = await screen.getByRole('textbox', { name: 'Email' });
+      expect(emailInput).toHaveAttribute('placeholder', 'Your Email Address');
 
       // Customize the component
       await utils.injectHTML(
@@ -224,15 +222,12 @@ describe('Subscription Choices', () => {
       });
 
       // Confirm custom form values
-      form = await screen.getByRole('form');
-      ({ formAction, emailInputPlaceHolder } = await form.evaluate(
-        (formEl) => ({
-          formAction: formEl.getAttribute('action'),
-          emailInputPlaceHolder: formEl.querySelector('input')?.placeholder,
-        })
-      ));
-      expect(formAction).toBe('test-action.com');
-      expect(emailInputPlaceHolder).toBe('Gimme email');
+      form = await screen.getByRole('form', {
+        name: 'Weekly digests available',
+      });
+      expect(form).toHaveAttribute('action', 'test-action.com');
+      emailInput = await screen.getByRole('textbox', { name: 'Email' });
+      expect(emailInput).toHaveAttribute('placeholder', 'Gimme email');
 
       // Confirm custom notifications button
       const notificationsBtn = await screen.getByRole('button', {

@@ -1,12 +1,6 @@
 {% set _heading_tag = heading_tag|default('h2') %}
 
-<div
-  class="c-subscription-choices js-subscription-choices{% if class %} {{ class }}{% endif %}"
-  {% if form_bg_color %}
-    style="--form-bg-color: {{form_bg_color}};"
-  {% endif %}
->
-
+<div class="c-subscription-choices js-subscription-choices{% if class %} {{ class }}{% endif %}">
   <div class="c-subscription-choices__controls">
     <{{_heading_tag}}>
       {{never_miss_article_heading|default('Never miss an article!')}}
@@ -34,7 +28,6 @@ js-subscription-choices__get-weekly-digests-btn
       } only %}
     </div>
   </div>
-
 
   <form
     id="subscription-choices-{{form_id}}"

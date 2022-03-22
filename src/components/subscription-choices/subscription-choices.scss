@@ -2,6 +2,26 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/a11y';
+@use '../../mixins/theme';
+
+///
+/// Theme properties
+///
+
+// Light theme
+@include theme.props {
+  --theme-color-background-subscription-form: #{color.$base-white};
+}
+
+// Dark theme
+@include theme.props(dark) {
+  --theme-color-background-subscription-form: #{color.$brand-primary};
+}
+
+// Alternate theme
+@include theme.props(alternate) {
+  --theme-color-background-subscription-form: #{color.$base-gray-light};
+}
 
 ///
 /// Subscription Choices
@@ -38,6 +58,7 @@
 }
 
 .c-subscription-choices__form {
+  background-color: var(--theme-color-background-subscription-form);
   block-size: 100%;
   inline-size: 100%;
   inset-block-start: 0;

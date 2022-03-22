@@ -52,14 +52,14 @@
   ///    visually hidden when elements within the form are not in focus.
   ///
 
-  .c-subscribe__input-label,
+  .c-subscribe__form-input-label,
   .c-subscribe:not(.activate-form) // 1
     &:not(:target):not(:focus-within) {
     @include a11y.sr-only;
   }
 }
 
-.c-subscribe__input-group {
+.c-subscribe__form-input-group {
   display: flex;
   flex-direction: column;
   gap: 1em;

@@ -131,6 +131,23 @@ describe('Subscription Choices', () => {
       expect(formHeight).toBeGreaterThan(1);
       expect(formWidth).toBeGreaterThan(1);
 
+      // Navigate back quickly to confirm timeout getting cancelled
+      await page.keyboard.down('Shift'); // Navigate backwards
+      await page.keyboard.press('Tab'); // Submit button
+      await page.keyboard.up('Shift'); // Release Shift key
+
+      // Confirm the form is still "active" (not visually hidden)
+      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
+      expect(formHeight).toBeGreaterThan(1);
+      expect(formWidth).toBeGreaterThan(1);
+
+      await page.keyboard.press('Tab'); // Out of the form
+
+      // Confirm the form is still "active" (not visually hidden)
+      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
+      expect(formHeight).toBeGreaterThan(1);
+      expect(formWidth).toBeGreaterThan(1);
+
       // After a timeout, the form eventually visually hides
       await waitFor(
         async () => {

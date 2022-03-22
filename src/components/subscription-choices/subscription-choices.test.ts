@@ -168,14 +168,12 @@ describe('Subscription Choices', () => {
 
       // Confirm default form values
       let form = await screen.getByRole('form');
-      let { formBgColor, formAction, emailInputPlaceHolder } =
-        await form.evaluate((formEl) => ({
-          formBgColor: window.getComputedStyle(formEl).backgroundColor,
+      let { formAction, emailInputPlaceHolder } = await form.evaluate(
+        (formEl) => ({
           formAction: formEl.getAttribute('action'),
           emailInputPlaceHolder: formEl.querySelector('input')?.placeholder,
-        }));
-      // `backgroundColor` returns an RGB value
-      expect(formBgColor).toBe('rgb(255, 255, 255)');
+        })
+      );
       expect(formAction).toBe(
         'https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67'
       );
@@ -189,7 +187,6 @@ describe('Subscription Choices', () => {
           heading_tag: 'h3',
           weekly_digests_heading: 'Weekly digests available',
           never_miss_article_heading: "Don't miss out!",
-          form_bg_color: 'green',
           notifications_btn_class: 'hello',
           notifications_btn_initial_visual_label: 'Yes to notifications',
           weekly_digests_btn_class: 'world',
@@ -211,15 +208,12 @@ describe('Subscription Choices', () => {
 
       // Confirm custom form values
       form = await screen.getByRole('form');
-      ({ formBgColor, formAction, emailInputPlaceHolder } = await form.evaluate(
+      ({ formAction, emailInputPlaceHolder } = await form.evaluate(
         (formEl) => ({
-          formBgColor: window.getComputedStyle(formEl).backgroundColor,
           formAction: formEl.getAttribute('action'),
           emailInputPlaceHolder: formEl.querySelector('input')?.placeholder,
         })
       ));
-      // `backgroundColor` returns an RGB value
-      expect(formBgColor).toBe('rgb(0, 128, 0)');
       expect(formAction).toBe('test-action.com');
       expect(emailInputPlaceHolder).toBe('Gimme email');
 

@@ -3,8 +3,24 @@
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/a11y';
 
+///
+/// Subscription Choices
+///
+
 .c-subscription-choices {
   position: relative;
+}
+
+///
+/// 1. When the form is active, "hide" the choice controls buttons and heading.
+///    Opacity is used over display:none so that you can still tab back
+///    to the button from the form.
+///
+
+.c-subscription-choices__controls {
+  .activate-form & {
+    opacity: 0; // 1
+  }
 }
 
 .c-subscription-choices__controls-wrapper {
@@ -22,7 +38,6 @@
 }
 
 .c-subscription-choices__form {
-  background-color: var(--form-bg-color, color.$base-white);
   block-size: 100%;
   inline-size: 100%;
   inset-block-start: 0;

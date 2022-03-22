@@ -194,8 +194,8 @@ describe('Subscription Choices', () => {
           notifications_btn_initial_visual_label: 'Yes to notifications',
           weekly_digests_btn_class: 'world',
           weekly_digests_btn_label: 'I want weekly digests',
-          weekly_digests_email_input_placeholder: 'Gimme email',
-          weekly_digests_submit_btn_label: 'Sign up',
+          email_input_placeholder: 'Gimme email',
+          submit_btn_label: 'Sign up',
         })
       );
 

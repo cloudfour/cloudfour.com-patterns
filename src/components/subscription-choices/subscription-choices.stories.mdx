@@ -51,11 +51,11 @@ const templateStory = (args) => {
       type: 'string',
       defaultValue: 'Get Weekly Digests',
     },
-    weekly_digests_email_input_placeholder: {
+    email_input_placeholder: {
       type: 'string',
       defaultValue: 'Your Email Address',
     },
-    weekly_digests_submit_btn_label: {
+    submit_btn_label: {
       type: 'string',
       defaultValue: 'Subscribe',
     },
@@ -70,7 +70,6 @@ This component embeds the [Button Swap component](?path=/docs/components-button-
 
 <Canvas>
   <Story
-    inline={false}
     name="Default"
     args={{
       form_id: 'example-demo',
@@ -90,25 +89,24 @@ This component embeds the [Button Swap component](?path=/docs/components-button-
 
 ### Optional
 
-| property                                 | type   | default                                 | description                                                                                                                   |
-| ---------------------------------------- | ------ | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `class`                                  | string | `''`                                    | Appends a CSS class(es) to the root `.c-subscription-choices` element.                                                        |
-| `form_bg_color`                          | string | `#ffffff`                               | Sets the background color of the subscription form. The `--form-bg-color` CSS custom property can alternatively be used also. |
-| `form_action`                            | string | TBD                                     | The subscription form `action` value                                                                                          |
-| `heading_tag`                            | string | `'h2'`                                  | The heading value (`h1`-`h6`)                                                                                                 |
-| `never_miss_article_heading`             | string | `'Never miss an article!'`              | The default heading                                                                                                           |
-| `notifications_btn_class`                | string | `''`                                    | Appends a CSS class(es) to the "Get notifications" button                                                                     |
-| `notifications_btn_initial_label`        | string | `'Notifications have been turned off.'` | See [Button Swap `initial_label`](?path=/docs/components-button-swap--default-story#template-properties)                      |
-| `notifications_btn_initial_visual_label` | string | `'Get notifications'`                   | See [Button Swap `initial_visual_label`](?path=/docs/components-button-swap--default-story#template-properties)               |
-| `notifications_btn_swapped_label`        | string | `'Notifications have been turned on.'`  | See [Button Swap `swapped_label`](?path=/docs/components-button-swap--default-story#template-properties)                      |
-| `notifications_btn_swapped_visual_label` | string | `'Turn off notifications'`              | See [Button Swap `swapped_visual_label`](?path=/docs/components-button-swap--default-story#template-properties)               |
-| `weekly_digests_btn_class`               | string | `''`                                    | Appends a CSS class(es) to the "Weekly Digests" button                                                                        |
-| `weekly_digests_btn_label`               | string | `'Get Weekly Digests'`                  | The "Weekly Digests" button label                                                                                             |
-| `weekly_digests_btn_icon`                | string | `'envelope' `                           | The "Weekly Digests" button [icon](?path=/docs/design-icons--page)                                                            |
-| `weekly_digests_heading`                 | string | `'Get Weekly Digests'`                  | The subscription form heading                                                                                                 |
-| `weekly_digests_email_input_label`       | string | `'Email'`                               | The email input label                                                                                                         |
-| `weekly_digests_email_input_placeholder` | string | `'Your Email Address'`                  | The email input placeholder text                                                                                              |
-| `weekly_digests_submit_btn_label`        | string | `'Subscribe'`                           | The subscription form submit button label                                                                                     |
+| property                                 | type   | default                                 | description                                                                                                     |
+| ---------------------------------------- | ------ | --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `class`                                  | string | `''`                                    | Appends a CSS class(es) to the root `.c-subscription-choices` element.                                          |
+| `form_action`                            | string | TBD                                     | The subscription form `action` value                                                                            |
+| `heading_tag`                            | string | `'h2'`                                  | The heading value (`h1`-`h6`)                                                                                   |
+| `never_miss_article_heading`             | string | `'Never miss an article!'`              | The default heading                                                                                             |
+| `notifications_btn_class`                | string | `''`                                    | Appends a CSS class(es) to the "Get notifications" button                                                       |
+| `notifications_btn_initial_label`        | string | `'Notifications have been turned off.'` | See [Button Swap `initial_label`](?path=/docs/components-button-swap--default-story#template-properties)        |
+| `notifications_btn_initial_visual_label` | string | `'Get notifications'`                   | See [Button Swap `initial_visual_label`](?path=/docs/components-button-swap--default-story#template-properties) |
+| `notifications_btn_swapped_label`        | string | `'Notifications have been turned on.'`  | See [Button Swap `swapped_label`](?path=/docs/components-button-swap--default-story#template-properties)        |
+| `notifications_btn_swapped_visual_label` | string | `'Turn off notifications'`              | See [Button Swap `swapped_visual_label`](?path=/docs/components-button-swap--default-story#template-properties) |
+| `weekly_digests_btn_class`               | string | `''`                                    | Appends a CSS class(es) to the "Weekly Digests" button                                                          |
+| `weekly_digests_btn_label`               | string | `'Get Weekly Digests'`                  | The "Weekly Digests" button label                                                                               |
+| `weekly_digests_btn_icon`                | string | `'envelope' `                           | The "Weekly Digests" button [icon](?path=/docs/design-icons--page)                                              |
+| `weekly_digests_heading`                 | string | `'Get Weekly Digests'`                  | The subscription form heading                                                                                   |
+| `email_input_label`                      | string | `'Email'`                               | The email input label                                                                                           |
+| `email_input_placeholder`                | string | `'Your Email Address'`                  | The email input placeholder text                                                                                |
+| `submit_btn_label`                       | string | `'Subscribe'`                           | The subscription form submit button label                                                                       |
 
 ## JavaScript
 

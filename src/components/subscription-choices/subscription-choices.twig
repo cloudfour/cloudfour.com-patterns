@@ -50,18 +50,18 @@ js-subscription-choices__get-weekly-digests-btn
 
     <div class="c-subscription-choices__input-group">
       <label for="subscription-email-{{form_id}}">
-        {{weekly_digests_email_input_label|default('Email')}}
+        {{email_input_label|default('Email')}}
       </label>
       <input
         id="subscription-email-{{form_id}}"
         class="c-input"
         type="text"
-        placeholder="{{weekly_digests_email_input_placeholder|default('Your Email Address')}}"
+        placeholder="{{email_input_placeholder|default('Your Email Address')}}"
         autocomplete="home email",
         required
       />
       <button class="c-button">
-        {{weekly_digests_submit_btn_label|default('Subscribe')}}
+        {{submit_btn_label|default('Subscribe')}}
       </button>
     </div>
   </form>

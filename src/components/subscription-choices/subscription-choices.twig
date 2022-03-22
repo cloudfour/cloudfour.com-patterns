@@ -1,14 +1,14 @@
 {% set _heading_tag = heading_tag|default('h2') %}
 
-<div class="c-subscription-choices js-subscription-choices{% if class %} {{ class }}{% endif %}">
-  <div class="c-subscription-choices__controls">
+<div class="c-subscribe js-subscription-choices{% if class %} {{ class }}{% endif %}">
+  <div class="c-subscribe__controls">
     <{{_heading_tag}}>
       {{never_miss_article_heading|default('Never miss an article!')}}
     </{{_heading_tag}}>
 
-    <div class="c-subscription-choices__controls-wrapper">
+    <div class="c-subscribe__controls-wrapper">
       {% include '@cloudfour/components/button-swap/button-swap.twig' with {
-        button_class: "c-subscription-choices__control
+        button_class: "c-subscribe__control
 js-subscription-choices__control
 #{notifications_btn_class|default('')}",
         initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
@@ -19,7 +19,7 @@ js-subscription-choices__control
 
       {% include '@cloudfour/components/button/button.twig' with {
         href: "#subscription-choices-#{form_id}",
-        class: "c-subscription-choices__control
+        class: "c-subscribe__control
 js-subscription-choices__control
 js-subscription-choices__get-weekly-digests-btn
 #{weekly_digests_btn_class|default('')}",
@@ -34,15 +34,15 @@ js-subscription-choices__get-weekly-digests-btn
     action="{{form_action|default('https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67')}}"
     method="post"
     target="_blank"
-    class="c-subscription-choices__form"
+    class="c-subscribe__form"
     aria-labelledby="get-weekly-digests-{{form_id}}"
   >
     <{{_heading_tag}} id="get-weekly-digests-{{form_id}}">
       {{weekly_digests_heading|default('Get Weekly Digests')}}
     </{{_heading_tag}}>
 
-    <div class="c-subscription-choices__input-group">
-      <label class="c-subscription-choices__input-label" for="subscription-email-{{form_id}}">
+    <div class="c-subscribe__input-group">
+      <label class="c-subscribe__input-label" for="subscription-email-{{form_id}}">
         {{email_input_label|default('Email')}}
       </label>
       <input

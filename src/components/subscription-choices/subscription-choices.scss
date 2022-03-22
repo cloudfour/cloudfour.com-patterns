@@ -8,11 +8,11 @@
 /// Subscription Choices
 ///
 
-.c-subscription-choices {
+.c-subscribe {
   position: relative;
 }
 
-.c-subscription-choices__controls-wrapper {
+.c-subscribe__controls-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -31,7 +31,7 @@
   }
 }
 
-.c-subscription-choices__control {
+.c-subscribe__control {
   flex: 1;
 }
 
@@ -39,7 +39,7 @@
 /// 1. Ensures the form background color matches the current theme
 ///
 
-.c-subscription-choices__form {
+.c-subscribe__form {
   background-color: var(--theme-color-background-base); // 1
   block-size: 100%;
   inline-size: 100%;
@@ -52,14 +52,14 @@
   ///    visually hidden when elements within the form are not in focus.
   ///
 
-  .c-subscription-choices__input-label,
-  .c-subscription-choices:not(.activate-form) // 1
+  .c-subscribe__input-label,
+  .c-subscribe:not(.activate-form) // 1
     &:not(:target):not(:focus-within) {
     @include a11y.sr-only;
   }
 }
 
-.c-subscription-choices__input-group {
+.c-subscribe__input-group {
   display: flex;
   flex-direction: column;
   gap: 1em;

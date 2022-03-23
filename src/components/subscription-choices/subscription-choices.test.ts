@@ -163,7 +163,7 @@ describe('Subscription Choices', () => {
         }
       );
 
-      // Navigate back quickly to confirm timeout getting cancelled
+      // Navigate back into the form
       await page.keyboard.down('Shift'); // Navigate backwards
       await page.keyboard.press('Tab'); // Submit button
       await page.keyboard.up('Shift'); // Release Shift key
@@ -176,15 +176,12 @@ describe('Subscription Choices', () => {
       // Should hide the form
       await page.keyboard.press('Escape');
 
-      // The form should now be visually hidden
+      // Confirm the form should is visually hidden
       ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
       expect(formHeight).toBeLessThanOrEqual(1);
       expect(formWidth).toBeLessThanOrEqual(1);
 
-      // Confirm the focus has moved back to the Weekly Digests link
-      // const weeklyDigestsBtn = await screen.getByRole('link', {
-      //   name: 'Get Weekly Digests',
-      // });
+      // The focus should reset back to the "weekly digests" link
       await expect(weeklyDigestsBtn).toHaveFocus();
     })
   );

@@ -1,8 +1,8 @@
 import { Story, Canvas, Meta } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include';
-import template from './subscription-choices.twig';
-import { initSubscriptionChoices } from './subscription-choices.ts';
+import template from './subscribe.twig';
+import { initSubscriptionChoices } from './subscribe.ts';
 // Helper function to initialize toggling button JS
 const templateStory = (args) => {
   useEffect(() => {
@@ -17,7 +17,7 @@ const templateStory = (args) => {
 };
 
 <Meta
-  title="Components/Subscription Choices"
+  title="Components/Subscribe"
   argTypes={{
     form_id: {
       type: { name: 'string', required: true },

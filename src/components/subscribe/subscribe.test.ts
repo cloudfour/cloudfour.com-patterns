@@ -5,7 +5,7 @@ import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
 // Helper to load the Twig template file
 const componentMarkup = loadTwigTemplate(
-  path.join(__dirname, './subscription-choices.twig')
+  path.join(__dirname, './subscribe.twig')
 );
 // Helper to load the demo Twig template file
 const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));

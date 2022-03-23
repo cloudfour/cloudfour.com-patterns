@@ -8,11 +8,9 @@
 
     <div class="c-subscribe__controls-wrapper">
       {% include '@cloudfour/components/button-swap/button-swap.twig' with {
-        class: 'c-subscribe__button-swap',
         button_class: "c-subscribe__control
 js-subscription-choices__control
 #{notifications_btn_class|default('')}",
-        button_wrapper_class: "c-subscribe__button-swap-button-wrapper",
         initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
         initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
         swapped_label: notifications_btn_swapped_label|default('Notifications have been turned on.'),

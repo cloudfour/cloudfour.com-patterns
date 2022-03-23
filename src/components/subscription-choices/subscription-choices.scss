@@ -13,26 +13,17 @@
 }
 
 .c-subscribe__controls-wrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1em;
   margin: size.$rhythm-default 0;
 
-  .c-subscribe__button-swap {
-    flex: 1;
-  }
-
-  .c-subscribe__button-swap-button-wrapper {
-    display: flex;
-  }
-
   @media (min-width: breakpoint.$s) {
-    flex-direction: row;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 .c-subscribe__control {
-  flex: 1;
+  width: 100%;
 }
 
 ///

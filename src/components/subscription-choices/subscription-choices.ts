@@ -62,7 +62,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
     formEl.querySelector('input')?.focus();
   };
 
-  // Handles for the Escape keydown event
+  // Handler for the Escape keydown event
   const onKeydown = (event: KeyboardEvent) => {
     // We need to hide the form and reset the focus, we can get both by setting
     // the focus back to the "Get Weekly Digests" link.

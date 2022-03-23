@@ -6,7 +6,7 @@
 
 🚨 **You are currently viewing the `v-next` branch.** This represents a significant refactor of our environment and coding standards. It is a work in progress and not yet ready for use.
 
-If you’re looking for the most stable version of our pattern library, check out [the `master` branch](https://github.com/cloudfour/cloudfour.com-patterns/tree/master).
+If you’re looking for the most stable version of our pattern library, check out [the `main` branch](https://github.com/cloudfour/cloudfour.com-patterns/tree/main).
 
 [View Netlify Preview →](https://v-next--cloudfour-patterns.netlify.com/)
 

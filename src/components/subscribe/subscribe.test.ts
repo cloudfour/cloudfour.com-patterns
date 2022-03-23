@@ -13,9 +13,9 @@ const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));
 // Helper to initialize the component JS
 const initJS = (utils: PleasantestUtils) =>
   utils.runJS(`
-    import { initSubscriptionChoices } from './subscription-choices'
-    export default () => initSubscriptionChoices(
-      document.querySelector('.js-subscription-choices')
+    import { initSubscribe } from './subscribe'
+    export default () => initSubscribe(
+      document.querySelector('.js-subscribe')
     )
   `);
 
@@ -24,7 +24,7 @@ describe('Subscription', () => {
     'should use semantic markup',
     withBrowser(async ({ utils, page }) => {
       await loadGlobalCSS(utils);
-      await utils.loadCSS('./subscription-choices.scss');
+      await utils.loadCSS('./subscribe.scss');
       await utils.injectHTML(await componentMarkup());
       await initJS(utils);
 
@@ -51,7 +51,7 @@ describe('Subscription', () => {
     'should be keyboard accessible',
     withBrowser(async ({ utils, screen, waitFor, page }) => {
       await loadGlobalCSS(utils);
-      await utils.loadCSS('./subscription-choices.scss');
+      await utils.loadCSS('./subscribe.scss');
       await utils.injectHTML(await demoMarkup());
       await initJS(utils);
 
@@ -191,7 +191,7 @@ describe('Subscription', () => {
     withBrowser(async ({ utils, screen }) => {
       // Set up CSS
       await loadGlobalCSS(utils);
-      await utils.loadCSS('./subscription-choices.scss');
+      await utils.loadCSS('./subscribe.scss');
 
       // No customization
       await utils.injectHTML(await componentMarkup({ form_id: 'test' }));

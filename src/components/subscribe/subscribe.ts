@@ -5,7 +5,7 @@
  * form hide delay when the focus exits the Subscriptoin Choices component if
  * the form is open.
  */
-export const initSubscriptionChoices = (containerEl: HTMLElement) => {
+export const initSubscribe = (containerEl: HTMLElement) => {
   const SHOW_FORM_CLASS = 'activate-form';
   const BLUR_TIMEOUT = 1000; // Milliseconds
 
@@ -16,20 +16,18 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
 
   // Query all the required elements
   const getWeeklyDigestsBtn = containerEl.querySelector(
-    '.js-subscription-choices__get-weekly-digests-btn'
+    '.js-subscribe__get-weekly-digests-btn'
   );
   const formEl = containerEl.querySelector('form');
   const formFocusableEls = containerEl.querySelectorAll('label, input, button');
-  const controlEls = containerEl.querySelectorAll(
-    '.js-subscription-choices__control'
-  );
+  const controlEls = containerEl.querySelectorAll('.js-subscribe__control');
 
   // Confirm we have what we need to proceed
   if (!getWeeklyDigestsBtn || !formEl) {
     return;
   }
 
-  // Hide the form anytime a `js-subscription-choices__control` gets focus
+  // Hide the form anytime a `js-subscribe__control` gets focus
   const onControlFocus = () => {
     clearTimeout(blurTimeoutId);
     containerEl.classList.remove(SHOW_FORM_CLASS);

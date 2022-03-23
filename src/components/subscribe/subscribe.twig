@@ -1,6 +1,6 @@
 {% set _heading_tag = heading_tag|default('h2') %}
 
-<div class="c-subscribe js-subscription-choices{% if class %} {{ class }}{% endif %}">
+<div class="c-subscribe js-subscribe{% if class %} {{ class }}{% endif %}">
   <div class="c-subscribe__controls">
     <{{_heading_tag}}>
       {{never_miss_article_heading|default('Never miss an article!')}}
@@ -9,7 +9,7 @@
     <div class="c-subscribe__controls-wrapper">
       {% include '@cloudfour/components/button-swap/button-swap.twig' with {
         button_class: "c-subscribe__control
-js-subscription-choices__control
+js-subscribe__control
 #{notifications_btn_class|default('')}",
         initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
         initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
@@ -18,10 +18,10 @@ js-subscription-choices__control
       } only %}
 
       {% include '@cloudfour/components/button/button.twig' with {
-        href: "#subscription-choices-#{form_id}",
+        href: "#subscribe-#{form_id}",
         class: "c-subscribe__control
-js-subscription-choices__control
-js-subscription-choices__get-weekly-digests-btn
+js-subscribe__control
+js-subscribe__get-weekly-digests-btn
 #{weekly_digests_btn_class|default('')}",
         label: weekly_digests_btn_label|default('Get Weekly Digests'),
         content_start_icon: weekly_digests_btn_icon|default('envelope')
@@ -30,7 +30,7 @@ js-subscription-choices__get-weekly-digests-btn
   </div>
 
   <form
-    id="subscription-choices-{{form_id}}"
+    id="subscribe-{{form_id}}"
     action="{{form_action|default('https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67')}}"
     method="post"
     target="_blank"

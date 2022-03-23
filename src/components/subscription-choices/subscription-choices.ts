@@ -11,6 +11,8 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
 
   // Keeps track of active setTimeouts
   let blurTimeoutId: number;
+  // Keeps the current state of the form
+  let isFormOpen = false;
 
   // Query all the required elements
   const getWeeklyDigestsBtn = containerEl.querySelector(
@@ -31,6 +33,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
   const onControlFocus = () => {
     clearTimeout(blurTimeoutId);
     containerEl.classList.remove(SHOW_FORM_CLASS);
+    isFormOpen = false;
   };
 
   // Show the form anytime any form element gets focus
@@ -38,6 +41,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
   const onFormFocus = () => {
     clearTimeout(blurTimeoutId);
     containerEl.classList.add(SHOW_FORM_CLASS);
+    isFormOpen = true;
   };
 
   // Hide the form after a delay anytime focus is removed from a form element
@@ -45,6 +49,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
     clearTimeout(blurTimeoutId);
     blurTimeoutId = window.setTimeout(() => {
       containerEl.classList.remove(SHOW_FORM_CLASS);
+      isFormOpen = false;
     }, BLUR_TIMEOUT);
   };
 
@@ -52,8 +57,18 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
   const onGetWeeklyDigestsClick = (event: Event) => {
     event.preventDefault();
     containerEl.classList.add(SHOW_FORM_CLASS);
+    isFormOpen = true;
     // Jump the focus to the first input element
     formEl.querySelector('input')?.focus();
+  };
+
+  // Handles for the Escape keydown event
+  const onKeydown = (event: KeyboardEvent) => {
+    // We need to hide the form and reset the focus, we can get both by setting
+    // the focus back to the "Get Weekly Digests" link.
+    if (event.key === 'Escape' && isFormOpen) {
+      (getWeeklyDigestsBtn as HTMLElement).focus();
+    }
   };
 
   // Clean up event listeners
@@ -66,6 +81,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
     for (const controlEl of controlEls) {
       controlEl.removeEventListener('focus', onControlFocus);
     }
+    document.removeEventListener('keydown', onKeydown);
   };
 
   // Set up all event listeners
@@ -78,6 +94,7 @@ export const initSubscriptionChoices = (containerEl: HTMLElement) => {
     for (const controlEl of controlEls) {
       controlEl.addEventListener('focus', onControlFocus);
     }
+    document.addEventListener('keydown', onKeydown);
   };
 
   init();

@@ -162,6 +162,30 @@ describe('Subscription Choices', () => {
           interval: 1000,
         }
       );
+
+      // Navigate back quickly to confirm timeout getting cancelled
+      await page.keyboard.down('Shift'); // Navigate backwards
+      await page.keyboard.press('Tab'); // Submit button
+      await page.keyboard.up('Shift'); // Release Shift key
+
+      // Confirm the form is "active" again (not visually hidden)
+      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
+      expect(formHeight).toBeGreaterThan(1);
+      expect(formWidth).toBeGreaterThan(1);
+
+      // Should hide the form
+      await page.keyboard.press('Escape');
+
+      // The form should now be visually hidden
+      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
+      expect(formHeight).toBeLessThanOrEqual(1);
+      expect(formWidth).toBeLessThanOrEqual(1);
+
+      // Confirm the focus has moved back to the Weekly Digests link
+      // const weeklyDigestsBtn = await screen.getByRole('link', {
+      //   name: 'Get Weekly Digests',
+      // });
+      await expect(weeklyDigestsBtn).toHaveFocus();
     })
   );
 

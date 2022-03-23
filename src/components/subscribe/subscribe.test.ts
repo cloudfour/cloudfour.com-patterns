@@ -19,7 +19,7 @@ const initJS = (utils: PleasantestUtils) =>
     )
   `);
 
-describe('Subscription Choices', () => {
+describe('Subscription', () => {
   test(
     'should use semantic markup',
     withBrowser(async ({ utils, page }) => {

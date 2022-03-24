@@ -1,36 +1,34 @@
 {% set _heading_tag = heading_tag|default('h2') %}
 
 <div class="c-subscribe js-subscribe {{class}}">
+  <{{_heading_tag}}>
+    {{never_miss_article_heading|default('Never miss an article!')}}
+  </{{_heading_tag}}>
+
   <div class="c-subscribe__controls">
-    <{{_heading_tag}}>
-      {{never_miss_article_heading|default('Never miss an article!')}}
-    </{{_heading_tag}}>
+    {% include '@cloudfour/components/button-swap/button-swap.twig' with {
+      button_class: [
+        'c-subscribe__control',
+        'js-subscribe__control',
+        notifications_btn_class|default('')
+      ]|join(' '),
+      initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
+      initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
+      swapped_label: notifications_btn_swapped_label|default('Notifications have been turned on.'),
+      swapped_visual_label: notifications_btn_swapped_visual_label|default('Turn off notifications'),
+    } only %}
 
-    <div class="c-subscribe__controls-wrapper">
-      {% include '@cloudfour/components/button-swap/button-swap.twig' with {
-        button_class: [
-          'c-subscribe__control',
-          'js-subscribe__control',
-          notifications_btn_class|default('')
-        ]|join(' '),
-        initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
-        initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
-        swapped_label: notifications_btn_swapped_label|default('Notifications have been turned on.'),
-        swapped_visual_label: notifications_btn_swapped_visual_label|default('Turn off notifications'),
-      } only %}
-
-      {% include '@cloudfour/components/button/button.twig' with {
-        href: "#subscribe-#{form_id}",
-        class: [
-          'c-subscribe__control',
-          'js-subscribe__control',
-          'js-subscribe__get-weekly-digests-btn',
-          weekly_digests_btn_class|default('')
-        ]|join(' '),
-        label: weekly_digests_btn_label|default('Get Weekly Digests'),
-        content_start_icon: weekly_digests_btn_icon|default('envelope')
-      } only %}
-    </div>
+    {% include '@cloudfour/components/button/button.twig' with {
+      href: "#subscribe-#{form_id}",
+      class: [
+        'c-subscribe__control',
+        'js-subscribe__control',
+        'js-subscribe__get-weekly-digests-btn',
+        weekly_digests_btn_class|default('')
+      ]|join(' '),
+      label: weekly_digests_btn_label|default('Get Weekly Digests'),
+      content_start_icon: weekly_digests_btn_icon|default('envelope')
+    } only %}
   </div>
 
   <form

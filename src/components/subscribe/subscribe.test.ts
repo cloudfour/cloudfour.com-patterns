@@ -1,5 +1,5 @@
 import path from 'path';
-import type { PleasantestUtils } from 'pleasantest';
+import type { ElementHandle, PleasantestUtils } from 'pleasantest';
 import { withBrowser, getAccessibilityTree } from 'pleasantest';
 import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
@@ -9,6 +9,39 @@ const componentMarkup = loadTwigTemplate(
 );
 // Helper to load the demo Twig template file
 const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));
+
+/**
+ * Helper function that checks the `clientHeight` and `clientWidth` of
+ * a given element, expects dimensions to be smaller than or equal to `1`
+ * meaning the element is visually hidden.
+ */
+const expectElementToBeVisuallyHidden = async (
+  element: ElementHandle<HTMLElement>
+) => {
+  const { elHeight, elWidth } = await element.evaluate((el: HTMLElement) => ({
+    elHeight: el.clientHeight,
+    elWidth: el.clientWidth,
+  }));
+  expect(elHeight).toBeLessThanOrEqual(1);
+  expect(elWidth).toBeLessThanOrEqual(1);
+};
+
+/**
+ * Helper function that checks the `clientHeight` and `clientWidth` of
+ * given element, expects dimensions to be greater than or equal to `1`
+ * meaning the element is not visually hidden.
+ */
+const expectElementNotToBeVisuallyHidden = async (
+  form: ElementHandle<HTMLElement>
+) => {
+  const { elHeight, elWidth } = await form.evaluate((el: HTMLElement) => ({
+    elHeight: el.clientHeight,
+    elWidth: el.clientWidth,
+  }));
+
+  expect(elHeight).toBeGreaterThan(1);
+  expect(elWidth).toBeGreaterThan(1);
+};
 
 // Helper to initialize the component JS
 const initJS = (utils: PleasantestUtils) =>
@@ -55,25 +88,11 @@ describe('Subscription', () => {
       await utils.injectHTML(await demoMarkup());
       await initJS(utils);
 
-      // Helper function used throughout this test
-      //
-      // I eslint-disabled because it was wanted me to pull this function
-      // outside of the scope of this test, but, I feel collocating the function
-      // within the only test that uses the function makes more sense.
-      //
-      // eslint-disable-next-line @cloudfour/unicorn/consistent-function-scoping
-      const getFormDimensions = (formEl: HTMLElement) => ({
-        formHeight: formEl.clientHeight,
-        formWidth: formEl.clientWidth,
-      });
-
       // Confirm the form is visually hidden by default
       const form = await screen.getByRole('form', {
         name: 'Get Weekly Digests',
       });
-      let { formHeight, formWidth } = await form.evaluate(getFormDimensions);
-      expect(formHeight).toBeLessThanOrEqual(1);
-      expect(formWidth).toBeLessThanOrEqual(1);
+      await expectElementToBeVisuallyHidden(form);
 
       // Tab all the way to the form email input
       await page.keyboard.press('Tab'); // Notifications button
@@ -81,9 +100,7 @@ describe('Subscription', () => {
       await page.keyboard.press('Tab'); // Email input
 
       // Confirm the form is now "active" (not visually hidden)
-      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
-      expect(formHeight).toBeGreaterThan(1);
-      expect(formWidth).toBeGreaterThan(1);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Email input should be in focus
       const emailInput = await screen.getByRole('textbox', { name: 'Email' });
@@ -99,12 +116,7 @@ describe('Subscription', () => {
       await expect(subscribeBtn).toHaveFocus();
 
       // Confirm the form is still "active" (not visually hidden)
-      ({ formHeight, formWidth } = await form.evaluate((formEl) => ({
-        formHeight: formEl.clientHeight,
-        formWidth: formEl.clientWidth,
-      })));
-      expect(formHeight).toBeGreaterThan(1);
-      expect(formWidth).toBeGreaterThan(1);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Navigate back up to the Weekly Digests link
       await page.keyboard.down('Shift'); // Navigate backwards
@@ -119,9 +131,7 @@ describe('Subscription', () => {
       await expect(weeklyDigestsBtn).toHaveFocus();
 
       // The form should now be visually hidden again
-      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
-      expect(formHeight).toBeLessThanOrEqual(1);
-      expect(formWidth).toBeLessThanOrEqual(1);
+      await expectElementToBeVisuallyHidden(form);
 
       // Navigate forward past the Submit to activate the form hide timeout
       await page.keyboard.press('Tab'); // Email input
@@ -129,9 +139,7 @@ describe('Subscription', () => {
       await page.keyboard.press('Tab'); // Out of the form
 
       // Confirm the form is still "active" (not visually hidden)
-      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
-      expect(formHeight).toBeGreaterThan(1);
-      expect(formWidth).toBeGreaterThan(1);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Navigate back quickly to confirm timeout getting cancelled
       await page.keyboard.down('Shift'); // Navigate backwards
@@ -139,23 +147,17 @@ describe('Subscription', () => {
       await page.keyboard.up('Shift'); // Release Shift key
 
       // Confirm the form is still "active" (not visually hidden)
-      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
-      expect(formHeight).toBeGreaterThan(1);
-      expect(formWidth).toBeGreaterThan(1);
+      await expectElementNotToBeVisuallyHidden(form);
 
       await page.keyboard.press('Tab'); // Out of the form
 
       // Confirm the form is still "active" (not visually hidden)
-      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
-      expect(formHeight).toBeGreaterThan(1);
-      expect(formWidth).toBeGreaterThan(1);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // After a timeout, the form eventually visually hides
       await waitFor(
         async () => {
-          ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
-          expect(formHeight).toBeLessThanOrEqual(1);
-          expect(formWidth).toBeLessThanOrEqual(1);
+          await expectElementToBeVisuallyHidden(form);
         },
         {
           timeout: 2000,
@@ -169,17 +171,13 @@ describe('Subscription', () => {
       await page.keyboard.up('Shift'); // Release Shift key
 
       // Confirm the form is "active" again (not visually hidden)
-      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
-      expect(formHeight).toBeGreaterThan(1);
-      expect(formWidth).toBeGreaterThan(1);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Should hide the form
       await page.keyboard.press('Escape');
 
       // Confirm the form should is visually hidden
-      ({ formHeight, formWidth } = await form.evaluate(getFormDimensions));
-      expect(formHeight).toBeLessThanOrEqual(1);
-      expect(formWidth).toBeLessThanOrEqual(1);
+      await expectElementToBeVisuallyHidden(form);
 
       // The focus should reset back to the "weekly digests" link
       await expect(weeklyDigestsBtn).toHaveFocus();

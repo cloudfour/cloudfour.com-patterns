@@ -1,9 +1,12 @@
 /**
  * Subscribe
  *
- * Progressively enhances the UX for the Subscribe component. Adds a
- * form hide delay when the focus exits the Subscriptoin Choices component if
- * the form is open.
+ * Progressively enhances the UX for the Subscribe component.
+ *
+ * Enhancements include:
+ * - A one second form hide delay is added when `:focus` is moved away from the
+ *   Subscribe component elements
+ * - The form can be hidden by pressing the `Escape` key
  */
 export const initSubscribe = (containerEl: HTMLElement) => {
   const SHOW_FORM_CLASS = 'activate-form';

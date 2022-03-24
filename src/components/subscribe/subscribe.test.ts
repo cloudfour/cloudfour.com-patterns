@@ -238,7 +238,7 @@ describe('Subscription', () => {
       });
 
       // Confirm custom form values
-      form = await screen.getByRole('form', {
+      const form = await screen.getByRole('form', {
         name: 'Weekly digests available',
       });
       expect(form).toHaveAttribute('action', 'test-action.com');

@@ -1,7 +1,7 @@
 /**
- * Subscription Choices
+ * Subscribe
  *
- * Progressively enhances the UX for the Subscription Choices component. Adds a
+ * Progressively enhances the UX for the Subscribe component. Adds a
  * form hide delay when the focus exits the Subscriptoin Choices component if
  * the form is open.
  */

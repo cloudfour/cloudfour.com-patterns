@@ -57,9 +57,9 @@ const templateStory = (args) => {
   }}
 />
 
-# Subscription Choices
+# Subscribe
 
-The Subscription Choices component provides the UI to subscribe to notifications and/or email weekly digests.
+The Subscribe component provides the UI to subscribe to notifications and/or email weekly digests.
 
 This component embeds the [Button Swap component](?path=/docs/components-button-swap--default-story) for the "Get Notifications" button.
 
@@ -118,9 +118,10 @@ This component embeds the [Button Swap component](?path=/docs/components-button-
 
 ## JavaScript
 
-The Subscription Choices component UX can be progressively enhanced by adding
-a 1 second form hide delay when `:focus` is moved away from the Subscription
-Choices component elements.
+The Subscribe component UX can be progressively enhanced using JavaScript in the following ways:
+
+- A one second form hide delay is added when `:focus` is moved away from the Subscribe component elements
+- The form can be hidden by pressing the <kbd>Escape</kbd> key
 
 ### Syntax
 
@@ -132,7 +133,7 @@ initSubscribe(subscriptionChoicesEl);
 
 #### `subscriptionChoicesEl`
 
-The Subscription Choices component `.js-subscribe` root element.
+The Subscribe component `.js-subscribe` root element.
 
 ### Return value
 
@@ -146,7 +147,7 @@ An object with a `destroy` function that removes all event listeners added by th
 
 ### Examples
 
-#### Single Subscription Choices component on the page
+#### Single Subscribe component on the page
 
 ```js
 // Initialize
@@ -158,7 +159,7 @@ const subscriptionChoicesEl = initSubscribe(
 subscriptionChoicesEl.destroy();
 ```
 
-#### Multiple Subscription Choices components on the page
+#### Multiple Subscribe components on the page
 
 ```js
 // Initialize

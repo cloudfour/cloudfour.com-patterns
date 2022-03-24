@@ -207,13 +207,6 @@ describe('Subscription', () => {
       });
 
       // Confirm default form values
-      let form = await screen.getByRole('form', {
-        name: 'Get Weekly Digests',
-      });
-      expect(form).toHaveAttribute(
-        'action',
-        'https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67'
-      );
       let emailInput = await screen.getByRole('textbox', { name: 'Email' });
       expect(emailInput).toHaveAttribute('placeholder', 'Your Email Address');
 

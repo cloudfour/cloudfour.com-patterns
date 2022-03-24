@@ -28,22 +28,21 @@ const templateStory = (args) => {
         },
       },
     },
-    class: {
-      type: 'string',
-      description: 'Appends to the CSS class of the root element',
+    form_action: {
+      type: { name: 'string', required: true },
+      description: 'The Weekly Digests form `action` value',
       table: {
         defaultValue: {
           summary: '',
         },
       },
     },
-    form_action: {
+    class: {
       type: 'string',
-      description: 'The Weekly Digests form `action` value',
+      description: 'Appends to the CSS class of the root element',
       table: {
         defaultValue: {
-          summary:
-            'https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67',
+          summary: '',
         },
       },
     },

@@ -51,12 +51,5 @@
 }
 
 .c-subscribe__form-input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
   margin: size.$rhythm-default 0;
-
-  @media (min-width: breakpoint.$s) {
-    flex-direction: row;
-  }
 }

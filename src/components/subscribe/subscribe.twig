@@ -45,21 +45,32 @@
       {{weekly_digests_heading|default('Get Weekly Digests')}}
     </{{_heading_tag}}>
 
-    <div class="c-subscribe__form-input-group">
-      <label class="c-subscribe__form-input-label" for="subscription-email-{{form_id}}">
-        {{email_input_label|default('Email')}}
-      </label>
-      <input
-        id="subscription-email-{{form_id}}"
-        class="c-subscribe__form-input c-input"
-        type="text"
-        placeholder="{{email_input_placeholder|default('Your Email Address')}}"
-        autocomplete="home email",
-        required
-      />
-      <button class="c-subscribe__form-button c-button">
-        {{submit_btn_label|default('Subscribe')}}
-      </button>
-    </div>
+    <label
+      class="c-subscribe__form-input-label"
+      for="subscription-email-{{form_id}}"
+    >
+      {{email_input_label|default('Email')}}
+    </label>
+    {% embed '@cloudfour/objects/input-group/input-group.twig' with {
+      class: 'c-subscribe__form-input-group',
+      form_id: form_id,
+      email_input_placeholder: email_input_placeholder,
+      submit_btn_label: submit_btn_label
+    } only %}
+      {% block content %}
+        {% include '@cloudfour/components/input/input.twig' with {
+          id: "subscription-email-#{form_id}",
+          type: 'email',
+          class: 'c-subscribe__form-input',
+          placeholder: email_input_placeholder|default('Your Email Address'),
+          autocomplete: 'home email',
+          required: 'required'
+        } only %}
+        {% include '@cloudfour/components/button/button.twig' with {
+          class: 'c-subscribe__form-button',
+          label: submit_btn_label|default('Subscribe')
+        } only %}
+      {% endblock %}
+    {% endembed %}
   </form>
 </div>

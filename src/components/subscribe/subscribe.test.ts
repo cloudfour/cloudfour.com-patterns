@@ -41,7 +41,7 @@ describe('Subscription', () => {
             heading "Get Weekly Digests"
               text "Get Weekly Digests"
             text "Email"
-            textbox "Email"
+            textbox
             button "Subscribe"
       `);
     })

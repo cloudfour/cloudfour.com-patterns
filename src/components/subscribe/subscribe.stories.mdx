@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta } from '@storybook/addon-docs';
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include';
 import template from './subscribe.twig';
@@ -21,38 +21,141 @@ const templateStory = (args) => {
   argTypes={{
     form_id: {
       type: { name: 'string', required: true },
-      description: 'The ID used for the email subscription form',
+      description: 'Appends to the Weekly Digests form `id` (should be unique)',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
     },
     class: {
       type: 'string',
-      description: 'CSS class(es) to add to the root element',
+      description: 'Appends to the CSS class of the root element',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    form_action: {
+      type: 'string',
+      description: 'The Weekly Digests form `action` value',
+      table: {
+        defaultValue: {
+          summary:
+            'https://cloudfour.us13.list-manage.com/subscribe/post?u=ce064f42c86a5982dd218d4de&amp;id=7e505a6a67',
+        },
+      },
     },
     heading_tag: {
       type: 'string',
-      defaultValue: 'h2',
-      description: 'The heading value for the headings',
+      description: 'Sets the heading value',
+      table: {
+        defaultValue: { summary: 'h2' },
+      },
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       control: 'select',
     },
     never_miss_article_heading: {
       type: 'string',
-      defaultValue: 'Never miss an article!',
+      description: "The heading seen in the component's default state",
+      table: {
+        defaultValue: {
+          summary: 'Never miss an article!',
+        },
+      },
+    },
+    notifications_btn_class: {
+      type: 'string',
+      description: 'Appends to the CSS class of the "Get notifications" button',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    notifications_btn_initial_label: {
+      type: 'string',
+      description:
+        'See [Button Swap `initial_label`](/?path=/docs/components-button-swap--default-story#template-properties)',
+      table: {
+        defaultValue: { summary: 'Notifications have been turned off.' },
+      },
+    },
+    notifications_btn_initial_visual_label: {
+      type: 'string',
+      description:
+        'See [Button Swap `initial_visual_label`](/?path=/docs/components-button-swap--default-story#template-properties)',
+      table: { defaultValue: { summary: 'Get notifications' } },
+    },
+    notifications_btn_swapped_label: {
+      type: 'string',
+      description:
+        'See [Button Swap `swapped_label`](/?path=/docs/components-button-swap--default-story#template-properties)',
+      table: {
+        defaultValue: { summary: 'Notifications have been turned on.' },
+      },
+    },
+    notifications_btn_swapped_visual_label: {
+      type: 'string',
+      description:
+        'See [Button Swap `swapped_visual_label`](/?path=/docs/components-button-swap--default-story#template-properties)',
+      table: {
+        defaultValue: { summary: 'Turn off notifications' },
+      },
+    },
+    weekly_digests_btn_class: {
+      type: 'string',
+      description:
+        'Appends to the CSS class of the "Get Weekly Digests" button',
+      table: {
+        defaultValue: { summary: '' },
+      },
     },
     weekly_digests_btn_label: {
       type: 'string',
-      defaultValue: 'Get Weekly Digests',
+      description: 'The "Get Weekly Digests" button label',
+      table: {
+        defaultValue: { summary: 'Get Weekly Digests' },
+      },
+    },
+    weekly_digests_btn_icon: {
+      type: 'string',
+      description:
+        'The "Get Weekly Digests" button [icon](/?path=/docs/design-icons--page)',
+      table: {
+        defaultValue: { summary: 'envelope' },
+      },
+      options: ['envelope', 'heart', 'plus'],
+      control: 'select',
     },
     weekly_digests_heading: {
       type: 'string',
-      defaultValue: 'Get Weekly Digests',
+      description: 'The subscription form heading',
+      table: {
+        defaultValue: { summary: 'Get Weekly Digests' },
+      },
+    },
+    email_input_label: {
+      type: 'string',
+      description: 'The email input `<label>` value',
+      table: {
+        defaultValue: { summary: 'Email' },
+      },
     },
     email_input_placeholder: {
       type: 'string',
-      defaultValue: 'Your Email Address',
+      description: 'The email input placeholder text',
+      table: {
+        defaultValue: { summary: 'Your Email Address' },
+      },
     },
     submit_btn_label: {
       type: 'string',
-      defaultValue: 'Subscribe',
+      description: 'The subscription form submit button label',
+      table: {
+        defaultValue: { summary: 'Subscribe' },
+      },
     },
   }}
 />
@@ -61,11 +164,10 @@ const templateStory = (args) => {
 
 The Subscribe component provides the UI to subscribe to notifications and/or email weekly digests.
 
-This component embeds the [Button Swap component](?path=/docs/components-button-swap--default-story) for the "Get Notifications" button.
+This component embeds the [Button Swap component](/?path=/docs/components-button-swap--default-story) for the "Get Notifications" button.
 
 <Canvas>
   <Story
-    inline={false}
     name="Default"
     args={{
       form_id: 'example-demo',
@@ -89,36 +191,11 @@ This component embeds the [Button Swap component](?path=/docs/components-button-
 
 ## Template Properties
 
-### Required
-
-| property  | type   | default | description                                                          |
-| --------- | ------ | ------- | -------------------------------------------------------------------- |
-| `form_id` | string | `''`    | Appends this value to the weekly digest form `id`, should be unique. |
-
-### Optional
-
-| property                                 | type   | default                                 | description                                                                                                     |
-| ---------------------------------------- | ------ | --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `class`                                  | string | `''`                                    | Appends a CSS class(es) to the root `.c-subscribe` element.                                                     |
-| `form_action`                            | string | TBD                                     | The subscription form `action` value                                                                            |
-| `heading_tag`                            | string | `'h2'`                                  | The heading value (`h1`-`h6`)                                                                                   |
-| `never_miss_article_heading`             | string | `'Never miss an article!'`              | The default heading                                                                                             |
-| `notifications_btn_class`                | string | `''`                                    | Appends a CSS class(es) to the "Get notifications" button                                                       |
-| `notifications_btn_initial_label`        | string | `'Notifications have been turned off.'` | See [Button Swap `initial_label`](?path=/docs/components-button-swap--default-story#template-properties)        |
-| `notifications_btn_initial_visual_label` | string | `'Get notifications'`                   | See [Button Swap `initial_visual_label`](?path=/docs/components-button-swap--default-story#template-properties) |
-| `notifications_btn_swapped_label`        | string | `'Notifications have been turned on.'`  | See [Button Swap `swapped_label`](?path=/docs/components-button-swap--default-story#template-properties)        |
-| `notifications_btn_swapped_visual_label` | string | `'Turn off notifications'`              | See [Button Swap `swapped_visual_label`](?path=/docs/components-button-swap--default-story#template-properties) |
-| `weekly_digests_btn_class`               | string | `''`                                    | Appends a CSS class(es) to the "Weekly Digests" button                                                          |
-| `weekly_digests_btn_label`               | string | `'Get Weekly Digests'`                  | The "Weekly Digests" button label                                                                               |
-| `weekly_digests_btn_icon`                | string | `'envelope' `                           | The "Weekly Digests" button [icon](?path=/docs/design-icons--page)                                              |
-| `weekly_digests_heading`                 | string | `'Get Weekly Digests'`                  | The subscription form heading                                                                                   |
-| `email_input_label`                      | string | `'Email'`                               | The email input label                                                                                           |
-| `email_input_placeholder`                | string | `'Your Email Address'`                  | The email input placeholder text                                                                                |
-| `submit_btn_label`                       | string | `'Subscribe'`                           | The subscription form submit button label                                                                       |
+<ArgsTable story="Default" />
 
 ## JavaScript
 
-The Subscribe component UX can be progressively enhanced using JavaScript in the following ways:
+The Subscribe component UX can be progressively enhanced using JavaScript. Enhancements include:
 
 - A one second form hide delay is added when `:focus` is moved away from the Subscribe component elements
 - The form can be hidden by pressing the <kbd>Escape</kbd> key
@@ -126,12 +203,12 @@ The Subscribe component UX can be progressively enhanced using JavaScript in the
 ### Syntax
 
 ```js
-initSubscribe(subscriptionChoicesEl);
+initSubscribe(subscribeEl);
 ```
 
 ### Parameters
 
-#### `subscriptionChoicesEl`
+#### `subscribeEl`
 
 The Subscribe component `.js-subscribe` root element.
 
@@ -151,30 +228,28 @@ An object with a `destroy` function that removes all event listeners added by th
 
 ```js
 // Initialize
-const subscriptionChoicesEl = initSubscribe(
-  document.querySelector('.js-subscribe')
-);
+const subscribeEl = initSubscribe(document.querySelector('.js-subscribe'));
 
 // Remove all event listeners
-subscriptionChoicesEl.destroy();
+subscribeEl.destroy();
 ```
 
 #### Multiple Subscribe components on the page
 
 ```js
 // Initialize
-const subscriptionChoiceEls = [
-  ...document.querySelectorAll('.js-subscribe'),
-].map((subscriptionChoiceEl) => initSubscribe(subscriptionChoiceEl));
+const subscribeEls = [...document.querySelectorAll('.js-subscribe')].map(
+  (subscribeEl) => initSubscribe(subscribeEl)
+);
 
 // Remove all event listeners
-for (const subscriptionChoiceEl of subscriptionChoiceEls) {
-  subscriptionChoiceEl.destroy();
+for (const subscribeEl of subscribeEls) {
+  subscribeEl.destroy();
 }
 ```
 
 ### Note
 
 You will need to initialize the "Get Notifications" button as well, see the
-[Button Swap component](?path=/docs/components-button-swap--default-story#javascript)
+[Button Swap component](/?path=/docs/components-button-swap--default-story#javascript)
 for initialization docs.

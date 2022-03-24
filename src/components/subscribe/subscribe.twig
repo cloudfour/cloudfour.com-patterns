@@ -1,6 +1,6 @@
 {% set _heading_tag = heading_tag|default('h2') %}
 
-<div class="{{['c-subscribe', 'js-subscribe', class|default('')]|join(' ')}}">
+<div class="c-subscribe js-subscribe {{class}}">
   <div class="c-subscribe__controls">
     <{{_heading_tag}}>
       {{never_miss_article_heading|default('Never miss an article!')}}

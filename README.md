@@ -8,7 +8,7 @@
 
 If you’re looking for the most stable version of our pattern library, check out [the `main` branch](https://github.com/cloudfour/cloudfour.com-patterns/tree/main).
 
-[View Netlify Preview →](https://v-next--cloudfour-patterns.netlify.com/)
+[View Netlify Preview →](https://v-next--cloudfour-patterns.netlify.app/)
 
 ## Installation
 

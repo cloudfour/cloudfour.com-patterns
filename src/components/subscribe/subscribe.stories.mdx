@@ -1,0 +1,254 @@
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs';
+import { useEffect } from '@storybook/client-api';
+import { makeTwigInclude } from '../../make-twig-include';
+import template from './subscribe.twig';
+import { initSubscribe } from './subscribe.ts';
+// Helper function to initialize toggling button JS
+const templateStory = (args) => {
+  useEffect(() => {
+    const templateEls = [...document.querySelectorAll('.js-subscribe')].map(
+      (templateEl) => initSubscribe(templateEl)
+    );
+    return () => {
+      for (const templateEl of templateEls) templateEl.destroy();
+    };
+  });
+  return template(args);
+};
+
+<Meta
+  title="Components/Subscribe"
+  argTypes={{
+    form_id: {
+      type: { name: 'string', required: true },
+      description: 'Appends to the Weekly Digests form `id` (should be unique)',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    form_action: {
+      type: { name: 'string', required: true },
+      description: 'The Weekly Digests form `action` value',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    class: {
+      type: 'string',
+      description: 'Appends to the CSS class of the root element',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    heading_tag: {
+      type: 'string',
+      description: 'Sets the heading value',
+      table: {
+        defaultValue: { summary: 'h2' },
+      },
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      control: 'select',
+    },
+    never_miss_article_heading: {
+      type: 'string',
+      description: "The heading seen in the component's default state",
+      table: {
+        defaultValue: {
+          summary: 'Never miss an article!',
+        },
+      },
+    },
+    notifications_btn_class: {
+      type: 'string',
+      description: 'Appends to the CSS class of the "Get notifications" button',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    notifications_btn_initial_label: {
+      type: 'string',
+      description:
+        'See [Button Swap `initial_label`](/?path=/docs/components-button-swap--default-story#template-properties)',
+      table: {
+        defaultValue: { summary: 'Notifications have been turned off.' },
+      },
+    },
+    notifications_btn_initial_visual_label: {
+      type: 'string',
+      description:
+        'See [Button Swap `initial_visual_label`](/?path=/docs/components-button-swap--default-story#template-properties)',
+      table: { defaultValue: { summary: 'Get notifications' } },
+    },
+    notifications_btn_swapped_label: {
+      type: 'string',
+      description:
+        'See [Button Swap `swapped_label`](/?path=/docs/components-button-swap--default-story#template-properties)',
+      table: {
+        defaultValue: { summary: 'Notifications have been turned on.' },
+      },
+    },
+    notifications_btn_swapped_visual_label: {
+      type: 'string',
+      description:
+        'See [Button Swap `swapped_visual_label`](/?path=/docs/components-button-swap--default-story#template-properties)',
+      table: {
+        defaultValue: { summary: 'Turn off notifications' },
+      },
+    },
+    weekly_digests_btn_class: {
+      type: 'string',
+      description:
+        'Appends to the CSS class of the "Get Weekly Digests" button',
+      table: {
+        defaultValue: { summary: '' },
+      },
+    },
+    weekly_digests_btn_label: {
+      type: 'string',
+      description: 'The "Get Weekly Digests" button label',
+      table: {
+        defaultValue: { summary: 'Get Weekly Digests' },
+      },
+    },
+    weekly_digests_btn_icon: {
+      type: 'string',
+      description:
+        'The "Get Weekly Digests" button [icon](/?path=/docs/design-icons--page)',
+      table: {
+        defaultValue: { summary: 'envelope' },
+      },
+      options: ['envelope', 'heart', 'plus'],
+      control: 'select',
+    },
+    weekly_digests_heading: {
+      type: 'string',
+      description: 'The subscription form heading',
+      table: {
+        defaultValue: { summary: 'Get Weekly Digests' },
+      },
+    },
+    email_input_label: {
+      type: 'string',
+      description: 'The email input `<label>` value',
+      table: {
+        defaultValue: { summary: 'Email' },
+      },
+    },
+    email_input_placeholder: {
+      type: 'string',
+      description: 'The email input placeholder text',
+      table: {
+        defaultValue: { summary: 'Your Email Address' },
+      },
+    },
+    submit_btn_label: {
+      type: 'string',
+      description: 'The subscription form submit button label',
+      table: {
+        defaultValue: { summary: 'Subscribe' },
+      },
+    },
+  }}
+/>
+
+# Subscribe
+
+The Subscribe component provides the UI to subscribe to notifications and/or email weekly digests.
+
+This component embeds the [Button Swap component](/?path=/docs/components-button-swap--default-story) for the "Get Notifications" button.
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      form_id: 'example-demo',
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/subscribe/subscribe.twig',
+            {
+              form_id: 'example-demo',
+            }
+          ),
+        },
+      },
+    }}
+  >
+    {(args) => templateStory(args)}
+  </Story>
+</Canvas>
+
+## Template Properties
+
+<ArgsTable story="Default" />
+
+## JavaScript
+
+The Subscribe component UX can be progressively enhanced using JavaScript. Enhancements include:
+
+- A one second form hide delay is added when `:focus` is moved away from the Subscribe component elements
+- The form can be hidden by pressing the <kbd>Escape</kbd> key
+
+### Syntax
+
+```js
+initSubscribe(subscribeEl);
+```
+
+### Parameters
+
+#### `subscribeEl`
+
+The Subscribe component `.js-subscribe` root element.
+
+### Return value
+
+An object with a `destroy` function that removes all event listeners added by this component.
+
+```js
+{
+  destroy: () => void
+}
+```
+
+### Examples
+
+#### Single Subscribe component on the page
+
+```js
+// Initialize
+const subscribeEl = initSubscribe(document.querySelector('.js-subscribe'));
+
+// Remove all event listeners
+subscribeEl.destroy();
+```
+
+#### Multiple Subscribe components on the page
+
+```js
+// Initialize
+const subscribeEls = [...document.querySelectorAll('.js-subscribe')].map(
+  (subscribeEl) => initSubscribe(subscribeEl)
+);
+
+// Remove all event listeners
+for (const subscribeEl of subscribeEls) {
+  subscribeEl.destroy();
+}
+```
+
+### Note
+
+You will need to initialize the "Get Notifications" button as well, see the
+[Button Swap component](/?path=/docs/components-button-swap--default-story#javascript)
+for initialization docs.

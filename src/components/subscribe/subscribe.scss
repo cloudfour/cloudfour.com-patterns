@@ -1,0 +1,55 @@
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/a11y';
+@use '../../mixins/theme';
+
+///
+/// Subscribe component
+///
+
+.c-subscribe {
+  position: relative;
+}
+
+.c-subscribe__controls {
+  display: grid;
+  gap: 1em;
+  margin: size.$rhythm-default 0;
+
+  @media (min-width: breakpoint.$s) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.c-subscribe__control {
+  inline-size: 100%;
+}
+
+///
+/// 1. Ensures the form background color matches the current theme
+///
+
+.c-subscribe__form {
+  background-color: var(--theme-color-background-base); // 1
+  block-size: 100%;
+  inline-size: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  position: absolute;
+
+  ///
+  /// 1. Allows for the visually hidden form to be keyboard accessible, will be
+  ///    visually hidden when elements within the form are not in focus.
+  ///
+
+  .c-subscribe__form-input-label,
+  .c-subscribe:not(.activate-form) // 1
+    &:not(:target):not(:focus-within) {
+    @include a11y.sr-only;
+  }
+}
+
+.c-subscribe__form-input-group {
+  margin: size.$rhythm-default 0;
+}

@@ -4,9 +4,11 @@ import { withBrowser, getAccessibilityTree } from 'pleasantest';
 import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
 
 // Helper to load the Twig template file
-const componentMarkup = loadTwigTemplate(
-  path.join(__dirname, './subscribe.twig')
-);
+const componentMarkup = (args = {}) =>
+  loadTwigTemplate(path.join(__dirname, './subscribe.twig'))({
+    form_id: 'example-form',
+    ...args,
+  });
 // Helper to load the demo Twig template file
 const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));
 
@@ -74,7 +76,7 @@ describe('Subscription', () => {
             heading "Get Weekly Digests"
               text "Get Weekly Digests"
             text "Email"
-            textbox
+            textbox "Email"
             button "Subscribe"
       `);
     })

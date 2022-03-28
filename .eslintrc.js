@@ -5,7 +5,7 @@ module.exports = {
   },
   plugins: ['react'],
   settings: {
-    node: {
+    n: {
       allowModules: [
         '@storybook/addon-docs',
         '@storybook/addon-knobs',
@@ -24,11 +24,18 @@ module.exports = {
       // Specifying this here fixes it.
       files: ['*.ts', '*.tsx'],
       parser: require.resolve(
-        // eslint-disable-next-line @cloudfour/node/no-extraneous-require
+        // eslint-disable-next-line @cloudfour/n/no-extraneous-require
         '@typescript-eslint/parser'
       ),
       parserOptions: {
         project: './tsconfig.json',
+      },
+    },
+    {
+      files: ['src/**'],
+      rules: {
+        // Src files are bundled so they do not have to follow Node's resolution rules
+        '@cloudfour/n/no-missing-import': 'off',
       },
     },
   ],

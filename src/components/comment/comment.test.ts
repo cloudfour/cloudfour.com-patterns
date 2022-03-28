@@ -72,7 +72,7 @@ test(
           checkbox "Notify me of follow-up comments by email."
           button "Submit Reply"
           button "Cancel"
-    `);
+      `);
 
     // Click the cancel button to get back to our initial state
     const cancelButton = await screen.getByRole('button', {

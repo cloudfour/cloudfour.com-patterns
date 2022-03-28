@@ -21,23 +21,25 @@ const extensions = ['.js', '.ts', '.tsx'];
  * Being used both for rollup and for the type generation
  */
 const createVirtualRootEntry = async () => {
-  const files = (
-    await glob(`src/{objects,components}/*/*{${extensions.join(',')}}`)
-  )
-    // Don't include test files in the build
-    .filter((f) => !f.endsWith('.test.ts'));
-  return files
-    .map((f) => {
-      const absolutePathWithoutExtension = path
-        .resolve(f)
-        .replace(path.extname(f), '');
-      const relativePath = `./${path.relative(
-        process.cwd(),
-        absolutePathWithoutExtension
-      )}`;
-      return `export * from ${JSON.stringify(relativePath)}`;
-    })
-    .join('\n');
+  const files = await glob(
+    `src/{objects,components}/*/*{${extensions.join(',')}}`
+  );
+  return (
+    files
+      // Don't include test files in the build
+      .filter((f) => !f.endsWith('.test.ts'))
+      .map((f) => {
+        const absolutePathWithoutExtension = path
+          .resolve(f)
+          .replace(path.extname(f), '');
+        const relativePath = `./${path.relative(
+          process.cwd(),
+          absolutePathWithoutExtension
+        )}`;
+        return `export * from ${JSON.stringify(relativePath)}`;
+      })
+      .join('\n')
+  );
 };
 
 /** @type {import('terser').MinifyOptions} */

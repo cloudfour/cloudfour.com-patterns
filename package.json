@@ -44,7 +44,7 @@
     "prismjs": "1.27.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.5",
+    "@babel/core": "7.17.8",
     "@babel/preset-env": "7.16.11",
     "@changesets/changelog-github": "0.4.3",
     "@changesets/cli": "2.21.1",
@@ -62,7 +62,7 @@
     "@types/prismjs": "1.26.0",
     "@whitespace/storybook-addon-html": "5.0.0",
     "@wordpress/block-library": "3.2.9",
-    "babel-loader": "8.2.3",
+    "babel-loader": "8.2.4",
     "browserify-transform-tools": "1.7.0",
     "css-loader": "5.2.7",
     "cssnano": "5.1.4",

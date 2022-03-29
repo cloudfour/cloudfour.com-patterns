@@ -14,9 +14,12 @@ export const loadTwigTemplate = (templatePath: string) => {
   const templatePromise = twing.load(
     path.relative(process.cwd(), templatePath)
   );
-  // Using "await" here because next version of twing returns promises
-  // eslint-disable-next-line @cloudfour/typescript-eslint/await-thenable
-  return async (data: any = {}) => (await templatePromise).render(data);
+  return async (data: any = {}) => {
+    // Using "await" here because next version of twing returns promises
+    // eslint-disable-next-line @cloudfour/typescript-eslint/await-thenable
+    const template = await templatePromise;
+    return template.render(data);
+  };
 };
 
 export const loadGlobalCSS = async (utils: PleasantestUtils) => {

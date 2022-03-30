@@ -1,5 +1,25 @@
 # @cloudfour/patterns
 
+## 5.1.0
+
+### Minor Changes
+
+- [#1679](https://github.com/cloudfour/cloudfour.com-patterns/pull/1679) [`fc595a80`](https://github.com/cloudfour/cloudfour.com-patterns/commit/fc595a80d3d8de0c8f07dd99a70e2c54e023e0b4) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)!
+  - Add Subscribe component
+  - Update CI workflow to use Node 16
+  - Add a `button_class` template prop to the Button Swap component
+  - Add a `class` template prop to the Input Group component
+
+* [#1595](https://github.com/cloudfour/cloudfour.com-patterns/pull/1595) [`aa215279`](https://github.com/cloudfour/cloudfour.com-patterns/commit/aa2152794beef2774c4357bddd145de4950c35c3) Thanks [@tylersticka](https://github.com/tylersticka)! - Use logical properties across existing styles to improve future-friendliness of patterns.
+
+- [#1607](https://github.com/cloudfour/cloudfour.com-patterns/pull/1607) [`1a2cffae`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1a2cffae2e83ac1cb38331b924fe58178040f21e) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Refactor the Author component to work for article or presentation bylines
+
+### Patch Changes
+
+- [#1611](https://github.com/cloudfour/cloudfour.com-patterns/pull/1611) [`89555260`](https://github.com/cloudfour/cloudfour.com-patterns/commit/89555260df0d90d23e12e364631a28a274a47504) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix Card covers breaking overflow and border radius rules on hover in Safari
+
+* [#1612](https://github.com/cloudfour/cloudfour.com-patterns/pull/1612) [`b4f2b743`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b4f2b743c7d883f06de8ae25f0d34b5fb5c76959) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix for List objects with columns in Safari that include visually hidden elements or elements with content divided between columns
+
 ## 5.0.0
 
 ### Major Changes

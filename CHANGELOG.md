@@ -4,7 +4,8 @@
 
 ### Minor Changes
 
-- [#1679](https://github.com/cloudfour/cloudfour.com-patterns/pull/1679) [`fc595a80`](https://github.com/cloudfour/cloudfour.com-patterns/commit/fc595a80d3d8de0c8f07dd99a70e2c54e023e0b4) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - - Add Subscribe component
+- [#1679](https://github.com/cloudfour/cloudfour.com-patterns/pull/1679) [`fc595a80`](https://github.com/cloudfour/cloudfour.com-patterns/commit/fc595a80d3d8de0c8f07dd99a70e2c54e023e0b4) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - 
+  - Add Subscribe component
   - Update CI workflow to use Node 16
   - Add a `button_class` template prop to the Button Swap component
   - Add a `class` template prop to the Input Group component

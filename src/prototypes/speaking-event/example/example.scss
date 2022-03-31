@@ -18,4 +18,17 @@
   .muted-text {
     color: color.$text-dark-muted;
   }
+
+  .button-columns {
+    display: grid;
+    grid-gap: ms.step(-2);
+    grid-template-columns: 1fr;
+    @media (min-width: breakpoint.$l) {
+      grid-template-columns: repeat((2, 1fr));
+    }
+  }
+
+  // .o-button-group .c-button {
+  //   flex: 1 1 0;
+  // }
 }

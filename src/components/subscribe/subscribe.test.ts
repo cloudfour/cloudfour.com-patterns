@@ -64,8 +64,8 @@ describe('Subscription', () => {
       await initJS(utils);
 
       expect(await getAccessibilityTree(page)).toMatchInlineSnapshot(`
-        document
-          heading "Never miss an article!"
+        document "pleasantest"
+          heading "Never miss an article!" (level=2)
             text "Never miss an article!"
           status
             text "Notifications have been turned off."
@@ -73,7 +73,7 @@ describe('Subscription', () => {
           link "Get Weekly Digests"
             text "Get Weekly Digests"
           form "Get Weekly Digests"
-            heading "Get Weekly Digests"
+            heading "Get Weekly Digests" (level=2)
               text "Get Weekly Digests"
             text "Email"
             textbox "Email"

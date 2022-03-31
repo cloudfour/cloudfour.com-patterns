@@ -125,6 +125,7 @@ test(
   'Callback functions are called',
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(await componentMarkup());
+    await loadGlobalCSS(utils);
 
     const mockInitialCallback = jest.fn();
     const mockSwappedCallback = jest.fn();

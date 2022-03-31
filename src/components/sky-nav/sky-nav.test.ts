@@ -36,9 +36,9 @@ test(
         link "Home: Cloud Four"
           text "Home: Cloud Four"
         navigation "Main Menu"
-          heading "Main Menu"
+          heading "Main Menu" (level=2)
             text "Main Menu"
-          button "Toggle Main Menu"
+          button "Toggle Main Menu" (expanded=false)
     `);
 
     await user.click(navButton);
@@ -53,9 +53,9 @@ test(
         link "Home: Cloud Four"
           text "Home: Cloud Four"
         navigation "Main Menu"
-          heading "Main Menu"
+          heading "Main Menu" (level=2)
             text "Main Menu"
-          button "Toggle Main Menu" (focused)
+          button "Toggle Main Menu" (expanded=true) (focused)
           list
             listitem
               link "What We Do"
@@ -102,7 +102,7 @@ test(
         link "Home: Cloud Four"
           text "Home: Cloud Four"
         navigation "Main Menu"
-          heading "Main Menu"
+          heading "Main Menu" (level=2)
             text "Main Menu"
           list
             listitem

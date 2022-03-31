@@ -149,7 +149,7 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "./jest.setup.ts"
+      "./jest.setup.js"
     ]
   }
 }

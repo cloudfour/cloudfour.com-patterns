@@ -1,13 +1,8 @@
 {% embed '@cloudfour/objects/media/media.twig' with {
-  jaunty: true
+  jaunty: true,
 } %}
   {% block object %}
-    <img
-      src="media/home-page/bookicon.png"
-      class="u-max-inline-size-small u-space-inline-end-1 u-space-inline-start-n4"
-      width="140"
-      height="190"
-    />
+    <img src="media/home-page/bookicon.png" width="140" height="190" />
   {% endblock %}
   {% block content %}
     {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {

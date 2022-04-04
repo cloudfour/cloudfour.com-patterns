@@ -79,6 +79,24 @@ This pattern is composed of three elements:
   </Story>
 </Canvas>
 
+## Generous Spacing
+
+To give your content a bit more room to breathe, you can add the `o-media--generous` modifier to increase the size of the gutter between the media object and content.
+
+<Canvas>
+  <Story
+    name="Generous Spacing"
+    args={{ generous: true }}
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
+  >
+    {(args) => imageDemo(args)}
+  </Story>
+</Canvas>
+
 ## Reverse Order
 
 The order of `o-media__object` and `o-media__content` will not affect this pattern's visual appearance. To display the object on the right, use the `o-media--reverse` modifier.
@@ -146,16 +164,17 @@ In this example, the object is [a Calendar Date component](/docs/components-cale
 ## Jaunty
 
 By adding the `o-media--jaunty` class, the media object will have a fun little rotation applied to it.
-In this example, we're using it for a Promo.
-
-You may want to add some of our [spacing utility classes](/docs/utilities-spacing--margin) to the media object to compensate for the rotation.
-In this example, we've used `u-space-inline-end-1` and `u-space-inline-start-n4` to add a bit more space between the image and the text, and keep the image from hitting the left side of the viewport on small screens.
 
 <Canvas>
   <Story
     name="Jaunty"
-    parameters={{ docs: { source: { code: promoDemoSource } } }}
+    args={{ jaunty: true }}
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
   >
-    {promoDemo}
+    {(args) => imageDemo(args)}
   </Story>
 </Canvas>

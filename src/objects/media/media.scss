@@ -37,6 +37,16 @@
 }
 
 /**
+ * Modifier: Jaunty
+ *
+ * Applies a fun rotation to the media object
+ */
+
+.o-media--jaunty .o-media__object {
+  transform: rotate(-5deg);
+}
+
+/**
  *  Modifier: Content Sizing
  *
  * This modifier lets us use fractional units to size media content in relation

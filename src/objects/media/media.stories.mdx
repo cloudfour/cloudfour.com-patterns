@@ -14,6 +14,8 @@ import calendarDateDemo from './demo/calendar-date.twig';
 import checkboxDemoSource from '!!raw-loader!./demo/checkbox.twig';
 import checkboxDemo from './demo/checkbox.twig';
 import imageDemo from './demo/image.twig';
+import promoDemoSource from '!!raw-loader!./demo/promo.twig';
+import promoDemo from './demo/promo.twig';
 import meganProfileImage from './demo/megan.png';
 const exampleText =
   'One of the things that is really clear to us (and that we hear often from our clients) is that the way we engage with our clients is unique. In fact, bringing clients in early and often to our process is one of our specialties at Cloud Four.';
@@ -21,7 +23,7 @@ const exampleText =
 // respond to args more dynamically than other demos.
 const imageDemoTransformSource = (_src, storyContext) => {
   const { args } = storyContext;
-  const withStr = args.reverse
+  const withStr = args?.reverse
     ? ` with {
   reverse: true
 }`
@@ -29,11 +31,11 @@ const imageDemoTransformSource = (_src, storyContext) => {
   return `{% embed '@cloudfour/objects/media/media.twig'${withStr} only %}
   {% block object %}
     {% include '@cloudfour/components/avatar/avatar.twig' with {
-      src: '${args.imgSrc}'
+      src: '${args?.imgSrc}'
     } only %}
   {% endblock %}
   {% block content %}
-    <p>${args.text}</p>
+    <p>${args?.text}</p>
   {% endblock %}
 {% endembed %}`;
 };
@@ -137,5 +139,22 @@ In this example, the object is [a Calendar Date component](/docs/components-cale
     parameters={{ docs: { source: { code: calendarDateDemoSource } } }}
   >
     {calendarDateDemo}
+  </Story>
+</Canvas>
+
+## Jaunty
+
+By adding the `o-media--jaunty` class, the media object will have a fun little rotation applied to it.
+In this example, we're using it for a Promo.
+
+You may want to add some of our [spacing utility classes](/docs/utilities-spacing--margin) to the media object to compensate for the rotation.
+In this example, we've used `u-space-inline-end-1` and `u-space-inline-start-n4` to add a bit more space between the image and the text, and keep the image from hitting the left side of the viewport on small screens.
+
+<Canvas>
+  <Story
+    name="Jaunty"
+    parameters={{ docs: { source: { code: promoDemoSource } } }}
+  >
+    {promoDemo}
   </Story>
 </Canvas>

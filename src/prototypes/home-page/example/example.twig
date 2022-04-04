@@ -2,14 +2,19 @@
 
 
 {% embed '@cloudfour/objects/container/container.twig' with {
-  class: 'o-container--prose o-container--pad book-container'
+  class: 'o-container--prose o-container--pad u-pad-block-start-6'
 } only %}
   {% block content %}
 
 
-    {% embed '@cloudfour/objects/media/media.twig' only %}
+    {% embed '@cloudfour/objects/media/media.twig' with { jaunty: true } only %}
       {% block object %}
-        <img src="media/home-page/bookicon.png" class="book-image" />
+        <img
+          src="media/home-page/bookicon.png"
+          class="u-max-inline-size-small u-space-inline-end-1 u-space-inline-start-n4"
+          width="140"
+          height="190"
+        />
       {% endblock %}
       {% block content %}
         {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
@@ -39,7 +44,7 @@
 
 
   {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'o-container--pad container-spacing'
+    class: 'o-container--pad u-pad-block-6'
   } only %}
     {% block content %}
       {% embed '@cloudfour/objects/deck/deck.twig' only %}
@@ -74,7 +79,7 @@
 
   <div class="t-alternate">
     {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'o-container--pad container-spacing'
+    class: 'o-container--pad u-pad-block-6'
     } only %}
       {% block content %}
         {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
@@ -85,7 +90,7 @@
               "content": "Featured Articles"
             } only %}
 
-            <p class="feature-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="u-pad-block-start-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           {% endblock %}
           {% block content %}
             {% embed '@cloudfour/objects/deck/deck.twig' only %}
@@ -143,7 +148,7 @@
   </div>
 
   {% embed '@cloudfour/objects/container/container.twig' with {
-  class: 'o-container--pad container-spacing'
+  class: 'o-container--pad u-pad-block-6'
   } only %}
     {% block content %}
       {% embed '@cloudfour/objects/feature-group/feature-group.twig' %}
@@ -160,47 +165,24 @@
           } only %}
             {% block content %}
 
-              {% embed '@cloudfour/objects/media/media.twig' with {
-                reverse_markup: true
+              {% embed '@cloudfour/components/event-summary/event-summary.twig' with {
+                datetime: '2021-10-07',
+                event: 'PWA Summit',
+                location: 'Online',
+                speakers: ['Jason', 'Gerardo'],
+                href: '#',
               } only %}
-                {% block object %}
-                  {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
-                    datetime: '2021-10-07',
-                  } only %}
-                {% endblock %}
-                {% block content %}
-                  <a href="#" class="link">
-                    {% include '@cloudfour/components/heading/heading.twig' with {
-                      class: "link__inner",
-                      "level": 3,
-                      "content": "PWA Summit"
-                    } only %}
-                  </a>
-                  <p>Online</p>
-                  <p>Speaker: Jason, Gerardo</p>
-                {% endblock %}
               {% endembed %}
 
-              {% embed '@cloudfour/objects/media/media.twig' with {
-                reverse_markup: true,
+              {% embed '@cloudfour/components/event-summary/event-summary.twig' with {
+                datetime: '2021-10-13',
+                event: 'An Event Apart Full Summit',
+                location: 'Online',
+                speakers: ['Jason'],
+                href: '#',
               } only %}
-                {% block object %}
-                  {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
-                    datetime: '2020-10-13',
-                  } only %}
-                {% endblock %}
-                {% block content %}
-                  <a href="#" class="link">
-                    {% include '@cloudfour/components/heading/heading.twig' with {
-                      class: "link__inner",
-                      "level": 3,
-                      "content": "An Event Apart Full Summit"
-                    } only %}
-                  </a>
-                  <p>Online</p>
-                  <p>Speaker: Jason</p>
-                {% endblock %}
               {% endembed %}
+
             {% endblock %}
           {% endembed %}
         {% endblock %}

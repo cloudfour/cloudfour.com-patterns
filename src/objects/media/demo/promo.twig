@@ -1,0 +1,29 @@
+{% embed '@cloudfour/objects/media/media.twig' with {
+  jaunty: true
+} %}
+  {% block object %}
+    <img
+      src="media/home-page/bookicon.png"
+      class="u-max-inline-size-small u-space-inline-end-1 u-space-inline-start-n4"
+      width="140"
+      height="190"
+    />
+  {% endblock %}
+  {% block content %}
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+      class: 'o-rhythm--condensed'
+    } only %}
+      {% block content %}
+        {% include '@cloudfour/components/heading/heading.twig' with {
+          "level": 2,
+          "content": "Progressive Web Apps"
+        } only %}
+        <p>Jason Grigsby answers the what, why, and how of PWAs, from making the case in your organization to reaching your users in bold, new ways.</p>
+        {% include '@cloudfour/components/button/button.twig' with {
+          "content_end_icon": "arrow-right",
+          "label": "Available Now"
+        } only %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

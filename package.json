@@ -47,7 +47,7 @@
     "@babel/core": "7.17.8",
     "@babel/preset-env": "7.16.11",
     "@changesets/changelog-github": "0.4.4",
-    "@changesets/cli": "2.21.1",
+    "@changesets/cli": "2.22.0",
     "@cloudfour/eslint-plugin": "18.0.1",
     "@rollup/plugin-babel": "5.3.1",
     "@rollup/plugin-node-resolve": "13.1.3",

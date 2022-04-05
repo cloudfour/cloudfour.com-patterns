@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 5.2.0
+
+### Minor Changes
+
+- [#1711](https://github.com/cloudfour/cloudfour.com-patterns/pull/1711) [`c244d509`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c244d5096021ce3dbdb6df4987e178ff91c8c995) Thanks [@spaceninja](https://github.com/spaceninja)! - Adds two new modifiers to the Media object
+
 ## 5.1.0
 
 ### Minor Changes

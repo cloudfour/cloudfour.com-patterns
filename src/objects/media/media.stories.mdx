@@ -21,7 +21,7 @@ const exampleText =
 // respond to args more dynamically than other demos.
 const imageDemoTransformSource = (_src, storyContext) => {
   const { args } = storyContext;
-  const withStr = args.reverse
+  const withStr = args?.reverse
     ? ` with {
   reverse: true
 }`
@@ -29,11 +29,11 @@ const imageDemoTransformSource = (_src, storyContext) => {
   return `{% embed '@cloudfour/objects/media/media.twig'${withStr} only %}
   {% block object %}
     {% include '@cloudfour/components/avatar/avatar.twig' with {
-      src: '${args.imgSrc}'
+      src: '${args?.imgSrc}'
     } only %}
   {% endblock %}
   {% block content %}
-    <p>${args.text}</p>
+    <p>${args?.text}</p>
   {% endblock %}
 {% endembed %}`;
 };
@@ -66,6 +66,24 @@ This pattern is composed of three elements:
 <Canvas>
   <Story
     name="Image"
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
+  >
+    {(args) => imageDemo(args)}
+  </Story>
+</Canvas>
+
+## Generous Spacing
+
+To give your content a bit more room to breathe, you can add the `o-media--generous` modifier to increase the size of the gutter between the media object and content.
+
+<Canvas>
+  <Story
+    name="Generous Spacing"
+    args={{ generous: true }}
     parameters={{
       docs: {
         transformSource: imageDemoTransformSource,
@@ -137,5 +155,23 @@ In this example, the object is [a Calendar Date component](/docs/components-cale
     parameters={{ docs: { source: { code: calendarDateDemoSource } } }}
   >
     {calendarDateDemo}
+  </Story>
+</Canvas>
+
+## Jaunty
+
+By adding the `o-media--jaunty` class, the media object will have a fun little rotation applied to it.
+
+<Canvas>
+  <Story
+    name="Jaunty"
+    args={{ jaunty: true }}
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
+  >
+    {(args) => imageDemo(args)}
   </Story>
 </Canvas>

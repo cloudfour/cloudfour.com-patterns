@@ -18,8 +18,9 @@
     'action';
   grid-template-rows: repeat(3, minmax(0, auto));
 
+  /// 1. keep intro from crowding action for short items
   @media (min-width: breakpoint.$l) {
-    grid-row-gap: 0;
+    grid-row-gap: ms.step(0); // 1
     grid-template-areas:
       'intro content content'
       'intro content content'

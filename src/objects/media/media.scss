@@ -1,6 +1,7 @@
 @use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/media-query';
+@use '../../mixins/ms';
 
 /**
  * 1. Middle-align child elements. This will take effect when the content is
@@ -27,6 +28,16 @@
 }
 
 /**
+ * Modifier: Generous Gap
+ *
+ * Increases the size of the gap between the media object and content.
+ */
+
+.o-media--generous {
+  column-gap: ms.step(3);
+}
+
+/**
  * Modifier: Reverse
  *
  * Swap gap position and visual order.
@@ -34,6 +45,22 @@
 
 .o-media--reverse .o-media__object {
   order: 1;
+}
+
+/**
+ * Modifier: Jaunty
+ *
+ * Applies a fun rotation to the media object, and a bit of margin to
+ * compensate for the rotation.
+ */
+
+.o-media--jaunty .o-media__object {
+  margin-inline: ms.step(-4);
+  transform: rotate(-5deg);
+}
+
+.o-media--reverse.o-media--jaunty .o-media__object {
+  transform: rotate(5deg);
 }
 
 /**

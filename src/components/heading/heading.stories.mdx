@@ -56,7 +56,7 @@ import demo from './demo/demo.twig';
       transformSource: (_src, storyContext) =>
         makeTwigEmbedIfHtml(
           '@cloudfour/components/heading/heading.twig',
-          storyContext.args,
+          storyContext.args || {},
           ['content', 'subheading']
         ),
     },

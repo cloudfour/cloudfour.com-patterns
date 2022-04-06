@@ -26,7 +26,7 @@ const defaultArgs = {
 };
 // Custom embed source function to preserve args in source code examples
 const embedTransformSource = (_src, storyContext) => {
-  const { args } = storyContext;
+  const args = storyContext.args || {};
   const argsString =
     Object.keys(args).length > 0
       ? ` with ${JSON.stringify(args, null, 2)}`

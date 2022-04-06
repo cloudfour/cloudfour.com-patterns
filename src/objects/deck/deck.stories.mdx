@@ -5,7 +5,7 @@ import alignmentDemo from './demo/alignment.twig';
 const articlesStory = (args) => articlesDemo({ items: articles, ...args });
 // Custom function for generating story source from args given
 const articlesTemplateSource = (_src, storyContext) => {
-  const { args } = storyContext;
+  const args = storyContext.args || {};
   let twigArgs = '';
   if (
     args.columns &&

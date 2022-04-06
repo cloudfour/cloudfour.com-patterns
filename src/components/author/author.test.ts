@@ -65,3 +65,29 @@ test(
     `);
   })
 );
+
+test(
+  'Optional author link prop',
+  withBrowser(async ({ utils, page }) => {
+    await utils.injectHTML(
+      await template({
+        // The avatar is not included because I couldn't figure out how
+        // to include it. For the purposes of this test, though, it is
+        // not important so I left it out.
+        authors: [
+          {
+            name: 'Shakira Isabel Mebarak Ripoll',
+          },
+        ],
+      })
+    );
+
+    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+
+    // Confirm the meta value is rendered and the date is not rendered
+    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      text "By"
+      text "Shakira Isabel Mebarak Ripoll"
+    `);
+  })
+);

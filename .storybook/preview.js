@@ -56,7 +56,8 @@ export const parameters = {
     prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
     transformSource(src, storyContext) {
       try {
-        const storyFunction = storyContext.getOriginal();
+        const storyFunction = storyContext.originalStoryFn;
+        if (!storyFunction) return src;
         const rendered = storyFunction(storyContext.args);
         // The twing/source-inputs-loader.js file makes it so that whenever twig templates are rendered,
         // the arguments and input path are stored in the window.__twig_inputs__ variable.
@@ -65,7 +66,11 @@ export const parameters = {
         // that correspond to that output
         const input = window.__twig_inputs__?.get(rendered);
         if (!input) return src;
-        return makeTwigInclude(input.path, input.args);
+        const twigInclude = makeTwigInclude(input.path, input.args);
+        // When I do this, I see the source output many times... some with the
+        // args intact, some without args at all. Alert is a good example.
+        console.log(storyContext.id, storyContext.args, twigInclude);
+        return twigInclude;
       } catch {
         return src;
       }

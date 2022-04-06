@@ -84,7 +84,7 @@ test(
 
     const body = await page.evaluateHandle<ElementHandle>(() => document.body);
 
-    // Confirm the meta value is rendered and the date is not rendered
+    // Confirm the author name is "text" and not link
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       text "By"
       text "Shakira Isabel Mebarak Ripoll"

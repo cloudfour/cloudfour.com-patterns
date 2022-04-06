@@ -84,7 +84,7 @@ test(
 
     const body = await page.evaluateHandle<ElementHandle>(() => document.body);
 
-    // Confirm the author name is "text" and not link
+    // Confirm the author name is "text" and not a link
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       text "By"
       text "Shakira Isabel Mebarak Ripoll"

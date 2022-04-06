@@ -33,6 +33,13 @@ const allAuthors = [
   },
 ];
 const authors = (count) => allAuthors.slice(0, count);
+const authorsWithNoLink = (count) =>
+  allAuthors
+    .map(({ name, avatar }) => ({
+      name,
+      avatar,
+    }))
+    .slice(0, count);
 
 <Meta
   title="Components/Author"
@@ -60,6 +67,20 @@ Displays an author, or set of authors, with optional meta content.
     {(args) =>
       template({
         authors: authors(args.count),
+      })
+    }
+  </Story>
+</Canvas>
+
+## With no `link`
+
+If an author object does not contain a `link` property, then the author name does not use an anchor element.
+
+<Canvas>
+  <Story name="With no link" args={{ count: 1 }}>
+    {(args) =>
+      template({
+        authors: authorsWithNoLink(args.count),
       })
     }
   </Story>

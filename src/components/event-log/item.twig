@@ -2,8 +2,10 @@
 {% set _heading_level = heading_level|default(3) %}
 {% set _extra_block %}{% block extra %}{% endblock %}{% endset %}
 
-<article class="c-event-log__item">
-  <h{{ _heading_level }} class="c-event-log__date">
+<article class="c-event-log__item"
+  {% if heading_id %}aria-labelledby="{{heading_id}}"{% endif %}>
+  <h{{ _heading_level }} class="c-event-log__date"
+    {% if heading_id %}id="{{heading_id}}"{% endif %}>
     <time datetime="{{ _datetime|date('Y-m-d') }}">
       {{ _datetime|date('M j, Y') }}
     </time>

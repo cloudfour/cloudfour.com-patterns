@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 5.3.0
+
+### Minor Changes
+
+- [#1713](https://github.com/cloudfour/cloudfour.com-patterns/pull/1713) [`947e3e91`](https://github.com/cloudfour/cloudfour.com-patterns/commit/947e3e916200acb6552d8088512144d977a81a93) Thanks [@tylersticka](https://github.com/tylersticka)! - Add width and height properties to Avatar component
+
+* [#1718](https://github.com/cloudfour/cloudfour.com-patterns/pull/1718) [`7496f370`](https://github.com/cloudfour/cloudfour.com-patterns/commit/7496f3702427837b1d9793b388f98d93f15c28db) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Allow the author link prop to be optional
+
 ## 5.2.0
 
 ### Minor Changes

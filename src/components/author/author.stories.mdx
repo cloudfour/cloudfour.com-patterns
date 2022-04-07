@@ -33,6 +33,13 @@ const allAuthors = [
   },
 ];
 const authors = (count) => allAuthors.slice(0, count);
+const authorsWithNoLink = (count) =>
+  allAuthors
+    .map(({ name, avatar }) => ({
+      name,
+      avatar,
+    }))
+    .slice(0, count);
 
 <Meta
   title="Components/Author"
@@ -57,6 +64,20 @@ Displays an author, or set of authors, with optional meta content.
 
 <Canvas>
   <Story name="Basic usage" args={{ count: 1 }}>
+    {(args) =>
+      template({
+        authors: authorsWithNoLink(args.count),
+      })
+    }
+  </Story>
+</Canvas>
+
+## With `link`
+
+If an author object contains the optional `link` property, then the author name will be linked.
+
+<Canvas>
+  <Story name="With link" args={{ count: 1 }}>
     {(args) =>
       template({
         authors: authors(args.count),
@@ -124,7 +145,7 @@ Multiple authors are also supported.
  {
    name: string | () => string;
    avatar: string | () => string;
-   link: string | () => string;
+   link?: string | () => string;
  }
 ```
 

@@ -57,7 +57,11 @@
       <span class="u-hidden-visually">{{ author_prefix|default("By") }}</span>
       {% for author in authors %}
         {% if loop.last and loop.length > 1 %}and {% endif %}
-        <a href="{{ author.link }}">{{ author.name }}</a>
+          {% if author.link %}
+            <a href="{{ author.link }}">{{ author.name }}</a>
+          {% else %}
+            <span>{{ author.name }}</span>
+          {% endif %}
         {%- if not loop.last and loop.length > 2 %},{% endif %}
       {% endfor %}
     </p>

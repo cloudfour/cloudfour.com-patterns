@@ -66,21 +66,21 @@ Displays an author, or set of authors, with optional meta content.
   <Story name="Basic usage" args={{ count: 1 }}>
     {(args) =>
       template({
-        authors: authors(args.count),
+        authors: authorsWithNoLink(args.count),
       })
     }
   </Story>
 </Canvas>
 
-## With no `link`
+## With `link`
 
-If an author object does not contain a `link` property, then the author name does not use an anchor element.
+If an author object contains the optional `link` property, then the author name will be linked.
 
 <Canvas>
-  <Story name="With no link" args={{ count: 1 }}>
+  <Story name="With link" args={{ count: 1 }}>
     {(args) =>
       template({
-        authors: authorsWithNoLink(args.count),
+        authors: authors(args.count),
       })
     }
   </Story>

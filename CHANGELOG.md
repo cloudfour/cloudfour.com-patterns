@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 5.4.0
+
+### Minor Changes
+
+- [#1719](https://github.com/cloudfour/cloudfour.com-patterns/pull/1719) [`8e7c6311`](https://github.com/cloudfour/cloudfour.com-patterns/commit/8e7c63113386a9efd1b3b7e74e8bffecdc583596) Thanks [@tylersticka](https://github.com/tylersticka)! - Avatar values passed to the Author component may now be an object, which will be passed directly to the Avatar component. This allows additional properties like `srcset`, `sizes`, etc. to be set.
+
+* [#1720](https://github.com/cloudfour/cloudfour.com-patterns/pull/1720) [`ec76ecff`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ec76ecffeeef219b01e3986f54c19ec753eb2799) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `heading_id` property to Event Log component
+
 ## 5.3.0
 
 ### Minor Changes

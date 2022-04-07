@@ -45,7 +45,11 @@
   {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: 'o-media__object' } %}
     {% block content %}
       {% for author in authors %}
-        {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar } only %}
+        {% if author.avatar.src is defined %}
+          {% include '@cloudfour/components/avatar/avatar.twig' with author.avatar only %}
+        {% else %}
+          {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar } only %}
+        {% endif %}
       {% endfor %}
     {% endblock %}
   {% endembed %}

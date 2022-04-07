@@ -13,7 +13,7 @@ const allAuthors = [
   },
   {
     name: 'Danielle Romo',
-    avatar: danielleImage,
+    avatar: { src: danielleImage, width: 64 },
     link: 'https://cloudfour.com/is/danielle',
   },
   {
@@ -139,15 +139,11 @@ Multiple authors are also supported.
 
 `class` (string): CSS class(es) to append to the root element
 
-`authors` (array): Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+`authors` (array): Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties), each containing:
 
-```ts
- {
-   name: string | () => string;
-   avatar: string | () => string;
-   link?: string | () => string;
- }
-```
+- `name` (string): The author's name.
+- `avatar` (string or object): If this is an object containing a `src`, this will be passed directly to [the Avatar component](/?path=/docs/components-avatar--empty) (along with any other properties, for example `srcset` or `sizes`). Otherwise, it is assumed to be a string and used as the Avatar's `src` property.
+- `link` (optional, string): An `href` for the author's name to link to, for example a bio page.
 
 `author_prefix` (optional, string, default "By"): Used to create a more
 accessible user experience by adding visually hidden text, prefixes the author name (e.g. "By Arianna Chau")

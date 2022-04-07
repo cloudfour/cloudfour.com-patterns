@@ -46,6 +46,7 @@ For a less specialized display of tabular data, consider using [Table](/docs/com
 
 - `date`: A string that is parseable by [Twig's `date` filter](https://twig.symfony.com/doc/3.x/functions/date.html). Used for the date display and for a semantic `time` element.
 - `extras` (Block): Additional supporting content, for example an [inline list](/docs/objects-list--inline) of related links.
+- `heading_id`: The `id` to use for the heading element, which will be associated with the `article` via the `aria-labelledby` attribute. This improves the experience of navigating event log items via the [macOS VoiceOver rotor](https://support.apple.com/guide/voiceover-guide/navigate-using-the-rotor-mchlp2719/web) (and potentially other assistive interfaces as well).
 - `heading_level`: Specifies the level of `h*` element to use. Should be one lower than whatever the preceding section heading is to preserve the document outline. Defaults to `3`.
 - `link`: An external URL for the event.
 - `location`: The location of the event, for example "Portland, OR" or "Online."

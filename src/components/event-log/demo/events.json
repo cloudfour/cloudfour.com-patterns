@@ -1,5 +1,6 @@
 [
   {
+    "heading_id": "event-aea-2017-12-11",
     "date": "2017-12-11",
     "title": "An Event Apart",
     "link": "https://aneventapart.com/event/denver-2017",
@@ -16,30 +17,35 @@
     ]
   },
   {
+    "heading_id": "event-pdx-2017-07-13",
     "date": "2017-07-13",
     "title": "Portland Digital Summit",
     "link": "https://portland.digitalsummit.com/agenda/",
     "location": "Portland, OR"
   },
   {
+    "heading_id": "event-aea-2017-07-10",
     "date": "2017-07-10",
     "title": "An Event Apart",
     "link": "https://aneventapart.com/event/washington-dc-2017",
     "location": "Washington, DC"
   },
   {
+    "heading_id": "event-padnug-2017-06-06",
     "date": "2017-06-06",
     "title": "PADNUG",
     "link": "https://www.meetup.com/PADNUG/events/237142614/",
     "location": "Hillsboro, OR"
   },
   {
+    "heading_id": "event-aea-2017-05-15",
     "date": "2017-05-15",
     "title": "An Event Apart",
     "link": "https://aneventapart.com/event/boston-2017",
     "location": "Boston, MA"
   },
   {
+    "heading_id": "event-smashing-2017-04-04",
     "date": "2017-04-04",
     "title": "Smashing Conference",
     "link": "https://smashingconf.com/",
@@ -52,6 +58,7 @@
     ]
   },
   {
+    "heading_id": "event-velocity-2016-11-07",
     "date": "2016-11-07",
     "title": "Velocity",
     "link": "http://conferences.oreilly.com/velocity/devops-web-performance-eu",

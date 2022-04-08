@@ -40,17 +40,22 @@
   {% endblock %}
 {% endset %}
 
+{% set _avatars %}
+  {% block avatars %}
+    {% for author in authors %}
+      {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar } only %}
+    {% endfor %}
+  {% endblock %}
+{% endset %}
+
 <div class="c-author o-media{% if class %} {{ class }}{% endif %}">
   {# Avatar(s) #}
-  {% embed '@cloudfour/objects/bunch/bunch.twig' with { class: 'o-media__object' } %}
+  {% embed '@cloudfour/objects/bunch/bunch.twig' with {
+    class: 'o-media__object',
+    _avatars: _avatars
+  } only %}
     {% block content %}
-      {% for author in authors %}
-        {% if author.avatar.src is defined %}
-          {% include '@cloudfour/components/avatar/avatar.twig' with author.avatar only %}
-        {% else %}
-          {% include '@cloudfour/components/avatar/avatar.twig' with { src: author.avatar } only %}
-        {% endif %}
-      {% endfor %}
+      {{_avatars}}
     {% endblock %}
   {% endembed %}
 
@@ -59,15 +64,17 @@
     {# Author links #}
     <p class="c-author__author">
       <span class="u-hidden-visually">{{ author_prefix|default("By") }}</span>
-      {% for author in authors %}
-        {% if loop.last and loop.length > 1 %}and {% endif %}
-          {% if author.link %}
-            <a href="{{ author.link }}">{{ author.name }}</a>
-          {% else %}
-            <span>{{ author.name }}</span>
-          {% endif %}
-        {%- if not loop.last and loop.length > 2 %},{% endif %}
-      {% endfor %}
+      {% block authors %}
+        {% for author in authors %}
+          {% if loop.last and loop.length > 1 %}and {% endif %}
+            {% if author.link %}
+              <a href="{{ author.link }}">{{ author.name }}</a>
+            {% else %}
+              <span>{{ author.name }}</span>
+            {% endif %}
+          {%- if not loop.last and loop.length > 2 %},{% endif %}
+        {% endfor %}
+      {% endblock %}
     </p>
 
     {# Author meta content #}

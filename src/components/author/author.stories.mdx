@@ -13,7 +13,7 @@ const allAuthors = [
   },
   {
     name: 'Danielle Romo',
-    avatar: { src: danielleImage, width: 64 },
+    avatar: danielleImage,
     link: 'https://cloudfour.com/is/danielle',
   },
   {
@@ -142,7 +142,7 @@ Multiple authors are also supported.
 `authors` (array): Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties), each containing:
 
 - `name` (string): The author's name.
-- `avatar` (string or object): If this is an object containing a `src`, this will be passed directly to [the Avatar component](/?path=/docs/components-avatar--empty) (along with any other properties, for example `srcset` or `sizes`). Otherwise, it is assumed to be a string and used as the Avatar's `src` property.
+- `avatar` (string): A URL for the author's avatar. For more complex customization, use the `avatars` block.
 - `link` (optional, string): An `href` for the author's name to link to, for example a bio page.
 
 `author_prefix` (optional, string, default "By"): Used to create a more
@@ -154,3 +154,9 @@ accessible user experience by adding visually hidden text, prefixes the author n
 
 `date_prefix` (optional, string, default "Published on"): Used to create a more
 accessible user experience by adding visually hidden text, prefixes the date value (e.g. "Published on March 31st, 2021")
+
+## Template Blocks
+
+- `authors`: The author links to display.
+- `avatars`: The [Avatars](/?path=/docs/components-avatar--empty), which will be passed to a [Bunch](/?path=/docs/objects-bunch--of-avatars). Use this if you want to make deeper customizations to the avatars, for example adding `srcset` and `sizes`.
+- `meta_content`: The date or other additional content to display.

@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 6.0.0
+
+### Major Changes
+
+- [#1723](https://github.com/cloudfour/cloudfour.com-patterns/pull/1723) [`547c9cfc`](https://github.com/cloudfour/cloudfour.com-patterns/commit/547c9cfc046bfff8e41d44b2573aff856da71239) Thanks [@tylersticka](https://github.com/tylersticka)! - Replaces the buggy Author `avatar.src` functionality with a template block
+
 ## 5.4.0
 
 ### Minor Changes

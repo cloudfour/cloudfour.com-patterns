@@ -33,7 +33,7 @@
           @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
         #}
         <time aria-hidden="true" datetime="{{ date|date('Y-m-d') }}">
-          {{ date|date('F jS, Y') }}
+          {{ date_format == 'short' ? date|date('M j, Y') : date|date('F jS, Y') }}
         </time>
       </p>
     {% endif %}
@@ -67,7 +67,7 @@
       {% block authors %}
         {% for author in authors %}
           {% if loop.last and loop.length > 1 %}and {% endif %}
-            {% if author.link %}
+            {% if author.link and not unlink %}
               <a href="{{ author.link }}">{{ author.name }}</a>
             {% else %}
               <span>{{ author.name }}</span>

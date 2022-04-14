@@ -76,11 +76,22 @@ Displays an author, or set of authors, with optional meta content.
 
 If an author object contains the optional `link` property, then the author name will be linked.
 
+If you don't want a link, you can use the `unlink` property to remove it.
+
 <Canvas>
   <Story name="With link" args={{ count: 1 }}>
     {(args) =>
       template({
         authors: authors(args.count),
+        unlink: false,
+      })
+    }
+  </Story>
+  <Story name="Remove link" args={{ count: 1 }}>
+    {(args) =>
+      template({
+        authors: authors(args.count),
+        unlink: true,
       })
     }
   </Story>
@@ -107,6 +118,9 @@ If a date is desired for the meta content, use the `date` property with a
 date object value. The Author template has extra logic to create a more
 accessible user experience.
 
+If used in a space-constrained area, you may set the `date_format` property
+to "short" to display an abbreviated version. (e.g. `Mar 31, 2021` instead of `March 31st, 2021`)
+
 **Note:** The `meta` property will override the `date` if both are set.
 
 <Canvas>
@@ -114,7 +128,16 @@ accessible user experience.
     {(args) =>
       template({
         authors: authors(args.count),
-        date: new Date('March 31, 2021'),
+        date: new Date('September 29, 2021'),
+      })
+    }
+  </Story>
+  <Story name="Short date format" args={{ count: 1 }}>
+    {(args) =>
+      template({
+        authors: authors(args.count),
+        date: new Date('September 29, 2021'),
+        date_format: 'short',
       })
     }
   </Story>
@@ -152,8 +175,12 @@ accessible user experience by adding visually hidden text, prefixes the author n
 
 `date` (optional, date object): Represents a publication date
 
+`date_format` (optional, string): Set to `short` to use abbreviated date formatting. (e.g. `Mar 31, 2021` instead of `March 31st, 2021`)
+
 `date_prefix` (optional, string, default "Published on"): Used to create a more
 accessible user experience by adding visually hidden text, prefixes the date value (e.g. "Published on March 31st, 2021")
+
+`unlink` (optional, boolean): Used to remove the link from an author that contains a `link` property.
 
 ## Template Blocks
 

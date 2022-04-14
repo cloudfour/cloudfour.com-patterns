@@ -10,10 +10,13 @@
     {% if meta %}
       <p>{{ meta }}</p>
     {% elseif date %}
+      {% set _formatted_date =
+        date_format == 'short' ? date|date('M j, Y') : date|date('F jS, Y')
+      %}
       <p>
         {# This creates a more accessible, and less confusing, user experience #}
         <span class="u-hidden-visually">
-          {{ date_prefix|default('Published on') }} {{ date|date('F jS, Y') }}
+          {{ date_prefix|default('Published on') }} {{ _formatted_date }}
         </span>
         {#
           The <time> element is not well supported by screen readers, therefore,
@@ -33,7 +36,7 @@
           @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
         #}
         <time aria-hidden="true" datetime="{{ date|date('Y-m-d') }}">
-          {{ date|date('F jS, Y') }}
+          {{ _formatted_date }}
         </time>
       </p>
     {% endif %}
@@ -67,7 +70,7 @@
       {% block authors %}
         {% for author in authors %}
           {% if loop.last and loop.length > 1 %}and {% endif %}
-            {% if author.link %}
+            {% if author.link and not unlink %}
               <a href="{{ author.link }}">{{ author.name }}</a>
             {% else %}
               <span>{{ author.name }}</span>

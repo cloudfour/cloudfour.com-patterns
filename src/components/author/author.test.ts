@@ -53,6 +53,8 @@ test(
       })
     );
 
+    // The short date formatting applies to the visible date text
+    // (not our visually hidden screen reader text)
     const visibleDateText = await screen.getByText('Mar 31, 2021');
     await expect(visibleDateText).toHaveAttribute('aria-hidden', 'true');
   })

@@ -16,7 +16,7 @@
       <p>
         {# This creates a more accessible, and less confusing, user experience #}
         <span class="u-hidden-visually">
-          {{ date_prefix|default('Published on') }} {{ _formatted_date }}
+          {{ date_prefix|default('Published on') }} {{ date|date('F jS, Y') }}
         </span>
         {#
           The <time> element is not well supported by screen readers, therefore,

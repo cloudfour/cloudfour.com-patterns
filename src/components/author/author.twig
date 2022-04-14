@@ -10,9 +10,6 @@
     {% if meta %}
       <p>{{ meta }}</p>
     {% elseif date %}
-      {% set _formatted_date =
-        date_format == 'short' ? date|date('M j, Y') : date|date('F jS, Y')
-      %}
       <p>
         {# This creates a more accessible, and less confusing, user experience #}
         <span class="u-hidden-visually">
@@ -36,7 +33,7 @@
           @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
         #}
         <time aria-hidden="true" datetime="{{ date|date('Y-m-d') }}">
-          {{ _formatted_date }}
+          {{ date_format == 'short' ? date|date('M j, Y') : date|date('F jS, Y') }}
         </time>
       </p>
     {% endif %}

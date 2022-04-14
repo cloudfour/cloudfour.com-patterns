@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 6.1.0
+
+### Minor Changes
+
+- [#1727](https://github.com/cloudfour/cloudfour.com-patterns/pull/1727) [`d8508b11`](https://github.com/cloudfour/cloudfour.com-patterns/commit/d8508b119cd92797df4fc9d58ff3dc96ab25a2bc) Thanks [@spaceninja](https://github.com/spaceninja)! - Add Short Date Format and Unlinking to Author
+
 ## 6.0.0
 
 ### Major Changes

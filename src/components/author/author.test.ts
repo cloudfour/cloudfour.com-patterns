@@ -37,7 +37,7 @@ test(
 
 test(
   'Short date formatting',
-  withBrowser(async ({ utils, page }) => {
+  withBrowser(async ({ utils, screen }) => {
     await utils.injectHTML(
       await template({
         // The avatar is not included because I couldn't figure out how
@@ -53,12 +53,8 @@ test(
       })
     );
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
-    expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      text "By"
-      text "Shakira Isabel Mebarak Ripoll"
-      text "Published on Mar 31, 2021"
-    `);
+    const visibleDateText = await screen.getByText('Mar 31, 2021');
+    await expect(visibleDateText).toHaveAttribute('aria-hidden', 'true');
   })
 );
 

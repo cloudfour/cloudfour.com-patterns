@@ -92,7 +92,7 @@
     "prettier": "2.5.1",
     "raw-loader": "4.0.2",
     "react-syntax-highlighter": "13.5.3",
-    "remark-preset-lint-recommended": "5.0.0",
+    "remark-preset-lint-recommended": "6.1.2",
     "remark-preset-prettier": "0.5.1",
     "resolve": "1.22.0",
     "rollup": "2.70.1",

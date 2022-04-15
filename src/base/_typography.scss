@@ -27,15 +27,20 @@ html {
 }
 
 /**
- * 1. Prevent size adjustments on orientation change.
- * 2. Allow long words (like URLs) to break at arbitrary points.
+ * 1. Allow long words (like URLs) to break at arbitrary points.
+ *    Note we are using `anywhere` rather than `break-word`. They behave
+ *    identically, but break points introduced by `break-word` are not
+ *    considered when calculating `min-content` intrinsic sizes, which means
+ *    layout remains broken in any CSS Grid layout.
+ *    @see https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap#values
+ * 2. Prevent size adjustments on orientation change.
  */
 
 body {
   font-family: font-family.$sans-fallback;
   line-height: line-height.$loose;
-  text-size-adjust: none; /* 1 */
-  word-wrap: break-word; /* 2 */
+  overflow-wrap: anywhere; /* 1 */
+  text-size-adjust: none; /* 2 */
 
   @supports (font-variation-settings: normal) {
     font-family: font-family.$sans;

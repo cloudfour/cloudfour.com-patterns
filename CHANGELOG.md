@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 6.1.1
+
+### Patch Changes
+
+- [#1730](https://github.com/cloudfour/cloudfour.com-patterns/pull/1730) [`41198454`](https://github.com/cloudfour/cloudfour.com-patterns/commit/411984548bbf6ac2e1d7a6504a4ec04ff9e7e696) Thanks [@spaceninja](https://github.com/spaceninja)! - Use `overflow-wrap:anywhere` for Word Breaking
+
 ## 6.1.0
 
 ### Minor Changes

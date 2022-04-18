@@ -68,7 +68,7 @@ export const parameters = {
         // that correspond to that output
         const input = window.__twig_inputs__?.get(rendered);
         if (!input) return src;
-        return = makeTwigInclude(input.path, input.args);
+        return makeTwigInclude(input.path, input.args);
       } catch {
         return src;
       }

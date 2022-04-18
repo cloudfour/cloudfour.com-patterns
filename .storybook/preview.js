@@ -53,6 +53,9 @@ export const parameters = {
     // Docs support for inlining plain HTML stories
     // https://github.com/storybookjs/storybook/blob/v6.0.21/addons/docs/docs/docspage.md#inline-stories-vs-iframe-stories
     inlineStories: true,
+    source: {
+      language: 'twig',
+    },
     prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
     transformSource(src, storyContext) {
       try {

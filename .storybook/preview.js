@@ -58,7 +58,9 @@ export const parameters = {
       try {
         const storyFunction = storyContext.originalStoryFn;
         if (!storyFunction) return src;
-        const rendered = storyFunction(storyContext.args);
+        const rendered = storyFunction(
+          storyContext.args || storyContext.initialArgs
+        );
         // The twing/source-inputs-loader.js file makes it so that whenever twig templates are rendered,
         // the arguments and input path are stored in the window.__twig_inputs__ variable.
         // __twig_inputs__ is a map between the output HTML and and objects with the arguments and input paths
@@ -69,7 +71,6 @@ export const parameters = {
         const twigInclude = makeTwigInclude(input.path, input.args);
         // When I do this, I see the source output many times... some with the
         // args intact, some without args at all. Alert is a good example.
-        console.log(storyContext.id, storyContext.args, twigInclude);
         return twigInclude;
       } catch {
         return src;

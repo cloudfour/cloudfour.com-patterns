@@ -67,11 +67,11 @@
       {% block authors %}
         {% for author in authors %}
           {% if loop.last and loop.length > 1 %}and {% endif %}
-            {% if author.link and not unlink %}
+            {%- if author.link and not unlink -%}
               <a href="{{ author.link }}">{{ author.name }}</a>
-            {% else %}
+            {%- else -%}
               <span>{{ author.name }}</span>
-            {% endif %}
+            {%- endif -%}
           {%- if not loop.last and loop.length > 2 %},{% endif %}
         {% endfor %}
       {% endblock %}

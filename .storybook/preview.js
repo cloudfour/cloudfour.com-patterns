@@ -68,10 +68,7 @@ export const parameters = {
         // that correspond to that output
         const input = window.__twig_inputs__?.get(rendered);
         if (!input) return src;
-        const twigInclude = makeTwigInclude(input.path, input.args);
-        // When I do this, I see the source output many times... some with the
-        // args intact, some without args at all. Alert is a good example.
-        return twigInclude;
+        return = makeTwigInclude(input.path, input.args);
       } catch {
         return src;
       }

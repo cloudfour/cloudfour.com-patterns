@@ -1,5 +1,5 @@
 ---
-"@cloudfour/patterns": patch
+'@cloudfour/patterns': patch
 ---
 
 Bugfix: Remove Stray Spaces from Author Component

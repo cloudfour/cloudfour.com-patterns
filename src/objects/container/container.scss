@@ -4,8 +4,10 @@
 
 $pad-breakpoint-min: breakpoint.$s;
 $pad-breakpoint-max: breakpoint.$xl;
-$pad-min: size.$padding-container-min;
-$pad-max: size.$padding-container-max;
+$pad-block-min: size.$padding-container-vertical-min;
+$pad-block-max: size.$padding-container-vertical-max;
+$pad-inline-min: size.$padding-container-horizontal-min;
+$pad-inline-max: size.$padding-container-horizontal-max;
 
 /**
  * There are no default styles for `o-container`. It acts as a wrapper so that
@@ -17,28 +19,21 @@ $pad-max: size.$padding-container-max;
  * Modifiers for `o-container` that add some standard, responsive padding.
  */
 
-.o-container--pad {
-  padding: fluid.fluid-clamp(
-    $pad-min,
-    $pad-max,
-    $pad-breakpoint-min,
-    $pad-breakpoint-max
-  );
-}
-
+.o-container--pad,
 .o-container--pad-block {
   padding-block: fluid.fluid-clamp(
-    $pad-min,
-    $pad-max,
+    $pad-block-min,
+    $pad-block-max,
     $pad-breakpoint-min,
     $pad-breakpoint-max
   );
 }
 
+.o-container--pad,
 .o-container--pad-inline {
   padding-inline: fluid.fluid-clamp(
-    $pad-min,
-    $pad-max,
+    $pad-inline-min,
+    $pad-inline-max,
     $pad-breakpoint-min,
     $pad-breakpoint-max
   );
@@ -73,8 +68,8 @@ $pad-max: size.$padding-container-max;
   .o-container--pad &,
   .o-container--pad-inline & {
     margin-inline: fluid.fluid-clamp(
-      $pad-min * -1,
-      $pad-max * -1,
+      $pad-inline-min * -1,
+      $pad-inline-max * -1,
       $pad-breakpoint-min,
       $pad-breakpoint-max
     );
@@ -92,8 +87,8 @@ $pad-max: size.$padding-container-max;
   .o-container--pad &,
   .o-container--pad-inline & {
     padding-inline: fluid.fluid-clamp(
-      $pad-min,
-      $pad-max,
+      $pad-inline-min,
+      $pad-inline-max,
       $pad-breakpoint-min,
       $pad-breakpoint-max
     );

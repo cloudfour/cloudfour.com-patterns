@@ -56,8 +56,11 @@ export const parameters = {
     prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
     transformSource(src, storyContext) {
       try {
-        const storyFunction = storyContext.getOriginal();
-        const rendered = storyFunction(storyContext.args);
+        const storyFunction = storyContext.originalStoryFn;
+        if (!storyFunction) return src;
+        const rendered = storyFunction(
+          storyContext.args || storyContext.initialArgs
+        );
         // The twing/source-inputs-loader.js file makes it so that whenever twig templates are rendered,
         // the arguments and input path are stored in the window.__twig_inputs__ variable.
         // __twig_inputs__ is a map between the output HTML and and objects with the arguments and input paths

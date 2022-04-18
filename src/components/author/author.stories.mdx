@@ -32,8 +32,8 @@ const allAuthors = [
     link: 'https://cloudfour.com/is/gerardo',
   },
 ];
-const authors = (count) => allAuthors.slice(0, count);
-const authorsWithNoLink = (count) =>
+const authors = (count = 1) => allAuthors.slice(0, count);
+const authorsWithNoLink = (count = 1) =>
   allAuthors
     .map(({ name, avatar }) => ({
       name,
@@ -46,7 +46,6 @@ const authorsWithNoLink = (count) =>
   argTypes={{
     count: {
       type: 'number',
-      defaultValue: 1,
       description: 'Number of authors to show',
       control: {
         type: 'range',

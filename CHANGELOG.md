@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 7.0.0
+
+### Major Changes
+
+- [#1740](https://github.com/cloudfour/cloudfour.com-patterns/pull/1740) [`5502b9f3`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5502b9f36fdef1ca214551ac5387873d93d3414d) Thanks [@tylersticka](https://github.com/tylersticka)! - Replaces the `size.$padding-container-*` tokens into `size.$padding-container-vertical-*` and `size.$padding-container-horizontal-*` tokens so the vertical padding will not need to be overridden across actual layout templates.
+
+### Patch Changes
+
+- [#1742](https://github.com/cloudfour/cloudfour.com-patterns/pull/1742) [`3e754d92`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3e754d926b9db52bdb32b3ffbffbfd29f4457335) Thanks [@spaceninja](https://github.com/spaceninja)! - Bugfix: Remove Stray Spaces from Author Component
+
 ## 6.1.1
 
 ### Patch Changes

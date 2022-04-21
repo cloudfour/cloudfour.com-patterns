@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Updated Block Alignment Styles for Deck
+Update the Deck object to better handle the WordPress block alignment styles `alignwide` and `alignfull`.

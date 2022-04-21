@@ -60,3 +60,15 @@
 .o-deck--align-start {
   align-items: start;
 }
+
+/**
+ * Block alignment adjustments
+ */
+
+.o-deck.alignfull {
+  background: pink;
+}
+
+.o-deck.alignwide {
+  background: cyan;
+}

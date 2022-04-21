@@ -1,7 +1,7 @@
 {% if columns and columns > 1 and columnsBreakpoint and columnsBreakpoint != 'none' %}
-  {% set _deck_class = 'o-deck--' ~ columns ~ '-column' ~ columnsBreakpoint %}
+  {% set _deck_class = 'o-deck--' ~ columns ~ '-column' ~ columnsBreakpoint ~ ' ' ~ class ~ ' ' ~ alignment %}
 {% else %}
-  {% set _deck_class = '' %}
+  {% set _deck_class = class ~ ' ' ~ alignment %}
 {% endif %}
 
 {% embed '@cloudfour/objects/deck/deck.twig' with {

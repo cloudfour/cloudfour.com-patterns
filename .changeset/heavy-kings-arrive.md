@@ -1,5 +1,5 @@
 ---
-"@cloudfour/patterns": minor
+'@cloudfour/patterns': minor
 ---
 
 Updated Block Alignment Styles for Deck

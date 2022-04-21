@@ -48,15 +48,17 @@ ul {
 }
 
 /**
- * Forces the viewport to be filled. Necessary for the footer to "stick" to the
- * bottom of short pages.
- *
- * @see https://css-tricks.com/couple-takes-sticky-footer/#there-is-grid
+ * 1. Forces the viewport to be filled. Necessary for the footer to
+ *    "stick" to the bottom of short pages.
+ *    @see https://css-tricks.com/couple-takes-sticky-footer/#there-is-grid
+ * 2. Keep full-bleed items from triggering a horizontal scrollbar.
+ *    @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/
  */
 
 html,
 body {
-  block-size: 100%;
+  block-size: 100%; // 1
+  overflow-x: hidden; // 2
 }
 
 /**

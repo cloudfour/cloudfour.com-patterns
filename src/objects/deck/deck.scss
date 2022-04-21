@@ -69,34 +69,21 @@
  *    token for the whole `fluid-clamp()` formula, but our token system
  *    doesn't support using Sass formulas that way. This should be okay,
  *    since we're still matching the container's tokens.
- * 2. Adjust default `alignfull` margin to subtract padding.
- *    (see next comment for context.)
- * 3. In a perfect world, we'd just set padding here, and let the default
- *    `alignfull` margins make the layout full-bleed. Unfortunately, the
- *    default margins use viewport units which don't factor in scrollbars.
- *    This meant our content was actually wider than the viewport and got
- *    clipped, with a horizontal scrollbar. So instead of setting padding,
- *    we're overriding the default margins to be less than full-bleed by
- *    the amount of our padding. If anyone fixes the bug with `alignfull`
- *    then this code can be simplified to just set `padding-inline`.
- * 4. Only set margin when `alignwide` is full-bleed, to avoid overriding
- *    the default `alignwide` negative margins.
+ * 2. Remove padding once `alignwide` is no longer full-bleed.
  */
 
-$deck-aligned-padding: fluid.fluid-clamp(
-  size.$padding-container-horizontal-min,
-  size.$padding-container-horizontal-max,
-  breakpoint.$s,
-  breakpoint.$xl
-); // 1
-$deck-aligned-margin: calc(-50vw + 50% + #{$deck-aligned-padding}); // 2
-
-.o-deck.alignfull {
-  margin-inline: $deck-aligned-margin; // 3
+.o-deck.alignfull,
+.o-deck.alignwide {
+  padding-inline: fluid.fluid-clamp(
+    size.$padding-container-horizontal-min,
+    size.$padding-container-horizontal-max,
+    breakpoint.$s,
+    breakpoint.$xl
+  ); // 1
 }
 
 .o-deck.alignwide {
-  @media (width < breakpoint.$l) {
-    margin-inline: $deck-aligned-margin; // 4
+  @media (width >= breakpoint.$l) {
+    padding-inline: 0; // 2
   }
 }

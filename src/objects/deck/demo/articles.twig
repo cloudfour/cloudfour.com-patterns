@@ -1,11 +1,25 @@
+{% set _deck_class = '' %}
+
 {% if columns and columns > 1 and columnsBreakpoint and columnsBreakpoint != 'none' %}
-  {% set _deck_class = 'o-deck--' ~ columns ~ '-column' ~ columnsBreakpoint ~ ' ' ~ class ~ ' ' ~ alignment %}
-{% else %}
-  {% set _deck_class = class ~ ' ' ~ alignment %}
+  {% set _deck_class = 'o-deck--' ~ columns ~ '-column' ~ columnsBreakpoint %}
 {% endif %}
 
+{% if class %}
+  {% set _deck_class = _deck_class ~ ' ' ~ class %}
+{% endif %}
+
+{% if alignment %}
+  {% set _deck_class = _deck_class ~ ' ' ~ alignment %}
+{% endif %}
+
+{#
+  The Wide alignment demo needs a max-width to work, so we add a container.
+  It's not needed in any other circumstances.
+#}
+{% if alignment == 'alignwide' %}
 <div class="o-container--prose">
   <div class="o-container__content">
+{% endif %}
     {% embed '@cloudfour/objects/deck/deck.twig' with {
       class: _deck_class,
     } %}
@@ -43,5 +57,7 @@
         {% endfor %}
       {% endblock %}
     {% endembed %}
+{% if alignment == 'alignwide' %}
   </div>
 </div>
+{% endif %}

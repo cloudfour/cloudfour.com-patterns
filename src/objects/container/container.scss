@@ -8,6 +8,24 @@ $pad-block-min: size.$padding-container-vertical-min;
 $pad-block-max: size.$padding-container-vertical-max;
 $pad-inline-min: size.$padding-container-horizontal-min;
 $pad-inline-max: size.$padding-container-horizontal-max;
+$fluid-pad-block: fluid.fluid-clamp(
+  $pad-block-min,
+  $pad-block-max,
+  $pad-breakpoint-min,
+  $pad-breakpoint-max
+);
+$fluid-pad-inline: fluid.fluid-clamp(
+  $pad-inline-min,
+  $pad-inline-max,
+  $pad-breakpoint-min,
+  $pad-breakpoint-max
+);
+$fluid-pad-inline-negative: fluid.fluid-clamp(
+  $pad-inline-min * -1,
+  $pad-inline-max * -1,
+  $pad-breakpoint-min,
+  $pad-breakpoint-max
+);
 
 /**
  * There are no default styles for `o-container`. It acts as a wrapper so that
@@ -21,22 +39,12 @@ $pad-inline-max: size.$padding-container-horizontal-max;
 
 .o-container--pad,
 .o-container--pad-block {
-  padding-block: fluid.fluid-clamp(
-    $pad-block-min,
-    $pad-block-max,
-    $pad-breakpoint-min,
-    $pad-breakpoint-max
-  );
+  padding-block: $fluid-pad-block;
 }
 
 .o-container--pad,
 .o-container--pad-inline {
-  padding-inline: fluid.fluid-clamp(
-    $pad-inline-min,
-    $pad-inline-max,
-    $pad-breakpoint-min,
-    $pad-breakpoint-max
-  );
+  padding-inline: $fluid-pad-inline;
 }
 
 /**
@@ -67,12 +75,7 @@ $pad-inline-max: size.$padding-container-horizontal-max;
 .o-container__fill-pad {
   .o-container--pad &,
   .o-container--pad-inline & {
-    margin-inline: fluid.fluid-clamp(
-      $pad-inline-min * -1,
-      $pad-inline-max * -1,
-      $pad-breakpoint-min,
-      $pad-breakpoint-max
-    );
+    margin-inline: $fluid-pad-inline-negative;
   }
 }
 
@@ -86,11 +89,6 @@ $pad-inline-max: size.$padding-container-horizontal-max;
 .o-container__fill-pad {
   .o-container--pad &,
   .o-container--pad-inline & {
-    padding-inline: fluid.fluid-clamp(
-      $pad-inline-min,
-      $pad-inline-max,
-      $pad-breakpoint-min,
-      $pad-breakpoint-max
-    );
+    padding-inline: $fluid-pad-inline;
   }
 }

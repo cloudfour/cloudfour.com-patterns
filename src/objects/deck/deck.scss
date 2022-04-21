@@ -2,6 +2,7 @@
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
+@use '../container/container.scss';
 
 /**
  * 1. If horizontal items are shown at the wrong column count, they will appear
@@ -65,21 +66,12 @@
  * Block alignment adjustments
  *
  * 1. Set inline padding to match `o-container__fill-pad`.
- *    We're using the container tokens here, but ideally we'd make a
- *    token for the whole `fluid-clamp()` formula, but our token system
- *    doesn't support using Sass formulas that way. This should be okay,
- *    since we're still matching the container's tokens.
  * 2. Remove padding once `alignwide` is no longer full-bleed.
  */
 
 .o-deck.alignfull,
 .o-deck.alignwide {
-  padding-inline: fluid.fluid-clamp(
-    size.$padding-container-horizontal-min,
-    size.$padding-container-horizontal-max,
-    breakpoint.$s,
-    breakpoint.$xl
-  ); // 1
+  padding-inline: container.$fluid-pad-inline; // 1
 }
 
 .o-deck.alignwide {

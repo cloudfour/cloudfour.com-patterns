@@ -3,6 +3,7 @@ import articles from './demo/articles.json';
 import articlesDemo from './demo/articles.twig';
 import alignmentDemo from './demo/alignment.twig';
 const articlesStory = (args) => articlesDemo({ items: articles, ...args });
+const alignmentStory = (args) => alignmentDemo({ items: articles, ...args });
 // Custom function for generating story source from args given
 const articlesTemplateSource = (_src, storyContext) => {
   const args = storyContext.args || {};
@@ -23,6 +24,11 @@ const articlesTemplateSource = (_src, storyContext) => {
   {% endblock %}
 {% endembed %}`;
 };
+const alignmentClasses = {
+  None: '',
+  Full: 'alignfull',
+  Wide: 'alignwide',
+};
 
 <Meta
   title="Objects/Deck"
@@ -40,6 +46,10 @@ const articlesTemplateSource = (_src, storyContext) => {
   }}
   argTypes={{
     class: { type: { name: 'string' } },
+    alignment: {
+      options: alignmentClasses,
+      control: { type: 'select' },
+    },
     columns: {
       control: {
         type: 'range',
@@ -90,8 +100,34 @@ By default, the `o-deck` class will use CSS Grid Layout to arrange child element
 The `o-deck--align-start` modifier can be used to top-align deck items. This modifier is helpful when the deck items have different alignment. For example, the `o-media` object can be middle or top aligned depending on the length of the content. The modifier forces all deck objects to have the same alignment.
 
 <Canvas>
-  <Story name="Alignment" height="200px">
-    {(args) => alignmentDemo(args)}
+  <Story
+    name="Alignment"
+    height="200px"
+    args={{
+      columns: 3,
+      columnsBreakpoint: '@m',
+      class: 'o-deck--align-start',
+    }}
+  >
+    {alignmentStory.bind({})}
+  </Story>
+</Canvas>
+
+## Block Alignment
+
+When used in WordPress, the `alignwide` and `alignfull` block alignment styles have been updated for use with the Deck.
+
+<Canvas>
+  <Story
+    name="Block Alignment"
+    height="400px"
+    args={{
+      columns: 3,
+      columnsBreakpoint: '@m',
+      alignment: 'alignfull',
+    }}
+  >
+    {articlesStory.bind({})}
   </Story>
 </Canvas>
 

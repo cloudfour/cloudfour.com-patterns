@@ -65,7 +65,8 @@
 /**
  * Block alignment adjustments
  *
- * 1. Set inline padding to match `o-container__fill-pad`.
+ * 1. Set inline padding to match `o-container__fill-pad` since we don't want the deck to touch 
+ *     the viewport edges even when it's full bleed.
  * 2. Remove padding once `alignwide` is no longer full-bleed.
  */
 

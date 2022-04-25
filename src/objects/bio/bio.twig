@@ -1,9 +1,14 @@
 {% set _meta %}{% block meta %}{% endblock %}{% endset %}
+{% set _bio_content %}{% block content %}{% endblock %}{% endset %}
 
 <div class="o-bio">
-  <div class="o-bio__content">
-    {% block content %}{% endblock %}
-  </div>
+  {% embed '@cloudfour/objects/container/container.twig' with {
+    class: 'o-bio__content o-container--prose'
+  } %}
+    {% block content %}
+      {{_bio_content}}
+    {% endblock %}
+  {% endembed %}
   <div class="o-bio__avatar">
     {% block avatar %}{% endblock %}
   </div>

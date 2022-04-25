@@ -43,6 +43,11 @@
 /// Generate a fluid `clamp` function. Unlike `fluid-calc`, this will prevent
 /// the value from going below `$min` or above `$max`.
 ///
+/// The fluid-clamp is a more predictable clamp over the native CSS clamp. It will
+/// return predictable values between the $min and $max values between the
+/// $min-width and $max-width breakpoints. In other words, you get a size relative
+/// to the viewport width but between the $min and $max values. Very neat!
+///
 /// @param {Number} $min - The minimum amount.
 /// @param {Number} $max - The maximum amount.
 /// @param {Number} $min-width [breakpoint.$s] - The minimum viewport width in ems.

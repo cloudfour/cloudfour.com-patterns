@@ -11,9 +11,9 @@
         <header>
           {% include '@cloudfour/components/heading/heading.twig' with {
             content: 'Danielle Romo',
+            subheading: 'Front-end Designer',
             level: 1
           } only %}
-          <p>Front-end Designer</p>
         </header>
         <p>Danielle is a front-end designer passionate about all things creative including design, art, and music. She began her career as a graphic designer and draws on her visual design skills to create engaging experiences for the web. She hasn't stopped learning since taking her first web design class and continues to develop her coding skills one web page at a time.</p>
         <p>Outside of work, you can find her drawing, listening to true crime podcasts, or hiking the beautiful Pacific Northwest.</p>
@@ -21,11 +21,13 @@
     {% endembed %}
   {% endblock %}
   {% block meta %}
-    <ul>
-      <li><a href="#">Website link</a></li>
-      <li><a href="#">Website link</a></li>
-      <li><a href="#">Social media link</a></li>
-      <li><a href="#">Social media link</a></li>
-    </ul>
+    {% embed '@cloudfour/objects/list/list.twig' %}
+      {% block content %}
+        <li><a href="#">Website link</a></li>
+        <li><a href="#">Website link</a></li>
+        <li><a href="#">Social media link</a></li>
+        <li><a href="#">Social media link</a></li>
+      {% endblock %}
+    {% endembed %}
   {% endblock %}
 {% endembed %}

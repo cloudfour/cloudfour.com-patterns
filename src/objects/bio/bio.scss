@@ -14,7 +14,6 @@
     'avatar'
     'content'
     'meta';
-  grid-template-rows: minmax(0, auto);
 
   @media (min-width: breakpoint.$l) {
     gap: 1em;

@@ -40,6 +40,7 @@ module.exports = {
       avatar: {
         small: { value: modularEm(3) },
         medium: { value: modularEm(5) },
+        large: { value: modularEm(11) },
         full: { value: '100%' },
       },
       control: {

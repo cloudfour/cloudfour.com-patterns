@@ -31,10 +31,10 @@
 
 .o-bio__avatar {
   grid-area: avatar;
-  width: 12em; // 1
+  inline-size: 12em; // 1
   margin: 0 auto;
   @media (min-width: breakpoint.$l) {
-    width: 14em; // 1
+    inline-size: 14em; // 1
   }
 }
 

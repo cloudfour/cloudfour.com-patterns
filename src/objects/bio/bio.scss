@@ -4,7 +4,7 @@
 
 .o-bio {
   display: grid;
-  grid-gap: fluid.fluid-clamp(
+  gap: fluid.fluid-clamp(
     size.$spacing-gap-fluid-min,
     size.$spacing-gap-fluid-max,
     breakpoint.$s,

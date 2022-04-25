@@ -14,9 +14,10 @@
     'avatar'
     'content'
     'meta';
-  grid-template-rows: repeat(3, minmax(0, auto));
+  grid-template-rows: minmax(0, auto);
 
   @media (min-width: breakpoint.$l) {
+    gap: 1em;
     grid-template-areas:
       'avatar content content'
       'meta content content';
@@ -24,8 +25,17 @@
   }
 }
 
+///
+/// 1. Match prototype designs
+///
+
 .o-bio__avatar {
   grid-area: avatar;
+  width: 12em; // 1
+  margin: 0 auto;
+  @media (min-width: breakpoint.$l) {
+    width: 14em; // 1
+  }
 }
 
 .o-bio__content {
@@ -34,4 +44,7 @@
 
 .o-bio__meta {
   grid-area: meta;
+  @media (min-width: breakpoint.$l) {
+    text-align: center;
+  }
 }

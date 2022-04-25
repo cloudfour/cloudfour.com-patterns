@@ -17,11 +17,11 @@
     'meta';
 
   @media (min-width: breakpoint.$l) {
-    row-gap: ms.step(0);
     grid-template-areas:
       'avatar content content'
       'meta content content';
     grid-template-columns: repeat(3, 1fr);
+    row-gap: ms.step(0);
   }
 }
 
@@ -31,8 +31,8 @@
   margin: 0 auto;
   max-inline-size: size.$square-avatar-large;
   @media (min-width: breakpoint.$l) {
-    inline-size: 100%;
     font-size: ms.step(1);
+    inline-size: 100%;
   }
 }
 

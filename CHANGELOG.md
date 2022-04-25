@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 7.1.0
+
+### Minor Changes
+
+- [#1744](https://github.com/cloudfour/cloudfour.com-patterns/pull/1744) [`ab373f86`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ab373f869babc497ce2394ca0995fd387ed00d50) Thanks [@spaceninja](https://github.com/spaceninja)! - Update the Deck object to better handle the WordPress block alignment styles `alignwide` and `alignfull`. By default, these would pull the Deck content flush with the edge of the screen and even clip a bit in certain circumstances. To resolve this, we add some padding to prevent the content from going full-bleed.
+
+### Patch Changes
+
+- [#1747](https://github.com/cloudfour/cloudfour.com-patterns/pull/1747) [`a2a7543e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a2a7543e73103883288a157a1953ffbd3d30c1fc) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Fix Bio object design inconsistencies per prototype designs
+
 ## 7.0.0
 
 ### Major Changes

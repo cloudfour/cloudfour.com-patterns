@@ -31,8 +31,8 @@
 .o-bio__avatar {
   grid-area: avatar;
   inline-size: 100%;
-  max-inline-size: size.$square-avatar-large; // 1
   margin: 0 auto;
+  max-inline-size: size.$square-avatar-large; // 1
   @media (min-width: breakpoint.$l) {
     inline-size: 100%;
     max-inline-size: 14em; // 1

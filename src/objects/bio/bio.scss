@@ -1,6 +1,7 @@
 @use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/fluid';
+@use '../../mixins/ms';
 
 .o-bio {
   display: grid;
@@ -16,7 +17,7 @@
     'meta';
 
   @media (min-width: breakpoint.$l) {
-    gap: 1em; // @todo fix this
+    row-gap: ms.step(0);
     grid-template-areas:
       'avatar content content'
       'meta content content';
@@ -24,18 +25,14 @@
   }
 }
 
-///
-/// 1. Match prototype designs
-///
-
 .o-bio__avatar {
   grid-area: avatar;
   inline-size: 100%;
   margin: 0 auto;
-  max-inline-size: size.$square-avatar-large; // 1
+  max-inline-size: size.$square-avatar-large;
   @media (min-width: breakpoint.$l) {
     inline-size: 100%;
-    max-inline-size: 14em; // 1
+    font-size: ms.step(1);
   }
 }
 

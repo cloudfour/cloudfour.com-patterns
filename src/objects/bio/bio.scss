@@ -15,6 +15,12 @@
     'avatar'
     'content'
     'meta';
+  grid-template-rows: auto 1fr;
+
+  @media (width < breakpoint.$l) {
+    margin: 0 auto;
+    max-inline-size: size.$max-width-prose;
+  }
 
   @media (min-width: breakpoint.$l) {
     grid-template-areas:
@@ -25,23 +31,32 @@
   }
 }
 
+///
+/// 1. Instead of arbitrarily bumping the Avatar size up, the modular scale is
+///    used instead. Since the Avatar container uses ems for the `max-inline-size`,
+///    upping the `font-size` by the modular scale first step works beautifully
+///    for larger viewports.
+///
+
 .o-bio__avatar {
   grid-area: avatar;
   inline-size: 100%;
   margin: 0 auto;
-  max-inline-size: size.$square-avatar-large;
+  max-inline-size: size.$square-avatar-large; // 1
+
   @media (min-width: breakpoint.$l) {
-    font-size: ms.step(1);
-    inline-size: 100%;
+    font-size: ms.step(1); // 1
   }
 }
 
 .o-bio__content {
   grid-area: content;
+  max-inline-size: size.$max-width-prose;
 }
 
 .o-bio__meta {
   grid-area: meta;
+
   @media (min-width: breakpoint.$l) {
     text-align: center;
   }

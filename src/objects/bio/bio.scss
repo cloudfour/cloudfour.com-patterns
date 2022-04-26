@@ -50,10 +50,7 @@
 
 .o-bio__content {
   grid-area: content;
-
-  @media (min-width: breakpoint.$l) {
-    max-inline-size: size.$max-width-prose;
-  }
+  max-inline-size: size.$max-width-prose;
 }
 
 .o-bio__meta {

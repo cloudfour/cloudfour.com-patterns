@@ -1,5 +1,14 @@
 # @cloudfour/patterns
 
+## 7.1.1
+
+### Patch Changes
+
+- [#1752](https://github.com/cloudfour/cloudfour.com-patterns/pull/1752) [`f3268e34`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f3268e344fefa62bd952bab3ff483e56a8b0e851) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Fixes a couple of layout issues for the Bio object:
+
+  - the meta contact was not within the prose width container on medium viewports
+  - the meta content was too low when the bio was longer on larger viewports
+
 ## 7.1.0
 
 ### Minor Changes

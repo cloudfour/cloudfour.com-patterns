@@ -137,14 +137,21 @@ const templateStory = (args) => {
     },
     email_input_label: {
       type: 'string',
-      description: 'The email input `<label>` value',
+      description: 'The value for the email input `<label>`',
       table: {
         defaultValue: { summary: 'Email' },
       },
     },
+    email_input_name: {
+      type: 'string',
+      description: 'The value for the email input `name` attribute',
+      table: {
+        defaultValue: { summary: 'email' },
+      },
+    },
     email_input_placeholder: {
       type: 'string',
-      description: 'The email input placeholder text',
+      description: 'The value for the email input `placeholder` attribute',
       table: {
         defaultValue: { summary: 'Your Email Address' },
       },

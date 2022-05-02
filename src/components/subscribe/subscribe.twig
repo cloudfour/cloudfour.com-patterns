@@ -12,10 +12,14 @@
         'js-subscribe__control',
         notifications_btn_class|default('')
       ]|join(' '),
-      initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
-      initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
-      swapped_label: notifications_btn_swapped_label|default('Notifications have been turned on.'),
-      swapped_visual_label: notifications_btn_swapped_visual_label|default('Turn off notifications'),
+      initial_label:
+        notifications_btn_initial_label|default('Notifications have been turned off.'),
+      initial_visual_label:
+        notifications_btn_initial_visual_label|default('Get notifications'),
+      swapped_label:
+        notifications_btn_swapped_label|default('Notifications have been turned on.'),
+      swapped_visual_label:
+        notifications_btn_swapped_visual_label|default('Turn off notifications'),
     } only %}
 
     {% include '@cloudfour/components/button/button.twig' with {
@@ -52,6 +56,7 @@
     {% embed '@cloudfour/objects/input-group/input-group.twig' with {
       class: 'c-subscribe__form-input-group',
       form_id: form_id,
+      email_input_name: email_input_name,
       email_input_placeholder: email_input_placeholder,
       submit_btn_label: submit_btn_label
     } only %}
@@ -60,6 +65,7 @@
           id: "subscription-email-#{form_id}",
           type: 'email',
           class: 'c-subscribe__form-input',
+          name: email_input_name|default('email'),
           placeholder: email_input_placeholder|default('Your Email Address'),
           autocomplete: 'home email',
           required: 'required'

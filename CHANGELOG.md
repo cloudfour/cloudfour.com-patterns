@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 7.2.0
+
+### Minor Changes
+
+- [#1765](https://github.com/cloudfour/cloudfour.com-patterns/pull/1765) [`e4a666f2`](https://github.com/cloudfour/cloudfour.com-patterns/commit/e4a666f24707cc2aab962fdde10847a321d5f5e5) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Allow `name` attribute to be set for Subscribe component email input
+
 ## 7.1.1
 
 ### Patch Changes

@@ -12,10 +12,14 @@
         'js-subscribe__control',
         notifications_btn_class|default('')
       ]|join(' '),
-      initial_label: notifications_btn_initial_label|default('Notifications have been turned off.'),
-      initial_visual_label: notifications_btn_initial_visual_label|default('Get notifications'),
-      swapped_label: notifications_btn_swapped_label|default('Notifications have been turned on.'),
-      swapped_visual_label: notifications_btn_swapped_visual_label|default('Turn off notifications'),
+      initial_label:
+        notifications_btn_initial_label|default('Notifications have been turned off.'),
+      initial_visual_label:
+        notifications_btn_initial_visual_label|default('Get notifications'),
+      swapped_label:
+        notifications_btn_swapped_label|default('Notifications have been turned on.'),
+      swapped_visual_label:
+        notifications_btn_swapped_visual_label|default('Turn off notifications'),
     } only %}
 
     {% include '@cloudfour/components/button/button.twig' with {

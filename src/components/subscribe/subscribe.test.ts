@@ -222,6 +222,7 @@ describe('Subscription', () => {
           notifications_btn_initial_visual_label: 'Yes to notifications',
           weekly_digests_btn_class: 'world',
           weekly_digests_btn_label: 'I want weekly digests',
+          email_input_name: 'email-input-name',
           email_input_placeholder: 'Gimme email',
           submit_btn_label: 'Sign up',
         })
@@ -244,6 +245,7 @@ describe('Subscription', () => {
       expect(form).toHaveAttribute('action', 'test-action.com');
       emailInput = await screen.getByRole('textbox', { name: 'Email' });
       expect(emailInput).toHaveAttribute('placeholder', 'Gimme email');
+      expect(emailInput).toHaveAttribute('name', 'email-input-name');
 
       // Confirm custom notifications button
       const notificationsBtn = await screen.getByRole('button', {

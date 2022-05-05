@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add u-text-align-center utility CSS class
+Add u-text-center utility CSS class

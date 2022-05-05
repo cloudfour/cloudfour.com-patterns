@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 7.3.0
+
+### Minor Changes
+
+- [#1771](https://github.com/cloudfour/cloudfour.com-patterns/pull/1771) [`a7d8cb92`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a7d8cb92fb78331de25fffc872b096d01f9ebb9e) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add u-text-center utility CSS class
+
 ## 7.2.0
 
 ### Minor Changes

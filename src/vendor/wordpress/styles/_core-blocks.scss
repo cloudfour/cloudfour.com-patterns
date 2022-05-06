@@ -101,11 +101,17 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  *
  * 1. Set inline margins and padding to outdent the block out a bit,
  *    but keep the code aligned with the page content.
+ * 2. WordPress tries to wrap lines of code by default, but we prefer
+ *    to use overflow to scroll.
  */
 .wp-block-code,
 .wp-block-jetpack-markdown pre {
   @include spacing.fluid-margin-inline-negative; // 1
   @include spacing.fluid-padding-inline; // 1
+
+  code {
+    white-space: pre; // 2
+  }
 }
 
 /**

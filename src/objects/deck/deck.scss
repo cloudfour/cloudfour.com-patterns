@@ -3,7 +3,6 @@
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
 @use '../../mixins/spacing';
-@use '../container/container';
 
 /**
  * 1. If horizontal items are shown at the wrong column count, they will appear

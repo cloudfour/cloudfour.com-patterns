@@ -11,3 +11,6 @@
 
 # Ignore syntax highlighting examples
 /src/vendor/prism/demo/samples
+
+# Ignore changeset files (these are temporary)
+.changeset/*

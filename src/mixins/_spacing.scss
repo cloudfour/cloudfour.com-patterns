@@ -1,4 +1,46 @@
+@use '../compiled/tokens/scss/breakpoint';
 @use '../compiled/tokens/scss/size';
+@use '../mixins/fluid';
+
+/// Fluid Spacing Mixins
+/// Used by Container and similar items to apply a consistent fluid
+/// amount of padding and margins.
+$fluid-spacing-breakpoint-min: breakpoint.$s;
+$fluid-spacing-breakpoint-max: breakpoint.$xl;
+$fluid-spacing-block-min: size.$padding-container-vertical-min;
+$fluid-spacing-block-max: size.$padding-container-vertical-max;
+$fluid-spacing-inline-min: size.$padding-container-horizontal-min;
+$fluid-spacing-inline-max: size.$padding-container-horizontal-max;
+$fluid-spacing-block: fluid.fluid-clamp(
+  $fluid-spacing-block-min,
+  $fluid-spacing-block-max,
+  $fluid-spacing-breakpoint-min,
+  $fluid-spacing-breakpoint-max
+);
+$fluid-spacing-inline: fluid.fluid-clamp(
+  $fluid-spacing-inline-min,
+  $fluid-spacing-inline-max,
+  $fluid-spacing-breakpoint-min,
+  $fluid-spacing-breakpoint-max
+);
+$fluid-spacing-inline-negative: fluid.fluid-clamp(
+  $fluid-spacing-inline-min * -1,
+  $fluid-spacing-inline-max * -1,
+  $fluid-spacing-breakpoint-min,
+  $fluid-spacing-breakpoint-max
+);
+
+@mixin fluid-padding-block() {
+  padding-block: $fluid-spacing-block;
+}
+
+@mixin fluid-padding-inline() {
+  padding-inline: $fluid-spacing-inline;
+}
+
+@mixin fluid-margin-inline-negative() {
+  margin-inline: $fluid-spacing-inline-negative;
+}
 
 /// Applies styles for a vertical rhythm layout object. Used by the `o-rhythm`
 /// pattern and for relevant Gutenberg blocks. Makes heavy use of Heydon

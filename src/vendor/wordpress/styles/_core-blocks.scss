@@ -7,6 +7,7 @@
 @use '../../../mixins/button';
 @use '../../../mixins/emdash';
 @use '../../../mixins/ms';
+@use '../../../mixins/spacing';
 @use '../../../mixins/table';
 @use '../../../mixins/theme';
 
@@ -92,6 +93,19 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
       color: inherit !important; /* 1 */
     }
   }
+}
+
+/**
+ * Gutenberg Block: Code
+ * Styles for Gutenberg code blocks (and code inside Markdown blocks)
+ *
+ * 1. Set inline margins and padding to outdent the block out a bit,
+ *    but keep the code aligned with the page content.
+ */
+.wp-block-code,
+.wp-block-jetpack-markdown pre {
+  @include spacing.fluid-margin-inline-negative; // 1
+  @include spacing.fluid-padding-inline; // 1
 }
 
 /**

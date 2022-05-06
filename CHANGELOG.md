@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 7.4.0
+
+### Minor Changes
+
+- [#1774](https://github.com/cloudfour/cloudfour.com-patterns/pull/1774) [`1201cf4e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1201cf4e717cbdb2682ee8dec9a359f379751027) Thanks [@spaceninja](https://github.com/spaceninja)! - Outdent Code blocks so the code is aligned with page content.
+
 ## 7.3.0
 
 ### Minor Changes

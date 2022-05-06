@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 7.5.0
+
+### Minor Changes
+
+- [#1776](https://github.com/cloudfour/cloudfour.com-patterns/pull/1776) [`1f29383c`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1f29383cbdea26fe983bece49d98502fb3411628) Thanks [@spaceninja](https://github.com/spaceninja)! - Disables WordPress default line wrapping behavior for Code blocks in favor of scrolling.
+
 ## 7.4.0
 
 ### Minor Changes

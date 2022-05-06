@@ -9,6 +9,7 @@
 @use '../../../mixins/ms';
 @use '../../../mixins/table';
 @use '../../../mixins/theme';
+@use '../../../objects/container/container';
 
 /**
  * Gutenberg block: Button
@@ -92,6 +93,18 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
       color: inherit !important; /* 1 */
     }
   }
+}
+
+/**
+ * Gutenberg Block: Code
+ * Styles for Gutenberg code blocks (and code inside Markdown blocks)
+ *
+ * 1. Set inline margins to match `o-container__fill-pad` since we need
+ *    to pull the block out a bit to align code with content.
+ */
+.wp-block-code,
+.wp-block-jetpack-markdown pre {
+  margin-inline: container.$fluid-pad-inline-negative; // 1
 }
 
 /**

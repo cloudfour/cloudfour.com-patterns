@@ -1,5 +1,6 @@
 import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs';
 import blockImageDemo from './demo/image.twig';
+import blockCodeDemo from './demo/code.twig';
 const alignmentClasses = {
   None: '',
   Left: 'alignleft',
@@ -96,17 +97,12 @@ and border radius.
 ## Code
 
 The code block adds the class `wp-block-code` to a `pre` tag wrapping content inside
-`code` tags.
+`code` tags. We apply the same CSS as `o-container__fill-pad` to pull the code block
+out so the code itself aligns with the page content. This also applies to fenced
+code sections in Markdown blocks.
 
 <Canvas>
-  <Story name="Code">
-    {() => {
-      const example = `* {
-  box-sizing: border-box;
-}`;
-      return `<pre class="wp-block-code"><code class="language-css">${example}</code></pre>`;
-    }}
-  </Story>
+  <Story name="Code">{() => blockCodeDemo()}</Story>
 </Canvas>
 
 ## Columns

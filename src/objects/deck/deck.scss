@@ -2,6 +2,7 @@
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/fluid';
 @use '../../mixins/media-query';
+@use '../../mixins/spacing';
 @use '../container/container';
 
 /**
@@ -65,14 +66,14 @@
 /**
  * Block alignment adjustments
  *
- * 1. Set inline padding to match `o-container__fill-pad` since we don't want
- *    the deck to touch the viewport edges even when it's full bleed.
+ * 1. Set inline padding since we don't want the deck to touch the viewport
+ *    edges even when it's full bleed.
  * 2. Remove padding once `alignwide` is no longer full-bleed.
  */
 
 .o-deck.alignfull,
 .o-deck.alignwide {
-  padding-inline: container.$fluid-pad-inline; // 1
+  @include spacing.fluid-padding-inline; // 1
 }
 
 .o-deck.alignwide {

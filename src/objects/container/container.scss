@@ -1,31 +1,5 @@
-@use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/size';
-@use '../../mixins/fluid';
-
-$pad-breakpoint-min: breakpoint.$s;
-$pad-breakpoint-max: breakpoint.$xl;
-$pad-block-min: size.$padding-container-vertical-min;
-$pad-block-max: size.$padding-container-vertical-max;
-$pad-inline-min: size.$padding-container-horizontal-min;
-$pad-inline-max: size.$padding-container-horizontal-max;
-$fluid-pad-block: fluid.fluid-clamp(
-  $pad-block-min,
-  $pad-block-max,
-  $pad-breakpoint-min,
-  $pad-breakpoint-max
-);
-$fluid-pad-inline: fluid.fluid-clamp(
-  $pad-inline-min,
-  $pad-inline-max,
-  $pad-breakpoint-min,
-  $pad-breakpoint-max
-);
-$fluid-pad-inline-negative: fluid.fluid-clamp(
-  $pad-inline-min * -1,
-  $pad-inline-max * -1,
-  $pad-breakpoint-min,
-  $pad-breakpoint-max
-);
+@use '../../mixins/spacing';
 
 /**
  * There are no default styles for `o-container`. It acts as a wrapper so that
@@ -39,12 +13,12 @@ $fluid-pad-inline-negative: fluid.fluid-clamp(
 
 .o-container--pad,
 .o-container--pad-block {
-  padding-block: $fluid-pad-block;
+  @include spacing.fluid-padding-block;
 }
 
 .o-container--pad,
 .o-container--pad-inline {
-  padding-inline: $fluid-pad-inline;
+  @include spacing.fluid-padding-inline;
 }
 
 /**
@@ -75,7 +49,7 @@ $fluid-pad-inline-negative: fluid.fluid-clamp(
 .o-container__fill-pad {
   .o-container--pad &,
   .o-container--pad-inline & {
-    margin-inline: $fluid-pad-inline-negative;
+    @include spacing.fluid-margin-inline-negative;
   }
 }
 
@@ -89,6 +63,6 @@ $fluid-pad-inline-negative: fluid.fluid-clamp(
 .o-container__fill-pad {
   .o-container--pad &,
   .o-container--pad-inline & {
-    padding-inline: $fluid-pad-inline;
+    @include spacing.fluid-padding-inline;
   }
 }

@@ -26,7 +26,7 @@
 {#
   Vary where `object_block` outputs based on the `reverse_markup` property.
 #}
-<{{ tag_name }} class="o-media{% if jaunty %} o-media--jaunty{% endif %}{% if generous %} o-media--generous{% endif %}{% if reverse %} o-media--reverse{% endif %}{% if class %} {{ class }}{% endif %}">
+<{{ tag_name }} class="o-media{% if align_start %} o-media--align-start{% endif %}{% if jaunty %} o-media--jaunty{% endif %}{% if generous %} o-media--generous{% endif %}{% if reverse %} o-media--reverse{% endif %}{% if class %} {{ class }}{% endif %}">
   {% if not reverse_markup %}
     {{ object_block }}
   {% endif %}

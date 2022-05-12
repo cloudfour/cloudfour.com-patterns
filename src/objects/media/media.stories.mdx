@@ -175,3 +175,40 @@ By adding the `o-media--jaunty` class, the media object will have a fun little r
     {(args) => imageDemo(args)}
   </Story>
 </Canvas>
+
+## Align Start
+
+By adding the `o-media--align-start` class, the media object will use `align-items: start`.
+This can come in handy when the content is vertically shorter than the object
+and there are multiple Media objects side-by-side with varying content.
+It provides a way to visually align the multiple Media objects.
+
+<Canvas>
+  <Story
+    name="Align Default"
+    args={{
+      text: 'Default alignment',
+    }}
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
+  >
+    {(args) => imageDemo(args)}
+  </Story>
+  <Story
+    name="Align Start"
+    args={{
+      align_start: true,
+      text: 'Align start alignment',
+    }}
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
+  >
+    {(args) => imageDemo(args)}
+  </Story>
+</Canvas>

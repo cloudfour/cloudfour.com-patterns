@@ -176,12 +176,15 @@ By adding the `o-media--jaunty` class, the media object will have a fun little r
   </Story>
 </Canvas>
 
-## Align Start
+## Alignment
 
-By adding the `o-media--align-start` class, the media object will use `align-items: start`.
-This can come in handy when the content is vertically shorter than the object
-and there are multiple Media objects side-by-side with varying content.
-It provides a way to visually align the multiple Media objects.
+By default, the Media object optimizes its alignment based on its content alone.
+This may result in inconsistent alignment when multiple Media objects with
+inconsistent content lengths are displayed side by side.
+
+You may add the `o-media--align-start` modifier to force consistent alignment
+between adjacent Media objects. This pairs nicely with [the Deck object modifier
+of the same name](/docs/objects-deck--block-alignment).
 
 <Canvas>
   <Story

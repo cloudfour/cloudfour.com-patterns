@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 7.6.0
+
+### Minor Changes
+
+- [#1791](https://github.com/cloudfour/cloudfour.com-patterns/pull/1791) [`18d2d930`](https://github.com/cloudfour/cloudfour.com-patterns/commit/18d2d930b6083b688dbc22b92fe7635ae3ab477e) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add Media object Align Start modifier
+
 ## 7.5.0
 
 ### Minor Changes

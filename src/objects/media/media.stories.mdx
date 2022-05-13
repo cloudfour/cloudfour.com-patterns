@@ -47,6 +47,43 @@ const imageDemoTransformSource = (_src, storyContext) => {
   }}
   argTypes={{
     imgSrc: { type: { name: 'string', required: true } },
+    tag_name: {
+      type: { name: 'string' },
+      description: 'The root tag for the component',
+      table: {
+        defaultValue: {
+          summary: 'div',
+        },
+      },
+    },
+    inner_tag_name: {
+      type: { name: 'string' },
+      description:
+        'The tag for both the media content and media object elements',
+      table: {
+        defaultValue: {
+          summary: 'div',
+        },
+      },
+    },
+    content_tag_name: {
+      type: { name: 'string' },
+      description: 'The tag for the media content element',
+      table: {
+        defaultValue: {
+          summary: '`inner_tag_name`',
+        },
+      },
+    },
+    object_tag_name: {
+      type: { name: 'string' },
+      description: 'The tag for the media object element',
+      table: {
+        defaultValue: {
+          summary: '`inner_tag_name`',
+        },
+      },
+    },
     text: { type: { name: 'string' } },
     class: { type: { name: 'string' } },
     reverse: { type: { name: 'boolean' } },
@@ -175,3 +212,61 @@ By adding the `o-media--jaunty` class, the media object will have a fun little r
     {(args) => imageDemo(args)}
   </Story>
 </Canvas>
+
+## Alignment
+
+By default, the Media object optimizes its alignment based on its content alone.
+This may result in inconsistent alignment when multiple Media objects with
+inconsistent content lengths are displayed side by side.
+
+You may add the `o-media--align-start` modifier to force consistent alignment
+between adjacent Media objects. This pairs nicely with [the Deck object modifier
+of the same name](/docs/objects-deck--block-alignment).
+
+<Canvas>
+  <Story
+    name="Align Default"
+    args={{
+      text: 'Default alignment',
+    }}
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
+  >
+    {(args) => imageDemo(args)}
+  </Story>
+  <Story
+    name="Align Start"
+    args={{
+      align_start: true,
+      text: 'Align start alignment',
+    }}
+    parameters={{
+      docs: {
+        transformSource: imageDemoTransformSource,
+      },
+    }}
+  >
+    {(args) => imageDemo(args)}
+  </Story>
+</Canvas>
+
+## Template Properties
+
+- `class` (string): Appends to the CSS class of the root element
+- `tag_name` (string, default `'div'`): The root tag for the component
+- `inner_tag_name` (string, default `'div'`): The tag for both the media content and media object elements
+- `object_tag_name` (string, default `inner_tag_name`): The tag for the media object element
+- `content_tag_name` (string, default `inner_tag_name`): The tag for the media content element
+- `align_start` (boolean, default `false`): Adds the `o-media--align-start` CSS class modifier
+- `jaunty` (boolean, default `false`): Adds the `o-media--jaunty` CSS class modifier
+- `generous` (boolean, default `false`): Adds the `o-media--generous` CSS class modifier
+- `reverse` (boolean, default `false`): Adds the `o-media--reverse` CSS class modifier
+- `reverse_markup` (boolean, default `false`): Flips the order of the object and content markup so that the content is first
+
+## Template Blocks
+
+- `object`: Block for the static object (the image, checkbox, etc.)
+- `content`: Block for the wrapping content (typically text)

@@ -28,6 +28,16 @@
 }
 
 /**
+ * Modifier: Align Start
+ *
+ * Uses `align-items: start` instead of `align-items: center`
+ */
+
+.o-media--align-start {
+  align-items: start;
+}
+
+/**
  * Modifier: Generous Gap
  *
  * Increases the size of the gap between the media object and content.

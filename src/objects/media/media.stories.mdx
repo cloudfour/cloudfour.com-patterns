@@ -68,19 +68,19 @@ const imageDemoTransformSource = (_src, storyContext) => {
     },
     content_tag_name: {
       type: { name: 'string' },
-      description: 'The tag for both media content element',
+      description: 'The tag for the media content element',
       table: {
         defaultValue: {
-          summary: 'div',
+          summary: '`inner_tag_name`',
         },
       },
     },
     object_tag_name: {
       type: { name: 'string' },
-      description: 'The tag for both media object element',
+      description: 'The tag for the media object element',
       table: {
         defaultValue: {
-          summary: 'div',
+          summary: '`inner_tag_name`',
         },
       },
     },
@@ -253,4 +253,20 @@ of the same name](/docs/objects-deck--block-alignment).
   </Story>
 </Canvas>
 
-<ArgsTable story="Align Start" />
+## Template Properties
+
+- `class` (string): Appends to the CSS class of the root element
+- `tag_name` (string, default `'div'`): The root tag for the component
+- `inner_tag_name` (string, default `'div'`): The tag for both the media content and media object elements
+- `object_tag_name` (string, default `inner_tag_name`): The tag for the media object element
+- `content_tag_name` (string, default `inner_tag_name`): The tag for the media content element
+- `align_start` (boolean, default `false`): Adds the `o-media--align-start` CSS class modifier
+- `jaunty` (boolean, default `false`): Adds the `o-media--jaunty` CSS class modifier
+- `generous` (boolean, default `false`): Adds the `o-media--generous` CSS class modifier
+- `reverse` (boolean, default `false`): Adds the `o-media--reverse` CSS class modifier
+- `reverse_markup` (boolean, default `false`): Flips the order of the object and content markup so that the content is first
+
+## Template Blocks
+
+- `object`: Block for the static object (the image, checkbox, etc.)
+- `content`: Block for the wrapping content (typically text)

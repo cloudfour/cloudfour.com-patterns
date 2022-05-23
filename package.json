@@ -87,7 +87,7 @@
     "pleasantest": "2.0.0",
     "postcss": "8.4.14",
     "postcss-inline-svg": "4.1.0",
-    "postcss-loader": "4.3.0",
+    "postcss-loader": "7.0.0",
     "postcss-media-minmax": "5.0.0",
     "prettier": "2.6.2",
     "raw-loader": "4.0.2",

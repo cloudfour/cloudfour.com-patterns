@@ -1,3 +1,5 @@
-<div class="o-deck{% if class %} {{ class }}{% endif %}">
+{% set tag_name = tag_name|default('div') %}
+
+<{{ tag_name }} class="o-deck{% if class %} {{ class }}{% endif %}">
   {% block content %}{% endblock %}
-</div>
+</{{ tag_name }}>

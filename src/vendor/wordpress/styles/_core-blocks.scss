@@ -150,26 +150,34 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 
 /**
  * Default table
+ *
+ * Note that this only targets tables in the Table block, the Markdown block,
+ * and in legacy post content. If you add a table manually in an HTML block,
+ * you should add the `c-table` class, which will apply the same styles.
  */
-.wp-block-table table td,
-.wp-block-table table th {
-  @include table.t-container;
-}
+.wp-block-table,
+.wp-block-jetpack-markdown,
+.legacy-post {
+  table td,
+  table th {
+    @include table.t-container;
+  }
 
-.wp-block-table table th {
-  @include table.t-heading;
-}
+  table th {
+    @include table.t-heading;
+  }
 
-.wp-block-table table thead {
-  @include table.t-head;
-}
+  table thead {
+    @include table.t-head;
+  }
 
-.wp-block-table table tfoot {
-  @include table.t-foot;
-}
+  table tfoot {
+    @include table.t-foot;
+  }
 
-.wp-block-table table caption {
-  @include table.t-caption;
+  table caption {
+    @include table.t-caption;
+  }
 }
 
 /**
@@ -197,10 +205,16 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 /**
  * Quote and Pull-quote
  * Styles for quotes and pull-quotes
+ *
+ * Note the `:not(.wp-block-pullquote) > blockquote` selectors are to
+ * target vanilla `blockquote` elements in Markdown and HTML blocks.
+ * We need to ensure they're not in a Pull Quote block so the standard
+ * blockquote styles don't collide with the Pull Quote styles.
  */
 
 .wp-block-pullquote,
-.wp-block-quote {
+.wp-block-quote,
+:not(.wp-block-pullquote) > blockquote {
   color: var(--theme-color-text-muted);
 }
 
@@ -233,7 +247,8 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 
 .wp-block-pullquote cite,
-.wp-block-quote cite {
+.wp-block-quote cite,
+:not(.wp-block-pullquote) > blockquote cite {
   display: block; /* 1 */
   font-style: normal;
 }
@@ -243,7 +258,8 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 
 .wp-block-pullquote cite::before,
-.wp-block-quote cite::before {
+.wp-block-quote cite::before,
+:not(.wp-block-pullquote) > blockquote cite::before {
   @include emdash.content;
 }
 
@@ -276,7 +292,8 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   }
 }
 
-.wp-block-quote {
+.wp-block-quote,
+:not(.wp-block-pullquote) > blockquote {
   border-inline-start: size.$border-width-blockquote solid
     var(--theme-color-border-text-group);
 }

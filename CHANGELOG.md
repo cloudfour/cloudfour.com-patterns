@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 7.7.0
+
+### Minor Changes
+
+- [#1804](https://github.com/cloudfour/cloudfour.com-patterns/pull/1804) [`062d9f91`](https://github.com/cloudfour/cloudfour.com-patterns/commit/062d9f9101f0fc80b3924367a11070e863de22c9) Thanks [@calebeby](https://github.com/calebeby)! - Allow passing `tag_name` to deck object
+
+### Patch Changes
+
+- [#1802](https://github.com/cloudfour/cloudfour.com-patterns/pull/1802) [`e681420b`](https://github.com/cloudfour/cloudfour.com-patterns/commit/e681420bc16e753e916f96c745e00d58491a86fd) Thanks [@calebeby](https://github.com/calebeby)! - Fix double-scrollbar issue
+
 ## 7.6.0
 
 ### Minor Changes

@@ -47,7 +47,6 @@ ul {
   margin: 0;
 }
 
-
 /**
  * 1. Forces the viewport to be filled. Necessary for the footer to
  *    "stick" to the bottom of short pages.
@@ -62,7 +61,8 @@ html {
  *    @see https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/
  */
 
-html, body {
+html,
+body {
   overflow-x: hidden; // 1
 }
 

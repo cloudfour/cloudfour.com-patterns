@@ -1,0 +1,34 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs';
+import MarkdownDemo from './demo/compare-markdown.twig';
+import HTMLDemo from './demo/compare-html.twig';
+import GutenbergDemo from './demo/compare-gutenberg.twig';
+
+<Meta title="Vendor/WordPress/Core Element Comparison" />
+
+# Comparing Core Element Rendering
+
+Some native HTML elements, like `blockquote` and `table` can be added by multiple means, including legacy blog posts containing Classic blocks with markup, HTML blocks, Markdown blocks, and core WordPress blocks.
+
+This page compares how they render so we can ensure things work the same way across the board.
+
+## Markdown Block
+
+<Canvas>
+  <Story name="Markdown">{() => MarkdownDemo()}</Story>
+</Canvas>
+
+## HTML Block
+
+This is a block containing raw HTML markup. It also represents legacy blog posts containing Classic blocks. Even when those blog posts were originally written in Markdown, the Classic block converts them to raw HTML.
+
+<Canvas>
+  <Story name="HTML">{() => HTMLDemo()}</Story>
+</Canvas>
+
+## Gutenberg blocks
+
+This shows the same set of elements created using core WordPress blocks.
+
+<Canvas>
+  <Story name="Gutenberg">{() => GutenbergDemo()}</Story>
+</Canvas>

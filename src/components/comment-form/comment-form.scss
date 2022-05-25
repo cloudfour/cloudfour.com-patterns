@@ -18,3 +18,9 @@
     grid-column: span 1;
   }
 }
+
+@media (min-width: size.$breakpoint-m) {
+  .c-comment-form__reply-buttons {
+    justify-self: start;
+  }
+}

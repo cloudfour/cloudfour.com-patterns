@@ -105,7 +105,8 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  *    to use overflow to scroll.
  */
 .wp-block-code,
-.wp-block-jetpack-markdown pre {
+.wp-block-jetpack-markdown pre,
+.legacy-post pre {
   @include spacing.fluid-margin-inline-negative; // 1
   @include spacing.fluid-padding-inline; // 1
 

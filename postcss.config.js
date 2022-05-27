@@ -5,6 +5,5 @@ module.exports = {
     }),
     require('postcss-color-hex-alpha')(),
     require('postcss-media-minmax')(),
-    require('postcss-logical')({ dir: 'ltr' }),
   ],
 };

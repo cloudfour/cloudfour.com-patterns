@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Improve support in IE11 and other lacking browsers
+Add color and other miscellaneous fixes to improve accessibility of content in older browsers

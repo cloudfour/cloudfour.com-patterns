@@ -68,9 +68,9 @@
  */
 
 .o-media--jaunty .o-media__object {
+  display: inline; /* 1 */
   margin-inline: ms.step(-4);
   transform: rotate(-5deg);
-  display: inline; /* 1 */
 }
 
 .o-media--reverse.o-media--jaunty .o-media__object {

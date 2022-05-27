@@ -3,6 +3,8 @@ module.exports = {
     require('postcss-inline-svg')({
       paths: ['./src/assets'],
     }),
+    require('postcss-color-hex-alpha')(),
     require('postcss-media-minmax')(),
+    require('postcss-logical')({ dir: 'ltr' }),
   ],
 };

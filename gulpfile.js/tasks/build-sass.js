@@ -18,6 +18,10 @@ const buildSass = () =>
     .pipe(rename({ basename: 'standalone' }))
     .pipe(dest(outDir))
     .pipe(postcss([cssnano()]))
+    // Cssnano minimizes alpha colors to 8-digit hex codes, which is still stage 2 and is not supported in some browsers
+    // There didn't seem to be an easy way to disable this minification within cssnano,
+    // and it doesn't seem to work to add the postcss-color-hex-alpha plugin in the same postcss pass as csssnano
+    .pipe(postcss([require('postcss-color-hex-alpha')()]))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(outDir));
 

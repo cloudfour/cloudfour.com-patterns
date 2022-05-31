@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 7.8.0
+
+### Minor Changes
+
+- [#1806](https://github.com/cloudfour/cloudfour.com-patterns/pull/1806) [`1e40dab9`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1e40dab972d5a49bafb9ab0f1597a68e4ff8c996) Thanks [@calebeby](https://github.com/calebeby)! - Responsively grow comment reply buttons
+
+* [#1805](https://github.com/cloudfour/cloudfour.com-patterns/pull/1805) [`4a41c79a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4a41c79aac0bfa6288a0cec4a20eb6322e5655eb) Thanks [@spaceninja](https://github.com/spaceninja)! - Update styles for vanilla blockquotes and tables in Markdown blocks, HTML blocks, and legacy posts to match Gutenberg block styles.
+
 ## 7.7.0
 
 ### Minor Changes

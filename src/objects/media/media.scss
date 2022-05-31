@@ -62,9 +62,13 @@
  *
  * Applies a fun rotation to the media object, and a bit of margin to
  * compensate for the rotation.
+ *
+ * 1. Limits the width of the element so that the transform-origin is correct,
+ * even in browsers which don't support CSS grid.
  */
 
 .o-media--jaunty .o-media__object {
+  display: inline-block; /* 1 */
   margin-inline: ms.step(-4);
   transform: rotate(-5deg);
 }

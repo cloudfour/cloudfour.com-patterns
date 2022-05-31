@@ -17,7 +17,13 @@ const buildSass = () =>
     .pipe(postcss())
     .pipe(rename({ basename: 'standalone' }))
     .pipe(dest(outDir))
-    .pipe(postcss([cssnano()]))
+    .pipe(
+      postcss([
+        cssnano({
+          preset: ['cssnano-preset-default', { colormin: false }],
+        }),
+      ])
+    )
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(outDir));
 

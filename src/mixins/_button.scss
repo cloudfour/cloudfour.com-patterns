@@ -48,8 +48,10 @@
 @mixin default {
   --icon-size: #{size.$icon-medium};
   align-items: center;
+  background: color.$brand-primary;
   background: var(--theme-color-background-button-default);
   block-size: size.$height-control-default; /* 1 */
+  border-color: color.$brand-primary-dark;
   border-color: var(--theme-color-border-button-default);
   border-radius: size.$border-radius-medium;
   border-style: solid;

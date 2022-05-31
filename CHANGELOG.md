@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 7.9.0
+
+### Minor Changes
+
+- [#1808](https://github.com/cloudfour/cloudfour.com-patterns/pull/1808) [`339b360f`](https://github.com/cloudfour/cloudfour.com-patterns/commit/339b360fb7b485cf892409260c4c8f7a1803a1f7) Thanks [@calebeby](https://github.com/calebeby)! - Add color and other miscellaneous fixes to improve accessibility of content in older browsers
+
 ## 7.8.0
 
 ### Minor Changes

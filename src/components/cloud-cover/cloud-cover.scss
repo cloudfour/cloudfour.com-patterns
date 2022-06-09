@@ -1,6 +1,7 @@
 @use 'sass:math';
 @use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/size';
 @use '../../mixins/ms';
 
 /// We can't use `grid-gap` exclusively due to some containers only being present
@@ -195,6 +196,10 @@ $_gap: ms.step(1);
 
 .c-cloud-cover__content {
   grid-area: content;
+
+  @media (width > breakpoint.$l) {
+    font-size: size.$font-big;
+  }
 }
 
 /**

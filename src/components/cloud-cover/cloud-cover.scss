@@ -199,14 +199,12 @@ $_gap: ms.step(1);
   grid-area: content;
 
   .cloud-cover__description {
-    @media (width > breakpoint.$l) {
-      font-size: fluid.fluid-clamp(
-        1em,
-        size.$font-big,
-        breakpoint.$xs,
-        breakpoint.$l
-      );
-    }
+    font-size: fluid.fluid-clamp(
+      1em,
+      size.$font-big,
+      breakpoint.$xs,
+      breakpoint.$l
+    );
   }
 }
 

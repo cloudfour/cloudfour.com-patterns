@@ -3,6 +3,7 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/ms';
+@use '../../mixins/fluid';
 
 /// We can't use `grid-gap` exclusively due to some containers only being present
 /// some of the time, so we re-use this value for `grid-gap` and for `margin`
@@ -197,8 +198,15 @@ $_gap: ms.step(1);
 .c-cloud-cover__content {
   grid-area: content;
 
-  @media (width > breakpoint.$l) {
-    font-size: size.$font-big;
+  .cloud-cover__description {
+    @media (width > breakpoint.$l) {
+      font-size: fluid.fluid-clamp(
+        1em,
+        size.$font-big,
+        breakpoint.$xs,
+        breakpoint.$l
+      );
+    }
   }
 }
 

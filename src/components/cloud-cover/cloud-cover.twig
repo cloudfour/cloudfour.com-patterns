@@ -1,3 +1,5 @@
+{% set _heading_block %}{% block heading %}{% endblock %}{% endset %}
+{% set _content_block %}{% block content %}{% endblock %}{% endset %}
 {% set _extra_block %}{% block extra %}{% endblock %}{% endset %}
 {% set _scene_block %}{% block scene %}{% endblock %}{% endset %}
 
@@ -5,14 +7,20 @@
   <div class="o-container o-container--pad-inline">
     <div class="o-container__content c-cloud-cover__inner">
       <div class="c-cloud-cover__content">
-        <div class="o-rhythm o-rhythm--condensed">
-          <div class="c-cloud-cover__heading">
-            {% block heading %}{% endblock %}
-          </div>
-          <div class="c-cloud-cover__copy">
-            {% block content %}{% endblock %}
-          </div>
-        </div>
+        {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+          class: 'o-rhythm--condensed',
+          _heading_block: _heading_block,
+          _content_block: _content_block
+        } only %}
+          {% block content %}
+            <div class="c-cloud-cover__heading">
+             {{ _heading_block }}
+            </div>
+            <div class="c-cloud-cover__copy">
+             {{ _content_block }}
+            </div>
+          {% endblock %}
+        {% endembed %}
       </div>
       {% if _extra_block is not empty %}
         <div class="c-cloud-cover__extra">

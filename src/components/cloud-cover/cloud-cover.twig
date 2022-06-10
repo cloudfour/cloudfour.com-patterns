@@ -17,7 +17,11 @@
              {{ _heading_block }}
             </div>
             <div class="c-cloud-cover__copy">
-             {{ _content_block }}
+              {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {} %}
+                {% block content %}
+                  {{ _content_block }}
+                {% endblock %}
+              {% endembed %}
             </div>
           {% endblock %}
         {% endembed %}

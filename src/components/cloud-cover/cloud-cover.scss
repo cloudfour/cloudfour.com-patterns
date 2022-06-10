@@ -197,15 +197,15 @@ $_gap: ms.step(1);
 
 .c-cloud-cover__content {
   grid-area: content;
+}
 
-  .cloud-cover__description {
-    font-size: fluid.fluid-clamp(
-      1em,
-      size.$font-big,
-      breakpoint.$xs,
-      breakpoint.$l
-    );
-  }
+.c-cloud-cover__copy {
+  font-size: fluid.fluid-clamp(
+    1em,
+    size.$font-big,
+    breakpoint.$xs,
+    breakpoint.$l
+  );
 }
 
 /**

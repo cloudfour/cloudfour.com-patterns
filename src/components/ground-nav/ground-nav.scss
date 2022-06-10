@@ -103,7 +103,7 @@ $_ground-nav-border-color: color.$base-gray-light;
 }
 
 .c-ground-nav__social-icon {
-  font-size: ms.step(2);
+  --icon-size: #{size.$icon-large};
 }
 
 .c-ground-nav__menu {

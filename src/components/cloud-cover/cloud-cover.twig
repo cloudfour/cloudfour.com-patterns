@@ -5,8 +5,14 @@
   <div class="o-container o-container--pad-inline">
     <div class="o-container__content c-cloud-cover__inner">
       <div class="c-cloud-cover__content">
-        {% block content %}
-        {% endblock %}
+        <div class="o-rhythm o-rhythm--condensed">
+          <div class="c-cloud-cover__heading">
+            {% block heading %}{% endblock %}
+          </div>
+          <div class="c-cloud-cover__copy">
+            {% block content %}{% endblock %}
+          </div>
+        </div>
       </div>
       {% if _extra_block is not empty %}
         <div class="c-cloud-cover__extra">

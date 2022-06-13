@@ -25,7 +25,7 @@ module.exports = {
               'Minimum inline (horizontal) fluid padding for container objects.',
           },
           max: {
-            value: modularRem(6),
+            value: modularRem(5),
             comment:
               'Maximum inline (horizontal) padding for container objects.',
           },

@@ -99,13 +99,14 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  * Gutenberg Block: Group
  * Styles for Gutenberg group blocks
  *
- * 1. Set inline margins and padding to outdent the block out a bit,
- *    but keep the group content aligned with the page content.
+ * 1. For groups with a background color set, add standard block padding,
+ *    then set inline margins and padding to outdent the block out a bit,
+ *    while keeping the group content aligned with the page content.
  */
 .wp-block-group.has-background {
   @include spacing.fluid-margin-inline-negative; // 1
-  @include spacing.fluid-padding-block; // 1
   @include spacing.fluid-padding-inline; // 1
+  padding-block: ms.step(1); // 1
 }
 
 /**

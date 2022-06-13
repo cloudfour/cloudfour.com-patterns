@@ -24,12 +24,12 @@ $_gap: ms.step(1);
 /// crunch those numbers together.
 ///
 /// @param {Number} $amount [1] - Optional multiplier for default space.
-/// @param {Number} $vh [14vh] - Amount of horizontal space in the result.
-/// @param {Number} $vw [14vw] - Amount of vertical space in the result.
+/// @param {Number} $vh [12vh] - Amount of horizontal space in the result.
+/// @param {Number} $vw [3vw] - Amount of vertical space in the result.
 /// @return {Calc}
 /// @access private
 
-@function _cloud-space($amount: 1, $vh: 14vh, $vw: 4vw) {
+@function _cloud-space($amount: 1, $vh: 12vh, $vw: 3vw) {
   @if $amount == 1 {
     @return calc(#{$vh} + #{$vw});
   }

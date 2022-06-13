@@ -17,6 +17,9 @@ import listDemo from './demo/list.twig';
 import introDemoSource from '!!raw-loader!./demo/intro.twig';
 import introDemo from './demo/intro.twig';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import paragraphsDemoSource from '!!raw-loader!./demo/paragraphs.twig';
+import paragraphsDemo from './demo/paragraphs.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import sectionsDemoSource from '!!raw-loader!./demo/sections.twig';
 import sectionsDemo from './demo/sections.twig';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
@@ -69,7 +72,21 @@ While `o-rhythm--generous` is intended for separating distinct content chunks wi
 <Canvas>
   <Story
     name="Generous"
-    parameters={{ docs: { source: { code: sectionsDemoSource } } }}
+    parameters={{ docs: { source: { code: paragraphsDemoSource } } }}
+  >
+    {paragraphsDemo}
+  </Story>
+</Canvas>
+
+And finally, `o-rhythm--lavish` can separate entire sections from each other. It uses the same fluid padding values as [the container object](/?path=/docs/objects-container--basic):
+
+<Canvas>
+  <Story
+    name="Lavish"
+    parameters={{
+      layout: 'fullscreen',
+      docs: { source: { code: sectionsDemoSource } },
+    }}
   >
     {sectionsDemo}
   </Story>

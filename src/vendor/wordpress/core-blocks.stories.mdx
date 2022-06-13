@@ -1,6 +1,7 @@
 import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs';
 import blockImageDemo from './demo/image.twig';
 import blockCodeDemo from './demo/code.twig';
+import blockGroupDemo from './demo/group.twig';
 const alignmentClasses = {
   None: '',
   Left: 'alignleft',
@@ -356,24 +357,23 @@ By default, grouped blocks that don't set their own `background-color` and `colo
 will inherit from the group block wrapper, but otherwise they will retain their
 own styles.
 
+Group blocks with a background color set will automatically gain padding and
+negative margins to keep the content visually aligned.
+
 <Canvas>
-  <Story name="Group">
-    {`<div class="wp-block-group has-background" style="background-color:#ccc">
-        <div class="wp-block-group__inner-container">
-          <p style="color:#cf2e2e" class="has-text-color has-large-font-size">One.</p>
-          <p style="color:#ff6900" class="has-text-color has-large-font-size">Two.</p>
-          <p style="color:#fcb900" class="has-text-color has-large-font-size">
-            Three.
-          </p>
-          <p style="color:#00d084" class="has-text-color has-large-font-size">
-            Four.
-          </p>
-          <p style="color:#0693e3" class="has-text-color has-large-font-size">
-            Five.
-          </p>
-          <p style="color:#9b51e0" class="has-text-color has-large-font-size">Six.</p>
-        </div>
-      </div>`}
+  <Story
+    name="Group"
+    argTypes={{
+      background: {
+        options: {
+          None: '',
+          Gray: 'has-gray-lighter-background-color has-background',
+        },
+        control: { type: 'select' },
+      },
+    }}
+  >
+    {(args) => blockGroupDemo({ class: args.background })}
   </Story>
 </Canvas>
 

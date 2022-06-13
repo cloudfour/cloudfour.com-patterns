@@ -20,7 +20,7 @@ module.exports = {
       container: {
         horizontal: {
           min: {
-            value: modularRem(0),
+            value: modularRem(1),
             comment:
               'Minimum inline (horizontal) fluid padding for container objects.',
           },

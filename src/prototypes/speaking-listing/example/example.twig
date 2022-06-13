@@ -27,9 +27,7 @@
             tag_name: 'h2',
             content: 'Future Events',
           } only %}
-          {% embed '@cloudfour/objects/deck/deck.twig' with {
-            class: 'o-deck--3-column@l'
-          } %}
+          {% embed '@cloudfour/objects/deck/deck.twig' %}
             {% block content %}
               {% for item in future %}
                 <a href="#" class="media-link">
@@ -55,9 +53,7 @@
             tag_name: 'h2',
             content: 'Our Talks',
           } only %}
-          {% embed '@cloudfour/objects/deck/deck.twig' with {
-            class: 'o-deck--3-column@l'
-          } %}
+          {% embed '@cloudfour/objects/deck/deck.twig' %}
             {% block content %}
               {% for item in speaking %}
                 {% embed '@cloudfour/components/card/card.twig' with {

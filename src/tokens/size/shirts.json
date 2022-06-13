@@ -4,8 +4,8 @@
     "s": { "value": "30em" },
     "m": { "value": "40em" },
     "l": { "value": "60em" },
-    "xl": { "value": "70em" },
-    "xxl": { "value": "80em" },
-    "xxxl": { "value": "90em" }
+    "xl": { "value": "72em" },
+    "xxl": { "value": "84em" },
+    "xxxl": { "value": "96em" }
   }
 }

@@ -96,6 +96,15 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 }
 
 /**
+ * Gutenberg Block: Columns
+ *
+ * 1. Apply our standard rhythm styles to the contents of Columns.
+ */
+.wp-block-column {
+  @include spacing.vertical-rhythm; // 1
+}
+
+/**
  * Gutenberg Block: Group
  * Styles for Gutenberg group blocks
  *

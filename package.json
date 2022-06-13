@@ -102,7 +102,7 @@
     "sass-loader": "10.2.1",
     "storybook-addon-outline": "1.4.2",
     "storybook-mobile": "0.1.31",
-    "style-dictionary": "3.7.0",
+    "style-dictionary": "3.7.1",
     "style-loader": "2.0.0",
     "stylelint": "14.8.5",
     "stylelint-config-cloudfour": "5.1.0",

@@ -45,7 +45,7 @@ $_label-pad-vertical: ms.step(-9);
 
 // Use the widest standard layout `max-width` plus buffer for horizontal space
 $_max-width: #{unit.strip(size.$max-width-spread) +
-  unit.strip($_space-horizontal * 2)}em;
+  unit.strip($_space-horizontal * 3)}em;
 
 // Height of masthead on small screens.
 $_masthead-height-sm: ms.step(7);
@@ -168,7 +168,7 @@ $_masthead-height-sm: ms.step(7);
   @media (min-width: $_breakpoint-wide) {
     block-size: auto;
     display: block;
-    padding: $_space-vertical math.div($_space-horizontal, 1.5); /* 1 */
+    padding-block: $_space-vertical; /* 1 */
   }
 }
 

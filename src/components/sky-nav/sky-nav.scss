@@ -153,7 +153,9 @@ $_masthead-height-sm: ms.step(7);
  * The logo link element.
  *
  * 1. We apply whitespace to this element directly so its hit area is larger
- *    than it would be if whitespace were applied to the parent element.
+ *    than it would be if whitespace were applied to the parent element. We use
+ *    a bit less space for the logo since it has circular edges that feels
+ *    misaligned when only the curves touch the edges.
  * 2. Prevents Flexbox squashing when menu items overflow.
  */
 .c-sky-nav__logo {
@@ -161,12 +163,12 @@ $_masthead-height-sm: ms.step(7);
   block-size: 100%; /* 1 */
   display: flex;
   flex: none; /* 2 */
-  padding: 0 $_space-horizontal; /* 1 */
+  padding: 0 math.div($_space-horizontal, 1.5); /* 1 */
 
   @media (min-width: $_breakpoint-wide) {
     block-size: auto;
     display: block;
-    padding: $_space-vertical $_space-horizontal; /* 1 */
+    padding: $_space-vertical math.div($_space-horizontal, 1.5); /* 1 */
   }
 }
 

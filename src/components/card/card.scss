@@ -264,7 +264,7 @@ $_focus-overflow: (size.$edge-large * -1);
  * Hover effect for when the card contains a link. The image appears to zoom in
  * a very slight amount. We negate that zoom for the `:active` state for some
  * subtle consistency with other scale interactions, such as buttons and event
- * summary calendars, but we don't go quite a dramatic since these are larger
+ * summary calendars, but we don't go quite as dramatic since these are larger
  * elements that would feel a bit more jarring.
  */
 

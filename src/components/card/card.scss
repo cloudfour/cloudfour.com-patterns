@@ -1,5 +1,6 @@
 @use '../../compiled/tokens/scss/aspect-ratio';
 @use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/brightness';
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/ease';
 @use '../../compiled/tokens/scss/size';
@@ -227,6 +228,17 @@ $_focus-overflow: (size.$edge-large * -1);
   border-radius: size.$border-radius-medium;
   grid-area: cover;
   transform: translate(0, 0); /* 3 */
+
+  /**
+   * Subtly brighten covers within our alternate theme containers to help offset
+   * imagery with light backgrounds from the surrounding container. We could
+   * also do this for contained cards, but since those are a less common
+   * occurrence we'll keep this simple for now.
+   */
+
+  @include theme.styles(alternate) {
+    filter: brightness(brightness.$image-brighten);
+  }
 
   /**
    * Square aspect ratio + fully rounded corners = circular cover image

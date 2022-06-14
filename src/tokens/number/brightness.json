@@ -4,6 +4,9 @@
       "control": {
         "brighten": { "value": "110%" },
         "dim": { "value": "80%" }
+      },
+      "image": {
+        "brighten": { "value": "102.5%" }
       }
     }
   }

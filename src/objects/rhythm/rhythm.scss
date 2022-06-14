@@ -24,6 +24,10 @@
   --rhythm: #{size.$rhythm-generous};
 }
 
+.o-rhythm--lavish {
+  @include spacing.fluid-vertical-rhythm;
+}
+
 .o-rhythm--default {
   --rhythm: #{size.$rhythm-default};
 }

@@ -1,0 +1,33 @@
+@use '../../compiled/tokens/scss/size';
+
+/**
+ * To improve the convenience of using these classes without having to specify
+ * a border style and color every time, we use the `:where` selector to set some
+ * reasonable defaults with no specificity depth.
+ */
+
+:where([class^='u-border'], [class*=' u-border']) {
+  border-color: var(--theme-color-border-text-group);
+  border-style: solid;
+}
+
+/**
+ * Sizes
+ */
+
+.u-border,
+.u-border-small {
+  border-width: size.$edge-small !important;
+}
+
+.u-border-medium {
+  border-width: size.$edge-medium !important;
+}
+
+.u-border-large {
+  border-width: size.$edge-large !important;
+}
+
+.u-border-none {
+  border-width: 0 !important;
+}

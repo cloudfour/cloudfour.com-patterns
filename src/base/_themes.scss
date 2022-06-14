@@ -16,8 +16,9 @@
   --theme-color-background-base: #{color.$text-light-emphasis};
   --theme-color-background-kbd: transparent;
   --theme-color-background-secondary: #{color.$base-gray-lighter};
-  --theme-color-border-kbd: #{color.$base-gray-light};
-  --theme-color-border-text-group: #{color.$base-gray-light};
+  --theme-color-border-base: #{color.$base-gray-light};
+  --theme-color-border-kbd: var(--theme-color-border-base);
+  --theme-color-border-text-group: var(--theme-color-border-base);
   --theme-color-text-action: #{color.$text-action};
   --theme-color-text-base: #{color.$text-dark};
   --theme-color-text-code: #{color.$base-fuchsia};
@@ -34,8 +35,9 @@
   --theme-color-background-base: #{color.$brand-primary};
   --theme-color-background-kbd: #{color.$brand-primary-dark};
   --theme-color-background-secondary: #{color.$brand-primary-dark};
-  --theme-color-border-kbd: #{color.$brand-primary-darker};
-  --theme-color-border-text-group: #{color.$brand-primary-darker};
+  --theme-color-border-base: #{color.$brand-primary-darker};
+  --theme-color-border-kbd: var(--theme-color-border-base);
+  --theme-color-border-text-group: var(--theme-color-border-base);
   --theme-color-text-action: var(--theme-color-text-emphasis);
   --theme-color-text-base: #{color.$text-light};
   --theme-color-text-code: var(--theme-color-text-emphasis);

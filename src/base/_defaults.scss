@@ -181,11 +181,15 @@ del {
 /**
  * IE10 and earlier still show borders around linked images, and all browsers
  * still show borders around iframe elements by default.
+ *
+ * We set the `border-style` and `border-width` so that utility classes can
+ * easily set themed default colors.
  */
 
 iframe,
 img {
-  border-style: none;
+  border-style: solid;
+  border-width: 0;
 }
 
 /**

@@ -217,7 +217,7 @@ describe('Subscription', () => {
           form_action: 'test-action.com',
           heading_tag: 'h3',
           weekly_digests_heading: 'Weekly digests available',
-          never_miss_article_heading: "Don't miss out!",
+          subscribe_heading: "Don't miss out!",
           notifications_btn_class: 'hello',
           notifications_btn_initial_visual_label: 'Yes to notifications',
           weekly_digests_btn_class: 'world',

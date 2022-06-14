@@ -48,19 +48,19 @@ const templateStory = (args) => {
     },
     heading_tag: {
       type: 'string',
-      description: 'Sets the heading value',
+      description: 'Sets the heading tag',
       table: {
         defaultValue: { summary: 'h2' },
       },
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       control: 'select',
     },
-    never_miss_article_heading: {
+    subscribe_heading: {
       type: 'string',
-      description: "The heading seen in the component's default state",
+      description: 'The overall subscribe component heading',
       table: {
         defaultValue: {
-          summary: 'Never miss an article!',
+          summary: '',
         },
       },
     },
@@ -130,9 +130,9 @@ const templateStory = (args) => {
     },
     weekly_digests_heading: {
       type: 'string',
-      description: 'The subscription form heading',
+      description: 'The weekly digests subscription form heading',
       table: {
-        defaultValue: { summary: 'Get Weekly Digests' },
+        defaultValue: { summary: '' },
       },
     },
     email_input_label: {

@@ -1,0 +1,14 @@
+.demo-u-size-inline {
+  display: grid;
+  gap: 1em;
+
+  > * {
+    display: flex;
+    gap: inherit;
+  }
+}
+
+.demo-u-size-responsive {
+  display: flex;
+  gap: 1em;
+}

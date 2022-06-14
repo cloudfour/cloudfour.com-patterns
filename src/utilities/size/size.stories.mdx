@@ -1,0 +1,43 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs';
+import inlineSizeDemo from './demo/inline-size.twig';
+import responsiveDemo from './demo/responsive.twig';
+import './demo/styles.scss';
+
+<Meta title="Utilities/Size" />
+
+# Size
+
+Utilities for specifying the size occupied by an element. While largely unnecessary in objects and components thanks to [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout), these utilities can still be useful for fine-tuning one-off elements in page content.
+
+## Logical Properties
+
+All of our utilities use [logical properties](https://www.w3.org/TR/css-logical-1/) instead of specific directions [in supported browsers](https://caniuse.com/#feat=css-logical-props) to simplify potential localization projects.
+
+The following table maps the traditional physical property for `direction: ltr` and `writing-mode: horizontal-tb` to its equivalent logical property:
+
+| Physical Property | Logical Property |
+| ----------------- | ---------------- |
+| `height`          | `block-size`     |
+| `width`           | `inline-size`    |
+
+You can observe how utilities respond to various `direction` and `writing-mode` values by selecting a different "Text flow" in this project's toolbar.
+
+## Inline size
+
+Utilities beginning with `u-size-inline-` specify the `inline-size` of an element:
+
+- `u-size-inline-{fraction}` for percentage widths, where `{fraction}` represents the desired ratio. For example, `u-size-inline-2/5` would set `inline-size` to `40%`. Fractions with denominators of `2` through `6` are supported.
+- `u-size-inline-full` sets the `inline-size` to `100%` of the container.
+- `u-size-inline-auto` sets the `inline-size` to the natural value for the element.
+
+<Canvas>
+  <Story name="Inline size (Width)">{() => inlineSizeDemo()}</Story>
+</Canvas>
+
+## Responsive
+
+All of these utilities include responsive variations. Appending `@{breakpoint}` to the end of the class name will cause the utility to change for the given breakpoint.
+
+<Canvas>
+  <Story name="Responsive">{() => responsiveDemo()}</Story>
+</Canvas>

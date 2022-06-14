@@ -12,10 +12,13 @@
   position: relative;
 }
 
+.c-subscribe__heading {
+  margin-block-end: size.$rhythm-default;
+}
+
 .c-subscribe__controls {
   display: grid;
   gap: 1em;
-  margin: size.$rhythm-default 0;
 
   @media (min-width: breakpoint.$s) {
     grid-template-columns: 1fr 1fr;
@@ -49,8 +52,4 @@
     &:not(:target):not(:focus-within) {
     @include a11y.sr-only;
   }
-}
-
-.c-subscribe__form-input-group {
-  margin: size.$rhythm-default 0;
 }

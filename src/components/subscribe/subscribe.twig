@@ -1,9 +1,11 @@
 {% set _heading_tag = heading_tag|default('h2') %}
 
 <div class="c-subscribe js-subscribe {{class}}">
-  <{{_heading_tag}}>
-    {{subscribe_heading}}
-  </{{_heading_tag}}>
+  {% if subscribe_heading %}
+    <{{_heading_tag}} class="c-subscribe__heading">
+      {{subscribe_heading}}
+    </{{_heading_tag}}>
+  {% endif %}
 
   <div class="c-subscribe__controls">
     {% include '@cloudfour/components/button-swap/button-swap.twig' with {
@@ -41,11 +43,17 @@
     method="post"
     target="_blank"
     class="c-subscribe__form"
-    aria-labelledby="get-weekly-digests-{{form_id}}"
+    aria-labelledby="
+      {% if subscribe_heading %}get-weekly-digests-{{form_id}}{% endif %}"
   >
-    <{{_heading_tag}} id="get-weekly-digests-{{form_id}}">
-      {{weekly_digests_heading}}
-    </{{_heading_tag}}>
+    {% if subscribe_heading %}
+      <{{_heading_tag}}
+        id="get-weekly-digests-{{form_id}}"
+        class="c-subscribe__heading"
+      >
+        {{weekly_digests_heading}}
+      </{{_heading_tag}}>
+    {% endif %}
 
     <label
       class="c-subscribe__form-input-label"

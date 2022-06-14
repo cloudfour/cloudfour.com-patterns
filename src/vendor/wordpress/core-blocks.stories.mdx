@@ -1,6 +1,7 @@
 import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs';
 import blockImageDemo from './demo/image.twig';
 import blockCodeDemo from './demo/code.twig';
+import blockGroupDemo from './demo/group.twig';
 const alignmentClasses = {
   None: '',
   Left: 'alignleft',
@@ -118,26 +119,26 @@ set to `display: flex`.
 <Canvas>
   <Story name="Columns">
     {`<div class="wp-block-columns">
-        <div class="wp-block-column" style="flex-basis:37.5%">
+        <div class="wp-block-column" style="flex-basis: 66.66%">
+          <h2>Our Designers Code, Our Developers Design</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros
-            eu felis.
+            Our sprint-based process works because we’re full of what our industry
+            considers unicorns. Our designers write code. Our developers went to art
+            school.
           </p>
-          <figure class="wp-block-image">
-            <img src="/media/Windbuchencom.jpg" alt="" />
-          </figure>
-          <p>Suspendisse commodo neque lacus, a dictum orci interdum et.</p>
+          <p>
+            We didn’t set out to become a unicorn safe haven, but we’re happy it
+            happened. <a href="https://cloudfour.com/is">Our team</a>’s unique
+            combination of skills is what enables us to do great work for our clients.
+          </p>
         </div>
-        <div class="wp-block-column" style="flex-basis:62.5%">
-          <p>
-            Etiam et egestas lorem. Vivamus sagittis sit amet dolor quis lobortis.
-            Integer sed fermentum arcu, id vulputate lacus. Etiam fermentum sem eu
-            quam hendrerit.
-          </p>
-          <p>
-            Nam risus massa, ullamcorper consectetur eros fermentum, porta aliquet
-            ligula. Sed vel mauris nec enim.
-          </p>
+        <div class="wp-block-column" style="flex-basis: 33.33%">
+          <figure class="wp-block-image size-full">
+            <img
+              src="https://cloudfour.com/wp-content/uploads/2016/07/approach-unicorn.svg"
+              alt=""
+            />
+          </figure>
         </div>
       </div>`}
   </Story>
@@ -356,24 +357,23 @@ By default, grouped blocks that don't set their own `background-color` and `colo
 will inherit from the group block wrapper, but otherwise they will retain their
 own styles.
 
+Group blocks with a background color set will automatically gain padding and
+negative margins to keep the content visually aligned.
+
 <Canvas>
-  <Story name="Group">
-    {`<div class="wp-block-group has-background" style="background-color:#ccc">
-        <div class="wp-block-group__inner-container">
-          <p style="color:#cf2e2e" class="has-text-color has-large-font-size">One.</p>
-          <p style="color:#ff6900" class="has-text-color has-large-font-size">Two.</p>
-          <p style="color:#fcb900" class="has-text-color has-large-font-size">
-            Three.
-          </p>
-          <p style="color:#00d084" class="has-text-color has-large-font-size">
-            Four.
-          </p>
-          <p style="color:#0693e3" class="has-text-color has-large-font-size">
-            Five.
-          </p>
-          <p style="color:#9b51e0" class="has-text-color has-large-font-size">Six.</p>
-        </div>
-      </div>`}
+  <Story
+    name="Group"
+    argTypes={{
+      background: {
+        options: {
+          None: '',
+          Gray: 'has-gray-lighter-background-color has-background',
+        },
+        control: { type: 'select' },
+      },
+    }}
+  >
+    {(args) => blockGroupDemo({ class: args.background })}
   </Story>
 </Canvas>
 

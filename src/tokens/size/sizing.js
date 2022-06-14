@@ -25,7 +25,7 @@ module.exports = {
     width: {
       card_column: {
         min: {
-          value: '15em',
+          value: '16em',
           comment: 'The minimum space to display a default card in a grid.',
         },
       },

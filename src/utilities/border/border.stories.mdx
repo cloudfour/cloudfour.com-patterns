@@ -1,0 +1,53 @@
+import { Story, Canvas, Meta } from '@storybook/addon-docs';
+const borderStory = (args) => {
+  const classNames = [args.width || ''];
+  if (args.color) {
+    classNames.push(args.color);
+  }
+  const className = classNames
+    .map((segment) => (segment.length > 0 ? `u-border-${segment}` : 'u-border'))
+    .join(' ');
+  return `<div class="${className} u-pad-n1">${className}</div>`;
+};
+
+<Meta
+  title="Utilities/Border"
+  argTypes={{
+    width: {
+      options: ['small', 'medium', 'large', 'none'],
+      type: { name: 'enum' },
+      control: { type: 'inline-radio' },
+    },
+  }}
+/>
+
+# Border
+
+These utilities apply borders. They may be used to visually offset content from its surroundings. For example, a screenshot in an article with a white background might blend in too much with the page without a border.
+
+## Sizes
+
+Available sizes are based on [our `size.$edge-` tokens](/?path=/docs/design-tokens-size--page#edge):
+
+- `u-border` or `u-border-small`
+- `u-border-medium`
+- `u-border-large`
+
+<Canvas>
+  <Story name="Small (Default)">{(args) => borderStory(args)}</Story>
+  <Story name="Medium" args={{ width: 'medium' }}>
+    {(args) => borderStory(args)}
+  </Story>
+  <Story name="Large" args={{ width: 'large' }}>
+    {(args) => borderStory(args)}
+  </Story>
+  <Story name="None" args={{ width: 'none' }}>
+    {(args) => borderStory(args)}
+  </Story>
+</Canvas>
+
+## Color and style
+
+If no `border-color` is set, these utilities will use the default border color of the current [theme](/?path=/docs/design-themes--light). If no `border-style` is set, the utility will use `solid`.
+
+We may add specific color and style utilities in the future as the need arises.

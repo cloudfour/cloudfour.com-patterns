@@ -1,19 +1,21 @@
 <div id="cloud-cover-prototype">
   {% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
-    {% block content %}
-      {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-        class: 'o-rhythm--condensed'
+    {% block heading %}
+      {% include '@cloudfour/components/heading/heading.twig' with {
+        level: -2,
+        content: 'What We Do'
       } only %}
-        {% block content %}
-          {% include '@cloudfour/components/heading/heading.twig' with {
-            level: -2,
-            content: 'Articles'
-          } only %}
-          <p>
-            Tales from the edge of the web
-          </p>
-        {% endblock %}
-      {% endembed %}
+    {% endblock %}
+    {% block content %}
+      <p>
+        We
+        {% include '@cloudfour/components/icon/icon.twig' with {
+          name: 'heart',
+          inline: true
+        } only %}
+        <span class="u-hidden-visually">love</span>
+        solving tough puzzles through design and&nbsp;code.
+      </p>
     {% endblock %}
     {% block extra %}
       {% include '@cloudfour/components/subscribe/subscribe.twig' %}

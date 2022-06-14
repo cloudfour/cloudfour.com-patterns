@@ -5,6 +5,14 @@
 
 $_gap: ms.step(1);
 
+@function _cloud-space($amount: 1, $vh: 12vh, $vw: 3vw) {
+  @if $amount == 1 {
+    @return calc(#{$vh} + #{$vw});
+  }
+
+  @return calc((#{$vh} + #{$vw}) * #{$amount});
+}
+
 #cloud-cover-prototype {
   .c-cloud-cover__inner {
     align-items: center;

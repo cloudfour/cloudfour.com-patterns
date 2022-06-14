@@ -1,3 +1,4 @@
+@use '../../compiled/tokens/scss/brightness';
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/ease';
 @use '../../compiled/tokens/scss/scale';
@@ -55,9 +56,16 @@ $_focus-overflow: (size.$edge-large * -1);
 }
 
 .c-event-summary__calendar-date {
-  transition: transform transition.$quick ease.$out;
+  transition: filter transition.$slow ease.$out,
+    transform transition.$quick ease.$out;
 
   .c-event-summary:hover & {
+    filter: brightness(brightness.$control-brighten);
     transform: scale(scale.$effect-grow);
+  }
+
+  .c-event-summary:active & {
+    filter: brightness(brightness.$control-dim);
+    transform: scale(scale.$effect-shrink);
   }
 }

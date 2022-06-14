@@ -13,11 +13,11 @@
 }
 
 .c-subscribe__heading {
-  margin-block-end: size.$rhythm-default;
+  margin-block-end: size.$rhythm-default-rem;
 }
 
 ///
-/// 1. 12em is a magic number based on the default text values.
+/// 1. `12em` is a magic number based on the default button text values.
 ///    It may need to be tweaked if the text values change in the future.
 ///    Ideally we'd use `min-content`, but you can't pair that with `1fr`,
 ///    plus it doesn't seem to work since we're setting `inline-size:100%`.

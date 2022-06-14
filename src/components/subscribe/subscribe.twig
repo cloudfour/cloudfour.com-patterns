@@ -24,19 +24,17 @@
         notifications_btn_swapped_visual_label|default('Turn off notifications'),
     } only %}
 
-    <div>
-      {% include '@cloudfour/components/button/button.twig' with {
-        href: "#subscribe-#{form_id}",
-        class: [
-          'c-subscribe__control',
-          'js-subscribe__control',
-          'js-subscribe__get-weekly-digests-btn',
-          weekly_digests_btn_class|default('')
-        ]|join(' '),
-        label: weekly_digests_btn_label|default('Get Weekly Digests'),
-        content_start_icon: weekly_digests_btn_icon|default('envelope')
-      } only %}
-    </div>
+    {% include '@cloudfour/components/button/button.twig' with {
+      href: "#subscribe-#{form_id}",
+      class: [
+        'c-subscribe__control',
+        'js-subscribe__control',
+        'js-subscribe__get-weekly-digests-btn',
+        weekly_digests_btn_class|default('')
+      ]|join(' '),
+      label: weekly_digests_btn_label|default('Get Weekly Digests'),
+      content_start_icon: weekly_digests_btn_icon|default('envelope')
+    } only %}
   </div>
 
   <form

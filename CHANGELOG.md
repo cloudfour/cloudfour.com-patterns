@@ -1,5 +1,37 @@
 # @cloudfour/patterns
 
+## 8.0.0
+
+### Major Changes
+
+- [#1828](https://github.com/cloudfour/cloudfour.com-patterns/pull/1828) [`097a72fb`](https://github.com/cloudfour/cloudfour.com-patterns/commit/097a72fb7c7170cf63f13413f0f4f377da952e2b) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Refactor cloud cover component to handle headings and copy content separately. This will break spacing if templates don't transition to using heading instead of content.
+
+* [#1849](https://github.com/cloudfour/cloudfour.com-patterns/pull/1849) [`810ed0e4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/810ed0e47adc6712f616a887abacd23d5f6e2ef1) Thanks [@tylersticka](https://github.com/tylersticka)! - Adjusted breakpoints, max-widths and padding sizes of all full-width patterns (most notably the Container and Deck objects and the Sky Nav component) to better compose actual site content.
+
+- [#1855](https://github.com/cloudfour/cloudfour.com-patterns/pull/1855) [`a4047b58`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a4047b589f31327bb09748a8c3cd2e351e2cd2d4) Thanks [@spaceninja](https://github.com/spaceninja)! - This change improves the Cloud Cover component's layout when used with the Subscribe component. It makes the Subscribe headings optional, and improved the layout to switch to horizontal when there's enough room for two buttons, rather than a fixed breakpoint.
+
+  This is a breaking change because it removes the default values of the Subscribe component's headings.
+
+### Minor Changes
+
+- [#1851](https://github.com/cloudfour/cloudfour.com-patterns/pull/1851) [`4a95532f`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4a95532f5d0280c5d6fb56a268301c224cd8ff54) Thanks [@tylersticka](https://github.com/tylersticka)! - Card covers within an alternate theme container will be brightened slightly to better offset covers with similar backgrounds to the container
+
+* [#1848](https://github.com/cloudfour/cloudfour.com-patterns/pull/1848) [`0b9d5286`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0b9d5286d24d72e9c0b335e625d1ae5989fd4ba0) Thanks [@spaceninja](https://github.com/spaceninja)! - Update Columns block to use our standard rhythm styles so items contained in the columns will have the proper spacing.
+
+- [#1847](https://github.com/cloudfour/cloudfour.com-patterns/pull/1847) [`22b2c7f3`](https://github.com/cloudfour/cloudfour.com-patterns/commit/22b2c7f36f06173a5971e741ffc0e5f1974d4c7f) Thanks [@spaceninja](https://github.com/spaceninja)! - Outdent Group blocks with backgrounds so their contents align with the page content.
+
+* [#1850](https://github.com/cloudfour/cloudfour.com-patterns/pull/1850) [`0b967661`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0b967661e849aba646c72f900ac38c04fdb83f07) Thanks [@tylersticka](https://github.com/tylersticka)! - Add the "lavish" Rhythm object modifier for separating entire sections with the same fluid whitespace as padded containers
+
+- [#1854](https://github.com/cloudfour/cloudfour.com-patterns/pull/1854) [`b1a6c3d1`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b1a6c3d1146e9d7df217391089424793c1bfe3ec) Thanks [@tylersticka](https://github.com/tylersticka)! - Add responsive inline size utilities
+
+* [#1853](https://github.com/cloudfour/cloudfour.com-patterns/pull/1853) [`d946c7a0`](https://github.com/cloudfour/cloudfour.com-patterns/commit/d946c7a00115953ca62545ef557cd24814706faa) Thanks [@tylersticka](https://github.com/tylersticka)! - Add border utilities
+
+- [#1852](https://github.com/cloudfour/cloudfour.com-patterns/pull/1852) [`4dbb59f2`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4dbb59f23d3a85a292c8c0b47aafa5426562e95d) Thanks [@tylersticka](https://github.com/tylersticka)! - Make active states more consistent between Button, Card and Event Summary
+
+### Patch Changes
+
+- [#1832](https://github.com/cloudfour/cloudfour.com-patterns/pull/1832) [`35f799a6`](https://github.com/cloudfour/cloudfour.com-patterns/commit/35f799a61eab314655aea1183dab9b9e3e5c89f2) Thanks [@tylersticka](https://github.com/tylersticka)! - Corrected the size of the social icons in the Ground Nav component
+
 ## 7.9.0
 
 ### Minor Changes

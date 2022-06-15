@@ -187,7 +187,7 @@ $_gap: ms.step(1);
    * 1. Give the `extra` content a bit more space relative to the content
    *    until the viewport is wide enough for the default evenly split layout.
    */
-  .c-cloud-cover--has-extra & {
+  .c-cloud-cover--with-extra & {
     @media (width >= $_cloud-cover-breakpoint) and (width < breakpoint.$xl) {
       grid-template-columns: 3fr 4fr; /* 1 */
     }

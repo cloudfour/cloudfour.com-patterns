@@ -60,7 +60,12 @@ describe('Subscription', () => {
     withBrowser(async ({ utils, page }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscribe.scss');
-      await utils.injectHTML(await componentMarkup());
+      await utils.injectHTML(
+        await componentMarkup({
+          weekly_digests_heading: 'Get Weekly Digests',
+          subscribe_heading: 'Never miss an article!',
+        })
+      );
       await initJS(utils);
 
       expect(await getAccessibilityTree(page)).toMatchInlineSnapshot(`
@@ -196,15 +201,9 @@ describe('Subscription', () => {
       // No customization
       await utils.injectHTML(await componentMarkup({ form_id: 'test' }));
 
-      // Confirm default heading tag
-      await screen.getByRole('heading', {
-        name: 'Never miss an article!',
-        level: 2,
-      });
-      await screen.getByRole('heading', {
-        name: 'Get Weekly Digests',
-        level: 2,
-      });
+      // Confirm default heading tags are not set
+      const anyHeading = await screen.queryByRole('heading');
+      expect(anyHeading).not.toBeInTheDocument();
 
       // Confirm default form values
       let emailInput = await screen.getByRole('textbox', { name: 'Email' });
@@ -217,7 +216,7 @@ describe('Subscription', () => {
           form_action: 'test-action.com',
           heading_tag: 'h3',
           weekly_digests_heading: 'Weekly digests available',
-          never_miss_article_heading: "Don't miss out!",
+          subscribe_heading: "Don't miss out!",
           notifications_btn_class: 'hello',
           notifications_btn_initial_visual_label: 'Yes to notifications',
           weekly_digests_btn_class: 'world',

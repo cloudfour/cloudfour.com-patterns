@@ -5,6 +5,14 @@
 @use '../../mixins/ms';
 @use '../../mixins/fluid';
 
+/// Setting the breakpoint to `m` (40em) results in an awkward layout
+/// when using the Subscribe form in the `extra` slot. However, setting
+/// the breakpoint to `l` (60em) results in the transition happening too
+/// late. As a result, we're using a custom breakpoint optimized for the
+/// Cloud Cover component.
+
+$_cloud-cover-breakpoint: 45em;
+
 /// We can't use `grid-gap` exclusively due to some containers only being present
 /// some of the time, so we re-use this value for `grid-gap` and for `margin`
 /// later on.
@@ -71,7 +79,7 @@ $_gap: ms.step(1);
   pointer-events: none;
   position: absolute;
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= $_cloud-cover-breakpoint) {
     inline-size: 50%;
   }
 }
@@ -159,7 +167,7 @@ $_gap: ms.step(1);
    *    overlap.
    */
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= $_cloud-cover-breakpoint) {
     grid-template-areas:
       '. .'
       '. scene'
@@ -172,6 +180,18 @@ $_gap: ms.step(1);
       auto
       repeat(2, _cloud-space(0.5)); /* 1 */
   }
+
+  /**
+   * Modified styles for Cloud Cover with Extra content
+   *
+   * 1. Give the `extra` content a bit more space relative to the content
+   *    until the viewport is wide enough for the default evenly split layout.
+   */
+  .c-cloud-cover--with-extra & {
+    @media (width >= $_cloud-cover-breakpoint) and (width < breakpoint.$xl) {
+      grid-template-columns: 3fr 4fr; /* 1 */
+    }
+  }
 }
 
 /**
@@ -181,7 +201,7 @@ $_gap: ms.step(1);
  */
 
 .c-cloud-cover--horizon-scene .c-cloud-cover__inner {
-  @media (width < breakpoint.$m) {
+  @media (width < $_cloud-cover-breakpoint) {
     grid-template-areas:
       '.'
       'content'
@@ -221,7 +241,7 @@ $_gap: ms.step(1);
    * use margin to avoid this running up against adjacent content.
    */
 
-  @media (width < breakpoint.$m) {
+  @media (width < $_cloud-cover-breakpoint) {
     margin-block-start: $_gap;
   }
 }
@@ -245,7 +265,7 @@ $_gap: ms.step(1);
    * large as the clouds.
    */
 
-  @media (width < breakpoint.$m) {
+  @media (width < $_cloud-cover-breakpoint) {
     block-size: _cloud-space(2);
     margin-block-end: $_gap;
   }
@@ -255,7 +275,7 @@ $_gap: ms.step(1);
    * and size based on available space.
    */
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= $_cloud-cover-breakpoint) {
     block-size: 100%;
     grid-row-end: span 3;
   }
@@ -273,7 +293,7 @@ $_gap: ms.step(1);
    * the reverse of the default).
    */
 
-  @media (width < breakpoint.$m) {
+  @media (width < $_cloud-cover-breakpoint) {
     block-size: _cloud-space(3);
     margin-block: $_gap 0;
   }
@@ -283,7 +303,7 @@ $_gap: ms.step(1);
    * on areas alone to do this since the `scene` and `extra` areas overlap.
    */
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= $_cloud-cover-breakpoint) {
     grid-row-end: span 4;
   }
 }
@@ -309,7 +329,7 @@ $_gap: ms.step(1);
    * to the right rather than on both sides.
    */
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= $_cloud-cover-breakpoint) {
     object-position: left center;
   }
 }
@@ -322,7 +342,7 @@ $_gap: ms.step(1);
 .c-cloud-cover--horizon-scene .c-cloud-cover__scene-object {
   object-position: center bottom;
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= $_cloud-cover-breakpoint) {
     object-position: left bottom;
   }
 }

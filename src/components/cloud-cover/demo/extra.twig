@@ -17,6 +17,8 @@
     </p>
   {% endblock %}
   {% block extra %}
-    <p>(Imagine a nifty newsletter signup form here 👀)</p>
+    {% embed '@cloudfour/components/subscribe/subscribe.twig' with {
+      form_id: 'cloud-cover-test'
+    } only %}{% endembed %}
   {% endblock %}
 {% endembed %}

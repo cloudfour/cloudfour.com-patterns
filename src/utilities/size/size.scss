@@ -1,0 +1,34 @@
+@use 'sass:math';
+@use '../../mixins/media-query';
+
+// Set the inline size styles in a mixin. The suffix will let us easily append
+// breakpoint suffixes.
+@mixin _inline-size-utilities($suffix: '') {
+  @for $columns from 2 through 6 {
+    @for $column from 1 through $columns {
+      .u-size-inline-#{$column}\/#{$columns}#{$suffix} {
+        inline-size: math.div($column, $columns) * 100% !important;
+      }
+    }
+  }
+
+  .u-size-inline-full#{$suffix} {
+    inline-size: 100% !important;
+  }
+
+  .u-size-inline-auto#{$suffix} {
+    inline-size: auto !important;
+  }
+}
+
+// Include the default versions (no media queries)
+@include _inline-size-utilities;
+
+// Include responsive versions. This would be simpler if we could use the
+// `breakpoint-classes` mixin instead, but in this case we want all of the
+// responsive versions to be grouped by breakpoint so larger breakpoints will
+// naturally override smaller ones.
+@include media-query.breakpoint-loop using ($key) {
+  $suffix: \@#{$key};
+  @include _inline-size-utilities($suffix);
+}

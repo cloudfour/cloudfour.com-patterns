@@ -1,0 +1,22 @@
+<div class="demo-u-size-inline">
+  {% for columns in 2..6 %}
+    <div>
+      <div class="u-size-inline-1/{{columns}} u-pad-n1 u-rounded t-dark t-alternate u-text-center">
+        1/{{columns}}
+      </div>
+      <div class="u-size-inline-{{columns - 1}}/{{columns}} u-pad-n1 u-rounded t-dark t-alternate u-text-center">
+        {{columns - 1}}/{{columns}}
+      </div>
+    </div>
+  {% endfor %}
+  <div>
+    <div class="u-size-inline-full u-pad-n1 u-rounded t-dark t-alternate u-text-center">
+      full
+    </div>
+  </div>
+  <div>
+    <div class="u-size-inline-auto u-pad-n1 u-rounded t-dark t-alternate u-text-center">
+      auto
+    </div>
+  </div>
+</div>

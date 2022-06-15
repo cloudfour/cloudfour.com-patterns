@@ -162,9 +162,7 @@ $_gap: ms.step(1);
   z-index: 1; /* 2 */
 
   /**
-   * 1. Give the `extra` content a bit more space relative to the content to
-   *    begin with, and switch back to an even split at `xl` and up.
-   * 2. At larger sizes when the scene imagery occupies the rightmost column,
+   * 1. At larger sizes when the scene imagery occupies the rightmost column,
    *    we establish rows that are half the height of the clouds to allow more
    *    overlap.
    */
@@ -176,15 +174,23 @@ $_gap: ms.step(1);
       'content extra'
       '. .'
       '. .';
-    grid-template-columns: 3fr 4fr; /* 1 */
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows:
       repeat(2, _cloud-space(0.5))
       auto
-      repeat(2, _cloud-space(0.5)); /* 2 */
+      repeat(2, _cloud-space(0.5)); /* 1 */
   }
 
-  @media (width >= breakpoint.$xl) {
-    grid-template-columns: repeat(2, 1fr); /* 1 */
+  /**
+   * Modified styles for Cloud Cover with Extra content
+   *
+   * 1. Give the `extra` content a bit more space relative to the content
+   *    until the viewport is wide enough for the default evenly split layout.
+   */
+  .c-cloud-cover--has-extra & {
+    @media (width >= $_cloud-cover-breakpoint) and (width < breakpoint.$xl) {
+      grid-template-columns: 3fr 4fr; /* 1 */
+    }
   }
 }
 

@@ -18,23 +18,11 @@
         {{ lead_in }}
       </h2>
       <p class="c-ground-nav__action-title">
-        {% embed '@cloudfour/components/button/button.twig' with {
+        {% include '@cloudfour/components/button/button.twig' with {
           href: link,
           label: title,
-          _ground_nav_icon: icon
+          content_start_icon: icon ?? 'link'
         } only %}
-          {% block content %}
-            {% if _ground_nav_icon %}
-              {% include '@cloudfour/components/icon/icon.twig' with {
-                name: _ground_nav_icon,
-                fallback: 'link',
-                inline: true,
-                focusable: 'false'
-              } only %}
-            {% endif %}
-            {{ label }}
-          {% endblock %}
-        {% endembed %}
       </p>
       {% include '@cloudfour/assets/illustrations/portland.svg.twig' with {
         class: 'c-ground-nav__action-illustration'

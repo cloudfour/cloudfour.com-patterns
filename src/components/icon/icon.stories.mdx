@@ -50,7 +50,7 @@ For a list of available icons, visit [the Icons page](/docs/design-icons--page).
 
 ## Accessibility
 
-By default, an icon is assumed to be decorative and will have its `aria-hidden` attribute set to `true`. If the `title` property is provided, the `aria-hidden` attribute will be omitted and the contents of `title` will be prepended to the SVG source as its `title` element. ([More info](https://css-tricks.com/accessible-svgs/#aa-example-1-standalone-icon-meaningful))
+By default, an icon is assumed to be decorative. If the `title` property is provided, it will be used as the icon's accessible fallback text. The default values for `aria-hidden` and `role` will be adjusted accordingly as well. ([More info](https://css-tricks.com/accessible-svgs/#aa-example-1-standalone-icon-meaningful))
 
 <Canvas>
   <Story

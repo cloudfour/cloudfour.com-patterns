@@ -1,4 +1,4 @@
-{% set fallback = fallback|default('close') %}
+{% set fallback = fallback|default('x') %}
 
 {% set _dir = '@cloudfour/assets/icons/' %}
 {% set _ext = '.svg.twig' %}
@@ -15,6 +15,20 @@
   {% set _class = _class ~ ' ' ~ class %}
 {% endif %}
 
-{% include [ _path, _fallback_path ] with {
-  class: _class,
-} %}
+{% if title %}
+  {% set _role = role ?? 'img' %}
+  {% embed [ _path, _fallback_path ] with {
+    class: _class,
+    role: _role,
+  } %}
+    {% block before %}
+      <title>{{title}}</title>
+    {% endblock %}
+  {% endembed %}
+{% else %}
+  {% set _aria_hidden = aria_hidden ?? 'true' %}
+  {% include [ _path, _fallback_path ] with {
+    class: _class,
+    aria_hidden: _aria_hidden,
+  } %}
+{% endif %}

@@ -8,6 +8,9 @@ import template from './icon.twig';
 // within a Storybook docs page and not within an actual component).
 // This can be revisited in the future if Storybook no longer relies on Webpack.
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import a11yDemoSource from '!!raw-loader!./demo/a11y.twig';
+import a11yDemo from './demo/a11y.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import inlineDemoSource from '!!raw-loader!./demo/inline.twig';
 import inlineDemo from './demo/inline.twig';
 const iconStory = (args) => {
@@ -38,9 +41,23 @@ For a list of available icons, visit [the Icons page](/docs/design-icons--page).
       fallback: { type: { name: 'string' } },
       inline: { type: { name: 'boolean' } },
       class: { type: { name: 'string' } },
+      title: { type: { name: 'string' } },
     }}
   >
     {(args) => iconStory(args)}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+By default, an icon is assumed to be decorative and will have its `aria-hidden` attribute set to `true`. If the `title` property is provided, the `aria-hidden` attribute will be omitted and the contents of `title` will be prepended to the SVG source as its `title` element. ([More info](https://css-tricks.com/accessible-svgs/#aa-example-1-standalone-icon-meaningful))
+
+<Canvas>
+  <Story
+    name="Accessibility"
+    parameters={{ docs: { source: { code: a11yDemoSource } } }}
+  >
+    {a11yDemo}
   </Story>
 </Canvas>
 
@@ -65,10 +82,11 @@ Icons without a flex or grid container may appear [slightly low in comparison to
 
 The component template supports the following unique properties:
 
-- `name`: The name of the intended icon [in our library](/docs/design-icons--page).
-- `fallback`: The name of an icon to display if the first doesn't exist. Useful if you are displaying unique icons based on dynamic content. Defaults to `close`.
-- `inline`: When `true`, the inline modifier will be applied.
 - `class`: Will append to `c-icon` and any other modifier classes.
+- `fallback`: The name of an icon to display if the one specified by `name` doesn't exist. Useful if you are displaying unique icons based on dynamic content. Defaults to `x`.
+- `inline`: When `true`, the inline modifier will be applied.
+- `name`: The name of the intended icon [in our library](/docs/design-icons--page).
+- `title`: If provided, a `title` element will be prepended to the icon source with the contents of this property. This will also set the `role` to `img` unless it is already specified. ([More info](https://css-tricks.com/accessible-svgs/#aa-example-1-standalone-icon-meaningful))
 
 Additional SVG properties will be passed to the Twig template for the asset itself:
 

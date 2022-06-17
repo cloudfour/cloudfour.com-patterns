@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 8.1.0
+
+### Minor Changes
+
+- [#1858](https://github.com/cloudfour/cloudfour.com-patterns/pull/1858) [`b3752bc4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b3752bc43dd3f54c39624383176e66e7fc72b2e5) Thanks [@tylersticka](https://github.com/tylersticka)! - Add new `title` property to Icon component to make semantic fallback text much more straightforward
+
+### Patch Changes
+
+- [#1858](https://github.com/cloudfour/cloudfour.com-patterns/pull/1858) [`b3752bc4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b3752bc43dd3f54c39624383176e66e7fc72b2e5) Thanks [@tylersticka](https://github.com/tylersticka)! - The Ground Nav button's icon is no longer presented inconsistently with other button icons
+
+* [#1858](https://github.com/cloudfour/cloudfour.com-patterns/pull/1858) [`b3752bc4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b3752bc43dd3f54c39624383176e66e7fc72b2e5) Thanks [@tylersticka](https://github.com/tylersticka)! - The default icon fallback now exists (oops)
+
+- [#1858](https://github.com/cloudfour/cloudfour.com-patterns/pull/1858) [`b3752bc4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b3752bc43dd3f54c39624383176e66e7fc72b2e5) Thanks [@tylersticka](https://github.com/tylersticka)! - Icons used in the Alert component no longer use invalid `aria-hidden` values
+
 ## 8.0.0
 
 ### Major Changes

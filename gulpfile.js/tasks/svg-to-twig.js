@@ -1,11 +1,12 @@
-const { src, dest } = require('gulp');
-const svgmin = require('gulp-svgmin');
-const rename = require('gulp-rename');
-const { obj } = require('through2');
-const ltx = require('ltx');
-const yaml = require('js-yaml');
-const path = require('path');
 const { readFileSync } = require('fs');
+const path = require('path');
+
+const { src, dest } = require('gulp');
+const rename = require('gulp-rename');
+const svgmin = require('gulp-svgmin');
+const yaml = require('js-yaml');
+const ltx = require('ltx');
+const { obj } = require('through2');
 
 // Load SVGO preferences from config file to keep things DRY
 const svgoPath = path.join(__dirname, '../../.svgo.yml');

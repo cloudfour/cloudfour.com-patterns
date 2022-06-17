@@ -1,5 +1,5 @@
-import speaking from './data/speaking.json';
 import future from './data/future.json';
+import speaking from './data/speaking.json';
 import examplePrototype from './example/example.twig';
 import './example/example.scss';
 

@@ -1,8 +1,8 @@
+import logos from './data/logos.json';
 import examplePrototype from './example/example.twig';
+import cfImage from './images/collage-cf.jpg';
 import cpeImage from './images/collage-cpe.jpg';
 import wmImage from './images/walmart.jpg';
-import cfImage from './images/collage-cf.jpg';
-import logos from './data/logos.json';
 import './example/example.scss';
 
 export default {

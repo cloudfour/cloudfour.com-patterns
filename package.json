@@ -48,7 +48,7 @@
     "@babel/preset-env": "7.18.2",
     "@changesets/changelog-github": "0.4.4",
     "@changesets/cli": "2.22.0",
-    "@cloudfour/eslint-plugin": "19.0.0",
+    "@cloudfour/eslint-plugin": "20.0.2",
     "@rollup/plugin-babel": "5.3.1",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@storybook/addon-a11y": "6.5.9",
@@ -150,6 +150,12 @@
   "jest": {
     "setupFilesAfterEnv": [
       "./jest.setup.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^(.+)\\.js$": [
+        "$1.js",
+        "$1.ts"
+      ]
+    }
   }
 }

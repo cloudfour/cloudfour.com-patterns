@@ -36,6 +36,15 @@ module.exports = {
       rules: {
         // Src files are bundled so they do not have to follow Node's resolution rules
         '@cloudfour/n/no-missing-import': 'off',
+        // Webpack (at least the version we're using) doesn't recognize node: imports
+        '@cloudfour/unicorn/prefer-node-protocol': 'off',
+      },
+    },
+    {
+      files: ['*.mdx'],
+      rules: {
+        // The auto-fixer for this rule does not work with .mdx files.
+        '@cloudfour/import/order': 'off',
       },
     },
   ],

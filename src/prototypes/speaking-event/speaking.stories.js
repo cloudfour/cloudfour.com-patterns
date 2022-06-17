@@ -1,6 +1,6 @@
 import events from './data/events.json';
-import singleSpeakerPrototype from './example/single-speaker.twig';
 import multipleSpeakersPrototype from './example/multiple-speakers.twig';
+import singleSpeakerPrototype from './example/single-speaker.twig';
 import deck from './images/deck.png';
 import './example/example.scss';
 

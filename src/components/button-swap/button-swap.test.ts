@@ -1,7 +1,9 @@
 import path from 'path';
+
 import type { ElementHandle, PleasantestUtils } from 'pleasantest';
-import { withBrowser, getAccessibilityTree } from 'pleasantest';
-import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
+import { getAccessibilityTree, withBrowser } from 'pleasantest';
+
+import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
 
 // Helper to load the Twig template file
 const componentMarkup = loadTwigTemplate(

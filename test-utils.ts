@@ -1,6 +1,7 @@
-import path from 'path';
-import { TwingEnvironment, TwingLoaderFilesystem } from 'twing';
+import path from 'node:path';
+
 import type { PleasantestUtils } from 'pleasantest';
+import { TwingEnvironment, TwingLoaderFilesystem } from 'twing';
 
 const loader = new TwingLoaderFilesystem(process.cwd());
 loader.addPath(path.join(process.cwd(), 'src'), 'cloudfour');

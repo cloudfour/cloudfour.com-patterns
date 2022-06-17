@@ -43,17 +43,11 @@
         <p>This is similar to <a href="http://sonspring.com/">Nathan Smith’s</a> <a href="http://adapt.960.gs/">Adaptive.js</a> library which puts breakpoints in JavaScript instead of CSS.</p>
         <p>So by definition, Google Plus is not a responsive web design. It may look like one, but it doesn’t contain the three technical pieces necessary to be a responsive web design.</p>
         <p>
-          {% embed '@cloudfour/components/button/button.twig' with {
-            href: 'https://cloudfour.com/thinks/defining-responsiveness/'
+          {% include '@cloudfour/components/button/button.twig' with {
+            href: 'https://cloudfour.com/thinks/defining-responsiveness/',
+            label: 'Full article',
+            content_end_icon: 'arrow-right'
           } only %}
-            {% block content %}
-              Full article
-              {% include '@cloudfour/components/icon/icon.twig' with {
-                name: 'arrow-right',
-                inline: true
-              } only %}
-            {% endblock %}
-          {% endembed %}
         </p>
       {% endblock %}
     {% endembed %}

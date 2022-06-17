@@ -5,7 +5,6 @@
     {% if icon %}
       {% include '@cloudfour/components/icon/icon.twig' with {
         name: icon,
-        aria_hidden: true
       } only %}
     {% endif %}
   {% endblock %}
@@ -30,7 +29,6 @@
         {% include '@cloudfour/components/icon/icon.twig' with {
           class: 'c-alert__dismiss-icon',
           name: 'x',
-          aria_hidden: true,
         } %}
         <span class="u-hidden-visually">Dismiss alert</span>
       </button>

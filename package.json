@@ -150,6 +150,12 @@
   "jest": {
     "setupFilesAfterEnv": [
       "./jest.setup.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^(.+)\\.js$": [
+        "$1.js",
+        "$1.ts"
+      ]
+    }
   }
 }

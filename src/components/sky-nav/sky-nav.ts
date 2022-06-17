@@ -1,4 +1,4 @@
-import tokens from '../../compiled/tokens/js/tokens';
+import tokens from '../../compiled/tokens/js/tokens.js';
 
 /**
  * Create Sky Nav Menu

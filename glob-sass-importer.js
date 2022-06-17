@@ -1,5 +1,6 @@
-const glob = require('tiny-glob');
 const path = require('path');
+
+const glob = require('tiny-glob');
 
 /** @typedef {{file: string} | {contents: string} | null } ResolveResult */
 

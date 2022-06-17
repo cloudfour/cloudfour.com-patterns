@@ -1,9 +1,11 @@
-import teamListPrototype from './example/team-list.twig';
-import teamIndividualPrototype from './example/team-individual.twig';
-import teamArticlePage2 from './example/team-articles-page2.twig';
-import avatars from './data/avatars.json';
-import './example/team-individual.scss';
 import { useSkyNav } from '../use-sky-nav.ts';
+
+import avatars from './data/avatars.json';
+import teamArticlePage2 from './example/team-articles-page2.twig';
+import teamIndividualPrototype from './example/team-individual.twig';
+import teamListPrototype from './example/team-list.twig';
+
+import './example/team-individual.scss';
 
 export default {
   title: 'Prototypes/Team Page',

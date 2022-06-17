@@ -1,11 +1,11 @@
-const { src, dest } = require('gulp');
-const outDir = 'dist';
-
-const sass = require('gulp-sass')(require('sass'));
-const rename = require('gulp-rename');
-const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
+const { src, dest } = require('gulp');
+const postcss = require('gulp-postcss');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass')(require('sass'));
 sass.compiler = require('sass');
+
+const outDir = 'dist';
 
 const buildSass = () =>
   src('./src/index.scss')

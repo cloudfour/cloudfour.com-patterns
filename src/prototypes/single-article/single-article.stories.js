@@ -1,5 +1,6 @@
-import singleArticlePrototype from './example/example.twig';
 import { useSkyNav } from '../use-sky-nav.ts';
+
+import singleArticlePrototype from './example/example.twig';
 
 export default {
   title: 'Prototypes/Single Article',

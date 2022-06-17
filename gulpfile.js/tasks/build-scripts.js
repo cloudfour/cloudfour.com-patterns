@@ -1,11 +1,12 @@
-const rollup = require('rollup');
-const path = require('path');
-const nodeResolve = require('@rollup/plugin-node-resolve').default;
-const { terser } = require('rollup-plugin-terser');
-const { getBabelInputPlugin } = require('@rollup/plugin-babel');
 const fs = require('fs').promises;
-const glob = require('tiny-glob');
+const path = require('path');
+
+const { getBabelInputPlugin } = require('@rollup/plugin-babel');
+const nodeResolve = require('@rollup/plugin-node-resolve').default;
+const rollup = require('rollup');
 const dts = require('rollup-plugin-dts').default;
+const { terser } = require('rollup-plugin-terser');
+const glob = require('tiny-glob');
 
 const outDir = 'dist';
 /** Used to hold TS output from tsc, before it gets bundled by rollup into `dist` */

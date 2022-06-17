@@ -1,7 +1,9 @@
 import path from 'path';
+
 import type { ElementHandle } from 'pleasantest';
 import { getAccessibilityTree, withBrowser } from 'pleasantest';
-import { loadTwigTemplate } from '../../../test-utils';
+
+import { loadTwigTemplate } from '../../../test-utils.js';
 
 /** Helper to load the Twig template file */
 const template = loadTwigTemplate(path.join(__dirname, './author.twig'));

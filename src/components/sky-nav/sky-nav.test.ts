@@ -1,7 +1,10 @@
 import path from 'path';
+
 import type { ElementHandle, PleasantestUtils } from 'pleasantest';
-import { getAccessibilityTree, devices, withBrowser } from 'pleasantest';
-import { loadTwigTemplate, loadGlobalCSS } from '../../../test-utils';
+import { devices, getAccessibilityTree, withBrowser } from 'pleasantest';
+
+import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
+
 import menu from './demo/menu.json';
 
 const iPhone = devices['iPhone 6'];

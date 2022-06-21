@@ -71,7 +71,7 @@ $fluid-spacing-inline-negative: fluid.fluid-clamp(
     > * + h5,
     > * + h6,
     > * + [class*='heading'] {
-      margin-block-start: var(--rhythm-headings);
+      margin-block-start: var(--rhythm-headings, var(--rhythm));
     }
   }
 }

@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 8.1.1
+
+### Patch Changes
+
+- [#1866](https://github.com/cloudfour/cloudfour.com-patterns/pull/1866) [`01d3a6df`](https://github.com/cloudfour/cloudfour.com-patterns/commit/01d3a6df9f815c3092a98718f64a106148230f32) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix headings in Rhythm objects not respecting cascade of `--rhythm` custom property
+
 ## 8.1.0
 
 ### Minor Changes

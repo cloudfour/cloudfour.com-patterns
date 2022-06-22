@@ -1,4 +1,5 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import demo from './demo/example.twig';
 // The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
 // See: https://github.com/webpack-contrib/raw-loader#examples
 // For now, it seems likely Storybook is pretty tied to Webpack, therefore, we
@@ -8,108 +9,102 @@ import { Canvas, Meta, Story } from '@storybook/addon-docs';
 // component). This can be revisited in the future if Storybook no longer relies
 // on Webpack.
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import articleDemoSource from '!!raw-loader!./demo/article.twig';
-import articleDemo from './demo/article.twig';
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import listDemoSource from '!!raw-loader!./demo/list.twig';
-import listDemo from './demo/list.twig';
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import introDemoSource from '!!raw-loader!./demo/intro.twig';
-import introDemo from './demo/intro.twig';
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import paragraphsDemoSource from '!!raw-loader!./demo/paragraphs.twig';
-import paragraphsDemo from './demo/paragraphs.twig';
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import sectionsDemoSource from '!!raw-loader!./demo/sections.twig';
-import sectionsDemo from './demo/sections.twig';
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import summaryDemoSource from '!!raw-loader!./demo/summary.twig';
-import summaryDemo from './demo/summary.twig';
+import nestingDemoSource from '!!raw-loader!./demo/nesting.twig';
+import nestingDemo from './demo/nesting.twig';
+const argsStringFromStoryContext = (storyContext) => {
+  const args = storyContext.args || storyContext.initialArgs || {};
+  return Object.keys(args).length > 0
+    ? ` with ${JSON.stringify(args, null, 2)}`
+    : '';
+};
+const demoTransformSource = (_src, storyContext) => {
+  const argsString = argsStringFromStoryContext(storyContext);
+  return `{% embed '@cloudfour/objects/rhythm/rhythm.twig'${argsString} only %}
+  {% block content %}
+    {# Headings, paragraphs, content, etc. #}
+  {% endblock %}
+{% endembed %}`;
+};
+const nestingDemoTransformSource = (_src, storyContext) => {
+  const argsString = argsStringFromStoryContext(storyContext);
+  return nestingDemoSource.replace(".twig' %}", `.twig'${argsString} only %}`);
+};
 
-<Meta title="Objects/Rhythm" />
+<Meta
+  title="Objects/Rhythm"
+  argTypes={{
+    amount: {
+      options: ['', 'compact', 'condensed', 'default', 'generous', 'lavish'],
+      type: { name: 'enum' },
+      control: { type: 'select' },
+      description:
+        'Amount of vertical space to apply between adjacent elements as a keyword.',
+    },
+    heading_amount: {
+      options: ['', 'generous', 'lavish'],
+      type: { name: 'enum' },
+      control: { type: 'select' },
+      description:
+        'Amount of vertical space to apply before headings as a keyword.',
+    },
+    class: {
+      type: { name: 'string' },
+      description: 'CSS class name to append to element.',
+    },
+    tag_name: {
+      type: { name: 'string' },
+      description: 'The HTML tag of the element.',
+      table: {
+        defaultValue: {
+          summary: 'div',
+        },
+      },
+    },
+  }}
+  parameters={{
+    docs: { transformSource: demoTransformSource },
+  }}
+/>
 
 # Rhythm
 
 The `o-rhythm` class applies [consistent vertical spacing between child elements](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/).
 
-The default spacing works great for medium-to-long text content:
+<Canvas>
+  <Story name="Example">{(args) => demo(args)}</Story>
+</Canvas>
+
+<ArgsTable story="Example" />
+
+## Amount
+
+The default amount of space works well for medium-to-long text content, but you can customize the amount of space for different situations by specifying the `amount` property or a class name of `o-rhythm--{amount}` with one of the following keywords:
+
+- `compact`: For short chunks of summary content, such as a heading, sentence and button.
+- `condensed`: For short lists of content that need a bit of space between.
+- `default`: Reset to the default amount of space, useful for nested rhythm objects.
+- `generous`: Apply enough space for each element to feel distinct from its siblings.
+- `lavish`: Apply the same amount of vertical space as padded [containers](/?path=/docs/objects-container--basic) have for consistent spacing across separate sections.
 
 <Canvas>
-  <Story
-    name="Default"
-    parameters={{ docs: { source: { code: introDemoSource } } }}
-  >
-    {introDemo}
+  <Story name="Amount" args={{ amount: 'condensed' }}>
+    {(args) => demo(args)}
   </Story>
 </Canvas>
 
-## Modifiers
+## Heading Amount
 
-For shorter summary content, use the `o-rhythm--condensed` modifier to tighten things up a bit:
+It can be helpful to differentiate headings with more preceding space than normal flow content. In those cases, you can specify a `heading_amount` property or a class name of `o-rhythm--{heading_amount}-headings` with one of the following keywords:
 
-<Canvas>
-  <Story
-    name="Condensed"
-    parameters={{ docs: { source: { code: summaryDemoSource } } }}
-  >
-    {summaryDemo}
-  </Story>
-</Canvas>
-
-`o-rhythm--compact` is best for shorter content chunks that just need a _pinch_ more space:
+- `generous`
+- `lavish`
 
 <Canvas>
   <Story
-    name="Compact"
-    parameters={{ docs: { source: { code: listDemoSource } } }}
+    name="Heading Amount"
+    args={{ amount: 'condensed', heading_amount: 'generous' }}
   >
-    {listDemo}
-  </Story>
-</Canvas>
-
-While `o-rhythm--generous` is intended for separating distinct content chunks with more whitespace:
-
-<Canvas>
-  <Story
-    name="Generous"
-    parameters={{ docs: { source: { code: paragraphsDemoSource } } }}
-  >
-    {paragraphsDemo}
-  </Story>
-</Canvas>
-
-And finally, `o-rhythm--lavish` can separate entire sections from each other. It uses the same fluid padding values as [the container object](/?path=/docs/objects-container--basic):
-
-<Canvas>
-  <Story
-    name="Lavish"
-    parameters={{
-      layout: 'fullscreen',
-      docs: { source: { code: sectionsDemoSource } },
-    }}
-  >
-    {sectionsDemo}
-  </Story>
-</Canvas>
-
-To revert to the default spacing in nested rhythm objects, use the `o-rhythm--default` modifier.
-
-## Heading Modifiers
-
-The `o-rhythm--generous-headings` modifier helps differentiate sections of articles (or similarly long prose content) by adding more whitespace before headings (or elements with a class name containing `heading`, such as [our heading component](/docs/components-heading--levels#heading)).
-
-<!--
-This example isn't inlined so any media queries affecting the container will
-behave as expected.
--->
-
-<Canvas>
-  <Story
-    name="Generous Headings"
-    inline={false}
-    parameters={{ docs: { source: { code: articleDemoSource } } }}
-  >
-    {articleDemo}
+    {(args) => demo(args)}
   </Story>
 </Canvas>
 
@@ -117,22 +112,21 @@ behave as expected.
 
 The vertical spacing applied by the Rhythm object only applies to direct children. In some cases, you may want elements below to inherit rhythm. This can be accomplished in two main ways.
 
-### Via HTML
+### Nesting Rhythm Objects
 
-If you have access to the markup, you can add the `o-rhythm` class to the child element:
+Nested rhythm objects will inherit any spacing set via modifiers. In this example, the first list inherits the parent element's rhythm while the second resets it using the `default` amount:
 
-```html
-<div class="o-rhythm o-rhythm--condensed">
-  <!-- ... -->
-  <div class="o-rhythm">
-    <!-- will also be condensed -->
-  </div>
-  <div class="o-rhythm o-rhythm--default">
-    <!-- will not be condensed -->
-  </div>
-  <!-- ... -->
-</div>
-```
+<Canvas>
+  <Story
+    name="Nesting"
+    args={{ amount: 'condensed' }}
+    parameters={{
+      docs: { transformSource: nestingDemoTransformSource },
+    }}
+  >
+    {(args) => nestingDemo(args)}
+  </Story>
+</Canvas>
 
 ### Via Sass
 

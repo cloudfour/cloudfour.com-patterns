@@ -1,0 +1,22 @@
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' %}
+  {% block content %}
+    {% for i in 1..3 %}
+      <h{{i}}>
+        {{amount|default('default')|capitalize}} Rhythm
+        {% if heading_amount %}
+          with {{heading_amount|capitalize}} Headings
+        {% endif %}
+        (H{{i}})
+      </h{{i}}>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus id nisl eu euismod. Vivamus ornare ullamcorper ex, nec laoreet felis mollis sit amet.</p>
+      {% if loop.first %}
+        <p>Donec porta eros at tellus ornare, id dignissim dui eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        {% include '@cloudfour/components/button/button.twig' with {
+          href: '#',
+          label: 'Example',
+          content_end_icon: 'arrow-right'
+        } only %}
+      {% endif %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

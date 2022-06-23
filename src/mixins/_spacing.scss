@@ -76,6 +76,10 @@ $fluid-spacing-inline-negative: fluid.fluid-clamp(
   }
 }
 
-@mixin fluid-vertical-rhythm() {
-  --rhythm: #{$fluid-spacing-block};
+@mixin fluid-vertical-rhythm($headings: false) {
+  @if $headings {
+    --rhythm-headings: #{$fluid-spacing-block};
+  } @else {
+    --rhythm: #{$fluid-spacing-block};
+  }
 }

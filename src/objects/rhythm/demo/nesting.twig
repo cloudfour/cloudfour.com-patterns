@@ -1,0 +1,16 @@
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' %}
+  {% block content %}
+    <p>This paragraph is in a rhythm object with {% if amount %}<code>{{amount}}</code>{% else %}no{% endif %} spacing set.</p>
+    <p>This list is also a rhythm object, inheriting that spacing:</p>
+    {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
+      tag_name: 'ul',
+    } only %}
+      {% block content %}
+        <li><a href="#">Accessibility</a></li>
+        <li><a href="#">Design Systems</a></li>
+        <li><a href="#">Performance</a></li>
+        <li><a href="#">Progressive Web Apps</a></li>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

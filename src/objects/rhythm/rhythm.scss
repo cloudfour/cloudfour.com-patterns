@@ -36,3 +36,7 @@
 .o-rhythm--generous-headings {
   --rhythm-headings: #{size.$rhythm-generous};
 }
+
+.o-rhythm--lavish-headings {
+  @include spacing.fluid-vertical-rhythm($headings: true);
+}

@@ -93,11 +93,53 @@
     transform: scale(scale.$effect-shrink);
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled='true'] {
     cursor: not-allowed;
     filter: grayscale(60%);
     opacity: 0.85;
     transform: none;
+  }
+
+  /**
+   * Loading state
+   */
+
+  &.is-loading {
+    /**
+     * Display a spinner. Static if the user prefers reduced motion, animated
+     * otherwise.
+     */
+
+    &::after {
+      animation: transition.$glacial rotate-clockwise linear infinite;
+      block-size: size.$icon-medium;
+      border: size.$edge-control solid currentColor;
+      border-block-start-color: transparent;
+      border-radius: size.$border-radius-full;
+      content: '';
+      inline-size: size.$icon-medium;
+      inset: 0;
+      margin: auto;
+      position: absolute;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        border-block-start-color: currentColor;
+        border-style: dashed;
+      }
+    }
+
+    /**
+     * Hide child elements (content, extra). We use this technique because it is
+     * performant and will not negate any keyboard events.
+     *
+     * @link https: //stackoverflow.com/a/34529598
+     */
+
+    > * {
+      opacity: 0;
+    }
   }
 }
 
@@ -119,6 +161,16 @@
   background-color: transparent;
   border-color: transparent;
   color: var(--theme-color-text-button-tertiary);
+}
+
+/// Rules for content element, used to contain button label.
+@mixin content {
+  /// We use opacity because it will not paint but it also won't remove the
+  /// element's keyboard events (if any).
+  /// @link https: //stackoverflow.com/a/34529598
+  .is-loading & {
+    opacity: 0;
+  }
 }
 
 /// Rules for extra element. Used to contain icons or other visual affordances.

@@ -2,6 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include.js';
 import template from './subscribe.twig';
+import demoTemplate from './demo/destroy-init-toggle.twig';
 import { initSubscribe } from './subscribe.ts';
 // Helper function to initialize toggling button JS
 const templateStory = (args) => {
@@ -14,6 +15,29 @@ const templateStory = (args) => {
     };
   });
   return template(args);
+};
+// Helper function to demo the destroy/init feature
+const demoTemplateStory = (args) => {
+  useEffect(() => {
+    // Initialize the component
+    const subscribeComponent = initSubscribe(
+      document.querySelector('.js-subscribe')
+    );
+    // Set up the demo destroy button
+    const destroyBtn = document.querySelector('.js-destroy-button');
+    destroyBtn.addEventListener('click', subscribeComponent.destroy);
+    // Set up the demo init button
+    const initBtn = document.querySelector('.js-init-button');
+    initBtn.addEventListener('click', subscribeComponent.init);
+    // Make sure to cleanup
+    return () => {
+      destroyBtn.removeEventListener('click', subscribeComponent.destroy);
+      initBtn.removeEventListener('click', subscribeComponent.init);
+      subscribeComponent.destroy();
+    };
+  });
+  // Renders the demo
+  return demoTemplate(args);
 };
 
 <Meta
@@ -196,6 +220,35 @@ This component embeds the [Button Swap component](/?path=/docs/components-button
     }}
   >
     {(args) => templateStory(args)}
+  </Story>
+</Canvas>
+
+## Anotha one
+
+<Canvas>
+  <Story
+    name="Destroy"
+    args={{
+      form_id: 'destroy-demo',
+      subscribe_heading: 'Never miss an article!',
+      weekly_digests_heading: 'Get Weekly Digests',
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/subscribe/subscribe.twig',
+            {
+              form_id: 'destroy-demo',
+              subscribe_heading: 'Never miss an article!',
+              weekly_digests_heading: 'Get Weekly Digests',
+            }
+          ),
+        },
+      },
+    }}
+  >
+    {(args) => demoTemplateStory(args)}
   </Story>
 </Canvas>
 

@@ -23,7 +23,9 @@ export const initSubscribe = (containerEl: HTMLElement) => {
   );
   const formEl = containerEl.querySelector('form');
   const formFocusableEls = containerEl.querySelectorAll('label, input, button');
-  const controlEls = containerEl.querySelectorAll('.js-subscribe__control');
+  const controlEls = containerEl.querySelectorAll<HTMLElement>(
+    '.js-subscribe__control'
+  );
 
   // Confirm we have what we need to proceed
   if (!getWeeklyDigestsBtn || !formEl) {
@@ -72,34 +74,60 @@ export const initSubscribe = (containerEl: HTMLElement) => {
     }
   };
 
-  // Clean up event listeners
-  const destroy = () => {
-    getWeeklyDigestsBtn.removeEventListener('click', onGetWeeklyDigestsClick);
+  // We'll store any event listener cleanup callbacks in this array for later
+  const cleanupCallbacks: (() => void)[] = [];
+  const addEventListeners = () => {
+    getWeeklyDigestsBtn.addEventListener('click', onGetWeeklyDigestsClick);
+    cleanupCallbacks.push(() =>
+      getWeeklyDigestsBtn.removeEventListener('click', onGetWeeklyDigestsClick)
+    );
+
     for (const formFocusableEl of formFocusableEls) {
-      formFocusableEl.removeEventListener('blur', onFormBlur);
-      formFocusableEl.removeEventListener('focus', onFormFocus);
+      formFocusableEl.addEventListener('blur', onFormBlur);
+      formFocusableEl.addEventListener('focus', onFormFocus);
+      cleanupCallbacks.push(() => {
+        formFocusableEl.removeEventListener('blur', onFormBlur);
+        formFocusableEl.removeEventListener('focus', onFormFocus);
+      });
     }
+
     for (const controlEl of controlEls) {
-      controlEl.removeEventListener('focus', onControlFocus);
+      controlEl.addEventListener('focus', onControlFocus);
+      cleanupCallbacks.push(() =>
+        controlEl.removeEventListener('focus', onControlFocus)
+      );
     }
-    document.removeEventListener('keydown', onKeydown);
+
+    document.addEventListener('keydown', onKeydown);
+    cleanupCallbacks.push(() =>
+      document.removeEventListener('keydown', onKeydown)
+    );
+  };
+
+  const destroy = () => {
+    // Don't want this hanging around, it could end up in a confusing UI state
+    clearTimeout(blurTimeoutId);
+    // Cleanup event listeners
+    for (const cleanup of cleanupCallbacks) cleanup();
+    // Hide the UI buttons so we can show the form
+    for (const btn of controlEls) btn.hidden = true;
+    // Shows the form
+    containerEl.classList.add(SHOW_FORM_CLASS);
   };
 
   // Set up all event listeners
   const init = () => {
-    getWeeklyDigestsBtn.addEventListener('click', onGetWeeklyDigestsClick);
-    for (const formFocusableEl of formFocusableEls) {
-      formFocusableEl.addEventListener('blur', onFormBlur);
-      formFocusableEl.addEventListener('focus', onFormFocus);
-    }
-    for (const controlEl of controlEls) {
-      controlEl.addEventListener('focus', onControlFocus);
-    }
-    document.addEventListener('keydown', onKeydown);
+    // Perform a cleanup first
+    destroy();
+    // We want to make sure the UI buttons are visible on init
+    for (const btn of controlEls) btn.hidden = false;
+    addEventListeners();
+    // Make sure to show the button UI state (no form)
+    containerEl.classList.remove(SHOW_FORM_CLASS);
   };
 
   init();
 
   // Return a public API for consumers of this component
-  return { destroy };
+  return { init, destroy };
 };

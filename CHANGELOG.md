@@ -1,5 +1,17 @@
 # @cloudfour/patterns
 
+## 8.2.0
+
+### Minor Changes
+
+- [#1879](https://github.com/cloudfour/cloudfour.com-patterns/pull/1879) [`c1df9aff`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c1df9aff13616bfc0720ff01829a100645085b4e) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `is-loading` state class to Buttons
+
+* [#1868](https://github.com/cloudfour/cloudfour.com-patterns/pull/1868) [`85de9d29`](https://github.com/cloudfour/cloudfour.com-patterns/commit/85de9d2901a82b0ca8cf8b277003f8a3b41dda9f) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `lavish-headings` modifier to Rhythm object to simplify constistent spacing within containers
+
+- [#1868](https://github.com/cloudfour/cloudfour.com-patterns/pull/1868) [`85de9d29`](https://github.com/cloudfour/cloudfour.com-patterns/commit/85de9d2901a82b0ca8cf8b277003f8a3b41dda9f) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `amount` and `heading_amount` properties to Rhythm object to simplify usage in templates
+
+* [#1879](https://github.com/cloudfour/cloudfour.com-patterns/pull/1879) [`c1df9aff`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c1df9aff13616bfc0720ff01829a100645085b4e) Thanks [@tylersticka](https://github.com/tylersticka)! - Add support for `aria-disabled` attribute to Buttons
+
 ## 8.1.1
 
 ### Patch Changes

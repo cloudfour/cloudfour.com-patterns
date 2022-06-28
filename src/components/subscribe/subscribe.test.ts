@@ -38,7 +38,7 @@ const expectElementToBeVisuallyHidden = async (
  * given element, expects dimensions to be greater than or equal to `1`
  * meaning the element is not visually hidden.
  */
-const expectElementToNotBeVisuallyHidden = async (
+const expectElementNotToBeVisuallyHidden = async (
   form: ElementHandle<HTMLElement>
 ) => {
   const { elHeight, elWidth } = await form.evaluate((el: HTMLElement) => ({
@@ -112,7 +112,7 @@ describe('Subscription component', () => {
       await page.keyboard.press('Tab'); // Email input
 
       // Confirm the form is now "active" (not visually hidden)
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Email input should be in focus
       const emailInput = await screen.getByRole('textbox', { name: 'Email' });
@@ -128,7 +128,7 @@ describe('Subscription component', () => {
       await expect(subscribeBtn).toHaveFocus();
 
       // Confirm the form is still "active" (not visually hidden)
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Navigate back up to the Weekly Digests link
       await page.keyboard.down('Shift'); // Navigate backwards
@@ -151,7 +151,7 @@ describe('Subscription component', () => {
       await page.keyboard.press('Tab'); // Out of the form
 
       // Confirm the form is still "active" (not visually hidden)
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Navigate back quickly to confirm timeout getting cancelled
       await page.keyboard.down('Shift'); // Navigate backwards
@@ -159,12 +159,12 @@ describe('Subscription component', () => {
       await page.keyboard.up('Shift'); // Release Shift key
 
       // Confirm the form is still "active" (not visually hidden)
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       await page.keyboard.press('Tab'); // Out of the form
 
       // Confirm the form is still "active" (not visually hidden)
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // After a timeout, the form eventually visually hides
       await waitFor(
@@ -183,7 +183,7 @@ describe('Subscription component', () => {
       await page.keyboard.up('Shift'); // Release Shift key
 
       // Confirm the form is "active" again (not visually hidden)
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Should hide the form
       await page.keyboard.press('Escape');
@@ -293,7 +293,7 @@ describe('Subscription component', () => {
       const form = await screen.getByRole('form', {
         name: 'Get Weekly Digests',
       });
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Tab all the way to the "testing" link
       // 1. I'm reusing the `destroy-reinit.twig` template so we need to tab
@@ -314,7 +314,7 @@ describe('Subscription component', () => {
       await new Promise((resolve) => {
         setTimeout(resolve, 2000);
       });
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Reinitialize the Subscribe component
       await utils.runJS(`
@@ -330,13 +330,13 @@ describe('Subscription component', () => {
       await page.keyboard.up('Shift'); // Release Shift key
 
       // The form should be visible when you move the focus back into the form
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // Navigate away from the form
       await page.keyboard.press('Tab'); // "Testing" link
 
       // Immediately, the form should stay visible
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
 
       // After a timeout, the form eventually visually hides
       await waitFor(
@@ -370,7 +370,7 @@ describe('Subscription component', () => {
       });
 
       // The form should be visible
-      await expectElementToNotBeVisuallyHidden(form);
+      await expectElementNotToBeVisuallyHidden(form);
     })
   );
 });

@@ -272,7 +272,7 @@ describe('Subscription component', () => {
 
   test(
     'should destroy and reinitialize',
-    withBrowser(async ({ utils, screen, waitFor, page, user }) => {
+    withBrowser(async ({ utils, screen, waitFor, page }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscribe.scss');
       await utils.injectHTML(await demoDestroyReinitMarkup());

@@ -348,26 +348,24 @@ describe('Subscription component', () => {
         }
       );
 
-      // Navigate back into the form
-      await page.keyboard.down('Shift'); // Navigate backwards
-      await page.keyboard.press('Tab'); // Form Subscribe submit button
-      await page.keyboard.up('Shift'); // Release Shift key
+      // Cover a race condition where the timeout and destroy get called quickly
+      // one after the other causing an unexpected UI state when the Subscribe
+      // component timoute isn't cleared.
+      // Set the focus in the form first (on the submit button)
       const formSubmitBtn = await screen.getByRole('button', {
         name: 'Subscribe',
       });
-      await expect(formSubmitBtn).toHaveFocus();
-
-      // Cover a race condition where the timeout and destroy get called quickly
+      formSubmitBtn.focus();
+      // Then blur the focus
       await formSubmitBtn.evaluate((btn) => btn.blur());
+      // And immediately run the `destroy()`
       await utils.runJS(`
         window.subscribeComponent.destroy();
       `);
-
       // Wait out the Subscribe component timeout
       await new Promise((resolve) => {
         setTimeout(resolve, 2000);
       });
-
       // The form should be visible
       await expectElementNotToBeVisuallyHidden(form);
     })

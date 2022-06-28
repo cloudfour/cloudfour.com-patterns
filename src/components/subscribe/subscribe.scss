@@ -34,6 +34,8 @@
 
 ///
 /// 1. Ensures the form background color matches the current theme
+/// 2. In the "destroyed" state, the CTA buttons are removed from the UI, so we
+///    don't need the form to be absolutely positioned.
 ///
 
 .c-subscribe__form {
@@ -43,7 +45,10 @@
   inline-size: 100%;
   inset-block-start: 0;
   inset-inline-start: 0;
-  position: absolute;
+
+  .c-subscribe:not(.is-destroyed) & {
+    position: absolute; // 2
+  }
 
   ///
   /// 1. Allows for the visually hidden form to be keyboard accessible, will be

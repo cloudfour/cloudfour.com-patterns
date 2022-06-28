@@ -26,9 +26,12 @@ export const initSubscribe = (containerEl: HTMLElement) => {
   const controlEls = containerEl.querySelectorAll<HTMLElement>(
     '.js-subscribe__control'
   );
+  const controlsUiWrapper = containerEl.querySelector<HTMLElement>(
+    '.js-c-subscribe__controls-ui'
+  );
 
   // Confirm we have what we need to proceed
-  if (!getWeeklyDigestsBtn || !formEl) {
+  if (!getWeeklyDigestsBtn || !formEl || !controlsUiWrapper) {
     return;
   }
 
@@ -114,9 +117,10 @@ export const initSubscribe = (containerEl: HTMLElement) => {
     // Remove all event listeners
     for (const cleanup of cleanupCallbacks) cleanup();
     // Hide the UI buttons so we can show the form
-    for (const btn of controlEls) btn.hidden = true;
+    controlsUiWrapper.hidden = true;
     // Show the form
     containerEl.classList.add(SHOW_FORM_CLASS);
+    containerEl.classList.add('is-destroyed');
   };
 
   // Initializes the Subscribe component
@@ -127,10 +131,11 @@ export const initSubscribe = (containerEl: HTMLElement) => {
     // Perform a cleanup first
     destroy();
     // We want to make sure the UI buttons are visible on init
-    for (const btn of controlEls) btn.hidden = false;
+    controlsUiWrapper.hidden = false;
     addEventListeners();
     // Make sure to show the button UI state (no form)
     containerEl.classList.remove(SHOW_FORM_CLASS);
+    containerEl.classList.remove('is-destroyed');
   };
 
   init();

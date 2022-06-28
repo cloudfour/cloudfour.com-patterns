@@ -284,7 +284,6 @@ describe('Subscription component', () => {
         window.subscribeComponent = initSubscribe(
           document.querySelector('.js-subscribe')
         );
-
         // Destroy it to start with
         window.subscribeComponent.destroy();
       `);

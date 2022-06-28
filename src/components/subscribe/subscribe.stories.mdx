@@ -1,23 +1,11 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include.js';
-import template from './subscribe.twig';
+import template from './demo/storybook-demo.twig';
 import demoDestroyReinitTemplate from './demo/destroy-reinit.twig';
 import { initSubscribe } from './subscribe.ts';
 // Helper function to initialize toggling button JS
 const templateStory = (args) => {
-  useEffect(() => {
-    const templateEls = [...document.querySelectorAll('.js-subscribe')].map(
-      (templateEl) => initSubscribe(templateEl)
-    );
-    return () => {
-      for (const templateEl of templateEls) templateEl.destroy();
-    };
-  });
-  return template(args);
-};
-// Helper function to demo the destroy/init feature
-const demoDestroyReinitTemplateStory = (args) => {
   useEffect(() => {
     // Initialize the component
     const subscribeComponent = initSubscribe(
@@ -36,8 +24,7 @@ const demoDestroyReinitTemplateStory = (args) => {
       subscribeComponent.destroy();
     };
   });
-  // Renders the demo
-  return demoDestroyReinitTemplate(args);
+  return template(args);
 };
 
 <Meta
@@ -196,6 +183,14 @@ The Subscribe component provides the UI to subscribe to notifications and/or ema
 
 This component embeds the [Button Swap component](/?path=/docs/components-button-swap--default-story) for the "Get Notifications" button.
 
+## Destroy/Reinitialize
+
+The Subscribe component allows you to programmatically disable/enable the JavaScript functionality via its `destroy()` and `reinit()` methods. When in its "destroyed" UI state, the following will occur:
+
+- The "Get notifcations"/"Get Weekly Digests" UI will be removed
+- The weekly digests form will be shown
+- All Subscribe component JavaScript will be removed
+
 <Canvas>
   <Story
     name="Default"
@@ -220,35 +215,6 @@ This component embeds the [Button Swap component](/?path=/docs/components-button
     }}
   >
     {(args) => templateStory(args)}
-  </Story>
-</Canvas>
-
-## Destroy/Reinitialize
-
-<Canvas>
-  <Story
-    name="Destroy/Reinitialize"
-    args={{
-      form_id: 'destroy-demo',
-      subscribe_heading: 'Never miss an article!',
-      weekly_digests_heading: 'Get Weekly Digests',
-    }}
-    parameters={{
-      docs: {
-        source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/subscribe/subscribe.twig',
-            {
-              form_id: 'destroy-demo',
-              subscribe_heading: 'Never miss an article!',
-              weekly_digests_heading: 'Get Weekly Digests',
-            }
-          ),
-        },
-      },
-    }}
-  >
-    {(args) => demoDestroyReinitTemplateStory(args)}
   </Story>
 </Canvas>
 

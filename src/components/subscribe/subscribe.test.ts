@@ -295,10 +295,6 @@ describe('Subscription component', () => {
       await expectElementNotToBeVisuallyHidden(form);
 
       // Tab all the way to the "testing" link
-      // 1. I'm reusing the `destroy-reinit.twig` template so we need to tab
-      //    through the UI buttons that exist in the demo.
-      await page.keyboard.press('Tab'); // 1 (demo button)
-      await page.keyboard.press('Tab'); // 1 (demo button)
       await page.keyboard.press('Tab'); // Email input
       await page.keyboard.press('Tab'); // Subscribe button
       await page.keyboard.press('Tab'); // "Testing" link

@@ -350,7 +350,7 @@ describe('Subscription component', () => {
 
       // Cover a race condition where the timeout and destroy get called quickly
       // one after the other causing an unexpected UI state when the Subscribe
-      // component timoute isn't cleared.
+      // component timeout isn't cleared.
       // Set the focus in the form first (on the submit button)
       const formSubmitBtn = await screen.getByRole('button', {
         name: 'Subscribe',

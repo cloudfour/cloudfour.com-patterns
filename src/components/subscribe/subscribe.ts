@@ -104,6 +104,10 @@ export const initSubscribe = (containerEl: HTMLElement) => {
     );
   };
 
+  // Destroys the Subscribe component
+  // - clears existing timeouts
+  // - sets up the proper UI state
+  // - removes event listeners
   const destroy = () => {
     // Don't want this hanging around, it could end up in a confusing UI state
     clearTimeout(blurTimeoutId);
@@ -115,7 +119,10 @@ export const initSubscribe = (containerEl: HTMLElement) => {
     containerEl.classList.add(SHOW_FORM_CLASS);
   };
 
-  // Set up all event listeners
+  // Initializes the Subscribe component
+  // - clears existing state/timeouts
+  // - sets up the proper UI state
+  // - sets up event listeners
   const init = () => {
     // Perform a cleanup first
     destroy();

@@ -59,7 +59,7 @@ const initJS = (utils: PleasantestUtils) =>
     )
   `);
 
-describe('Subscription', () => {
+describe('Subscription component', () => {
   test(
     'should use semantic markup',
     withBrowser(async ({ utils, page }) => {
@@ -271,29 +271,16 @@ describe('Subscription', () => {
   );
 
   test(
-    'can destroy and reinitialize',
-    withBrowser.headed(async ({ utils, screen, waitFor, page }) => {
-      // withBrowser.headed(async ({ utils, screen, waitFor, page }) => {
+    'should destroy and reinitialize',
+    withBrowser(async ({ utils, screen, waitFor, page, user }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscribe.scss');
       await utils.injectHTML(await demoDestroyReinitMarkup());
-      // await utils.runJS(`
-      //   import { initSubscribe } from './subscribe';
-      //   // Initialize the component
-      //   const subscribeComponent = initSubscribe(
-      //     document.querySelector('.js-subscribe')
-      //   );
-      //   // Set up the demo destroy button
-      //   const destroyBtn = document.querySelector('.js-destroy-button');
-      //   destroyBtn.addEventListener('click', subscribeComponent.destroy);
-      //   // Set up the demo init button
-      //   const reinitBtn = document.querySelector('.js-reinit-button');
-      //   reinitBtn.addEventListener('click', subscribeComponent.reinit);
-      // `);
-
       await utils.runJS(`
         import { initSubscribe } from './subscribe';
-        // Initialize the component
+        // Initialize the Subscribe component
+        // We attach it to the window object as a workaround to have access to
+        // the subscribeComponent later in this test.
         window.subscribeComponent = initSubscribe(
           document.querySelector('.js-subscribe')
         );
@@ -302,106 +289,88 @@ describe('Subscription', () => {
         window.subscribeComponent.destroy();
       `);
 
-      // Confirm the form is visually hidden by default
+      // The form should be active/visible when `destroy()` is called
       const form = await screen.getByRole('form', {
         name: 'Get Weekly Digests',
       });
-      // Confirm the form is now "active" (not visually hidden)
       await expectElementToNotBeVisuallyHidden(form);
 
+      // Tab all the way to the "testing" link
+      // 1. I'm reusing the `destroy-reinit.twig` template so we need to tab
+      //    through the UI buttons that exist in the demo.
+      await page.keyboard.press('Tab'); // 1 (demo button)
+      await page.keyboard.press('Tab'); // 1 (demo button)
+      await page.keyboard.press('Tab'); // Email input
+      await page.keyboard.press('Tab'); // Subscribe button
+      await page.keyboard.press('Tab'); // "Testing" link
+
+      // The "testing" link should be in focus
+      const testingLink = await screen.getByRole('link', {
+        name: 'Testing link',
+      });
+      await expect(testingLink).toHaveFocus();
+
+      // After a timeout, the form should not visually hide
+      await new Promise((resolve) => {
+        setTimeout(resolve, 2000);
+      });
+      await expectElementToNotBeVisuallyHidden(form);
+
+      // Reinitialize the Subscribe component
       await utils.runJS(`
-        // window.subscribeComponent.reinit();
+        window.subscribeComponent.reinit();
       `);
 
-      // await expectElementToBeVisuallyHidden(form);
-
-      // Tab all the way to the form email input
-      // 1. I'm reusing the `destroy-reinit.twig` template so we need to tab
-      //    through the UI buttons that exist in the template.
-      await page.keyboard.press('Tab'); // 1 (demo button)
-      await page.keyboard.press('Tab'); // 1 (demo button)
-      await page.keyboard.press('Tab'); // Email input
-      await page.keyboard.press('Tab'); // Email input
-
-      // Email input should be in focus
-      const emailInput = await screen.getByRole('textbox', { name: 'Email' });
-      await expect(emailInput).toHaveFocus();
-
-      // Tab again to get to the Submit button
-      // await page.keyboard.press('Tab');
-
-      // Submit button should be in focus
-      const subscribeBtn = await screen.getByRole('button', {
-        name: 'Subscribe',
-      });
-      // await expect(subscribeBtn).toHaveFocus();
-
-      // Confirm the form is still "active" (not visually hidden)
-      // await expectElementToNotBeVisuallyHidden(form);
-
-      // Navigate back up to the Weekly Digests link
-      // await page.keyboard.down('Shift'); // Navigate backwards
-      // await page.keyboard.press('Tab'); // Email input
-      // await page.keyboard.press('Tab'); // Weekly Digests link
-      // await page.keyboard.up('Shift'); // Release Shift key
-
-      // Confirm the focus has moved to the Weekly Digests link
-      const weeklyDigestsBtn = await screen.getByRole('link', {
-        name: 'Get Weekly Digests',
-      });
-      // await expect(weeklyDigestsBtn).toHaveFocus();
-
-      // The form should now be visually hidden again
-      // await expectElementToBeVisuallyHidden(form);
-
-      // Navigate forward past the Submit to activate the form hide timeout
-      // await page.keyboard.press('Tab'); // Email input
-      // await page.keyboard.press('Tab'); // Submit button
-      // await page.keyboard.press('Tab'); // Out of the form
-
-      // Confirm the form is still "active" (not visually hidden)
-      // await expectElementToNotBeVisuallyHidden(form);
-
-      // Navigate back quickly to confirm timeout getting cancelled
-      // await page.keyboard.down('Shift'); // Navigate backwards
-      // await page.keyboard.press('Tab'); // Submit button
-      // await page.keyboard.up('Shift'); // Release Shift key
-
-      // Confirm the form is still "active" (not visually hidden)
-      // await expectElementToNotBeVisuallyHidden(form);
-
-      // await page.keyboard.press('Tab'); // Out of the form
-
-      // Confirm the form is still "active" (not visually hidden)
-      // await expectElementToNotBeVisuallyHidden(form);
-
-      // After a timeout, the form eventually visually hides
-      // await waitFor(
-      //   async () => {
-      //     await expectElementToBeVisuallyHidden(form);
-      //   },
-      //   {
-      //     timeout: 2000,
-      //     interval: 1000,
-      //   }
-      // );
+      // The form should be visually hidden after `reinit()` is called
+      await expectElementToBeVisuallyHidden(form);
 
       // Navigate back into the form
-      // await page.keyboard.down('Shift'); // Navigate backwards
-      // await page.keyboard.press('Tab'); // Submit button
-      // await page.keyboard.up('Shift'); // Release Shift key
+      await page.keyboard.down('Shift'); // Navigate backwards
+      await page.keyboard.press('Tab'); // Form Subscribe submit button
+      await page.keyboard.up('Shift'); // Release Shift key
 
-      // Confirm the form is "active" again (not visually hidden)
-      // await expectElementToNotBeVisuallyHidden(form);
+      // The form should be visible when you move the focus back into the form
+      await expectElementToNotBeVisuallyHidden(form);
 
-      // Should hide the form
-      // await page.keyboard.press('Escape');
+      // Navigate away from the form
+      await page.keyboard.press('Tab'); // "Testing" link
 
-      // Confirm the form should is visually hidden
-      // await expectElementToBeVisuallyHidden(form);
+      // Immediately, the form should stay visible
+      await expectElementToNotBeVisuallyHidden(form);
 
-      // The focus should reset back to the "weekly digests" link
-      // await expect(weeklyDigestsBtn).toHaveFocus();
+      // After a timeout, the form eventually visually hides
+      await waitFor(
+        async () => {
+          await expectElementToBeVisuallyHidden(form);
+        },
+        {
+          timeout: 2000,
+          interval: 1000,
+        }
+      );
+
+      // Navigate back into the form
+      await page.keyboard.down('Shift'); // Navigate backwards
+      await page.keyboard.press('Tab'); // Form Subscribe submit button
+      await page.keyboard.up('Shift'); // Release Shift key
+      const formSubmitBtn = await screen.getByRole('button', {
+        name: 'Subscribe',
+      });
+      await expect(formSubmitBtn).toHaveFocus();
+
+      // Cover a race condition where the timeout and destroy get called quickly
+      await formSubmitBtn.evaluate((btn) => btn.blur());
+      await utils.runJS(`
+        window.subscribeComponent.destroy();
+      `);
+
+      // Wait out the Subscribe component timeout
+      await new Promise((resolve) => {
+        setTimeout(resolve, 2000);
+      });
+
+      // The form should be visible
+      await expectElementToNotBeVisuallyHidden(form);
     })
   );
 });

@@ -2,4 +2,5 @@
 '@cloudfour/patterns': minor
 ---
 
-Add reinit method, expand destroy method
+Enhances the Subscribe component's ability to programmatically control its UI via 
+`destroy()`/`reinit()` methods

@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include.js';
 import template from './subscribe.twig';
-import demoTemplate from './demo/destroy-init-toggle.twig';
+import demoDestroyReinitTemplate from './demo/destroy-reinit.twig';
 import { initSubscribe } from './subscribe.ts';
 // Helper function to initialize toggling button JS
 const templateStory = (args) => {
@@ -17,7 +17,7 @@ const templateStory = (args) => {
   return template(args);
 };
 // Helper function to demo the destroy/init feature
-const demoTemplateStory = (args) => {
+const demoDestroyReinitTemplateStory = (args) => {
   useEffect(() => {
     // Initialize the component
     const subscribeComponent = initSubscribe(
@@ -26,18 +26,18 @@ const demoTemplateStory = (args) => {
     // Set up the demo destroy button
     const destroyBtn = document.querySelector('.js-destroy-button');
     destroyBtn.addEventListener('click', subscribeComponent.destroy);
-    // Set up the demo init button
-    const initBtn = document.querySelector('.js-init-button');
-    initBtn.addEventListener('click', subscribeComponent.init);
+    // Set up the demo reinit button
+    const reinitBtn = document.querySelector('.js-reinit-button');
+    reinitBtn.addEventListener('click', subscribeComponent.reinit);
     // Make sure to cleanup
     return () => {
       destroyBtn.removeEventListener('click', subscribeComponent.destroy);
-      initBtn.removeEventListener('click', subscribeComponent.init);
+      reinitBtn.removeEventListener('click', subscribeComponent.reinit);
       subscribeComponent.destroy();
     };
   });
   // Renders the demo
-  return demoTemplate(args);
+  return demoDestroyReinitTemplate(args);
 };
 
 <Meta
@@ -227,7 +227,7 @@ This component embeds the [Button Swap component](/?path=/docs/components-button
 
 <Canvas>
   <Story
-    name="Destroy"
+    name="Destroy/Reinitialize"
     args={{
       form_id: 'destroy-demo',
       subscribe_heading: 'Never miss an article!',
@@ -248,7 +248,7 @@ This component embeds the [Button Swap component](/?path=/docs/components-button
       },
     }}
   >
-    {(args) => demoTemplateStory(args)}
+    {(args) => demoDestroyReinitTemplateStory(args)}
   </Story>
 </Canvas>
 

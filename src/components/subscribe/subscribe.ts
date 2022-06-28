@@ -107,11 +107,11 @@ export const initSubscribe = (containerEl: HTMLElement) => {
   const destroy = () => {
     // Don't want this hanging around, it could end up in a confusing UI state
     clearTimeout(blurTimeoutId);
-    // Cleanup event listeners
+    // Remove all event listeners
     for (const cleanup of cleanupCallbacks) cleanup();
     // Hide the UI buttons so we can show the form
     for (const btn of controlEls) btn.hidden = true;
-    // Shows the form
+    // Show the form
     containerEl.classList.add(SHOW_FORM_CLASS);
   };
 
@@ -129,5 +129,5 @@ export const initSubscribe = (containerEl: HTMLElement) => {
   init();
 
   // Return a public API for consumers of this component
-  return { init, destroy };
+  return { reinit: init, destroy };
 };

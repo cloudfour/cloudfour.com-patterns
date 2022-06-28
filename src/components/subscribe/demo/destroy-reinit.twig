@@ -3,13 +3,17 @@
 {% embed '@cloudfour/objects/rhythm/rhythm.twig' only %}
   {% block content %}
     <button class="js-destroy-button">Destroy Subscribe component</button>
-    <button class="js-init-button">Init Subscribe component</button>
+    <button class="js-reinit-button">Reinitialize Subscribe component</button>
 
-    {% embed '@cloudfour/components/subscribe/subscribe.twig' with {
+    {% include '@cloudfour/components/subscribe/subscribe.twig' with {
       form_id: 'test',
       weekly_digests_heading: 'Get Weekly Digests',
       subscribe_heading: 'Never miss an article!',
-    } only %}{% endembed %}
+    } only %}
+
+    <div>
+      <a href="#">Testing link</a>
+    </div>
   {% endblock %}
 {% endembed %}
 

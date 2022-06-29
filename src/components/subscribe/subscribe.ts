@@ -28,7 +28,7 @@ export const createSubscribe = (containerEl: HTMLElement) => {
     '.js-subscribe__control'
   );
   const controlsUiWrapper = containerEl.querySelector<HTMLElement>(
-    '.js-c-subscribe__controls-ui'
+    '.js-subscribe__controls-ui'
   );
 
   // Confirm we have what we need to proceed

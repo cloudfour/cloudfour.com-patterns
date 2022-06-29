@@ -34,7 +34,7 @@
 
 ///
 /// 1. Ensures the form background color matches the current theme
-/// 2. In the "destroyed" state, the CTA buttons are removed from the UI, so we
+/// 2. In the "destroyed" state, the CTA buttons are hidden so we
 ///    don't need the form to be absolutely positioned.
 ///
 

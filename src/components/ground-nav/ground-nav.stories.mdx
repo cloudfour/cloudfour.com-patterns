@@ -67,12 +67,16 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
 <Canvas>
   <Story
     name="Cloud Four"
+    height="500px"
     // Currently storybook doesn't have support for nested or grouped args
     // So for now we are just making them all top-level
     // https://github.com/storybookjs/storybook/issues/11525
     // https://github.com/storybookjs/storybook/issues/10979
     args={defaultArgs}
     argTypes={defaultArgTypes}
+    parameters={{
+      layout: 'fullscreen',
+    }}
   >
     {(args) =>
       template({
@@ -108,6 +112,7 @@ The menu’s contents may differ between projects. This example is based on the 
 <Canvas>
   <Story
     name="PWA Stats"
+    height="550px"
     argTypes={defaultArgTypes}
     args={{
       ...defaultArgs,
@@ -118,6 +123,7 @@ The menu’s contents may differ between projects. This example is based on the 
       buttonIcon: 'brands/github',
     }}
     parameters={{
+      layout: 'fullscreen',
       docs: {
         source: {
           code: pwaStatsDemoSource,
@@ -135,6 +141,46 @@ The menu’s contents may differ between projects. This example is based on the 
           link: args.buttonLink,
           icon: args.buttonIcon,
         },
+        organization: {
+          name: args.organizationName,
+          address: {
+            street_address: args.organizationStreetAddress,
+            address_locality: args.organizationAddressLocality,
+            address_region: args.organizationAddressRegion,
+            postal_code: args.organizationPostalCode,
+            address_country: args.organizationAddressCountry,
+          },
+          email: args.organizationEmail,
+          telephone: args.organizationTelephone,
+          url: args.organizationUrl,
+          founding_date: args.organizationFoundingDate,
+        },
+      })
+    }
+  </Story>
+</Canvas>
+
+To render a Ground Nav with no call to action, do not pass the `action` property.
+
+<Canvas>
+  <Story
+    name="No Action"
+    height="275px"
+    // Currently storybook doesn't have support for nested or grouped args
+    // So for now we are just making them all top-level
+    // https://github.com/storybookjs/storybook/issues/11525
+    // https://github.com/storybookjs/storybook/issues/10979
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
+    parameters={{
+      layout: 'fullscreen',
+    }}
+  >
+    {(args) =>
+      template({
+        menu,
+        social,
+        action: null,
         organization: {
           name: args.organizationName,
           address: {

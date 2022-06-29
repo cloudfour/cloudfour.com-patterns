@@ -53,10 +53,12 @@ const expectElementNotToBeVisuallyHidden = async (
 // Helper to initialize the component JS
 const initJS = (utils: PleasantestUtils) =>
   utils.runJS(`
-    import { initSubscribe } from './subscribe'
-    export default () => initSubscribe(
+    import { createSubscribe } from './subscribe';
+    const subscribe = createSubscribe(
       document.querySelector('.js-subscribe')
-    )
+    );
+    subscribe.init();
+    export default () => subscribe;
   `);
 
 describe('Subscription component', () => {
@@ -277,14 +279,13 @@ describe('Subscription component', () => {
       await utils.loadCSS('./subscribe.scss');
       await utils.injectHTML(await demoDestroyInitMarkup());
       await utils.runJS(`
-        import { initSubscribe } from './subscribe';
-        // Initialize the Subscribe component
+        import { createSubscribe } from './subscribe';
         // We attach it to the window object as a workaround to have access to
         // the subscribeComponent later in this test.
-        window.subscribeComponent = initSubscribe(
+        window.subscribeComponent = createSubscribe(
           document.querySelector('.js-subscribe')
         );
-        // Destroy it to start with
+        // Set it to the "destroyed" state
         window.subscribeComponent.destroy();
       `);
 

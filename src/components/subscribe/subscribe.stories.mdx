@@ -2,12 +2,12 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include.js';
 import template from './demo/storybook-demo.twig';
-import { initSubscribe } from './subscribe.ts';
+import { createSubscribe } from './subscribe.ts';
 // Helper function to initialize toggling button JS
 const templateStory = (args) => {
   useEffect(() => {
     // Initialize the component
-    const subscribeComponent = initSubscribe(
+    const subscribeComponent = createSubscribe(
       document.querySelector('.js-subscribe')
     );
     // Set up the demo destroy button
@@ -231,7 +231,7 @@ The Subscribe component UX can be progressively enhanced using JavaScript. Enhan
 ### Syntax
 
 ```js
-const subscribeComponent = initSubscribe(subscribeEl);
+const subscribeComponent = createSubscribe(subscribeEl);
 ```
 
 ### Parameters
@@ -263,7 +263,7 @@ state:
 
 ```js
 // Initialize
-const subscribeEl = initSubscribe(document.querySelector('.js-subscribe'));
+const subscribeEl = createSubscribe(document.querySelector('.js-subscribe'));
 
 // Remove all event listeners, show subscription form
 subscribeEl.destroy();
@@ -277,7 +277,7 @@ subscribeEl.init();
 ```js
 // Initialize
 const subscribeEls = [...document.querySelectorAll('.js-subscribe')].map(
-  (subscribeEl) => initSubscribe(subscribeEl)
+  (subscribeEl) => createSubscribe(subscribeEl)
 );
 
 // Remove all event listeners, show subscription form

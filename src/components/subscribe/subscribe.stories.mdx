@@ -10,14 +10,15 @@ const templateStory = (args) => {
     const subscribeComponent = createSubscribe(
       document.querySelector('.js-subscribe')
     );
+    subscribeComponent.init();
     // Set up the demo destroy button
     const destroyBtn = document.querySelector('.js-destroy-button');
     destroyBtn.addEventListener('click', subscribeComponent.destroy);
     // Set up the demo init button
     const initBtn = document.querySelector('.js-init-button');
     initBtn.addEventListener('click', subscribeComponent.init);
-    // Make sure to cleanup
     return () => {
+      // Make sure to cleanup
       destroyBtn.removeEventListener('click', subscribeComponent.destroy);
       initBtn.removeEventListener('click', subscribeComponent.init);
       subscribeComponent.destroy();

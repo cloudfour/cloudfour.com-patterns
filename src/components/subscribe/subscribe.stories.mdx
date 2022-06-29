@@ -264,31 +264,28 @@ state:
 
 ```js
 // Initialize
-const subscribeEl = createSubscribe(document.querySelector('.js-subscribe'));
+const subscribe = createSubscribe(document.querySelector('.js-subscribe'));
+subscribe.init();
 
 // Remove all event listeners, show subscription form
-subscribeEl.destroy();
-
-// Initialize again
-subscribeEl.init();
+subscribe.destroy();
 ```
 
 #### Multiple Subscribe components on the page
 
 ```js
 // Initialize
-const subscribeEls = [...document.querySelectorAll('.js-subscribe')].map(
-  (subscribeEl) => createSubscribe(subscribeEl)
+const subscribeComponents = [...document.querySelectorAll('.js-subscribe')].map(
+  (subscribeEl) => {
+    const subscribe = createSubscribe(subscribeEl);
+    subscribe.init();
+    return subscribe;
+  }
 );
 
 // Remove all event listeners, show subscription form
-for (const subscribeEl of subscribeEls) {
-  subscribeEl.destroy();
-}
-
-// Initialize again
-for (const subscribeEl of subscribeEls) {
-  subscribeEl.init();
+for (const subscribe of subscribeComponents) {
+  subscribe.destroy();
 }
 ```
 

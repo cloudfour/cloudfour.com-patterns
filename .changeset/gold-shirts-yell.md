@@ -5,6 +5,7 @@
 Enhances the Subscribe component's ability to programmatically control its UI via 
 `destroy()`/`init()` methods
 
+- `initSubscribe()` was renamed to `createSubscribe()`
 - `init()` must now be explicitly called to initialize
 - `destroy()` hides CTA buttons UI, shows digests sign up form
 

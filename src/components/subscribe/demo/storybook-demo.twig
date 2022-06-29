@@ -1,15 +1,11 @@
 {# This demo is used by storybook, do not delete #}
 
-{% embed '@cloudfour/objects/rhythm/rhythm.twig' only %}
+{% embed '@cloudfour/objects/rhythm/rhythm.twig' %}
   {% block content %}
     <button class="js-destroy-button">Destroy Subscribe component</button>
     <button class="js-init-button">Initialize Subscribe component</button>
 
-    {% include '@cloudfour/components/subscribe/subscribe.twig' with {
-      form_id: 'test',
-      weekly_digests_heading: 'Get Weekly Digests',
-      subscribe_heading: 'Never miss an article!',
-    } only %}
+    {% include '@cloudfour/components/subscribe/subscribe.twig' %}
   {% endblock %}
 {% endembed %}
 

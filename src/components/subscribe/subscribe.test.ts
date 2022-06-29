@@ -13,8 +13,8 @@ const componentMarkup = (args = {}) =>
   });
 // Helper to load the demo Twig template file
 const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));
-const demoDestroyReinitMarkup = loadTwigTemplate(
-  path.join(__dirname, './demo/destroy-reinit.twig')
+const demoDestroyInitMarkup = loadTwigTemplate(
+  path.join(__dirname, './demo/destroy-init.twig')
 );
 
 /**
@@ -271,11 +271,11 @@ describe('Subscription component', () => {
   );
 
   test(
-    'should destroy and reinitialize',
+    'should destroy and initialize',
     withBrowser(async ({ utils, screen, waitFor, page }) => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscribe.scss');
-      await utils.injectHTML(await demoDestroyReinitMarkup());
+      await utils.injectHTML(await demoDestroyInitMarkup());
       await utils.runJS(`
         import { initSubscribe } from './subscribe';
         // Initialize the Subscribe component
@@ -311,12 +311,12 @@ describe('Subscription component', () => {
       });
       await expectElementNotToBeVisuallyHidden(form);
 
-      // Reinitialize the Subscribe component
+      // Initialize the Subscribe component
       await utils.runJS(`
-        window.subscribeComponent.reinit();
+        window.subscribeComponent.init();
       `);
 
-      // The form should be visually hidden after `reinit()` is called
+      // The form should be visually hidden after `init()` is called
       await expectElementToBeVisuallyHidden(form);
 
       // Navigate back into the form

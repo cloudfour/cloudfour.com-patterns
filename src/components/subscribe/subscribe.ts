@@ -141,5 +141,5 @@ export const initSubscribe = (containerEl: HTMLElement) => {
   init();
 
   // Return a public API for consumers of this component
-  return { reinit: init, destroy };
+  return { init, destroy };
 };

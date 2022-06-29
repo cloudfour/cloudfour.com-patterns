@@ -13,13 +13,13 @@ const templateStory = (args) => {
     // Set up the demo destroy button
     const destroyBtn = document.querySelector('.js-destroy-button');
     destroyBtn.addEventListener('click', subscribeComponent.destroy);
-    // Set up the demo reinit button
-    const reinitBtn = document.querySelector('.js-reinit-button');
-    reinitBtn.addEventListener('click', subscribeComponent.reinit);
+    // Set up the demo init button
+    const initBtn = document.querySelector('.js-init-button');
+    initBtn.addEventListener('click', subscribeComponent.init);
     // Make sure to cleanup
     return () => {
       destroyBtn.removeEventListener('click', subscribeComponent.destroy);
-      reinitBtn.removeEventListener('click', subscribeComponent.reinit);
+      initBtn.removeEventListener('click', subscribeComponent.init);
       subscribeComponent.destroy();
     };
   });
@@ -182,9 +182,9 @@ The Subscribe component provides the UI to subscribe to notifications and/or ema
 
 This component embeds the [Button Swap component](/?path=/docs/components-button-swap--default-story) for the "Get Notifications" button.
 
-## Destroy/Reinitialize
+## Destroy/Initialize
 
-The Subscribe component allows you to programmatically disable/enable the JavaScript functionality via its `destroy()` and `reinit()` methods. When "destroyed", the following will occur:
+The Subscribe component allows you to programmatically disable/enable the JavaScript functionality via its `destroy()` and `init()` methods. When "destroyed", the following will occur:
 
 - The "Get notifcations"/"Get Weekly Digests" UI will be removed
 - The weekly digests form will be shown
@@ -247,14 +247,14 @@ state:
 
 ```js
 {
-  reinit: () => void
+  init: () => void
   destroy: () => void
 }
 ```
 
 | Method                         | Description                                                                                                                                         |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `subscribeComponent.reinit()`  | Reinitializes the Subscribe component to its default UI state, including all JavaScript functionality.                                              |
+| `subscribeComponent.init()`    | Initializes the Subscribe component to its default UI state, including all JavaScript functionality.                                                |
 | `subscribeComponent.destroy()` | Removes the "Get notifications"/"Get Weekly Digests" CTA UI leaving only the weekly digests sign up form. All JavaScript functionality is disabled. |
 
 ### Examples
@@ -265,8 +265,11 @@ state:
 // Initialize
 const subscribeEl = initSubscribe(document.querySelector('.js-subscribe'));
 
-// Remove all event listeners
+// Remove all event listeners, show subscription form
 subscribeEl.destroy();
+
+// Initialize again
+subscribeEl.init();
 ```
 
 #### Multiple Subscribe components on the page
@@ -277,9 +280,14 @@ const subscribeEls = [...document.querySelectorAll('.js-subscribe')].map(
   (subscribeEl) => initSubscribe(subscribeEl)
 );
 
-// Remove all event listeners
+// Remove all event listeners, show subscription form
 for (const subscribeEl of subscribeEls) {
   subscribeEl.destroy();
+}
+
+// Initialize again
+for (const subscribeEl of subscribeEls) {
+  subscribeEl.init();
 }
 ```
 
@@ -287,4 +295,5 @@ for (const subscribeEl of subscribeEls) {
 
 You will need to initialize the "Get Notifications" button as well, see the
 [Button Swap component](/?path=/docs/components-button-swap--default-story#javascript)
-for initialization docs.
+for initialization docs. Alternatively, you can write custom JavaScript to swap
+the "Get Notifications" buttons if you prefer.

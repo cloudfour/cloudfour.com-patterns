@@ -1,41 +1,13 @@
-<div id="offline">
+<div class="o-page">
+<div class="o-page__content" id="offline">
 
+  <!-- standard Sky Nav -->
   {% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
     "class": "t-dark",
-    "menu": {
-      "items": [
-        {
-          "link": "/does",
-          "title": "What We Do",
-          "current": true
-        },
-        {
-          "link": "/believes",
-          "title": "Our Approach"
-        },
-        {
-          "link": "/made",
-          "title": "Our Work"
-        },
-        {
-          "link": "/thinks",
-          "title": "Articles"
-        },
-        {
-          "link": "/presents",
-          "title": "Speaking"
-        },
-        {
-          "link": "/contributes",
-          "title": "Labs"
-        },
-        {
-          "link": "/is",
-          "title": "Team"
-        }
-      ]
-    }
+    menu: skyNavMenu
   } only %}
+
+  <!-- The actual Error block. This should be a Sky Nav -->
   {% embed '@cloudfour/objects/container/container.twig' with {
     class: 'wrapper t-dark'
   } only %}
@@ -82,5 +54,16 @@
       </p>
     {% endblock %}
   {% endembed %}
-</div>
 
+
+</div>
+<div class="o-page__footer t-dark">
+  <!-- standard Ground Nav -->
+  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+    menu: menu,
+    social: social,
+    action: action,
+    organization: organization
+  } only %}
+</div>
+</div>

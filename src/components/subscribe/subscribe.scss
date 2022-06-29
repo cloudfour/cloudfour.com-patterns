@@ -46,7 +46,7 @@
   inset-block-start: 0;
   inset-inline-start: 0;
 
-  .c-subscribe:not(.is-destroyed) & {
+  .c-subscribe__controls-ui:not([hidden]) ~ & {
     position: absolute; // 2
   }
 

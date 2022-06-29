@@ -10,7 +10,6 @@
  */
 export const createSubscribe = (containerEl: HTMLElement) => {
   const SHOW_FORM_CLASS = 'activate-form';
-  const DESTROYED_STATE_CLASS = 'is-destroyed';
   const BLUR_TIMEOUT = 1000; // Milliseconds
 
   // Keeps track of active setTimeouts
@@ -121,8 +120,6 @@ export const createSubscribe = (containerEl: HTMLElement) => {
     controlsUiWrapper.hidden = true;
     // Show the form
     containerEl.classList.add(SHOW_FORM_CLASS);
-    // Add a state class that we can hook CSS into
-    containerEl.classList.add(DESTROYED_STATE_CLASS);
   };
 
   // Initializes the Subscribe component
@@ -137,8 +134,6 @@ export const createSubscribe = (containerEl: HTMLElement) => {
     addEventListeners();
     // Make sure to show the button UI state (no form)
     containerEl.classList.remove(SHOW_FORM_CLASS);
-    // Remove the state class to match the component's current state
-    containerEl.classList.remove(DESTROYED_STATE_CLASS);
   };
 
   // Return a public API for consumers of this component

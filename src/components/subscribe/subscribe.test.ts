@@ -58,7 +58,6 @@ const initJS = (utils: PleasantestUtils) =>
       document.querySelector('.js-subscribe')
     );
     subscribe.init();
-    export default () => subscribe;
   `);
 
 describe('Subscription component', () => {

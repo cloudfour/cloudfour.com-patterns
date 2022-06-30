@@ -13,6 +13,9 @@ const componentMarkup = (args = {}) =>
   });
 // Helper to load the demo Twig template file
 const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));
+const demoDestroyInitMarkup = loadTwigTemplate(
+  path.join(__dirname, './demo/destroy-init.twig')
+);
 
 /**
  * Helper function that checks the `clientHeight` and `clientWidth` of
@@ -50,13 +53,14 @@ const expectElementNotToBeVisuallyHidden = async (
 // Helper to initialize the component JS
 const initJS = (utils: PleasantestUtils) =>
   utils.runJS(`
-    import { initSubscribe } from './subscribe'
-    export default () => initSubscribe(
+    import { createSubscribe } from './subscribe';
+    const subscribe = createSubscribe(
       document.querySelector('.js-subscribe')
-    )
+    );
+    subscribe.init();
   `);
 
-describe('Subscription', () => {
+describe('Subscription component', () => {
   test(
     'should use semantic markup',
     withBrowser(async ({ utils, page }) => {
@@ -264,6 +268,102 @@ describe('Subscription', () => {
       await screen.getByRole('button', {
         name: 'Sign up',
       });
+    })
+  );
+
+  test(
+    'should destroy and initialize',
+    withBrowser(async ({ utils, screen, waitFor, page }) => {
+      await loadGlobalCSS(utils);
+      await utils.loadCSS('./subscribe.scss');
+      await utils.injectHTML(await demoDestroyInitMarkup());
+      await utils.runJS(`
+        import { createSubscribe } from './subscribe';
+        // We attach it to the window object as a workaround to have access to
+        // the subscribeComponent later in this test.
+        window.subscribeComponent = createSubscribe(
+          document.querySelector('.js-subscribe')
+        );
+        // Set it to the "destroyed" state
+        window.subscribeComponent.destroy();
+      `);
+
+      // The form should be active/visible when `destroy()` is called
+      const form = await screen.getByRole('form', {
+        name: 'Get Weekly Digests',
+      });
+      await expectElementNotToBeVisuallyHidden(form);
+
+      // Tab all the way to the "testing" link
+      await page.keyboard.press('Tab'); // Email input
+      await page.keyboard.press('Tab'); // Subscribe button
+      await page.keyboard.press('Tab'); // "Testing" link
+
+      // The "testing" link should be in focus
+      const testingLink = await screen.getByRole('link', {
+        name: 'Testing link',
+      });
+      await expect(testingLink).toHaveFocus();
+
+      // After a timeout, the form should not visually hide
+      await new Promise((resolve) => {
+        setTimeout(resolve, 2000);
+      });
+      await expectElementNotToBeVisuallyHidden(form);
+
+      // Initialize the Subscribe component
+      await utils.runJS(`
+        window.subscribeComponent.init();
+      `);
+
+      // The form should be visually hidden after `init()` is called
+      await expectElementToBeVisuallyHidden(form);
+
+      // Navigate back into the form
+      await page.keyboard.down('Shift'); // Navigate backwards
+      await page.keyboard.press('Tab'); // Form Subscribe submit button
+      await page.keyboard.up('Shift'); // Release Shift key
+
+      // The form should be visible when you move the focus back into the form
+      await expectElementNotToBeVisuallyHidden(form);
+
+      // Navigate away from the form
+      await page.keyboard.press('Tab'); // "Testing" link
+
+      // Immediately, the form should stay visible
+      await expectElementNotToBeVisuallyHidden(form);
+
+      // After a timeout, the form eventually visually hides
+      await waitFor(
+        async () => {
+          await expectElementToBeVisuallyHidden(form);
+        },
+        {
+          timeout: 2000,
+          interval: 1000,
+        }
+      );
+
+      // Cover a race condition where the timeout and destroy get called quickly
+      // one after the other causing an unexpected UI state when the Subscribe
+      // component timeout isn't cleared.
+      // Set the focus in the form first (on the submit button)
+      const formSubmitBtn = await screen.getByRole('button', {
+        name: 'Subscribe',
+      });
+      formSubmitBtn.focus();
+      // Then blur the focus
+      await formSubmitBtn.evaluate((btn) => btn.blur());
+      // And immediately run the `destroy()`
+      await utils.runJS(`
+        window.subscribeComponent.destroy();
+      `);
+      // Wait out the Subscribe component timeout
+      await new Promise((resolve) => {
+        setTimeout(resolve, 2000);
+      });
+      // The form should be visible
+      await expectElementNotToBeVisuallyHidden(form);
     })
   );
 });

@@ -105,20 +105,6 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 }
 
 /**
- * Gutenberg Block: Group
- * Styles for Gutenberg group blocks
- *
- * 1. For groups with a background color set, add standard block padding,
- *    then set inline margins and padding to outdent the block out a bit,
- *    while keeping the group content aligned with the page content.
- */
-.wp-block-group.has-background {
-  @include spacing.fluid-margin-inline-negative; // 1
-  @include spacing.fluid-padding-inline; // 1
-  padding-block: size.$rhythm-default; // 1
-}
-
-/**
  * Gutenberg Block: Code
  * Styles for Gutenberg code blocks (and code inside Markdown blocks)
  *
@@ -138,32 +124,53 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   }
 }
 
-/**
- * Gutenberg block: Image
- * Styles for images inserted via Gutenberg blocks.
- *
- * 1. Since we are applying `margin-top` to CMS content via our o-rhythm
- *    pattern, the default `margin-bottom` value on Gutenberg image blocks is
- *    unnecessary, so we remove it here.
- */
+/// Gutenberg block: Image
+/// Styles for images inserted via Gutenberg blocks.
+
 .wp-block-image {
-  margin-block-end: 0; /* 1 */
   position: relative;
 
-  /**
-   * Setting a width of `100%` prevents resized and centered images from
-   * breaking layout when placed after a right-aligned image in a post.
-   */
-  &.aligncenter {
-    inline-size: 100%;
-  }
-
-  /* Since we are applying `margin-top` to CMS content via our o-rhythm
-   * pattern, the default `margin-bottom` value on Gutenberg figcaption
-   * elements is unnecessary, so we remove it here.
-   */
+  /// Since we are applying `margin-top` to CMS content via our o-rhythm
+  /// pattern, the default `margin-bottom` value on Gutenberg figcaption
+  /// elements is unnecessary, so we remove it here.
+  &,
   figcaption {
     margin-block-end: 0;
+  }
+
+  /// When some alignment options are selected, WordPress nests the figure with
+  /// the alignment class within the `wp-block-image` element.
+  ///
+  /// 1. The default top margin makes these alignment options appear misaligned
+  ///    unless they are floating midway through text, which is extremely
+  ///    uncommon.
+  /// 2. We constrain the width to 50% minus half of WordPress's default gutter
+  ///    size. This makes the adjacent content feel visually balanced.
+  .alignleft,
+  .alignright {
+    margin-block-start: 0; // 1
+    max-inline-size: calc(50% - 0.5em); // 2
+  }
+}
+
+/// Because WordPress changes the structure of the Image block markup depending
+/// on the alignment option but does not append the alignment class to the
+/// parent element in all cases, this was the only solution I could find for
+/// targeting its _default_ state. We may be able to simplify once the `:has`
+/// selector is better supported!
+figure.wp-block-image {
+  /// When this element has no alignment option set, attempt to fill the
+  /// container padding.
+  &:not(.alignwide, .alignfull) {
+    @include spacing.fluid-margin-inline-negative;
+  }
+
+  /// The `figure.wp-block-image` selector will only be valid if there is no
+  /// alignment, wide alignment or full alignment. In all three cases, any
+  /// caption is in danger of meeting the viewport edge unless we add in some
+  /// padding.
+  figcaption {
+    @include spacing.fluid-padding-inline;
   }
 }
 

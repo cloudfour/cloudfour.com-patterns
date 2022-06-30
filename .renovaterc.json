@@ -8,6 +8,14 @@
       "enabled": false
     },
     {
+      "matchPackagePatterns": ["storybook"],
+      "automerge": false,
+      "prBodyNotes": [
+        ":warning: **Warning:** There are likely to be breaking changes, please closely review the pattern library preview."
+      ],
+      "commitMessagePrefix": "[Review carefully]"
+    },
+    {
       "packageNames": ["@wordpress/block-library"],
       "extends": ["schedule:monthly"],
       "stabilityDays": 0

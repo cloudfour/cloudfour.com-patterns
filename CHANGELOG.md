@@ -1,5 +1,36 @@
 # @cloudfour/patterns
 
+## 9.0.0
+
+### Major Changes
+
+- [#1882](https://github.com/cloudfour/cloudfour.com-patterns/pull/1882) [`1efb5548`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1efb55482c65e9ca57666525c20c3b536a44026a) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Enhances the Subscribe component's ability to programmatically control its UI via `destroy()`/`init()` methods
+
+  - `initSubscribe()` was renamed to `createSubscribe()`
+  - `init()` must now be explicitly called to initialize
+  - `destroy()` hides CTA buttons UI, shows digests sign up form
+
+  ```js
+  // Initialize
+  const subscribe = createSubscribe(document.querySelector('.js-subscribe'));
+  subscribe.init();
+
+  // Remove all event listeners, show subscription form
+  subscribe.destroy();
+  ```
+
+## 8.2.0
+
+### Minor Changes
+
+- [#1879](https://github.com/cloudfour/cloudfour.com-patterns/pull/1879) [`c1df9aff`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c1df9aff13616bfc0720ff01829a100645085b4e) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `is-loading` state class to Buttons
+
+* [#1868](https://github.com/cloudfour/cloudfour.com-patterns/pull/1868) [`85de9d29`](https://github.com/cloudfour/cloudfour.com-patterns/commit/85de9d2901a82b0ca8cf8b277003f8a3b41dda9f) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `lavish-headings` modifier to Rhythm object to simplify constistent spacing within containers
+
+- [#1868](https://github.com/cloudfour/cloudfour.com-patterns/pull/1868) [`85de9d29`](https://github.com/cloudfour/cloudfour.com-patterns/commit/85de9d2901a82b0ca8cf8b277003f8a3b41dda9f) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `amount` and `heading_amount` properties to Rhythm object to simplify usage in templates
+
+* [#1879](https://github.com/cloudfour/cloudfour.com-patterns/pull/1879) [`c1df9aff`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c1df9aff13616bfc0720ff01829a100645085b4e) Thanks [@tylersticka](https://github.com/tylersticka)! - Add support for `aria-disabled` attribute to Buttons
+
 ## 8.1.1
 
 ### Patch Changes

@@ -1,16 +1,27 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include.js';
-import template from './subscribe.twig';
-import { initSubscribe } from './subscribe.ts';
+import template from './demo/storybook-demo.twig';
+import { createSubscribe } from './subscribe.ts';
 // Helper function to initialize toggling button JS
 const templateStory = (args) => {
   useEffect(() => {
-    const templateEls = [...document.querySelectorAll('.js-subscribe')].map(
-      (templateEl) => initSubscribe(templateEl)
+    // Initialize the component
+    const subscribeComponent = createSubscribe(
+      document.querySelector('.js-subscribe')
     );
+    subscribeComponent.init();
+    // Set up the demo destroy button
+    const destroyBtn = document.querySelector('.js-destroy-button');
+    destroyBtn.addEventListener('click', subscribeComponent.destroy);
+    // Set up the demo init button
+    const initBtn = document.querySelector('.js-init-button');
+    initBtn.addEventListener('click', subscribeComponent.init);
     return () => {
-      for (const templateEl of templateEls) templateEl.destroy();
+      // Make sure to cleanup
+      destroyBtn.removeEventListener('click', subscribeComponent.destroy);
+      initBtn.removeEventListener('click', subscribeComponent.init);
+      subscribeComponent.destroy();
     };
   });
   return template(args);
@@ -172,6 +183,14 @@ The Subscribe component provides the UI to subscribe to notifications and/or ema
 
 This component embeds the [Button Swap component](/?path=/docs/components-button-swap--default-story) for the "Get Notifications" button.
 
+## Destroy/Initialize
+
+The Subscribe component allows you to programmatically disable/enable the JavaScript functionality via its `destroy()` and `init()` methods. When "destroyed," the following will occur:
+
+- The "Get notifications"/"Get Weekly Digests" UI will be removed
+- The weekly digests form will be shown
+- All Subscribe component JavaScript will be removed
+
 <Canvas>
   <Story
     name="Default"
@@ -213,7 +232,7 @@ The Subscribe component UX can be progressively enhanced using JavaScript. Enhan
 ### Syntax
 
 ```js
-initSubscribe(subscribeEl);
+const subscribe = createSubscribe(subscribeEl);
 ```
 
 ### Parameters
@@ -224,13 +243,20 @@ The Subscribe component `.js-subscribe` root element.
 
 ### Return value
 
-An object with a `destroy` function that removes all event listeners added by this component.
+An object with two functions to programmatically control the Subscribe component's
+state:
 
 ```js
 {
+  init: () => void
   destroy: () => void
 }
 ```
+
+| Method                | Description                                                                                                                                         |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `subscribe.init()`    | Initializes the Subscribe component to its default UI state, including all JavaScript functionality.                                                |
+| `subscribe.destroy()` | Removes the "Get notifications"/"Get Weekly Digests" CTA UI leaving only the weekly digests sign up form. All JavaScript functionality is disabled. |
 
 ### Examples
 
@@ -238,23 +264,28 @@ An object with a `destroy` function that removes all event listeners added by th
 
 ```js
 // Initialize
-const subscribeEl = initSubscribe(document.querySelector('.js-subscribe'));
+const subscribe = createSubscribe(document.querySelector('.js-subscribe'));
+subscribe.init();
 
-// Remove all event listeners
-subscribeEl.destroy();
+// Remove all event listeners, show subscription form
+subscribe.destroy();
 ```
 
 #### Multiple Subscribe components on the page
 
 ```js
 // Initialize
-const subscribeEls = [...document.querySelectorAll('.js-subscribe')].map(
-  (subscribeEl) => initSubscribe(subscribeEl)
+const subscribeComponents = [...document.querySelectorAll('.js-subscribe')].map(
+  (subscribeEl) => {
+    const subscribe = createSubscribe(subscribeEl);
+    subscribe.init();
+    return subscribe;
+  }
 );
 
-// Remove all event listeners
-for (const subscribeEl of subscribeEls) {
-  subscribeEl.destroy();
+// Remove all event listeners, show subscription form
+for (const subscribe of subscribeComponents) {
+  subscribe.destroy();
 }
 ```
 
@@ -262,4 +293,5 @@ for (const subscribeEl of subscribeEls) {
 
 You will need to initialize the "Get Notifications" button as well, see the
 [Button Swap component](/?path=/docs/components-button-swap--default-story#javascript)
-for initialization docs.
+for initialization docs. Alternatively, you can write custom JavaScript to swap
+the "Get Notifications" buttons if you prefer.

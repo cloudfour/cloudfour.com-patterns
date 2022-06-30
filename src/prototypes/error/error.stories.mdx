@@ -1,6 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
-import { makeTwigInclude } from '../../make-twig-include.js';
 import errorPrototype from './example/404.twig';
 import offlinePrototype from './example/offline.twig';
 import skyNavMenu from '../../components/sky-nav/demo/menu.json';
@@ -9,6 +8,7 @@ import organization from '../../components/ground-nav/demo/organization.json';
 import social from '../../components/ground-nav/demo/social.json';
 import './example/example.scss';
 const pageProps = {
+  footer_class: 't-dark',
   skyNavMenu,
   menu: { items: [...skyNavMenu.items, ...groundNavMenu.items] },
   social,
@@ -44,26 +44,26 @@ const fullHeight = () => {
 
 Prototype layouts for 404 and Offline error pages. These use Cloud Cover
 components, which should display full-height between a standard Sky Nav
-and a Ground Nav with the dark theme applied.
+and a Ground Nav with no action and the dark theme applied.
 
-## Error 404
+## 404 Page
 
 <Canvas>
   <Story
-    name="Error 404"
+    name="404"
     height="800px"
     parameters={{
       layout: 'fullscreen',
     }}
   >
-    {(args) => {
+    {() => {
       useEffect(fullHeight);
       return errorPrototype(pageProps);
     }}
   </Story>
 </Canvas>
 
-## Offline
+## Offline Page
 
 <Canvas>
   <Story

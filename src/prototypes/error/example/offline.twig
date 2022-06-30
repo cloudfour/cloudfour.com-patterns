@@ -1,69 +1,44 @@
-<div class="o-page">
-<div class="o-page__content" id="offline">
+{% embed '@cloudfour/objects/page/page.twig' %}
+  {% block header %}
 
-  <!-- standard Sky Nav -->
-  {% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
-    "class": "t-dark",
-    menu: skyNavMenu
-  } only %}
+    <!-- standard Sky Nav component -->
+    {% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
+      "class": "t-dark",
+      menu: skyNavMenu
+    } only %}
 
-  <!-- The actual Error block. This should be a Sky Nav -->
-  {% embed '@cloudfour/objects/container/container.twig' with {
-    class: 'wrapper t-dark'
-  } only %}
+  {% endblock %}
+  {% block content %}
 
-    {% block content %}
-      {% embed '@cloudfour/objects/container/container.twig' with {
-        class: 'o-container--pad'
-      } only %}
-        {% block content %}
-          {% embed '@cloudfour/objects/media/media.twig' with {
-            reverse: true,
-          } only %}
-            {% block object %}
-              <img src="media/sleepy-robot.svg" />
-            {% endblock %}
+    <!-- the Error is a full-height Cloud Cover component -->
+    {% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' with {
+      class: 'c-cloud-cover--full-height',
+    } only %}
+      {% block heading %}
+        {% include '@cloudfour/components/heading/heading.twig' with {
+          "content": "Your Device is Offline",
+          "level": -2,
+          class: 'heading'
+        } only %}
+      {% endblock %}
+      {% block content %}
+        <p>Here at Cloud Four, we scout the frontier of the web to find practical uses for new technology. Like, offline web pages and progressive web apps. Sorry you have no connection at the moment. Let’s work together to make the web a good place for on and offline experiences!</p>
+      {% endblock %}
+      {% block scene %}
+        <img class="c-cloud-cover__scene-object" src="media/sleepy-robot.svg" />
+      {% endblock %}
+    {% endembed %}
 
-            {% block content %}
+  {% endblock %}
+  {% block footer %}
 
-              {% embed '@cloudfour/objects/rhythm/rhythm.twig' with {
-                class: 'o-rhythm--condensed'
-              } only %}
-                {% block content %}
+    <!-- standard Ground Nav component -->
+    {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+      menu: menu,
+      social: social,
+      action: action,
+      organization: organization
+    } only %}
 
-                {% include '@cloudfour/components/heading/heading.twig' with {
-                  "content": "Your Device is Offline",
-                  "level": -2,
-                  class: 'heading'
-                } only %}
-                  <p>Here at Cloud Four, we scout the frontier of the web to find practical uses for new technology. Like, offline web pages and progressive web apps. Sorry you have no connection at the moment. Let’s work together to make the web a good place for on and offline experiences!</p>
-
-                {% endblock %}
-              {% endembed %}
-            {% endblock %}
-          {% endembed %}
-        {% endblock %}
-      {% endembed %}
-    {% endblock %}
-  {% endembed %}
-
-  {% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' only %}
-    {% block content %}
-      <p class="footer-content">
-        © 2007 - 2021 Cloud Four, Inc.
-      </p>
-    {% endblock %}
-  {% endembed %}
-
-
-</div>
-<div class="o-page__footer t-dark">
-  <!-- standard Ground Nav -->
-  {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
-    menu: menu,
-    social: social,
-    action: action,
-    organization: organization
-  } only %}
-</div>
-</div>
+  {% endblock %}
+{% endembed %}

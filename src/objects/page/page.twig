@@ -1,8 +1,13 @@
 <div class="o-page{% if class %} {{ class }}{% endif %}">
-  <div class="o-page__footer">
-    {% block footer %}{% endblock %}
-  </div>
-  <div class="o-page__content">
+  {% if block("header") %}
+    <div class="o-page__header{% if header_class %} {{ header_class }}{% endif %}">
+      {% block header %}{% endblock %}
+    </div>
+  {% endif %}
+  <div class="o-page__content{% if content_class %} {{ content_class }}{% endif %}">
     {% block content %}{% endblock %}
+  </div>
+  <div class="o-page__footer{% if footer_class %} {{ footer_class }}{% endif %}">
+    {% block footer %}{% endblock %}
   </div>
 </div>

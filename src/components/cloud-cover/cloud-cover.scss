@@ -346,3 +346,13 @@ $_gap: ms.step(1);
     object-position: left bottom;
   }
 }
+
+///
+/// Page container
+///
+/// 1. Attempts to fill the available area (assuming `height: 100%` is applied
+///    to all parent elements)
+///
+.c-cloud-cover--full-height {
+  min-block-size: 100%; // 1
+}

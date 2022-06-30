@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'sass:meta';
 @use '../../../compiled/tokens/scss/breakpoint';
 @use '../../../compiled/tokens/scss/color-base';
@@ -5,24 +6,27 @@
 @use '../../../mixins/border-radius';
 @use '../../../mixins/headings';
 @use '../../../mixins/ms';
+@use '../../../mixins/spacing';
 
 // These utility classes may apply to anything created within the Gutenberg
 // editor (but not necessarily Gutenberg blocks).
 
 /// Releases a full-width child element from its limited-width container.
 /// @link https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
-.alignfull,
-.alignwide {
+.alignfull {
   margin-inline: calc(-50vw + 50%);
 }
 
-/// Applies an opinionated wide-image width that allows an image element to
-/// spill slightly outsides its container at larger viewports. This assumes
-/// a certain container size in its current form.
+/// Wide alignment should max out at our default container width.
 .alignwide {
-  @media (width >= breakpoint.$l) {
-    margin-inline: -6vw;
-  }
+  // False positive linting error because SCSS lint is confusing `sass:math`'s
+  // `max` function with the browser `max` function. May be removed once our
+  // lint config updates to `stylelint-scss` 4.0.1 or newer.
+  // stylelint-disable-next-line scss/no-global-function-names
+  margin-inline: max(
+    -50vw + 50%,
+    math.div(size.$max-width-spread - size.$max-width-prose, -2)
+  );
 }
 
 /// When a custom background color is applied, we round the corners of the
@@ -30,6 +34,31 @@
 /// viewport edge.
 .has-background {
   @include border-radius.conditional;
+
+  /// Set inline margins unless the element's alignment has been set.
+  &:not(.alignfull):not(.alignwide):not(.aligncenter) {
+    @include spacing.fluid-margin-inline-negative;
+  }
+}
+
+/// Apply consistent padding to certain patterns and elements with a background.
+/// Some of these violate our selector rules to overcome WordPress's default
+/// styles. Some of these used to be located in our Core Block CSS, but once I
+/// discovered that `p.has-background` had styles I needed to override, it made
+/// me queasy to manage these styles in three separate places.
+///
+/// 1. Default padding is consistent with block rhythm on both edges…
+/// 2. …but if the alignment is not center, we use fluid inline padding instead
+///    so that the inner content will align with its siblings.
+p,
+.wp-block-group {
+  &.has-background {
+    padding: size.$rhythm-default; // 1
+
+    &:not(.aligncenter) {
+      @include spacing.fluid-padding-inline; // 2
+    }
+  }
 }
 
 /// Utilities for Block Color Palettes

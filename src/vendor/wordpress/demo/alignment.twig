@@ -1,0 +1,42 @@
+{#
+  We enclose this demo in a standard container to accurately demonstrate the
+  layout effects of blocks with background colors. When displaying this demo
+  in Storybook, be sure to set its layout to `fullscreen`.
+#}
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose o-container--pad',
+  content_class: 'o-rhythm',
+} %}
+  {% block content %}
+    <p>
+      This paragraph has no alignment.
+    </p>
+    <p class="
+      {{alignment}}
+      has-text-color
+      has-fuchsia-lighter-color
+      has-background
+      has-purple-darker-background-color">
+      This paragraph has
+      <b>{{alignment|default('no')|replace({'align': ''})}} alignment</b> and
+      custom colors.
+    </p>
+    <p>
+      Here’s another ordinary paragraph with no alignment. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+    {% set extra_div = alignment in ['alignleft', 'alignright', 'aligncenter'] %}
+    {% if extra_div %}
+      <div class="wp-block-image">
+    {% endif %}
+    <figure class="{% if not extra_div %}wp-block-image {% endif %}{{alignment}}">
+      <img src="/media/MtBlanc1.jpg" alt="Mont Blanc">
+      <figcaption>This WordPress Image Block with a caption has <b>{{alignment|default('no')|replace({'align': ''})}} alignment</b>!</figcaption>
+    </figure>
+    {% if extra_div %}
+      </div>
+    {% endif %}
+    <p>
+      One more ordinary paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at sapien porttitor risus blandit posuere. Sed in malesuada ligula. Nam vulputate metus sed nibh vulputate, sed varius neque tincidunt.
+    </p>
+  {% endblock %}
+{% endembed %}

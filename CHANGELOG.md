@@ -4,8 +4,7 @@
 
 ### Major Changes
 
-- [#1882](https://github.com/cloudfour/cloudfour.com-patterns/pull/1882) [`1efb5548`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1efb55482c65e9ca57666525c20c3b536a44026a) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Enhances the Subscribe component's ability to programmatically control its UI via
-  `destroy()`/`init()` methods
+- [#1882](https://github.com/cloudfour/cloudfour.com-patterns/pull/1882) [`1efb5548`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1efb55482c65e9ca57666525c20c3b536a44026a) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Enhances the Subscribe component's ability to programmatically control its UI via `destroy()`/`init()` methods
 
   - `initSubscribe()` was renamed to `createSubscribe()`
   - `init()` must now be explicitly called to initialize

@@ -36,7 +36,7 @@
   @include border-radius.conditional;
 
   /// Set inline margins unless the element's alignment has been set.
-  &:not(.alignfull):not(.alignwide):not(.aligncenter) {
+  &:not(.alignfull, .alignwide, .aligncenter) {
     @include spacing.fluid-margin-inline-negative;
   }
 }

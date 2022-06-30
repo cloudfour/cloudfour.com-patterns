@@ -1,12 +1,23 @@
-<h2 class="
-  {% if color %}
-    has-{{color}}-color
-    has-text-color
-  {% endif %}
-  {% if background_color %}
-    has-{{background_color}}-background-color
-    has-background
-  {% endif %}
-">
-  We share enthusiastically
-</h2>
+{#
+  We enclose this demo in a standard container to accurately demonstrate the
+  layout effects of blocks with background colors. When displaying this demo
+  in Storybook, be sure to set its layout to `fullscreen`.
+#}
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose o-container--pad'
+} %}
+  {% block content %}
+    <h2 class="
+      {% if color %}
+        has-{{color}}-color
+        has-text-color
+      {% endif %}
+      {% if background_color %}
+        has-{{background_color}}-background-color
+        has-background
+      {% endif %}
+    ">
+      We share enthusiastically
+    </h2>
+  {% endblock %}
+{% endembed %}

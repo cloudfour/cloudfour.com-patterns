@@ -148,6 +148,7 @@
     "release": "npm run build && changeset publish"
   },
   "jest": {
+    "testTimeout": 15000,
     "setupFilesAfterEnv": [
       "./jest.setup.js"
     ],

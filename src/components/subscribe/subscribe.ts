@@ -8,7 +8,7 @@
  *   Subscribe component elements
  * - The form can be hidden by pressing the `Escape` key
  */
-export const initSubscribe = (containerEl: HTMLElement) => {
+export const createSubscribe = (containerEl: HTMLElement) => {
   const SHOW_FORM_CLASS = 'activate-form';
   const BLUR_TIMEOUT = 1000; // Milliseconds
 
@@ -23,10 +23,15 @@ export const initSubscribe = (containerEl: HTMLElement) => {
   );
   const formEl = containerEl.querySelector('form');
   const formFocusableEls = containerEl.querySelectorAll('label, input, button');
-  const controlEls = containerEl.querySelectorAll('.js-subscribe__control');
+  const controlEls = containerEl.querySelectorAll<HTMLElement>(
+    '.js-subscribe__control'
+  );
+  const controlsUiWrapper = containerEl.querySelector<HTMLElement>(
+    '.js-subscribe__controls-ui'
+  );
 
   // Confirm we have what we need to proceed
-  if (!getWeeklyDigestsBtn || !formEl) {
+  if (!getWeeklyDigestsBtn || !formEl || !controlsUiWrapper) {
     return;
   }
 
@@ -72,34 +77,65 @@ export const initSubscribe = (containerEl: HTMLElement) => {
     }
   };
 
-  // Clean up event listeners
-  const destroy = () => {
-    getWeeklyDigestsBtn.removeEventListener('click', onGetWeeklyDigestsClick);
-    for (const formFocusableEl of formFocusableEls) {
-      formFocusableEl.removeEventListener('blur', onFormBlur);
-      formFocusableEl.removeEventListener('focus', onFormFocus);
-    }
-    for (const controlEl of controlEls) {
-      controlEl.removeEventListener('focus', onControlFocus);
-    }
-    document.removeEventListener('keydown', onKeydown);
-  };
-
-  // Set up all event listeners
-  const init = () => {
+  // We'll store any event listener cleanup callbacks in this array for later
+  const cleanupCallbacks: (() => void)[] = [];
+  const addEventListeners = () => {
     getWeeklyDigestsBtn.addEventListener('click', onGetWeeklyDigestsClick);
+    cleanupCallbacks.push(() =>
+      getWeeklyDigestsBtn.removeEventListener('click', onGetWeeklyDigestsClick)
+    );
+
     for (const formFocusableEl of formFocusableEls) {
       formFocusableEl.addEventListener('blur', onFormBlur);
       formFocusableEl.addEventListener('focus', onFormFocus);
+      cleanupCallbacks.push(() => {
+        formFocusableEl.removeEventListener('blur', onFormBlur);
+        formFocusableEl.removeEventListener('focus', onFormFocus);
+      });
     }
+
     for (const controlEl of controlEls) {
       controlEl.addEventListener('focus', onControlFocus);
+      cleanupCallbacks.push(() =>
+        controlEl.removeEventListener('focus', onControlFocus)
+      );
     }
+
     document.addEventListener('keydown', onKeydown);
+    cleanupCallbacks.push(() =>
+      document.removeEventListener('keydown', onKeydown)
+    );
   };
 
-  init();
+  // Destroys the Subscribe component
+  // - clears existing timeouts
+  // - sets up the proper UI state
+  // - removes event listeners
+  const destroy = () => {
+    // Don't want this hanging around, it could end up in a confusing UI state
+    clearTimeout(blurTimeoutId);
+    // Remove all event listeners
+    for (const cleanup of cleanupCallbacks) cleanup();
+    // Hide the UI buttons so we can show the form
+    controlsUiWrapper.hidden = true;
+    // Show the form
+    containerEl.classList.add(SHOW_FORM_CLASS);
+  };
+
+  // Initializes the Subscribe component
+  // - clears existing state/timeouts
+  // - sets up the proper UI state
+  // - sets up event listeners
+  const init = () => {
+    // Perform a cleanup first
+    destroy();
+    // We want to make sure the UI buttons are visible on init
+    controlsUiWrapper.hidden = false;
+    addEventListeners();
+    // Make sure to show the button UI state (no form)
+    containerEl.classList.remove(SHOW_FORM_CLASS);
+  };
 
   // Return a public API for consumers of this component
-  return { destroy };
+  return { init, destroy };
 };

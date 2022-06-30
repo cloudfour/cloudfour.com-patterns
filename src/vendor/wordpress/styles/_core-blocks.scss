@@ -161,7 +161,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 figure.wp-block-image {
   /// When this element has no alignment option set, attempt to fill the
   /// container padding.
-  &:not(.alignwide):not(.alignfull) {
+  &:not(.alignwide, .alignfull) {
     @include spacing.fluid-margin-inline-negative;
   }
 

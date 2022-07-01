@@ -1,5 +1,35 @@
 # @cloudfour/patterns
 
+## 10.0.0
+
+### Major Changes
+
+- [#1886](https://github.com/cloudfour/cloudfour.com-patterns/pull/1886) [`8c532dad`](https://github.com/cloudfour/cloudfour.com-patterns/commit/8c532dadf4959261670b2cd13dfd4c8cf7c199a6) Thanks [@spaceninja](https://github.com/spaceninja)! - Changes to support Error Pages:
+
+  This is considered a breaking change because the WordPress theme will need to be updated to support the Page object's new `header` block.
+
+  - Add a "full height" modifier to Cloud Cover
+  - Add option to have no action in Ground Nav
+  - Add optional header block to Page
+  - Add optional classes to Page blocks
+
+* [#1889](https://github.com/cloudfour/cloudfour.com-patterns/pull/1889) [`c6ba51d7`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c6ba51d7ada354cba99b4fe9648fbbad3edd49a4) Thanks [@tylersticka](https://github.com/tylersticka)! - Revised WordPress alignment styles based on actual content needs. Changes include:
+
+  - Some blocks that previously required `alignwide` to fill container padding now do so by default.
+  - `aligncenter` may be used to prevent a block from filling container padding.
+  - `alignwide` now maxes out at the size of our default Container component `max-width` rather than an arbitrary value.
+  - Margin, padding and inline size tweaks have been made to the Image and Group block styles as well as paragraphs with background colors.
+
+### Minor Changes
+
+- [#1892](https://github.com/cloudfour/cloudfour.com-patterns/pull/1892) [`b82e9524`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b82e9524c68f74620085008a31df34b0f6b6bc78) Thanks [@calebeby](https://github.com/calebeby)! - Allow customizing the subscribe heading component via `heading_level` and `heading_weight`
+
+* [#1896](https://github.com/cloudfour/cloudfour.com-patterns/pull/1896) [`38ab8b01`](https://github.com/cloudfour/cloudfour.com-patterns/commit/38ab8b01381c4b3016caa8b0131aee2046544c9f) Thanks [@tylersticka](https://github.com/tylersticka)! - Made Cloud Cover column gaps consistent with the Deck layout object to improve visual relationship of `content` and `extra` blocks
+
+### Patch Changes
+
+- [#1894](https://github.com/cloudfour/cloudfour.com-patterns/pull/1894) [`57128ad5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/57128ad54035cebd9da493a4c72117edba1c4062) Thanks [@tylersticka](https://github.com/tylersticka)! - Ground Nav menu border colors now respect the current theme
+
 ## 9.0.0
 
 ### Major Changes

@@ -1,6 +1,5 @@
 @use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/size';
-@use '../../mixins/fluid';
 @use '../../mixins/media-query';
 @use '../../mixins/spacing';
 
@@ -8,19 +7,12 @@
  * 1. If horizontal items are shown at the wrong column count, they will appear
  *    to break the grid. This rule keeps items densely packed so it will always
  *    appear visually correct.
- *
- * @todo Use progressive enhancement so older browsers get a minimal fallback.
  */
 
 .o-deck {
   display: grid;
   grid-auto-flow: dense; /* 1 */
-  grid-gap: fluid.fluid-clamp(
-    size.$spacing-gap-fluid-min,
-    size.$spacing-gap-fluid-max,
-    breakpoint.$s,
-    breakpoint.$xl
-  );
+  grid-gap: spacing.$fluid-gap;
 
   /**
    * We define a media query for our initial grid so child elements will flex

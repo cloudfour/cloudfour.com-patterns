@@ -60,11 +60,27 @@ const templateStory = (args) => {
     heading_tag: {
       type: 'string',
       description: 'Sets the heading tag',
+      control: 'text',
+    },
+    heading_level: {
+      type: 'number',
+      description:
+        'Sets the heading level. If `heading_tag`, is specified, `heading_level` will override only visual styles.',
       table: {
-        defaultValue: { summary: 'h2' },
+        defaultValue: { summary: 2 },
       },
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-      control: 'select',
+      control: {
+        type: 'range',
+        min: -2,
+        max: 6,
+        step: 1,
+      },
+    },
+    heading_weight: {
+      type: 'string',
+      description: 'The desired `font-weight` option for the heading.',
+      options: ['', 'light'],
+      control: { type: 'select' },
     },
     subscribe_heading: {
       type: 'string',

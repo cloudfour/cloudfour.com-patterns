@@ -1,11 +1,13 @@
-{% set _heading_tag = heading_tag|default('h2') %}
-
 <div class="c-subscribe js-subscribe {{class}}">
   <div class="c-subscribe__controls-ui js-subscribe__controls-ui">
     {% if subscribe_heading %}
-      <{{_heading_tag}} class="c-subscribe__heading">
-        {{subscribe_heading}}
-      </{{_heading_tag}}>
+      {% include '@cloudfour/components/heading/heading.twig' with {
+        content: subscribe_heading,
+        class: 'c-subscribe__heading',
+        level: heading_level|default(2),
+        tag_name: heading_tag,
+        weight: heading_weight
+      } only %}
     {% endif %}
 
     <div class="c-subscribe__controls">
@@ -50,12 +52,14 @@
     {% endif %}
   >
     {% if weekly_digests_heading %}
-      <{{_heading_tag}}
-        id="get-weekly-digests-{{form_id}}"
-        class="c-subscribe__heading"
-      >
-        {{weekly_digests_heading}}
-      </{{_heading_tag}}>
+      {% include '@cloudfour/components/heading/heading.twig' with {
+        content: weekly_digests_heading,
+        id: "get-weekly-digests-" + form_id,
+        class: 'c-subscribe__heading',
+        level: heading_level|default(2),
+        tag_name: heading_tag,
+        weight: heading_weight
+      } only %}
     {% endif %}
 
     <label

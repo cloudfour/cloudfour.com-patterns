@@ -193,7 +193,7 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
     }
 
     @media (min-width: breakpoint.$l) {
-      border-block-end: none;
+      border-block-end-width: 0;
       grid-column: 3/4;
       grid-row: 1/2;
       justify-self: end;

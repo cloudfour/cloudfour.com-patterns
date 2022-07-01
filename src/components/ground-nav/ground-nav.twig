@@ -11,25 +11,27 @@
 {% endset %}
 
 <footer class="c-ground-nav">
-  {% with action|default({}) %}
-  <div class="c-ground-nav__action o-container o-container--pad-inline">
-    <div class="o-container__content c-ground-nav__action-inner">
-      <h2 class="c-ground-nav__action-lead-in">
-        {{ lead_in }}
-      </h2>
-      <p class="c-ground-nav__action-title">
-        {% include '@cloudfour/components/button/button.twig' with {
-          href: link,
-          label: title,
-          content_start_icon: icon ?? 'link'
-        } only %}
-      </p>
-      {% include '@cloudfour/assets/illustrations/portland.svg.twig' with {
-        class: 'c-ground-nav__action-illustration'
-      } %}
-    </div>
-  </div>
-  {% endwith %}
+  {% if action %}
+    {% with action|default({}) %}
+      <div class="c-ground-nav__action o-container o-container--pad-inline">
+        <div class="o-container__content c-ground-nav__action-inner">
+          <h2 class="c-ground-nav__action-lead-in">
+            {{ lead_in }}
+          </h2>
+          <p class="c-ground-nav__action-title">
+            {% include '@cloudfour/components/button/button.twig' with {
+              href: link,
+              label: title,
+              content_start_icon: icon ?? 'link'
+            } only %}
+          </p>
+          {% include '@cloudfour/assets/illustrations/portland.svg.twig' with {
+            class: 'c-ground-nav__action-illustration'
+          } %}
+        </div>
+      </div>
+    {% endwith %}
+  {% endif %}
 
   <div class="c-ground-nav__content o-container o-container--pad t-alternate">
     <div class="c-ground-nav__content-inner o-container__content">

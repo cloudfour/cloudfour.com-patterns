@@ -1,0 +1,81 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { useEffect } from '@storybook/client-api';
+import errorPrototype from './example/404.twig';
+import offlinePrototype from './example/offline.twig';
+import skyNavMenu from '../../components/sky-nav/demo/menu.json';
+import groundNavMenu from '../../components/ground-nav/demo/menu.json';
+import organization from '../../components/ground-nav/demo/organization.json';
+import social from '../../components/ground-nav/demo/social.json';
+import './example/example.scss';
+const pageProps = {
+  footer_class: 't-dark',
+  skyNavMenu,
+  menu: { items: [...skyNavMenu.items, ...groundNavMenu.items] },
+  social,
+  action: null,
+  organization: {
+    name: organization.name,
+    address: {
+      street_address: organization.address.street_address,
+      address_locality: organization.address.address_locality,
+      address_region: organization.address.address_region,
+      postal_code: organization.address.postal_code,
+      address_country: organization.address.address_country,
+    },
+    email: organization.email,
+    telephone: organization.telephone,
+    url: organization.url,
+    founding_date: organization.founding_date,
+  },
+};
+const fullHeight = () => {
+  // Set this story's `body` element to full-height
+  document.body.style.height = '100%';
+  // Prevent Storybook's container from affecting this layout
+  document.querySelector('#root').style.display = 'contents';
+};
+
+<Meta
+  title="Prototypes/Error Pages"
+  parameters={{ docs: { page: null }, layout: 'fullscreen' }}
+/>
+
+# Error Pages
+
+Prototype layouts for 404 and Offline error pages. These use Cloud Cover
+components, which should display full-height between a standard Sky Nav
+and a Ground Nav with no action and the dark theme applied.
+
+## 404 Page
+
+<Canvas>
+  <Story
+    name="404"
+    height="800px"
+    parameters={{
+      layout: 'fullscreen',
+    }}
+  >
+    {() => {
+      useEffect(fullHeight);
+      return errorPrototype(pageProps);
+    }}
+  </Story>
+</Canvas>
+
+## Offline Page
+
+<Canvas>
+  <Story
+    name="Offline"
+    height="800px"
+    parameters={{
+      layout: 'fullscreen',
+    }}
+  >
+    {() => {
+      useEffect(fullHeight);
+      return offlinePrototype(pageProps);
+    }}
+  </Story>
+</Canvas>

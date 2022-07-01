@@ -23,16 +23,21 @@ A wrapper for page body and footer content that keeps the footer at the bottom o
 
 For this to work correctly, each parent element needs to fill its container height. For best results, apply this to the `body` element directly or nested immediately within.
 
+The header block is optional.
+
 <Canvas>
   <Story
     name="Example"
     height="400px"
-    parameters={{ docs: { source: { code: exampleDemoSource } } }}
+    parameters={{
+      layout: 'fullscreen',
+      docs: { source: { code: exampleDemoSource } },
+    }}
   >
     {() => {
       useEffect(() => {
-        // Override Storybook's `min-height` in the preview
-        document.body.style.minHeight = '';
+        // Set this story's `body` element to full-height
+        document.body.style.height = '100%';
         // Prevent Storybook's container from affecting this layout
         document.querySelector('#root').style.display = 'contents';
       });

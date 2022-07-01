@@ -16,10 +16,10 @@ import pwaStatsDemoSource from '!!raw-loader!./demo/pwa-stats.twig';
 import pwaStatsDemo from './demo/pwa-stats.twig';
 const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
 const defaultArgTypes = {
-  buttonLeadIn: { type: { name: 'string' } },
-  buttonTitle: { type: { name: 'string' } },
-  buttonLink: { type: { name: 'string' } },
-  buttonIcon: { type: { name: 'string' } },
+  buttonLeadIn: { type: { name: 'string', required: false } },
+  buttonTitle: { type: { name: 'string', required: false } },
+  buttonLink: { type: { name: 'string', required: false } },
+  buttonIcon: { type: { name: 'string', required: false } },
   organizationName: { type: { name: 'string' } },
   organizationStreetAddress: { type: { name: 'string' } },
   organizationAddressLocality: { type: { name: 'string' } },
@@ -47,6 +47,38 @@ const defaultArgs = {
   organizationUrl: organization.url,
   organizationFoundingDate: organization.founding_date,
 };
+/**
+ * Generate Ground Nav Args
+ * Takes the flat args object and structures it as the template expects.
+ * @param {object} args
+ */
+const generateGroundNavArgs = (args) => ({
+  menu,
+  social,
+  action:
+    args.buttonLeadIn && args.buttonTitle && args.buttonLink && args.buttonIcon
+      ? {
+          lead_in: args.buttonLeadIn,
+          title: args.buttonTitle,
+          link: args.buttonLink,
+          icon: args.buttonIcon,
+        }
+      : null,
+  organization: {
+    name: args.organizationName,
+    address: {
+      street_address: args.organizationStreetAddress,
+      address_locality: args.organizationAddressLocality,
+      address_region: args.organizationAddressRegion,
+      postal_code: args.organizationPostalCode,
+      address_country: args.organizationAddressCountry,
+    },
+    email: args.organizationEmail,
+    telephone: args.organizationTelephone,
+    url: args.organizationUrl,
+    founding_date: args.organizationFoundingDate,
+  },
+});
 
 <!--
 Inline stories disabled so media queries will behave as expected within
@@ -78,32 +110,7 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
       layout: 'fullscreen',
     }}
   >
-    {(args) =>
-      template({
-        menu,
-        social,
-        action: {
-          lead_in: args.buttonLeadIn,
-          title: args.buttonTitle,
-          link: args.buttonLink,
-          icon: args.buttonIcon,
-        },
-        organization: {
-          name: args.organizationName,
-          address: {
-            street_address: args.organizationStreetAddress,
-            address_locality: args.organizationAddressLocality,
-            address_region: args.organizationAddressRegion,
-            postal_code: args.organizationPostalCode,
-            address_country: args.organizationAddressCountry,
-          },
-          email: args.organizationEmail,
-          telephone: args.organizationTelephone,
-          url: args.organizationUrl,
-          founding_date: args.organizationFoundingDate,
-        },
-      })
-    }
+    {(args) => template(generateGroundNavArgs(args))}
   </Story>
 </Canvas>
 
@@ -131,32 +138,7 @@ The menu’s contents may differ between projects. This example is based on the 
       },
     }}
   >
-    {(args) =>
-      pwaStatsDemo({
-        menu,
-        social,
-        action: {
-          lead_in: args.buttonLeadIn,
-          title: args.buttonTitle,
-          link: args.buttonLink,
-          icon: args.buttonIcon,
-        },
-        organization: {
-          name: args.organizationName,
-          address: {
-            street_address: args.organizationStreetAddress,
-            address_locality: args.organizationAddressLocality,
-            address_region: args.organizationAddressRegion,
-            postal_code: args.organizationPostalCode,
-            address_country: args.organizationAddressCountry,
-          },
-          email: args.organizationEmail,
-          telephone: args.organizationTelephone,
-          url: args.organizationUrl,
-          founding_date: args.organizationFoundingDate,
-        },
-      })
-    }
+    {(args) => pwaStatsDemo(generateGroundNavArgs(args))}
   </Story>
 </Canvas>
 
@@ -166,33 +148,19 @@ To render a Ground Nav with no call to action, do not pass the `action` property
   <Story
     name="No Action"
     height="275px"
-    args={defaultArgs}
+    args={{
+      ...defaultArgs,
+      buttonLeadIn: null,
+      buttonTitle: null,
+      buttonLink: null,
+      buttonIcon: null,
+    }}
     argTypes={defaultArgTypes}
     parameters={{
       layout: 'fullscreen',
     }}
   >
-    {(args) =>
-      template({
-        menu,
-        social,
-        action: null,
-        organization: {
-          name: args.organizationName,
-          address: {
-            street_address: args.organizationStreetAddress,
-            address_locality: args.organizationAddressLocality,
-            address_region: args.organizationAddressRegion,
-            postal_code: args.organizationPostalCode,
-            address_country: args.organizationAddressCountry,
-          },
-          email: args.organizationEmail,
-          telephone: args.organizationTelephone,
-          url: args.organizationUrl,
-          founding_date: args.organizationFoundingDate,
-        },
-      })
-    }
+    {(args) => template(generateGroundNavArgs(args))}
   </Story>
 </Canvas>
 

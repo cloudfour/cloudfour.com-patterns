@@ -13,7 +13,8 @@ $_ground-nav-space: ms.step(3, 1rem);
 $_ground-nav-negative-space: ($_ground-nav-space * -1);
 $_ground-nav-border-width: size.$edge-medium;
 $_ground-nav-border-style: solid;
-$_ground-nav-border-color: color.$base-gray-light;
+$_ground-nav-border-color: var(--theme-color-border-base);
+$_ground-nav-border-color-fallback: color.$base-gray-light;
 
 /**
  * 1. We establish vertical whitespace for the action to simplify alignment of
@@ -107,10 +108,10 @@ $_ground-nav-border-color: color.$base-gray-light;
 }
 
 .c-ground-nav__menu {
-  border-block-end: $_ground-nav-border-width $_ground-nav-border-style
-    $_ground-nav-border-color;
-  border-block-start: $_ground-nav-border-width $_ground-nav-border-style
-    $_ground-nav-border-color;
+  border-color: $_ground-nav-border-color-fallback;
+  border-color: $_ground-nav-border-color;
+  border-style: $_ground-nav-border-style;
+  border-width: $_ground-nav-border-width 0;
   padding: $_ground-nav-space 0;
 }
 
@@ -182,9 +183,11 @@ $_ground-nav-border-color: color.$base-gray-light;
   }
 
   .c-ground-nav__social {
+    border: 0 $_ground-nav-border-style $_ground-nav-border-color-fallback;
+    border-color: $_ground-nav-border-color;
+
     @media (min-width: breakpoint.$m) {
-      border-block-end: $_ground-nav-border-width $_ground-nav-border-style
-        $_ground-nav-border-color;
+      border-block-end-width: $_ground-nav-border-width;
       grid-column: 1/3;
       padding-block-end: $_ground-nav-space;
     }

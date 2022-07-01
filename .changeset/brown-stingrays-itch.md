@@ -10,4 +10,3 @@ This is considered a breaking change because the WordPress theme will need to be
 - Add option to have no action in Ground Nav
 - Add optional header block to Page
 - Add optional classes to Page blocks
-- 

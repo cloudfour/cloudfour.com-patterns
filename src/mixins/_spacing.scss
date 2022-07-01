@@ -29,6 +29,12 @@ $fluid-spacing-inline-negative: fluid.fluid-clamp(
   $fluid-spacing-breakpoint-min,
   $fluid-spacing-breakpoint-max
 );
+$fluid-gap: fluid.fluid-clamp(
+  size.$spacing-gap-fluid-min,
+  size.$spacing-gap-fluid-max,
+  $fluid-spacing-breakpoint-min,
+  $fluid-spacing-breakpoint-max
+);
 
 @mixin fluid-padding-block() {
   padding-block: $fluid-spacing-block;

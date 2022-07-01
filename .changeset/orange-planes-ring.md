@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add 4 additional fallback images: accessibility, process, systems, maintenance
+Add fallback feature illustrations for `accessibility`, `process`, `systems` and `maintenance`

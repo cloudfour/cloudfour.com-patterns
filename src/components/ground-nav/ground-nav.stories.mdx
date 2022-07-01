@@ -52,7 +52,7 @@ const defaultArgs = {
  * Takes the flat args object and structures it as the template expects.
  * @param {object} args
  */
-const generateGroundNavArgs = (args) => ({
+const generateGroundNavProps = (args) => ({
   menu,
   social,
   action:
@@ -110,7 +110,7 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
       layout: 'fullscreen',
     }}
   >
-    {(args) => template(generateGroundNavArgs(args))}
+    {(args) => template(generateGroundNavProps(args))}
   </Story>
 </Canvas>
 
@@ -138,7 +138,7 @@ The menu’s contents may differ between projects. This example is based on the 
       },
     }}
   >
-    {(args) => pwaStatsDemo(generateGroundNavArgs(args))}
+    {(args) => pwaStatsDemo(generateGroundNavProps(args))}
   </Story>
 </Canvas>
 
@@ -160,7 +160,7 @@ To render a Ground Nav with no call to action, do not pass the `action` property
       layout: 'fullscreen',
     }}
   >
-    {(args) => template(generateGroundNavArgs(args))}
+    {(args) => template(generateGroundNavProps(args))}
   </Story>
 </Canvas>
 

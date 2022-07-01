@@ -1,5 +1,5 @@
 <div class="o-page{% if class %} {{ class }}{% endif %}">
-  {% if block("header") %}
+  {% if block("header") is defined %}
     <div class="o-page__header{% if header_class %} {{ header_class }}{% endif %}">
       {% block header %}{% endblock %}
     </div>

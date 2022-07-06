@@ -64,17 +64,18 @@ test(
     // Check that all the fields appear and have correct labels and the first textbox should be focused
     expect(await getAccessibilityTree(form, { includeText: false }))
       .toMatchInlineSnapshot(`
-        form "Reply to Test author name"
-          heading "Reply to Test author name" (level=4)
+      form "Reply to Test author name"
+        heading "Reply to Test author name" (level=4)
+        status
           link "Markdown"
-          textbox "Reply" (focused)
-            ↳ description: "Please be kind, courteous and constructive. You may use simple HTML or Markdown in your comments. All fields are required."
-          textbox "Name"
-          textbox "Email"
-          checkbox "Notify me of follow-up comments by email."
-          button "Submit Reply"
-          button "Cancel"
-      `);
+        textbox "Reply" (focused)
+          ↳ description: "Please be kind, courteous and constructive. You may use simple HTML or Markdown in your comments. All fields are required."
+        textbox "Name"
+        textbox "Email"
+        checkbox "Notify me of follow-up comments by email."
+        button "Submit Reply"
+        button "Cancel"
+    `);
 
     // Click the cancel button to get back to our initial state
     const cancelButton = await screen.getByRole('button', {

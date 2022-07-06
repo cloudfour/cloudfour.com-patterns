@@ -54,7 +54,7 @@
     {% if weekly_digests_heading %}
       {% include '@cloudfour/components/heading/heading.twig' with {
         content: weekly_digests_heading,
-        id: "get-weekly-digests-" + form_id,
+        id: "get-weekly-digests-#{form_id}",
         class: 'c-subscribe__heading',
         level: heading_level|default(2),
         tag_name: heading_tag,

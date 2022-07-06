@@ -1,11 +1,69 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import template from './alert.twig';
 
 <Meta
   title="Components/Alert"
   argTypes={{
-    message: { type: { name: 'string' } },
-    dismissable: { type: { name: 'boolean' } },
+    class: {
+      type: 'string',
+      description: 'CSS class(es) to append to the root element.',
+    },
+    message: {
+      type: 'string',
+      description: 'The message within the alert.',
+      table: {
+        defaultValue: { summary: 'Hello world!!!' },
+      },
+    },
+    dismissable: {
+      type: 'boolean',
+      description:
+        'Adds a close button will display to the right of the message.',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    icon: {
+      options: [
+        '',
+        'bell',
+        'check',
+        'cloud-slash',
+        'brands/github',
+        'brands/twitter',
+      ],
+      type: 'string',
+      description:
+        'An option to add one of our [icons](/?path=/docs/design-icons--page).',
+      control: {
+        type: 'select',
+      },
+    },
+    floating: {
+      type: 'boolean',
+      description: 'Adds a light border and shadow for a floating effect.',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    tag_name: {
+      type: 'string',
+      description: 'The root element',
+      table: {
+        defaultValue: { summary: 'div' },
+      },
+    },
+    id: {
+      type: 'string',
+      description: 'Adds an `id` attribute to the root element',
+    },
+    hidden: {
+      type: 'boolean',
+      description: 'Adds a `hidden` attribute to the root element.',
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   }}
 />
 
@@ -30,6 +88,8 @@ This component is still a work in progress. The following features are not yet i
   </Story>
 </Canvas>
 
+<ArgsTable story="Basic" />
+
 ## Dismissable
 
 When `dismissable` is `true`, a close button will display to the right of the message.
@@ -45,6 +105,8 @@ When `dismissable` is `true`, a close button will display to the right of the me
     {(args) => template(args)}
   </Story>
 </Canvas>
+
+<ArgsTable story="Dismissable" />
 
 ## Full width
 
@@ -65,6 +127,8 @@ Alerts work well even when displayed at full width. Their contents will constrai
   </Story>
 </Canvas>
 
+<ArgsTable story="Full width" />
+
 ## Icon
 
 An option to add an icon to the alert. You can add any icon name from our library in the `icon` property. Right now, the color is hardcoded to orange to satisfy the current use case of our offline notification, but it would be nice to add more color options in the future.
@@ -80,6 +144,8 @@ An option to add an icon to the alert. You can add any icon name from our librar
     {(args) => template(args)}
   </Story>
 </Canvas>
+
+<ArgsTable story="Icon" />
 
 ## Floating
 
@@ -98,6 +164,8 @@ By adding `floating: true`, a light border and shadow will be added to the alert
     {(args) => template(args)}
   </Story>
 </Canvas>
+
+<ArgsTable story="Floating" />
 
 When more contrast is desired, you may also attach a theme class to the the floating variation. In this example, the card has a class of `t-light` within a `t-dark` container:
 
@@ -119,14 +187,7 @@ When more contrast is desired, you may also attach a theme class to the the floa
   </Story>
 </Canvas>
 
-## Template Properties
-
-- `class` (string)
-- `icon` (string)
-- `dismissable` (boolean, default `false`)
-- `floating` (boolean, default `false`)
-- `message` (string, default `'Hello world!'`)
-- `tag_name` (string, default `'div'`)
+<ArgsTable story="Themed Floating" />
 
 ## Template Blocks
 

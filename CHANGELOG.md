@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 10.1.0
+
+### Minor Changes
+
+- [#1898](https://github.com/cloudfour/cloudfour.com-patterns/pull/1898) [`ab6b487c`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ab6b487ca4fd1ff8ca2263906ceb296481a1cc22) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Add fallback feature illustrations for `accessibility`, `process`, `systems` and `maintenance`
+
+### Patch Changes
+
+- [#1906](https://github.com/cloudfour/cloudfour.com-patterns/pull/1906) [`11e49839`](https://github.com/cloudfour/cloudfour.com-patterns/commit/11e49839936e38bb6dc4ce3e5c9c948a964f55a2) Thanks [@calebeby](https://github.com/calebeby)! - Fix twig syntax to be PHP-compatable
+
 ## 10.0.0
 
 ### Major Changes

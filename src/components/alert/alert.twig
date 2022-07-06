@@ -10,7 +10,12 @@
   {% endblock %}
 {% endset %}
 
-<{{ tag_name }} class="c-alert{% if floating %} c-alert--floating{% endif %}{% if class %} {{ class }}{% endif %}">
+<{{ tag_name }}
+  {% if id %}id="{{id}}"{% endif %}
+  class="c-alert{% if floating %} c-alert--floating{% endif %}{% if class %} {{ class }}{% endif %}"
+  {% if hidden %}hidden{% endif %}
+  role="status"
+>
   <div class="c-alert__inner">
     {% if _icon_block|trim is not empty %}
       <span class="c-alert__extra">

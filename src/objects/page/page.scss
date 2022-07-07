@@ -27,6 +27,18 @@
 
 .o-page__content {
   grid-row: 2;
+  position: relative;
+}
+
+.o-page__content-alert {
+  display: flex;
+  inline-size: 100%;
+  inset-block-start: -1.5em;
+  inset-inline-start: 50%;
+  justify-content: center;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 99;
 }
 
 .o-page__footer {

@@ -11,6 +11,9 @@ import { useEffect } from '@storybook/client-api';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import exampleDemoSource from '!!raw-loader!./demo/example.twig';
 import exampleDemo from './demo/example.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import exampleDemoWithAlertSource from '!!raw-loader!./demo/example-with-alert.twig';
+import exampleDemoWithAlert from './demo/example-with-alert.twig';
 
 <Meta
   title="Objects/Page"
@@ -42,6 +45,27 @@ The header block is optional.
         document.querySelector('#root').style.display = 'contents';
       });
       return exampleDemo();
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Example with Alert"
+    height="400px"
+    parameters={{
+      layout: 'fullscreen',
+      docs: { source: { code: exampleDemoWithAlertSource } },
+    }}
+  >
+    {() => {
+      useEffect(() => {
+        // Set this story's `body` element to full-height
+        document.body.style.height = '100%';
+        // Prevent Storybook's container from affecting this layout
+        document.querySelector('#root').style.display = 'contents';
+      });
+      return exampleDemoWithAlert();
     }}
   </Story>
 </Canvas>

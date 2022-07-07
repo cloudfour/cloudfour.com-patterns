@@ -1,24 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { makeTwigInclude } from '../../make-twig-include.js';
-import { useEffect } from '@storybook/client-api';
 import buttonSwap from './button-swap.twig';
-import { initButtonSwap } from './button-swap.ts';
-// Helper function to initialize toggling button JS
-const buttonSwapStory = (args) => {
-  useEffect(() => {
-    const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
-      (buttonSwapEl) =>
-        initButtonSwap(buttonSwapEl, {
-          initialCallback: () => console.log('Subscribed!'),
-          swappedCallback: () => console.log('Unsubscribed!'),
-        })
-    );
-    return () => {
-      for (const buttonSwapEl of buttonSwapEls) buttonSwapEl.destroy();
-    };
-  });
-  return buttonSwap(args);
-};
 
 <Meta
   title="Components/Button Swap"
@@ -67,7 +49,7 @@ You have the ability to pass `initialCallback` and `swappedCallback` callback fu
       },
     }}
   >
-    {(args) => buttonSwapStory(args)}
+    {(args) => buttonSwap(args)}
   </Story>
 </Canvas>
 
@@ -83,71 +65,7 @@ You have the ability to pass `initialCallback` and `swappedCallback` callback fu
 
 ## JavaScript
 
-You'll need to use JavaScript to select the Button Swap component via the `js-button-swap` CSS class and initialize it using the `initButtonSwap` function.
-
-### Syntax
-
-```js
-initButtonSwap(buttonSwapEl, options);
-```
-
-### Parameters
-
-#### `buttonSwapEl`
-
-The `.js-button-swap` Button Swap wrapper element.
-
-#### `options` (optional)
-
-An object which allows you to optionally pass `initialCallback` and `swappedCallback` functions to be called when each button is clicked.
-
-```js
-options?: {
-  initialCallback?: (event: Event) => void;
-  swappedCallback?: (event: Event) => void;
-}
-```
-
-### Return value
-
-An object with a `destroy` function that removes event listeners.
-
-```js
-{ destroy: () => void }
-```
-
-### Examples
-
-#### Single Button Swap component on the page
-
-```js
-// Initialize
-const buttonSwapEl = initButtonSwap(document.querySelector('.js-button-swap'), {
-  initialCallback: () => console.log('Subscribed!'),
-  swappedCallback: () => console.log('Unsubscribed!'),
-});
-
-// Remove all event listeners
-buttonSwapEl.destroy();
-```
-
-#### Multiple Button Swap components on the page
-
-```js
-// Initialize
-const buttonSwapEls = [...document.querySelectorAll('.js-button-swap')].map(
-  (buttonSwapEl) =>
-    initButtonSwap(buttonSwapEl, {
-      initialCallback: () => console.log('Subscribed!'),
-      swappedCallback: () => console.log('Unsubscribed!'),
-    })
-);
-
-// Remove all event listeners
-buttonSwapEls.forEach((buttonSwapEl) => {
-  buttonSwapEl.destroy();
-});
-```
+This component does not come with built-in JavaScript for its functionality; you will need to write your own JS to use it.
 
 ## Unsupported features
 

@@ -112,8 +112,6 @@ When `dismissable` is `true`, a close button will display to the right of the me
   </Story>
 </Canvas>
 
-<ArgsTable story="Dismissable" />
-
 ## Full width
 
 Alerts work well even when displayed at full width. Their contents will constrain to the `max-width` of [our `size.$max-width-spread` token](/docs/design-tokens-layout--page), and rounded corners will disappear when full-width.
@@ -133,8 +131,6 @@ Alerts work well even when displayed at full width. Their contents will constrai
   </Story>
 </Canvas>
 
-<ArgsTable story="Full width" />
-
 ## Icon
 
 An option to add an icon to the alert. You can add any icon name from our library in the `icon` property. Right now, the color is hardcoded to orange to satisfy the current use case of our offline notification, but it would be nice to add more color options in the future.
@@ -150,8 +146,6 @@ An option to add an icon to the alert. You can add any icon name from our librar
     {(args) => template(args)}
   </Story>
 </Canvas>
-
-<ArgsTable story="Icon" />
 
 ## Floating
 
@@ -170,8 +164,6 @@ By adding `floating: true`, a light border and shadow will be added to the alert
     {(args) => template(args)}
   </Story>
 </Canvas>
-
-<ArgsTable story="Floating" />
 
 When more contrast is desired, you may also attach a theme class to the the floating variation. In this example, the card has a class of `t-light` within a `t-dark` container:
 
@@ -192,8 +184,6 @@ When more contrast is desired, you may also attach a theme class to the the floa
     {(args) => template(args)}
   </Story>
 </Canvas>
-
-<ArgsTable story="Themed Floating" />
 
 ## Template Blocks
 

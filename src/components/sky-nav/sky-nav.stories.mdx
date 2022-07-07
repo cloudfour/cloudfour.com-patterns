@@ -17,6 +17,17 @@ embedded examples.
 <Meta
   title="Components/Sky Nav"
   parameters={{ docs: { inlineStories: false } }}
+  decorators={[
+    (story) => {
+      useEffect(() => {
+        const { destroy } = initSkyNav(
+          document.querySelector('.js-sky-nav-menu-toggle')
+        );
+        return destroy;
+      }, []);
+      return story();
+    },
+  ]}
 />
 
 # Sky Nav
@@ -35,17 +46,6 @@ The Sky Nav is intended for use with our [our dark theme](/docs/design-themes--d
   <Story
     name="Dark"
     height="200px"
-    decorators={[
-      (story) => {
-        useEffect(() => {
-          const { destroy } = initSkyNav(
-            document.querySelector('.js-sky-nav-menu-toggle')
-          );
-          return destroy;
-        }, []);
-        return story();
-      },
-    ]}
     parameters={{
       layout: 'fullscreen',
       themes: { disable: true },
@@ -84,17 +84,6 @@ But it works without a theme, too, just in case:
         },
       },
     }}
-    decorators={[
-      (story) => {
-        useEffect(() => {
-          const { destroy } = initSkyNav(
-            document.querySelector('.js-sky-nav-menu-toggle')
-          );
-          return destroy;
-        }, []);
-        return story();
-      },
-    ]}
   >
     {template(basicStoryArgs)}
   </Story>

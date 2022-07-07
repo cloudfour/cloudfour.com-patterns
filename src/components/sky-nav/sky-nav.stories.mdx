@@ -35,6 +35,17 @@ The Sky Nav is intended for use with our [our dark theme](/docs/design-themes--d
   <Story
     name="Dark"
     height="200px"
+    decorators={[
+      (story) => {
+        useEffect(() => {
+          const { destroy } = initSkyNav(
+            document.querySelector('.js-sky-nav-menu-toggle')
+          );
+          return destroy;
+        }, []);
+        return story();
+      },
+    ]}
     parameters={{
       layout: 'fullscreen',
       themes: { disable: true },
@@ -48,18 +59,10 @@ The Sky Nav is intended for use with our [our dark theme](/docs/design-themes--d
       },
     }}
   >
-    {() => {
-      useEffect(() => {
-        const { destroy } = initSkyNav(
-          document.querySelector('.js-sky-nav-menu-toggle')
-        );
-        return destroy;
-      }, []);
-      return template({
-        class: 't-dark',
-        ...basicStoryArgs,
-      });
-    }}
+    {template({
+      class: 't-dark',
+      ...basicStoryArgs,
+    })}
   </Story>
 </Canvas>
 
@@ -81,16 +84,19 @@ But it works without a theme, too, just in case:
         },
       },
     }}
+    decorators={[
+      (story) => {
+        useEffect(() => {
+          const { destroy } = initSkyNav(
+            document.querySelector('.js-sky-nav-menu-toggle')
+          );
+          return destroy;
+        }, []);
+        return story();
+      },
+    ]}
   >
-    {() => {
-      useEffect(() => {
-        const { destroy } = initSkyNav(
-          document.querySelector('.js-sky-nav-menu-toggle')
-        );
-        return destroy;
-      }, []);
-      return template(basicStoryArgs);
-    }}
+    {template(basicStoryArgs)}
   </Story>
 </Canvas>
 

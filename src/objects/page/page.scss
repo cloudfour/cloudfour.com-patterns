@@ -30,6 +30,15 @@
   position: relative;
 }
 
+.o-page__footer {
+  grid-row: 3;
+}
+
+/**
+ * An optional `alert` block can be used to pass an Alert component. The following
+ * styles position the Alert to match design intent.
+ */
+
 .o-page__content-alert {
   display: flex;
   inline-size: 100%;
@@ -39,8 +48,4 @@
   position: absolute;
   transform: translateX(-50%);
   z-index: 99;
-}
-
-.o-page__footer {
-  grid-row: 3;
 }

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import type { ElementHandle, PleasantestUtils } from 'pleasantest';
+import type { ElementHandle } from 'pleasantest';
 import { getAccessibilityTree, withBrowser } from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
@@ -12,7 +12,7 @@ const componentMarkup = loadTwigTemplate(
 
 test(
   'Swap UI state when clicked',
-  withBrowser(async ({ utils, screen, user, page }) => {
+  withBrowser(async ({ utils, screen, page }) => {
     await utils.injectHTML(await componentMarkup());
     await loadGlobalCSS(utils);
 
@@ -43,7 +43,7 @@ test(
 
 test(
   'Set custom messages and labels',
-  withBrowser(async ({ utils, screen, user, page }) => {
+  withBrowser(async ({ utils, page }) => {
     await utils.injectHTML(
       await componentMarkup({
         initial_visual_label: 'Hello world',

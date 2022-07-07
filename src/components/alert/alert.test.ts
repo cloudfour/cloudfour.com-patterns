@@ -10,17 +10,20 @@ const template = loadTwigTemplate(path.join(__dirname, './alert.twig'));
 
 describe('Alert component', () => {
   test(
-    'should have a default role of `status`',
+    'should have no role by default',
     withBrowser(async ({ utils, page }) => {
-      await utils.injectHTML(await template());
+      await utils.injectHTML(
+        await template({
+          message: '¡Hola!',
+        })
+      );
 
       const body = await page.evaluateHandle<ElementHandle>(
         () => document.body
       );
-      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-        status
-          text "Hello world!"
-      `);
+      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(
+        `text "¡Hola!"`
+      );
     })
   );
 
@@ -29,7 +32,7 @@ describe('Alert component', () => {
     withBrowser(async ({ utils, page }) => {
       await utils.injectHTML(
         await template({
-          role: 'alert',
+          role: 'status',
         })
       );
 
@@ -37,7 +40,7 @@ describe('Alert component', () => {
         () => document.body
       );
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-        alert
+        status
           text "Hello world!"
       `);
     })
@@ -66,6 +69,7 @@ describe('Alert component', () => {
       await utils.injectHTML(
         await template({
           id: 'my-id',
+          role: 'status',
         })
       );
 

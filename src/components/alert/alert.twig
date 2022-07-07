@@ -14,7 +14,7 @@
   {% if id %}id="{{id}}"{% endif %}
   class="c-alert{% if floating %} c-alert--floating{% endif %}{% if class %} {{ class }}{% endif %}"
   {% if hidden %}hidden{% endif %}
-  role="status"
+  role="{{role|default('status')}}"
 >
   <div class="c-alert__inner">
     {% if _icon_block|trim is not empty %}

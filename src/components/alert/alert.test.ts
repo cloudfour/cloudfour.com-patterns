@@ -10,6 +10,40 @@ const template = loadTwigTemplate(path.join(__dirname, './alert.twig'));
 
 describe('Alert component', () => {
   test(
+    'should have a default role of `status`',
+    withBrowser(async ({ utils, page }) => {
+      await utils.injectHTML(await template());
+
+      const body = await page.evaluateHandle<ElementHandle>(
+        () => document.body
+      );
+      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+        status
+          text "Hello world!"
+      `);
+    })
+  );
+
+  test(
+    'should be able to set a role',
+    withBrowser(async ({ utils, page }) => {
+      await utils.injectHTML(
+        await template({
+          role: 'alert',
+        })
+      );
+
+      const body = await page.evaluateHandle<ElementHandle>(
+        () => document.body
+      );
+      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+        alert
+          text "Hello world!"
+      `);
+    })
+  );
+
+  test(
     'should respect `hidden` template property',
     withBrowser(async ({ utils, page }) => {
       await utils.injectHTML(

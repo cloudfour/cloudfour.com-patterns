@@ -66,8 +66,7 @@ test(
       .toMatchInlineSnapshot(`
         form "Reply to Test author name"
           heading "Reply to Test author name" (level=4)
-          status
-            link "Markdown"
+          link "Markdown"
           textbox "Reply" (focused)
             ↳ description: "Please be kind, courteous and constructive. You may use simple HTML or Markdown in your comments. All fields are required."
           textbox "Name"

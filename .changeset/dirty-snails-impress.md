@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Adds an Alert block to Page object
+Adds an optional Alert block to the Page object

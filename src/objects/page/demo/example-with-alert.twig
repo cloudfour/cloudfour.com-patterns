@@ -1,0 +1,28 @@
+{% embed '@cloudfour/objects/page/page.twig' only %}
+  {% block alert %}
+    {% include '@cloudfour/components/alert/alert.twig' with {
+      dismissable: true,
+      floating: true,
+      icon: 'cloud-slash',
+      message: 'You appear to be offline, some content may be unavailable.'
+    } only %}
+  {% endblock %}
+  {% block header %}
+    <p class="u-pad-1 t-dark">
+      Header content.
+    </p>
+  {% endblock %}
+  {% block content %}
+    <p class="u-pad-1">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu ex
+      enim. Nunc efficitur scelerisque dolor et sollicitudin. Donec finibus
+      lorem elit, eu consectetur quam pellentesque sed. Pellentesque habitant
+      morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+  {% endblock %}
+  {% block footer %}
+    <p class="u-pad-1 t-dark">
+      Footer content.
+    </p>
+  {% endblock %}
+{% endembed %}

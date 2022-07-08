@@ -1,3 +1,6 @@
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/spacing';
+
 /**
  * Page container
  *
@@ -11,7 +14,7 @@
 .o-page {
   display: grid;
   grid-template-columns: minmax(0, 1fr); // 1
-  grid-template-rows: minmax(0, auto) minmax(0, 1fr) minmax(0, auto); // 2
+  grid-template-rows: minmax(0, auto) 0 minmax(0, 1fr) minmax(0, auto); // 2
   min-block-size: 100%;
 }
 
@@ -25,10 +28,25 @@
   grid-row: 1;
 }
 
-.o-page__content {
+/**
+ * An optional `alert` block can be used to pass an Alert component
+ *
+ * 1. The alert should overlap the content above slightly
+ */
+
+.o-page__alert {
+  @include spacing.fluid-padding-inline;
+  display: grid;
   grid-row: 2;
+  inset-block-start: calc(size.$overlap-large * -1); // 1
+  justify-content: center;
+  position: relative;
+}
+
+.o-page__content {
+  grid-row: 3;
 }
 
 .o-page__footer {
-  grid-row: 3;
+  grid-row: 4;
 }

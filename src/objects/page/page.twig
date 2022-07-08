@@ -4,6 +4,11 @@
       {% block header %}{% endblock %}
     </div>
   {% endif %}
+  {% if block('alert') %}
+    <div class="o-page__alert">
+      {% block alert %}{% endblock %}
+    </div>
+  {% endif %}
   <div class="o-page__content{% if content_class %} {{ content_class }}{% endif %}">
     {% block content %}{% endblock %}
   </div>

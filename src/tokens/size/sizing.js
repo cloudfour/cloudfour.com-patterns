@@ -59,6 +59,10 @@ module.exports = {
         comment:
           'Small amount of overlap between adjacent items organized in a visual bunch.',
       },
+      large: {
+        value: modularEm(1),
+        comment: 'Larger amount of overlap between adjacent items.',
+      },
     },
   },
 };

@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 11.0.0
+
+### Major Changes
+
+- [#1917](https://github.com/cloudfour/cloudfour.com-patterns/pull/1917) [`4e8ef044`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4e8ef0449aaa446392777df0c27b33d48fab7ba2) Thanks [@calebeby](https://github.com/calebeby)! - Remove button-swap component JS. Users of the component will need to implement their own functionality for this component.
+
+### Minor Changes
+
+- [#1921](https://github.com/cloudfour/cloudfour.com-patterns/pull/1921) [`fe7a95f0`](https://github.com/cloudfour/cloudfour.com-patterns/commit/fe7a95f034284b18691057ecf6f3775c0376e673) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Adds an optional Alert block to the Page object
+
+* [#1910](https://github.com/cloudfour/cloudfour.com-patterns/pull/1910) [`4384eccf`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4384eccf402b0bbc634ba59c0d24cebd06c94660) Thanks [@tylersticka](https://github.com/tylersticka)! - Set the `tab-size` for `pre` elements to `2` to encourage more accessible code samples without compromising horizontal real estate
+
+- [#1914](https://github.com/cloudfour/cloudfour.com-patterns/pull/1914) [`896a746c`](https://github.com/cloudfour/cloudfour.com-patterns/commit/896a746cee752c28b13cf74ab67e277877e4a036) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Updates the Alert component by adding `role`, `id` and `hidden` template properties
+
 ## 10.1.0
 
 ### Minor Changes

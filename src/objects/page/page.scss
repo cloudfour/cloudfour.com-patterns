@@ -1,3 +1,5 @@
+@use '../../mixins/spacing';
+
 /**
  * Page container
  *
@@ -32,6 +34,7 @@
  */
 
 .o-page__alert {
+  @include spacing.fluid-padding-inline;
   display: grid;
   grid-row: 2;
   inset-block-start: -1.5em; // 1

@@ -18,6 +18,17 @@ import exampleDemoWithAlert from './demo/example-with-alert.twig';
 <Meta
   title="Objects/Page"
   parameters={{ docs: { inlineStories: false }, layout: 'fullscreen' }}
+  decorators={[
+    (story) => {
+      useEffect(() => {
+        // Set this story's `body` element to full-height
+        document.body.style.height = '100%';
+        // Prevent Storybook's container from affecting this layout
+        document.querySelector('#root').style.display = 'contents';
+      });
+      return story();
+    },
+  ]}
 />
 
 # Page
@@ -37,15 +48,7 @@ The header block is optional.
       docs: { source: { code: exampleDemoSource } },
     }}
   >
-    {() => {
-      useEffect(() => {
-        // Set this story's `body` element to full-height
-        document.body.style.height = '100%';
-        // Prevent Storybook's container from affecting this layout
-        document.querySelector('#root').style.display = 'contents';
-      });
-      return exampleDemo();
-    }}
+    {exampleDemo()}
   </Story>
 </Canvas>
 
@@ -62,14 +65,6 @@ The Page object also has an optional `alert` block that can be used to pass an [
       docs: { source: { code: exampleDemoWithAlertSource } },
     }}
   >
-    {() => {
-      useEffect(() => {
-        // Set this story's `body` element to full-height
-        document.body.style.height = '100%';
-        // Prevent Storybook's container from affecting this layout
-        document.querySelector('#root').style.display = 'contents';
-      });
-      return exampleDemoWithAlert();
-    }}
+    {exampleDemoWithAlert()}
   </Story>
 </Canvas>

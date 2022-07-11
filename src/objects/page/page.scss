@@ -1,5 +1,5 @@
 @use '../../compiled/tokens/scss/size';
-// @use '../../compiled/tokens/scss/z-index'; // TODO fix this, it's broken
+@use '../../compiled/tokens/scss/z-index'; // TODO fix this, it's broken
 @use '../../mixins/spacing';
 
 /**
@@ -42,7 +42,7 @@
   inset-block-start: calc(size.$overlap-large * -1); // 1
   justify-content: center;
   position: relative;
-  z-index: z_;
+  z-index: z-index.$alert;
 }
 
 .o-page__content {

@@ -36,6 +36,13 @@
       </div>
     {% endif %}
     <p>
+      Another ordinary paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at sapien porttitor risus blandit posuere. Sed in malesuada ligula. Nam vulputate metus sed nibh vulputate, sed varius neque tincidunt.
+    </p>
+    <figure class="wp-block-video {{alignment}}">
+      <video controls src="/media/waterfall_edit.mp4"></video>
+      <figcaption>This WordPress Video Block with a caption has <b>{{alignment|default('no')|replace({'align': ''})}} alignment</b>!</figcaption>
+    </figure>
+    <p>
       One more ordinary paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at sapien porttitor risus blandit posuere. Sed in malesuada ligula. Nam vulputate metus sed nibh vulputate, sed varius neque tincidunt.
     </p>
   {% endblock %}

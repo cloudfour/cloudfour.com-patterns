@@ -1,0 +1,10 @@
+{
+  "number": {
+    "z_index": {
+      "alert": {
+        "value": 999,
+        "comment": "Intended to be used for alert messages that float above page content."
+      }
+    }
+  }
+}

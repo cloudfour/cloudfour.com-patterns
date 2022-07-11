@@ -110,6 +110,13 @@ module.exports = {
             attributes: { category: 'time', type: 'transition' },
           },
         },
+        {
+          destination: '_z-index.scss',
+          format: 'scss/variables',
+          filter: {
+            attributes: { category: 'number', type: 'z_index' },
+          },
+        },
       ],
     },
     js: {

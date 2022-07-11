@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 11.1.0
+
+### Minor Changes
+
+- [#1929](https://github.com/cloudfour/cloudfour.com-patterns/pull/1929) [`bac89ee7`](https://github.com/cloudfour/cloudfour.com-patterns/commit/bac89ee781310fa643c06729e2ecc08b0f14e80b) Thanks [@tylersticka](https://github.com/tylersticka)! - Increase the supported column modifiers from 4 to 6 for the Deck layout object to support smaller content chunks
+
+* [#1928](https://github.com/cloudfour/cloudfour.com-patterns/pull/1928) [`fe55de90`](https://github.com/cloudfour/cloudfour.com-patterns/commit/fe55de9089ebf206573042a3f3e8ddf78c7e68e2) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add z-index `alert` design token and use in Page object for Alert placement
+
+- [#1930](https://github.com/cloudfour/cloudfour.com-patterns/pull/1930) [`a871faa7`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a871faa77a7c179e5f21f8c9504560c55341ac25) Thanks [@tylersticka](https://github.com/tylersticka)! - Make default, center, full and wide alignment options consistent between WordPress image and video blocks
+
 ## 11.0.0
 
 ### Major Changes

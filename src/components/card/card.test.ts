@@ -23,13 +23,11 @@ describe('Card component', () => {
       const body = await page.evaluateHandle<ElementHandle>(
         () => document.body
       );
-      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
+      expect(await getAccessibilityTree(body, {includeText: false})).toMatchInlineSnapshot(`
         article
           banner
             heading "Lorem ipsum dolor sit amet" (level=2)
-              text "Lorem ipsum dolor sit amet"
           contentinfo
-            text "Jul 12, 2022"
       `);
     })
   );

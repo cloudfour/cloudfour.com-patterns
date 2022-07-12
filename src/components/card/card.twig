@@ -1,23 +1,31 @@
-{% set tag_name = tag_name|default('article') %}
-{% set header_tag_name = header_tag_name|default('header') %}
-{% set footer_tag_name = footer_tag_name|default('footer') %}
+{% set _tag_name = tag_name|default('article') %}
+{#
+  Using `header` inside a `div` causes pointless "banner" landmarks in
+  the VoiceOver rotor. As a result, we set the default header/footer
+  element to `div` if the `tag_name` is anything but `article` or `section`.
+#}
+{% set _is_sectioning = _tag_name in ['article', 'section'] %}
+{% set _default_header_tag = _is_sectioning ? 'header' : 'div' %}
+{% set _default_footer_tag = _is_sectioning ? 'footer' : 'div' %}
+{% set _header_tag_name = header_tag_name|default(_default_header_tag) %}
+{% set _footer_tag_name = footer_tag_name|default(_default_footer_tag) %}
 
-{% set heading_level = heading_level|default(2) %}
+{% set _heading_level = heading_level|default(2) %}
 
 {% set _heading_block %}{% block heading %}{% endblock %}{% endset %}
 {% set _cover_block %}{% block cover %}{% endblock %}{% endset %}
 {% set _content_block %}{% block content %}{% endblock %}{% endset %}
 {% set _footer_block %}{% block footer %}{% endblock %}{% endset %}
 
-<{{ tag_name }} class="
+<{{ _tag_name }} class="
   c-card
   {% if href %}c-card--with-link{% endif %}
   {% if class %}{{ class }}{% endif %}"
   {% if heading_id and _heading_block is not empty %}aria-labelledby="{{heading_id}}"{% endif %}>
 
   {% if _heading_block is not empty %}
-    <{{ header_tag_name }} class="c-card__header">
-      <h{{ heading_level }} class="c-card__heading"{% if heading_id %} id="{{heading_id}}"{% endif %}>
+    <{{ _header_tag_name }} class="c-card__header">
+      <h{{ _heading_level }} class="c-card__heading"{% if heading_id %} id="{{heading_id}}"{% endif %}>
         {% if href %}
           <a href="{{ href }}" class="c-card__link">
             {{ _heading_block }}
@@ -25,8 +33,8 @@
         {% else %}
           {{ _heading_block }}
         {% endif %}
-      </h{{ heading_level }}>
-    </{{ header_tag_name }}>
+      </h{{ _heading_level }}>
+    </{{ _header_tag_name }}>
   {% endif %}
 
   {% if _cover_block is not empty %}
@@ -42,9 +50,9 @@
   {% endif %}
 
   {% if _footer_block is not empty %}
-    <{{ footer_tag_name }} class="c-card__footer">
+    <{{ _footer_tag_name }} class="c-card__footer">
       {{ _footer_block }}
-    </{{ footer_tag_name }}>
+    </{{ _footer_tag_name }}>
   {% endif %}
 
-</{{ tag_name }}>
+</{{ _tag_name }}>

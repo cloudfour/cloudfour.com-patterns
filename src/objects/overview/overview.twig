@@ -1,14 +1,24 @@
-<{{overview_tag|default('section')}}
+{% set _overview_tag = overview_tag|default('section') %}
+{#
+  Using `header` inside a `div` causes pointless "banner" landmarks in
+  the VoiceOver rotor. As a result, we set the default header element
+  to `div` if the `overview_tag` is anything but `article` or `section`.
+#}
+{% set _is_sectioning = _overview_tag in ['article', 'section'] %}
+{% set _default_header_tag = _is_sectioning ? 'header' : 'div' %}
+{% set _header_tag_name = header_tag_name|default(_default_header_tag) %}
+
+<{{ _overview_tag }}
   class="o-overview"
   {% if labelledby_id %}aria-labelledby="{{labelledby_id}}"{% endif %}
 >
-  <header class="o-overview__header">
+  <{{ _header_tag_name }} class="o-overview__header">
     {% block header %}{% endblock %}
-  </header>
+  </{{ _header_tag_name }}>
   <div class="o-overview__actions">
     {% block actions %}{% endblock %}
   </div>
   <div class="o-overview__content">
     {% block content %}{% endblock %}
   </div>
-</{{overview_tag|default('section')}}>
+</{{ _overview_tag }}>

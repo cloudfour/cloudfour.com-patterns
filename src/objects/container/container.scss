@@ -41,6 +41,17 @@
 }
 
 /**
+ * Child elements that need a bit of inline padding to avoid the viewport edge.
+ */
+
+.o-container__pad {
+  .o-container--pad &,
+  .o-container--pad-inline & {
+    @include spacing.fluid-padding-inline;
+  }
+}
+
+/**
  * Child elements intended to "fill" the container width. This negates any
  * inline padding and border radii.
  */

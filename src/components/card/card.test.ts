@@ -23,12 +23,13 @@ describe('Card component', () => {
       const body = await page.evaluateHandle<ElementHandle>(
         () => document.body
       );
-      expect(await getAccessibilityTree(body, {includeText: false})).toMatchInlineSnapshot(`
-        article
-          banner
-            heading "Lorem ipsum dolor sit amet" (level=2)
-          contentinfo
-      `);
+      expect(await getAccessibilityTree(body, { includeText: false }))
+        .toMatchInlineSnapshot(`
+          article
+            banner
+              heading "Lorem ipsum dolor sit amet" (level=2)
+            contentinfo
+        `);
     })
   );
 
@@ -45,9 +46,9 @@ describe('Card component', () => {
       const body = await page.evaluateHandle<ElementHandle>(
         () => document.body
       );
-      expect(await getAccessibilityTree(body, {includeText: false})).toMatchInlineSnapshot(`
-        heading "Lorem ipsum dolor sit amet" (level=2)
-      `);
+      expect(
+        await getAccessibilityTree(body, { includeText: false })
+      ).toMatchInlineSnapshot(`heading "Lorem ipsum dolor sit amet" (level=2)`);
     })
   );
 });

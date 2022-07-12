@@ -1,4 +1,9 @@
 {% set _tag_name = tag_name|default('article') %}
+{#
+  Using `header` inside a `div` causes pointless "banner" landmarks in
+  the VoiceOver rotor. As a result, we set the default header/footer
+  element to `div` if the `tag_name` is anything but `article` or `section`.
+#}
 {% set _is_sectioning = _tag_name in ['article', 'section'] %}
 {% set _default_header_tag = _is_sectioning ? 'header' : 'div' %}
 {% set _default_footer_tag = _is_sectioning ? 'footer' : 'div' %}

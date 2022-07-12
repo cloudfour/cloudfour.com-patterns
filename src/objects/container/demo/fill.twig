@@ -12,6 +12,14 @@
             <p>.c-card.c-card--contained</p>
           {% endblock %}
         {% endembed %}
+        <p>This card gains the default container padding:</p>
+        {% embed '@cloudfour/components/card/card.twig' with {
+          class: 'c-card--contained o-container__pad'
+        } only %}
+          {% block content %}
+            <p>.c-card.c-card--contained.o-container__pad</p>
+          {% endblock %}
+        {% endembed %}
         <p>This card attempts to fill the container, padding included:</p>
         {% embed '@cloudfour/components/card/card.twig' with {
           class: 'c-card--contained o-container__fill'

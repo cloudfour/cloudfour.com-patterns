@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 11.2.0
+
+### Minor Changes
+
+- [#1938](https://github.com/cloudfour/cloudfour.com-patterns/pull/1938) [`adae0564`](https://github.com/cloudfour/cloudfour.com-patterns/commit/adae056416d8e9f7c8ecb74088c5490428ec1342) Thanks [@spaceninja](https://github.com/spaceninja)! - Add `o-container__pad` class
+
+### Patch Changes
+
+- [#1936](https://github.com/cloudfour/cloudfour.com-patterns/pull/1936) [`4708f00a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4708f00a225f54d60d1860512cdd08a92f621023) Thanks [@spaceninja](https://github.com/spaceninja)! - Update Card and Overview to only use `header` and `footer` elements if the containing element is an `article` or `section`.
+
 ## 11.1.0
 
 ### Minor Changes

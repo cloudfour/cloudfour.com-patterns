@@ -149,3 +149,10 @@
     transform: scale(scale.$effect-shrink);
   }
 }
+
+.c-alert__error {
+  .c-alert__extra {
+    background-color: color.$status-error-light;
+    color: color.$status-error-dark;
+  }
+}

@@ -1,9 +1,9 @@
 {% set _tag_name = tag_name|default('article') %}
-{% set is_sectioning = _tag_name in ['article', 'section'] %}
-{% set default_header_tag = is_sectioning ? 'header' : 'div' %}
-{% set default_footer_tag = is_sectioning ? 'footer' : 'div' %}
-{% set _header_tag_name = header_tag_name|default(default_header_tag) %}
-{% set _footer_tag_name = footer_tag_name|default(default_footer_tag) %}
+{% set _is_sectioning = _tag_name in ['article', 'section'] %}
+{% set _default_header_tag = _is_sectioning ? 'header' : 'div' %}
+{% set _default_footer_tag = _is_sectioning ? 'footer' : 'div' %}
+{% set _header_tag_name = header_tag_name|default(_default_header_tag) %}
+{% set _footer_tag_name = footer_tag_name|default(_default_footer_tag) %}
 
 {% set _heading_level = heading_level|default(2) %}
 

@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 11.2.1
+
+### Patch Changes
+
+- [#1941](https://github.com/cloudfour/cloudfour.com-patterns/pull/1941) [`ba6ad411`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ba6ad4116020e857fc483902e5c745d9deab7d86) Thanks [@spaceninja](https://github.com/spaceninja)! - Remove block alignment override styles for Deck
+
 ## 11.2.0
 
 ### Minor Changes

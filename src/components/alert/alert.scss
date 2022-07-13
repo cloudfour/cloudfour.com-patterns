@@ -16,11 +16,15 @@
       $lightness: 30%
     )};
   --theme-color-icon: #{color.$base-orange};
+  --theme-color-icon-error: #{color.$status-error-dark};
+  --theme-color-background-icon-error: #{color.$status-error-light};
 }
 
 @include theme.props(dark) {
   --theme-color-background-icon: #{color.$base-orange};
   --theme-color-icon: #{sass-color.adjust(color.$base-orange, $lightness: 30%)};
+  --theme-color-icon-error: #{color.$status-error-light};
+  --theme-color-background-icon-error: #{color.$status-error-dark};
 }
 
 .c-alert {
@@ -152,7 +156,7 @@
 
 .c-alert__error {
   .c-alert__extra {
-    background-color: color.$status-error-light;
-    color: color.$status-error-dark;
+    background-color: var(--theme-color-background-icon-error);
+    color: var(--theme-color-icon-error);
   }
 }

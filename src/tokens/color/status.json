@@ -2,10 +2,12 @@
   "color": {
     "status": {
       "error_dark": {
-        "value": "#b50000"
+        "value": "#bc1919",
+        "comment": "For errors, intended to be used for the foreground when used on the light theme"
       },
       "error_light": {
-        "value": "#ffbdbd"
+        "value": "#ffcaca",
+        "comment": "For errors, intended for backgrounds when used on the light theme"
       }
     }
   }

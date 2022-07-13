@@ -65,23 +65,18 @@ Alerts work well even when displayed at full width. Their contents will constrai
   </Story>
 </Canvas>
 
-<!-- TODO: Right now the icon needs to be set to the sad emoji.
-// As of right now, I don't know how to automatically add the icon on it's own.
-// That is a created issue but not a launch blocker.
- -->
-
 ## Error
 
-The class `c-alert__error` will override the orange default color and make the icon and background red. As of right now, the icon needs to be set to `sad-emoji`. An issue has been created to add it automatically.
+The class `c-alert__error` will override the orange default color and make the icon and background red.
 
 <Canvas>
   <Story
     name="Error"
     args={{
-      message: 'Oops! Something went wrong',
+      message: 'Oops! Something went wrong.',
       dismissable: true,
       class: 'c-alert__error',
-      icon: 'sad-emoji',
+      icon: 'confused-face',
     }}
   >
     {(args) => template(args)}

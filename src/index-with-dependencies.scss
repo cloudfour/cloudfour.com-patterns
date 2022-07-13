@@ -1,3 +1,7 @@
+///
+/// This file is only for use in Storybook, where we need to manually add
+/// CSS dependencies that WordPress handles, such as the block library.
+///
 // stylelint-disable at-rule-disallowed-list
 @import '../node_modules/@wordpress/block-library/build-style/style';
 @import './index';

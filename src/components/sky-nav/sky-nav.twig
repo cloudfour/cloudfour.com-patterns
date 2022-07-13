@@ -69,6 +69,38 @@
           </li>
         {% endfor %}
       </ul>
+      {#
+        The Sky Nav is progressively enhanced with JS at smaller viewports.
+        By default it is open for when JS is not available. In cases where JS
+        _is_ available, this causes a poor loading UX where the menu jumps from
+        open to closed causing a large layout shift.
+
+        To keep the progressive enhancement in place _and_ not have the layout
+        shift, the inline styles below are in play.
+
+        1. Start with the menu not displayed to avoid a layout shift
+        2. If JS is not available, make sure the menu is open so it can be used
+
+        If JS _is_ available, the `sky-nav.ts` logic is responsible for setting
+        it back to `display: block`. This allows the menu to open/close via
+        changing it's `hidden` value as it was originally designed.
+      #}
+      <style>
+        @media (max-width: 40em) {
+          .c-sky-nav__menu-items {
+            display: none; /* 1 */
+          }
+        }
+      </style>
+      <noscript>
+        <style>
+          @media (max-width: 40em) {
+            .c-sky-nav__menu-items {
+              display: block; /* 2 */
+            }
+          }
+        </style>
+      </noscript>
     </nav>
   </header>
 </div>

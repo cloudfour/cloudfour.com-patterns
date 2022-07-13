@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Remove the Sky Nav layout shift
+Remove layout shift caused by progressive enhancement

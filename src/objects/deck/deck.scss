@@ -53,22 +53,3 @@
 .o-deck--align-start {
   align-items: start;
 }
-
-/**
- * Block alignment adjustments
- *
- * 1. Set inline padding since we don't want the deck to touch the viewport
- *    edges even when it's full bleed.
- * 2. Remove padding once `alignwide` is no longer full-bleed.
- */
-
-.o-deck.alignfull,
-.o-deck.alignwide {
-  @include spacing.fluid-padding-inline; // 1
-}
-
-.o-deck.alignwide {
-  @media (width >= breakpoint.$l) {
-    padding-inline: 0; // 2
-  }
-}

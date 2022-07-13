@@ -31,6 +31,11 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       navButton.removeAttribute('aria-expanded');
       menu.hidden = false;
     } else {
+      // The menu begins with `display: none` (via an inline style) to avoid
+      // a large layout shift. The code needs to make sure it sets the display
+      // back to `block` (it's default) so that it can be toggled opened/closed
+      // via the `hidden` attribute.
+      menu.style.display = 'block';
       navButton.setAttribute('aria-expanded', 'false');
       menu.hidden = true;
     }

@@ -1,4 +1,6 @@
 @use 'sass:math';
+@use '../../compiled/tokens/scss/opacity';
+@use '../../compiled/tokens/scss/size';
 @use '../../mixins/svg';
 @use '../../mixins/icon';
 
@@ -17,4 +19,28 @@
 
 .c-icon--inline {
   @include icon.inline;
+}
+
+/**
+ * Muted modifier
+ */
+
+.c-icon--muted {
+  opacity: opacity.$muted;
+}
+
+/**
+ * Size modifiers
+ */
+
+.c-icon--medium {
+  --icon-size: #{size.$icon-medium};
+}
+
+.c-icon--large {
+  --icon-size: #{size.$icon-large};
+}
+
+.c-icon--x-large {
+  --icon-size: #{size.$icon-x-large};
 }

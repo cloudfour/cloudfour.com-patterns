@@ -20,6 +20,15 @@ const iconStory = (args) => {
   }
   return template(args);
 };
+const defaultArgs = {
+  name: { type: { name: 'string' } },
+  fallback: { type: { name: 'string' } },
+  inline: { type: { name: 'boolean' } },
+  class: { type: { name: 'string' } },
+  title: { type: { name: 'string' } },
+  muted: { type: { name: 'boolean' } },
+  size: { type: { name: 'string' } },
+};
 
 <Meta title="Components/Icon" />
 
@@ -36,13 +45,62 @@ For a list of available icons, visit [the Icons page](/docs/design-icons--page).
       name: 'heart',
       inline: false,
     }}
-    argTypes={{
-      name: { type: { name: 'string' } },
-      fallback: { type: { name: 'string' } },
-      inline: { type: { name: 'boolean' } },
-      class: { type: { name: 'string' } },
-      title: { type: { name: 'string' } },
+    argTypes={defaultArgs}
+  >
+    {(args) => iconStory(args)}
+  </Story>
+</Canvas>
+
+## Muted
+
+By setting the `muted` property to `true`, the icon will become slightly opaque.
+
+<Canvas>
+  <Story
+    name="Muted"
+    args={{
+      name: 'heart',
+      inline: false,
+      muted: true,
     }}
+    argTypes={defaultArgs}
+  >
+    {(args) => iconStory(args)}
+  </Story>
+</Canvas>
+
+## Sizes
+
+By setting the `size` property to the [name of a `size.$icon` token](/docs/design-tokens-size--page), such as `large`, the icon will be scaled to the appropriate size.
+
+<Canvas>
+  <Story
+    name="Medium Size"
+    args={{
+      name: 'heart',
+      size: 'medium',
+    }}
+    argTypes={defaultArgs}
+  >
+    {(args) => iconStory(args)}
+  </Story>
+  <Story
+    name="Large Size"
+    args={{
+      name: 'heart',
+      size: 'large',
+    }}
+    argTypes={defaultArgs}
+  >
+    {(args) => iconStory(args)}
+  </Story>
+  <Story
+    name="X-Large Size"
+    args={{
+      name: 'heart',
+      size: 'x-large',
+    }}
+    argTypes={defaultArgs}
   >
     {(args) => iconStory(args)}
   </Story>

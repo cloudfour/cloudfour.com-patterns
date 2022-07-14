@@ -7,3 +7,13 @@
 .u-hidden-visually {
   @include a11y.sr-only($important: true);
 }
+
+/**
+ * Clearfix: forces a container to expand to fit floated children
+ * https://www.cssmojo.com/latest-new-clearfix-so-far/
+ */
+.u-clearfix::after {
+  clear: both;
+  content: '';
+  display: block;
+}

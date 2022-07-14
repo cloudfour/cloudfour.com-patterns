@@ -1,5 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import hiddenVisuallyDemo from './demo/hidden-visually.twig';
+import clearfixDemo from './demo/clearfix.twig';
 
 <Meta title="Utilities/Display" />
 
@@ -20,4 +21,12 @@ In this example, the link will include text when read aloud:
 
 <Canvas>
   <Story name="Hidden Visually">{hiddenVisuallyDemo}</Story>
+</Canvas>
+
+## Clearfix
+
+The `u-clearfix` class forces a container to expand to fit floated children.
+
+<Canvas>
+  <Story name="Clearfix">{clearfixDemo}</Story>
 </Canvas>

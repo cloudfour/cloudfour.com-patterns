@@ -265,6 +265,10 @@ $_masthead-height-sm: ms.step(7);
   @media (min-width: $_breakpoint-wide) {
     display: none;
   }
+
+  .no-js & {
+    display: none;
+  }
 }
 
 /**
@@ -365,6 +369,10 @@ $_masthead-height-sm: ms.step(7);
    */
   @media (min-width: $_breakpoint-wide) and (max-width: $_breakpoint-wide-max) {
     flex-wrap: wrap;
+  }
+
+  .is-loading & {
+    display: none;
   }
 }
 

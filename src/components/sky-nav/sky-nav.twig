@@ -1,7 +1,7 @@
 {% set main_id = main_id|default('main') %}
 {% set _main_href = '#' ~ main_id %}
 
-<div class="c-sky-nav js-sky-nav{% if class %} {{ class }}{% endif %}">
+<div class="c-sky-nav js-sky-nav no-js{% if class %} {{ class }}{% endif %}">
   {# https://webaim.org/techniques/skipnav/ #}
   {% embed '@cloudfour/components/button/button.twig' with {
     class: 'c-sky-nav__skip',
@@ -84,32 +84,15 @@
         If JS _is_ available, the `sky-nav.ts` logic is responsible for setting
         it back to `display: block`.
       #}
-      <style>
-        @media (max-width: 40em) {
-          .c-sky-nav__menu-items {
-            display: none; /* 1 */
-          }
-        }
-      </style>
-      <noscript>
-        <style>
-          @media (max-width: 40em) {
-            .c-sky-nav__menu-items {
-              display: block; /* 2 */
-            }
-          }
-
-          {#
-            1. If no JS, then no need for the menu toggle button
-          #}
-          .c-sky-nav__menu-toggle {
-            display: none; /* 1 */
-          }
-        </style>
-      </noscript>
     </nav>
   </header>
 </div>
+
+<script>
+  const skyNav = document.querySelector('.js-sky-nav');
+  skyNav.classList.remove('no-js');
+  skyNav.classList.add('is-loading');
+</script>
 
 {#
   For some reason Twig.js really doesn't like including this template in a demo,

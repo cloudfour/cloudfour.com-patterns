@@ -21,6 +21,9 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
     '(prefers-reduced-motion: reduce)'
   );
 
+  // No need for "no JS" styles to be applied
+  navWrapper.classList.remove('is-loading');
+
   /**
    * Update Menu Layout
    * Sets visibility of menu & navButton for small vs large screen layouts.
@@ -35,7 +38,7 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       // to avoid a large layout shift caused by progressive enhancement. The
       // logic below needs to make sure it sets the display back to `block` so
       // that it can be toggled opened/closed via the `hidden` attribute.
-      menu.style.display = 'block';
+      // menu.style.display = 'block';
       navButton.setAttribute('aria-expanded', 'false');
       menu.hidden = true;
     }

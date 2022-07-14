@@ -1,5 +1,4 @@
 import examplePrototype from './example/example.twig';
-import './example/example.scss';
 
 export default {
   title: 'Prototypes/No Content',

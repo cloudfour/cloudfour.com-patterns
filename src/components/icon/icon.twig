@@ -11,6 +11,14 @@
   {% set _class = _class ~ ' c-icon--inline' %}
 {% endif %}
 
+{% if size %}
+  {% set _class = _class ~ ' c-icon--' ~ size %}
+{% endif %}
+
+{% if muted %}
+  {% set _class = _class ~ ' c-icon--muted' %}
+{% endif %}
+
 {% if class %}
   {% set _class = _class ~ ' ' ~ class %}
 {% endif %}

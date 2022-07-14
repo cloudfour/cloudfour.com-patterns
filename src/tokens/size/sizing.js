@@ -21,6 +21,10 @@ module.exports = {
         value: modularEm(2),
         comment: 'The large icon size.',
       },
+      'x-large': {
+        value: modularEm(5),
+        comment: 'The x-large icon size.',
+      },
     },
     width: {
       card_column: {

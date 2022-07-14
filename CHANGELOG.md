@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 11.3.0
+
+### Minor Changes
+
+- [#1951](https://github.com/cloudfour/cloudfour.com-patterns/pull/1951) [`3136eb2b`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3136eb2bf4bef6b9b4b00dbd3b9cd3bffc11337d) Thanks [@spaceninja](https://github.com/spaceninja)! - Add `size` and `muted` props to Icon
+
+* [#1949](https://github.com/cloudfour/cloudfour.com-patterns/pull/1949) [`a8fa1dfc`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a8fa1dfcc0d388aa40a5d19410c866c6682e75c7) Thanks [@calebeby](https://github.com/calebeby)! - Add clearfix utility
+
+- [#1947](https://github.com/cloudfour/cloudfour.com-patterns/pull/1947) [`d866a563`](https://github.com/cloudfour/cloudfour.com-patterns/commit/d866a5637d9c16760e9de75c18010b6e9cb16666) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Remove small viewport Sky Nav layout shift caused by progressive enhancement
+
+### Patch Changes
+
+- [#1952](https://github.com/cloudfour/cloudfour.com-patterns/pull/1952) [`a84e50f4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a84e50f4debf38ae908bee5bfc3bdcb6c78e2bed) Thanks [@tylersticka](https://github.com/tylersticka)! - Comment permalinks now resolve to the hash URL of the comment ID rather than a nonexistent Timber `comment.link` property
+
 ## 11.2.1
 
 ### Patch Changes

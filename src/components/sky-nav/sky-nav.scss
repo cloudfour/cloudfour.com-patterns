@@ -265,6 +265,13 @@ $_masthead-height-sm: ms.step(7);
   @media (min-width: $_breakpoint-wide) {
     display: none;
   }
+
+  /**
+   * There is no need to show the menu toggle if JS is not available.
+   */
+  .no-js & {
+    display: none;
+  }
 }
 
 /**
@@ -344,6 +351,22 @@ $_masthead-height-sm: ms.step(7);
 .c-sky-nav__menu-items {
   list-style: none; /* 1 */
   padding-inline-start: 0; /* 1 */
+
+  /**
+   * The Sky Nav is progressively enhanced with JS at smaller viewports. By default
+   * it is open for when JS is not available. In cases where JS _is_ available,
+   * this causes a poor loading UX where the menu jumps from open to closed
+   * causing a large layout shift.
+   *
+   * To keep the progressive enhancement in place _and_ not have the layout shift,
+   * we hide the menu items during the "loading" state. The "loading" state
+   * happens after the UI renders and before the Sky Nav JS is loaded.
+   */
+  @media (width < $_breakpoint-wide) {
+    .is-loading & {
+      display: none;
+    }
+  }
 
   /**
    * When the layout is wide enough to expose these items…

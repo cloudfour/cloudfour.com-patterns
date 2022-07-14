@@ -1,7 +1,12 @@
 {% set main_id = main_id|default('main') %}
 {% set _main_href = '#' ~ main_id %}
 
-<div class="c-sky-nav js-sky-nav{% if class %} {{ class }}{% endif %}">
+{#
+  The Sky Nav component uses progressive enhancement and assumes JS is not
+  available as the default. The `no-js` CSS class is the hook to style properly
+  in that use case.
+#}
+<div class="c-sky-nav js-sky-nav no-js{% if class %} {{ class }}{% endif %}">
   {# https://webaim.org/techniques/skipnav/ #}
   {% embed '@cloudfour/components/button/button.twig' with {
     class: 'c-sky-nav__skip',
@@ -72,6 +77,26 @@
     </nav>
   </header>
 </div>
+<script>
+  {#
+    The Sky Nav is progressively enhanced with JS at smaller viewports.
+    By default it is open for when JS is not available. In cases where JS
+    _is_ available, this causes a poor loading UX where the menu jumps from
+    open to closed causing a large layout shift.
+
+    To keep the progressive enhancement in place _and_ not have the layout
+    shift, the Sky Nav component assumes `no-js` to begin with. If JS is enabled:
+
+    1. Remove the `no-js` state (which removes no-JS menu styles)
+    2. Add the `is-loading` state. This happens before the Sky Nav JS has loaded
+       allowing us a hook to hide the menu items to remove the layout shift. Once
+       the Sky Nav JS loads, it removes the `is-loading` state CSS class and the
+       menu functions as was originally designed.
+  #}
+  const skyNav = document.querySelector('.js-sky-nav');
+  skyNav.classList.remove('no-js'); // 1
+  skyNav.classList.add('is-loading'); // 2
+</script>
 
 {#
   For some reason Twig.js really doesn't like including this template in a demo,

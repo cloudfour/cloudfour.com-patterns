@@ -98,6 +98,13 @@
               display: block; /* 2 */
             }
           }
+
+          {#
+            1. If no JS, then no need for the menu toggle button
+          #}
+          .c-sky-nav__menu-toggle {
+            display: none; /* 1 */
+          }
         </style>
       </noscript>
     </nav>

@@ -266,6 +266,9 @@ $_masthead-height-sm: ms.step(7);
     display: none;
   }
 
+  /**
+   * There is no need to show the menu toggle if JS is not available.
+   */
   .no-js & {
     display: none;
   }

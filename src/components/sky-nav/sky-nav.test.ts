@@ -29,6 +29,7 @@ test(
     });
     // Pleasantest uses `document.innerHTML` to inject the markup into the DOM,
     // but that means inline scripts are not executed.
+    // @see https://github.com/cloudfour/pleasantest/issues/526
     //
     // > HTML5 specifies that a <script> tag inserted with innerHTML should not execute.
     // @see https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#security_considerations

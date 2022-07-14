@@ -1,6 +1,11 @@
 {% set main_id = main_id|default('main') %}
 {% set _main_href = '#' ~ main_id %}
 
+{#
+  The Sky Nav component uses progressive enhancement and assumes JS is not
+  available as the default. The `no-js` CSS class is the hook to style properly
+  in that use case.
+#}
 <div class="c-sky-nav js-sky-nav no-js{% if class %} {{ class }}{% endif %}">
   {# https://webaim.org/techniques/skipnav/ #}
   {% embed '@cloudfour/components/button/button.twig' with {

@@ -69,29 +69,29 @@
           </li>
         {% endfor %}
       </ul>
-      {#
-        The Sky Nav is progressively enhanced with JS at smaller viewports.
-        By default it is open for when JS is not available. In cases where JS
-        _is_ available, this causes a poor loading UX where the menu jumps from
-        open to closed causing a large layout shift.
-
-        To keep the progressive enhancement in place _and_ not have the layout
-        shift, the inline styles below are in play.
-
-        1. Start with the menu not displayed to avoid a layout shift
-        2. If JS is not available, make sure the menu is open so it can be used
-
-        If JS _is_ available, the `sky-nav.ts` logic is responsible for setting
-        it back to `display: block`.
-      #}
     </nav>
   </header>
 </div>
 
+{#
+  The Sky Nav is progressively enhanced with JS at smaller viewports.
+  By default it is open for when JS is not available. In cases where JS
+  _is_ available, this causes a poor loading UX where the menu jumps from
+  open to closed causing a large layout shift.
+
+  To keep the progressive enhancement in place _and_ not have the layout
+  shift, the Sky Nav component assumes `no-js` to begin with. If JS is enabled:
+
+  1. Remove the `no-js` state (which removes non-JS menu styles)
+  2. Add the `is-loading` state. This happens before the Sky Nav JS has loaded
+     allowing us a hook to hide the menu items to remove the layout shift. Once
+     the Sky Nav JS loads, it removes the `is-loading` state CSS class and the
+     menu functions as was originally designed.
+#}
 <script>
   const skyNav = document.querySelector('.js-sky-nav');
-  skyNav.classList.remove('no-js');
-  skyNav.classList.add('is-loading');
+  skyNav.classList.remove('no-js'); // 1
+  skyNav.classList.add('is-loading'); // 2
 </script>
 
 {#

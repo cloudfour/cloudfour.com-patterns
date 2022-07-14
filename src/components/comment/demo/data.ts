@@ -90,7 +90,6 @@ export const makeComment = ({
 
   const result = {
     ID: id,
-    link: `#comment-${id}`,
     date: new Date(),
     avatar: `https://placeimg.com/92/92/${sample(placeImgCategories)}`,
     author: {

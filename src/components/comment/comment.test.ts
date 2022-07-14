@@ -20,7 +20,6 @@ test(
       await commentMarkup({
         comment: {
           ID: 1,
-          link: '#comment-1',
           date: new Date('January 1 2000'),
           avatar: '',
           author: {

@@ -362,8 +362,10 @@ $_masthead-height-sm: ms.step(7);
    * we hide the menu items during the "loading" state. The "loading" state
    * happens after the UI renders and before the Sky Nav JS is loaded.
    */
-  .is-loading & {
-    display: none;
+  @media (width < $_breakpoint-wide) {
+    .is-loading & {
+      display: none;
+    }
   }
 
   /**
@@ -378,14 +380,6 @@ $_masthead-height-sm: ms.step(7);
     display: flex; /* 1 */
     flex: 1; /* 2 */
     justify-content: flex-end; /* 3 */
-
-    /**
-     * For larger viewports, we do the opposite of smaller viewports and show
-     * the menu items during the "loading" state.
-     */
-    .is-loading & {
-      display: flex;
-    }
   }
 
   /**

@@ -42,7 +42,6 @@ test(
           heading "Main Menu" (level=2)
             text "Main Menu"
           button "Toggle Main Menu" (expanded=false)
-          text "<style> @media (max-width: 40em) { .c-sky-nav__menu-items { display: block; /* 2 */ } } </style>"
     `);
 
     await user.click(navButton);
@@ -82,7 +81,6 @@ test(
             listitem
               link "Team"
                 text "Team"
-          text "<style> @media (max-width: 40em) { .c-sky-nav__menu-items { display: block; /* 2 */ } } </style>"
     `);
   })
 );
@@ -131,7 +129,6 @@ test(
             listitem
               link "Team"
                 text "Team"
-          text "<style> @media (max-width: 40em) { .c-sky-nav__menu-items { display: block; /* 2 */ } } </style>"
     `);
   })
 );

@@ -17,7 +17,7 @@
 #}
 {% if 'o-media__object' not in object_block %}
   {% set object_block %}
-    <{{ object_tag_name }} class="o-media__object">
+    <{{ object_tag_name }} class="o-media__object {{object_class}}">
       {{ object_block }}
     </{{ object_tag_name }}>
   {% endset %}
@@ -30,7 +30,7 @@
   {% if not reverse_markup %}
     {{ object_block }}
   {% endif %}
-  <{{ content_tag_name }} class="o-media__content">
+  <{{ content_tag_name }} class="o-media__content {{content_class}}">
     {% block content %}
     {% endblock %}
   </{{ content_tag_name }}>

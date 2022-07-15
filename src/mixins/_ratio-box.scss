@@ -39,9 +39,13 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
     inline-size: 100%;
     inset-block-start: 0;
     inset-inline-start: 0;
+    position: absolute;
+  }
+
+  > img,
+  > picture > img {
     object-fit: cover;
     object-position: center;
-    position: absolute;
   }
 }
 

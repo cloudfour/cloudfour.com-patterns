@@ -19,9 +19,11 @@ module.exports = {
       },
     },
     '@storybook/addon-a11y',
-    'storybook-mobile',
+    // Disabling these two until they are fixed upstream
+    // 'storybook-mobile',
+    // '@whitespace/storybook-addon-html',
     'storybook-addon-outline',
-    '@whitespace/storybook-addon-html',
+    '@etchteam/storybook-addon-status',
     '@storybook/addon-postcss',
   ],
   managerHead: (head) => {

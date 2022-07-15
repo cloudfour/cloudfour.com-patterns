@@ -1,9 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import template from './event-summary.twig';
 
-<Meta title="Components/Event Summary" />
+<Meta
+  title="Components/Event Summary"
+  parameters={{ status: { type: 'deprecated' } }}
+/>
 
 # Event Summary
+
+**Note:** This component has been deprecated, please use the [Media Summary component](/docs/components-media-summary--event) instead.
 
 Combines the [Media object](/docs/objects-media--image) and [Calendar Date component](/docs/components-calendar-date--basic) to display information for an upcoming speaking event.
 

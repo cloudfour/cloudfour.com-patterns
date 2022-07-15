@@ -1,0 +1,16 @@
+{% embed '@cloudfour/components/media-summary/media-summary.twig' with {
+  heading: "Smashing Magazine",
+  href: "https://cloudfour.com",
+  reverse_markup: true,
+} only %}
+  {% block object %}
+    {% include '@cloudfour/components/calendar-date/calendar-date.twig' with {
+      "datetime": "2022-07-14T23:25:59.626Z",
+      "note": "3-day event"
+    } only %}
+  {% endblock %}
+  {% block content %}
+    <p>New York, NY</p>
+    <p>Speakers: Megan, Aileen</p>
+  {% endblock %}
+{% endembed %}

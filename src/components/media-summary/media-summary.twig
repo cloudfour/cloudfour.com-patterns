@@ -1,0 +1,67 @@
+{% set _heading_level = heading_level|default(3) %}
+{% set _rhythm = rhythm ?? 'compact' %}
+
+{% set _class -%}
+  c-media-summary
+  {% if href %}c-media-summary--with-link{% endif %}
+  {{class}}
+{%- endset %}
+
+{% set _object_class -%}
+  c-media-summary__object {{object_class}}
+{%- endset %}
+
+{% set _content_class -%}
+  {% if _rhythm %}
+    o-rhythm o-rhythm--{{_rhythm}}
+  {% endif %}
+  {{content_class}}
+{%- endset %}
+
+{% set _heading_value -%}
+  {% block heading %}{{heading}}{% endblock %}
+{%- endset %}
+
+{% set _heading_content -%}
+  {% if _heading_value %}
+    {% if href %}
+      <a class="c-media-summary__link"
+        href="{{href}}">
+      {{_heading_value}}
+      </a>
+    {% else %}
+      {{_heading_value}}
+    {% endif %}
+  {% endif %}
+{%- endset %}
+
+{% set _object %}{% block object %}{% endblock %}{% endset %}
+{% set _content %}{% block content %}{% endblock %}{% endset %}
+
+{% set _heading %}
+  {% if _heading_content %}
+    {% include '@cloudfour/components/heading/heading.twig' with {
+      content: _heading_content,
+      level: heading_level|default(3),
+      id: heading_id,
+      tag_name: heading_tag_name,
+      weight: heading_weight,
+      class: heading_class,
+    } only %}
+  {% endif %}
+{% endset %}
+
+{% embed '@cloudfour/objects/media/media.twig' with {
+  class: _class,
+  content_class: _content_class,
+  object_class: _object_class,
+  _object: _object,
+  _heading: _heading,
+  _content: _content,
+} %}
+  {% block object %}{{_object}}{% endblock %}
+  {% block content %}
+    {{_heading}}
+    {{_content}}
+  {% endblock %}
+{% endembed %}

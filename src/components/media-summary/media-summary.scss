@@ -1,0 +1,59 @@
+@use '../../compiled/tokens/scss/brightness';
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/ease';
+@use '../../compiled/tokens/scss/scale';
+@use '../../compiled/tokens/scss/size';
+@use '../../compiled/tokens/scss/transition';
+@use '../../mixins/focus';
+
+/// The focus outline feels a little snug directly on the outer edge, but we
+/// don't want to extend _too_ far out for fear of colliding with adjacent
+/// content. Doubling the size of the focus edge felt like a nice compromise.
+///
+/// @type Number
+/// @access private
+
+$_focus-overflow: (size.$edge-large * -1);
+
+.c-media-summary {
+  position: relative;
+}
+
+.c-media-summary__link {
+  // Keyboard focus styles take inspiration from buttons and similar elements
+  @include focus.focus-visible {
+    &::after {
+      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+    }
+  }
+
+  // Only show the underline on hover.
+  &:not(:hover) {
+    text-decoration: none;
+  }
+
+  // Cover the entire component with an absolute positioned pseudo element. This
+  // is easier to use for assistive devices than a block-level link or multiple
+  // redundant links and requires no JavaScript. It does sacrifice ease of text
+  // selection, but that shouldn't be a huge issue assuming these components are
+  // linking to a full information source.
+  &::after {
+    border-radius: size.$border-radius-medium;
+    content: '';
+    inset: $_focus-overflow;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.c-media-summary__object {
+  transition: filter transition.$slow ease.$out;
+
+  .c-media-summary--with-link:hover & {
+    filter: brightness(brightness.$control-brighten);
+  }
+
+  .c-media-summary--with-link:active & {
+    filter: brightness(brightness.$control-dim);
+  }
+}

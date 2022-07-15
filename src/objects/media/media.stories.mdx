@@ -86,6 +86,8 @@ const imageDemoTransformSource = (_src, storyContext) => {
     },
     text: { type: { name: 'string' } },
     class: { type: { name: 'string' } },
+    content_class: { type: { name: 'string' } },
+    object_class: { type: { name: 'string' } },
     reverse: { type: { name: 'boolean' } },
   }}
 />
@@ -256,6 +258,8 @@ of the same name](/docs/objects-deck--block-alignment).
 ## Template Properties
 
 - `class` (string): Appends to the CSS class of the root element
+- `object_class` (string): Appends to the CSS class of the media object element
+- `content_class` (string): Appends to the CSS class of the media content element
 - `tag_name` (string, default `'div'`): The root tag for the component
 - `inner_tag_name` (string, default `'div'`): The tag for both the media content and media object elements
 - `object_tag_name` (string, default `inner_tag_name`): The tag for the media object element

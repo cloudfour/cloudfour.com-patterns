@@ -3,6 +3,11 @@
 .o-input-group {
   display: flex;
 
+  // Keeps focus styles from being cut off by adjacent, un-focused elements
+  > :focus {
+    z-index: 1;
+  }
+
   > :not(:first-child) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;

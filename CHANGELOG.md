@@ -1,5 +1,22 @@
 # @cloudfour/patterns
 
+## 11.4.0
+
+### Minor Changes
+
+- [#1954](https://github.com/cloudfour/cloudfour.com-patterns/pull/1954) [`04f925e5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/04f925e5f77f24e7f5399825fa83de0627a1ab60) Thanks [@tylersticka](https://github.com/tylersticka)! - - Add Media Summary component, extending the Media object for linked content summaries (events, books, projects, etc.)
+  - Deprecated the Event Summary component
+
+* [#1954](https://github.com/cloudfour/cloudfour.com-patterns/pull/1954) [`04f925e5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/04f925e5f77f24e7f5399825fa83de0627a1ab60) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `object_class` and `content_class` properties to the Media object template to make it more extensible
+
+### Patch Changes
+
+- [#1957](https://github.com/cloudfour/cloudfour.com-patterns/pull/1957) [`1c7f142e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1c7f142ec4eef8e4ae734eb03752044c657d7771) Thanks [@spaceninja](https://github.com/spaceninja)! - Bugfix: Prevent Embed videos from clipping in Safari
+
+* [#1954](https://github.com/cloudfour/cloudfour.com-patterns/pull/1954) [`04f925e5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/04f925e5f77f24e7f5399825fa83de0627a1ab60) Thanks [@tylersticka](https://github.com/tylersticka)! - Deprecated the Button Swap component
+
+- [#1955](https://github.com/cloudfour/cloudfour.com-patterns/pull/1955) [`f284b337`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f284b3375c23c72a1f9871e3fdee79c70b1bf83b) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent focused input outlines from being cut off by adjacent elements inside of Input Group objects
+
 ## 11.3.0
 
 ### Minor Changes

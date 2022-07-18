@@ -112,6 +112,13 @@
   }
 }
 
+.c-alert--error {
+  .c-alert__extra {
+    background-color: var(--theme-color-background-icon-error);
+    color: var(--theme-color-icon-error);
+  }
+}
+
 .c-alert__content {
   grid-area: content;
 }
@@ -151,12 +158,5 @@
 
   .c-alert__dismiss:active & {
     transform: scale(scale.$effect-shrink);
-  }
-}
-
-.c-alert__error {
-  .c-alert__extra {
-    background-color: var(--theme-color-background-icon-error);
-    color: var(--theme-color-icon-error);
   }
 }

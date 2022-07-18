@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add new Error alert, confused face icon, and Status color design tokens.
+Add new error modifier for the Alert component, confused face icon, and status color design tokens.

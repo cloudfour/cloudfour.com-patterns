@@ -42,8 +42,17 @@ module.exports = {
     'liberty/use-logical-spec': [
       'always',
       {
-        // Until Safari 15 adoption is higher
-        except: ['clear', 'float', /^border-.+-radius$/i],
+        // 1. Until Safari 15 adoption is higher
+        // 3. Removing matches for `margin` and `padding` shorthand, which
+        //    stylelint-use-logical-spec wants to break into the longhand
+        //    `-block` and `-inline` properties.
+        except: [
+          'clear', // 1
+          'float', // 1
+          /^border-.+-radius$/i, // 1
+          /^margin$/i, // 2
+          /^padding$/i, // 2
+        ],
       },
     ],
   },

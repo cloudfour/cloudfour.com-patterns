@@ -44,7 +44,8 @@ module.exports = {
       {
         // 1. Until Safari 15 adoption is higher
         // 3. Removing matches for `margin` and `padding` shorthand, which
-        //    it wants to break into the longhand `-block` and `-inline`.
+        //    stylelint-use-logical-spec wants to break into the longhand
+        //    `-block` and `-inline` properties.
         except: [
           'clear', // 1
           'float', // 1

@@ -4,7 +4,9 @@
 
 ### Minor Changes
 
-- [#1954](https://github.com/cloudfour/cloudfour.com-patterns/pull/1954) [`04f925e5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/04f925e5f77f24e7f5399825fa83de0627a1ab60) Thanks [@tylersticka](https://github.com/tylersticka)! - - Add Media Summary component, extending the Media object for linked content summaries (events, books, projects, etc.)
+- [#1954](https://github.com/cloudfour/cloudfour.com-patterns/pull/1954) [`04f925e5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/04f925e5f77f24e7f5399825fa83de0627a1ab60) Thanks [@tylersticka](https://github.com/tylersticka)!
+
+  - Add Media Summary component, extending the Media object for linked content summaries (events, books, projects, etc.)
   - Deprecated the Event Summary component
 
 * [#1954](https://github.com/cloudfour/cloudfour.com-patterns/pull/1954) [`04f925e5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/04f925e5f77f24e7f5399825fa83de0627a1ab60) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `object_class` and `content_class` properties to the Media object template to make it more extensible

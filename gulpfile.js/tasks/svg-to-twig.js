@@ -1,5 +1,5 @@
-const { readFileSync } = require('fs');
-const path = require('path');
+const { readFileSync } = require('node:fs');
+const path = require('node:path');
 
 const { src, dest } = require('gulp');
 const rename = require('gulp-rename');

@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 12.0.0
+
+### Major Changes
+
+- [#1962](https://github.com/cloudfour/cloudfour.com-patterns/pull/1962) [`f9020a25`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f9020a2599dde92000d8030e7bef5cb8a71f790f) Thanks [@tylersticka](https://github.com/tylersticka)! - Remove deprecated Event Summary component, please use Media Summary instead
+
+### Minor Changes
+
+- [#1937](https://github.com/cloudfour/cloudfour.com-patterns/pull/1937) [`87f012d9`](https://github.com/cloudfour/cloudfour.com-patterns/commit/87f012d90d1769d87b5f14b02af6b02bddd27120) Thanks [@AriannaChau](https://github.com/AriannaChau)! - Add new error modifier for the Alert component, confused face icon, and status color design tokens.
+
 ## 11.4.0
 
 ### Minor Changes

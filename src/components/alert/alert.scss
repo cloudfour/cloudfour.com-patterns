@@ -110,10 +110,8 @@
     border: ms.step(-4) solid var(--theme-color-background-secondary);
     border-radius: size.$border-radius-full;
   }
-}
 
-.c-alert--error {
-  .c-alert__extra {
+  .c-alert--error & {
     background-color: var(--theme-color-background-icon-error);
     color: var(--theme-color-icon-error);
   }

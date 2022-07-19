@@ -1,0 +1,12 @@
+{
+  "color": {
+    "status": {
+      "error_dark": {
+        "value": "#bc1919"
+      },
+      "error_light": {
+        "value": "#ffcaca"
+      }
+    }
+  }
+}

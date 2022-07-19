@@ -16,11 +16,15 @@
       $lightness: 30%
     )};
   --theme-color-icon: #{color.$base-orange};
+  --theme-color-icon-error: #{color.$status-error-dark};
+  --theme-color-background-icon-error: #{color.$status-error-light};
 }
 
 @include theme.props(dark) {
   --theme-color-background-icon: #{color.$base-orange};
   --theme-color-icon: #{sass-color.adjust(color.$base-orange, $lightness: 30%)};
+  --theme-color-icon-error: #{color.$status-error-light};
+  --theme-color-background-icon-error: #{color.$status-error-dark};
 }
 
 .c-alert {
@@ -105,6 +109,11 @@
   @media (min-width: breakpoint.$xxl) {
     border: ms.step(-4) solid var(--theme-color-background-secondary);
     border-radius: size.$border-radius-full;
+  }
+
+  .c-alert--error & {
+    background-color: var(--theme-color-background-icon-error);
+    color: var(--theme-color-icon-error);
   }
 }
 

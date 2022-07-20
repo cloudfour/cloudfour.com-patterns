@@ -7,6 +7,6 @@
   "commit": false,
   "linked": [],
   "access": "public",
-  "baseBranch": "v-next",
+  "baseBranch": "main",
   "updateInternalDependencies": "patch"
 }

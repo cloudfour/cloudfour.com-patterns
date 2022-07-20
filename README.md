@@ -1,14 +1,10 @@
 <p align="center"><img src="https://cloudfour.com/android-chrome-512x512.png" alt="" width="128" height="128"></p>
 
-# Cloud Four Patterns 🚧
+# Cloud Four Patterns
 
-[![NPM version](http://img.shields.io/npm/v/@cloudfour/patterns.svg)](https://www.npmjs.org/package/@cloudfour/patterns) [![Build Status](https://github.com/cloudfour/cloudfour.com-patterns/workflows/CI/badge.svg)](https://github.com/cloudfour/cloudfour.com-patterns/actions?query=workflow%3ACI) [![Netlify Status](https://api.netlify.com/api/v1/badges/1923e350-3172-409a-9361-b04d54d1c3b4/deploy-status)](https://app.netlify.com/sites/cloudfour-patterns/deploys?filter=v-next)
+[![NPM version](http://img.shields.io/npm/v/@cloudfour/patterns.svg)](https://www.npmjs.org/package/@cloudfour/patterns) [![Build Status](https://github.com/cloudfour/cloudfour.com-patterns/workflows/CI/badge.svg)](https://github.com/cloudfour/cloudfour.com-patterns/actions?query=workflow%3ACI) [![Netlify Status](https://api.netlify.com/api/v1/badges/1923e350-3172-409a-9361-b04d54d1c3b4/deploy-status?branch=main)](https://app.netlify.com/sites/cloudfour-patterns/deploys?filter=main)
 
-🚨 **You are currently viewing the `v-next` branch.** This represents a significant refactor of our environment and coding standards. It is a work in progress and not yet ready for use.
-
-If you’re looking for the most stable version of our pattern library, check out [the `main` branch](https://github.com/cloudfour/cloudfour.com-patterns/tree/main).
-
-[View Netlify Preview →](https://v-next--cloudfour-patterns.netlify.app/)
+[View Netlify Preview →](https://cloudfour-patterns.netlify.app)
 
 ## Installation
 

@@ -66,28 +66,26 @@ Follow the [Symfony Twig Coding Standards](https://twig.symfony.com/doc/3.x/codi
 
 ## Publishing to npm
 
-This process happens automatically after any PR with a changeset is merged to v-next.
+This process happens automatically after any PR with a changeset is merged to `main`.
 
 ## Manually publishing to npm
 
 This is generally not necessary, but in case you need to manually publish a version:
 
-1. `git checkout v-next`
+1. `git checkout main`
 1. `git pull`
 1. Make sure you have a clean working tree (`git status` should show no changes)
 1. `git checkout -b release-X.Y.Z` - Create a new release branch, where `X.Y.Z` is the version number you're about to release.
 1. `npm version [major | minor | patch]` - This will bump the version number in `package.json` and `package-lock.json`. e.g., `npm version minor` to bump from `1.1.0` to `1.2.0`.
 1. `git push` your branch.
-1. Make a PR, get it approved, and merge your changes to `v-next`.
-1. `git checkout v-next`
+1. Make a PR, get it approved, and merge your changes to `main`.
+1. `git checkout main`
 1. `git pull`
 1. Make sure you have a clean working tree (`git status` should show no changes)
 1. Reinstall dependencies and run build: `npm ci && npm run preprocess && npm run build`
 1. `npm publish --access public` - This will automatically install and compile everything, run linting, and publish
 
 You can run `npm publish --dry-run` to see everything that _would_ happen during publish, without actually publishing to the npm registry.
-
-Note the branch is `v-next` for now. When we we merge this branch to `main`, these instructions should be updated.
 
 ## Overriding source code previews in Storybook
 

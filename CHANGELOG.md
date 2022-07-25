@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 12.1.0
+
+### Minor Changes
+
+- [#1974](https://github.com/cloudfour/cloudfour.com-patterns/pull/1974) [`e099664d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/e099664d9c989bce45eff04128515e07fae40d17) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `u-rescue-orphan` utility to fine-tune where text breaks occur as space allows
+
 ## 12.0.0
 
 ### Major Changes

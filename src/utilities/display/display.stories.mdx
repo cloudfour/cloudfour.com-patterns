@@ -1,7 +1,7 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import hiddenVisuallyDemo from './demo/hidden-visually.twig';
 import clearfixDemo from './demo/clearfix.twig';
-import inlineBlockDemo from './demo/inline-block.twig';
+import rescueOrphanDemo from './demo/rescue-orphan.twig';
 
 <Meta title="Utilities/Display" />
 
@@ -32,10 +32,10 @@ The `u-clearfix` class forces a container to expand to fit floated children.
   <Story name="Clearfix">{clearfixDemo}</Story>
 </Canvas>
 
-## Inline Block
+## Rescue Orphan
 
-The `u-inline-block` class sets the `display` property to `inline-block`. This can be used to discourage inline elements from breaking across multiple lines. If no `text-decoration` is set, it will `inherit` that of its parent to prevent unintentional disruption of link styles.
+The `u-rescue-orphan` class can wrap the last few words of a chunk of text, attempting to keep them together unless space limitations force a break. This can help reduce the chance of [a typographic orphan](https://en.wikipedia.org/wiki/Widows_and_orphans) in some situations.
 
 <Canvas>
-  <Story name="Inline Block">{inlineBlockDemo}</Story>
+  <Story name="Rescue Orphan">{rescueOrphanDemo}</Story>
 </Canvas>

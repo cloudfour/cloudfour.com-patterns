@@ -62,16 +62,16 @@
   {# Author content #}
   <div class="c-author__content-container o-media__content">
     {# Author links #}
-    <p class="c-author__author">
+    <p>
       <span class="u-hidden-visually">{{ author_prefix|default("By") }}</span>
       {% block authors %}
         {% for author in authors %}
           {% if loop.last and loop.length > 1 %}and {% endif %}
-            {%- if author.link and not unlink -%}
-              <a href="{{ author.link }}">{{ author.name }}</a>
-            {%- else -%}
-              <span>{{ author.name }}</span>
-            {%- endif -%}
+          {%- if author.link and not unlink -%}
+            <a class="c-author__author" href="{{ author.link }}">{{ author.name }}</a>
+          {%- else -%}
+            <span class="c-author__author">{{ author.name }}</span>
+          {%- endif -%}
           {%- if not loop.last and loop.length > 2 %},{% endif %}
         {% endfor %}
       {% endblock %}

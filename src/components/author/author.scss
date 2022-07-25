@@ -7,3 +7,10 @@
 .c-author {
   color: var(--theme-color-text-muted);
 }
+
+/**
+ * 1. Prevent breaking inside author names
+ */
+.c-author__author {
+  display: inline-block; /* 1 */
+}

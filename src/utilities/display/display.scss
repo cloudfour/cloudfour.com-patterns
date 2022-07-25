@@ -17,3 +17,8 @@
 .u-inline-block {
   display: inline-block;
 }
+
+/// Prevent unintentional loss of `text-decoration`
+:where(.u-inline-block) {
+  text-decoration: inherit;
+}

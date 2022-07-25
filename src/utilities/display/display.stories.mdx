@@ -1,6 +1,7 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import hiddenVisuallyDemo from './demo/hidden-visually.twig';
 import clearfixDemo from './demo/clearfix.twig';
+import inlineBlockDemo from './demo/inline-block.twig';
 
 <Meta title="Utilities/Display" />
 
@@ -29,4 +30,12 @@ The `u-clearfix` class forces a container to expand to fit floated children.
 
 <Canvas>
   <Story name="Clearfix">{clearfixDemo}</Story>
+</Canvas>
+
+## Inline Block
+
+The `u-inline-block` class sets the `display` property to `inline-block`. This can be used to discourage inline elements from breaking across multiple lines.
+
+<Canvas>
+  <Story name="Inline Block">{inlineBlockDemo}</Story>
 </Canvas>

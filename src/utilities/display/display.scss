@@ -1,19 +1,19 @@
 @use '../../mixins/a11y';
 
-/**
- * Hide from everything but assistive devices.
- */
-
+/// Hide from everything but assistive devices.
 .u-hidden-visually {
   @include a11y.sr-only($important: true);
 }
 
-/**
- * Clearfix: forces a container to expand to fit floated children
- * https://www.cssmojo.com/latest-new-clearfix-so-far/
- */
+/// Clearfix: forces a container to expand to fit floated children
+/// @link https://www.cssmojo.com/latest-new-clearfix-so-far/
 .u-clearfix::after {
   clear: both;
   content: '';
   display: block;
+}
+
+/// Set `display` to `inline-block`
+.u-inline-block {
+  display: inline-block;
 }

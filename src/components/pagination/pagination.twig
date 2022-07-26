@@ -5,7 +5,12 @@
   <{{ label_tag_name }} id="{{ label_id }}" class="u-hidden-visually">Pagination</{{ label_tag_name }}>
   <ul class="c-pagination__items" role="list">
     {% for page in pagination.pages %}
-      <li class="c-pagination__item">
+      <li
+        class="c-pagination__item"
+        {% if page.title == '&hellip;' or page.title == '…' %}
+          aria-hidden="true"
+        {% endif %}
+      >
         {% if page.current %}
           <a class="c-pagination__action" href="{{ page.link }}" aria-current="page">
             <span class="u-hidden-visually">Page</span>
@@ -28,12 +33,7 @@
           </a>
         {% else %}
           {# Fallback for non-link pages like ellipsis gaps for first/last pages #}
-          <span
-            class="c-pagination__action"
-            {% if page.title == '&hellip;' or page.title == '…' %}
-              aria-hidden="true"
-            {% endif %}
-          >
+          <span class="c-pagination__action">
             {{ page.title }}
           </span>
         {% endif %}

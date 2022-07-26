@@ -68,8 +68,8 @@
       </span>
       {% block authors %}
         {% for author in authors %}
-          {% if loop.last and loop.length > 1 %}and {% endif %}
-          {%- if author.link and not unlink -%}
+          {% if loop.last and loop.length > 1 %}and{% endif %}
+          {% if author.link and not unlink -%}
             <a class="c-author__author" href="{{ author.link }}">{{ author.name }}</a>
           {%- else -%}
             <span class="c-author__author" role="text">{{ author.name }}</span>

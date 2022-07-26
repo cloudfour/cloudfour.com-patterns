@@ -12,7 +12,7 @@
     {% elseif date %}
       <p>
         {# This creates a more accessible, and less confusing, user experience #}
-        <span class="u-hidden-visually">
+        <span class="u-hidden-visually" role="text">
           {{ date_prefix|default('Published on') }} {{ date|date('F jS, Y') }}
         </span>
         {#
@@ -63,14 +63,16 @@
   <div class="c-author__content-container o-media__content">
     {# Author links #}
     <p>
-      <span class="u-hidden-visually">{{ author_prefix|default("By") }}</span>
+      <span class="u-hidden-visually" role="text">
+        {{ author_prefix|default("By") }}
+      </span>
       {% block authors %}
         {% for author in authors %}
           {% if loop.last and loop.length > 1 %}and {% endif %}
           {%- if author.link and not unlink -%}
             <a class="c-author__author" href="{{ author.link }}">{{ author.name }}</a>
           {%- else -%}
-            <span class="c-author__author">{{ author.name }}</span>
+            <span class="c-author__author" role="text">{{ author.name }}</span>
           {%- endif -%}
           {%- if not loop.last and loop.length > 2 %},{% endif %}
         {% endfor %}

@@ -33,8 +33,7 @@ test(
         text "By"
       link "Shakira Isabel Mebarak Ripoll"
         text "Shakira Isabel Mebarak Ripoll"
-      text
-        text "Presented on March 31st, 2021"
+      text "Presented on March 31st, 2021"
     `);
   })
 );

@@ -12,7 +12,7 @@
     {% elseif date %}
       <p>
         {# This creates a more accessible, and less confusing, user experience #}
-        <span class="u-hidden-visually" role="text">
+        <span class="u-hidden-visually">
           {{ date_prefix|default('Published on') }} {{ date|date('F jS, Y') }}
         </span>
         {#
@@ -63,6 +63,18 @@
   <div class="c-author__content-container o-media__content">
     {# Author links #}
     <p>
+      {#
+        We're adding `role="text"` to these elements to avoid a Safari issue
+        where the text won't be read together as intended. This may be an
+        overreach: `role="text"` is non-standard, and there's an argument to be
+        made that this contradicts the expected VoiceOver user experience. In
+        this case, it feels reasonable because the spans exist to enhance the
+        visual experience and do not add any valuable meaningful delineation
+        between elements. But maybe later we'll change our mind!
+
+        @see https://www.tpgi.com/using-the-text-role/
+        @see https://github.com/dequelabs/axe-core/issues/1597
+      #}
       <span class="u-hidden-visually" role="text">
         {{ author_prefix|default("By") }}
       </span>

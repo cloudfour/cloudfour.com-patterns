@@ -29,10 +29,12 @@ test(
 
     const body = await page.evaluateHandle<ElementHandle>(() => document.body);
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      text "By"
+      text
+        text "By"
       link "Shakira Isabel Mebarak Ripoll"
         text "Shakira Isabel Mebarak Ripoll"
-      text "Presented on March 31st, 2021"
+      text
+        text "Presented on March 31st, 2021"
     `);
   })
 );
@@ -85,7 +87,8 @@ test(
 
     // Confirm the meta value is rendered and the date is not rendered
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      text "By"
+      text
+        text "By"
       link "Shakira Isabel Mebarak Ripoll"
         text "Shakira Isabel Mebarak Ripoll"
       text "Singer and songwriter"
@@ -113,8 +116,10 @@ test(
 
     // Confirm the author name is "text" and not a link
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      text "By"
-      text "Shakira Isabel Mebarak Ripoll"
+      text
+        text "By"
+      text
+        text "Shakira Isabel Mebarak Ripoll"
     `);
   })
 );
@@ -141,8 +146,10 @@ test(
 
     // Confirm the author name is "text" and not a link
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-      text "By"
-      text "Shakira Isabel Mebarak Ripoll"
+      text
+        text "By"
+      text
+        text "Shakira Isabel Mebarak Ripoll"
     `);
   })
 );

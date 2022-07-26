@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 12.2.0
+
+### Minor Changes
+
+- [#1979](https://github.com/cloudfour/cloudfour.com-patterns/pull/1979) [`0ca26252`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0ca26252e6f710d148965bcb526dd4e6bc6a9a2f) Thanks [@calebeby](https://github.com/calebeby)! - Add `aria_labelledby` and `aria_describedby` properties to button component
+
 ## 12.1.0
 
 ### Minor Changes

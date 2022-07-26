@@ -28,7 +28,12 @@
           </a>
         {% else %}
           {# Fallback for non-link pages like ellipsis gaps for first/last pages #}
-          <span class="c-pagination__action">
+          <span
+            class="c-pagination__action"
+            {% if page.title == '&hellip;' or page.title == '…' %}
+              aria-hidden="true"
+            {% endif %}
+          >
             {{ page.title }}
           </span>
         {% endif %}

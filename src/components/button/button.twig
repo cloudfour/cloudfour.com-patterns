@@ -21,6 +21,12 @@
   {% if aria_expanded %}
     aria-expanded="{{ aria_expanded }}"
   {% endif %}
+  {% if aria_labelledby %}
+    aria-labelledby="{{ aria_labelledby }}"
+  {% endif %}
+  {% if aria_describedby %}
+    aria-describedby="{{ aria_describedby }}"
+  {% endif %}
   {% if tag_name == 'a' %}
     href="{{ href|default('#') }}"
   {% elseif tag_name == 'button' %}

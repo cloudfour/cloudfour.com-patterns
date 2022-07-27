@@ -5,34 +5,47 @@
   <{{ label_tag_name }} id="{{ label_id }}" class="u-hidden-visually">Pagination</{{ label_tag_name }}>
   <ul class="c-pagination__items" role="list">
     {% for page in pagination.pages %}
-      <li class="c-pagination__item">
-        {% if page.current %}
+      {% if page.current %}
+        <li class="c-pagination__item">
           <a class="c-pagination__action" href="{{ page.link }}" aria-current="page">
             <span class="u-hidden-visually">Page</span>
             <span class="c-pagination__number">{{ page.title }}</span>
           </a>
-        {% elseif page.link and page.link == pagination.prev.link %}
+        </li>
+      {% elseif page.link and page.link == pagination.prev.link %}
+        <li class="c-pagination__item">
           <a class="c-pagination__action is-previous" href="{{ page.link }}">
             <span class="u-hidden-visually">Previous: Page</span>
             <span class="c-pagination__number">{{ page.title }}</span>
           </a>
-        {% elseif page.link and page.link == pagination.next.link %}
+        </li>
+      {% elseif page.link and page.link == pagination.next.link %}
+        <li class="c-pagination__item">
           <a class="c-pagination__action is-next" href="{{ page.link }}">
             <span class="u-hidden-visually">Next: Page</span>
             <span class="c-pagination__number">{{ page.title }}</span>
           </a>
-        {% elseif page.link %}
+        </li>
+      {% elseif page.link %}
+        <li class="c-pagination__item">
           <a class="c-pagination__action" href="{{ page.link }}">
             <span class="u-hidden-visually">Page</span>
             <span class="c-pagination__number">{{ page.title }}</span>
           </a>
-        {% else %}
-          {# Fallback for non-link pages like ellipsis gaps for first/last pages #}
+        </li>
+      {% else %}
+        {# Fallback for non-link pages like ellipsis gaps for first/last pages #}
+        <li
+          class="c-pagination__item"
+          {% if page.title == '&hellip;' or page.title == '…' %}
+            aria-hidden="true"
+          {% endif %}
+        >
           <span class="c-pagination__action">
             {{ page.title }}
           </span>
-        {% endif %}
-      </li>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </nav>

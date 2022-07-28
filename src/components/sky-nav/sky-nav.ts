@@ -57,15 +57,6 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       return;
     }
 
-    // We need to keep track of the siblings after the menu,
-    // because we will push them down for the animation
-    const elementsToShift: HTMLElement[] = [navWrapper];
-    let sibling: HTMLElement | null = navWrapper;
-    // eslint-disable-next-line no-unmodified-loop-condition
-    while ((sibling = sibling.nextElementSibling as HTMLElement | null)) {
-      elementsToShift.push(sibling);
-    }
-
     const duration = Number.parseFloat(tokens.time.transition.slow.value);
     const transition = `transform ${duration}s ${tokens.ease.in_out.value}`;
     clearTimeout(timeoutId);
@@ -74,34 +65,31 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
     const heightDiff = menu.getBoundingClientRect().height;
     if (isExpanded) {
       // Closing menu: slide the elements up before hiding the menu
-      for (const el of elementsToShift) {
-        el.style.transition = transition;
-        el.style.transform = `translateY(${-heightDiff}px)`;
-      }
+      document.body.style.setProperty('transition', transition);
+      document.body.style.setProperty(
+        'transform',
+        `translateY(${-heightDiff}px)`
+      );
 
       timeoutId = setTimeout(() => {
         menu.hidden = true;
-        for (const el of elementsToShift) {
-          el.style.transition = '';
-          el.style.transform = '';
-        }
+        document.body.style.removeProperty('transition');
+        document.body.style.removeProperty('transform');
       }, duration * 1000) as any as number;
     } else {
       // Opening menu: start the elements higher than their "resting position" and then slide them down
-      for (const el of elementsToShift)
-        el.style.transform = `translateY(${-heightDiff}px)`;
+      document.body.style.setProperty(
+        'transform',
+        `translateY(${-heightDiff}px)`
+      );
 
       // Flush changes to the DOM
       // eslint-disable-next-line @cloudfour/typescript-eslint/no-unused-expressions, mdx/no-unused-expressions
       navWrapper.offsetWidth;
-      for (const el of elementsToShift) {
-        el.style.transition = transition;
-        el.style.transform = '';
-      }
+      document.body.style.setProperty('transition', transition);
+      document.body.style.removeProperty('transform');
       timeoutId = setTimeout(() => {
-        for (const el of elementsToShift) {
-          el.style.transition = '';
-        }
+        document.body.style.removeProperty('transition');
       }, duration * 1000) as any as number;
     }
   };

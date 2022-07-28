@@ -59,12 +59,18 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
 
     // We need to keep track of the siblings after the menu,
     // because we will push them down for the animation
-    const elementsToShift: HTMLElement[] = [navWrapper];
-    let sibling: HTMLElement | null = navWrapper;
+    const elementsToShift: HTMLElement[] = [
+      navWrapper.parentElement as HTMLElement,
+    ];
+    let sibling: HTMLElement | null = elementsToShift[0];
     // eslint-disable-next-line no-unmodified-loop-condition
     while ((sibling = sibling.nextElementSibling as HTMLElement | null)) {
-      elementsToShift.push(sibling);
+      if (sibling.tagName !== 'SCRIPT') {
+        elementsToShift.push(sibling);
+      }
     }
+
+    console.log({ elementsToShift });
 
     const duration = Number.parseFloat(tokens.time.transition.slow.value);
     const transition = `transform ${duration}s ${tokens.ease.in_out.value}`;

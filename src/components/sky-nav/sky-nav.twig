@@ -1,11 +1,6 @@
 {% set main_id = main_id|default('main') %}
 {% set _main_href = '#' ~ main_id %}
 
-{% if include_main_demo %}
-<div class="o-page__header t-dark">
-{% endif %}
-
-
 {#
   The Sky Nav component uses progressive enhancement and assumes JS is not
   available as the default. The `no-js` CSS class is the hook to style properly
@@ -102,10 +97,6 @@
   skyNav.classList.remove('no-js'); // 1
   skyNav.classList.add('is-loading'); // 2
 </script>
-
-{% if include_main_demo %}
-</div>
-{% endif %}
 
 {#
   For some reason Twig.js really doesn't like including this template in a demo,

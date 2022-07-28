@@ -1,6 +1,11 @@
 {% set main_id = main_id|default('main') %}
 {% set _main_href = '#' ~ main_id %}
 
+{% if include_main_demo %}
+<div class="o-page__header t-dark">
+{% endif %}
+
+
 {#
   The Sky Nav component uses progressive enhancement and assumes JS is not
   available as the default. The `no-js` CSS class is the hook to style properly
@@ -98,6 +103,10 @@
   skyNav.classList.add('is-loading'); // 2
 </script>
 
+{% if include_main_demo %}
+</div>
+{% endif %}
+
 {#
   For some reason Twig.js really doesn't like including this template in a demo,
   showing errors related to extending inline templates that don't make sense
@@ -106,9 +115,31 @@
   @see https://github.com/twigjs/twig.js/issues/262
 #}
 {% if include_main_demo %}
-  <main class="o-container o-container--pad" id="{{ main_id }}">
-    <div class="o-container__content">
-      <p>Hello world! This is the main content.</p>
+  <main id="main" class="o-page__content" style="">
+    <div class="c-cloud-cover t-dark">
+      <div class="o-container o-container--pad-inline">
+        <div class="o-container__content c-cloud-cover__inner">
+          <div class="c-cloud-cover__content">
+            <div class="o-rhythm o-rhythm--condensed">
+              <div class="c-cloud-cover__heading">
+                <h1 class="c-heading c-heading--level-n2">
+                  Team
+                </h1>
+              </div>
+              <div class="c-cloud-cover__copy">
+                <div class="o-rhythm">
+                  Teamwork makes the dream work
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="o-container o-container--pad">
+      <div class="o-container__content">
+        <p>This is some content.</p>
+      </div>
     </div>
   </main>
 {% endif %}

@@ -65,25 +65,31 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
     const heightDiff = menu.getBoundingClientRect().height;
     if (isExpanded) {
       // Closing menu: slide the elements up before hiding the menu
-      document.body.style.transition = transition;
-      document.body.style.transform = `translateY(${-heightDiff}px)`;
+      document.body.style.setProperty('transition', transition);
+      document.body.style.setProperty(
+        'transform',
+        `translateY(${-heightDiff}px)`
+      );
 
       timeoutId = setTimeout(() => {
         menu.hidden = true;
-        document.body.style.transition = '';
-        document.body.style.transform = '';
+        document.body.style.removeProperty('transition');
+        document.body.style.removeProperty('transform');
       }, duration * 1000) as any as number;
     } else {
       // Opening menu: start the elements higher than their "resting position" and then slide them down
-      document.body.style.transform = `translateY(${-heightDiff}px)`;
+      document.body.style.setProperty(
+        'transform',
+        `translateY(${-heightDiff}px)`
+      );
 
       // Flush changes to the DOM
       // eslint-disable-next-line @cloudfour/typescript-eslint/no-unused-expressions, mdx/no-unused-expressions
       navWrapper.offsetWidth;
-      document.body.style.transition = transition;
-      document.body.style.transform = '';
+      document.body.style.setProperty('transition', transition);
+      document.body.style.removeProperty('transform');
       timeoutId = setTimeout(() => {
-        document.body.style.transition = '';
+        document.body.style.removeProperty('transition');
       }, duration * 1000) as any as number;
     }
   };

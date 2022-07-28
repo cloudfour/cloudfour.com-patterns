@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 12.3.0
+
+### Minor Changes
+
+- [#1983](https://github.com/cloudfour/cloudfour.com-patterns/pull/1983) [`e5af776b`](https://github.com/cloudfour/cloudfour.com-patterns/commit/e5af776b86456edd5de20c2f452f27125abaf8d5) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Add aria-hidden to Pagination component ellipsis
+
+### Patch Changes
+
+- [#1986](https://github.com/cloudfour/cloudfour.com-patterns/pull/1986) [`f047d75e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f047d75e415f41230e942d29fe7bb417eee8dc41) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Fix bug where content below Sky Nav was not animating open/closed
+
 ## 12.2.0
 
 ### Minor Changes

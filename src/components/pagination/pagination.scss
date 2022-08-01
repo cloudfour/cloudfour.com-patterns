@@ -279,7 +279,7 @@ $indicator-width-current: $indicator-height-current;
    * set this element to its initial animation state.
    */
 
-  .c-pagination__action:not(:hover):not([aria-current]) & {
+  .c-pagination__action:not(:hover, [aria-current]) & {
     opacity: 0;
     transform: scaleX(
       math.div(unit.strip($indicator-height), unit.strip($indicator-width))

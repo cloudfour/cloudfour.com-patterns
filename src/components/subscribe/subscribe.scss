@@ -56,8 +56,11 @@
   ///
 
   .c-subscribe__form-input-label,
-  .c-subscribe:not(.activate-form) // 1
+  .c-subscribe:not(.activate-form) {
+    // stylelint doesn't get that it can't collapse this nested `:not` selector.
+    // stylelint-disable-next-line selector-not-notation
     &:not(:target):not(:focus-within) {
-    @include a11y.sr-only;
+      @include a11y.sr-only; // 1
+    }
   }
 }

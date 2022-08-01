@@ -147,8 +147,8 @@ pre {
  * a link, we offset their color from surrounding content.
  */
 
-*:not(pre):not(a) > code,
-*:not(pre):not(a) > kbd {
+*:not(pre, a) > code,
+*:not(pre, a) > kbd {
   color: var(--theme-color-text-code);
 }
 
@@ -162,7 +162,7 @@ pre {
  *    appear rather skinny and strange.
  */
 
-*:not(pre):not(a) > kbd {
+*:not(pre, a) > kbd {
   background: var(--theme-color-background-kbd);
   border: size.$edge-small solid var(--theme-color-border-kbd);
   border-radius: size.$border-radius-small;

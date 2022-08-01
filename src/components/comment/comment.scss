@@ -139,7 +139,7 @@
 /// content. I found several accessibility resources that also do this in their
 /// comments (Deque being the most prominent example), so I feel okay about it!
 .c-comment__meta-link {
-  &:not(:hover):not(:focus) {
+  &:not(:hover, :focus) {
     color: inherit;
     text-decoration: inherit;
   }

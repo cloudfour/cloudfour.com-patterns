@@ -172,7 +172,7 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 
   // We use negation selectors to apply the non-hover style so the permalink
   // inherits any existing theme link styles for free.
-  &:not(:hover):not(:focus):not(:active) {
+  &:not(:hover, :focus, :active) {
     color: inherit;
     opacity: opacity.$muted;
   }

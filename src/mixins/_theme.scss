@@ -41,7 +41,7 @@ $default-theme: light;
 /// 'c-card'.
 /// @content
 @mixin unthemed-styles() {
-  &:not([class^='t-']):not([class*=' t-']) {
+  &:not([class^='t-'], [class*=' t-']) {
     @content;
   }
 }

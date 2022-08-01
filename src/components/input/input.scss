@@ -109,7 +109,7 @@
       size.$square-control-icon; /* 3 */
   }
 
-  &:hover:not(:disabled):not([readonly]) {
+  &:hover:not(:disabled, [readonly]) {
     background-color: color.$text-light-emphasis;
     border-color: var(--theme-color-border-input-hover);
   }

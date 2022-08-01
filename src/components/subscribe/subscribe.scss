@@ -51,15 +51,16 @@
   }
 
   ///
-  /// 1. Allows for the visually hidden form to be keyboard accessible, will be
-  ///    visually hidden when elements within the form are not in focus.
+  /// 1. `:not(.activate-form)` allows for the visually hidden form to be
+  ///    keyboard accessible, will be visually hidden when elements within
+  ///    the form are not in focus.
   ///
 
+  // stylelint doesn't get that it can't collapse this nested `:not` selector.
+  // stylelint-disable selector-not-notation
   .c-subscribe__form-input-label,
-  .c-subscribe:not(.activate-form)
-    // stylelint doesn't get that it can't collapse this nested `:not` selector.
-    // stylelint-disable-next-line selector-not-notation
-    &:not(:target):not(:focus-within) {
-    @include a11y.sr-only; // 1
+  .c-subscribe:not(.activate-form) &:not(:target):not(:focus-within) {
+    @include a11y.sr-only;
   }
+  // stylelint-enable
 }

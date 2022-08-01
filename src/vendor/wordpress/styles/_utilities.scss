@@ -19,10 +19,6 @@
 
 /// Wide alignment should max out at our default container width.
 .alignwide {
-  // False positive linting error because SCSS lint is confusing `sass:math`'s
-  // `max` function with the browser `max` function. May be removed once our
-  // lint config updates to `stylelint-scss` 4.0.1 or newer.
-  // stylelint-disable-next-line scss/no-global-function-names
   margin-inline: max(
     -50vw + 50%,
     math.div(size.$max-width-spread - size.$max-width-prose, -2)

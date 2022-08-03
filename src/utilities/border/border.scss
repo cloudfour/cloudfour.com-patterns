@@ -4,11 +4,15 @@
  * To improve the convenience of using these classes without having to specify
  * a border style and color every time, we use the `:where` selector to set some
  * reasonable defaults with no specificity depth.
+ *
+ * 1. Set a default `border-width` so legacy utility classes won't immediately
+ *    display visible borders on all sides.
  */
 
 :where([class^='u-border'], [class*=' u-border']) {
   border-color: var(--theme-color-border-text-group);
   border-style: solid;
+  border-width: 0; /* 1 */
 }
 
 /**

@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 12.3.1
+
+### Patch Changes
+
+- [#1995](https://github.com/cloudfour/cloudfour.com-patterns/pull/1995) [`cc8c0897`](https://github.com/cloudfour/cloudfour.com-patterns/commit/cc8c089728c102047a295447fd971d36d5c5e026) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent border utility classes from accidentally setting `border-width` on all edges
+
 ## 12.3.0
 
 ### Minor Changes

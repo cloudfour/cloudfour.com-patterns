@@ -15,20 +15,23 @@ const twingPlugin = () => {
 
       const files = await glob('src/**/*.twig', { cwd: process.cwd() });
 
-      const preloadedFiles = (
-        await Promise.all(
-          files.map(async (f) => {
-            const newName = f.replace(/^src\//g, '@cloudfour/');
-            return `${JSON.stringify(newName)}: ${JSON.stringify(
-              await fs.readFile(f, 'utf8')
-            )}`;
-          })
-        )
-      ).join(',\n');
-
       return `
         import { TwingEnvironment, TwingLoaderArray } from 'twing/dist/es/browser.js'
-        const files = { ${preloadedFiles} }
+        ${files
+          .map(
+            (file, i) =>
+              `import template${i} from ${JSON.stringify(`./${file}?raw`)}`
+          )
+          .join('\n')}
+
+        const files = {
+          ${files
+            .map((file, i) => {
+              const newName = file.replace(/^src\//g, '@cloudfour/');
+              return `${JSON.stringify(newName)}: template${i}`;
+            })
+            .join(',\n')}
+        }
         export default new TwingEnvironment(new TwingLoaderArray(files))
       `;
     },

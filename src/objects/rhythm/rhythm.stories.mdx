@@ -9,7 +9,7 @@ import demo from './demo/example.twig';
 // component). This can be revisited in the future if Storybook no longer relies
 // on Webpack.
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import nestingDemoSource from '!!raw-loader!./demo/nesting.twig';
+import nestingDemoSource from './demo/nesting.twig?raw';
 import nestingDemo from './demo/nesting.twig';
 const argsStringFromStoryContext = (storyContext) => {
   const args = storyContext.args || storyContext.initialArgs || {};

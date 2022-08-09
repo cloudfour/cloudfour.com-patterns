@@ -14,9 +14,9 @@ import memberDemo from './demo/member.twig';
 // within a Storybook docs page and not within an actual component).
 // This can be revisited in the future if Storybook no longer relies on Webpack.
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import authorDemoSource from '!!raw-loader!./demo/author.twig';
+import authorDemoSource from './demo/author.twig?raw';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import memberDemoSource from '!!raw-loader!./demo/member.twig';
+import memberDemoSource from './demo/member.twig?raw';
 const tyler = {
   name: 'Tyler Sticka',
   link: 'https://cloudfour.com/is/tyler',

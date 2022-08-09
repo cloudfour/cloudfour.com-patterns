@@ -10,6 +10,7 @@ import '../src/index-with-dependencies.scss';
 import './preview.scss';
 import { makeTwigInclude } from '../src/make-twig-include';
 const breakpoints = tokens.size.breakpoint;
+import { useState, useEffect } from 'react';
 
 // Extend the languages Storybook will highlight
 ReactSyntaxHighlighter.registerLanguage('twig', twig);
@@ -56,7 +57,18 @@ export const parameters = {
     source: {
       language: 'twig',
     },
-    prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
+    prepareForInline: (storyFn) => {
+      const [result, setResult] = useState('<h1>Loading...</h1>');
+      useEffect(() => {
+        const output = storyFn();
+        if (Promise.resolve(output) === output) {
+          output.then((result) => setResult(result));
+        } else {
+          setResult(output);
+        }
+      }, [storyFn]);
+      return htmlToReactParser.parse(result);
+    },
     transformSource(src, storyContext) {
       try {
         const storyFunction = storyContext.originalStoryFn;

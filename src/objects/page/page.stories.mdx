@@ -9,10 +9,10 @@ import { useEffect } from '@storybook/client-api';
 // component). This can be revisited in the future if Storybook no longer relies
 // on Webpack.
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import exampleDemoSource from '!!raw-loader!./demo/example.twig';
+import exampleDemoSource from './demo/example.twig?raw';
 import exampleDemo from './demo/example.twig';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import exampleDemoWithAlertSource from '!!raw-loader!./demo/example-with-alert.twig';
+import exampleDemoWithAlertSource from './demo/example-with-alert.twig?raw';
 import exampleDemoWithAlert from './demo/example-with-alert.twig';
 
 <Meta

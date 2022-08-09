@@ -9,7 +9,7 @@ import basicDemo from './demo/basic.twig';
 // component). This can be revisited in the future if Storybook no longer relies
 // on Webpack.
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import fillDemoSource from '!!raw-loader!./demo/fill.twig';
+import fillDemoSource from './demo/fill.twig?raw';
 import fillDemo from './demo/fill.twig';
 const basicDemoStory = (args) => {
   const modifiers = [];

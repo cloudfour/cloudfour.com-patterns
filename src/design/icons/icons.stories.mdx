@@ -1,36 +1,33 @@
 import { IconGallery, IconItem, Meta } from '@storybook/addon-docs';
+import { filePathToName } from '../../file-path-to-name.js'
 // Import whole directory of icons together
-// Using inline loaders to confine SVG to React transform to this doc
-// @see https://webpack.js.org/guides/dependency-management/#context-module-api
-// @see https://webpack.js.org/concepts/loaders/#configuration
-// @see https://react-svgr.com/docs/webpack/
 const iconDir = import.meta.glob(
   '../../assets/icons/*.svg',
   { eager: true }
 );
-console.log(iconDir)
-const iconElements = Object.entries(iconDir).map(([path, module]) => {
+const iconElements = Object.values(iconDir).map((module) => {
   const Icon = module.ReactComponent;
   // Retains subdirectory if we want to organize with those in the future
-  const name = 'hi' // TODO
+  const name = filePathToName(module.default);
   return (
-    <IconItem name={name}>
-      <Icon class="c-icon" />
+    <IconItem name={name} key={name}>
+      <Icon className="c-icon" />
     </IconItem>
   );
 });
 const brandIconDir = import.meta.glob(
   '../../assets/icons/brands/**.svg',
+  { eager: true }
 );
 // This is duplicated from icons, we may want to consider keeping this logic DRY
 // in a single file in the future.
-const brandIconElements = Object.entries(brandIconDir).map(([path, module]) => {
+const brandIconElements = Object.values(brandIconDir).map((module) => {
   const BrandIcon = module.ReactComponent;
   // Retains subdirectory if we want to organize with those in the future
-  const name = 'hi2' // TODO
+  const name = module.default.replace('/src/assets/icons/brands/', '').replace('.svg', '');
   return (
-    <IconItem name={`brands/${name}`}>
-      <BrandIcon class="c-icon" />
+    <IconItem name={`brands/${name}`} key={name}>
+      <BrandIcon className="c-icon" />
     </IconItem>
   );
 });

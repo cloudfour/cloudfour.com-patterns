@@ -3,19 +3,10 @@ import { makeComment } from './demo/data.ts';
 import template from './comment.twig';
 import { initCommentReplyForm } from './comment.ts';
 import { createElasticTextArea } from '../input/elastic-textarea.ts';
-import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include.js';
 import authorDemo from './demo/author.twig';
 import memberDemo from './demo/member.twig';
-// See: https://github.com/webpack-contrib/raw-loader#examples
-// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
-// okay with the following Webpack-specific raw loader syntax. It's better to leave
-// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
-// within a Storybook docs page and not within an actual component).
-// This can be revisited in the future if Storybook no longer relies on Webpack.
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import authorDemoSource from './demo/author.twig?raw';
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import memberDemoSource from './demo/member.twig?raw';
 const tyler = {
   name: 'Tyler Sticka',
@@ -81,15 +72,17 @@ This information may be passed to the component as a `comment` object matching t
       },
     }}
   >
-    {(args) => {
-      useEffect(() => initCommentReplyForms());
-      return template({
-        comment: makeComment(),
-        allow_replies: args.allowReplies,
-        logged_in_user: args.isLoggedIn ? tyler : null,
-        log_out_url: '/logout',
-      });
-    }}
+    {(args) =>
+      template(
+        {
+          comment: makeComment(),
+          allow_replies: args.allowReplies,
+          logged_in_user: args.isLoggedIn ? tyler : null,
+          log_out_url: '/logout',
+        },
+        initCommentReplyForms
+      )
+    }
   </Story>
 </Canvas>
 
@@ -108,16 +101,18 @@ It is helpful for context within a discussion to know when a commentor is the or
       },
     }}
   >
-    {(args) => {
-      useEffect(() => initCommentReplyForms());
-      return authorDemo({
-        comment: makeComment(),
-        allow_replies: args.allowReplies,
-        demo_post_author: true,
-        logged_in_user: args.isLoggedIn ? tyler : null,
-        log_out_url: '/logout',
-      });
-    }}
+    {(args) =>
+      authorDemo(
+        {
+          comment: makeComment(),
+          allow_replies: args.allowReplies,
+          demo_post_author: true,
+          logged_in_user: args.isLoggedIn ? tyler : null,
+          log_out_url: '/logout',
+        },
+        initCommentReplyForms
+      )
+    }
   </Story>
 </Canvas>
 
@@ -132,16 +127,18 @@ It is helpful for context within a discussion to know when a commentor is the or
       },
     }}
   >
-    {(args) => {
-      useEffect(() => initCommentReplyForms());
-      return memberDemo({
-        comment: makeComment(),
-        allow_replies: args.allowReplies,
-        demo_cloud_four_member: true,
-        logged_in_user: args.isLoggedIn ? tyler : null,
-        log_out_url: '/logout',
-      });
-    }}
+    {(args) =>
+      memberDemo(
+        {
+          comment: makeComment(),
+          allow_replies: args.allowReplies,
+          demo_cloud_four_member: true,
+          logged_in_user: args.isLoggedIn ? tyler : null,
+          log_out_url: '/logout',
+        },
+        initCommentReplyForms
+      )
+    }
   </Story>
 </Canvas>
 
@@ -164,17 +161,19 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
       },
     }}
   >
-    {(args) => {
-      useEffect(() => initCommentReplyForms());
-      return template({
-        comment: makeComment({
-          approved: false,
-        }),
-        allow_replies: args.allowReplies,
-        logged_in_user: args.isLoggedIn ? tyler : null,
-        log_out_url: '/logout',
-      });
-    }}
+    {(args) =>
+      template(
+        {
+          comment: makeComment({
+            approved: false,
+          }),
+          allow_replies: args.allowReplies,
+          logged_in_user: args.isLoggedIn ? tyler : null,
+          log_out_url: '/logout',
+        },
+        initCommentReplyForms
+      )
+    }
   </Story>
 </Canvas>
 
@@ -199,19 +198,21 @@ Additionally, a `source` object may be passed to the template consisting of a `u
       },
     }}
   >
-    {(args) => {
-      useEffect(() => initCommentReplyForms());
-      return template({
-        comment: makeComment(),
-        source: {
-          url: 'https://twitter.com/smashingmag/status/1371521325236416516',
-          name: 'twitter.com',
+    {(args) =>
+      template(
+        {
+          comment: makeComment(),
+          source: {
+            url: 'https://twitter.com/smashingmag/status/1371521325236416516',
+            name: 'twitter.com',
+          },
+          allow_replies: args.allowReplies,
+          logged_in_user: args.isLoggedIn ? tyler : null,
+          log_out_url: '/logout',
         },
-        allow_replies: args.allowReplies,
-        logged_in_user: args.isLoggedIn ? tyler : null,
-        log_out_url: '/logout',
-      });
-    }}
+        initCommentReplyForms
+      )
+    }
   </Story>
 </Canvas>
 
@@ -240,15 +241,17 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
       },
     }}
   >
-    {(args) => {
-      useEffect(() => initCommentReplyForms());
-      return template({
-        comment: makeComment(),
-        allow_replies: args.allowReplies,
-        logged_in_user: args.isLoggedIn ? tyler : null,
-        log_out_url: '/logout',
-      });
-    }}
+    {(args) =>
+      template(
+        {
+          comment: makeComment(),
+          allow_replies: args.allowReplies,
+          logged_in_user: args.isLoggedIn ? tyler : null,
+          log_out_url: '/logout',
+        },
+        initCommentReplyForms
+      )
+    }
   </Story>
 </Canvas>
 
@@ -276,15 +279,17 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
       },
     }}
   >
-    {(args) => {
-      useEffect(() => initCommentReplyForms());
-      return template({
-        comment: makeComment({ replies: 2 }),
-        allow_replies: args.allowReplies,
-        logged_in_user: args.isLoggedIn ? tyler : null,
-        log_out_url: '/logout',
-      });
-    }}
+    {(args) =>
+      template(
+        {
+          comment: makeComment({ replies: 2 }),
+          allow_replies: args.allowReplies,
+          logged_in_user: args.isLoggedIn ? tyler : null,
+          log_out_url: '/logout',
+        },
+        initCommentReplyForms
+      )
+    }
   </Story>
 </Canvas>
 

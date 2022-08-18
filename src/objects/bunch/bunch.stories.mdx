@@ -1,8 +1,18 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
-import { shuffle } from 'lodash';
 import avatarsDemo from './demo/avatars.twig';
-const demoImageDir = require.context('./demo', false, /\.png$/);
-const demoImageSrcs = demoImageDir.keys().map((key) => demoImageDir(key));
+const demoImageDir = import.meta.glob('./demo/*.png', { eager: true });
+const demoImageSrcs = Object.values(demoImageDir).map(
+  (module) => module.default
+);
+// https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
+const shuffle = (array) => {
+  let arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
 const avatarsDemoStory = (args) => {
   const srcs = shuffle(demoImageSrcs).slice(0, args.count);
   return avatarsDemo({ srcs });

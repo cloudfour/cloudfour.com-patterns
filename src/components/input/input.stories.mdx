@@ -1,5 +1,4 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { useEffect } from '@storybook/client-api';
 import { makeTwigInclude } from '../../make-twig-include.js';
 import selectDemoSource from './demo/select.twig?raw';
 import selectDemo from './demo/select.twig';
@@ -108,14 +107,12 @@ If the `rows` attribute is set, it will be used as the minimum height.
       },
     }}
   >
-    {(args) => {
-      // Use storybook hooks to trigger JS after story renders
-      // @see https://github.com/storybookjs/storybook/issues/7786
-      useEffect(() => {
-        createElasticTextArea(document.querySelector('.js-elastic-textarea'));
-      }, []);
-      return input(args);
-    }}
+    {(args) =>
+      input(args, () => {
+        const { destroy } = createElasticTextArea(document.querySelector('.js-elastic-textarea'));
+        return destroy;
+      })
+    }
   </Story>
 </Canvas>
 

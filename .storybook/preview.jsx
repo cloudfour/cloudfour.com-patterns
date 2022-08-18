@@ -1,4 +1,3 @@
-import { Parser } from 'html-to-react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import ReactSyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
 import twig from 'react-syntax-highlighter/dist/esm/languages/prism/twig';
@@ -10,7 +9,8 @@ import '../src/index-with-dependencies.scss';
 import './preview.scss';
 import { makeTwigInclude } from '../src/make-twig-include';
 const breakpoints = tokens.size.breakpoint;
-import { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { useEffect as storyBookUseEffect } from '@storybook/client-api';
 
 // Extend the languages Storybook will highlight
 ReactSyntaxHighlighter.registerLanguage('twig', twig);
@@ -27,8 +27,6 @@ const breakpointViewports = Object.keys(breakpoints).map((name) => {
     type: 'other',
   };
 });
-
-const htmlToReactParser = new Parser();
 
 export const parameters = {
   options: {
@@ -58,35 +56,25 @@ export const parameters = {
       language: 'twig',
     },
     prepareForInline: (storyFn) => {
-      const [result, setResult] = useState('<h1>Loading...</h1>');
       useEffect(() => {
-        const output = storyFn();
-        if (Promise.resolve(output) === output) {
-          output.then((result) => setResult(result));
-        } else {
-          setResult(output);
+        if (rootRef.current) {
+          const result = storyFn();
+          if (result instanceof Element) {
+            rootRef.current.append(result);
+          } else {
+            rootRef.current.innerHTML = result;
+          }
         }
-      }, [storyFn]);
-      return htmlToReactParser.parse(result);
+      }, []);
+      const rootRef = useRef();
+      return <div ref={rootRef}></div>;
     },
-    transformSource(src, storyContext) {
-      try {
-        const storyFunction = storyContext.originalStoryFn;
-        if (!storyFunction) return src;
-        const rendered = storyFunction(
-          storyContext.args || storyContext.initialArgs
-        );
-        // The twing/source-inputs-loader.js file makes it so that whenever twig templates are rendered,
-        // the arguments and input path are stored in the window.__twig_inputs__ variable.
-        // __twig_inputs__ is a map between the output HTML and and objects with the arguments and input paths
-        // Here, since we have the rendered HTML, we can look up what the arguments and path were
-        // that correspond to that output
-        const input = window.__twig_inputs__?.get(rendered);
-        if (!input) return src;
-        return makeTwigInclude(input.path, input.args);
-      } catch {
-        return src;
-      }
+    transformSource(_src, storyContext) {
+      return makeTwigInclude(
+        storyContext.originalStoryFn(storyContext.parameters.args)
+          ?.__twigSourceFile,
+        storyContext.parameters.args
+      );
     },
   },
   viewport: {
@@ -165,4 +153,15 @@ export const globalTypes = {
   },
 };
 
-export const decorators = [withTheme, withTextFlow];
+const handleCleanup = (story, ctx) => {
+  const result = story();
+  storyBookUseEffect(() => {
+    if (result instanceof Element) result.__onStoryBookAttach?.();
+    return () => {
+      if (result instanceof Element) result.__onStoryBookDetach?.();
+    };
+  }, [ctx]);
+  return result;
+};
+
+export const decorators = [withTheme, withTextFlow, handleCleanup];

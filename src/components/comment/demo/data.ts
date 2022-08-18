@@ -1,5 +1,10 @@
 import Jabber from 'jabber';
-import { random, sample, uniqueId } from 'lodash';
+import { uniqueId } from 'smoldash';
+
+const random = (lower: number, upper: number) =>
+  Math.round(Math.random() * (upper - lower) + lower);
+
+const sample = (arr: any[]) => arr[random(0, arr.length - 1)];
 
 const themeWords = [
   'Progressive Web App (PWA)',

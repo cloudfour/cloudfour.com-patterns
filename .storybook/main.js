@@ -26,7 +26,8 @@ module.exports = {
     '@etchteam/storybook-addon-status',
     '@storybook/addon-postcss', // TODO: still used with vite?
   ],
-  async viteFinal(config: import('vite').UserConfig) {
+  /** @param {import('vite').UserConfig} config */
+  async viteFinal(config) {
     config.plugins ||= [];
     config.plugins.push(twingPlugin());
     config.plugins.push(svgr());

@@ -1,15 +1,15 @@
-const { join } = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {
-  twingLoader,
-  valLoader,
-  alias: twingAlias,
-} = require('../twing/webpack-options');
+const svgr = require('@svgr/rollup').default;
+const { twingPlugin } = require('../twing/rollup-plugin');
 
 module.exports = {
   // We load the welcome story separately so it will be the first sidebar item.
   stories: ['../src/welcome.stories.mdx', '../src/**/*.stories.@(js|mdx)'],
-  staticDirs: ['../static', '../src/assets'],
+  features: {
+    storyStoreV7: true, // TODO: figure out if this actually has an effect for vite
+  },
+  core: {
+    builder: '@storybook/builder-vite',
+  },
   addons: [
     {
       name: '@storybook/addon-essentials',
@@ -22,77 +22,48 @@ module.exports = {
     // Disabling these two until they are fixed upstream
     // 'storybook-mobile',
     // '@whitespace/storybook-addon-html',
-    'storybook-addon-outline',
+    // 'storybook-addon-outline',
     '@etchteam/storybook-addon-status',
-    '@storybook/addon-postcss',
+    '@storybook/addon-postcss', // TODO: still used with vite?
   ],
-  managerHead: (head) => {
-    const iconSuffix = process.env.NODE_ENV === 'development' ? '-dev' : '';
-    return `${head}
-      <link rel="icon" href="favicons/favicon${iconSuffix}.ico" />
-      <link rel="icon" href="favicons/icon${iconSuffix}.svg" type="image/svg+xml" />`;
-  },
-  webpackFinal: async (config) => {
-    const isDev = config.mode === 'development';
+  /** @param {import('vite').UserConfig} config */
+  async viteFinal(config) {
+    config.plugins ||= [];
+    config.plugins.push(twingPlugin());
+    config.plugins.push(svgr());
 
-    /**
-     * For development, leave the default 'cheap-module-source-map', as it's faster and works.
-     * For the build, using the default does not work correctly, but this option appears to.
-     * @see https://webpack.js.org/configuration/devtool/
-     */
-    if (!isDev) {
-      config.devtool = 'source-map';
-    }
+    config.optimizeDeps ||= {};
+    config.optimizeDeps.include = [
+      '@cloudfour/twing-browser-esm',
+      '@mdx-js/react',
+      '@storybook/addon-docs',
+      '@storybook/addon-viewport',
+      'focus-visible',
+      'jabber',
+      'prismjs',
+      'prismjs/components/prism-bash',
+      'prismjs/components/prism-handlebars',
+      'prismjs/components/prism-json',
+      'prismjs/components/prism-jsx',
+      'prismjs/components/prism-markup-templating',
+      'prismjs/components/prism-php',
+      'prismjs/components/prism-scss',
+      'prismjs/components/prism-toml',
+      'prismjs/components/prism-tsx',
+      'prismjs/components/prism-twig',
+      'prismjs/components/prism-typescript',
+      'prismjs/components/prism-yaml',
+      'react',
+      'react-syntax-highlighter/dist/esm/languages/prism/twig',
+      'react-syntax-highlighter/dist/esm/prism-light',
+      'smoldash',
+    ];
 
-    // Push new rules
-    config.module.rules.push(
-      {
-        test: /\.s[ca]ss$/,
-        use: [
-          {
-            // @see https://github.com/webpack-contrib/style-loader/issues/303#issuecomment-581168870
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              // Lets CSS loader know there are two loaders left that may be
-              // handling imports.
-              // @see https://github.com/webpack-contrib/css-loader#importloaders
-              importLoaders: 2,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              // Dart Sass is easier to install than Node Sass
-              implementation: require('sass'),
-              sourceMap: true,
-              sassOptions: {
-                importer: [require('../glob-sass-importer')],
-              },
-            },
-          },
-        ],
-      },
-      twingLoader,
-      valLoader
-    );
-
-    Object.assign(config.resolve.alias, twingAlias);
-    // Allow resolving `static/*` paths so relative paths don't have to be used
-    // This is used for url() paths in CSS
-    config.resolve.alias['static'] = join(__dirname, '..', 'static');
-
-    config.plugins.push(new MiniCssExtractPlugin());
-
+    config.css ||= {};
+    config.css.preprocessorOptions ||= {};
+    config.css.preprocessorOptions.scss = {
+      importer: [require('../glob-sass-importer')],
+    };
     return config;
   },
 };

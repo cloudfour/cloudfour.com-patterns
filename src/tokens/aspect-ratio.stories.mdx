@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 import tokens from '../compiled/tokens/js/tokens.js';
-const _ = require('lodash');
+import * as _ from 'smoldash';
 const aspectRatios = tokens.number.aspect_ratio;
 const aspectRatioRows = Object.keys(aspectRatios).map((key) => {
   const { name, attributes, value, comment } = aspectRatios[key];

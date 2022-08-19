@@ -1,5 +1,5 @@
 const StyleDictionary = require('style-dictionary');
-const _ = require('lodash');
+const _ = require('smoldash');
 
 /**
  * Custom Transform: Kebab-Case without Category

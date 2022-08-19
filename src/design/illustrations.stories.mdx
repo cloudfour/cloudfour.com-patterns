@@ -1,17 +1,16 @@
 import { Meta, Story } from '@storybook/addon-docs';
-import { basename, extname } from 'path';
 import imageDeck from './demo/image-deck.twig';
 import responsiveImageDeck from './demo/responsive-image-deck.twig';
 import responsiveImage from '../assets/illustrations/responsive-fallback.svg';
 import avatarDefaultSrc from '../assets/illustrations/avatar-default.svg';
-const featureImageDir = require.context(
-  '../assets/illustrations/feature',
-  false,
-  /\.svg$/
+import { filePathToName } from '../file-path-to-name.js'
+const featureImageDir = import.meta.glob(
+  '../assets/illustrations/feature/*.svg',
+  { eager: true }
 );
-const featureImageData = featureImageDir.keys().map((key) => {
-  const name = basename(key, extname(key));
-  const src = featureImageDir(key);
+const featureImageData = Object.values(featureImageDir).map((module) => {
+  const src = module.default;
+  const name = filePathToName(src);
   return { name, src };
 });
 

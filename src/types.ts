@@ -1,5 +1,8 @@
 declare module '*.twig' {
-  function template(opts: Record<string, unknown>): string;
+  function template(
+    opts: Record<string, unknown>,
+    callback?: (root: Element) => unknown
+  ): string;
   export default template;
 }
 

@@ -1,6 +1,6 @@
-const fs = require('fs/promises');
+const path = require('node:path');
+
 const glob = require('tiny-glob');
-const path = require('path');
 
 /** @returns {import('vite').Plugin} */
 const twingPlugin = () => {
@@ -16,16 +16,6 @@ const twingPlugin = () => {
       if (id === twingLoader) {
         const files = await glob('src/**/*.twig', { cwd: process.cwd() });
 
-        // const preloadedFiles = (
-        //   await Promise.all(
-        //     files.map(async (f) => {
-        //       const newName = f.replace(/^src\//g, '@cloudfour/');
-        //       return `${JSON.stringify(newName)}: ${JSON.stringify(
-        //         await fs.readFile(f, 'utf8')
-        //       )}`;
-        //     })
-        //   )
-        // ).join(',\n');
         return `
           import { TwingLoaderArray } from '@cloudfour/twing-browser-esm'
           import { environment } from ${JSON.stringify(twingEnv)}
@@ -103,6 +93,11 @@ const twingPlugin = () => {
         }
 
         const render = (args = {}, callback = () => {}) => {
+          if (typeof callback !== 'function') {
+            const msg = '2nd parameter to twig template, if passed, must be a callback function.'
+            console.error(msg, 'found', callback)
+            throw new Error('2nd parameter to twig template, if passed, must be a callback function.')
+          }
           const el = document.createElement('div')
           let cleanup = null
           if (import.meta.hot) {
@@ -116,6 +111,7 @@ const twingPlugin = () => {
                 cleanup = callback()
               }).catch((err) => {
                 el.innerHTML = err.stack
+                console.error(err)
               })
             })
           }
@@ -126,6 +122,7 @@ const twingPlugin = () => {
               cleanup = callback()
             }).catch((err) => {
               el.innerHTML = err.stack
+                console.error(err)
             })
           }
           el.__onStoryBookDetach = () => {

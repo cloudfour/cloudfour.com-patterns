@@ -34,14 +34,28 @@ module.exports = {
 
     config.optimizeDeps ||= {};
     config.optimizeDeps.include = [
-      '@storybook/addon-viewport',
-      'react-syntax-highlighter/dist/esm/prism-light',
-      'react-syntax-highlighter/dist/esm/languages/prism/twig',
-      'focus-visible',
-      'react',
+      '@cloudfour/twing-browser-esm',
       '@mdx-js/react',
       '@storybook/addon-docs',
+      '@storybook/addon-viewport',
+      'focus-visible',
       'jabber',
+      'prismjs',
+      'prismjs/components/prism-bash',
+      'prismjs/components/prism-handlebars',
+      'prismjs/components/prism-json',
+      'prismjs/components/prism-jsx',
+      'prismjs/components/prism-markup-templating',
+      'prismjs/components/prism-php',
+      'prismjs/components/prism-scss',
+      'prismjs/components/prism-toml',
+      'prismjs/components/prism-tsx',
+      'prismjs/components/prism-twig',
+      'prismjs/components/prism-typescript',
+      'prismjs/components/prism-yaml',
+      'react',
+      'react-syntax-highlighter/dist/esm/languages/prism/twig',
+      'react-syntax-highlighter/dist/esm/prism-light',
       'smoldash',
     ];
 

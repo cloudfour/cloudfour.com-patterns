@@ -6,7 +6,7 @@ const demoImageSrcs = Object.values(demoImageDir).map(
 );
 // https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
 const shuffle = (array) => {
-  let arr = array.slice();
+  const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];

@@ -2,6 +2,7 @@ import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import MarkdownDemo from './demo/compare-markdown.twig';
 import HTMLDemo from './demo/compare-html.twig';
 import GutenbergDemo from './demo/compare-gutenberg.twig';
+import CommentDemo from './demo/compare-comment.twig';
 
 <Meta title="Vendor/WordPress/Core Element Comparison" />
 
@@ -31,4 +32,12 @@ This shows the same set of elements created using core WordPress blocks.
 
 <Canvas>
   <Story name="Gutenberg">{() => GutenbergDemo()}</Story>
+</Canvas>
+
+## Comments
+
+This shows the same set of elements created in a comment.
+
+<Canvas>
+  <Story name="Comments">{() => CommentDemo()}</Story>
 </Canvas>

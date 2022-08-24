@@ -115,7 +115,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 .wp-block-code,
 .wp-block-jetpack-markdown pre,
-.legacy-post pre {
+.legacy-post :not(.c-comment .c-comment__content) > pre {
   @include spacing.fluid-margin-inline-negative; // 1
   @include spacing.fluid-padding-inline; // 1
 
@@ -202,7 +202,8 @@ figure.wp-block-image {
  */
 .wp-block-table,
 .wp-block-jetpack-markdown,
-.legacy-post {
+.legacy-post,
+.c-comment {
   table td,
   table th {
     @include table.t-container;

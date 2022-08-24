@@ -115,7 +115,7 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 .wp-block-code,
 .wp-block-jetpack-markdown pre,
-.legacy-post :not(.c-comment .c-comment__content) > pre {
+.legacy-post :not(.c-comment) > :not(.c-comment__content) > pre {
   @include spacing.fluid-margin-inline-negative; // 1
   @include spacing.fluid-padding-inline; // 1
 

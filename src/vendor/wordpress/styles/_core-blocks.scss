@@ -124,6 +124,12 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   }
 }
 
+// Don't outdent code blocks in comments, where spacing is at a premium.
+.c-comment pre {
+  margin-inline: 0;
+  padding-inline: ms.step(1); // restoring default padding
+}
+
 /// Gutenberg block: Image
 /// Styles for images inserted via Gutenberg blocks.
 
@@ -202,7 +208,8 @@ figure.wp-block-image {
  */
 .wp-block-table,
 .wp-block-jetpack-markdown,
-.legacy-post {
+.legacy-post,
+.c-comment {
   table td,
   table th {
     @include table.t-container;

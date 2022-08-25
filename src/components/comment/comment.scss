@@ -71,9 +71,11 @@
 
 /// 1. The fluid heading size changes depending on the viewport, but the content
 ///    always looks just a *tad* close to the header. This offsets that.
+/// 2. Allow grid cells to shrink when contents are wider than available space.
 .c-comment__content {
   grid-area: content;
   margin-block-start: math.div(size.$rhythm-condensed, -4); // 1
+  min-width: 0; // 2
 }
 
 // We added default styles to the blockquote element using the `wp-block-quote`

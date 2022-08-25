@@ -115,13 +115,19 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
  */
 .wp-block-code,
 .wp-block-jetpack-markdown pre,
-.legacy-post :not(.c-comment__content) > pre {
+.legacy-post pre {
   @include spacing.fluid-margin-inline-negative; // 1
   @include spacing.fluid-padding-inline; // 1
 
   code {
     white-space: pre; // 2
   }
+}
+
+// Don't outdent code blocks in comments, where spacing is at a premium.
+.c-comment pre {
+  margin-inline: 0;
+  padding-inline: ms.step(1); // restoring default padding
 }
 
 /// Gutenberg block: Image

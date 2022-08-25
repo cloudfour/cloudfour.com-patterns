@@ -75,7 +75,7 @@
 .c-comment__content {
   grid-area: content;
   margin-block-start: math.div(size.$rhythm-condensed, -4); // 1
-  min-width: 0; // 2
+  min-inline-size: 0; // 2
 }
 
 // We added default styles to the blockquote element using the `wp-block-quote`

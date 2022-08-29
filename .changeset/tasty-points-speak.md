@@ -2,4 +2,4 @@
 '@cloudfour/patterns': patch
 ---
 
-Remove focus-visible JS dependency
+Remove focus-visible polyfill

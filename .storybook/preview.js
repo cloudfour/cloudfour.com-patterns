@@ -5,7 +5,6 @@ import twig from 'react-syntax-highlighter/dist/esm/languages/prism/twig';
 import { withTheme } from './theme-decorator';
 import { withTextFlow } from './text-flow-decorator';
 import tokens from '../src/compiled/tokens/js/tokens';
-import 'focus-visible';
 import '../src/index-with-dependencies.scss';
 import './preview.scss';
 import { makeTwigInclude } from '../src/make-twig-include';

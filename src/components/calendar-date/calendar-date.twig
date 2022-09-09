@@ -1,21 +1,40 @@
-{% set datetime = datetime|default('now') %}
-{% set days = days|default(1) %}
+{% set _datetime = datetime|default('now') %}
 {% set _note %}{% block note %}{{ note }}{% endblock %}{% endset %}
 
-<time class="c-calendar-date c-calendar-date--{{ datetime|date('F')|lower }}{% if class %} {{ class }}{% endif %}"
-  datetime="{{ datetime|date('Y-m-d') }}"
+<div
+  class="c-calendar-date c-calendar-date--{{ _datetime|date('F')|lower }}{% if class %} {{ class }}{% endif %}"
 >
-  <span class="c-calendar-date__header">
-    {{ datetime|date('M') }}
+  {# The abbreviated month is aria-hidden as it's only presentational #}
+  <span class="c-calendar-date__header" aria-hidden="true">
+    {{ _datetime|date('M') }}
   </span>
+
   <span class="c-calendar-date__main">
-    <span class="c-calendar-date__day">
-      {{ datetime|date('j') }}
-    </span>
+    <time class="c-calendar-date__day" datetime="{{ _datetime|date('Y-m-d') }}">
+      {# The day of the month is aria-hidden as it's only presentational #}
+      <span aria-hidden="true">{{ _datetime|date('j') }}</span>
+      {# The full date is accessible to screen readers to provide full context #}
+      <span class="u-hidden-visually">{{ _datetime|date('F j, o') }}</span>
+    </time>
+
     {% if _note %}
       <span class="c-calendar-date__note">
         {{ _note }}
       </span>
+    {% else %}
+      {#
+        A default visually hidden note to provide extra context for screen reader users.
+      #}
+      <span class="u-hidden-visually">Single-day event</span>
     {% endif %}
   </span>
-</time>
+</div>
+
+{#
+
+September 9, 2022
+Single-day event
+September 9, 2022
+3-day event
+
+ #}

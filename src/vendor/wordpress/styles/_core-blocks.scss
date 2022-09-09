@@ -157,6 +157,14 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
     margin-block-start: 0; // 1
     max-inline-size: calc(50% - 0.5em); // 2
   }
+
+  /// Apply border only to image
+  /// match .u-border-small
+  &.is-style-outlined img {
+    border-color: var(--theme-color-border-text-group);
+    border-style: solid;
+    border-width: size.$edge-small;
+  }
 }
 
 /// Because WordPress changes the structure of the Image block markup depending

@@ -159,11 +159,14 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   }
 
   /// Apply border only to image
-  /// match .u-border-small
+  ///
+  /// 1. We're using 1px borders here rather than size.$edge-small because it
+  ///    was causing subpixel rendering errors leaving a slight gap between the
+  ///    image and the border.
   &.is-style-outlined img {
     border-color: var(--theme-color-border-text-group);
     border-style: solid;
-    border-width: size.$edge-small;
+    border-width: 1px; // 1
   }
 }
 

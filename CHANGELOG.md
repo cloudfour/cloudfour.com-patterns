@@ -1,5 +1,22 @@
 # @cloudfour/patterns
 
+## 12.4.0
+
+### Minor Changes
+
+- [#2039](https://github.com/cloudfour/cloudfour.com-patterns/pull/2039) [`59f65eba`](https://github.com/cloudfour/cloudfour.com-patterns/commit/59f65eba2b39c6013af6cae13713a050e70a1946) Thanks [@spaceninja](https://github.com/spaceninja)! - Add outlined block style for WP Image block.
+
+### Patch Changes
+
+- [#2040](https://github.com/cloudfour/cloudfour.com-patterns/pull/2040) [`5f8cbcda`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5f8cbcdaef37f583f4c82a4586cca19b821ce611) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Enhance Calendar Date screen reader UX
+
+- [#2022](https://github.com/cloudfour/cloudfour.com-patterns/pull/2022) [`5ecc88b2`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5ecc88b24a1efe74b3f57cf9b1bcd684e9742393) Thanks [@spaceninja](https://github.com/spaceninja)! - Improved comment styles:
+
+  - Applying table styles to tables in comments.
+  - Removing outdenting from code blocks in comments on legacy posts.
+
+- [#2032](https://github.com/cloudfour/cloudfour.com-patterns/pull/2032) [`0141b47e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0141b47e0d74d8df0f5fe9d45649005617748b97) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Remove focus-visible polyfill
+
 ## 12.3.1
 
 ### Patch Changes

@@ -13,12 +13,34 @@
     </p>
   {% endblock %}
   {% block content %}
-    <p class="u-pad-1">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu ex
-      enim. Nunc efficitur scelerisque dolor et sollicitudin. Donec finibus
-      lorem elit, eu consectetur quam pellentesque sed. Pellentesque habitant
-      morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-    </p>
+    {% embed '@cloudfour/objects/container/container.twig' with {
+      class: 'o-container--pad'
+    } only %}
+      {% block content %}
+        {% embed '@cloudfour/objects/rhythm/rhythm.twig' only %}
+          {% block content %}
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu ex
+              enim. Nunc efficitur scelerisque dolor et sollicitudin. Donec finibus
+              lorem elit, eu consectetur quam pellentesque sed. Pellentesque habitant
+              morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu ex
+              enim. Nunc efficitur scelerisque dolor et sollicitudin. Donec finibus
+              lorem elit, eu consectetur quam pellentesque sed. Pellentesque habitant
+              morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu ex
+              enim. Nunc efficitur scelerisque dolor et sollicitudin. Donec finibus
+              lorem elit, eu consectetur quam pellentesque sed. Pellentesque habitant
+              morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            </p>
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
   {% endblock %}
   {% block footer %}
     <p class="u-pad-1 t-dark">

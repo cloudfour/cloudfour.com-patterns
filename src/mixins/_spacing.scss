@@ -36,12 +36,12 @@ $fluid-gap: fluid.fluid-clamp(
   $fluid-spacing-breakpoint-max
 );
 
-@mixin fluid-padding-block() {
-  padding-block: $fluid-spacing-block;
+@mixin fluid-padding-block($factor: 1) {
+  padding-block: calc($fluid-spacing-block * $factor);
 }
 
-@mixin fluid-padding-inline() {
-  padding-inline: $fluid-spacing-inline;
+@mixin fluid-padding-inline($factor: 1) {
+  padding-inline: calc($fluid-spacing-inline * $factor);
 }
 
 @mixin fluid-margin-inline-negative() {

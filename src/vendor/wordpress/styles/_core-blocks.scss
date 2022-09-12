@@ -157,6 +157,17 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
     margin-block-start: 0; // 1
     max-inline-size: calc(50% - 0.5em); // 2
   }
+
+  /// Apply border only to image
+  ///
+  /// 1. We're using 1px borders here rather than size.$edge-small because it
+  ///    was causing subpixel rendering errors leaving a slight gap between the
+  ///    image and the border.
+  &.is-style-outlined img {
+    border-color: var(--theme-color-border-text-group);
+    border-style: solid;
+    border-width: 1px; // 1
+  }
 }
 
 /// Because WordPress changes the structure of the Image block markup depending

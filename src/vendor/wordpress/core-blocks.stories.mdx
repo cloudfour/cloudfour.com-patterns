@@ -2,14 +2,6 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import blockImageDemo from './demo/image.twig';
 import blockCodeDemo from './demo/code.twig';
 import blockGroupDemo from './demo/group.twig';
-const alignmentClasses = {
-  None: '',
-  Left: 'alignleft',
-  Center: 'aligncenter',
-  Right: 'alignright',
-  Full: 'alignfull',
-  Wide: 'alignwide',
-};
 
 <Meta title="Vendor/WordPress/Core Blocks" />
 
@@ -397,12 +389,28 @@ closing wrapper tag.
     name="Image"
     argTypes={{
       alignment: {
-        options: alignmentClasses,
+        options: {
+          None: '',
+          Left: 'alignleft',
+          Center: 'aligncenter',
+          Right: 'alignright',
+          Full: 'alignfull',
+          Wide: 'alignwide',
+        },
+        defaultValue: '',
+        control: { type: 'select' },
+      },
+      style: {
+        options: {
+          None: 'is-style-default',
+          Outlined: 'is-style-outlined',
+        },
+        defaultValue: 'is-style-default',
         control: { type: 'select' },
       },
     }}
   >
-    {(args) => blockImageDemo({ class: args.alignment })}
+    {(args) => blockImageDemo({ alignment: args.alignment, style: args.style })}
   </Story>
 </Canvas>
 

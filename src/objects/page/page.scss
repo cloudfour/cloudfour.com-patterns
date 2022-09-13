@@ -32,16 +32,21 @@
 /**
  * An optional `alert` block can be used to pass an Alert component
  *
- * 1. The alert should overlap the content above slightly
+ * 1. Use a $factor of 0.5 to allow the alert to bleed more into the
+ *    content margins instead of aligning with the content itself.
+ * 2. Match the padding-inline for visual balance.
  */
 
 .o-page__alert {
-  @include spacing.fluid-padding-inline;
+  @include spacing.fluid-padding-inline($factor: 0.5); // 1
+  @include spacing.fluid-padding-block($factor: 0.5); // 2
+
   display: grid;
   grid-row: 2;
-  inset-block-start: calc(size.$overlap-large * -1); // 1
+  inline-size: 100%;
+  inset-block-end: 0;
   justify-content: center;
-  position: relative;
+  position: fixed;
   z-index: z-index.$alert;
 }
 

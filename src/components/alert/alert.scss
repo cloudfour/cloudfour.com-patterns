@@ -68,11 +68,11 @@
   @include theme.styles {
     --theme-color-shadow-inner: #{sass-color.change(
         color.$brand-primary-darker,
-        $alpha: 0.2
+        $alpha: 0.4
       )};
     --theme-color-shadow-outer: #{sass-color.change(
         color.$brand-primary-darker,
-        $alpha: 0.1
+        $alpha: 0.2
       )};
   }
   @include theme.styles(dark) {

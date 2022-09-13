@@ -37,11 +37,21 @@ $fluid-gap: fluid.fluid-clamp(
 );
 
 @mixin fluid-padding-block($factor: 1) {
-  padding-block: calc($fluid-spacing-block * $factor);
+  padding-block: fluid.fluid-clamp(
+    $fluid-spacing-block-min * $factor,
+    $fluid-spacing-block-max * $factor,
+    $fluid-spacing-breakpoint-min,
+    $fluid-spacing-breakpoint-max
+  );
 }
 
 @mixin fluid-padding-inline($factor: 1) {
-  padding-inline: calc($fluid-spacing-inline * $factor);
+  padding-inline: fluid.fluid-clamp(
+    $fluid-spacing-inline-min * $factor,
+    $fluid-spacing-inline-max * $factor,
+    $fluid-spacing-breakpoint-min,
+    $fluid-spacing-breakpoint-max
+  );
 }
 
 @mixin fluid-margin-inline-negative() {

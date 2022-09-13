@@ -72,7 +72,7 @@
       )};
     --theme-color-shadow-outer: #{sass-color.change(
         color.$brand-primary-darker,
-        $alpha: 0.3
+        $alpha: 0.2
       )};
   }
   @include theme.styles(dark) {

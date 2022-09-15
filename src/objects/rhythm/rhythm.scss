@@ -9,34 +9,37 @@
   @include spacing.vertical-rhythm(size.$rhythm-default);
 }
 
-// General spacing modifiers
+/// General spacing modifiers
+///
+/// The `--rhythm` property change is applied to children so it won't impact
+/// any rhythm acting on the parent element.
 
-.o-rhythm--compact {
+.o-rhythm--compact > * {
   --rhythm: #{size.$rhythm-compact};
 }
 
-.o-rhythm--condensed {
+.o-rhythm--condensed > * {
   --rhythm: #{size.$rhythm-condensed};
 }
 
-.o-rhythm--generous {
+.o-rhythm--generous > * {
   --rhythm: #{size.$rhythm-generous};
 }
 
-.o-rhythm--lavish {
+.o-rhythm--lavish > * {
   @include spacing.fluid-vertical-rhythm;
 }
 
-.o-rhythm--default {
+.o-rhythm--default > * {
   --rhythm: #{size.$rhythm-default};
 }
 
 // Heading modifiers
 
-.o-rhythm--generous-headings {
+.o-rhythm--generous-headings > * {
   --rhythm-headings: #{size.$rhythm-generous};
 }
 
-.o-rhythm--lavish-headings {
+.o-rhythm--lavish-headings > * {
   @include spacing.fluid-vertical-rhythm($headings: true);
 }

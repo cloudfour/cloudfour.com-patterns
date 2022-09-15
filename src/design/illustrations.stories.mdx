@@ -1,9 +1,10 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { basename, extname } from 'path';
 import imageDeck from './demo/image-deck.twig';
 import responsiveImageDeck from './demo/responsive-image-deck.twig';
 import responsiveImage from '../assets/illustrations/responsive-fallback.svg';
-import avatarDefaultSrc from '../assets/illustrations/avatar-default.svg';
+import avatarDefaultSrc from '../assets/illustrations/avatar/default.svg';
+import avatarTransparentSrc from '../assets/illustrations/avatar/transparent.svg';
 const featureImageDir = require.context(
   '../assets/illustrations/feature',
   false,
@@ -48,8 +49,23 @@ What's unique about this image is its responsiveness. Depending on the size of t
   }
 </Story>
 
-## Default avatar
+## Avatars
 
-This asset may be used in place of a specific user avatar. To differentiate multiple fallback avatars, consider swapping its fill colors for [others in our palette](/docs/design-colors--page).
+These assets may be used in place of a specific user avatar.
 
-<Story name="Default avatar">{`<img src="${avatarDefaultSrc}" alt="Default avatar">`}</Story>
+The `default` avatar includes a background color, whereas `transparent` allows the parent element background color to show through.
+
+Both assets are available in SVG and PNG (default and `@2x`) formats.
+
+<Canvas>
+  <Story name="Default avatar">{`<img src="${avatarDefaultSrc}" alt="Default avatar">`}</Story>
+  <Story
+    name="Transparent avatar"
+    parameters={{
+      docs: {
+        transformSource: (src) => src.replace(/ style="([^"]+)"/g, ''),
+      },
+    }}
+  >{`<img src="${avatarTransparentSrc}" alt="Transparent avatar" style="background-color: var(--theme-color-background-secondary); background-image: linear-gradient(45deg, var(--theme-color-border-base) 25%, transparent 25%, transparent 75%, var(--theme-color-border-base) 75%, var(--theme-color-border-base)),
+linear-gradient(45deg, var(--theme-color-border-base) 25%, transparent 25%, transparent 75%, var(--theme-color-border-base) 75%, var(--theme-color-border-base)); background-size: 40px 40px; background-position: 0 0, 20px 20px;">`}</Story>
+</Canvas>

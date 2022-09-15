@@ -18,13 +18,14 @@
    * We define a media query for our initial grid so child elements will flex
    * for viewports smaller than our minimum column size.
    *
-   * Our use of `auto-fit` means columns will be automatically created as space
-   * allows.
+   * `auto-fill` creates extra columns as space allows, and will not stretch
+   * columns to fill empty space (which makes sure adjacent objects with
+   * differing item counts will stay aligned).
    */
 
   @media (width >= breakpoint.$xs) {
     grid-template-columns: repeat(
-      auto-fit,
+      auto-fill,
       minmax(#{size.$width-card-column-min}, 1fr)
     );
   }

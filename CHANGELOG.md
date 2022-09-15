@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 12.5.0
+
+### Minor Changes
+
+- [#2046](https://github.com/cloudfour/cloudfour.com-patterns/pull/2046) [`4a00bc68`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4a00bc68c389d963e9af240e5f226f8bcdc7eae0) Thanks [@tylersticka](https://github.com/tylersticka)! - Add transparent version of default avatar
+
+- [#2044](https://github.com/cloudfour/cloudfour.com-patterns/pull/2044) [`538ff1c2`](https://github.com/cloudfour/cloudfour.com-patterns/commit/538ff1c2fb2f46f033f22f0ee5e199deb7796410) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Fixed positioning, bottom-alignment for Alert component
+
+- [#2046](https://github.com/cloudfour/cloudfour.com-patterns/pull/2046) [`4a00bc68`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4a00bc68c389d963e9af240e5f226f8bcdc7eae0) Thanks [@tylersticka](https://github.com/tylersticka)! - Add PNG format for default avatar assets
+
+### Patch Changes
+
+- [#2047](https://github.com/cloudfour/cloudfour.com-patterns/pull/2047) [`067e8df8`](https://github.com/cloudfour/cloudfour.com-patterns/commit/067e8df8f39dd42b5f6f91a09e63fa0d49126013) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix issue where Deck objects would unexpectedly stretch columns at wider viewports
+
 ## 12.4.0
 
 ### Minor Changes

@@ -35,6 +35,18 @@ const initCommentReplyForms = () => {
     };
   }
 };
+// Generate random comments for better performance.
+// Before, the makeComment() function was called inline inside each <Story> but
+// the randomness caused the stories to render hundreds or thousands of times.
+// The page would freeze up. Now, we create a random set of comments ahead of
+// time and just reference them in the stories.
+const totalRandomComments = 5;
+const randomComments = [];
+for (let i = 0; i < totalRandomComments; i++) {
+  randomComments.push(makeComment());
+}
+const randomCommentWithReply = makeComment({ replies: 2 });
+const randomNotApprovedComment = makeComment({ approved: false });
 
 <Meta
   title="Components/Comment"

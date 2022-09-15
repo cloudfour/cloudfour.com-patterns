@@ -205,6 +205,21 @@ figure.wp-block-image {
   }
 }
 
+/// Gutenberg block: Group
+///
+/// Allow child elements to inherit the parent element rhythm.
+.wp-block-group__inner-container {
+  @include spacing.vertical-rhythm;
+
+  /// If the first child of the group is a block image that is not a `figure`
+  /// element, assume it is a left- or right-aligned image. To prevent extra
+  /// whitespace at the top of the group, we negate the start margin of the
+  /// next element in the group.
+  > .wp-block-image:not(figure):first-child + * {
+    margin-block-start: 0;
+  }
+}
+
 /**
  * Gutenberg block: Table
  * Applies our pattern library styles to tables generated via Gutenberg blocks.

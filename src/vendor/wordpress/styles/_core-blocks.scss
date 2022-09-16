@@ -258,25 +258,26 @@ figure.wp-block-image {
   }
 }
 
-/**
- * Striped table
- */
-.wp-block-table.is-style-stripes {
-  border-block-end: 0;
+/// Gutenberg block: Table
+.wp-block-table {
+  &.is-style-stripes {
+    border-block-end: 0;
 
-  tbody tr:nth-of-type(2n - 1) {
-    @include table.t-striped;
+    tbody tr:nth-of-type(2n - 1) {
+      @include table.t-striped;
+    }
   }
-}
 
-/**
- * Numeric table
- */
-.wp-block-table.c-table--numeric table {
-  @include table.t-numeric;
+  &.is-style-ruled tbody tr {
+    @include table.t-ruled;
+  }
 
-  th {
-    text-align: end;
+  &.is-style-numeric table {
+    @include table.t-numeric;
+
+    th {
+      text-align: end;
+    }
   }
 }
 

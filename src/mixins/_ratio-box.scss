@@ -12,26 +12,13 @@ $default-ratio: aspect-ratio.$square;
 /// @type Map
 $aspect-ratio-map: meta.module-variables('aspect-ratio');
 
-/// Core ratio box hack styles.
+/// Core ratio box styles.
 ///
 /// @param {Number} $ratio [$default-ratio] - The desired aspect ratio.
-/// @param {Mixed} $padding [false] - If present, this will override the ratio.
-/// Allows the output padding value to be specified directly, which is useful
-/// for outputting something based on a custom property.
-/// @link https://css-tricks.com/aspect-ratio-boxes/
-@mixin core-styles($ratio: $default-ratio, $padding: false) {
-  @if $padding == false {
-    $padding: math.div(100%, $ratio);
-  }
-
+@mixin core-styles($ratio: $default-ratio) {
+  aspect-ratio: $ratio;
   overflow: hidden;
   position: relative;
-
-  &::before {
-    content: '';
-    display: block;
-    padding-block-end: $padding;
-  }
 
   > *,
   > picture > img {
@@ -39,7 +26,6 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
     inline-size: 100%;
     inset-block-start: 0;
     inset-inline-start: 0;
-    position: absolute;
   }
 
   > img,
@@ -62,13 +48,12 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
   > *,
   > picture > img {
     display: block;
-    inline-size: 100%;
   }
 
   @supports (--custom: property) {
     --aspect-ratio: #{$default-ratio};
 
-    @include core-styles($padding: calc(100% / (var(--aspect-ratio))));
+    @include core-styles($ratio: var(--aspect-ratio));
 
     @if $include-modifiers {
       @include enhanced-modifiers($default-ratio: $default-ratio);

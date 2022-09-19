@@ -8,8 +8,6 @@
 
 ### Patch Changes
 
-- [#2048](https://github.com/cloudfour/cloudfour.com-patterns/pull/2048) [`72c76bca`](https://github.com/cloudfour/cloudfour.com-patterns/commit/72c76bca02058108bfb93fc2a14cea709eca9096) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Fix Comment story performance issue
-
 - [#2049](https://github.com/cloudfour/cloudfour.com-patterns/pull/2049) [`558236e5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/558236e5b223f6f4dca5317046991fe4c149a651) Thanks [@tylersticka](https://github.com/tylersticka)! - Allow WordPress Group blocks to inherit vertical rhythm
 
 - [#2051](https://github.com/cloudfour/cloudfour.com-patterns/pull/2051) [`1d3fc088`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1d3fc088bed0f09e7ac389c0282923af4a949c10) Thanks [@tylersticka](https://github.com/tylersticka)! - Nested rhythm objects with modifiers no longer lose their own vertical rhythm

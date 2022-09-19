@@ -1,0 +1,35 @@
+{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
+  {% block heading %}
+    {% embed '@cloudfour/components/heading/heading.twig' with {
+      level: -1,
+      weight: 'light',
+    } only %}
+      {% block content %}
+        We craft <b>accessible</b>, <b>responsive</b> &amp; <b>futuristic</b> web experiences
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+  {% block content %}
+    <p>
+      Cloud Four partners with forward-thinking organizations to solve complex web and design system challenges.
+    </p>
+    <p>
+      {% include '@cloudfour/components/button/button.twig' with {
+        "content_end_icon": "arrow-right",
+        "label": "What We Do",
+        "href": "#",
+        "class": "c-button--secondary"
+      } only %}
+    </p>
+  {% endblock %}
+  {% block scene %}
+    <object
+      class="c-cloud-cover__scene-object"
+      data="https://cloudfour.com/wp-content/themes/cloudfour2022/static/animation.svg"
+      type="image/svg+xml"
+      aria-hidden="true"
+      tabindex="-1">
+      <img src="https://cloudfour.com/wp-content/themes/cloudfour2022/static/animation-fallback.png" alt="" />
+    </object>
+  {% endblock %}
+{% endembed %}

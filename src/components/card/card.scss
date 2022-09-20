@@ -121,7 +121,7 @@ $_focus-overflow: (size.$edge-large * -1);
      * When the cover image is circular (and thus taller), give it a smaller
      * amount of space and keep the text left-aligned.
      *
-     * 1. Fixes bug where the cirlce wasn't a circle anymore at smallest viewports
+     * 1. Fixes bug where the circle cover wasn't a circle at smallest viewports
      */
 
     &.c-card--circle-cover {

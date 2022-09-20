@@ -91,8 +91,9 @@ $_focus-overflow: (size.$edge-large * -1);
  *    available width.
  * 2. We define the layout as three columns instead of `2fr 1fr` so that the
  *    gaps will line up with three-column elements below.
- * 3. The `fr` rows on the
- *    ends keep the content rows vertically centered.
+ * 3. The `fr` rows on the ends keep the content rows vertically centered.
+ * 4. Allows cover image to break out of 16/9 aspect-ratio and fill the space
+ *    vertically at smallish viewports (only applies in the horizontal layout)
  */
 
 .c-card--horizontal {
@@ -111,9 +112,16 @@ $_focus-overflow: (size.$edge-large * -1);
     grid-template-columns: repeat(3, 1fr); /* 2 */
     grid-template-rows: 1fr repeat(3, minmax(0, auto)) 1fr; /* 3 */
 
+    .c-card__cover {
+      block-size: 100%; /* 4 */
+      inline-size: 100%; /* 4 */
+    }
+
     /**
      * When the cover image is circular (and thus taller), give it a smaller
      * amount of space and keep the text left-aligned.
+     *
+     * 1. Fixes bug where the cirlce wasn't a circle anymore at smallest viewports
      */
 
     &.c-card--circle-cover {
@@ -124,6 +132,11 @@ $_focus-overflow: (size.$edge-large * -1);
         'cover footer footer'
         'cover . .';
       text-align: start;
+
+      .c-card__cover {
+        block-size: auto; /* 1 */
+        inline-size: auto; /* 1 */
+      }
     }
   }
 }

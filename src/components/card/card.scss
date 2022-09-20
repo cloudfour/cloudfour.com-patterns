@@ -244,11 +244,8 @@ $_focus-overflow: (size.$edge-large * -1);
    */
 
   .c-card--circle-cover & {
+    aspect-ratio: 1;
     border-radius: size.$border-radius-full;
-
-    &::before {
-      padding-block-end: 100%;
-    }
   }
 
   /**

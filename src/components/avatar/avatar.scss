@@ -24,15 +24,22 @@
  * 2. Prevent this element from squashing or stretching within a flex container.
  * 3. The most common use cases for avatars use a consistent width, so we set
  *    that here.
+ * 4. Ensures the image fills the full dimensions of the avatar container.
  */
 
 .c-avatar {
-  // Ratio box hack lets us support fixed _and_ percentage widths with ease
-  @include ratio-box.core-styles;
+  aspect-ratio: 1;
   background: var(--theme-color-background-avatar); /* 1 */
   border-radius: size.$border-radius-full;
   flex: none; /* 2 */
   inline-size: size.$square-avatar-medium; /* 3 */
+  overflow: hidden;
+
+  > img,
+  > picture > img {
+    block-size: 100%; /* 4 */
+    inline-size: 100%; /* 4 */
+  }
 }
 
 /**

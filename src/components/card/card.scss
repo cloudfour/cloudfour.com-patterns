@@ -11,7 +11,6 @@
 @use '../../mixins/headings';
 @use '../../mixins/media-query';
 @use '../../mixins/ms';
-@use '../../mixins/ratio-box';
 @use '../../mixins/theme';
 
 /// We can't use `grid-gap` exclusively due to some containers only being

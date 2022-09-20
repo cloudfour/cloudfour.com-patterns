@@ -235,15 +235,8 @@ $_focus-overflow: (size.$edge-large * -1);
   background-color: var(--theme-color-background-secondary); /* 1 */
   border-radius: size.$border-radius-medium;
   grid-area: cover;
-  transform: translate(0, 0); /* 2 */
   overflow: hidden;
-
-  > *,
-  > picture > img {
-    block-size: 100%;
-    inline-size: 100%;
-    object-fit: cover;
-  }
+  transform: translate(0, 0); /* 2 */
 
   /**
    * Subtly brighten covers within our alternate theme containers to help offset
@@ -295,6 +288,9 @@ $_focus-overflow: (size.$edge-large * -1);
 
 .c-card__cover > *,
 .c-card__cover > picture > img {
+  block-size: 100%;
+  inline-size: 100%;
+  object-fit: cover;
   transition: transform transition.$prompt ease.$out;
 
   .c-card--with-link:hover:not(:active) & {

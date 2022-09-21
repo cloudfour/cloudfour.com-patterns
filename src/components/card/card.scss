@@ -130,14 +130,6 @@ $_focus-overflow: (size.$edge-large * -1);
         'cover footer footer'
         'cover . .';
       text-align: start;
-
-      /*
-       * 1. Fixes bug where the circle cover wasn't a circle at smallest viewports
-       */
-
-      .c-card__cover {
-        block-size: auto; /* 1 */
-      }
     }
   }
 }
@@ -252,11 +244,14 @@ $_focus-overflow: (size.$edge-large * -1);
 
   /**
    * Square aspect ratio + fully rounded corners = circular cover image
+   *
+   * 1. Fixes bug where the circle cover wasn't a circle at smallest viewports
    */
 
   .c-card--circle-cover & {
     aspect-ratio: 1;
     border-radius: size.$border-radius-full;
+    block-size: auto; /* 1 */
   }
 
   /**

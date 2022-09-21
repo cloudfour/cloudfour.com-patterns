@@ -29,38 +29,47 @@ const nestingDemoTransformSource = (_src, storyContext) => {
   const argsString = argsStringFromStoryContext(storyContext);
   return nestingDemoSource.replace(".twig' %}", `.twig'${argsString} only %}`);
 };
+const amountOptions = [
+  '',
+  'compact',
+  'condensed',
+  'default',
+  'generous',
+  'lavish',
+];
+const argTypes = {
+  amount: {
+    options: amountOptions,
+    type: { name: 'enum' },
+    control: { type: 'select' },
+    description:
+      'Amount of vertical space to apply between adjacent elements as a keyword.',
+  },
+  heading_amount: {
+    options: ['', 'generous', 'lavish'],
+    type: { name: 'enum' },
+    control: { type: 'select' },
+    description:
+      'Amount of vertical space to apply before headings as a keyword.',
+  },
+  class: {
+    type: { name: 'string' },
+    description: 'CSS class name to append to element.',
+  },
+  tag_name: {
+    type: { name: 'string' },
+    description: 'The HTML tag of the element.',
+    table: {
+      defaultValue: {
+        summary: 'div',
+      },
+    },
+  },
+};
 
 <Meta
   title="Objects/Rhythm"
-  argTypes={{
-    amount: {
-      options: ['', 'compact', 'condensed', 'default', 'generous', 'lavish'],
-      type: { name: 'enum' },
-      control: { type: 'select' },
-      description:
-        'Amount of vertical space to apply between adjacent elements as a keyword.',
-    },
-    heading_amount: {
-      options: ['', 'generous', 'lavish'],
-      type: { name: 'enum' },
-      control: { type: 'select' },
-      description:
-        'Amount of vertical space to apply before headings as a keyword.',
-    },
-    class: {
-      type: { name: 'string' },
-      description: 'CSS class name to append to element.',
-    },
-    tag_name: {
-      type: { name: 'string' },
-      description: 'The HTML tag of the element.',
-      table: {
-        defaultValue: {
-          summary: 'div',
-        },
-      },
-    },
-  }}
+  argTypes={argTypes}
   parameters={{
     docs: { transformSource: demoTransformSource },
   }}
@@ -119,6 +128,14 @@ Nested rhythm objects will inherit any spacing set via modifiers. In this exampl
 <Canvas>
   <Story
     name="Nesting"
+    argTypes={{
+      ...argTypes,
+      nested_amount: {
+        options: amountOptions,
+        type: { name: 'enum' },
+        control: { type: 'select' },
+      },
+    }}
     args={{ amount: 'condensed' }}
     parameters={{
       docs: { transformSource: nestingDemoTransformSource },

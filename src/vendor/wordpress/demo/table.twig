@@ -1,0 +1,34 @@
+<figure class="wp-block-table{% if block_style %} is-style-{{block_style}}{% endif %}">
+  <table{% if fixed_layout %} class="has-fixed-layout"{% endif %}>
+    {% if show_header %}
+      <thead>
+        <tr>
+          {% for i in 1..3 %}
+            <th{% if column_alignment %} class="has-text-align-{{column_alignment}}" data-align="{{column_alignment}}"{% endif %}>Heading {{i}}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+    {% endif %}
+    <tbody>
+      {% for i in 1..3 %}
+        <tr>
+          <td{% if column_alignment %} class="has-text-align-{{column_alignment}}" data-align="{{column_alignment}}"{% endif %}>Hello, this is row {{i}}</td>
+          <td{% if column_alignment %} class="has-text-align-{{column_alignment}}" data-align="{{column_alignment}}"{% endif %}>Content</td>
+          <td{% if column_alignment %} class="has-text-align-{{column_alignment}}" data-align="{{column_alignment}}"{% endif %}>Content</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    {% if show_footer %}
+      <tfoot>
+        <tr>
+          {% for i in 1..3 %}
+            <td{% if column_alignment %} class="has-text-align-{{column_alignment}}" data-align="{{column_alignment}}"{% endif %}>Footer {{i}}</td>
+          {% endfor %}
+        </tr>
+      </tfoot>
+    {% endif %}
+  </table>
+  {% if show_caption %}
+    <figcaption>A caption can be added but is not rendered as a caption element</figcaption>
+  {% endif %}
+</figure>

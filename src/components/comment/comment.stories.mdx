@@ -35,6 +35,18 @@ const initCommentReplyForms = () => {
     };
   }
 };
+// Generate random comments for better performance.
+// Before, the makeComment() function was called inline inside each <Story> but
+// the randomness caused the stories to render hundreds or thousands of times.
+// The page would freeze up. Now, we create a random set of comments ahead of
+// time and just reference them in the stories.
+const totalRandomComments = 5;
+const randomComments = [];
+for (let i = 0; i < totalRandomComments; i++) {
+  randomComments.push(makeComment());
+}
+const randomCommentWithReply = makeComment({ replies: 2 });
+const randomNotApprovedComment = makeComment({ approved: false });
 
 <Meta
   title="Components/Comment"
@@ -75,7 +87,7 @@ This information may be passed to the component as a `comment` object matching t
       docs: {
         source: {
           code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment(),
+            comment: randomComments[0],
           }),
         },
       },
@@ -84,7 +96,7 @@ This information may be passed to the component as a `comment` object matching t
     {(args) => {
       useEffect(() => initCommentReplyForms());
       return template({
-        comment: makeComment(),
+        comment: randomComments[0],
         allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
@@ -111,7 +123,7 @@ It is helpful for context within a discussion to know when a commentor is the or
     {(args) => {
       useEffect(() => initCommentReplyForms());
       return authorDemo({
-        comment: makeComment(),
+        comment: randomComments[1],
         allow_replies: args.allowReplies,
         demo_post_author: true,
         logged_in_user: args.isLoggedIn ? tyler : null,
@@ -135,7 +147,7 @@ It is helpful for context within a discussion to know when a commentor is the or
     {(args) => {
       useEffect(() => initCommentReplyForms());
       return memberDemo({
-        comment: makeComment(),
+        comment: randomComments[2],
         allow_replies: args.allowReplies,
         demo_cloud_four_member: true,
         logged_in_user: args.isLoggedIn ? tyler : null,
@@ -156,9 +168,7 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
       docs: {
         source: {
           code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment({
-              approved: false,
-            }),
+            comment: randomNotApprovedComment,
           }),
         },
       },
@@ -167,9 +177,7 @@ If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) w
     {(args) => {
       useEffect(() => initCommentReplyForms());
       return template({
-        comment: makeComment({
-          approved: false,
-        }),
+        comment: randomNotApprovedComment,
         allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
@@ -189,7 +197,7 @@ Additionally, a `source` object may be passed to the template consisting of a `u
       docs: {
         source: {
           code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment(),
+            comment: randomComments[3],
             source: {
               url: 'https://twitter.com/smashingmag/status/1371521325236416516',
               name: 'twitter.com',
@@ -202,7 +210,7 @@ Additionally, a `source` object may be passed to the template consisting of a `u
     {(args) => {
       useEffect(() => initCommentReplyForms());
       return template({
-        comment: makeComment(),
+        comment: randomComments[3],
         source: {
           url: 'https://twitter.com/smashingmag/status/1371521325236416516',
           name: 'twitter.com',
@@ -231,7 +239,7 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
       docs: {
         source: {
           code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment(),
+            comment: randomComments[4],
             allow_replies: true,
             logged_in_user: tyler,
             log_out_url: '/logout',
@@ -243,7 +251,7 @@ If the user is logged in, you should pass in `logged_in_user` and `log_out_url` 
     {(args) => {
       useEffect(() => initCommentReplyForms());
       return template({
-        comment: makeComment(),
+        comment: randomComments[4],
         allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',
@@ -268,9 +276,7 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
       docs: {
         source: {
           code: makeTwigInclude('@cloudfour/components/comment/comment.twig', {
-            comment: makeComment({
-              replies: 2,
-            }),
+            comment: randomCommentWithReply,
           }),
         },
       },
@@ -279,7 +285,7 @@ While it is theoretically possible to infinitely nest `children`, it's recommend
     {(args) => {
       useEffect(() => initCommentReplyForms());
       return template({
-        comment: makeComment({ replies: 2 }),
+        comment: randomCommentWithReply,
         allow_replies: args.allowReplies,
         logged_in_user: args.isLoggedIn ? tyler : null,
         log_out_url: '/logout',

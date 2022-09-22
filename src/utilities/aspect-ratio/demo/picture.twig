@@ -1,13 +1,9 @@
-{# {% embed '@cloudfour/objects/embed/embed.twig' %}
-  {% block content %} #}
-    <picture>
-      <source srcset="{{webpSrc}}" type="image/webp">
-      <source srcset="{{jpgSrc}}" type="image/jpeg">
-      <img
-        class="u-border-large {{ aspectRatioClass }}"
-        src="{{jpgSrc}}"
-        alt=""
-      >
-    </picture>
-  {# {% endblock %}
-{% endembed %} #}
+<picture>
+  <source srcset="{{webpSrc}}" type="image/webp">
+  <source srcset="{{jpgSrc}}" type="image/jpeg">
+  <img
+    class="{{ aspectRatioClass }}"
+    src="{{jpgSrc}}"
+    alt=""
+  >
+</picture>

@@ -1,9 +1,6 @@
-{# {% embed '@cloudfour/objects/embed/embed.twig' %} #}
-  {# {% block content %} #}
-    <img
-      class="u-border-large {{ storyClass }} {{ aspectRatioClass }}"
-      src="{{ src }}"
-      alt=""
-    >
-  {# {% endblock %} #}
-{# {% endembed %} #}
+<img
+  class="{{ aspectRatioClass }} {{ extraClass }}"
+  src="{{ src }}"
+  alt=""
+  style="{{ style }}"
+>

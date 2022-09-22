@@ -7,6 +7,7 @@ import pictureDemoJpgSrc from './demo/twilight.jpg';
 import pictureDemoWebpSrc from './demo/twilight.webp';
 import videoDemo from './demo/video.twig';
 import roundedDemoSrc from './demo/avatar.png';
+import penDemo from './demo/pen.twig';
 const aspectRatioTokens = tokens.number.aspect_ratio;
 const aspectRatioUtilityClasses = [
   ...Object.keys(aspectRatioTokens).map((key) => `u-aspect-ratio-${key}`),
@@ -22,16 +23,8 @@ const defaultArgTypes = {
 const defaultArgs = {
   aspectRatioClass: 'u-aspect-ratio-cinema',
 };
-const aspectRatioStory = ({ aspectRatio }) => {
-  const aspectRatioClass = `u-aspect-ratio-${aspectRatio}`;
-  return `<div class="${aspectRatioClass} u-pad-n1 u-border">${aspectRatioClass} — ${ASPECT_RATIO_CONFIG[aspectRatio].comment}</div>`;
-};
 
-<Meta
-  title="Utilities/Aspect Ratio"
-  args={defaultArgs}
-  argTypes={defaultArgTypes}
-/>
+<Meta title="Utilities/Aspect Ratio" />
 
 # Aspect Ratio
 
@@ -47,7 +40,7 @@ There are two methods for specifying the desired aspect ratio:
 ### Image
 
 <Canvas>
-  <Story name="Image">
+  <Story name="Image" args={defaultArgs} argTypes={defaultArgTypes}>
     {(args) => imageDemo({ ...args, src: imageDemoImgSrc })}
   </Story>
 </Canvas>
@@ -55,7 +48,7 @@ There are two methods for specifying the desired aspect ratio:
 ### Picture
 
 <Canvas>
-  <Story name="Picture">
+  <Story name="Picture" args={defaultArgs} argTypes={defaultArgTypes}>
     {(args) =>
       pictureDemo({
         ...args,
@@ -69,7 +62,9 @@ There are two methods for specifying the desired aspect ratio:
 ### Video
 
 <Canvas>
-  <Story name="Video">{(args) => videoDemo(args)}</Story>
+  <Story name="Video" args={defaultArgs} argTypes={defaultArgTypes}>
+    {(args) => videoDemo(args)}
+  </Story>
 </Canvas>
 
 ## Rounded
@@ -80,9 +75,11 @@ Embeds may be combined with [rounded corner utilities](/docs/utilities-rounded-c
   <Story
     name="Rounded"
     args={{
-      storyClass: 'u-rounded-full',
+      aspectRatioClass: 'u-aspect-ratio-square',
+      extraClass: 'u-rounded-full',
       style: 'max-width: 10em',
     }}
+    argTypes={defaultArgTypes}
   >
     {(args) =>
       imageDemo({
@@ -93,14 +90,20 @@ Embeds may be combined with [rounded corner utilities](/docs/utilities-rounded-c
   </Story>
 </Canvas>
 
-## Responsive aspect ratios
+## Responsive Usage
 
-All of these utilities include responsive variations. Appending `@{breakpoint}` to the end of the class name will cause the utility to change for the given breakpoint.
+An additional benefit of modifier classes is support for breakpoint-specific ratios. This can be helpful for interactive embeds (CodePen, etc.) or simply for art direction.
+
+In this example, the aspect ratio starts square but becomes wider with each successive breakpoint. All [breakpoint tokens](/docs/design-tokens-breakpoint--page) are supported.
 
 <Canvas>
-  <Story name="Responsive">{'responsiveDemo()'}</Story>
+  <Story
+    name="Responsive"
+    args={{
+      class:
+        'u-aspect-ratio-square u-aspect-ratio-full@s u-aspect-ratio-wide@m u-aspect-ratio-cinema@l',
+    }}
+  >
+    {(args) => penDemo(args)}
+  </Story>
 </Canvas>
-
-## Custom aspect ratios
-
-The `--aspect-ratio` CSS custom property can be used to customize the aspect ratio.

@@ -12,9 +12,9 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
       @include media-query.breakpoint-classes {
         --aspect-ratio: #{$ratio};
         aspect-ratio: var(--aspect-ratio);
-        object-fit: cover;
-        inline-size: 100%;
         block-size: 100%;
+        inline-size: 100%;
+        object-fit: cover;
       }
     }
   }

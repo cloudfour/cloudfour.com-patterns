@@ -14,11 +14,15 @@ const aspectRatioUtilityClasses = [
 ];
 const defaultArgTypes = {
   aspectRatioClass: {
+    name: 'Aspect ratio utility class',
     options: aspectRatioUtilityClasses,
     type: 'string',
     control: { type: 'select' },
   },
-  aspect_ratio: { type: { name: 'string' } },
+  aspectRatio: {
+    name: '--aspect-ratio',
+    type: 'string',
+  },
 };
 const defaultArgs = {
   aspectRatioClass: 'u-aspect-ratio-wide',

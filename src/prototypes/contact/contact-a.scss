@@ -81,6 +81,10 @@
   @media (width < breakpoint.$l) {
     @include spacing.fluid-margin-inline-negative;
   }
+
+  @media (width >= breakpoint.$l) {
+    background-image: linear-gradient(4deg, rgba(0, 0, 0, 0.1) 1.25em, transparent 1.25em);
+  }
 }
 
 .proto-dl {

@@ -1,0 +1,61 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+// import aspectRatioConfig from '../../tokens/number/aspect-ratio.js';
+import tokens from '../../compiled/tokens/js/tokens.js';
+import imageDemo from './demo/image.twig';
+import imageDemoImgSrc from './demo/design-system-navigation.png';
+const ASPECT_RATIO_CONFIG = aspectRatioConfig.number.aspect_ratio;
+const aspectRatioStory = ({ aspectRatio }) => {
+  const aspectRatioClass = `u-aspect-ratio-${aspectRatio}`;
+  return `<div class="${aspectRatioClass} u-pad-n1 u-border">${aspectRatioClass} — ${ASPECT_RATIO_CONFIG[aspectRatio].comment}</div>`;
+};
+
+<Meta
+  title="Utilities/Aspect Ratio"
+  argTypes={{
+    aspectRatio: {
+      options: ['square', 'full', 'wide', 'cinema'],
+      type: { name: 'enum' },
+      control: { type: 'inline-radio' },
+    },
+  }}
+/>
+
+# Aspect Ratio
+
+These utilities apply aspect ratios. They may be used to visually offset content from its surroundings. For example, a screenshot in an article with a white background might blend in too much with the page without a border.
+
+## Sizes
+
+Available sizes are based on [our `size.$edge-` tokens](/?path=/docs/design-tokens-size--page#edge):
+
+- `u-aspect-ratio-square`
+- `u-aspect-ratio-full`
+- `u-aspect-ratio-wide`
+- `u-aspect-ratio-cinema`
+
+<Canvas>
+  <Story name="Square" args={{ aspectRatio: 'square' }}>
+    {(args) => aspectRatioStory(args)}
+  </Story>
+  <Story name="Full" args={{ aspectRatio: 'full' }}>
+    {(args) => aspectRatioStory(args)}
+  </Story>
+  <Story name="Wide" args={{ aspectRatio: 'wide' }}>
+    {(args) => aspectRatioStory(args)}
+  </Story>
+  <Story name="Cinema" args={{ aspectRatio: 'cinema' }}>
+    {(args) => aspectRatioStory(args)}
+  </Story>
+</Canvas>
+
+## Responsive aspect ratios
+
+All of these utilities include responsive variations. Appending `@{breakpoint}` to the end of the class name will cause the utility to change for the given breakpoint.
+
+<Canvas>
+  <Story name="Responsive">{'responsiveDemo()'}</Story>
+</Canvas>
+
+## Custom aspect ratios
+
+The `--aspect-ratio` CSS custom property can be used to customize the aspect ratio.

@@ -1,6 +1,16 @@
+{% if aspectRatio %}
+  {% set style = (style|default('')) ~ ';--aspect-ratio:' ~ aspectRatio %}
+{% endif %}
+
 <img
   class="{{ aspectRatioClass }} {{ extraClass }}"
   src="{{ src }}"
   alt=""
-  style="{{ style }}"
+  {% if style %}
+    style="
+      {%- for rule in style|split(';')|filter(rule => rule|length) -%}
+        {{ rule }};
+      {%- endfor -%}
+    "
+  {% endif %}
 >

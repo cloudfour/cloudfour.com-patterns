@@ -1,3 +1,7 @@
+{% if aspectRatio %}
+  {% set style = (style|default('')) ~ ';--aspect-ratio:' ~ aspectRatio %}
+{% endif %}
+
 <picture>
   <source srcset="{{webpSrc}}" type="image/webp">
   <source srcset="{{jpgSrc}}" type="image/jpeg">
@@ -5,5 +9,12 @@
     class="{{ aspectRatioClass }}"
     src="{{jpgSrc}}"
     alt=""
+    {% if style %}
+      style="
+        {%- for rule in style|split(';')|filter(rule => rule|length) -%}
+          {{ rule }};
+        {%- endfor -%}
+      "
+    {% endif %}
   >
 </picture>

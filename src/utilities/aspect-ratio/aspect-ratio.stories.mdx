@@ -1,9 +1,26 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-// import aspectRatioConfig from '../../tokens/number/aspect-ratio.js';
 import tokens from '../../compiled/tokens/js/tokens.js';
 import imageDemo from './demo/image.twig';
 import imageDemoImgSrc from './demo/design-system-navigation.png';
-const ASPECT_RATIO_CONFIG = aspectRatioConfig.number.aspect_ratio;
+import pictureDemo from './demo/picture.twig';
+import pictureDemoJpgSrc from './demo/twilight.jpg';
+import pictureDemoWebpSrc from './demo/twilight.webp';
+import videoDemo from './demo/video.twig';
+const aspectRatioTokens = tokens.number.aspect_ratio;
+const aspectRatioUtilityClasses = [
+  ...Object.keys(aspectRatioTokens).map((key) => `u-aspect-ratio-${key}`),
+];
+const defaultArgTypes = {
+  class: {
+    options: aspectRatioUtilityClasses,
+    type: 'string',
+    control: { type: 'select' },
+  },
+  aspect_ratio: { type: { name: 'string' } },
+};
+const defaultArgs = {
+  class: 'u-aspect-ratio-wide',
+};
 const aspectRatioStory = ({ aspectRatio }) => {
   const aspectRatioClass = `u-aspect-ratio-${aspectRatio}`;
   return `<div class="${aspectRatioClass} u-pad-n1 u-border">${aspectRatioClass} — ${ASPECT_RATIO_CONFIG[aspectRatio].comment}</div>`;
@@ -11,40 +28,48 @@ const aspectRatioStory = ({ aspectRatio }) => {
 
 <Meta
   title="Utilities/Aspect Ratio"
-  argTypes={{
-    aspectRatio: {
-      options: ['square', 'full', 'wide', 'cinema'],
-      type: { name: 'enum' },
-      control: { type: 'inline-radio' },
-    },
-  }}
+  args={defaultArgs}
+  argTypes={defaultArgTypes}
 />
 
 # Aspect Ratio
 
-These utilities apply aspect ratios. They may be used to visually offset content from its surroundings. For example, a screenshot in an article with a white background might blend in too much with the page without a border.
+Specifying aspect ratios for imagery and embedded media is important to prevent jarring layout shifts as content loads. But specifying width and height may not work for all types of embedded media. The `u-aspect-ratio-*` utility classes use the [`aspect-ratio` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) to maintain intended aspect ratio.
 
-## Sizes
+There are two methods for specifying the desired aspect ratio:
 
-Available sizes are based on [our `size.$edge-` tokens](/?path=/docs/design-tokens-size--page#edge):
+1. Via the `u-aspect-ratio-*` utility class. All of our [aspect ratio tokens](/docs/design-tokens-aspect-ratio--page) are supported. Example: `u-aspect-ratio-wide`
+1. Via the `--aspect-ratio` custom property. This can be helpful for one-off images in articles or other content that do not conform to a typical size. Example: `--aspect-ratio: 320/480`
 
-- `u-aspect-ratio-square`
-- `u-aspect-ratio-full`
-- `u-aspect-ratio-wide`
-- `u-aspect-ratio-cinema`
+## Basic Examples
+
+### Image
 
 <Canvas>
-  <Story name="Square" args={{ aspectRatio: 'square' }}>
-    {(args) => aspectRatioStory(args)}
+  <Story name="Image">
+    {(args) => imageDemo({ ...args, src: imageDemoImgSrc })}
   </Story>
-  <Story name="Full" args={{ aspectRatio: 'full' }}>
-    {(args) => aspectRatioStory(args)}
+</Canvas>
+
+### Picture
+
+<Canvas>
+  <Story name="Picture">
+    {(args) =>
+      pictureDemo({
+        ...args,
+        jpgSrc: pictureDemoJpgSrc,
+        webpSrc: pictureDemoWebpSrc,
+      })
+    }
   </Story>
-  <Story name="Wide" args={{ aspectRatio: 'wide' }}>
-    {(args) => aspectRatioStory(args)}
-  </Story>
-  <Story name="Cinema" args={{ aspectRatio: 'cinema' }}>
-    {(args) => aspectRatioStory(args)}
+</Canvas>
+
+### Video
+
+<Canvas>
+  <Story name="Video" args={defaultArgs} argTypes={defaultArgTypes}>
+    {(args) => videoDemo(args)}
   </Story>
 </Canvas>
 

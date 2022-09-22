@@ -71,29 +71,6 @@ There are two methods for specifying the desired aspect ratio:
   </Story>
 </Canvas>
 
-## Rounded
-
-Embeds may be combined with [rounded corner utilities](/docs/utilities-rounded-corners--sizes). In this example, a square embed becomes circular thanks to `u-rounded-full`.
-
-<Canvas>
-  <Story
-    name="Rounded"
-    args={{
-      aspectRatioClass: 'u-aspect-ratio-square',
-      extraClass: 'u-rounded-full',
-      style: 'max-width: 10em',
-    }}
-    argTypes={defaultArgTypes}
-  >
-    {(args) =>
-      imageDemo({
-        ...args,
-        src: roundedDemoSrc,
-      })
-    }
-  </Story>
-</Canvas>
-
 ## Responsive Usage
 
 An additional benefit of modifier classes is support for breakpoint-specific ratios. This can be helpful for interactive embeds (CodePen, etc.) or simply for art direction.

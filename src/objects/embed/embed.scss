@@ -1,5 +1,0 @@
-@use '../../mixins/ratio-box';
-
-.o-embed {
-  @include ratio-box.enhanced-styles($include-modifiers: true);
-}

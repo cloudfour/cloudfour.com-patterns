@@ -1,5 +1,5 @@
 ---
-'@cloudfour/patterns': minor
+'@cloudfour/patterns': major
 ---
 
-Use aspect-ratio CSS property, remove padding hack
+ Add aspect ratio CSS utility classes, remove Embed object

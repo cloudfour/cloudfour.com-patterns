@@ -2,6 +2,7 @@
 @use "../../compiled/tokens/scss/color";
 @use "../../compiled/tokens/scss/line-height";
 @use "../../compiled/tokens/scss/size";
+@use "../../mixins/fluid";
 @use "../../mixins/ms";
 @use "../../mixins/spacing";
 @use "sass:math";
@@ -27,6 +28,32 @@
         color: color.$text-dark;
         font-weight: inherit;
       }
+    }
+  }
+
+  .c-heading__subheading {
+    width: 100%;
+  }
+
+  .beeg {
+    font-size: fluid.fluid-clamp(
+      1em,
+      size.$font-big,
+      breakpoint.$xs,
+      breakpoint.$l
+    );
+    // margin-top: ms.step(-6);
+  }
+
+  .o-media--whuuut {
+    display: block;
+
+    .o-media__object {
+      float: right;
+    }
+
+    footer {
+      font-size: ms.step(-1);
     }
   }
 
@@ -169,6 +196,16 @@
 
   .proto-bestarea {
     position: relative;
+
+    .c-input {
+      @media (width < breakpoint.$m) {
+        padding-top: ms.step(4);
+      }
+
+      @media (width >= breakpoint.$m) {
+        padding-right: ms.step(8);
+      }
+    }
 
     .c-button {
       border-top-left-radius: 0;

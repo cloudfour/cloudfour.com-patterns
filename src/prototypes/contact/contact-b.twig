@@ -88,8 +88,20 @@
 
   <div class="proto-moar-layout">
     <div class="proto-moar-layout__body">
-      <div class="proto-moar-layout__inner o-rhythm o-rhythm--lavish-headings">
+      <div class="proto-moar-layout__inner o-rhythm o-rhythm--generous-headings">
         {% embed '@cloudfour/components/heading/heading.twig' with {
+          tag_name: 'h2',
+          "level": 0,
+          "content": "What to expect"
+        } only %}
+        {% endembed %}
+        <p class="beeg">
+          We deliver the best value for clients when our work and expertise directly serve their success. Our initial discussions will help clarify your project’s goals and our team’s fit.
+        </p>
+        <p>
+          The size of an engagement varies based on project requirements, typically in the range of $XX,000 to $XXX,000. We are always happy to discuss ongoing retainer agreements and unique partnerships.
+        </p>
+        {# {% embed '@cloudfour/components/heading/heading.twig' with {
           tag_name: 'h2',
           "level": 1,
           "content": "Not sure how to start?"
@@ -97,21 +109,24 @@
           {% block subheading %}
             Here’s an email template you can modify as you see fit!
           {% endblock %}
-        {% endembed %}
+        {% endembed %} #}
+        <p>
+          If you aren’t sure how to start, you can modify this example email:
+        </p>
         {% set email_content -%}
-  Hi there,
+Hi there,
 
-  My name is [Firstname Lastname], I’m a [role] at [organization].
+My name is [Firstname Lastname], I’m a [role] at [organization].
 
-  I’m reaching out to discuss [project, question, challenge]. [Additional details, if any.]
+I’m reaching out to discuss [project, question, challenge]. [Additional details, if any.]
 
-  Our budget for this effort is [budget, range, etc.] and we’re interested in wrapping up in [timeframe].
+Our budget for this effort is [budget, range, etc.] and we’re interested in wrapping up in [timeframe].
 
-  I’m available to chat [potential meeting times], let me know if any of those work for you.
+I’m available to chat [potential meeting times], let me know if any of those work for you.
 
-  Have a great day!
+Have a great day!
 
-  [Firstname Lastname]
+[Firstname Lastname]
         {%- endset %}
         <div class="proto-bestarea">
           {% include '@cloudfour/components/input/input.twig' with {
@@ -154,42 +169,60 @@
       </div>
     </div>
     <div class="proto-moar-layout__sidebar">
-      <div class="proto-moar-layout__inner o-rhythm o-rhythm--generous-headings">
-        {% embed '@cloudfour/components/heading/heading.twig' with {
-          tag_name: 'h2',
-          "level": 1,
-          "content": "Resources",
-        } only %}
-          {% block subheading %}
-            Handy docs and downloads
-          {% endblock %}
-        {% endembed %}
-        <ul class="o-list o-rhythm">
-          <li>
-            <a class="proto-dl" href="#">
-              {# <svg class="proto-dl__thumb" viewBox="0 0 160 90" width="160" height="90">
-                <rect width="160" height="90"/>
-                <circle cx="80" cy="45" r="36" fill="white"/>
-                <image href="/media/drive.png" x="61" y="26" width="38" height="38"/>
-              </svg> #}
-              <img class="proto-dl__type" src="/media/drive-slides.svg" alt="" width="48" height="48">
-              <b class="proto-dl__title">Capabilities Deck</b>
-              <span class="proto-dl__info">Google Slides</span>
-            </a>
-          </li>
-          <li>
-            <a class="proto-dl" href="#">
-              {# <svg class="proto-dl__thumb" viewBox="0 0 160 90" width="160" height="90">
-                <rect width="160" height="90"/>
-                <circle cx="80" cy="45" r="36" fill="white"/>
-                <image href="/media/word.svg" x="61" y="26" width="38" height="38"/>
-              </svg> #}
-              <img class="proto-dl__type" src="/media/word.svg" alt="" width="48" height="48">
-              <b class="proto-dl__title">MSA Template</b>
-              <span class="proto-dl__info">Microsoft Word (376&nbsp;KB)</span>
-            </a>
-          </li>
-        </ul>
+      <div class="proto-moar-layout__inner o-rhythm o-rhythm--lavish">
+        <div class="o-rhythm o-rhythm--default">
+          {% embed '@cloudfour/components/heading/heading.twig' with {
+            tag_name: 'h2',
+            "level": 1,
+            "content": "Resources",
+          } only %}
+            {# {% block subheading %}
+              Handy docs and downloads
+            {% endblock %} #}
+          {% endembed %}
+          <ul class="o-list o-rhythm">
+            <li>
+              <a class="proto-dl" href="#">
+                {# <svg class="proto-dl__thumb" viewBox="0 0 160 90" width="160" height="90">
+                  <rect width="160" height="90"/>
+                  <circle cx="80" cy="45" r="36" fill="white"/>
+                  <image href="/media/drive.png" x="61" y="26" width="38" height="38"/>
+                </svg> #}
+                <img class="proto-dl__type" src="/media/drive-slides.svg" alt="" width="48" height="48">
+                <b class="proto-dl__title">Capabilities Deck</b>
+                <span class="proto-dl__info">Google Slides</span>
+              </a>
+            </li>
+            <li>
+              <a class="proto-dl" href="#">
+                {# <svg class="proto-dl__thumb" viewBox="0 0 160 90" width="160" height="90">
+                  <rect width="160" height="90"/>
+                  <circle cx="80" cy="45" r="36" fill="white"/>
+                  <image href="/media/word.svg" x="61" y="26" width="38" height="38"/>
+                </svg> #}
+                <img class="proto-dl__type" src="/media/word.svg" alt="" width="48" height="48">
+                <b class="proto-dl__title">MSA Template</b>
+                <span class="proto-dl__info">Microsoft Word (376&nbsp;KB)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="o-media o-media--whuuut">
+          <div class="o-media__object">
+            {% include '@cloudfour/components/avatar/avatar.twig' with {
+              "src": "/media/mikey.jpg",
+              size: 'medium'
+            } only %}
+          </div>
+          <blockquote class="o-media__content">
+            <p><q>Cloud Four delivers quality pizza with fresh, healthy ingredients you can taste in each and every slice.</q></p>
+            <footer>
+              <cite>
+                Michelangelo, Nunchuku Expert @&nbsp;TMNT
+              </cite>
+            </footer>
+          </blockquote>
+        </div>
         {# {% include '@cloudfour/components/heading/heading.twig' with {
           tag_name: 'h2',
           "level": 1,

@@ -6,15 +6,23 @@
 /// @type Map
 $aspect-ratio-map: meta.module-variables('aspect-ratio');
 
-.u-aspect {
-  @each $name, $ratio in $aspect-ratio-map {
-    &-#{$name} {
-      @include media-query.breakpoint-classes {
-        --aspect-ratio: #{$ratio};
-        aspect-ratio: var(--aspect-ratio);
-        block-size: 100%;
-        inline-size: 100%;
-        object-fit: cover;
+@each $name, $ratio in $aspect-ratio-map {
+  .u-aspect-#{$name} {
+    @include media-query.breakpoint-classes {
+      --aspect-ratio: #{$ratio};
+      aspect-ratio: var(--aspect-ratio);
+      block-size: 100%;
+      inline-size: 100%;
+      object-fit: cover;
+
+      /**
+       * Fixes a Safari bug where YouTube videos embedded via an iframe get
+       * incorrectly shifted inline causing part of the video to be not visible.
+       * Other browser handle the video iframe fine with or without object-fit set.
+       */
+
+      &:where(iframe) {
+        object-fit: unset;
       }
     }
   }

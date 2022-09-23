@@ -6,7 +6,7 @@
 /// @type Map
 $aspect-ratio-map: meta.module-variables('aspect-ratio');
 
-.u-aspect-ratio {
+.u-aspect {
   @each $name, $ratio in $aspect-ratio-map {
     &-#{$name} {
       @include media-query.breakpoint-classes {

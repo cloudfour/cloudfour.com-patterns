@@ -9,7 +9,7 @@ import videoDemo from './demo/video.twig';
 import penDemo from './demo/pen.twig';
 const aspectRatioTokens = tokens.number.aspect_ratio;
 const aspectRatioUtilityClasses = [
-  ...Object.keys(aspectRatioTokens).map((key) => `u-aspect-ratio-${key}`),
+  ...Object.keys(aspectRatioTokens).map((key) => `u-aspect-${key}`),
 ];
 const defaultArgTypes = {
   aspectRatioClass: {
@@ -24,18 +24,18 @@ const defaultArgTypes = {
   },
 };
 const defaultArgs = {
-  aspectRatioClass: 'u-aspect-ratio-wide',
+  aspectRatioClass: 'u-aspect-wide',
 };
 
 <Meta title="Utilities/Aspect Ratio" />
 
 # Aspect Ratio
 
-Specifying aspect ratios for imagery and embedded media is important to prevent jarring layout shifts as content loads. But specifying width and height may not work for all types of embedded media. The `u-aspect-ratio-*` utility classes use the [`aspect-ratio` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) to maintain intended aspect ratio.
+Specifying aspect ratios for imagery and embedded media is important to prevent jarring layout shifts as content loads. But specifying width and height may not work for all types of embedded media. The `u-aspect-*` utility classes use the [`aspect-ratio` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) to maintain intended aspect ratio.
 
 There are two methods for specifying the desired aspect ratio:
 
-1. Via the `u-aspect-ratio-*` utility class. All of our [aspect ratio tokens](/docs/design-tokens-aspect-ratio--page) are supported. Example: `u-aspect-ratio-wide`
+1. Via the `u-aspect-*` utility class. All of our [aspect ratio tokens](/docs/design-tokens-aspect-ratio--page) are supported. Example: `u-aspect-wide`
 1. Via the `--aspect-ratio` custom property. This can be helpful for one-off images in articles or other content that do not conform to a typical size. Example: `--aspect-ratio: 320/480`
 
 ## Basic Examples
@@ -81,7 +81,7 @@ In this example, the aspect ratio starts square but becomes wider with each succ
     name="Responsive"
     args={{
       class:
-        'u-aspect-ratio-square u-aspect-ratio-full@s u-aspect-ratio-wide@m u-aspect-ratio-cinema@l',
+        'u-aspect-square u-aspect-full@s u-aspect-wide@m u-aspect-cinema@l',
     }}
   >
     {(args) => penDemo(args)}

@@ -6,7 +6,7 @@
 @use "../../mixins/spacing";
 @use "sass:math";
 
-#proto-contact-a {
+#proto-contact-b {
   .proto-worksheet {
     list-style: none;
     padding-left: 0;
@@ -42,6 +42,20 @@
       grid-template-columns: 1fr repeat(3, minmax(0, #{math.div(size.$max-width-spread, 3)})) 1fr;
       grid-template-rows: minmax(0, auto);
       grid-template-areas: '. body body sidebar .';
+      // border-bottom: size.$edge-medium solid var(--theme-color-border-base);
+
+      &::before {
+        // background: var(--theme-color-border-base);
+        background: linear-gradient(to right, transparent, var(--theme-color-border-base), transparent);
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: size.$edge-medium;
+        z-index: 2;
+        opacity: 0.6;
+      }
 
       &::after {
         background: var(--theme-color-background-secondary);
@@ -51,12 +65,13 @@
         right: 0;
         bottom: 0;
         left: 50%;
+        // border-bottom: size.$edge-medium solid var(--theme-color-border-base);
       }
     }
   }
 
   .proto-moar-layout__inner {
-    max-inline-size: size.$max-width-prose;
+    // max-inline-size: size.$max-width-prose;
     @include spacing.fluid-padding-block;
   }
 
@@ -81,11 +96,29 @@
 
     @media (width < breakpoint.$l) {
       @include spacing.fluid-margin-inline-negative;
+
+      &::after {
+        background: var(--theme-color-border-base);
+        content: '';
+        display: block;
+        height: size.$edge-medium;
+        width: 100%;
+        transform: translateY(100%);
+      }
     }
 
-    @media (width >= breakpoint.$l) {
-      background-image: linear-gradient(4deg, rgba(0, 0, 0, 0.1) 1.25em, transparent 1.25em);
-    }
+    // @media (width >= breakpoint.$l) {
+    //   &::after {
+    //     // background: pink;
+    //     background-image: radial-gradient(circle at top left, transparent size.$border-radius-large, var(--theme-color-background-secondary) size.$border-radius-large);
+    //     content: '';
+    //     height: size.$border-radius-large;
+    //     width: size.$border-radius-large;
+    //     right: 100%;
+    //     bottom: 0;
+    //     position: absolute;
+    //   }
+    // }
   }
 
   .proto-dl {

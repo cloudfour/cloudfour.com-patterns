@@ -1,0 +1,18 @@
+{% if aspectRatio %}
+  {% set style = (style|default('')) ~ ';--aspect-ratio:' ~ aspectRatio %}
+{% endif %}
+
+<iframe
+  class="{{ aspectRatioClass }} u-border-medium"
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/Ty5jtMZXbmk"
+  allowfullscreen
+  {% if style %}
+    style="
+      {%- for rule in style|split(';')|filter(rule => rule|length) -%}
+        {{ rule }};
+      {%- endfor -%}
+    "
+  {% endif %}
+></iframe>

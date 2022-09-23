@@ -6,6 +6,7 @@ import pictureDemo from './demo/picture.twig';
 import pictureDemoJpgSrc from './demo/twilight.jpg';
 import pictureDemoWebpSrc from './demo/twilight.webp';
 import videoDemo from './demo/video.twig';
+import youtubeVideoDemo from './demo/youtube-video.twig';
 import penDemo from './demo/pen.twig';
 const aspectRatioTokens = tokens.number.aspect_ratio;
 const aspectRatioUtilityClasses = [
@@ -64,9 +65,19 @@ There are two methods for specifying the desired aspect ratio:
 
 ### Video
 
+Using the `<video>` element.
+
 <Canvas>
   <Story name="Video" args={defaultArgs} argTypes={defaultArgTypes}>
     {(args) => videoDemo(args)}
+  </Story>
+</Canvas>
+
+### YouTube Video
+
+<Canvas>
+  <Story name="YouTube Video" args={defaultArgs} argTypes={defaultArgTypes}>
+    {(args) => youtubeVideoDemo(args)}
   </Story>
 </Canvas>
 

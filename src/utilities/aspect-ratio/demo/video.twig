@@ -2,12 +2,11 @@
   {% set style = (style|default('')) ~ ';--aspect-ratio:' ~ aspectRatio %}
 {% endif %}
 
-<iframe
+<video
   class="{{ aspectRatioClass }}"
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/Ty5jtMZXbmk"
-  allowfullscreen
+  controls
+  preload="none"
+  poster="https://res.cloudinary.com/cloudfour/video/upload/so_0,f_auto,q_auto/v1654818412/tyler-ideal-design-tool2_ngbzb4.jpg"
   {% if style %}
     style="
       {%- for rule in style|split(';')|filter(rule => rule|length) -%}
@@ -15,4 +14,21 @@
       {%- endfor -%}
     "
   {% endif %}
-></iframe>
+>
+  <source
+    src="https://res.cloudinary.com/cloudfour/video/upload/vc_h265/v1654818412/tyler-ideal-design-tool2_ngbzb4.mp4"
+    type="video/mp4; codecs=hevc"
+  >
+  <source
+    src="https://res.cloudinary.com/cloudfour/video/upload/vc_vp9/v1654818412/tyler-ideal-design-tool2_ngbzb4.webm"
+    type="video/webm; codecs=vp9"
+  >
+  <source
+    src="https://res.cloudinary.com/cloudfour/video/upload/vc_auto/v1654818412/tyler-ideal-design-tool2_ngbzb4.mp4"
+    type="video/mp4"
+  >
+  <source
+    src="https://res.cloudinary.com/cloudfour/video/upload/vc_auto/v1654818412/tyler-ideal-design-tool2_ngbzb4.webm"
+    type="video/webm"
+  >
+</video>

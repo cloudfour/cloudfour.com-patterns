@@ -9,6 +9,7 @@
     class="{{ aspectRatioClass }}"
     src="{{jpgSrc}}"
     alt=""
+    width="900"
     {% if style %}
       style="
         {%- for rule in style|split(';')|filter(rule => rule|length) -%}

@@ -11,18 +11,17 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
     @include media-query.breakpoint-classes {
       --aspect-ratio: #{$ratio};
       aspect-ratio: var(--aspect-ratio);
-      block-size: 100%;
-      inline-size: 100%;
       object-fit: cover;
 
       /**
-       * Fixes a Safari bug where YouTube videos embedded via an iframe get
-       * incorrectly shifted inline causing part of the video to be not visible.
-       * Other browser handle the video iframe fine with or without object-fit set.
+       * 1. Fixes a Safari bug where a playing video embedded via an iframe gets
+       *    incorrectly shifted causing part of the video to not be visible.
+       * 2. Allows the iframe to fill the aspect ratio space.
        */
 
       &:where(iframe) {
-        object-fit: unset;
+        object-fit: unset; /* 1 */
+        block-size: auto; /* 2 */
       }
     }
   }

@@ -20,8 +20,8 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
        */
 
       &:where(iframe) {
-        object-fit: unset; /* 1 */
         block-size: auto; /* 2 */
+        object-fit: unset; /* 1 */
       }
     }
   }

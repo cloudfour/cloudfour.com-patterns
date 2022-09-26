@@ -14,14 +14,14 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
       object-fit: cover;
 
       /**
-       * 1. Fixes a Safari bug where a playing video embedded via an iframe gets
+       * 1. Helps the iframe to fill the aspect ratio space.
+       * 2. Fixes a Safari bug where a playing video embedded via an iframe gets
        *    incorrectly shifted causing part of the video to not be visible.
-       * 2. Allows the iframe to fill the aspect ratio space.
        */
 
       &:where(iframe) {
-        block-size: auto; /* 2 */
-        object-fit: unset; /* 1 */
+        block-size: auto; /* 1 */
+        object-fit: unset; /* 2 */
       }
     }
   }

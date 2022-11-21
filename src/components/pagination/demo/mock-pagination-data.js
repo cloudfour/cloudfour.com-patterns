@@ -36,11 +36,9 @@ function mockPageData(page = 1, current = 1) {
  * @see https://timber.github.io/docs/guides/pagination/
  */
 
-export default function mockPaginationData({
-  current = 1,
-  midSize = 2,
-  total = 36,
-} = {}) {
+export default function mockPaginationData(param = {}) {
+  const args = { current: 1, midSize: 2, total: 36, ...param };
+  const { current, midSize, total } = args;
   // If this isn't the first page, mock the previous page data
   const prev = current > 1 && mockPageData(current - 1, current);
   // If this isn't the last page, mock the next page data

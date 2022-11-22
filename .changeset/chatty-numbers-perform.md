@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add `copy` and `external` icons
+Add `copy`, `external` and `feed` icons

@@ -158,6 +158,17 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
     max-inline-size: calc(50% - 0.5em); // 2
   }
 
+  /// By default, WordPress uses table styles to constrain captions to the size
+  /// of the image. This makes sense for left- and right-aligned image blocks,
+  /// but for consistency with our non-block `figure` elements, we allow
+  /// captions to go as wide as they need for centered elements.
+  .aligncenter {
+    &,
+    > figcaption {
+      display: block;
+    }
+  }
+
   /// Apply border only to image
   ///
   /// 1. We're using 1px borders here rather than size.$edge-small because it

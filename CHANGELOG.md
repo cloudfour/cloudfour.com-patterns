@@ -1,5 +1,27 @@
 # @cloudfour/patterns
 
+## 12.7.1
+
+### Patch Changes
+
+- [#2089](https://github.com/cloudfour/cloudfour.com-patterns/pull/2089) [`3d3da978`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3d3da978ff5286886e362da84979697e759ea9e7) Thanks [@tylersticka](https://github.com/tylersticka)! - Allow captions for centered WordPress Image Blocks to fill their container
+
+## 12.7.0
+
+### Minor Changes
+
+- [#2055](https://github.com/cloudfour/cloudfour.com-patterns/pull/2055) [`c4e5a411`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c4e5a41176e9790361ed638e67c61fa76bb21704) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Use CSS aspect-ratio property for Avatar
+
+- [#2058](https://github.com/cloudfour/cloudfour.com-patterns/pull/2058) [`620c8129`](https://github.com/cloudfour/cloudfour.com-patterns/commit/620c81296c2959ba2b81ac58eeb806838af403f9) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `copy`, `external` and `feed` icons
+
+- [#2057](https://github.com/cloudfour/cloudfour.com-patterns/pull/2057) [`0bb907ae`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0bb907ae8d760c2d43dc1f1a6f46156e92734c5f) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Use CSS aspect-ratio for Card component
+
+- [#2079](https://github.com/cloudfour/cloudfour.com-patterns/pull/2079) [`2f824ba7`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2f824ba77408f306275f610d58fb933c970aa108) Thanks [@tylersticka](https://github.com/tylersticka)! - Add brand icons for A Book Apart, An Event Apart, CodePen, Mastodon and Tumblr
+
+### Patch Changes
+
+- [#2079](https://github.com/cloudfour/cloudfour.com-patterns/pull/2079) [`2f824ba7`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2f824ba77408f306275f610d58fb933c970aa108) Thanks [@tylersticka](https://github.com/tylersticka)! - Update brand icon for Speaker Deck
+
 ## 12.6.0
 
 ### Minor Changes

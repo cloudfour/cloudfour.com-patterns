@@ -12,6 +12,7 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
       --aspect-ratio: #{$ratio};
       aspect-ratio: var(--aspect-ratio);
       object-fit: cover;
+      width: 100%;
 
       /**
        * 1. Helps the iframe to fill the aspect ratio space.

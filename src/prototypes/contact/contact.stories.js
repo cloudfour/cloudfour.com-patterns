@@ -4,8 +4,10 @@ import { createElasticTextArea } from '../../components/input/elastic-textarea.t
 
 import contactA from './contact-a.twig';
 import contactB from './contact-b.twig';
+import contactC from './contact-c.twig';
 import './contact-a.scss';
 import './contact-b.scss';
+import './contact-c.scss';
 
 export default {
   title: 'Prototypes/Contact',
@@ -15,16 +17,21 @@ export default {
   },
 };
 
+const sharedEffect = () => {
+  createElasticTextArea(document.querySelector('.js-elastic-textarea'));
+};
+
 export const ContactA = () => {
-  useEffect(() => {
-    createElasticTextArea(document.querySelector('.js-elastic-textarea'));
-  }, []);
+  useEffect(sharedEffect, []);
   return contactA();
 };
 
 export const ContactB = () => {
-  useEffect(() => {
-    createElasticTextArea(document.querySelector('.js-elastic-textarea'));
-  }, []);
+  useEffect(sharedEffect, []);
   return contactB();
+};
+
+export const ContactC = () => {
+  useEffect(sharedEffect, []);
+  return contactC();
 };

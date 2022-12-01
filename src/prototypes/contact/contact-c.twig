@@ -1,0 +1,351 @@
+<div id="proto-contact-c">
+  {% include '@cloudfour/components/sky-nav/sky-nav.twig' with {
+    "class": "t-dark",
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        },
+        {
+          "link": "#",
+          "title": "Hire Us"
+        }
+      ]
+    }
+  } only %}
+  {% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
+    {% block heading %}
+      {% embed '@cloudfour/components/heading/heading.twig' with {
+        level: -2,
+      } only %}
+        {% block content %}
+          {# Let’s talk #}
+          Hire us
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+    {% block content %}
+      <p>
+        We’d love to chat about your project, answer your questions or show off what our team can do.
+        {# Call our office at <a href="#">+1&nbsp;(503)&nbsp;290-1090</a> or <a href="#">email us</a> to get started. #}
+      </p>
+      {% embed '@cloudfour/objects/button-group/button-group.twig' with {
+        grow: true
+      } only %}
+        {% block content %}
+          {% include '@cloudfour/components/button/button.twig' with {
+            label: 'Email us',
+            content_start_icon: 'envelope',
+            href: '#',
+          } only %}
+          {% include '@cloudfour/components/button/button.twig' with {
+            label: '+1 (503) 290-1090',
+            href: '#',
+            class: 'c-button--secondary'
+          } only %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+    {% block scene %}
+      <svg class="c-cloud-cover__scene-object" viewBox="-10 -5 120 120">
+        <line x1="24.93" y1="74.01" x2="47.54" y2="74.01" fill="none" stroke="#738da0" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <path d="M94.18,36.72c0-.16,.01-.32,.02-.47,0-.24,.02-.47,.03-.71,0-.05,0-.1,0-.14,0-.03,0-.06,0-.08,0-.11,0-.21,0-.32,0-.29-.01-.58-.02-.87,0-.14-.02-.28-.03-.43-.02-.3-.04-.61-.07-.91,0-.09-.02-.18-.03-.27-1.31-11.62-10.63-20.93-22.48-22.71-1.3-.19-2.59-.31-3.86-.36-.02,0-.03,0-.04,0-.38-.01-.76-.02-1.14-.03-.09,0-.18,0-.28,0-.12,0-.23,0-.35,0-.26,0-.52,0-.78,.02-.21,0-.42,.02-.62,.03-.35,.02-.69,.04-1.03,.07-.05,0-.09,0-.14,.01-11.76,1.06-21.32,8.33-24.11,19.14-.6,2.11-.93,4.33-.93,6.62,0,12.59,9.7,23.08,22.56,25.41v.04c1.27,.21,2.58,.35,3.9,.41,.03,0,.05,0,.08,0,.34,.01,.68,.02,1.02,.02,.13,0,.26,0,.4,0,.02,0,.04,0,.06,0,.03,0,.06,0,.09,0,.34,0,.67-.02,1-.03,.1,0,.2,0,.31,0,3.62-.16,7.05-.9,10.17-2.14,1.25,.86,3.27,1.79,6.34,2.07,2.53,.23,4.37,.03,5.66-.29,.95-.24,1.01-1.57,.09-1.9-1.67-.61-3.89-1.68-5.68-3.46,5.72-4.31,9.47-10.83,9.87-18.73" fill="#3d84f5"/>
+        {# <path d="M50.24,27.18H16.62c-1.1,0-2,.9-2,2v58c0,1.1,.9,2,2,2H62.62c1.1,0,2-.9,2-2V41.55c0-.53-.21-1.04-.59-1.42l-12.37-12.37c-.38-.38-.88-.59-1.41-.59" fill="#215cca" stroke="#215cca" stroke-width="6"/> #}
+        <path d="M50.24,27.18H16.62c-1.1,0-2,.9-2,2v58c0,1.1,.9,2,2,2H62.62c1.1,0,2-.9,2-2V41.55c0-.53-.21-1.04-.59-1.42l-12.37-12.37c-.38-.38-.88-.59-1.41-.59" fill="#fff"/>
+        <path d="M53.01,40.74h11.03c.22,0,.33-.27,.18-.43l-12.78-12.78c-.16-.16-.43-.05-.43,.18v11.03c0,1.11,.89,2,2,2" fill="#c0cfd8"/>
+        <line x1="24.95" y1="46.09" x2="55.42" y2="46.09" fill="none" stroke="#c0cfd8" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <line x1="24.95" y1="53.09" x2="55.42" y2="53.09" fill="none" stroke="#c0cfd8" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <line x1="24.95" y1="60.01" x2="55.42" y2="60.01" fill="none" stroke="#c0cfd8" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <line x1="24.95" y1="67.01" x2="55.42" y2="67.01" fill="none" stroke="#c0cfd8" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <line x1="24.93" y1="74.01" x2="47.54" y2="74.01" fill="none" stroke="#c0cfd8" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        <path d="M30.25,46.09c0-7.18-5.82-13-13-13s-13,5.82-13,13,5.82,13,13,13,13-5.82,13-13" fill="#71f4ae"/>
+        <polyline points="11.25 46.09 15.06 50.59 23.25 41.59" fill="none" stroke="#105c52" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </svg>
+    {% endblock %}
+  {% endembed %}
+
+  <div class="proto-moar-layout">
+    <div class="proto-moar-layout__body">
+      <div class="proto-moar-layout__inner o-rhythm o-rhythm--generous-headings">
+        {% embed '@cloudfour/components/heading/heading.twig' with {
+          tag_name: 'h2',
+          "level": 0,
+          "content": "What to expect"
+        } only %}
+        {% endembed %}
+        <p class="beeg">
+          We deliver the best value for clients when our work and expertise directly serve their success. Our initial discussions will help clarify your project’s goals and our team’s fit.
+        </p>
+        <p>
+          The size of an engagement varies based on project requirements, typically in the range of $XX,000 to $XXX,000. We are always happy to discuss ongoing retainer agreements and unique partnerships.
+        </p>
+        {# {% embed '@cloudfour/components/heading/heading.twig' with {
+          tag_name: 'h2',
+          "level": 1,
+          "content": "Not sure how to start?"
+        } only %}
+          {% block subheading %}
+            Here’s an email template you can modify as you see fit!
+          {% endblock %}
+        {% endembed %} #}
+        <p>
+          If you aren’t sure how to start, you can modify this example email:
+        </p>
+        {% set email_content -%}
+Hi there,
+
+My name is [Firstname Lastname], I’m a [role] at [organization].
+
+I’m reaching out to discuss [project, question, challenge]. [Additional details, if any.]
+
+Our budget for this effort is [budget, range, etc.] and we’re interested in wrapping up in [timeframe].
+
+I’m available to chat [potential meeting times], let me know if any of those work for you.
+
+Have a great day!
+
+[Firstname Lastname]
+        {%- endset %}
+        <div class="proto-bestarea o-rhythm">
+          {% include '@cloudfour/components/input/input.twig' with {
+            "type": "textarea",
+            "value": email_content,
+            "class": "c-input--elastic js-elastic-textarea"
+          } only %}
+          <div class="o-button-group o-button-group--grow u-space-block-start-n2">
+            {% include '@cloudfour/components/button/button.twig' with {
+              label: 'Copy',
+              content_start_icon: 'copy'
+            } only %}
+            {% include '@cloudfour/components/button/button.twig' with {
+              class: 'c-button--secondary',
+              label: 'Draft email',
+              content_start_icon: 'envelope'
+            } only %}
+          </div>
+        </div>
+        {# {% embed '@cloudfour/components/heading/heading.twig' with {
+          tag_name: 'h2',
+          "level": 1,
+          "content": "Not sure how to start?"
+        } only %}
+          {% block subheading %}
+            Here are some common questions we ask for new projects…
+          {% endblock %}
+        {% endembed %}
+        <ul class="proto-worksheet o-rhythm">
+          <li class="o-rhythm o-rhythm--compact">
+            <p>Nice to meet you! What’s your name? What do you do?</p>
+            <p>For example, “I’m <b>[Megan Notarte]</b>, I’m a <b>[Product Manager]</b> at <b>[Cloud Four]</b>.”</p>
+          </li>
+          <li class="o-rhythm o-rhythm--compact">
+            <p>What are we discussing today?</p>
+            <p>Describe the project, question or challenge that inspired you to reach out, in as much or as little detail as you’d like.</p>
+          </li>
+          <li class="o-rhythm o-rhythm--compact">
+            <p>Is there a budget for this project?</p>
+            <p>A typical project for us ranges in size from $50,000 to $250,000 depending on complexity.</p>
+          </li>
+          <li class="o-rhythm o-rhythm--compact">
+            <p>What other questions can Tyler type here in lieu of solid content?</p>
+            <p>Big words like “synergy” or “convergence” might help.</p>
+          </li>
+        </ul> #}
+      </div>
+    </div>
+    <div class="proto-moar-layout__sidebar">
+      <div class="proto-moar-layout__inner o-rhythm o-rhythm--lavish">
+        <div class="o-rhythm o-rhythm--default">
+          {% embed '@cloudfour/components/heading/heading.twig' with {
+            tag_name: 'h2',
+            "level": 1,
+            "content": "Resources",
+          } only %}
+            {# {% block subheading %}
+              Handy docs and downloads
+            {% endblock %} #}
+          {% endembed %}
+          <ul class="o-list o-rhythm">
+            <li>
+              {% embed '@cloudfour/components/card/card.twig' with {
+                "class": "c-card--contained",
+              } only %}
+                {% block content %}
+                  <h3 class="c-heading c-heading--level-4">
+                    <a class="c-card__link" href="#">
+                      Capabilities Deck
+                    </a>
+                  </h3>
+                  <p class="has-small-font-size">
+                    Google Slides
+                    {% include '@cloudfour/components/icon/icon.twig' with {
+                      "name": "external",
+                      "inline": true
+                    } only %}
+                  </p>
+                {% endblock %}
+              {% endembed %}
+            </li>
+            <li>
+              {% embed '@cloudfour/components/card/card.twig' with {
+                "class": "c-card--contained",
+              } only %}
+                {% block content %}
+                  <h3 class="c-heading c-heading--level-4">
+                    <a class="c-card__link" href="#">
+                      MSA Template
+                    </a>
+                  </h3>
+                  <p class="has-small-font-size">
+                    Microsoft Word (376&nbsp;KB)
+                    {% include '@cloudfour/components/icon/icon.twig' with {
+                      "name": "arrow-down",
+                      "inline": true
+                    } only %}
+                  </p>
+                {% endblock %}
+              {% endembed %}
+            </li>
+          </ul>
+        </div>
+        <div class="o-media o-media--whuuut">
+          <div class="o-media__object">
+            {% include '@cloudfour/components/avatar/avatar.twig' with {
+              "src": "/media/mikey.jpg",
+              size: 'medium'
+            } only %}
+          </div>
+          <blockquote class="o-media__content">
+            <p><q>Cloud Four delivers quality pizza with fresh, healthy ingredients you can taste in each and every slice.</q></p>
+            <footer>
+              <cite>
+                Michelangelo, Nunchuku Expert @&nbsp;TMNT
+              </cite>
+            </footer>
+          </blockquote>
+        </div>
+        {# {% include '@cloudfour/components/heading/heading.twig' with {
+          tag_name: 'h2',
+          "level": 1,
+          "content": "Testimonials"
+        } only %}
+        {% embed '@cloudfour/objects/media/media.twig' with {
+          class: 'o-media--reverse',
+        } only %}
+          {% block object %}
+            {% include '@cloudfour/components/avatar/avatar.twig' with {
+              src: '/media/avatar-default.svg'
+            } only %}
+          {% endblock %}
+          {% block content %}
+            <blockquote>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed ornare ipsum, porttitor bibendum nunc. Integer imperdiet enim ac metus venenatis venenatis.</p>
+              <footer>
+                <cite>Firstname Lastname, Organization</cite>
+              </footer>
+            </blockquote>
+          {% endblock %}
+        {% endembed %} #}
+      </div>
+    </div>
+  </div>
+   {% include '@cloudfour/components/ground-nav/ground-nav.twig' with {
+    "menu": {
+      "items": [
+        {
+          "link": "/does",
+          "title": "What We Do",
+          "current": true
+        },
+        {
+          "link": "/believes",
+          "title": "Our Approach"
+        },
+        {
+          "link": "/made",
+          "title": "Our Work"
+        },
+        {
+          "link": "/thinks",
+          "title": "Articles"
+        },
+        {
+          "link": "/presents",
+          "title": "Speaking"
+        },
+        {
+          "link": "/is",
+          "title": "Team"
+        },
+        {
+          "link": "/#",
+          "title": "Hire Us"
+        },
+        {
+          "link": "https://cloudfour-patterns.netlify.app/",
+          "title": "Patterns"
+        },
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "link": "https://twitter.com/cloudfour",
+          "title": "Follow us on Twitter",
+          "icon": "brands/twitter"
+        },
+        {
+          "link": "https://github.com/cloudfour",
+          "title": "Find us on GitHub",
+          "icon": "brands/github"
+        },
+        {
+          "link": "https://www.instagram.com/cloudfourpdx/",
+          "title": "Follow us on Instagram",
+          "icon": "brands/instagram"
+        },
+        {
+          "link": "https://www.linkedin.com/company/cloud-four",
+          "title": "Follow us on LinkedIn",
+          "icon": "brands/linkedin"
+        }
+      ]
+    },
+    "organization": {
+      "name": "Cloud Four, Inc.",
+      "address": {
+        "street_address": "510 SW 3rd Ave, Suite 420",
+        "address_locality": "Portland",
+        "address_region": "Oregon",
+        "postal_code": "97204",
+        "address_country": "USA"
+      },
+      "email": "info@cloudfour.com",
+      "telephone": "+1 (503) 290-1090",
+      "url": "https://cloudfour.com/",
+      "founding_date": "2007-12-13"
+    }
+  } only %}
+</div>

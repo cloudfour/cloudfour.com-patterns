@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 12.7.1
+
+### Patch Changes
+
+- [#2089](https://github.com/cloudfour/cloudfour.com-patterns/pull/2089) [`3d3da978`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3d3da978ff5286886e362da84979697e759ea9e7) Thanks [@tylersticka](https://github.com/tylersticka)! - Allow captions for centered WordPress Image Blocks to fill their container
+
 ## 12.7.0
 
 ### Minor Changes

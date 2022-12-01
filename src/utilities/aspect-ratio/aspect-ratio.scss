@@ -11,8 +11,8 @@ $aspect-ratio-map: meta.module-variables('aspect-ratio');
     @include media-query.breakpoint-classes {
       --aspect-ratio: #{$ratio};
       aspect-ratio: var(--aspect-ratio);
+      inline-size: 100%;
       object-fit: cover;
-      width: 100%;
 
       /**
        * 1. Helps the iframe to fill the aspect ratio space.

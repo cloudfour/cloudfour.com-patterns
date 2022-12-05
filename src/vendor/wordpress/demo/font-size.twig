@@ -1,7 +1,13 @@
-<p class="
-  {% if font_size %}
-    has-{{font_size}}-font-size
-  {% endif %}
-">
-  We help forward-thinking teams craft accessible design systems and progressive web apps.
-</p>
+<div class="o-rhythm">
+  <p class="
+    {%- if font_size -%}
+      has-{{font_size}}-font-size
+    {%- endif -%}">
+    This paragraph is {% if font_size %}<b>{{font_size}}</b>{% else %}normal{% endif %}.
+    We help forward-thinking teams craft accessible design systems and progressive web apps.
+  </p>
+  <p>
+    This paragraph is {% if not font_size %}also{% endif %} normal.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend magna id risus rhoncus, sit amet placerat ligula vehicula. Proin neque dui, pellentesque non arcu sit amet, lacinia facilisis velit. Aenean in bibendum nulla. Nullam elementum neque vel ipsum iaculis, at accumsan dui auctor.
+  </p>
+</div>

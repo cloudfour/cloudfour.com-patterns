@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add option to disable elastic textarea resize
+Add option to disable Elastic TextArea resize

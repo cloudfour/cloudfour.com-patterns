@@ -82,7 +82,7 @@ test(
 
 test(
   'Disables native resize via CSS',
-  withBrowser(async ({ utils, screen, user }) => {
+  withBrowser(async ({ utils, screen }) => {
     await utils.injectHTML(
       await textInputHTML({
         class: 'c-input--elastic js-elastic-textarea',

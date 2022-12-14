@@ -1,3 +1,7 @@
+export interface ElasticTextAreaOpts {
+  disableResize?: boolean;
+}
+
 /**
  * Create Elastic TextArea
  *
@@ -7,19 +11,19 @@
  * method to remove the event listener.
  *
  * @param textarea - the target `textarea` element
- * @param {boolean} [disableResize=false] - Disables the textarea resize functionality if set to `true`
+ * @param {ElasticTextAreaOpts} [elasticTextAreaOpts] - Disables the textarea resize functionality if set to `true`
  */
 export const createElasticTextArea = (
   textarea: HTMLTextAreaElement,
-  disableResize = false
+  elasticTextAreaOpts: ElasticTextAreaOpts = {}
 ) => {
   const minRows = Number(textarea.getAttribute('rows')) || 2;
   let rows = Number(textarea.getAttribute('rows')) || minRows;
   textarea.setAttribute('rows', String(rows));
 
   // Disables the native textarea resize functionality via inline CSS
-  if (disableResize) {
-    textarea.style.resize = 'none';
+  if (elasticTextAreaOpts.disableResize === true) {
+    textArea.style.resize = 'none';
   }
 
   /** Check if the textarea is currently scrolling */

@@ -5,18 +5,21 @@ import { withBrowser } from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
 
+import type { ElasticTextAreaOpts } from './elastic-textarea.js';
+
 const textInputHTML = loadTwigTemplate(path.join(__dirname, './input.twig'));
 const initTextareaJS = (
   utils: PleasantestUtils,
   textarea: ElementHandle,
-  disableResize = false
+  elasticTextAreaOpts: ElasticTextAreaOpts = {}
 ) =>
   utils.runJS(
     `
     import { createElasticTextArea } from './elastic-textarea'
-    export default (textarea, disableResize) => createElasticTextArea(textarea, disableResize);
+    export default (textarea, elasticTextAreaOpts) =>
+      createElasticTextArea(textarea, elasticTextAreaOpts);
     `,
-    [textarea, disableResize]
+    [textarea, elasticTextAreaOpts]
   );
 
 test(
@@ -90,7 +93,9 @@ test(
       })
     );
     const textarea = await screen.getByRole('textbox');
-    await initTextareaJS(utils, textarea, true);
+    await initTextareaJS(utils, textarea, {
+      disableResize: true,
+    });
 
     const isCssResizeDisabled = await textarea.evaluate(
       (el) => el.style.resize === 'none'

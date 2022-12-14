@@ -86,7 +86,7 @@ You can also add `c-input` to `<select>` elements, in which case you’ll get a 
   </Story>
 </Canvas>
 
-## Elastic textarea
+## Elastic TextArea
 
 Add the `c-input--elastic` modifier class to a `<textarea>` element and follow the [JavaScript instructions](#javascript-instructions) to have it expand as the user types more than will fit.
 
@@ -161,11 +161,26 @@ elasticTextAreas.forEach((textarea) => {
 elasticTextArea.destroy();
 ```
 
-You can pass `true` as the second argument to the JavaScript init function to disable
-the ability to resize the textarea:
+### Elastic TextArea JavaScript Options
+
+The following options exist:
+
+- `disableResize`: Disables native HTML TextArea resizing via the CSS `resize` property
 
 ```js
-createElasticTextArea(textarea, true);
+interface ElasticTextAreaOpts {
+  disableResize?: boolean;
+}
+```
+
+### Elastic TextArea with Resize Disabled
+
+Below is an example where resizing is disabled:
+
+```js
+createElasticTextArea(textarea, {
+  disableResize: true,
+});
 ```
 
 <Canvas>
@@ -194,10 +209,9 @@ createElasticTextArea(textarea, true);
       // Use storybook hooks to trigger JS after story renders
       // @see https://github.com/storybookjs/storybook/issues/7786
       useEffect(() => {
-        createElasticTextArea(
-          document.querySelector('.js-elastic-textarea'),
-          true
-        );
+        createElasticTextArea(document.querySelector('.js-elastic-textarea'), {
+          disableResize: true,
+        });
       }, []);
       return input(args);
     }}

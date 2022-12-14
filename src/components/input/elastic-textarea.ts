@@ -10,16 +10,16 @@ export interface ElasticTextAreaOpts {
  * `textarea` is scrolling or not. Returns an object containing a `destroy()`
  * method to remove the event listener.
  *
- * @param textarea - the target `textarea` element
+ * @param textArea - the target `textarea` element
  * @param {ElasticTextAreaOpts} [elasticTextAreaOpts] - Disables the textarea resize functionality if set to `true`
  */
 export const createElasticTextArea = (
-  textarea: HTMLTextAreaElement,
+  textArea: HTMLTextAreaElement,
   elasticTextAreaOpts: ElasticTextAreaOpts = {}
 ) => {
-  const minRows = Number(textarea.getAttribute('rows')) || 2;
-  let rows = Number(textarea.getAttribute('rows')) || minRows;
-  textarea.setAttribute('rows', String(rows));
+  const minRows = Number(textArea.getAttribute('rows')) || 2;
+  let rows = Number(textArea.getAttribute('rows')) || minRows;
+  textArea.setAttribute('rows', String(rows));
 
   // Disables the native textarea resize functionality via inline CSS
   if (elasticTextAreaOpts.disableResize === true) {
@@ -27,19 +27,19 @@ export const createElasticTextArea = (
   }
 
   /** Check if the textarea is currently scrolling */
-  const isScrolling = () => textarea.scrollHeight > textarea.clientHeight;
+  const isScrolling = () => textArea.scrollHeight > textArea.clientHeight;
 
   /** Grow until the textarea stops scrolling */
   const grow = () => {
     // Store initial height of textarea
-    let previousHeight = textarea.clientHeight;
+    let previousHeight = textArea.clientHeight;
 
     while (isScrolling()) {
       rows++;
-      textarea.setAttribute('rows', String(rows));
+      textArea.setAttribute('rows', String(rows));
 
       // Get height after rows change is made
-      const newHeight = textarea.clientHeight;
+      const newHeight = textArea.clientHeight;
 
       // If the height hasn't changed, break the loop
       // This sanity check is to prevent an infinite loop in IE11
@@ -54,7 +54,7 @@ export const createElasticTextArea = (
   const shrink = () => {
     while (!isScrolling() && rows > minRows) {
       rows--;
-      textarea.setAttribute('rows', String(Math.max(rows, minRows)));
+      textArea.setAttribute('rows', String(Math.max(rows, minRows)));
 
       if (isScrolling()) {
         grow();
@@ -73,10 +73,10 @@ export const createElasticTextArea = (
   };
 
   /** As part of the public API, allow users to remove the event listener */
-  const destroy = () => textarea.removeEventListener('input', update);
+  const destroy = () => textArea.removeEventListener('input', update);
 
   // Initialize the textarea with elastic behavior
-  textarea.addEventListener('input', update);
+  textArea.addEventListener('input', update);
 
   // Run the update method to set the initial size correctly
   update();

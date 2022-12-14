@@ -102,8 +102,6 @@ If the `rows` attribute is set, it will be used as the minimum height.
     }}
     args={{
       ...elasticTextAreaConfig,
-      rows: 2,
-      class: 'c-input--elastic js-elastic-textarea',
     }}
     parameters={{
       docs: {
@@ -121,6 +119,49 @@ If the `rows` attribute is set, it will be used as the minimum height.
       // @see https://github.com/storybookjs/storybook/issues/7786
       useEffect(() => {
         createElasticTextArea(document.querySelector('.js-elastic-textarea'));
+      }, []);
+      return input(args);
+    }}
+  </Story>
+</Canvas>
+
+You can pass `true` as the second argument to the JavaScript init function to disable
+the ability to resize the textarea:
+
+```js
+createElasticTextArea(textarea, true);
+```
+
+<Canvas>
+  <Story
+    name="Elastic Textarea with Resize Disabled"
+    height="250px"
+    argTypes={{
+      rows: { type: { name: 'number' } },
+      class: { type: { name: 'string' } },
+    }}
+    args={{
+      ...elasticTextAreaConfig,
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude(
+            '@cloudfour/components/input/input.twig',
+            elasticTextAreaConfig
+          ),
+        },
+      },
+    }}
+  >
+    {(args) => {
+      // Use storybook hooks to trigger JS after story renders
+      // @see https://github.com/storybookjs/storybook/issues/7786
+      useEffect(() => {
+        createElasticTextArea(
+          document.querySelector('.js-elastic-textarea'),
+          true
+        );
       }, []);
       return input(args);
     }}

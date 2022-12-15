@@ -83,12 +83,6 @@
    */
   &.c-input--elastic {
     block-size: auto;
-  }
-
-  /**
-   * Removes ability to resize element
-   */
-  &.c-input--noResize {
     resize: none;
   }
 

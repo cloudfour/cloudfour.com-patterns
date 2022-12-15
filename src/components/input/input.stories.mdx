@@ -135,6 +135,7 @@ You can also disable the `<textarea>` resizing ability by adding the `c-input--n
     }}
     args={{
       ...elasticTextAreaConfig,
+      id: 'demo-elastic-no-resize',
       class: 'c-input--elastic c-input--noResize js-elastic-textarea',
     }}
     parameters={{
@@ -142,6 +143,7 @@ You can also disable the `<textarea>` resizing ability by adding the `c-input--n
         source: {
           code: makeTwigInclude('@cloudfour/components/input/input.twig', {
             ...elasticTextAreaConfig,
+            id: 'demo-elastic-no-resize',
             class: 'c-input--elastic c-input--noResize js-elastic-textarea',
           }),
         },

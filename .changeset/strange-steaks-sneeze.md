@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Add `c-input--noResize` modifier
+Disable resizing for `c-input--elastic` modifier

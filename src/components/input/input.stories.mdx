@@ -88,7 +88,7 @@ You can also add `c-input` to `<select>` elements, in which case you’ll get a 
 
 ## Elastic TextArea
 
-Add the `c-input--elastic` modifier class to a `<textarea>` element and follow the [JavaScript instructions](#javascript-instructions) to have it expand as the user types more than will fit.
+Add the `c-input--elastic` modifier class to a `<textarea>` element and follow the [JavaScript instructions](#javascript-instructions) below to have it expand as the user types more than will fit.
 
 If the `rows` attribute is set, it will be used as the minimum height.
 
@@ -100,9 +100,7 @@ If the `rows` attribute is set, it will be used as the minimum height.
       rows: { type: { name: 'number' } },
       class: { type: { name: 'string' } },
     }}
-    args={{
-      ...elasticTextAreaConfig,
-    }}
+    args={elasticTextAreaConfig}
     parameters={{
       docs: {
         source: {
@@ -125,7 +123,43 @@ If the `rows` attribute is set, it will be used as the minimum height.
   </Story>
 </Canvas>
 
-### JavaScript Instructions
+You can also disable the `<textarea>` resizing ability by adding the `c-input--noResize` modifier:
+
+<Canvas>
+  <Story
+    name="Elastic Textarea with No Resize"
+    height="250px"
+    argTypes={{
+      rows: { type: { name: 'number' } },
+      class: { type: { name: 'string' } },
+    }}
+    args={{
+      ...elasticTextAreaConfig,
+      class: 'c-input--elastic c-input--noResize js-elastic-textarea',
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: makeTwigInclude('@cloudfour/components/input/input.twig', {
+            ...elasticTextAreaConfig,
+            class: 'c-input--elastic c-input--noResize js-elastic-textarea',
+          }),
+        },
+      },
+    }}
+  >
+    {(args) => {
+      // Use storybook hooks to trigger JS after story renders
+      // @see https://github.com/storybookjs/storybook/issues/7786
+      useEffect(() => {
+        createElasticTextArea(document.querySelector('.js-elastic-textarea'));
+      }, []);
+      return input(args);
+    }}
+  </Story>
+</Canvas>
+
+<h3 id="javascript-instructions">JavaScript Instructions</h3>
 
 You'll need to use JavaScript to select and initialize all the elastic textareas on the page.
 
@@ -160,60 +194,3 @@ elasticTextAreas.forEach((textarea) => {
 // Or, if you only have one elastic textarea on the page
 elasticTextArea.destroy();
 ```
-
-### Elastic TextArea JavaScript Options
-
-The following options exist:
-
-- `disableResize`: Disables native HTML TextArea resizing via the CSS `resize` property
-
-```js
-interface ElasticTextAreaOpts {
-  disableResize?: boolean;
-}
-```
-
-### Elastic TextArea with Resize Disabled
-
-Below is an example where resizing is disabled:
-
-```js
-createElasticTextArea(textarea, {
-  disableResize: true,
-});
-```
-
-<Canvas>
-  <Story
-    name="Elastic Textarea with Resize Disabled"
-    height="250px"
-    argTypes={{
-      rows: { type: { name: 'number' } },
-      class: { type: { name: 'string' } },
-    }}
-    args={{
-      ...elasticTextAreaConfig,
-    }}
-    parameters={{
-      docs: {
-        source: {
-          code: makeTwigInclude(
-            '@cloudfour/components/input/input.twig',
-            elasticTextAreaConfig
-          ),
-        },
-      },
-    }}
-  >
-    {(args) => {
-      // Use storybook hooks to trigger JS after story renders
-      // @see https://github.com/storybookjs/storybook/issues/7786
-      useEffect(() => {
-        createElasticTextArea(document.querySelector('.js-elastic-textarea'), {
-          disableResize: true,
-        });
-      }, []);
-      return input(args);
-    }}
-  </Story>
-</Canvas>

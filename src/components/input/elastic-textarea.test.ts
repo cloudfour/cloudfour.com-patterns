@@ -5,21 +5,14 @@ import { withBrowser } from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
 
-import type { ElasticTextAreaOpts } from './elastic-textarea.js';
-
 const textInputHTML = loadTwigTemplate(path.join(__dirname, './input.twig'));
-const initTextareaJS = (
-  utils: PleasantestUtils,
-  textarea: ElementHandle,
-  elasticTextAreaOpts: ElasticTextAreaOpts = {}
-) =>
+const initTextareaJS = (utils: PleasantestUtils, textarea: ElementHandle) =>
   utils.runJS(
     `
     import { createElasticTextArea } from './elastic-textarea'
-    export default (textarea, elasticTextAreaOpts) =>
-      createElasticTextArea(textarea, elasticTextAreaOpts);
+    export default (textarea) => createElasticTextArea(textarea);
     `,
-    [textarea, elasticTextAreaOpts]
+    [textarea]
   );
 
 test(
@@ -80,26 +73,5 @@ test(
     // After emptying it out, it should have 1 row, since that is what we initialized `rows` to
     await user.clear(textarea);
     await expect(textarea).toHaveAttribute('rows', '1');
-  })
-);
-
-test(
-  'Disables native resize via CSS',
-  withBrowser(async ({ utils, screen }) => {
-    await utils.injectHTML(
-      await textInputHTML({
-        class: 'c-input--elastic js-elastic-textarea',
-        type: 'textarea',
-      })
-    );
-    const textarea = await screen.getByRole('textbox');
-    await initTextareaJS(utils, textarea, {
-      disableResize: true,
-    });
-
-    const isCssResizeDisabled = await textarea.evaluate(
-      (el) => el.style.resize === 'none'
-    );
-    expect(isCssResizeDisabled).toEqual(true);
   })
 );

@@ -86,6 +86,13 @@
   }
 
   /**
+   * Removes ability to resize element
+   */
+  &.c-input--noResize {
+    resize: none;
+  }
+
+  /**
    * Types that disclose additional options should have an icon
    *
    * 1. Setting the background size to `100%` avoids a strange background shift

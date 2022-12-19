@@ -71,19 +71,27 @@
   }
 
   /**
+   * For textareas with rows, overrides static default height
+   */
+
+  &[rows] {
+    block-size: auto;
+  }
+
+  /**
+   * Only disable reszie when JavaScript is enabled
+   */
+
+  &.is-elastic {
+    resize: none;
+  }
+
+  /**
    * Multi-line types should be taller
    */
 
   @at-root textarea#{&} {
     block-size: size.$height-control-multiline;
-  }
-
-  /**
-   * Elastic Inputs get their height from javascript.
-   */
-  &.c-input--elastic {
-    block-size: auto;
-    resize: none;
   }
 
   /**

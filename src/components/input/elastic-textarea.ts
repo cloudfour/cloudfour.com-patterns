@@ -9,6 +9,9 @@
  * @param textarea - the target `textarea` element
  */
 export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
+  // Progressively enhances experience
+  textarea.classList.add('is-elastic');
+
   const minRows = Number(textarea.getAttribute('rows')) || 2;
   let rows = Number(textarea.getAttribute('rows')) || minRows;
   textarea.setAttribute('rows', String(rows));

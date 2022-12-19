@@ -63,16 +63,21 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
     }
   };
 
+  // Initialize the textarea with elastic behavior
+  textarea.addEventListener('input', update);
+
+  // Resize Observer
+  const observer = new ResizeObserver(update);
+  observer.observe(textarea);
+
   /**
    * Part of the public API, reset state and remove event listeners
    */
   const destroy = () => {
     textarea.classList.remove(JS_ENABLED_HOOK);
     textarea.removeEventListener('input', update);
+    observer.disconnect();
   };
-
-  // Initialize the textarea with elastic behavior
-  textarea.addEventListener('input', update);
 
   // Run the update method to set the initial size correctly
   update();

@@ -63,7 +63,9 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
     }
   };
 
-  /** As part of the public API, allow users to remove the event listener */
+  /**
+   * Part of the public API, reset state and remove event listeners
+   */
   const destroy = () => {
     textarea.classList.remove(JS_ENABLED_HOOK);
     textarea.removeEventListener('input', update);

@@ -63,19 +63,22 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
     }
   };
 
-  // Initialize the textarea with elastic behavior
+  // Initialize the textarea with elastic behavior on a user's input
   textarea.addEventListener('input', update);
 
-  // Resize Observer
+  // Run elastic behavior when the textarea resizes
   const observer = new ResizeObserver(update);
   observer.observe(textarea);
 
   /**
-   * Part of the public API, reset state and remove event listeners
+   * Ensure the component cleans up after itself when "destroyed"
    */
   const destroy = () => {
+    // Reset the state
     textarea.classList.remove(JS_ENABLED_HOOK);
+    // Remove event listeners
     textarea.removeEventListener('input', update);
+    // Disconnect resize observer
     observer.disconnect();
   };
 

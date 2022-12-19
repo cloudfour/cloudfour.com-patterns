@@ -9,8 +9,9 @@
  * @param textarea - the target `textarea` element
  */
 export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
-  // Progressively enhances experience
-  textarea.classList.add('is-elastic');
+  // Provides a CSS hook for JS-only styles
+  const JS_ENABLED_HOOK = 'is-elastic';
+  textarea.classList.add(JS_ENABLED_HOOK);
 
   const minRows = Number(textarea.getAttribute('rows')) || 2;
   let rows = Number(textarea.getAttribute('rows')) || minRows;
@@ -63,7 +64,10 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   };
 
   /** As part of the public API, allow users to remove the event listener */
-  const destroy = () => textarea.removeEventListener('input', update);
+  const destroy = () => {
+    textarea.classList.remove(JS_ENABLED_HOOK);
+    textarea.removeEventListener('input', update);
+  };
 
   // Initialize the textarea with elastic behavior
   textarea.addEventListener('input', update);

@@ -1,6 +1,5 @@
 import path from 'path';
 
-import type { ElementHandle } from 'pleasantest';
 import { getAccessibilityTree, withBrowser } from 'pleasantest';
 
 import { loadTwigTemplate } from '../../../test-utils.js';
@@ -18,9 +17,7 @@ describe('Alert component', () => {
         })
       );
 
-      const body = await page.evaluateHandle<ElementHandle>(
-        () => document.body
-      );
+      const body = await page.evaluateHandle(() => document.body);
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(
         `text "¡Hola!"`
       );
@@ -36,9 +33,7 @@ describe('Alert component', () => {
         })
       );
 
-      const body = await page.evaluateHandle<ElementHandle>(
-        () => document.body
-      );
+      const body = await page.evaluateHandle(() => document.body);
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
         status
           text "Hello world!"
@@ -55,9 +50,7 @@ describe('Alert component', () => {
         })
       );
 
-      const body = await page.evaluateHandle<ElementHandle>(
-        () => document.body
-      );
+      const body = await page.evaluateHandle(() => document.body);
       // Nothing to see if the `hidden` attribute is added to the alert
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(``);
     })

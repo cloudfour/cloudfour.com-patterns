@@ -1,6 +1,6 @@
 import path from 'path';
 
-import type { ElementHandle, PleasantestUtils } from 'pleasantest';
+import type { PleasantestUtils } from 'pleasantest';
 import { getAccessibilityTree, withBrowser } from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
@@ -36,7 +36,7 @@ test(
 
     await initCommentsJS(utils);
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
     expect(await getAccessibilityTree(body, { includeText: false }))
       .toMatchInlineSnapshot(`
         article "Test author name said:"

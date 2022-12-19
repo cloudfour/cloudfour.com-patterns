@@ -1,6 +1,5 @@
 import path from 'path';
 
-import type { ElementHandle } from 'pleasantest';
 import { getAccessibilityTree, withBrowser } from 'pleasantest';
 
 import { loadTwigTemplate } from '../../../test-utils.js';
@@ -20,9 +19,7 @@ describe('Overview object', () => {
         })
       );
 
-      const body = await page.evaluateHandle<ElementHandle>(
-        () => document.body
-      );
+      const body = await page.evaluateHandle(() => document.body);
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
         region
           banner
@@ -43,9 +40,7 @@ describe('Overview object', () => {
         })
       );
 
-      const body = await page.evaluateHandle<ElementHandle>(
-        () => document.body
-      );
+      const body = await page.evaluateHandle(() => document.body);
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
         text "Header"
         text "Actions"

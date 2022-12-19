@@ -1,6 +1,5 @@
 import path from 'path';
 
-import type { ElementHandle } from 'pleasantest';
 import { getAccessibilityTree, withBrowser } from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
@@ -17,7 +16,7 @@ test(
     await loadGlobalCSS(utils);
 
     // Before JS initializes
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       status
         text "Currently unsubscribed from notifications"
@@ -54,7 +53,7 @@ test(
     );
     await loadGlobalCSS(utils);
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       status
         text "Unsubscribed"

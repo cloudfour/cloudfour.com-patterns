@@ -55,7 +55,7 @@ test(
     // Initial state: menu is closed
     await expect(navButton).toHaveAttribute('aria-expanded', 'false');
     expect(await screen.queryByRole('list')).toBeNull();
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       link "Skip to main content"
         text "Skip to main content"
@@ -121,7 +121,7 @@ test(
     // Initial state: list is visible, button is hidden
     expect(navButton).not.toBeVisible();
     await expect(await screen.queryByRole('list')).toBeVisible();
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       link "Skip to main content"
         text "Skip to main content"

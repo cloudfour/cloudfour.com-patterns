@@ -10,7 +10,8 @@ const initTextareaJS = (utils: PleasantestUtils, textarea: ElementHandle) =>
   utils.runJS(
     `
     import { createElasticTextArea } from './elastic-textarea'
-    export default (textarea) => createElasticTextArea(textarea);
+    const [textarea] = import.meta.pleasantestArgs
+    createElasticTextArea(textarea);
     `,
     [textarea]
   );

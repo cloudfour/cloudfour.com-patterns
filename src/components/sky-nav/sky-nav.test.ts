@@ -13,7 +13,8 @@ const initSkyNavJS = (utils: PleasantestUtils, navButton: ElementHandle) =>
   utils.runJS(
     `
     import { initSkyNav } from './sky-nav'
-    export default (navButton) => initSkyNav(navButton)
+    const [navButton] = import.meta.pleasantestArgs;
+    initSkyNav(navButton)
     `,
     [navButton]
   );
@@ -21,30 +22,12 @@ const initSkyNavJS = (utils: PleasantestUtils, navButton: ElementHandle) =>
 test(
   'can be opened on small screens',
   withBrowser({ device: iPhone }, async ({ utils, screen, user, page }) => {
-    // The rendered markup needs to be captured so we can pass it into the
-    // `page.evaluate` function below
-    const renderedMarkup = await skyNavMarkup({
-      includeMainDemo: true,
-      menu,
-    });
-    // Pleasantest uses `document.innerHTML` to inject the markup into the DOM,
-    // but that means inline scripts are not executed.
-    // @see https://github.com/cloudfour/pleasantest/issues/526
-    //
-    // > HTML5 specifies that a <script> tag inserted with innerHTML should not execute.
-    // @see https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#security_considerations
-    //
-    // This causes this test to fail because the Sky Nav template has an inline
-    // script. To get around that, the code below uses `document.write` instead
-    // which _will_ execute the inline script.
-    //
-    // Using `document.write` is discouraged. For the purposes of this test,
-    // though, it is okay.
-    // @see https://developer.mozilla.org/en-US/docs/Web/API/Document/write
-    await page.evaluate((renderedMarkup) => {
-      document.body.innerHTML = '';
-      document.write(renderedMarkup);
-    }, renderedMarkup);
+    await utils.injectHTML(
+      await skyNavMarkup({
+        includeMainDemo: true,
+        menu,
+      })
+    );
 
     await loadGlobalCSS(utils);
     const navButton = await screen.getByRole('button', {

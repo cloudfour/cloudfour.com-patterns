@@ -109,7 +109,7 @@ test(
     // Now validate it works when the width of the textarea itself changes
     // Change the width of the textarea directly
     await textarea.evaluate((el) => (el.style.width = '250px'));
-    // This should resize the textarea forcing multiple lines of text
+    // This should resize the textarea, forcing multiple lines of text
     await waitFor(() => expect(textarea).toHaveAttribute('rows', '7'));
 
     // Reset back to larger size

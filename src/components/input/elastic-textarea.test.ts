@@ -98,7 +98,7 @@ test(
 
     // Then size it down to a narrow viewport width
     await page.setViewport({ width: 250, height: 400 });
-    // The textarea should resize forcing the text to wrap multiple lines
+    // The textarea should resize, forcing the text to wrap multiple lines
     await waitFor(() => expect(textarea).toHaveAttribute('rows', '6'));
 
     // Reset the viewport back to a larger size

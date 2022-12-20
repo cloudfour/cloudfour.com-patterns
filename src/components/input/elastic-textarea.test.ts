@@ -20,7 +20,7 @@ test(
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(
       await textInputHTML({
-        class: 'c-input--elastic js-elastic-textarea',
+        class: 'js-elastic-textarea',
         type: 'textarea',
       })
     );
@@ -55,7 +55,7 @@ test(
   withBrowser(async ({ utils, screen, user }) => {
     await utils.injectHTML(
       await textInputHTML({
-        class: 'c-input--elastic js-elastic-textarea',
+        class: 'js-elastic-textarea',
         type: 'textarea',
         rows: 1,
       })

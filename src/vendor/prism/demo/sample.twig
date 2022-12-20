@@ -1,4 +1,4 @@
 <figure class="u-space-block-1">
-  <pre><code class="language-{{name}}">{{content}}</code></pre>
+  <pre><code class="language-{{name}}">{% if html %}{{html|raw}}{% else %}{{content}}{% endif %}</code></pre>
   <figcaption><code>language-{{name}}</code></figcaption>
 </figure>

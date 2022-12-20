@@ -1,0 +1,79 @@
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/font-weight';
+@use '../../compiled/tokens/scss/opacity';
+@use 'sass:color' as sasscolor;
+
+/// Cloud Four theme for Prism syntax highlighting.
+///
+/// @link https://highlightjs.readthedocs.io/en/latest/theme-guide.html
+
+.hljs,
+.hljs-subst {
+  color: color.$text-light;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-punctuation {
+  color: sasscolor.change(color.$text-light, $alpha: (opacity.$muted * 0.85));
+}
+
+.hljs-name,
+.hljs-built_in,
+.hljs-title,
+.language-scss .hljs-variable {
+  color: color.$base-fuchsia-lighter;
+}
+
+.hljs-keyword,
+.hljs-meta,
+.hljs-section {
+  color: color.$base-purple-lighter;
+}
+
+.hljs-attr,
+.hljs-params,
+.hljs-property,
+.hljs-selector-class,
+.hljs-template-variable {
+  color: color.$base-orange-lighter;
+}
+
+.hljs-literal,
+.hljs-selector-tag,
+.hljs-symbol,
+.hljs-type {
+  color: sasscolor.change(
+    sasscolor.mix(color.$base-fuchsia-lighter, color.$base-orange-light),
+    $saturation: sasscolor.saturation(color.$base-fuchsia-lighter)
+  );
+}
+
+.hljs-meta,
+.hljs-number,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: sasscolor.change(
+    sasscolor.mix(color.$base-green-lighter, color.$base-blue-lighter),
+    $saturation: sasscolor.saturation(color.$base-green-lighter)
+  );
+}
+
+.hljs-string {
+  color: color.$base-green-lighter;
+}
+
+.hljs-attribute,
+.hljs-regexp,
+.hljs-template-tag,
+.hljs-variable {
+  color: color.$base-blue-lighter;
+}
+
+.hljs-selector-id,
+.hljs-title.class_ {
+  color: sasscolor.adjust(
+    sasscolor.mix(color.$base-orange-lighter, color.$base-green-lighter),
+    $saturation: +10%
+  );
+}

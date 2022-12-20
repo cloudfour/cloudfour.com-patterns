@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Update Elastic TextArea when resized
+Update Elastic TextArea `rows` to fit content when resized

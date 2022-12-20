@@ -75,3 +75,46 @@ test(
     await expect(textarea).toHaveAttribute('rows', '1');
   })
 );
+
+test(
+  'Should update to fit content when textarea is resized',
+  withBrowser(async ({ utils, screen, page, waitFor }) => {
+    await loadGlobalCSS(utils);
+    await utils.injectHTML(
+      await textInputHTML({
+        class: 'js-elastic-textarea',
+        type: 'textarea',
+        value:
+          'We are a small, versatile team who care passionately about the web. We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school.',
+      })
+    );
+    const textarea = await screen.getByRole('textbox');
+    await initTextareaJS(utils, textarea);
+
+    // First test the viewport changing size, start with a wide viewport
+    await page.setViewport({ width: 800, height: 400 });
+    // The text should wrap two lines
+    await expect(textarea).toHaveAttribute('rows', '2');
+
+    // Then size it down to a narrow viewport width
+    await page.setViewport({ width: 250, height: 400 });
+    // The textarea should resize, forcing the text to wrap multiple lines
+    await waitFor(() => expect(textarea).toHaveAttribute('rows', '6'));
+
+    // Reset the viewport back to a larger size
+    await page.setViewport({ width: 800, height: 400 });
+    // The textarea should go back to only 2 lines
+    await waitFor(() => expect(textarea).toHaveAttribute('rows', '2'));
+
+    // Now validate it works when the width of the textarea itself changes
+    // Change the width of the textarea directly
+    await textarea.evaluate((el) => (el.style.width = '250px'));
+    // This should resize the textarea, forcing multiple lines of text
+    await waitFor(() => expect(textarea).toHaveAttribute('rows', '7'));
+
+    // Reset back to larger size
+    await textarea.evaluate((el) => (el.style.width = '800px'));
+    // Should go back to two lines of text
+    await waitFor(() => expect(textarea).toHaveAttribute('rows', '2'));
+  })
+);

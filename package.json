@@ -43,7 +43,7 @@
     "prismjs": "1.29.0"
   },
   "devDependencies": {
-    "@babel/core": "7.20.5",
+    "@babel/core": "7.20.7",
     "@babel/preset-env": "7.20.2",
     "@changesets/changelog-github": "0.4.7",
     "@changesets/cli": "2.25.2",

@@ -1,0 +1,60 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { useEffect } from '@storybook/client-api';
+import { createElasticTextArea } from '../../components/input/elastic-textarea.ts';
+import { runPrototypeJavaScript } from './js/draft-email-textarea.js';
+import prototypeDemo from './example/example.twig';
+
+<Meta
+  title="Prototypes/Draft Email Textarea"
+  argTypes={{
+    label: { type: { name: 'string' } },
+    icon: {
+      options: ['', 'check', 'heart', 'pencil'],
+      type: { name: 'string' },
+      control: {
+        type: 'select',
+      },
+    },
+  }}
+/>
+
+# Badge
+
+Badges help provide just a smidge more context to repetitive or serialized content. For example, a badge can help the reader identify when [a comment on an article is by the author of that article](/docs/components-comment--role-author#role-badges).
+
+<Canvas>
+  <Story name="Basic" args={{ label: 'Hello' }}>
+    {(args) => {
+      useEffect(() => {
+        console.log('HI YEP');
+        runPrototypeJavaScript();
+        createElasticTextArea(document.querySelector('.js-elastic-textarea'));
+      }, []);
+      return prototypeDemo(args);
+    }}
+  </Story>
+</Canvas>
+
+<!-- ## With icon
+
+<Canvas>
+  <Story name="With icon" args={{ icon: 'check', label: 'Verified' }}>
+    {(args) => badgeStory(args)}
+  </Story>
+</Canvas> -->
+
+// import examplePrototype from './example/example.twig';
+// // import './js/draft-email-textarea.js';
+
+// export default {
+// title: 'Prototypes/Draft Email Textarea',
+// parameters: {
+// docs: { page: null },
+// layout: 'fullscreen',
+// },
+// };
+
+// export const Example = () => {
+// console.log('HI GERA');
+// return examplePrototype({});
+// };

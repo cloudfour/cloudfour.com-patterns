@@ -1,11 +1,14 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { createElasticTextArea } from '../../components/input/elastic-textarea.ts';
-import { runPrototypeJavaScript, forDemoPurposesOnlyText } from './js/draft-email-textarea.js';
+import {
+  runPrototypeJavaScript,
+  forDemoPurposesOnlyText,
+} from './js/draft-email-textarea.js';
 import prototypeDemo from './example/example.twig';
 const prototypeData = {
   draftSubject: 'Discuss potential project',
-  draftMessage: forDemoPurposesOnlyText
+  draftMessage: forDemoPurposesOnlyText,
 };
 
 <Meta title="Prototypes/Draft Email Textarea" />
@@ -27,27 +30,3 @@ For best results, view the "Canvas" view of this prototype.
     }}
   </Story>
 </Canvas>
-
-<!-- ## With icon
-
-<Canvas>
-  <Story name="With icon" args={{ icon: 'check', label: 'Verified' }}>
-    {(args) => badgeStory(args)}
-  </Story>
-</Canvas> -->
-
-// import examplePrototype from './example/example.twig';
-// // import './js/draft-email-textarea.js';
-
-// export default {
-// title: 'Prototypes/Draft Email Textarea',
-// parameters: {
-// docs: { page: null },
-// layout: 'fullscreen',
-// },
-// };
-
-// export const Example = () => {
-// console.log('HI GERA');
-// return examplePrototype({});
-// };

@@ -1,22 +1,11 @@
 <div class="o-container o-container--pad o-container--prose">
 	<div class="o-container__content o-rhythm o-rhythm--default o-rhythm--generous-headings">
-		<textarea id="email-draft" class="c-input u-pad-1 js-elastic-textarea" spellcheck="false" rows="5">Hi there,
-
-My name is [Firstname Lastname], I’m a [role] at [organization].
-
-I’m reaching out to discuss [project, question, challenge]. [Additional details, if any.]
-
-Our budget for this effort is [budget, range, etc.] and we’re interested in wrapping up in [timeframe].
-
-I’m available to chat [potential meeting times], let me know if any of those work for you.
-
-Have a great day!
-
-[Firstname Lastname]</textarea>
-
+		<textarea id="email-draft" class="c-input u-pad-1 js-elastic-textarea" spellcheck="false" rows="5">{{ draftMessage }}</textarea>
 		{% embed '@cloudfour/objects/button-group/button-group.twig' with {
 			grow: true,
-			class: 'u-space-block-start-n2'
+			class: 'u-space-block-start-n2',
+      subject: draftSubject,
+      message: draftMessage | escape('url')
 		} only %}
 			{% block content %}
 				{% include '@cloudfour/components/button/button.twig' with {
@@ -28,7 +17,7 @@ Have a great day!
 					label: 'Draft email',
 					class: 'c-button--secondary',
 					content_start_icon: 'envelope',
-					href: "mailto:info@cloudfour.com?subject=Discuss potential project&body=Hi there,%0D%0A%0D%0AMy name is [Firstname Lastname], I’m a [role] at [organization].%0D%0A%0D%0AI’m reaching out to discuss [project, question, challenge]. [Additional details, if any.]%0D%0A%0D%0AOur budget for this effort is [budget, range, etc.] and we’re interested in wrapping up in [timeframe].%0D%0A%0D%0AI’m available to chat [potential meeting times], let me know if any of those work for you.%0D%0A%0D%0AHave a great day!%0D%0A%0D%0A[Firstname Lastname]",
+					href: "mailto:info@cloudfour.com?subject=#{subject}&body=#{message}",
 				} only %}
 			{% endblock %}
 		{% endembed %}

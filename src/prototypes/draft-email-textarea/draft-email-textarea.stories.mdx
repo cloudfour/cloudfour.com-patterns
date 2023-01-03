@@ -1,32 +1,25 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { createElasticTextArea } from '../../components/input/elastic-textarea.ts';
-import { runPrototypeJavaScript } from './js/draft-email-textarea.js';
+import { runPrototypeJavaScript, forDemoPurposesOnlyText } from './js/draft-email-textarea.js';
 import prototypeDemo from './example/example.twig';
+const prototypeData = {
+  draftSubject: 'Discuss potential project',
+  draftMessage: forDemoPurposesOnlyText
+};
 
-<Meta
-  title="Prototypes/Draft Email Textarea"
-  argTypes={{
-    label: { type: { name: 'string' } },
-    icon: {
-      options: ['', 'check', 'heart', 'pencil'],
-      type: { name: 'string' },
-      control: {
-        type: 'select',
-      },
-    },
-  }}
-/>
+<Meta title="Prototypes/Draft Email Textarea" />
 
-# Badge
+# Prototype
 
-Badges help provide just a smidge more context to repetitive or serialized content. For example, a badge can help the reader identify when [a comment on an article is by the author of that article](/docs/components-comment--role-author#role-badges).
+This is the "Draft Email" prototype. The HTML markup and JavaScript logic will be included as a Gutenberg Custom HTML block.
+
+For best results, view the "Canvas" view of this prototype.
 
 <Canvas>
-  <Story name="Basic" args={{ label: 'Hello' }}>
+  <Story name="Prototype" args={prototypeData}>
     {(args) => {
       useEffect(() => {
-        console.log('HI YEP');
         runPrototypeJavaScript();
         createElasticTextArea(document.querySelector('.js-elastic-textarea'));
       }, []);

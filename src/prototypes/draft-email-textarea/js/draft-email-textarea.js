@@ -19,3 +19,16 @@ export const runPrototypeJavaScript = () => {
   document.getElementById('copy-btn').addEventListener('click', onCopyClick);
 };
 
+export const forDemoPurposesOnlyText = `Hi there,
+
+My name is [Firstname Lastname], I’m a [role] at [organization].
+
+I’m reaching out to discuss [project, question, challenge]. [Additional details, if any.]
+
+Our budget for this effort is [budget, range, etc.] and we’re interested in wrapping up in [timeframe].
+
+I’m available to chat [potential meeting times], let me know if any of those work for you.
+
+Have a great day!
+
+[Firstname Lastname]`;

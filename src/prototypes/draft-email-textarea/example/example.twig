@@ -4,8 +4,8 @@
 		{% embed '@cloudfour/objects/button-group/button-group.twig' with {
 			grow: true,
 			class: 'u-space-block-start-n2',
-      subject: draftSubject,
-      message: draftMessage | escape('url')
+      subject: draftSubject | url_encode,
+      message: draftMessage | url_encode
 		} only %}
 			{% block content %}
 				{% include '@cloudfour/components/button/button.twig' with {

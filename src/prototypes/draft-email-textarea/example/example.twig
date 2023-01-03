@@ -1,6 +1,5 @@
 <div class="o-container o-container--pad o-container--prose">
 	<div class="o-container__content o-rhythm o-rhythm--default o-rhythm--generous-headings">
-
 		<textarea id="email-draft" class="c-input u-pad-1 js-elastic-textarea" spellcheck="false" rows="5">Hi there,
 
 My name is [Firstname Lastname], I’m a [role] at [organization].
@@ -15,27 +14,24 @@ Have a great day!
 
 [Firstname Lastname]</textarea>
 
-		<div class="o-button-group o-button-group--grow u-space-block-start-n2">
-			<button id="copy-btn" class="c-button">
-				<span class="c-button__extra">
-					<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="c-icon">
-						<path d="M16 16v5c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1V9c0-.55.45-1 1-1h5" fill="none" stroke-linecap="round" stroke-width="2"></path>
-						<rect x="8" y="2" width="14" height="14" rx="1" ry="1" fill="none" stroke-linecap="round" stroke-width="2"></rect>
-					</svg>
-				</span>
-				<span class="c-button__content"> Copy </span>
-			</button>
-
-			<a href="mailto:info@cloudfour.com?subject=Discuss potential project&body=Hi there,%0D%0A%0D%0AMy name is [Firstname Lastname], I’m a [role] at [organization].%0D%0A%0D%0AI’m reaching out to discuss [project, question, challenge]. [Additional details, if any.]%0D%0A%0D%0AOur budget for this effort is [budget, range, etc.] and we’re interested in wrapping up in [timeframe].%0D%0A%0D%0AI’m available to chat [potential meeting times], let me know if any of those work for you.%0D%0A%0D%0AHave a great day!%0D%0A%0D%0A[Firstname Lastname]" class="c-button c-button--secondary">
-				<span class="c-button__extra">
-					<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="c-icon">
-						<path d="M12 13.31l11-7V6a2 2 0 00-2-2H3a2 2 0 00-2 2v.31z"></path>
-						<path d="M13.07 15a2 2 0 01-2.14 0L1 8.69V18a2 2 0 002 2h18a2 2 0 002-2V8.69z"></path>
-					</svg>
-				</span>
-				<span class="c-button__content"> Draft email </span>
-			</a>
-		</div>
+		{% embed '@cloudfour/objects/button-group/button-group.twig' with {
+			grow: true,
+			class: 'u-space-block-start-n2'
+		} only %}
+			{% block content %}
+				{% include '@cloudfour/components/button/button.twig' with {
+					label: 'Copy',
+					id: 'copy-btn',
+					content_start_icon: 'copy',
+				} only %}
+				{% include '@cloudfour/components/button/button.twig' with {
+					label: 'Draft email',
+					class: 'c-button--secondary',
+					content_start_icon: 'envelope',
+					href: "mailto:info@cloudfour.com?subject=Discuss potential project&body=Hi there,%0D%0A%0D%0AMy name is [Firstname Lastname], I’m a [role] at [organization].%0D%0A%0D%0AI’m reaching out to discuss [project, question, challenge]. [Additional details, if any.]%0D%0A%0D%0AOur budget for this effort is [budget, range, etc.] and we’re interested in wrapping up in [timeframe].%0D%0A%0D%0AI’m available to chat [potential meeting times], let me know if any of those work for you.%0D%0A%0D%0AHave a great day!%0D%0A%0D%0A[Firstname Lastname]",
+				} only %}
+			{% endblock %}
+		{% endembed %}
 
 		<script src="/wp-content/themes/cloudfour2022/static/scripts/init-elastic-textarea.js" type="module"></script>
 
@@ -45,11 +41,11 @@ Have a great day!
 				if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
 					return navigator.clipboard.writeText(text);
 				}
-				return Promise.reject("Clipboard API not available");
+				return Promise.reject('Clipboard API not available');
 			};
 
 			const onCopyClick = () => {
-				const draftEl = document.getElementById("email-draft");
+				const draftEl = document.getElementById('email-draft');
 
 				// Select the text on click for a better UX
 				draftEl.select();
@@ -58,7 +54,7 @@ Have a great day!
 				copyToClipboard(draftEl.value);
 			};
 
-			document.getElementById("copy-btn").addEventListener("click", onCopyClick);
+			document.getElementById('copy-btn').addEventListener('click', onCopyClick);
 		</script>
 	</div>
 </div>

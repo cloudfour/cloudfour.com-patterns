@@ -3,7 +3,7 @@ import { useEffect } from '@storybook/client-api';
 import { createElasticTextArea } from '../../components/input/elastic-textarea.ts';
 import {
   forDemoPurposesOnlyText,
-  runPrototypeJavaScript,
+  runProposedInlineJS,
 } from './js/draft-email-textarea.js';
 import prototypeDemo from './example/example.twig';
 const prototypeData = {
@@ -23,7 +23,7 @@ For best results, view the "Canvas" view of this prototype.
   <Story name="Prototype" args={prototypeData}>
     {(args) => {
       useEffect(() => {
-        runPrototypeJavaScript();
+        runProposedInlineJS();
         createElasticTextArea(document.querySelector('.js-elastic-textarea'));
       }, []);
       return prototypeDemo(args);

@@ -15,6 +15,9 @@
 
 <{{ tag_name }}
   class="c-button{% if class %} {{ class }}{% endif %}"
+  {% if hidden is same as(true) %}
+    hidden
+  {% endif %}
   {% if id %}
     id="{{ id }}"
   {% endif %}

@@ -1,6 +1,13 @@
 <div class="o-container o-container--pad o-container--prose">
 	<div class="o-container__content o-rhythm o-rhythm--default o-rhythm--generous-headings">
 		<textarea id="email-draft" class="c-input u-pad-1 js-elastic-textarea" spellcheck="false" rows="5">{{ draftMessage }}</textarea>
+
+    <span
+      id="status-output"
+      role="alert"
+      class="u-hidden-visually js-button-swap__message"
+    ></span>
+
 		{% embed '@cloudfour/objects/button-group/button-group.twig' with {
 			grow: true,
 			class: 'u-space-block-start-n2',
@@ -12,6 +19,12 @@
 					label: 'Copy',
 					id: 'copy-btn',
 					content_start_icon: 'copy',
+				} only %}
+				{% include '@cloudfour/components/button/button.twig' with {
+					label: 'Copied',
+          id: 'copied-btn',
+					content_start_icon: 'check',
+          hidden: true,
 				} only %}
 				{% include '@cloudfour/components/button/button.twig' with {
 					label: 'Draft email',

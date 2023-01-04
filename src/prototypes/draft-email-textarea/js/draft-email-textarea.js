@@ -49,15 +49,18 @@ export const runProposedInlineJS = () => {
   };
 
   const onDraftEmailClick = (e) => {
-    e.preventDefault();
-
-    // Get the draft message subject & body text
+    // Get the draft message subject & body text, this ensures the draft message
+    // is updated in case the user started typing their message in the
+    // textarea input.
     const msgSubject = encodeURIComponent(draftEl.dataset.messageSubject);
     const msgBody = encodeURIComponent(draftEl.value);
 
-    // Draft a new email message
-    window.location.href =
-      `mailto:info@cloudfour.com?subject=${msgSubject}&body=${msgBody}`;
+    // Update the mailto link with the new values
+    // The default link behavior will then use these updated values
+    draftEmailBtn.setAttribute(
+      'href',
+      `mailto:info@cloudfour.com?subject=${msgSubject}&body=${msgBody}`
+    );
   };
 
   copyBtn.addEventListener('click', onCopyClick);

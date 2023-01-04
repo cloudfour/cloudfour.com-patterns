@@ -7,6 +7,7 @@ export const runProposedInlineJS = () => {
   // block (the JS functionaly won't be shared elsewhere, so I didn't use classes)
   const copyBtn = document.getElementById('copy-btn');
   const copiedBtn = document.getElementById('copied-btn');
+  const draftEmailBtn = document.getElementById('draft-email-btn');
   const draftEl = document.getElementById('email-draft');
   const actionMessageEl = document.getElementById('copied-action-message');
 
@@ -14,6 +15,7 @@ export const runProposedInlineJS = () => {
   const requirements = [
     copyBtn,
     copiedBtn,
+    draftEmailBtn,
     draftEl,
     actionMessageEl,
     navigator,
@@ -28,7 +30,7 @@ export const runProposedInlineJS = () => {
     return;
   }
 
-  copyBtn.addEventListener('click', () => {
+  const onCopyClick = () => {
     // Add draft message to clipboard
     navigator.clipboard.writeText(draftEl.value);
 
@@ -44,7 +46,22 @@ export const runProposedInlineJS = () => {
       copiedBtn.hidden = true;
       actionMessageEl.textContent = '';
     }, 2000);
-  });
+  };
+
+  const onDraftEmailClick = (e) => {
+    e.preventDefault();
+
+    // Get the draft message subject & body text
+    const msgSubject = encodeURIComponent(draftEl.dataset.messageSubject);
+    const msgBody = encodeURIComponent(draftEl.value);
+
+    // Draft a new email message
+    window.location.href =
+      `mailto:info@cloudfour.com?subject=${msgSubject}&body=${msgBody}`;
+  };
+
+  copyBtn.addEventListener('click', onCopyClick);
+  draftEmailBtn.addEventListener('click', onDraftEmailClick);
 };
 
 /**

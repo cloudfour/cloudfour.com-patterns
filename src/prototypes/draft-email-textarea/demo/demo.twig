@@ -6,6 +6,7 @@
 			id="email-draft"
 			class="c-input u-pad-1 js-elastic-textarea"
 			spellcheck="false"
+      data-message-subject="{{ draftSubject }}"
 		>{{ draftMessage }}</textarea>
 
 		{# Copy and Draft buttons #}
@@ -29,6 +30,7 @@
 				} only %}
 				{% include '@cloudfour/components/button/button.twig' with {
 					label: 'Draft email',
+          id: 'draft-email-btn',
 					class: 'c-button--secondary',
 					content_start_icon: 'envelope',
 					href: "mailto:info@cloudfour.com?subject=#{subject}&body=#{message}",

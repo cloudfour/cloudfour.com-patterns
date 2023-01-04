@@ -35,7 +35,7 @@ export const runProposedInlineJS = () => {
     copyBtn.hidden = true;
     copiedBtn.hidden = false;
     // Update the result of the action for more inclusive UX
-    statusEl.textContent = 'Text copied';
+    statusEl.textContent = 'Draft message copied';
 
     // Select the text on click for a better UX
     draftEl.select();

@@ -15,6 +15,7 @@ export const runProposedInlineJS = () => {
     copyBtn,
     copiedBtn,
     draftEl,
+    statusEl,
     navigator,
     navigator.clipboard,
     navigator.clipboard.writeText,

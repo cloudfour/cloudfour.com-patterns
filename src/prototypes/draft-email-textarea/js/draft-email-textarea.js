@@ -4,7 +4,7 @@
 export const runProposedInlineJS = () => {
   // The elements all will be a part of the same Gutenberg Custom HTML block.
   // I chose to use IDs since the HTML and JS are scoped to the same Gutenberg
-  // block (the JS functionaly won't be shared elsewhere)
+  // block (the JS functionaly won't be shared elsewhere, so I didn't use classes)
   const copyBtn = document.getElementById('copy-btn');
   const copiedBtn = document.getElementById('copied-btn');
   const draftEl = document.getElementById('email-draft');

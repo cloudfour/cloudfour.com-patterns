@@ -38,10 +38,6 @@ export const runProposedInlineJS = () => {
     // Inject the "copied" action message for more inclusive UX
     actionMessageEl.textContent = actionMessageEl.dataset.copiedMessage;
 
-    // Select the text on click for a better UX
-    draftEl.select();
-    draftEl.setSelectionRange(0, 99999); // For mobile devices
-
     // Reset UI after a brief delay
     setTimeout(() => {
       copyBtn.hidden = false;

@@ -1,18 +1,14 @@
 <div class="o-container o-container--pad o-container--prose">
 	<div class="o-container__content o-rhythm o-rhythm--default o-rhythm--generous-headings">
-		<textarea id="email-draft" class="c-input u-pad-1 js-elastic-textarea" spellcheck="false" rows="5">{{ draftMessage }}</textarea>
+    {# Draft email message #}
+		<textarea id="email-draft" class="c-input u-pad-1 js-elastic-textarea" spellcheck="false">{{ draftMessage }}</textarea>
 
-    <span
-      id="status-output"
-      role="alert"
-      class="u-hidden-visually js-button-swap__message"
-    ></span>
-
+    {# Copy and Draft buttons #}
 		{% embed '@cloudfour/objects/button-group/button-group.twig' with {
 			grow: true,
 			class: 'u-space-block-start-n2',
-      subject: draftSubject | url_encode,
-      message: draftMessage | url_encode
+			subject: draftSubject | url_encode,
+			message: draftMessage | url_encode
 		} only %}
 			{% block content %}
 				{% include '@cloudfour/components/button/button.twig' with {
@@ -22,9 +18,9 @@
 				} only %}
 				{% include '@cloudfour/components/button/button.twig' with {
 					label: 'Copied',
-          id: 'copied-btn',
+					id: 'copied-btn',
 					content_start_icon: 'check',
-          hidden: true,
+					hidden: true,
 				} only %}
 				{% include '@cloudfour/components/button/button.twig' with {
 					label: 'Draft email',
@@ -34,5 +30,19 @@
 				} only %}
 			{% endblock %}
 		{% endembed %}
+
+    {# Copied action message, creates a more inclusive UX #}
+		<span
+			id="copied-action-message"
+			role="alert"
+			class="u-hidden-visually"
+			data-copied-message="Draft message copied"
+		>
+			{#
+				The `data-copied-message` text value will be injected here during the
+				"copy" action. This will provide a more inclusive UX so that screen
+				readers can alert the user the "copy" action was successfully completed.
+			#}
+		</span>
 	</div>
 </div>

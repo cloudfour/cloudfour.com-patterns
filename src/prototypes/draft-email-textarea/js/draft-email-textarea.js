@@ -8,14 +8,14 @@ export const runProposedInlineJS = () => {
   const copyBtn = document.getElementById('copy-btn');
   const copiedBtn = document.getElementById('copied-btn');
   const draftEl = document.getElementById('email-draft');
-  const statusEl = document.getElementById('status-output');
+  const actionMessageEl = document.getElementById('copied-action-message');
 
   // All the things required to run this feature
   const requirements = [
     copyBtn,
     copiedBtn,
     draftEl,
-    statusEl,
+    actionMessageEl,
     navigator,
     navigator.clipboard,
     navigator.clipboard.writeText,
@@ -28,29 +28,27 @@ export const runProposedInlineJS = () => {
     return;
   }
 
-  const onCopyClick = () => {
-    // Add to clipboard
+  copyBtn.addEventListener('click', () => {
+    // Add draft message to clipboard
     navigator.clipboard.writeText(draftEl.value);
 
     // Swap visibility of "copy" and "copied" btns
     copyBtn.hidden = true;
     copiedBtn.hidden = false;
-    // Update the result of the action for more inclusive UX
-    statusEl.textContent = 'Draft message copied';
+    // Inject the "copied" action message for more inclusive UX
+    actionMessageEl.textContent = actionMessageEl.dataset.copiedMessage;
 
     // Select the text on click for a better UX
     draftEl.select();
     draftEl.setSelectionRange(0, 99999); // For mobile devices
 
-    // Reset after a brief delay
+    // Reset UI after a brief delay
     setTimeout(() => {
       copyBtn.hidden = false;
       copiedBtn.hidden = true;
-      statusEl.textContent = '';
+      actionMessageEl.textContent = '';
     }, 2000);
-  };
-
-  copyBtn.addEventListener('click', onCopyClick);
+  });
 };
 
 /**

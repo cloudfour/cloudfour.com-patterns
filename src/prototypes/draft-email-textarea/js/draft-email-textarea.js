@@ -17,7 +17,7 @@ export const runProposedInlineJS = () => {
     draftEl,
     actionMessageEl,
     navigator,
-    navigator.clipboardzz,
+    navigator.clipboard,
     navigator.clipboard.writeText,
   ];
   // Handle use case when all requirements are not met

@@ -6,7 +6,6 @@ export const runProposedInlineJS = () => {
   // I chose to use IDs since the HTML and JS are scoped to the same Gutenberg
   // block (the JS functionaly won't be shared elsewhere, so I didn't use classes)
   const copyBtn = document.getElementById('copy-btn');
-  const copiedBtn = document.getElementById('copied-btn');
   const draftEmailBtn = document.getElementById('draft-email-btn');
   const draftEl = document.getElementById('email-draft');
   const actionMessageEl = document.getElementById('copied-action-message');
@@ -14,12 +13,11 @@ export const runProposedInlineJS = () => {
   // All the things required to run this feature
   const requirements = [
     copyBtn,
-    copiedBtn,
     draftEmailBtn,
     draftEl,
     actionMessageEl,
     navigator,
-    navigator.clipboard,
+    navigator.clipboardzz,
     navigator.clipboard.writeText,
   ];
   // Handle use case when all requirements are not met
@@ -34,29 +32,24 @@ export const runProposedInlineJS = () => {
     // Add draft message to clipboard
     navigator.clipboard.writeText(draftEl.value);
 
-    // Swap visibility of "copy" and "copied" btns
-    copyBtn.hidden = true;
-    copiedBtn.hidden = false;
-    // Inject the "copied" action message for more inclusive UX
-    actionMessageEl.textContent = actionMessageEl.dataset.copiedMessage;
+    // Show the "copied" message
+    actionMessageEl.hidden = false;
 
     // Reset UI after a brief delay
     setTimeout(() => {
-      copyBtn.hidden = false;
-      copiedBtn.hidden = true;
-      actionMessageEl.textContent = '';
-    }, 2000);
+      actionMessageEl.hidden = true;
+    }, 5000);
   };
 
   const onDraftEmailClick = (e) => {
-    // Get the draft message subject & body text, this ensures the draft message
+    // Get the draft message subject & body text. This ensures the mailto link
     // is updated in case the user started typing their message in the
     // textarea input.
     const msgSubject = encodeURIComponent(draftEl.dataset.messageSubject);
     const msgBody = encodeURIComponent(draftEl.value);
 
     // Update the mailto link with the new values
-    // The default link behavior will then use these updated values
+    // The default mailto link behavior will then use these updated values
     draftEmailBtn.setAttribute(
       'href',
       `mailto:info@cloudfour.com?subject=${msgSubject}&body=${msgBody}`

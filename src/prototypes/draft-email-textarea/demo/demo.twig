@@ -6,7 +6,7 @@
 			id="email-draft"
 			class="c-input u-pad-1 js-elastic-textarea"
 			spellcheck="false"
-      data-message-subject="{{ draftSubject }}"
+			data-message-subject="{{ draftSubject }}"
 		>{{ draftMessage }}</textarea>
 
 		{# Copy and Draft buttons #}
@@ -23,14 +23,8 @@
 					content_start_icon: 'copy',
 				} only %}
 				{% include '@cloudfour/components/button/button.twig' with {
-					label: 'Copied',
-					id: 'copied-btn',
-					content_start_icon: 'check',
-					hidden: true,
-				} only %}
-				{% include '@cloudfour/components/button/button.twig' with {
 					label: 'Draft email',
-          id: 'draft-email-btn',
+					id: 'draft-email-btn',
 					class: 'c-button--secondary',
 					content_start_icon: 'envelope',
 					href: "mailto:info@cloudfour.com?subject=#{subject}&body=#{message}",
@@ -38,18 +32,17 @@
 			{% endblock %}
 		{% endembed %}
 
-		{# Copied action message, creates a more inclusive UX #}
-		<span
+		{# "Copied" message shown when the "copy" btn is activated #}
+		<p
 			id="copied-action-message"
 			role="alert"
-			class="u-hidden-visually"
-			data-copied-message="Draft message copied"
+			hidden
 		>
-			{#
-				The `data-copied-message` text value will be injected here during the
-				"copy" action. This will provide a more inclusive UX so that screen
-				readers can alert the user the "copy" action was successfully completed.
-			#}
-		</span>
+			{% include '@cloudfour/components/icon/icon.twig' with {
+				name: 'check',
+				inline: true,
+			} %}
+			Copied to clipboard
+		</p>
 	</div>
 </div>

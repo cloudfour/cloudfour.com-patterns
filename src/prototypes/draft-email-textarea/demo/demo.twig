@@ -17,11 +17,40 @@
 			message: draftMessage | url_encode
 		} only %}
 			{% block content %}
-				{% include '@cloudfour/components/button/button.twig' with {
-					label: 'Copy',
-					id: 'copy-btn',
-					content_start_icon: 'copy',
-				} only %}
+				<button id="copy-btn" class="c-button">
+					<span class="c-button__extra">
+						{% include '@cloudfour/components/icon/icon.twig' with {
+							name: 'copy',
+							inline: true,
+						} only %}
+					</span>
+					<span class="c-button__content">Copy</span>
+					{# Copy "success" message #}
+					<span
+						class="c-button__tooltip"
+						id="copy-success-tooltip"
+						hidden
+					>
+						{% include '@cloudfour/components/icon/icon.twig' with {
+							name: 'check',
+							inline: true,
+						} only %}
+						Copied to clipboard
+					</span>
+					{# Copy "fail" message #}
+					<span
+						class="c-button__tooltip"
+						id="copy-fail-tooltip"
+						hidden
+					>
+						Whoops, failed to copy
+						&nbsp;{% include '@cloudfour/components/icon/icon.twig' with {
+							name: 'confused-face',
+							inline: true,
+						} only %}
+					</span>
+				</button>
+
 				{% include '@cloudfour/components/button/button.twig' with {
 					label: 'Draft email',
 					id: 'draft-email-btn',
@@ -36,12 +65,12 @@
 		<p
 			id="copy-success-message"
 			role="status"
-			hidden
+			hiddenzzz
 		>
 			{% include '@cloudfour/components/icon/icon.twig' with {
 				name: 'check',
 				inline: true,
-			} %}
+			} only %}
 			Copied to clipboard
 		</p>
 
@@ -49,13 +78,13 @@
 		<p
 			id="copy-fail-message"
 			role="status"
-			hidden
+			hiddenzzz
 		>
 			Whoops, failed to copy
 			&nbsp;{% include '@cloudfour/components/icon/icon.twig' with {
 				name: 'confused-face',
 				inline: true,
-			} %}
+			} only %}
 		</p>
 	</div>
 </div>

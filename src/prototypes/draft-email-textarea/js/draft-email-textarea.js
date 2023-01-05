@@ -8,8 +8,8 @@ export const runProposedInlineJS = () => {
   const copyBtn = document.getElementById('copy-btn');
   const draftEmailBtn = document.getElementById('draft-email-btn');
   const draftEl = document.getElementById('email-draft');
-  const copySuccessMsgEl = document.getElementById('copy-success-message');
-  const copyFailMsgEl = document.getElementById('copy-fail-message');
+  const copySuccessMsgEl = document.getElementById('copy-success-tooltip');
+  const copyFailMsgEl = document.getElementById('copy-fail-tooltip');
 
   // All the things required to run this feature
   const requirements = [
@@ -30,12 +30,16 @@ export const runProposedInlineJS = () => {
     return;
   }
 
+  let copyTimeoutId;
+
   const onCopyClick = () => {
     const showStatusMsg = (msgEl, hideMessageDelay = 5000) => {
       // Show the status message
       msgEl.hidden = false;
+      // Clear any existing timeouts
+      if (copyTimeoutId) clearTimeout(copyTimeoutId);
       // Hide the status message after a delay
-      setTimeout(() => {
+      copyTimeoutId = setTimeout(() => {
         msgEl.hidden = true;
       }, hideMessageDelay);
     };

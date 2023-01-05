@@ -167,7 +167,7 @@
 @mixin content {
   /// We use opacity because it will not paint but it also won't remove the
   /// element's keyboard events (if any).
-  /// @link https: //stackoverflow.com/a/34529598
+  /// @link https://stackoverflow.com/a/34529598
   .is-loading & {
     opacity: 0;
   }
@@ -185,6 +185,58 @@
 
   &:last-child {
     margin-inline-end: size.$spacing-gap-button-extra * -1;
+  }
+}
+
+@mixin tooltip {
+  border: 2px solid black;
+  background: white;
+  padding: 0.5em;
+  position: absolute;
+  top: 2.5em;
+  transform: scale(1);
+  color: black;
+  border-radius: size.$border-radius-medium;
+  z-index: 999999;
+
+  &::before {
+    content: '';
+    position: absolute;
+
+    /* position tooltip correctly */
+    bottom: 100%;
+    // margin-bottom: -1px;
+
+    /* horizontally center */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* the arrow */
+    border: 12px solid #000;
+    border-color: transparent transparent black transparent;
+
+    // display: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+
+    /* position tooltip correctly */
+    bottom: 100%;
+    // margin-bottom: -1px;
+
+    /* horizontally center */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* the arrow */
+    // border: 10px solid red;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+
+    // display: none;
   }
 }
 

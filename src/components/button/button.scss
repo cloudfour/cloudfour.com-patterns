@@ -35,3 +35,11 @@
     @include button.extra-slashed;
   }
 }
+
+/**
+ * Element: Tooltip
+ */
+
+.c-button__tooltip {
+  @include button.tooltip;
+}

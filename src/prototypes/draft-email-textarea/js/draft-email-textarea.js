@@ -8,14 +8,16 @@ export const runProposedInlineJS = () => {
   const copyBtn = document.getElementById('copy-btn');
   const draftEmailBtn = document.getElementById('draft-email-btn');
   const draftEl = document.getElementById('email-draft');
-  const actionMessageEl = document.getElementById('copied-action-message');
+  const copySuccessMsgEl = document.getElementById('copy-success-message');
+  const copyFailMsgEl = document.getElementById('copy-fail-message');
 
   // All the things required to run this feature
   const requirements = [
     copyBtn,
     draftEmailBtn,
     draftEl,
-    actionMessageEl,
+    copySuccessMsgEl,
+    copyFailMsgEl,
     navigator,
     navigator.clipboard,
     navigator.clipboard.writeText,
@@ -29,16 +31,20 @@ export const runProposedInlineJS = () => {
   }
 
   const onCopyClick = () => {
-    // Add draft message to clipboard
-    navigator.clipboard.writeText(draftEl.value);
+    const showStatusMsg = (msgEl, hideMessageDelay = 5000) => {
+      // Show the status message
+      msgEl.hidden = false;
+      // Hide the status message after a delay
+      setTimeout(() => {
+        msgEl.hidden = true;
+      }, hideMessageDelay);
+    };
 
-    // Show the "copied" message
-    actionMessageEl.hidden = false;
-
-    // Reset UI after a brief delay
-    setTimeout(() => {
-      actionMessageEl.hidden = true;
-    }, 5000);
+    // Using the Clipboard API, attempt to add the draft message to clipboard
+    navigator.clipboard
+      .writeText(draftEl.value)
+      .then(() => showStatusMsg(copySuccessMsgEl))
+      .catch(() => showStatusMsg(copyFailMsgEl));
   };
 
   const onDraftEmailClick = (e) => {

@@ -243,6 +243,7 @@
   // cubic-bezier(0.61, 1, 0.88, 1); // easeOutSine
   // cubic-bezier(0.37, 0, 0.63, 1); // easeInOutSine
   // cubic-bezier(0.45, 0, 0.55, 1); // easeInOutQuad
+  // cubic-bezier(0.36, 0, 0.66, -0.56) // easeInBack
 
   &.is-animating-intro {
     animation-name: tooltipIntro;
@@ -252,9 +253,9 @@
 
   &.is-animating-outro {
     animation-name: tooltipOutro;
-    animation-duration: 0.25s;
+    animation-duration: 0.45s;
     animation-fill-mode: both;
-    // animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); // easeOutExpo
+    animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56); // easeInBack
   }
 
   &::before {

@@ -11,7 +11,24 @@ const prototypeData = {
   draftMessage: forDemoPurposesOnlyText,
 };
 
-<Meta title="Prototypes/Draft Email" />
+<Meta
+  title="Prototypes/Draft Email"
+  decorators={[
+    (story) => {
+      useEffect(() => {
+        const { destroy: destroyDraftEmail } = runProposedInlineJS();
+        const { destroy: destroyElasticTextArea } = createElasticTextArea(
+          document.querySelector('.js-elastic-textarea')
+        );
+        return () => {
+          destroyDraftEmail();
+          destroyElasticTextArea();
+        };
+      }, []);
+      return story();
+    },
+  ]}
+/>
 
 # Draft Email Prototype Demo
 
@@ -21,12 +38,6 @@ For full demo functionality, open the "Canvas" view in a new tab.
 
 <Canvas>
   <Story name="Demo" args={prototypeData}>
-    {(args) => {
-      useEffect(() => {
-        runProposedInlineJS();
-        createElasticTextArea(document.querySelector('.js-elastic-textarea'));
-      }, []);
-      return prototypeDemo(args);
-    }}
+    {(args) => prototypeDemo(args)}
   </Story>
 </Canvas>

@@ -33,14 +33,19 @@ export const runProposedInlineJS = () => {
   let copyTimeoutId;
 
   const onCopyClick = () => {
-    const showStatusMsg = (msgEl, hideMessageDelay = 5000) => {
+    const showStatusMsg = (msgEl, hideMessageDelay = 4000) => {
       // Show the status message
-      msgEl.hidden = false;
+      // msgEl.hidden = false;
+      msgEl.classList.remove('is-hidden');
+      msgEl.classList.remove('is-open');
+      msgEl.classList.add('is-open');
       // Clear any existing timeouts
       if (copyTimeoutId) clearTimeout(copyTimeoutId);
       // Hide the status message after a delay
       copyTimeoutId = setTimeout(() => {
-        msgEl.hidden = true;
+        // msgEl.hidden = true;
+        msgEl.classList.add('is-hidden');
+        // msgEl.classList.remove('is-open');
       }, hideMessageDelay);
     };
 

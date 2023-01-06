@@ -23,3 +23,11 @@
 .o-button-group--grow > * {
   flex: 1 1 0;
 }
+
+.o-button-group__item {
+  position: relative;
+
+  .c-button {
+    width: 100%;
+  }
+}

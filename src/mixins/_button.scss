@@ -194,11 +194,11 @@
 
 @keyframes tooltipIntro {
   from {
-    animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); // easeOutSine
+    animation-timing-function: ease.$out_sine;
   }
 
   50% {
-    animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1); // easeInOutSine
+    animation-timing-function: ease.$in_out_sine;
     transform: translate(-50%, 0.8em);
   }
 
@@ -235,15 +235,11 @@
   transform: translate(-50%, -0.3em);
   z-index: 999999;
 
-  // cubic-bezier(0.25, 1, 0.5, 1); // easeOutQuart
-  // cubic-bezier(0.16, 1, 0.3, 1); // easeOutExpo
-  // cubic-bezier(0.34, 1.56, 0.64, 1); //ease-out back
   // cubic-bezier(0.33, 1, 0.68, 1); // easeOutCubic
-  // cubic-bezier(0.12, 0, 0.39, 0); // easeInSine
-  // cubic-bezier(0.61, 1, 0.88, 1); // easeOutSine
-  // cubic-bezier(0.37, 0, 0.63, 1); // easeInOutSine
   // cubic-bezier(0.45, 0, 0.55, 1); // easeInOutQuad
-  // cubic-bezier(0.36, 0, 0.66, -0.56) // easeInBack
+  // ease.$out_sine; // easeOutSine
+  // ease.$in_out_sine; // easeInOutSine
+  // ease.$in_back // easeInBack
 
   &.is-animating-intro {
     animation-duration: 0.45s;
@@ -255,7 +251,7 @@
     animation-duration: 0.45s;
     animation-fill-mode: both;
     animation-name: tooltipOutro;
-    animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56); // easeInBack
+    animation-timing-function: ease.$in_back;
   }
 
   &::before {

@@ -1,6 +1,24 @@
-{# The `o-container` wrappers are here only for demo purposes #}
+{#
+	IGNORE this style block, used for prototype demo purposes only
+#}
+<style>
+	body {
+		padding: 0 !important;
+	}
+</style>
+{#
+	The `o-container` wrappers are here only for demo purposes
+#}
 <div class="o-container o-container--pad o-container--prose">
 	<div class="o-container__content o-rhythm o-rhythm--default o-rhythm--generous-headings">
+		{#
+			IGNORE the following heading and paragraphs, for prototype demo purposes only
+		#}
+		<h2 class="has-heading-0-font-size">What to expect</h2>
+		<p class="has-big-font-size">We deliver the best value for clients when our work and expertise directly serve their success. Our initial discussions will help clarify your project’s goals and our team’s fit.</p>
+		<p>The size of an engagement varies based on project requirements, typically in the range of $XX,000 to $XXX,000. We are always happy to discuss ongoing retainer agreements and unique partnerships.</p>
+		<p>If you aren’t sure how to start, you can modify this example email:</p>
+
 		{# Draft email message #}
 		<textarea
 			id="email-draft"
@@ -18,7 +36,7 @@
 		} only %}
 			{% block content %}
 				<div class="o-button-group__item">
-					{# The "copy" button #}
+					{# The "Copy" button #}
 					{% include '@cloudfour/components/button/button.twig' with {
 						label: 'Copy',
 						id: 'copy-btn',
@@ -28,7 +46,7 @@
 					<span
 						class="c-button__tooltip"
 						id="copy-success-tooltip"
-						hiddenzzz
+						hidden
 					>
 						{% include '@cloudfour/components/icon/icon.twig' with {
 							name: 'check',
@@ -40,7 +58,7 @@
 					<span
 						class="c-button__tooltip"
 						id="copy-fail-tooltip"
-						hiddenzzz
+						hidden
 					>
 						Whoops, failed to copy
 						&nbsp;{% include '@cloudfour/components/icon/icon.twig' with {
@@ -49,6 +67,7 @@
 						} only %}
 					</span>
 				</div>
+				{# The "Draft email" button #}
 				{% include '@cloudfour/components/button/button.twig' with {
 					label: 'Draft email',
 					id: 'draft-email-btn',
@@ -58,31 +77,175 @@
 				} only %}
 			{% endblock %}
 		{% endembed %}
-
-		{# The copy action "success" message #}
-		{# <p
-			id="copy-success-message"
-			role="status"
-			hiddenzzz
-		>
-			{% include '@cloudfour/components/icon/icon.twig' with {
-				name: 'check',
-				inline: true,
-			} only %}
-			Copied to clipboard
-		</p> #}
-
-		{# The copy action "fail" message #}
-		{# <p
-			id="copy-fail-message"
-			role="status"
-			hiddenzzz
-		>
-			Whoops, failed to copy
-			&nbsp;{% include '@cloudfour/components/icon/icon.twig' with {
-				name: 'confused-face',
-				inline: true,
-			} only %}
-		</p> #}
 	</div>
+</div>
+
+{#
+	IGNORE the HTML below, it's only for prototype demo purposes
+#}
+<div class="o-page__footer">
+	<footer class="c-ground-nav">
+		<div class="c-ground-nav__action o-container o-container--pad-inline">
+			<div class="o-container__content c-ground-nav__action-inner">
+				<h2 class="c-ground-nav__action-lead-in">
+					Let’s discuss your project!
+				</h2>
+				<p class="c-ground-nav__action-title">
+					<a class="c-button" href="https://pleasantest.dev">
+						<span class="c-button__extra">
+							<svg width="24" height="24" viewbox="0 0 24 24" aria-hidden="true" class="c-icon">
+								<path d="M12 13.31l11-7V6a2 2 0 00-2-2H3a2 2 0 00-2 2v.31z"></path>
+								<path d="M13.07 15a2 2 0 01-2.14 0L1 8.69V18a2 2 0 002 2h18a2 2 0 002-2V8.69z"></path>
+							</svg>
+						</span>
+						<span class="c-button__content">
+							Email Us
+						</span>
+					</a>
+				</p>
+				<svg width="450" height="200" viewbox="0 0 450 200" class="c-ground-nav__action-illustration">
+					<path fill="#dae2e8" d="M4 60h125v140H4z"></path>
+					<path fill="#f2f5f7" d="M4 170h125v30H4z"></path>
+					<path fill="#dae2e8" d="M0 60h129v15H0z"></path>
+					<path fill="#c0cfd8" d="M4 75h125v3H4z"></path>
+					<path fill="#dae2e8" d="M233.1 30h98v170h-98z"></path>
+					<path fill="#c0cfd8" d="M233.1 40h98v3h-98z"></path>
+					<path fill="#dae2e8" d="M330.6 60.5h91.8v139.1h-91.8z"></path>
+					<path fill="#c0cfd8" d="M358.6 69.5h13.5v23.8h-13.5zm22.2 0h13.5v23.8h-13.5zm22.2 0h13.5v23.8H403zm-22.2 32.4h13.5v23.8h-13.5zm22.2 0h13.5v23.8H403z"></path>
+					<path fill="#a4cdff" d="M129.1 0h104v200h-104z"></path>
+					<path fill="#72adfc" d="M139.1 10h22.7v54.7h-22.7zm30.7 0h22.7v54.7h-22.7zm30.7 0h22.7v54.7h-22.7zm-61.4 62.7h22.7v54.7h-22.7zm30.7 0h22.7v54.7h-22.7zm30.7 0h22.7v54.7h-22.7zm-61.4 67.5h17.4V190h-17.4zm30.7-4.9h22.7V190h-22.7zm30.7 0h22.7V190h-22.7z"></path>
+					<path fill="#71f4ae" d="M250.8 200L336.5 0l85.7 200z"></path>
+					<path fill="#2cdd90" d="M198.1 200l51.1-119.3L300.3 200z"></path>
+					<path fill="none" stroke="#f2f5f7" stroke-width="5" d="M249.2 136v64m0-38.2l17.3-13.9m-17.3 31.9l17.3-13.9m-34.7-9l17.4 13.9"></path>
+					<path fill="#2cdd90" d="M52.4 200l68.2-159 68.1 159z"></path>
+					<path fill="none" stroke="#f2f5f7" stroke-width="5" d="M120.6 105.8V200m0-58.9l23.5-18.8m-23.5 42.4l23.5-18.9M97 134.1l23.6 18.8"></path>
+					<path fill="#72adfc" d="M320 118h129.9v82H320z"></path>
+					<path fill="#a4cdff" d="M320 118h23.9v15.6H320zm.2 66.4h23.9V200h-23.9zm0-48.8h23.9v46.7h-23.9zm26.3-17.6h23.9v15.6h-23.9zm.2 66.4h23.9V200h-23.9zm0-48.8h23.9v46.7h-23.9zM373 118h23.9v15.6H373zm.1 66.4H397V200h-23.9zm0-48.8H397v46.7h-23.9zm26.4-17.6h23.9v15.6h-23.9zm.1 66.4h23.9V200h-23.9zm0-48.8h23.9v46.7h-23.9zM426 118h23.9v15.6H426zm.1 66.4H450V200h-23.9zm0-48.8H450v46.7h-23.9z"></path>
+					<path fill="#5596f8" d="M320.1 118H450v6H320.1z"></path>
+					<path fill="#72adfc" d="M320 108h130v10H320z"></path>
+				</svg>
+			</div>
+		</div>
+		<div class="c-ground-nav__content o-container o-container--pad t-alternate">
+			<div class="c-ground-nav__content-inner o-container__content">
+				<h2 class="u-hidden-visually">
+					Contact info
+				</h2>
+				<address class="c-ground-nav__organization">
+					<a href="https://cloudfour.local" class="c-ground-nav__organization-name">
+						Cloud Four, Inc.
+					</a><br>
+					510 SW 3rd Ave, Suite 420<br>
+					Portland, Oregon 97204 USA<br>
+					<a href="mailto:info@cloudfour.com">info@cloudfour.com</a><br>
+					<a href="tel:+1-503-290-1090">+1 (503) 290-1090</a>
+				</address>
+				<div class="c-ground-nav__social">
+					<ul class="c-ground-nav__social-list o-list o-list--inline" role="list">
+						<li class="c-ground-nav__social-item">
+							<a class="c-ground-nav__social-action" href="https://twitter.com/cloudfour">
+								<span class="u-hidden-visually">Follow @cloudfour on Twitter</span>
+								<svg viewbox="0 0 24 24" width="24" height="24" aria-hidden="true" class="c-icon c-ground-nav__social-icon" focusable="false">
+									<path d="M24 4.56a9.87 9.87 0 01-2.83.77 4.94 4.94 0 002.17-2.72 10 10 0 01-3.13 1.19 4.93 4.93 0 00-8.52 3.37 5.12 5.12 0 00.13 1.12A14 14 0 011.67 3.15a4.92 4.92 0 001.52 6.57A4.86 4.86 0 011 9.11v.06A4.94 4.94 0 005 14a5 5 0 01-1.29.17 4.73 4.73 0 01-.93-.09 4.93 4.93 0 004.6 3.42 9.9 9.9 0 01-6.12 2.11A9.18 9.18 0 010 19.54a13.92 13.92 0 007.55 2.21 13.92 13.92 0 0014-14v-.63A10.28 10.28 0 0024 4.56"></path>
+								</svg>
+							</a>
+						</li>
+						<li class="c-ground-nav__social-item">
+							<a class="c-ground-nav__social-action" href="https://github.com/cloudfour/">
+								<span class="u-hidden-visually">Follow Cloud Four on GitHub</span>
+								<svg viewbox="0 0 24 24" width="24" height="24" aria-hidden="true" class="c-icon c-ground-nav__social-icon" focusable="false">
+									<path d="M1 12.27a11 11 0 007.52 10.44c.55.1.75-.24.75-.53v-1.87c-3.07.69-3.72-1.48-3.72-1.48a2.92 2.92 0 00-1.22-1.61c-1-.68.08-.66.08-.66a2.28 2.28 0 011.68 1.13 2.33 2.33 0 003.2.91 2.39 2.39 0 01.7-1.47c-2.44-.27-5-1.22-5-5.43a4.29 4.29 0 011.13-3 4 4 0 01.11-2.91s.93-.29 3 1.13A10.92 10.92 0 0112 6.59a10.92 10.92 0 012.75.41c2.1-1.42 3-1.13 3-1.13a4 4 0 01.11 2.91 4.29 4.29 0 011.13 3c0 4.22-2.57 5.15-5 5.42a2.63 2.63 0 01.75 2v3c0 .34.2.64.75.53A11 11 0 101 12.27z"></path>
+								</svg>
+							</a>
+						</li>
+						<li class="c-ground-nav__social-item">
+							<a class="c-ground-nav__social-action" href="https://www.instagram.com/cloudfourpdx/">
+								<span class="u-hidden-visually">Follow @cloudfourpdx on Instagram</span>
+								<svg viewbox="0 0 24 24" width="24" height="24" aria-hidden="true" class="c-icon c-ground-nav__social-icon" focusable="false">
+									<path d="M12 3.8c2.67 0 3 0 4 .06a5.61 5.61 0 011.86.34 3.33 3.33 0 011.9 1.9 5.61 5.61 0 01.38 1.9c.05 1 .06 1.37.06 4s0 3-.06 4a5.61 5.61 0 01-.34 1.86 3.33 3.33 0 01-1.9 1.9 5.61 5.61 0 01-1.86.34c-1 .05-1.37.06-4 .06s-3 0-4-.06a5.61 5.61 0 01-1.94-.3 3.33 3.33 0 01-1.9-1.9 5.61 5.61 0 01-.34-1.9c0-1-.06-1.37-.06-4s0-3 .06-4a5.61 5.61 0 01.34-1.9 3.33 3.33 0 011.9-1.9A5.61 5.61 0 018 3.86c1 0 1.37-.06 4-.06M12 2c-2.72 0-3.06 0-4.12.06a7.59 7.59 0 00-2.43.46 4.85 4.85 0 00-1.77 1.16 4.85 4.85 0 00-1.16 1.77 7.59 7.59 0 00-.46 2.43C2 8.94 2 9.28 2 12s0 3.06.06 4.12a7.59 7.59 0 00.46 2.43 4.85 4.85 0 001.16 1.77 4.85 4.85 0 001.77 1.16 7.59 7.59 0 002.43.46C8.94 22 9.28 22 12 22s3.06 0 4.12-.06a7.59 7.59 0 002.43-.46 5.19 5.19 0 002.93-2.93 7.59 7.59 0 00.46-2.43c0-1.06.06-1.4.06-4.12s0-3.06-.06-4.12a7.59 7.59 0 00-.46-2.43 4.85 4.85 0 00-1.16-1.77 4.85 4.85 0 00-1.77-1.16 7.59 7.59 0 00-2.43-.46C15.06 2 14.72 2 12 2z"></path>
+									<path d="M12 6.86A5.14 5.14 0 1017.14 12 5.14 5.14 0 0012 6.86zm0 8.47A3.33 3.33 0 1115.33 12 3.33 3.33 0 0112 15.33z"></path>
+									<circle cx="17.34" cy="6.66" r="1.2"></circle>
+								</svg>
+							</a>
+						</li>
+						<li class="c-ground-nav__social-item">
+							<a class="c-ground-nav__social-action" href="https://www.linkedin.com/company/cloud-four/">
+								<span class="u-hidden-visually">Follow Cloud Four on LinkedIn</span>
+								<svg viewbox="0 0 24 24" width="24" height="24" aria-hidden="true" class="c-icon c-ground-nav__social-icon" focusable="false">
+									<path d="M20.52 2h-17A1.46 1.46 0 002 3.44v17.12A1.46 1.46 0 003.48 22h17A1.46 1.46 0 0022 20.56V3.44A1.46 1.46 0 0020.52 2zM7.93 19H5V9.5h3zM6.45 8.19a1.72 1.72 0 111.72-1.72 1.72 1.72 0 01-1.72 1.72zM19 19h-3v-4.6c0-1.11 0-2.53-1.54-2.53s-1.78 1.21-1.78 2.45V19h-3V9.5h2.85v1.3a3.1 3.1 0 012.8-1.54c3 0 3.56 2 3.56 4.55z"></path>
+								</svg>
+							</a>
+						</li>
+						<li class="c-ground-nav__social-item">
+							<a class="c-ground-nav__social-action" href="https://mastodon.cloud/@gerardorodriguez">
+								<span class="u-hidden-visually">Mastodon Link</span>
+								<svg width="24" height="24" viewbox="0 0 24 24" aria-hidden="true" class="c-icon c-ground-nav__social-icon" focusable="false">
+									<path d="M22.91 5.54c-.34-2.49-2.53-4.46-5.14-4.84-.44-.06-2.1-.3-5.96-.3h-.03C7.93.4 7.1.63 6.66.7c-2.52.37-4.83 2.14-5.39 4.66C1 6.6.97 7.98 1.02 9.24c.07 1.81.09 3.62.25 5.42.11 1.2.32 2.39.6 3.56.53 2.16 2.69 3.96 4.8 4.69 2.26.77 4.7.89 7.03.37.26-.06.51-.13.76-.21.57-.18 1.23-.38 1.72-.73l.02-.02v-1.79s0-.01-.01-.02h-.04c-1.49.35-3.02.53-4.56.53-2.64 0-3.35-1.24-3.56-1.76-.16-.45-.27-.91-.31-1.38v-.02s0-.01.01-.02c0 0 .01 0 .02-.01h.02c1.47.35 2.97.53 4.49.53h1.09c1.52-.04 3.12-.12 4.62-.41.04 0 .07-.01.11-.02 2.36-.45 4.6-1.85 4.83-5.41 0-.14.03-1.47.03-1.61 0-.49.16-3.51-.02-5.36zm-3.63 8.88H16.8V8.41c0-1.26-.53-1.91-1.62-1.91-1.19 0-1.79.76-1.79 2.27v3.29h-2.46V8.77c0-1.51-.6-2.27-1.79-2.27-1.08 0-1.62.65-1.62 1.91v6.01H5.04V8.23c0-1.26.33-2.27.98-3.01.67-.74 1.56-1.12 2.65-1.12 1.27 0 2.23.48 2.87 1.45l.62 1.02.62-1.02c.64-.96 1.6-1.45 2.87-1.45 1.1 0 1.98.38 2.65 1.12.65.74.98 1.75.98 3.01v6.19z"></path>
+								</svg>
+							</a>
+						</li>
+						<li class="c-ground-nav__social-item">
+							<a class="c-ground-nav__social-action" href="https://cloudfour.com/feed">
+								<span class="u-hidden-visually">RSS feed</span>
+								<svg width="24" height="24" viewbox="0 0 24 24" aria-hidden="true" class="c-icon c-ground-nav__social-icon" focusable="false">
+									<circle cx="5" cy="19" r="3"></circle>
+									<path d="M5 3c8.84 0 16 7.16 16 16M5 10a9 9 0 019 9" fill="none" stroke-linecap="round" stroke-width="3"></path>
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<nav class="c-ground-nav__menu" aria-labelledby="footer-menu-label">
+					<h2 id="footer-menu-label" class="u-hidden-visually">
+						Extended Menu
+					</h2>
+					<ul class="c-ground-nav__menu-items o-list" role="list">
+						<li class="c-ground-nav__menu-item">
+							<a class="c-ground-nav__menu-action" href="https://cloudfour.local/does/">
+								What We Do
+							</a>
+						</li>
+						<li class="c-ground-nav__menu-item">
+							<a class="c-ground-nav__menu-action" href="https://cloudfour.local/believes/">
+								Our Approach
+							</a>
+						</li>
+						<li class="c-ground-nav__menu-item">
+							<a class="c-ground-nav__menu-action" href="https://cloudfour.local/made/">
+								Our Work
+							</a>
+						</li>
+						<li class="c-ground-nav__menu-item">
+							<a class="c-ground-nav__menu-action" href="https://cloudfour.local/thinks/">
+								Articles
+							</a>
+						</li>
+						<li class="c-ground-nav__menu-item">
+							<a class="c-ground-nav__menu-action" href="https://cloudfour.local/presents/">
+								Speaking
+							</a>
+						</li>
+						<li class="c-ground-nav__menu-item">
+							<a class="c-ground-nav__menu-action" href="https://cloudfour.local/is/">
+								Team
+							</a>
+						</li>
+						<li class="c-ground-nav__menu-item">
+							<a class="c-ground-nav__menu-action" href="https://cloudfour.local/portland-device-lab/">
+								Device Lab
+							</a>
+						</li>
+						<li class="c-ground-nav__menu-item">
+							<a class="c-ground-nav__menu-action" href="http://cloudfour-patterns.netlify.com/">
+								Patterns
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<p class="c-ground-nav__legal">
+					© 2022–2022 Cloud Four, Inc.
+				</p>
+			</div>
+		</div>
+	</footer>
 </div>

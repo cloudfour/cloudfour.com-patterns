@@ -8,16 +8,16 @@ export const runProposedInlineJS = () => {
   const copyBtn = document.getElementById('copy-btn');
   const draftEmailBtn = document.getElementById('draft-email-btn');
   const draftEl = document.getElementById('email-draft');
-  const copySuccessMsgEl = document.getElementById('copy-success-tooltip');
-  const copyFailMsgEl = document.getElementById('copy-fail-tooltip');
+  const copySuccessTooltipEl = document.getElementById('copy-success-tooltip');
+  const copyFailTooltipEl = document.getElementById('copy-fail-tooltip');
 
   // All the things required to run this feature
   const requirements = [
     copyBtn,
     draftEmailBtn,
     draftEl,
-    copySuccessMsgEl,
-    copyFailMsgEl,
+    copySuccessTooltipEl,
+    copyFailTooltipEl,
     navigator,
     navigator.clipboard,
     navigator.clipboard.writeText,
@@ -26,36 +26,60 @@ export const runProposedInlineJS = () => {
   if (!requirements.every((requirement) => requirement)) {
     // Hide the "copy" btn since it will not be functional
     if (copyBtn) copyBtn.hidden = true;
-    // Stop running this script
+    // Exit this script
     return;
   }
 
-  let copyTimeoutId;
+  // Keep track of the tooltip timeout ID to clear it if the tooltip is
+  // activated again before it is hidden
+  let hideTooltipDelayTimeoutId;
 
+  /**
+   * Handles showing and hiding the "copy" action status message
+   * @param {HTMLElement} tooltipEl
+   * @param {Number} [hideTooltipDelay=4000]
+   */
+  const showTooltip = (tooltipEl, hideTooltipDelay = 4000) => {
+    // Unhide it and start the "intro" animation
+    tooltipEl.hidden = false;
+    tooltipEl.classList.add('is-animating-in');
+    // Clear any existing timeouts
+    if (hideTooltipDelayTimeoutId) clearTimeout(hideTooltipDelayTimeoutId);
+    // Hide the tooltip after a delay
+    hideTooltipDelayTimeoutId = setTimeout(() => {
+      tooltipEl.classList.remove('is-animating-in');
+      tooltipEl.classList.add('is-animating-out');
+    }, hideTooltipDelay);
+    // Listen for when the tooltip animation ends
+    tooltipEl.addEventListener('animationend', onTooltipAnimationEnd);
+  };
+
+  /**
+   * Handler for when the tooltip animation ends
+   * @param {AnimationEvent} e
+   */
+  const onTooltipAnimationEnd = (e) => {
+    const tooltipEl = e.target;
+    // When the "outro" animation ends, perform cleanup
+    if (e.animationName === 'closeTooltip') {
+      tooltipEl.hidden = true;
+      tooltipEl.classList.remove('is-animating-out');
+      tooltipEl.removeEventListener('animationend', onTooltipAnimationEnd);
+    }
+  };
+
+  /**
+   * Handles the "copy" button action
+   */
   const onCopyClick = () => {
-    const showStatusMsg = (msgEl, hideMessageDelay = 4000) => {
-      // Show the status message
-      // msgEl.hidden = false;
-      msgEl.classList.remove('is-hidden');
-      msgEl.classList.remove('is-open');
-      msgEl.classList.add('is-open');
-      // Clear any existing timeouts
-      if (copyTimeoutId) clearTimeout(copyTimeoutId);
-      // Hide the status message after a delay
-      copyTimeoutId = setTimeout(() => {
-        // msgEl.hidden = true;
-        msgEl.classList.add('is-hidden');
-        // msgEl.classList.remove('is-open');
-      }, hideMessageDelay);
-    };
-
     // Using the Clipboard API, attempt to add the draft message to clipboard
     navigator.clipboard
       .writeText(draftEl.value)
-      .then(() => showStatusMsg(copySuccessMsgEl))
-      .catch(() => showStatusMsg(copyFailMsgEl));
+      .then(() => showTooltip(copySuccessTooltipEl))
+      .catch(() => showTooltip(copyFailTooltipEl));
   };
 
+  // Handles the "Draft email" link action
   const onDraftEmailClick = (e) => {
     // Get the draft message subject & body text. This ensures the mailto link
     // is updated in case the user started typing their message in the
@@ -71,8 +95,17 @@ export const runProposedInlineJS = () => {
     );
   };
 
+  // Set up event listeners
   copyBtn.addEventListener('click', onCopyClick);
   draftEmailBtn.addEventListener('click', onDraftEmailClick);
+
+  // For the Storybook demo, pass back a function to remove all event listeners
+  return {
+    destroy: () => {
+      copyBtn.removeEventListener('click', onCopyClick);
+      draftEmailBtn.removeEventListener('click', onDraftEmailClick);
+    },
+  };
 };
 
 /**

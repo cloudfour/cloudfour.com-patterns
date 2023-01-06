@@ -188,7 +188,11 @@
   }
 }
 
-@keyframes openTooltip {
+///
+/// Tooltip "intro" animation
+///
+
+@keyframes tooltipIntro {
   from {
     animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); // easeOutSine
   }
@@ -203,7 +207,11 @@
   }
 }
 
-@keyframes closeTooltip {
+///
+/// Tooltip "outro" animation
+///
+
+@keyframes tooltipOutro {
   from {
     opacity: 1;
   }
@@ -236,14 +244,14 @@
   // cubic-bezier(0.37, 0, 0.63, 1); // easeInOutSine
   // cubic-bezier(0.45, 0, 0.55, 1); // easeInOutQuad
 
-  &.is-animating-in {
-    animation-name: openTooltip;
+  &.is-animating-intro {
+    animation-name: tooltipIntro;
     animation-duration: 0.45s;
     animation-fill-mode: both;
   }
 
-  &.is-animating-out {
-    animation-name: closeTooltip;
+  &.is-animating-outro {
+    animation-name: tooltipOutro;
     animation-duration: 0.25s;
     animation-fill-mode: both;
     // animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); // easeOutExpo

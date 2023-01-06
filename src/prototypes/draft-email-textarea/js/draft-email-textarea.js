@@ -42,13 +42,13 @@ export const runProposedInlineJS = () => {
   const showTooltip = (tooltipEl, hideTooltipDelay = 4000) => {
     // Unhide it and start the "intro" animation
     tooltipEl.hidden = false;
-    tooltipEl.classList.add('is-animating-in');
+    tooltipEl.classList.add('is-animating-intro');
     // Clear any existing timeouts
     if (hideTooltipDelayTimeoutId) clearTimeout(hideTooltipDelayTimeoutId);
     // Hide the tooltip after a delay
     hideTooltipDelayTimeoutId = setTimeout(() => {
-      tooltipEl.classList.remove('is-animating-in');
-      tooltipEl.classList.add('is-animating-out');
+      tooltipEl.classList.remove('is-animating-intro');
+      tooltipEl.classList.add('is-animating-outro');
     }, hideTooltipDelay);
     // Listen for when the tooltip animation ends
     tooltipEl.addEventListener('animationend', onTooltipAnimationEnd);
@@ -61,9 +61,9 @@ export const runProposedInlineJS = () => {
   const onTooltipAnimationEnd = (e) => {
     const tooltipEl = e.target;
     // When the "outro" animation ends, perform cleanup
-    if (e.animationName === 'closeTooltip') {
+    if (e.animationName === 'tooltipOutro') {
       tooltipEl.hidden = true;
-      tooltipEl.classList.remove('is-animating-out');
+      tooltipEl.classList.remove('is-animating-outro');
       tooltipEl.removeEventListener('animationend', onTooltipAnimationEnd);
     }
   };

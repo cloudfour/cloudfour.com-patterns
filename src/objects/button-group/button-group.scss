@@ -27,7 +27,8 @@
 .o-button-group__item {
   position: relative;
 
+  // TODO This should not live here
   .c-button {
-    width: 100%;
+    inline-size: 100%;
   }
 }

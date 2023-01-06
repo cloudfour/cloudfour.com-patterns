@@ -198,8 +198,8 @@
   }
 
   50% {
-    transform: translate(-50%, 0.8em);
     animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1); // easeInOutSine
+    transform: translate(-50%, 0.8em);
   }
 
   to {
@@ -222,18 +222,18 @@
 }
 
 @mixin tooltip {
-  border: 2px solid black;
   background: white;
+  border: 2px solid black;
+  border-radius: size.$border-radius-medium;
+  color: black;
+  inline-size: max-content;
+  inset-block-start: 2.65em;
+  inset-inline-start: 50%;
+  opacity: 0;
   padding: 0.25em 0.75em;
   position: absolute;
-  top: 2.65em;
-  color: black;
-  border-radius: size.$border-radius-medium;
-  z-index: 999999;
-  opacity: 0;
-  width: max-content;
-  left: 50%;
   transform: translate(-50%, -0.3em);
+  z-index: 999999;
 
   // cubic-bezier(0.25, 1, 0.5, 1); // easeOutQuart
   // cubic-bezier(0.16, 1, 0.3, 1); // easeOutExpo
@@ -246,42 +246,38 @@
   // cubic-bezier(0.36, 0, 0.66, -0.56) // easeInBack
 
   &.is-animating-intro {
-    animation-name: tooltipIntro;
     animation-duration: 0.45s;
     animation-fill-mode: both;
+    animation-name: tooltipIntro;
   }
 
   &.is-animating-outro {
-    animation-name: tooltipOutro;
     animation-duration: 0.45s;
     animation-fill-mode: both;
+    animation-name: tooltipOutro;
     animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56); // easeInBack
   }
 
   &::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    /* the arrow */
-    border-width: 13px;
+    border-color: transparent transparent black;
     border-style: solid;
-    border-color: transparent transparent black transparent;
+    border-width: 13px;
+    content: '';
+    inset-block-end: 100%;
+    inset-inline-start: 50%;
+    position: absolute;
+    transform: translateX(-50%);
   }
 
   &::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    /* the arrow */
-    border-width: 10px;
+    border-color: transparent transparent white;
     border-style: solid;
-    border-color: transparent transparent white transparent;
+    border-width: 10px;
+    content: '';
+    inset-block-end: 100%;
+    inset-inline-start: 50%;
+    position: absolute;
+    transform: translateX(-50%);
   }
 }
 

@@ -1,31 +1,19 @@
 {#
-	IGNORE this style block, used for prototype demo purposes only
-#}
-<style>
-	body {
-		padding: 0 !important;
-	}
-</style>
-{#
 	The `o-container` wrappers are here only for demo purposes
 #}
 <div class="o-container o-container--pad o-container--prose">
-	<div class="o-container__content o-rhythm o-rhythm--default o-rhythm--generous-headings">
+	<div
+		class="o-container__content o-rhythm o-rhythm--default o-rhythm--generous-headings">
 		{#
-			IGNORE the following heading and paragraphs, for prototype demo purposes only
-		#}
+					IGNORE the following heading and paragraphs, for prototype demo purposes only
+				#}
 		<h2 class="has-heading-0-font-size">What to expect</h2>
 		<p class="has-big-font-size">We deliver the best value for clients when our work and expertise directly serve their success. Our initial discussions will help clarify your project’s goals and our team’s fit.</p>
 		<p>The size of an engagement varies based on project requirements, typically in the range of $XX,000 to $XXX,000. We are always happy to discuss ongoing retainer agreements and unique partnerships.</p>
 		<p>If you aren’t sure how to start, you can modify this example email:</p>
 
 		{# Draft email message #}
-		<textarea
-			id="email-draft"
-			class="c-input u-pad-1 js-elastic-textarea"
-			spellcheck="false"
-			data-message-subject="{{ draftSubject }}"
-		>{{ draftMessage }}</textarea>
+		<textarea id="email-draft" class="c-input u-pad-1 js-elastic-textarea" spellcheck="false" data-message-subject="{{ draftSubject }}">{{ draftMessage }}</textarea>
 
 		{# Copy and Draft buttons #}
 		{% embed '@cloudfour/objects/button-group/button-group.twig' with {
@@ -43,8 +31,8 @@
 						content_start_icon: 'copy',
 					} only %}
 					{# Copy "success" message tooltip #}
-					<span
-						class="c-button__tooltip"
+					<div
+						class="c-tooltip"
 						id="copy-success-tooltip"
 						hidden
 					>
@@ -53,10 +41,10 @@
 							inline: true,
 						} only %}
 						Copied to clipboard
-					</span>
+					</div>
 					{# Copy "fail" message tooltip #}
-					<span
-						class="c-button__tooltip"
+					<div
+						class="c-tooltip"
 						id="copy-fail-tooltip"
 						hidden
 					>
@@ -65,7 +53,7 @@
 							name: 'confused-face',
 							inline: true,
 						} only %}
-					</span>
+					</div>
 				</div>
 				{# The "Draft email" button #}
 				{% include '@cloudfour/components/button/button.twig' with {

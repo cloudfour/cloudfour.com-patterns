@@ -1,6 +1,7 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { createElasticTextArea } from '../../components/input/elastic-textarea.ts';
+import './demo/demo.scss';
 import {
   forDemoPurposesOnlyText,
   runProposedInlineJS,
@@ -13,6 +14,10 @@ const prototypeData = {
 
 <Meta
   title="Prototypes/Draft Email"
+  parameters={{
+    docs: { page: null },
+    layout: 'fullscreen',
+  }}
   decorators={[
     (story) => {
       useEffect(() => {

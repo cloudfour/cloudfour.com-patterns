@@ -1,0 +1,110 @@
+@use '../../../compiled/tokens/scss/size';
+@use '../../../compiled/tokens/scss/color';
+@use '../../../compiled/tokens/scss/ease';
+@use '../../../compiled/tokens/scss/z-index';
+@use 'sass:color' as sass-color;
+@use '../../../mixins/ms';
+
+///
+/// Tooltip styles
+///
+/// TODO Consider making a Tooltip patterns component in the future
+///
+
+$tooltip-color-background: var(--theme-color-background-secondary);
+$tooltip-color-border: #{sass-color.change(
+  color.$brand-primary-darker,
+  $alpha: 0.4
+)};
+
+.c-tooltip {
+  border: ms.step(-4) solid $tooltip-color-background;
+  border-radius: size.$border-radius-medium;
+  background: $tooltip-color-background;
+  color: var(--theme-color-text-emphasis);
+  box-shadow: 0 0 0 size.$edge-medium $tooltip-color-border,
+    size.$edge-large size.$edge-large 0 size.$edge-medium #{sass-color.change(
+        color.$brand-primary-darker,
+        $alpha: 0.2
+      )};
+  inline-size: max-content; // Is this the right way to handle this?
+  inset-inline-start: 50%;
+  opacity: 0;
+  position: absolute;
+  z-index: z-index.$alert;
+  inset-block-start: 2.65em; // TODO magic number
+  transform: translate(-50%, -0.3em);
+
+  ///
+  /// Tooltip arrow
+  ///
+
+  &::before,
+  &::after {
+    border-style: solid;
+    content: '';
+    inset-block-end: 1.97em; // TODO magic number
+    inset-inline-start: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  &::before {
+    border-color: transparent transparent $tooltip-color-border;
+    border-width: 13px;
+  }
+
+  &::after {
+    border-color: transparent transparent $tooltip-color-background;
+    border-width: 10px;
+  }
+
+  &.is-animating-intro {
+    animation-duration: 0.45s;
+    animation-fill-mode: both;
+    animation-name: tooltipIntro;
+  }
+
+  &.is-animating-outro {
+    animation-duration: 0.45s;
+    animation-fill-mode: both;
+    animation-name: tooltipOutro;
+    animation-timing-function: ease.$in_back;
+  }
+}
+
+///
+/// Tooltip "intro" animation
+///
+
+@keyframes tooltipIntro {
+  from {
+    animation-timing-function: ease.$out_sine;
+  }
+
+  50% {
+    animation-timing-function: ease.$in_out_sine;
+    transform: translate(-50%, 0.8em);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+///
+/// Tooltip "outro" animation
+///
+
+@keyframes tooltipOutro {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-50%, 20%);
+  }
+}
+
+.c-tooltip__inner {
+}

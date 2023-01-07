@@ -43,11 +43,16 @@ export const runProposedInlineJS = () => {
     // Unhide it and start the "intro" animation
     tooltipEl.hidden = false;
     tooltipEl.classList.add('is-animating-intro');
+    // tooltipEl.classList.add('is-animating-intro', 'is-animation-intro--simple');
     // Clear any existing timeouts
     if (hideTooltipDelayTimeoutId) clearTimeout(hideTooltipDelayTimeoutId);
     // Hide the tooltip after a delay
     hideTooltipDelayTimeoutId = setTimeout(() => {
       tooltipEl.classList.remove('is-animating-intro');
+      // tooltipEl.classList.remove(
+      //   'is-animating-intro',
+      //   'is-animation-intro--simple'
+      // );
       tooltipEl.classList.add('is-animating-outro');
     }, hideTooltipDelay);
     // Listen for when the tooltip animation ends

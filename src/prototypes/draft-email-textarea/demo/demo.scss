@@ -13,9 +13,9 @@
 
 $tooltip-color-background: var(--theme-color-background-secondary);
 $tooltip-color-border: #{sass-color.change(
-  color.$brand-primary-darker,
-  $alpha: 0.4
-)};
+    color.$brand-primary-darker,
+    $alpha: 0.4
+  )};
 
 .c-tooltip {
   border: ms.step(-4) solid $tooltip-color-background;
@@ -33,7 +33,7 @@ $tooltip-color-border: #{sass-color.change(
   position: absolute;
   z-index: z-index.$alert;
   inset-block-start: 2.65em; // TODO magic number
-  transform: translate(-50%, -0.3em);
+  transform: translate(-50%, -0.15em); // TODO Should this be em??
 
   ///
   /// Tooltip arrow
@@ -59,15 +59,28 @@ $tooltip-color-border: #{sass-color.change(
     border-width: 10px;
   }
 
-  &.is-animating-intro {
-    animation-duration: 0.45s;
+  &.is-animating-intro,
+  &.is-animating-outro {
     animation-fill-mode: both;
+  }
+
+  &.is-animating-intro {
+    animation-duration: 0.4s;
     animation-name: tooltipIntro;
+
+    // &.is-animation-intro--simple {
+    //   animation-name: tooltipIntroSimple;
+    //   animation-timing-function: cubic-bezier(
+    //     0.34,
+    //     1.56,
+    //     0.64,
+    //     1
+    //   ); // https://easings.net/#easeOutBack
+    // }
   }
 
   &.is-animating-outro {
     animation-duration: 0.45s;
-    animation-fill-mode: both;
     animation-name: tooltipOutro;
     animation-timing-function: ease.$in_back;
   }
@@ -84,7 +97,18 @@ $tooltip-color-border: #{sass-color.change(
 
   50% {
     animation-timing-function: ease.$in_out_sine;
-    transform: translate(-50%, 0.8em);
+    transform: translate(-50%, 13%);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tooltipIntroSimple {
+  from {
+    transform: translate(-50%, -20%);
+    opacity: 1;
   }
 
   to {
@@ -104,7 +128,4 @@ $tooltip-color-border: #{sass-color.change(
   to {
     transform: translate(-50%, 20%);
   }
-}
-
-.c-tooltip__inner {
 }

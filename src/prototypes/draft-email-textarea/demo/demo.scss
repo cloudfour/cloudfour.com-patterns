@@ -24,7 +24,7 @@ $tooltip-color-border: #{sass-color.change(
 /// 2. Positions tooltip vertically in "end" position (below button)
 ///
 
-.c-tooltip {
+._c-tooltip {
   background: $tooltip-color-background;
   border: ms.step(-4) solid $tooltip-color-background;
   border-radius: size.$border-radius-medium;

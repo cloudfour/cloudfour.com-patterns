@@ -65,7 +65,7 @@ $tooltip-color-border: #{sass-color.change(
   }
 
   &.is-animating-intro {
-    animation-duration: 0.4s;
+    animation-duration: 0.6s;
     animation-name: tooltipIntro;
 
     // &.is-animation-intro--simple {
@@ -97,7 +97,7 @@ $tooltip-color-border: #{sass-color.change(
 
   50% {
     animation-timing-function: ease.$in_out_sine;
-    transform: translate(-50%, 13%);
+    transform: translate(-50%, 15%);
   }
 
   to {

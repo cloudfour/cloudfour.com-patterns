@@ -89,6 +89,7 @@ $tooltip-color-border: #{sass-color.change(
 
   &.is-animating-intro,
   &.is-animating-outro {
+    animation-duration: 0.45s;
     animation-fill-mode: both;
   }
 
@@ -97,7 +98,6 @@ $tooltip-color-border: #{sass-color.change(
   ///
 
   &.is-animating-intro {
-    animation-duration: 0.6s;
     animation-name: tooltipIntro;
   }
 
@@ -106,7 +106,6 @@ $tooltip-color-border: #{sass-color.change(
   ///
 
   &.is-animating-outro {
-    animation-duration: 0.45s;
     animation-name: tooltipOutro;
     animation-timing-function: ease.$in_back;
   }

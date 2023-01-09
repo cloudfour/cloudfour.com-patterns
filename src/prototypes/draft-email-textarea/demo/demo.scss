@@ -25,22 +25,22 @@ $tooltip-color-border: #{sass-color.change(
 ///
 
 .c-tooltip {
+  background: $tooltip-color-background;
   border: ms.step(-4) solid $tooltip-color-background;
   border-radius: size.$border-radius-medium;
-  background: $tooltip-color-background;
-  color: var(--theme-color-text-emphasis);
   box-shadow: 0 0 0 size.$edge-medium $tooltip-color-border,
     size.$edge-large size.$edge-large 0 size.$edge-medium #{sass-color.change(
         color.$brand-primary-darker,
         $alpha: 0.2
       )};
-  inline-size: max-content; // Is this the right way to handle this?
+  color: var(--theme-color-text-emphasis);
+  inset-block-start: 2.45em; // 2
   inset-inline-start: 50%; // 1
   opacity: 0;
   position: absolute; // 1
-  z-index: z-index.$alert;
-  inset-block-start: 2.45em; // 2
   transform: translate(-50%, 0em); // 1, 2
+  white-space: nowrap;
+  z-index: z-index.$alert;
 
   ///
   /// Tooltip arrows (background and foreground)

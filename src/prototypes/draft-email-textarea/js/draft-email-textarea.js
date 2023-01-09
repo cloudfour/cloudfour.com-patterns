@@ -39,7 +39,7 @@ export const runProposedInlineJS = () => {
    * @param {HTMLElement} tooltipEl
    * @param {Number} [hideTooltipDelay=4000]
    */
-  const showTooltip = (tooltipEl, hideTooltipDelay = 4000) => {
+  const showTooltip = (tooltipEl, hideTooltipDelay = 3000) => {
     // Unhide it and start the "intro" animation
     tooltipEl.hidden = false;
     tooltipEl.classList.add('is-animating-intro');

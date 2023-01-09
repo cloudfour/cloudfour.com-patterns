@@ -34,7 +34,7 @@ $tooltip-color-border: #{sass-color.change(
         $alpha: 0.2
       )};
   color: var(--theme-color-text-emphasis);
-  inset-block-start: 2.45em; // 2
+  inset-block-start: 100%; // 2
   inset-inline-start: 50%; // 1
   opacity: 0;
   position: absolute; // 1

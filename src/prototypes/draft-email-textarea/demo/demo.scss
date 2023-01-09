@@ -43,7 +43,7 @@ $tooltip-color-border: #{sass-color.change(
   &::after {
     border-style: solid;
     content: '';
-    inset-block-end: 1.97em; // TODO magic number
+    inset-block-end: 1.96em; // TODO magic number
     inset-inline-start: 50%;
     position: absolute;
     transform: translateX(-50%);

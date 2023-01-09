@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Update Button component to support `id` attribute
+Updated Button component to support `id` attribute

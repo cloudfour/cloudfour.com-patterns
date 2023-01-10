@@ -24,12 +24,9 @@ export const runProposedInlineJS = () => {
     navigator,
     navigator.clipboard,
     navigator.clipboard.writeText,
-  ]
-
-  const requirements = [
-    ...requiredElements,
-    ...requiredBrowserFunctionality
   ];
+
+  const requirements = [...requiredElements, ...requiredBrowserFunctionality];
   // Handle use case when all requirements are not met
   if (!requirements.every((requirement) => requirement)) {
     // Hide the "copy" btn since it will not be functional

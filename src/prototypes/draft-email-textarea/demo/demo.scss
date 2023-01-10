@@ -62,7 +62,7 @@ $tooltip-color-shadow: #{sass-color.change(
     border-color: transparent transparent
       var(--arrow-color, $tooltip-color-border);
     border-style: solid;
-    border-width: var(--arrow-size, 0.8125em); // 1
+    border-width: var(--arrow-size, 0.64em); // 1
     content: '';
     inset-block-end: var(--arrow-offset, 0); // 2
     inset-inline-start: 50%; // 3
@@ -84,7 +84,7 @@ $tooltip-color-shadow: #{sass-color.change(
 
   &::after {
     --arrow-color: #{$tooltip-color-background};
-    --arrow-size: 0.71em; // 1
+    --arrow-size: 0.5em; // 1
     --arrow-offset: -1px; // 2
   }
 

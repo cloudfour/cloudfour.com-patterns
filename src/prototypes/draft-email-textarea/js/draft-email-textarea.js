@@ -12,15 +12,23 @@ export const runProposedInlineJS = () => {
   const copyFailTooltipEl = document.getElementById('copy-fail-tooltip');
 
   // All the things required to run this feature
-  const requirements = [
+  const requiredElements = [
     copyBtn,
     draftEmailBtn,
     draftEl,
     copySuccessTooltipEl,
     copyFailTooltipEl,
+  ];
+
+  const requiredBrowserFunctionality = [
     navigator,
     navigator.clipboard,
     navigator.clipboard.writeText,
+  ]
+
+  const requirements = [
+    ...requiredElements,
+    ...requiredBrowserFunctionality
   ];
   // Handle use case when all requirements are not met
   if (!requirements.every((requirement) => requirement)) {

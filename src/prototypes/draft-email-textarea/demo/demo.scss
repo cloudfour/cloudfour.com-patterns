@@ -39,7 +39,7 @@ $tooltip-color-border: #{sass-color.change(
   inset-inline-start: 50%; // 1
   opacity: 0;
   position: absolute; // 1
-  transform: translate(-50%, 0em); // 1, 2
+  transform: translate(-50%, 0); // 1, 2
   white-space: nowrap;
   z-index: z-index.$alert;
 
@@ -68,7 +68,7 @@ $tooltip-color-border: #{sass-color.change(
   &::before {
     border-color: transparent transparent $tooltip-color-border;
     border-width: 13px; // 1
-    top: -35px; // 2
+    inset-block-start: -35px; // 2
   }
 
   ///
@@ -81,7 +81,7 @@ $tooltip-color-border: #{sass-color.change(
   &::after {
     border-color: transparent transparent $tooltip-color-background;
     border-width: 10px; // 1
-    top: -28px; // 2
+    inset-block-start: -28px; // 2
   }
 
   ///

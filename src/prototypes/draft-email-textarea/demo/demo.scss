@@ -119,11 +119,11 @@ $tooltip-color-shadow: #{sass-color.change(
 ///
 /// Tooltip intro animation
 ///
-/// 1. Only the Y value is changing. 
-/// Before the animation the horizontal translation is set to `-50%` to center the tooltip.
-///    We don't want to overwrite the X transformation when we add the Y transformation.
-///    Since there can only be a single `transform` property
-///    we need to include the X value alongside the Y value..
+/// 1. Only the Y value is changing. Before the animation, the horizontal
+///    translation is set to `-50%` to center the tooltip. We don't want to
+///    overwrite the X transformation when we add the Y transformation. Since
+///    there can only be a single `transform` property, we need to include the
+///    X value alongside the Y value.
 ///
 
 @keyframes tooltipIntro {

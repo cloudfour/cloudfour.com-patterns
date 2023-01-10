@@ -115,6 +115,10 @@ $tooltip-color-border: #{sass-color.change(
 ///
 /// Tooltip intro animation
 ///
+/// 1. Only the Y value is changing, but the X value of `-50%` is included
+///    because I can't only set the Y value without affecting the X value since
+///    there can only be a single `transform` property.
+///
 
 @keyframes tooltipIntro {
   from {
@@ -123,7 +127,7 @@ $tooltip-color-border: #{sass-color.change(
 
   50% {
     animation-timing-function: ease.$in_out_sine;
-    transform: translate(-50%, 15%);
+    transform: translate(-50%, 15%); // 1
   }
 
   to {

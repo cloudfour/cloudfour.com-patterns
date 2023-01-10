@@ -79,16 +79,17 @@ export const runProposedInlineJS = () => {
       .catch(() => showTooltip(copyFailTooltipEl));
   };
 
-  // Handles the "Draft email" link action
+  /**
+   * Handles the "Draft email" link action
+   */
   const onDraftEmailClick = (e) => {
     // Get the draft message subject & body text. This ensures the mailto link
-    // is updated in case the user started typing their message in the
-    // textarea input.
+    // is updated with the value from the textarea input.
     const msgSubject = encodeURIComponent(draftEl.dataset.messageSubject);
     const msgBody = encodeURIComponent(draftEl.value);
 
     // Update the mailto link with the new values
-    // The default mailto link behavior will then use these updated values
+    // The default mailto link behavior handles the rest
     draftEmailBtn.setAttribute(
       'href',
       `mailto:info@cloudfour.com?subject=${msgSubject}&body=${msgBody}`

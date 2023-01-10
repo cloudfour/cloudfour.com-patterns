@@ -19,7 +19,8 @@
 }
 
 ///
-/// For use cases when multiple elements should be housed under a single container
+/// For use cases when a button has sibling elements, they can all be wrapped
+/// with an "item" element to maintain proper layout
 ///
 
 .o-button-group__item {

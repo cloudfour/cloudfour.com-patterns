@@ -1,6 +1,7 @@
 @use '../../../compiled/tokens/scss/size';
 @use '../../../compiled/tokens/scss/color';
 @use '../../../compiled/tokens/scss/ease';
+@use '../../../compiled/tokens/scss/transition';
 @use '../../../compiled/tokens/scss/z-index';
 @use 'sass:color' as sass-color;
 @use '../../../mixins/ms';
@@ -89,7 +90,7 @@ $tooltip-color-border: #{sass-color.change(
 
   &.is-animating-intro,
   &.is-animating-outro {
-    animation-duration: 0.45s;
+    animation-duration: transition.$slow;
     animation-fill-mode: both;
   }
 

@@ -19,69 +19,73 @@ $tooltip-color-border: #{sass-color.change(
     color.$brand-primary-darker,
     $alpha: 0.4
   )};
+$tooltip-color-shadow: #{sass-color.change(
+    color.$brand-primary-darker,
+    $alpha: 0.2
+  )};
 
 ///
-/// 1. Horizontally centers tooltip
-/// 2. Positions tooltip vertically (below button)
+/// 1. Positions tooltip vertically (below button)
+/// 2. Horizontally centers tooltip
 ///
 
 ._c-tooltip {
   background: $tooltip-color-background;
-  border: ms.step(-4) solid $tooltip-color-background;
   border-radius: size.$border-radius-medium;
   box-shadow: 0 0 0 size.$edge-medium $tooltip-color-border,
-    size.$edge-large size.$edge-large 0 size.$edge-medium #{sass-color.change(
-        color.$brand-primary-darker,
-        $alpha: 0.2
-      )};
+    size.$edge-large size.$edge-large 0 size.$edge-medium $tooltip-color-shadow;
   color: var(--theme-color-text-emphasis);
-  inset-block-start: 100%; // 2
-  inset-inline-start: 50%; // 1
+  inset-block-start: 100%; // 1
+  inset-inline-start: 50%; // 2
   opacity: 0;
-  position: absolute; // 1
-  transform: translate(-50%, 0); // 1, 2
+  padding: ms.step(-4);
+  position: absolute; // 2
+  transform: translateX(-50%); // 2
   white-space: nowrap;
   z-index: z-index.$alert;
 
   ///
-  /// Tooltip arrows (background and foreground)
+  /// Tooltip arrow
   ///
-  /// 1. Horizontally center arrows
+  /// The tooltip arrow is made up of two arrows, the first a background arrow
+  /// that visually acts as the border and a second that sits on top as the
+  /// actual (lighter colored) arrow that visually connects with the tooltip body.
+  ///
+  /// 1. Magic number, design-based decision
+  /// 2. Bottom-align the arrows on top of each other
+  /// 3. The translateX value horizontally centers the arrows
+  /// 4. The translateY value vertically aligns the arrows to top of tooltip body
   ///
 
   &::before,
   &::after {
+    border-color: transparent transparent
+      var(--arrow-color, $tooltip-color-border);
     border-style: solid;
+    border-width: var(--arrow-size, 0.8125em); // 1
     content: '';
-    inset-inline-start: 50%; // 1
-    position: absolute; // 1
-    transform: translateX(-50%); // 1
+    inset-block-end: var(--arrow-offset, 0); // 2
+    inset-inline-start: 50%; // 3
+    position: absolute; // 3
+    transform: translate(-50%, -2.4em); // 3, 4
   }
 
   ///
-  /// Background tooltip arrow (darker color)
+  /// Foreground tooltip arrow
   ///
-  /// 1. Combined with foreground arrow, matches border-width of tooltip body
-  /// 2. Position arrow above tooltip body
+  /// Updates the values for the arrow that is overlaid on top of the background
+  /// arrow. Together, they form a bordered tooltip arrow.
   ///
-
-  &::before {
-    border-color: transparent transparent $tooltip-color-border;
-    border-width: 13px; // 1
-    inset-block-start: -35px; // 2
-  }
-
-  ///
-  /// Background tooltip arrow (lighter color)
-  ///
-  /// 1. Combined with background arrow, matches border-width of tooltip body
-  /// 2. Position arrow above tooltip body
+  /// 1. Magic number, design-based decision. I eye-balled the size of the
+  ///    overlaid arrow so that the visual border appeared the same width as the
+  ///    tooltip body border.
+  /// 2. There was a 1px gap at some viewport sizes, this removed the gap
   ///
 
   &::after {
-    border-color: transparent transparent $tooltip-color-background;
-    border-width: 10px; // 1
-    inset-block-start: -28px; // 2
+    --arrow-color: #{$tooltip-color-background};
+    --arrow-size: 0.71em; // 1
+    --arrow-offset: -1px; // 2
   }
 
   ///

@@ -107,7 +107,7 @@ $tooltip-color-border: #{sass-color.change(
 
   &.is-animating-outro {
     animation-name: tooltipOutro;
-    animation-timing-function: ease.$in_back;
+    animation-timing-function: ease.$out_sine;
   }
 }
 

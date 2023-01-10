@@ -2,4 +2,4 @@
 '@cloudfour/patterns': minor
 ---
 
-Added easeInOutSine, easeOutSine, easeInBack ease tokens
+Added easeInOutSine and easeOutSine ease tokens

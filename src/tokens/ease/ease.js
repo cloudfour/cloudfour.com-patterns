@@ -25,9 +25,5 @@ module.exports = {
       value: 'cubic-bezier(0.61, 1, 0.88, 1)',
       comment: 'https://easings.net/#easeOutSine',
     },
-    in_back: {
-      value: 'cubic-bezier(0.36, 0, 0.66, -0.56)',
-      comment: 'https://easings.net/#easeInBack',
-    },
   },
 };

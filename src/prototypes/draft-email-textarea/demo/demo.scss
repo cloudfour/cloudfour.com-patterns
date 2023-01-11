@@ -104,6 +104,11 @@ $tooltip-color-shadow: #{sass-color.change(
 
   &.is-animating-intro {
     animation-name: tooltipIntro;
+    animation-timing-function: ease.$out_sine;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation-name: tooltipIntroIncreasedMotion;
+    }
   }
 
   ///
@@ -117,7 +122,17 @@ $tooltip-color-shadow: #{sass-color.change(
 }
 
 ///
-/// Tooltip intro animation
+/// Tooltip intro animation (default)
+///
+
+@keyframes tooltipIntro {
+  to {
+    opacity: 1;
+  }
+}
+
+///
+/// Tooltip intro animation (increased motion)
 ///
 /// 1. Only the Y value is changing. Before the animation, the horizontal
 ///    translation is set to `-50%` to center the tooltip. We don't want to
@@ -126,7 +141,7 @@ $tooltip-color-shadow: #{sass-color.change(
 ///    X value alongside the Y value.
 ///
 
-@keyframes tooltipIntro {
+@keyframes tooltipIntroIncreasedMotion {
   from {
     animation-timing-function: ease.$out_sine;
   }

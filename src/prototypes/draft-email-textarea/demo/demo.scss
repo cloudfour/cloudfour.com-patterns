@@ -1,0 +1,167 @@
+@use '../../../compiled/tokens/scss/size';
+@use '../../../compiled/tokens/scss/color';
+@use '../../../compiled/tokens/scss/ease';
+@use '../../../compiled/tokens/scss/transition';
+@use '../../../compiled/tokens/scss/z-index';
+@use 'sass:color' as sass-color;
+@use '../../../mixins/ms';
+
+///
+/// Tooltip styles
+///
+/// These Tooltip styles will be inlined in a Gutenberg Custom HTML block
+///
+/// TODO Consider making a Tooltip patterns component in the future
+///
+
+$tooltip-color-background: var(--theme-color-background-secondary);
+$tooltip-color-border: #{sass-color.change(
+    color.$brand-primary-darker,
+    $alpha: 0.4
+  )};
+$tooltip-color-shadow: #{sass-color.change(
+    color.$brand-primary-darker,
+    $alpha: 0.2
+  )};
+
+///
+/// 1. Positions tooltip vertically (below button)
+/// 2. Horizontally centers tooltip
+///
+
+._c-tooltip {
+  background: $tooltip-color-background;
+  border-radius: size.$border-radius-medium;
+  box-shadow: 0 0 0 size.$edge-medium $tooltip-color-border,
+    size.$edge-large size.$edge-large 0 size.$edge-medium $tooltip-color-shadow;
+  color: var(--theme-color-text-emphasis);
+  inset-block-start: 100%; // 1
+  inset-inline-start: 50%; // 2
+  opacity: 0;
+  padding: ms.step(-4);
+  position: absolute; // 2
+  transform: translateX(-50%); // 2
+  white-space: nowrap;
+  z-index: z-index.$alert;
+
+  ///
+  /// Tooltip arrow
+  ///
+  /// The tooltip arrow is made up of two arrows, the first a background arrow
+  /// that visually acts as the border and a second that sits on top as the
+  /// actual (lighter colored) arrow that visually connects with the tooltip body.
+  ///
+  /// 1. Magic number, design-based decision
+  /// 2. Bottom-align the arrows on top of each other
+  /// 3. The translateX value horizontally centers the arrows
+  /// 4. The translateY value vertically aligns the arrows to top of tooltip body
+  ///
+
+  &::before,
+  &::after {
+    border-color: transparent transparent
+      var(--arrow-color, $tooltip-color-border);
+    border-style: solid;
+    border-width: var(--arrow-size, 0.64em); // 1
+    content: '';
+    inset-block-end: var(--arrow-offset, 0); // 2
+    inset-inline-start: 50%; // 3
+    position: absolute; // 3
+    transform: translate(-50%, -2.4em); // 3, 4
+  }
+
+  ///
+  /// Foreground tooltip arrow
+  ///
+  /// Updates the values for the arrow that is overlaid on top of the background
+  /// arrow. Together, they form a bordered tooltip arrow.
+  ///
+  /// 1. Magic number, design-based decision. I eye-balled the size of the
+  ///    overlaid arrow so that the visual border appeared the same width as the
+  ///    tooltip body border.
+  /// 2. There was a 1px gap at some viewport sizes, this removed the gap
+  ///
+
+  &::after {
+    --arrow-color: #{$tooltip-color-background};
+    --arrow-size: 0.6em; // 1
+    --arrow-offset: -0.125em; // 2
+  }
+
+  ///
+  /// Shared animation state properties
+  ///
+
+  &.is-animating-intro,
+  &.is-animating-outro {
+    animation-duration: transition.$slow;
+    animation-fill-mode: both;
+  }
+
+  ///
+  /// Tooltip intro animation config
+  ///
+
+  &.is-animating-intro {
+    animation-name: tooltipIntro;
+    animation-timing-function: ease.$out_sine;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation-name: tooltipIntroIncreasedMotion;
+    }
+  }
+
+  ///
+  /// Tooltip outro animation config
+  ///
+
+  &.is-animating-outro {
+    animation-name: tooltipOutro;
+    animation-timing-function: ease.$out_sine;
+  }
+}
+
+///
+/// Tooltip intro animation (default)
+///
+
+@keyframes tooltipIntro {
+  to {
+    opacity: 1;
+  }
+}
+
+///
+/// Tooltip intro animation (increased motion)
+///
+/// 1. Only the Y value is changing. Before the animation, the horizontal
+///    translation is set to `-50%` to center the tooltip. We don't want to
+///    overwrite the X transformation when we add the Y transformation. Since
+///    there can only be a single `transform` property, we need to include the
+///    X value alongside the Y value.
+///
+
+@keyframes tooltipIntroIncreasedMotion {
+  from {
+    animation-timing-function: ease.$out_sine;
+  }
+
+  50% {
+    animation-timing-function: ease.$in_out_sine;
+    transform: translate(-50%, 15%); // 1
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+///
+/// Tooltip outro animation
+///
+
+@keyframes tooltipOutro {
+  from {
+    opacity: 1;
+  }
+}

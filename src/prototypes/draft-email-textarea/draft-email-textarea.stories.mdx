@@ -1,0 +1,48 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { useEffect } from '@storybook/client-api';
+import { createElasticTextArea } from '../../components/input/elastic-textarea.ts';
+import './demo/demo.scss';
+import {
+  forDemoPurposesOnlyText,
+  runProposedInlineJS,
+} from './js/draft-email-textarea.js';
+import prototypeDemo from './demo/demo.twig';
+const prototypeData = {
+  draftSubject: 'Discuss potential project',
+  draftMessage: forDemoPurposesOnlyText,
+};
+
+<Meta
+  title="Prototypes/Draft Email"
+  parameters={{
+    docs: { page: null },
+    layout: 'fullscreen',
+  }}
+  decorators={[
+    (story) => {
+      useEffect(() => {
+        const { destroy: destroyDraftEmail } = runProposedInlineJS();
+        const { destroy: destroyElasticTextArea } = createElasticTextArea(
+          document.querySelector('.js-elastic-textarea')
+        );
+        return () => {
+          destroyDraftEmail();
+          destroyElasticTextArea();
+        };
+      }, []);
+      return story();
+    },
+  ]}
+/>
+
+# Draft Email Prototype Demo
+
+The HTML markup, CSS, and JavaScript logic will be included as a Gutenberg Custom HTML block in WordPress for this unique use case.
+
+For full demo functionality, open the "Canvas" view in a new tab.
+
+<Canvas>
+  <Story name="Demo" args={prototypeData}>
+    {(args) => prototypeDemo(args)}
+  </Story>
+</Canvas>

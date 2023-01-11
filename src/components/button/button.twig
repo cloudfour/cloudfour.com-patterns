@@ -15,6 +15,9 @@
 
 <{{ tag_name }}
   class="c-button{% if class %} {{ class }}{% endif %}"
+  {% if id %}
+    id="{{ id }}"
+  {% endif %}
   {% if aria_disabled %}
     aria-disabled="{{ aria_disabled }}"
   {% endif %}

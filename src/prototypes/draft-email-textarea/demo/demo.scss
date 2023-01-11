@@ -84,8 +84,8 @@ $tooltip-color-shadow: #{sass-color.change(
 
   &::after {
     --arrow-color: #{$tooltip-color-background};
-    --arrow-size: 0.5em; // 1
-    --arrow-offset: -1px; // 2
+    --arrow-size: 0.6em; // 1
+    --arrow-offset: -0.125em; // 2
   }
 
   ///

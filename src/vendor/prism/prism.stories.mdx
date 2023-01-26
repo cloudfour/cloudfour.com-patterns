@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { useEffect } from '@storybook/client-api';
 import { basename, extname } from 'path';
-import sampleDemo from './demo/sample.twig';
+import sampleDemo from '../highlight/demo/sample.twig';
 import './config.js';
 // Load samples directory as "raw" text
-const samplesDir = require.context('!!raw-loader!./demo/samples', false);
+const samplesDir = require.context('!!raw-loader!../highlight/demo/samples', false);
 // Initialize an object to store sample content in
 const samples = {};
 // For each sample, fetch its content and build an object for our template

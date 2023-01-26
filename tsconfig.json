@@ -18,7 +18,7 @@
   "include": ["src"],
   "exclude": [
     "src/prototypes",
-    "src/vendor/prism/demo/samples",
+    "src/vendor/highlight/demo/samples",
     "src/tokens",
     "src/compiled"
   ]

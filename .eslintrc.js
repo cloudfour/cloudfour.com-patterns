@@ -1,8 +1,5 @@
 module.exports = {
   extends: ['plugin:@cloudfour/recommended', 'plugin:mdx/recommended'],
-  globals: {
-    Prism: true,
-  },
   plugins: ['react'],
   settings: {
     n: {

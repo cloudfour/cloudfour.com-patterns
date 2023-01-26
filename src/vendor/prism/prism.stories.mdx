@@ -1,9 +1,23 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta title="Vendor/Prism" />
+<Meta
+  title="Vendor/Prism"
+  parameters={{
+    status: {
+      type: 'deprecated',
+    },
+  }}
+/>
 
 # Prism
 
-TODO!
+Our CSS used to include a custom [Prism](https://prismjs.com/index.html) theme for syntax highlighting, but we have started moving to server-side rendering of syntax highlighting where possible, so we've transitioned that responsibility to [our Highlight theme](/?path=/docs/vendor-highlight--example).
 
-Our CSS includes a custom [Prism](https://prismjs.com/index.html) theme to support syntax highlighting for code samples.
+For legacy projects or content that requires client-side rendering, we will continue to include the Prism theme in this package as a separate stylesheet:
+
+```html
+<link
+  rel="stylesheet"
+  href="node_modules/@cloudfour/patterns/dist/prism-theme.min.css"
+/>
+```

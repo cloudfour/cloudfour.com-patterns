@@ -8,14 +8,22 @@ sass.compiler = require('sass');
 const outDir = 'dist';
 
 const buildSass = () =>
-  src('./src/index.scss')
+  src(['./src/index.scss', './src/prism-theme.scss'])
     .pipe(
       sass({
         importer: [require('../../glob-sass-importer')],
       }).on('error', sass.logError)
     )
     .pipe(postcss())
-    .pipe(rename({ basename: 'standalone' }))
+    .pipe(
+      rename((path) => {
+        if (path.basename === 'index') {
+          path.basename = 'standalone';
+        }
+
+        return path;
+      })
+    )
     .pipe(dest(outDir))
     .pipe(
       postcss([

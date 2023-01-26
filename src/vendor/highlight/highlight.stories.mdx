@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs';
 import { basename, extname } from 'path';
 import hljs from 'highlight.js';
 import sampleDemo from './demo/sample.twig';
@@ -18,41 +18,27 @@ for (const key of samplesDir.keys()) {
   const html = language && hljs.highlight(content, { language }).value;
   samples[name] = { filename, name, ext, content, html };
 }
+const sampleStory = (args) => sampleDemo(samples[args.language || 'markup']);
 
-<Meta title="Vendor/Highlight" />
+<Meta
+  title="Vendor/Highlight"
+  argTypes={{
+    language: {
+      options: Object.keys(samples),
+      type: 'string',
+      control: {
+        type: 'select',
+      },
+    },
+  }}
+/>
 
 # Highlight
 
 TODO!
 
-## Supported Languages
+<Story name="Example" args={{ language: 'markup' }}>
+  {sampleStory.bind()}
+</Story>
 
-<Story name="Bash, Shell">{sampleDemo(samples.bash)}</Story>
-
-<Story name="CSS">{sampleDemo(samples.css)}</Story>
-
-<Story name="Handlebars">{sampleDemo(samples.handlebars)}</Story>
-
-<Story name="JavaScript">{sampleDemo(samples.js)}</Story>
-
-<Story name="JSON">{sampleDemo(samples.json)}</Story>
-
-<Story name="Liquid">{sampleDemo(samples.liquid)}</Story>
-
-<Story name="Markup, HTML">{sampleDemo(samples.markup)}</Story>
-
-<Story name="PHP">{sampleDemo(samples.php)}</Story>
-
-<Story name="React JSX">{sampleDemo(samples.jsx)}</Story>
-
-<Story name="React TSX">{sampleDemo(samples.tsx)}</Story>
-
-<Story name="Sass (SCSS)">{sampleDemo(samples.scss)}</Story>
-
-<Story name="TOML">{sampleDemo(samples.toml)}</Story>
-
-<Story name="Twig">{sampleDemo(samples.twig)}</Story>
-
-<Story name="TypeScript">{sampleDemo(samples.typescript)}</Story>
-
-<Story name="YAML">{sampleDemo(samples.yaml)}</Story>
+<ArgsTable story="Example" />

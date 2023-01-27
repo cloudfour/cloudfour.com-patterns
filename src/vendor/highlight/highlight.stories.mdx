@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { basename, extname } from 'path';
 import hljs from 'highlight.js';
 import sampleDemo from './demo/sample.twig';
@@ -18,10 +18,16 @@ for (const key of samplesDir.keys()) {
   const html = language && hljs.highlight(content, { language }).value;
   samples[name] = { filename, name, ext, content, html };
 }
-const sampleStory = (args) => sampleDemo(samples[args.language || 'markup']);
+const sampleStory = (args) => sampleDemo(samples[args.language || 'html']);
+const sampleTransformSource = (src) => src;
 
 <Meta
   title="Vendor/Highlight"
+  parameters={{
+    docs: {
+      transformSource: sampleTransformSource,
+    },
+  }}
   argTypes={{
     language: {
       options: Object.keys(samples),
@@ -35,10 +41,18 @@ const sampleStory = (args) => sampleDemo(samples[args.language || 'markup']);
 
 # Highlight
 
-TODO!
+Our CSS includes a [Highlight.js](https://highlightjs.org/) theme for syntax highlighting.
 
-<Story name="Example" args={{ language: 'markup' }}>
-  {sampleStory.bind()}
-</Story>
+For performance, it's recommended to apply syntax highlighting on the server:
+
+- [Highlight.js Basic Usage: Node.js on the Server](https://highlightjs.readthedocs.io/en/latest/readme.html#node-js-on-the-server)
+- [highlight.php](https://github.com/scrivo/highlight.php)
+- [WordPress Plugins: Syntax-highlighting Code Block](https://wordpress.org/plugins/syntax-highlighting-code-block/)
+
+<Canvas>
+  <Story name="Example" args={{ language: 'html' }}>
+    {sampleStory.bind()}
+  </Story>
+</Canvas>
 
 <ArgsTable story="Example" />

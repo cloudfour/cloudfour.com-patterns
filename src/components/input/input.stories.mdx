@@ -21,7 +21,7 @@ const elasticTextAreaConfig = {
   placeholder: 'Placeholder text…',
   id: 'demo-elastic',
   rows: 2,
-  class: 'c-input--elastic js-elastic-textarea',
+  class: 'js-elastic-textarea',
 };
 
 <!--
@@ -86,9 +86,9 @@ You can also add `c-input` to `<select>` elements, in which case you’ll get a 
   </Story>
 </Canvas>
 
-## Elastic textarea
+## Elastic TextArea
 
-Add the `c-input--elastic` modifier class to a `<textarea>` element and follow the [JavaScript instructions](#javascript-instructions) to have it expand as the user types more than will fit.
+Follow the [JavaScript instructions](#javascript-instructions) below to have a `<textarea>` expand as the user types more than will fit.
 
 If the `rows` attribute is set, it will be used as the minimum height.
 
@@ -100,11 +100,7 @@ If the `rows` attribute is set, it will be used as the minimum height.
       rows: { type: { name: 'number' } },
       class: { type: { name: 'string' } },
     }}
-    args={{
-      ...elasticTextAreaConfig,
-      rows: 2,
-      class: 'c-input--elastic js-elastic-textarea',
-    }}
+    args={elasticTextAreaConfig}
     parameters={{
       docs: {
         source: {
@@ -127,7 +123,7 @@ If the `rows` attribute is set, it will be used as the minimum height.
   </Story>
 </Canvas>
 
-### JavaScript Instructions
+<h3 id="javascript-instructions">JavaScript Instructions</h3>
 
 You'll need to use JavaScript to select and initialize all the elastic textareas on the page.
 

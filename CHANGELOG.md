@@ -1,5 +1,27 @@
 # @cloudfour/patterns
 
+## 12.8.0
+
+### Minor Changes
+
+- [#2096](https://github.com/cloudfour/cloudfour.com-patterns/pull/2096) [`a4419618`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a4419618b6dd0794ddb3a219479eb8f6221ee077) Thanks [@tylersticka](https://github.com/tylersticka)! - The `has-big-font-size` utility class in WordPress now gradually applies the size increase as the viewport width increases to avoid overwhelming smaller viewports
+
+- [#2109](https://github.com/cloudfour/cloudfour.com-patterns/pull/2109) [`a3f82c02`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a3f82c02d800c91c1b817a871001add42ba115ab) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Added easeInOutSine and easeOutSine ease tokens
+
+- [#2108](https://github.com/cloudfour/cloudfour.com-patterns/pull/2108) [`35195c74`](https://github.com/cloudfour/cloudfour.com-patterns/commit/35195c747ae5a65d45f01dcbff2cef96b58da531) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Update Elastic TextArea `rows` to fit content when resized
+
+- [#2098](https://github.com/cloudfour/cloudfour.com-patterns/pull/2098) [`2982b7c4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2982b7c4e96cd0e987844b8098659682ca11bcb8) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Disable resizing for Elastic Textareas
+
+- [#2095](https://github.com/cloudfour/cloudfour.com-patterns/pull/2095) [`0f114c75`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0f114c75868785a851a216c2d5144154a49ebc8d) Thanks [@tylersticka](https://github.com/tylersticka)! - Add download icon
+
+- [#2109](https://github.com/cloudfour/cloudfour.com-patterns/pull/2109) [`a3f82c02`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a3f82c02d800c91c1b817a871001add42ba115ab) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Updated Button component to support `id` attribute
+
+### Patch Changes
+
+- [#2110](https://github.com/cloudfour/cloudfour.com-patterns/pull/2110) [`c07e1d50`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c07e1d5053274dd0016a27ec1984f4366f1bc14e) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Remove usage of `c-input--elastic` modifier
+
+- [#2098](https://github.com/cloudfour/cloudfour.com-patterns/pull/2098) [`2982b7c4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2982b7c4e96cd0e987844b8098659682ca11bcb8) Thanks [@gerardo-rodriguez](https://github.com/gerardo-rodriguez)! - Fix bug where `c-input` did not respect `rows` attribute
+
 ## 12.7.1
 
 ### Patch Changes

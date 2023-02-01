@@ -167,7 +167,7 @@
 @mixin content {
   /// We use opacity because it will not paint but it also won't remove the
   /// element's keyboard events (if any).
-  /// @link https: //stackoverflow.com/a/34529598
+  /// @link https://stackoverflow.com/a/34529598
   .is-loading & {
     opacity: 0;
   }

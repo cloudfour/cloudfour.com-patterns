@@ -1,9 +1,15 @@
 import path from 'path';
 
 import type { ElementHandle, PleasantestUtils } from 'pleasantest';
-import { getAccessibilityTree, withBrowser } from 'pleasantest';
+import {
+  getAccessibilityTree,
+  makeCallableJSHandle,
+  withBrowser,
+} from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
+
+import type { createSubscribe } from './subscribe.js';
 
 // Helper to load the Twig template file
 const componentMarkup = (args = {}) =>
@@ -25,7 +31,7 @@ const demoDestroyInitMarkup = loadTwigTemplate(
 const expectElementToBeVisuallyHidden = async (
   element: ElementHandle<HTMLElement>
 ) => {
-  const { elHeight, elWidth } = await element.evaluate((el: HTMLElement) => ({
+  const { elHeight, elWidth } = await element.evaluate((el) => ({
     elHeight: el.clientHeight,
     elWidth: el.clientWidth,
   }));
@@ -41,7 +47,7 @@ const expectElementToBeVisuallyHidden = async (
 const expectElementNotToBeVisuallyHidden = async (
   form: ElementHandle<HTMLElement>
 ) => {
-  const { elHeight, elWidth } = await form.evaluate((el: HTMLElement) => ({
+  const { elHeight, elWidth } = await form.evaluate((el) => ({
     elHeight: el.clientHeight,
     elWidth: el.clientWidth,
   }));
@@ -277,16 +283,23 @@ describe('Subscription component', () => {
       await loadGlobalCSS(utils);
       await utils.loadCSS('./subscribe.scss');
       await utils.injectHTML(await demoDestroyInitMarkup());
-      await utils.runJS(`
+      const { subscribeComponent } = await utils.runJS<{
+        subscribeComponent: NonNullable<ReturnType<typeof createSubscribe>>;
+      }>(`
         import { createSubscribe } from './subscribe';
-        // We attach it to the window object as a workaround to have access to
-        // the subscribeComponent later in this test.
-        window.subscribeComponent = createSubscribe(
+        export const subscribeComponent = createSubscribe(
           document.querySelector('.js-subscribe')
         );
         // Set it to the "destroyed" state
-        window.subscribeComponent.destroy();
+        subscribeComponent.destroy();
       `);
+
+      const initSubscribe = makeCallableJSHandle(
+        await subscribeComponent.getProperty('init')
+      );
+      const destroySubscribe = makeCallableJSHandle(
+        await subscribeComponent.getProperty('destroy')
+      );
 
       // The form should be active/visible when `destroy()` is called
       const form = await screen.getByRole('form', {
@@ -312,9 +325,7 @@ describe('Subscription component', () => {
       await expectElementNotToBeVisuallyHidden(form);
 
       // Initialize the Subscribe component
-      await utils.runJS(`
-        window.subscribeComponent.init();
-      `);
+      await initSubscribe();
 
       // The form should be visually hidden after `init()` is called
       await expectElementToBeVisuallyHidden(form);
@@ -355,9 +366,7 @@ describe('Subscription component', () => {
       // Then blur the focus
       await formSubmitBtn.evaluate((btn) => btn.blur());
       // And immediately run the `destroy()`
-      await utils.runJS(`
-        window.subscribeComponent.destroy();
-      `);
+      await destroySubscribe();
       // Wait out the Subscribe component timeout
       await new Promise((resolve) => {
         setTimeout(resolve, 2000);

@@ -1,6 +1,5 @@
 import path from 'path';
 
-import type { ElementHandle } from 'pleasantest';
 import { getAccessibilityTree, withBrowser } from 'pleasantest';
 
 import { loadTwigTemplate } from '../../../test-utils.js';
@@ -27,7 +26,7 @@ test(
       })
     );
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
       text "By"
       link "Shakira Isabel Mebarak Ripoll"
@@ -81,7 +80,7 @@ test(
       })
     );
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
 
     // Confirm the meta value is rendered and the date is not rendered
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
@@ -109,7 +108,7 @@ test(
       })
     );
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
 
     // Confirm the author name is "text" and not a link
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
@@ -137,7 +136,7 @@ test(
       })
     );
 
-    const body = await page.evaluateHandle<ElementHandle>(() => document.body);
+    const body = await page.evaluateHandle(() => document.body);
 
     // Confirm the author name is "text" and not a link
     expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`

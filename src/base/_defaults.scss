@@ -147,8 +147,7 @@ pre {
  * a link, we offset their color from surrounding content.
  */
 
-*:not(pre):not(a) > code,
-*:not(pre):not(a) > kbd {
+:not(pre, pre *, a) > :is(code, kbd) {
   color: var(--theme-color-text-code);
 }
 

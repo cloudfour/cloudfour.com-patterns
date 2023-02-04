@@ -1,11 +1,6 @@
 @use '../../compiled/tokens/scss/color';
-@use '../../compiled/tokens/scss/font-family';
-@use '../../compiled/tokens/scss/font-weight';
-@use '../../compiled/tokens/scss/line-height';
 @use '../../compiled/tokens/scss/opacity';
-@use '../../compiled/tokens/scss/size';
 @use '../../mixins/a11y';
-@use '../../mixins/ms';
 @use 'sass:color' as sasscolor;
 
 /// Cloud Four theme for Prism syntax highlighting.
@@ -85,83 +80,6 @@
 
 /// Syntax-Highlighted Code Block Plugin Customizations
 
-// [aria-describedby*="shcb-language-"] {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .shcb-language {
-//   font-family: font-family.$sans;
-//   font-weight: font-weight.$semibold;
-//   margin-top: ms.step(-3) * -1;
-//   order: -1;
-//   text-align: right;
-//   white-space: nowrap;
-// }
-
-// .shcb-language__label,
-// .shcb-language__paren,
-// .shcb-language__slug {
-//   @include a11y.sr-only();
-// }
-
-// ---
-
-// [aria-describedby*="shcb-language-"] {
-//   position: relative;
-// }
-
-// .shcb-language {
-//   align-items: center;
-//   // background: color.$base-blue-dark;
-//   border: size.$edge-small solid rgba(255,255,255,0.2);
-//   border-right-width: 0;
-//   border-top-width: 0;
-//   border-bottom-left-radius: size.$border-radius-medium;
-//   // border-bottom-right-radius: size.$border-radius-medium;
-//   display: flex;
-//   font-family: font-family.$sans;
-//   font-weight: font-weight.$semibold;
-//   justify-content: center;
-//   height: ms.step(3, 1em);
-//   line-height: line-height.$tighter;
-//   padding: 0 ms.step(-1);
-//   position: absolute;
-//   right: 0;
-//   top: 0;
-//   white-space: nowrap;
-// }
-
-// .shcb-language__label,
-// .shcb-language__paren,
-// .shcb-language__slug {
-//   @include a11y.sr-only();
-// }
-
-// ---
-
-[aria-describedby*="shcb-language-"] {
-  position: relative;
-}
-
 .shcb-language {
-  align-items: center;
-  background: color.$base-blue-dark;
-  border-bottom-left-radius: size.$border-radius-medium;
-  color: color.$base-blue-lighter;
-  display: flex;
-  font-family: font-family.$sans;
-  font-weight: font-weight.$semibold;
-  height: ms.step(3);
-  line-height: line-height.$tighter;
-  padding: 0 ms.step(-1);
-  position: absolute;
-  top: 0;
-  right: 0;
-  user-select: none;
-  white-space: nowrap;
-}
-
-.shcb-language__label {
   @include a11y.sr-only();
 }

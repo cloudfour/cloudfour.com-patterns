@@ -1,7 +1,7 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { basename, extname } from 'path';
 import hljs from 'highlight.js';
-import sampleDemo from './demo/sample.twig';
+import themeDemo from './demo/theme.twig';
 // Load samples directory as "raw" text
 const samplesDir = require.context('!!raw-loader!./demo/samples', false);
 // Initialize an object to store sample content in
@@ -19,15 +19,14 @@ for (const key of samplesDir.keys()) {
   const languageName = language && hljs.getLanguage(language).name;
   samples[name] = { filename, name, ext, content, html, languageName };
 }
-const sampleStory = (args) =>
-  sampleDemo({ ...args, ...samples[args.language || 'html'] });
-const sampleTransformSource = (src) => src;
+const themeStory = (args) =>
+  themeDemo({ ...args, ...samples[args.language || 'html'] });
 
 <Meta
   title="Vendor/Highlight"
   parameters={{
     docs: {
-      transformSource: sampleTransformSource,
+      transformSource: (src) => src,
     },
     layout: 'fullscreen',
   }}
@@ -56,9 +55,9 @@ For performance, it's recommended to apply syntax highlighting on the server:
 - [WordPress Plugins: Syntax-highlighting Code Block](https://wordpress.org/plugins/syntax-highlighting-code-block/)
 
 <Canvas>
-  <Story name="Example" args={{ language: 'html' }}>
-    {sampleStory.bind()}
+  <Story name="Theme" args={{ language: 'html' }}>
+    {themeStory.bind()}
   </Story>
 </Canvas>
 
-<ArgsTable story="Example" />
+<ArgsTable story="Theme" />

@@ -71,7 +71,13 @@ const themeWords = [
   'integration',
 ];
 
-const placeImgCategories = ['animals', 'arch', 'nature', 'people', 'tech'];
+const avatars = [
+  `/media/avatar-buster-a.jpg`,
+  `/media/avatar-buster-b.jpg`,
+  `/media/avatar-ozzie-a.jpg`,
+  `/media/avatar-ozzie-b.jpg`,
+  `/media/avatar-default.svg`,
+];
 
 const jabber = new Jabber(themeWords, 1.5);
 
@@ -91,7 +97,7 @@ export const makeComment = ({
   const result = {
     ID: id,
     date: new Date(),
-    avatar: `https://placeimg.com/92/92/${sample(placeImgCategories)}`,
+    avatar: sample(avatars),
     author: {
       name: jabber.createFullName().split(' ').slice(1).join(' '),
     },

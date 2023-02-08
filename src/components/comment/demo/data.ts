@@ -101,6 +101,7 @@ export const makeComment = ({
     author: {
       name: jabber.createFullName().split(' ').slice(1).join(' '),
     },
+    content,
     comment_content: content,
     is_child: isChild,
     children: [] as any,

@@ -25,7 +25,7 @@ test(
           author: {
             name: 'Test author name',
           },
-          comment_content: 'Test content',
+          content: 'Test content',
           approved: true,
         },
         allow_replies: true,

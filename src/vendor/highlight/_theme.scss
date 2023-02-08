@@ -80,6 +80,13 @@
 
 /// Syntax-Highlighted Code Block Plugin Customizations
 
+///
+/// The plugin adds some content showing the language the code is written in.
+/// This is helpful info, and we explored an interesting visual display,
+/// but in practice, there were a lot of bugs to resolve.
+///
+/// For now, we hide it visually and expose it to screen readers.
+///
 .shcb-language {
   @include a11y.sr-only;
 }

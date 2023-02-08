@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 13.0.0
+
+### Major Changes
+
+- [#2111](https://github.com/cloudfour/cloudfour.com-patterns/pull/2111) [`05d49884`](https://github.com/cloudfour/cloudfour.com-patterns/commit/05d49884b46730e6fb26160bf7156d19bafbed42) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Highlight.js theme to support server-side syntax highlighting, replaces Prism theme
+
+### Patch Changes
+
+- [#2129](https://github.com/cloudfour/cloudfour.com-patterns/pull/2129) [`c91f85d9`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c91f85d93f80d3f0eda979d2497fde035cba7210) Thanks [@tylersticka](https://github.com/tylersticka)! - Add support for a `content` property (in addition to `comment_content`) so the comment component will apply content filters in WordPress/Timber projects
+
 ## 12.8.0
 
 ### Minor Changes

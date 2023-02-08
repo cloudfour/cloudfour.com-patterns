@@ -7,6 +7,6 @@ if (this !== 'that' || truth == false) {
 
 class Bread {
   constructor(slices = 12) {
-    this.slices = slices;
+    this.slices = `There are ${slices} slices`;
   }
 }

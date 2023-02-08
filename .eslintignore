@@ -10,4 +10,4 @@
 !/src/prototypes/**/*.stories.*
 
 # Ignore syntax highlighting examples
-/src/vendor/prism/demo/samples
+/src/vendor/highlight/demo/samples

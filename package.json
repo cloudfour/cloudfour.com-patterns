@@ -39,9 +39,6 @@
     "!.gitignore",
     "!src/index.scss"
   ],
-  "dependencies": {
-    "prismjs": "1.29.0"
-  },
   "devDependencies": {
     "@babel/core": "7.20.12",
     "@babel/preset-env": "7.20.2",
@@ -59,7 +56,6 @@
     "@svgr/webpack": "5.5.0",
     "@types/jest": "28.1.8",
     "@types/lodash": "4.14.191",
-    "@types/prismjs": "1.26.0",
     "@whitespace/storybook-addon-html": "5.0.0",
     "@wordpress/block-library": "3.2.20",
     "babel-loader": "8.3.0",
@@ -76,6 +72,7 @@
     "gulp-run": "1.7.1",
     "gulp-sass": "5.1.0",
     "gulp-svgmin": "3.0.0",
+    "highlight.js": "^11.7.0",
     "html-to-react": "1.4.8",
     "jabber": "1.5.2",
     "jest": "28.1.3",

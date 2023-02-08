@@ -1,0 +1,74 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { basename, extname } from 'path';
+import hljs from 'highlight.js';
+import themeDemo from './demo/theme.twig';
+// Load samples directory as "raw" text
+const samplesDir = require.context('!!raw-loader!./demo/samples', false);
+// Initialize an object to store sample content in
+const samples = {};
+// For each sample, fetch its content and build an object for our template
+for (const key of samplesDir.keys()) {
+  const filename = basename(key);
+  const ext = extname(key);
+  const name = filename.replace(ext, '');
+  const content = samplesDir(key).default;
+  const language = [name, ext.slice(1)].find(
+    (val) => hljs.getLanguage(val) !== undefined
+  );
+  const html = language && hljs.highlight(content, { language }).value;
+  const languageName = language && hljs.getLanguage(language).name;
+  samples[name] = { filename, name, ext, content, html, languageName };
+}
+const themeStory = (args) =>
+  themeDemo({ ...args, ...samples[args.language || 'html'] });
+
+<Meta
+  title="Vendor/Highlight"
+  parameters={{
+    docs: {
+      transformSource: (src) => src,
+    },
+    layout: 'fullscreen',
+  }}
+  argTypes={{
+    language: {
+      options: Object.keys(samples),
+      type: 'string',
+      control: {
+        type: 'select',
+      },
+    },
+  }}
+/>
+
+# Highlight
+
+Our CSS includes a [Highlight.js](https://highlightjs.org/) theme for syntax highlighting.
+
+For performance, it's strongly recommended to apply syntax highlighting on the server:
+
+- [Highlight.js Basic Usage: Node.js on the Server](https://highlightjs.readthedocs.io/en/latest/readme.html#node-js-on-the-server)
+- [highlight.php](https://github.com/scrivo/highlight.php)
+- [WordPress Plugins: Syntax-highlighting Code Block](https://wordpress.org/plugins/syntax-highlighting-code-block/)
+
+<Canvas>
+  <Story name="Theme" args={{ language: 'html' }}>
+    {themeStory.bind()}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Theme" />
+
+## Syntax-highlighting Code Block
+
+The [Syntax-highlighting Code Block plugin for WordPress](https://wordpress.org/plugins/syntax-highlighting-code-block/) enhances the core code block with [highlight.php](https://github.com/scrivo/highlight.php). It also adds a few additional features, including a code language label for accessibility.
+
+Currently, our theme only supports this code language label (though it hides it visually for simplicity). In the future we may also add support for highlighted lines and line numbers.
+
+<Canvas>
+  <Story name="SHCB" args={{ language: 'html' }}>
+    {(args) => themeStory({ ...args, shcb: true })}
+  </Story>
+</Canvas>
+
+<ArgsTable story="SHCB" />

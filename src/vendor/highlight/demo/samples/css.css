@@ -16,3 +16,7 @@
     content: 'Terrible selector! :(';
   }
 }
+
+div.bad-selector#unique-id[data-something="true"] {
+  color: var(--example, red);
+}

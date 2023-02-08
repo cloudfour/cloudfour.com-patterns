@@ -145,8 +145,12 @@ pre {
 /**
  * When certain monospace inline elements are not within a preformatted block or
  * a link, we offset their color from surrounding content.
+ *
+ * We're disabling a selector rule here because the alternative is pretty
+ * ridiculously verbose. We should consider revising our selector rules.
  */
 
+/* stylelint-disable-next-line selector-not-notation */
 :not(pre, pre *, a) > :is(code, kbd) {
   color: var(--theme-color-text-code);
 }

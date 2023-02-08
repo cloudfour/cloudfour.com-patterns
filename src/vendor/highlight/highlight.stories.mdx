@@ -38,9 +38,6 @@ const themeStory = (args) =>
         type: 'select',
       },
     },
-    shcb: {
-      type: 'boolean',
-    },
   }}
 />
 
@@ -48,7 +45,7 @@ const themeStory = (args) =>
 
 Our CSS includes a [Highlight.js](https://highlightjs.org/) theme for syntax highlighting.
 
-For performance, it's recommended to apply syntax highlighting on the server:
+For performance, it's strongly recommended to apply syntax highlighting on the server:
 
 - [Highlight.js Basic Usage: Node.js on the Server](https://highlightjs.readthedocs.io/en/latest/readme.html#node-js-on-the-server)
 - [highlight.php](https://github.com/scrivo/highlight.php)
@@ -61,3 +58,17 @@ For performance, it's recommended to apply syntax highlighting on the server:
 </Canvas>
 
 <ArgsTable story="Theme" />
+
+## Syntax-highlighting Code Block
+
+The [Syntax-highlighting Code Block plugin for WordPress](https://wordpress.org/plugins/syntax-highlighting-code-block/) enhances the core code block with [highlight.php](https://github.com/scrivo/highlight.php). It also adds a few additional features, including a code language label for accessibility.
+
+Currently, our theme only supports this code language label (though it hides it visually for simplicity). In the future we may also add support for highlighted lines and line numbers.
+
+<Canvas>
+  <Story name="SHCB" args={{ language: 'html' }}>
+    {(args) => themeStory({ ...args, shcb: true })}
+  </Story>
+</Canvas>
+
+<ArgsTable story="SHCB" />

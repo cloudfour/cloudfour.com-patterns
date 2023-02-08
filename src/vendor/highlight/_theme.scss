@@ -81,5 +81,5 @@
 /// Syntax-Highlighted Code Block Plugin Customizations
 
 .shcb-language {
-  @include a11y.sr-only();
+  @include a11y.sr-only;
 }

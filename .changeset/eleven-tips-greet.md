@@ -2,4 +2,4 @@
 '@cloudfour/patterns': major
 ---
 
-Add Highlight.js theme to support server-side syntax highlighting, deprecate Prism theme
+Add Highlight.js theme to support server-side syntax highlighting, replaces Prism theme

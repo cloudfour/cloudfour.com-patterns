@@ -12,6 +12,7 @@ const badgeStory = (args) => {
   title="Components/Badge"
   argTypes={{
     label: { type: { name: 'string' } },
+    href: { type: { name: 'string' } },
     icon: {
       options: ['', 'check', 'heart', 'pencil'],
       type: { name: 'string' },
@@ -34,8 +35,25 @@ Badges help provide just a smidge more context to repetitive or serialized conte
 
 ## With icon
 
+An icon may be used to visually support the meaning of the badge.
+
 <Canvas>
   <Story name="With icon" args={{ icon: 'check', label: 'Verified' }}>
+    {(args) => badgeStory(args)}
+  </Story>
+</Canvas>
+
+## Linked
+
+Badges may link to other content. For example, a badge representing an article's category might link to a list of all articles in that category.
+
+Avoid using badges for critical links: Their appearance is too subtle to rely on for important calls to action.
+
+<Canvas>
+  <Story
+    name="Linked"
+    args={{ icon: 'paperclip', label: 'Attachment', href: '#' }}
+  >
     {(args) => badgeStory(args)}
   </Story>
 </Canvas>
@@ -43,8 +61,10 @@ Badges help provide just a smidge more context to repetitive or serialized conte
 ## Template Properties
 
 - `class` (string)
+- `href` (string, optional): A URL for the badge to link to.
 - `icon` (string, optional): The name of one of [our icons](/docs/design-icons--page) to display.
 - `message` (string, default `'Label'`)
+- `tag_name` (string, default `'span'` or `'a'` depending on presence of `href`)
 
 ## Template Blocks
 

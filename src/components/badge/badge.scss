@@ -1,7 +1,13 @@
+@use '../../compiled/tokens/scss/brightness';
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/ease';
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/line-height';
 @use '../../compiled/tokens/scss/size';
+@use '../../compiled/tokens/scss/transition';
 @use '../../mixins/ms';
+@use '../../mixins/theme';
+@use 'sass:color' as sasscolor;
 @use 'sass:math';
 
 ///
@@ -23,8 +29,29 @@
   font-weight: font-weight.$medium;
   line-height: line-height.$tighter;
   padding: 0 math.div(size.$padding-cell-horizontal, 2); // 2
+  text-decoration: none;
+  transition: filter transition.$slow ease.$out;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+///
+/// When badges are links, we want to saturate their appearance a bit and add
+/// some basic pointer effects.
+///
+.c-badge:is(a) {
+  // I just wasn't happy with the light gray on its own, but I didn't think this
+  // color was versatile enough to make available as a token.
+  background-color: sasscolor.change(color.$brand-primary-lighter, $alpha: 0.2);
+  color: var(--theme-color-text-action);
+
+  &:hover {
+    filter: brightness(brightness.$control-brighten);
+  }
+
+  &:active {
+    filter: brightness(brightness.$control-dim);
+  }
 }
 
 .c-badge__content {

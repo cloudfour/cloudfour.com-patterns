@@ -52,7 +52,7 @@ Avoid using badges for critical links: Their appearance is too subtle to rely on
 <Canvas>
   <Story
     name="Linked"
-    args={{ icon: 'paperclip', label: 'Attachment', href: '#' }}
+    args={{ icon: 'paperclip', label: 'Attachment', href: '#', rel: 'tag' }}
   >
     {(args) => badgeStory(args)}
   </Story>
@@ -64,6 +64,7 @@ Avoid using badges for critical links: Their appearance is too subtle to rely on
 - `href` (string, optional): A URL for the badge to link to.
 - `icon` (string, optional): The name of one of [our icons](/docs/design-icons--page) to display.
 - `message` (string, default `'Label'`)
+- `rel` (string, optional): Specify the relationship of the linked URL.
 - `tag_name` (string, default `'span'` or `'a'` depending on presence of `href`)
 
 ## Template Blocks

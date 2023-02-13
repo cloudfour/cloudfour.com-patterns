@@ -39,7 +39,7 @@
 /// When badges are links, we want to saturate their appearance a bit and add
 /// some basic pointer effects.
 ///
-.c-badge:is(a) {
+a.c-badge {
   // I just wasn't happy with the light gray on its own, but I didn't think this
   // color was versatile enough to make available as a token.
   background-color: sasscolor.change(color.$brand-primary-lighter, $alpha: 0.2);

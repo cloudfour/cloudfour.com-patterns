@@ -7,15 +7,9 @@
 ///    changing to Flexbox Gap once browser support is better in the future).
 
 .o-button-group {
-  --gap: #{size.$spacing-gap-button-group-default};
-
   display: flex;
   flex-wrap: wrap;
-  margin: calc(var(--gap) / -2); /* 1 */
-
-  > * {
-    margin: calc(var(--gap) / 2); /* 1 */
-  }
+  gap: size.$spacing-gap-button-group-default;
 }
 
 ///

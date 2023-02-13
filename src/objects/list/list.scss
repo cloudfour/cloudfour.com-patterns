@@ -16,27 +16,14 @@
 }
 
 /// Modifier: Inline
-///
-/// By default, this uses negative margins on the sides to account for extra
-/// margin between child elements. This allows child elements to reach the edges
-/// of their parent while maintaining consistent gaps between.
-///
-/// This would be a _lot_ more elegant if it used the Flexbox-compatible `gap`
-/// property. But unfortunately there is no way to test for that without false
-/// positives as of this writing.
-///
-/// @link https://medium.com/@schofeld/mind-the-flex-gap-c9cd1b4b35d8
-/// @link https://github.com/w3c/csswg-drafts/issues/3559
 
 .o-list--inline {
+  column-gap: size.$spacing-list-inline-gap;
   display: flex;
   flex-wrap: wrap;
-  margin-inline: math.div(size.$spacing-list-inline-gap, -2);
 }
 
-.o-list--inline > * {
-  margin-inline: math.div(size.$spacing-list-inline-gap, 2);
-}
+/// Modifier: Columns
 
 @for $i from 2 through 3 {
   .o-list--#{$i}-column {

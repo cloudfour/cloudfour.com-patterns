@@ -1,35 +1,25 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import template from './author.twig';
-import ariannaImage from './demo/arianna.png';
-import danielleImage from './demo/danielle.png';
-import gerardoImage from './demo/gerardo.png';
-import tylerImage from './demo/tyler.png';
-import meganImage from './demo/megan.png';
 const allAuthors = [
   {
-    name: 'Arianna Chau',
-    avatar: ariannaImage,
-    link: 'https://cloudfour.com/is/arianna',
+    name: 'Bubba B-Man',
+    avatar: '/media/avatar-buster-a.jpg',
+    link: '#',
   },
   {
-    name: 'Danielle Romo',
-    avatar: danielleImage,
-    link: 'https://cloudfour.com/is/danielle',
+    name: 'Ozzbot Ozworth',
+    avatar: '/media/avatar-ozzie-a.jpg',
+    link: '#',
   },
   {
-    name: 'Megan Notarte',
-    avatar: meganImage,
-    link: 'https://cloudfour.com/is/megnotarte',
+    name: 'Buster Sticka',
+    avatar: '/media/avatar-buster-b.jpg',
+    link: '#',
   },
   {
-    name: 'Tyler Sticka',
-    avatar: tylerImage,
-    link: 'https://cloudfour.com/is/tyler',
-  },
-  {
-    name: 'Gerardo Rodriguez',
-    avatar: gerardoImage,
-    link: 'https://cloudfour.com/is/gerardo',
+    name: 'Ozzie Notarte',
+    avatar: '/media/avatar-ozzie-b.jpg',
+    link: '#',
   },
 ];
 const authors = (count = 1) => allAuthors.slice(0, count);
@@ -168,7 +158,7 @@ Multiple authors are also supported.
 - `link` (optional, string): An `href` for the author's name to link to, for example a bio page.
 
 `author_prefix` (optional, string, default "By"): Used to create a more
-accessible user experience by adding visually hidden text, prefixes the author name (e.g. "By Arianna Chau")
+accessible user experience by adding visually hidden text, prefixes the author name (e.g. "By Jane Doe")
 
 `meta` (optional, string): Extra information to be rendered below the author name(s)
 

@@ -1,3 +1,5 @@
+{% set _tag_name = tag_name|default(href ? 'a' : 'span') %}
+
 {% set _extra_content %}
   {% block extra %}
     {% if icon %}
@@ -8,7 +10,12 @@
   {% endblock %}
 {% endset %}
 
-<span class="c-badge{% if class %} {{class}}{% endif %}">
+<{{_tag_name}}
+  class="c-badge{% if class %} {{class}}{% endif %}"
+  {%- if _tag_name == 'a' %}
+    href="{{href|default('#')}}"
+    {% if rel %}rel="{{rel}}"{% endif %}
+  {% endif -%}>
   {% if _extra_content|trim %}
     <span class="c-badge__extra">
       {{_extra_content}}
@@ -19,4 +26,4 @@
       {{label|default('Label')}}
     {% endblock %}
   </span>
-</span>
+</{{_tag_name}}>

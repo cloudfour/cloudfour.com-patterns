@@ -2,6 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { basename, extname } from 'path';
 import hljs from 'highlight.js';
 import themeDemo from './demo/theme.twig';
+import legacyDemo from './demo/legacy.twig';
 // Load samples directory as "raw" text
 const samplesDir = require.context('!!raw-loader!./demo/samples', false);
 // Initialize an object to store sample content in
@@ -58,6 +59,16 @@ For performance, it's strongly recommended to apply syntax highlighting on the s
 </Canvas>
 
 <ArgsTable story="Theme" />
+
+## Backwards Compatibility
+
+As of this writing, [highlight.php is two major versions behind Highlight.js](https://github.com/scrivo/highlight.php/issues/73). As a result, syntax highlighting may differ between platforms.
+
+Here is an example of JavaScript highlighted using highlight.php version 9.8.1.10.
+
+<Canvas>
+  <Story name="PHP Sample">{legacyDemo.bind()}</Story>
+</Canvas>
 
 ## Syntax-highlighting Code Block
 

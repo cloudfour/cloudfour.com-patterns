@@ -1,0 +1,10 @@
+@use '../../compiled/tokens/scss/size';
+
+.o-article-header {
+  display: grid;
+  gap: size.$rhythm-condensed;
+}
+
+.o-article-header__eyebrow {
+  order: -1;
+}

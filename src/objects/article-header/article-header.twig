@@ -1,0 +1,12 @@
+{% set _tag_name = tag_name|default('header') %}
+{% set _eyebrow_block %}{% block eyebrow %}{% endblock %}{% endset %}
+
+<{{_tag_name}} class="o-article-header{% if class %} {{class}}{% endif %}">
+  {% block title %}{% endblock %}
+  {% block meta %}{% endblock %}
+  {% if _eyebrow_block|trim is not empty %}
+    <div class="o-article-header__eyebrow">
+      {{_eyebrow_block}}
+    </div>
+  {% endif %}
+</{{_tag_name}}>

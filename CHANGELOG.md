@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 13.1.0
+
+### Minor Changes
+
+- [#2132](https://github.com/cloudfour/cloudfour.com-patterns/pull/2132) [`f6056a8e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f6056a8e67c02c20afc78c476236b922e733fda1) Thanks [@tylersticka](https://github.com/tylersticka)! - Badges can now be links
+
+- [#2137](https://github.com/cloudfour/cloudfour.com-patterns/pull/2137) [`c524bbd3`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c524bbd32cee4d6ac2f77138e78ecacbbc674ffe) Thanks [@tylersticka](https://github.com/tylersticka)! - Adds Article Header layout object for composing an article's title with relevant meta information
+
+### Patch Changes
+
+- [#2133](https://github.com/cloudfour/cloudfour.com-patterns/pull/2133) [`c30c97fc`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c30c97fc4aa23d56e0be8b135250d6baf2735466) Thanks [@tylersticka](https://github.com/tylersticka)! - Button Group and Inline Lists now use `gap` properties instead of margin, removing the need for negative margins on the parent element
+
+- [#2136](https://github.com/cloudfour/cloudfour.com-patterns/pull/2136) [`6580785e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/6580785e3f2edf8a8ab0e2c3600c6152f9b7f2aa) Thanks [@tylersticka](https://github.com/tylersticka)! - Improves quality of syntax highlighting for JavaScript (and similar languages) using highlight.php 9.x
+
 ## 13.0.0
 
 ### Major Changes

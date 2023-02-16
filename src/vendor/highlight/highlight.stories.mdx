@@ -41,9 +41,14 @@ For performance, it's strongly recommended to apply syntax highlighting on the s
 
 ## Syntax-highlighting Code Block
 
-The [Syntax-highlighting Code Block plugin for WordPress](https://wordpress.org/plugins/syntax-highlighting-code-block/) enhances the core code block with [highlight.php](https://github.com/scrivo/highlight.php). It also adds a few additional features, including a code language label for accessibility.
+The [Syntax-highlighting Code Block plugin for WordPress](https://wordpress.org/plugins/syntax-highlighting-code-block/) enhances the core code block with [highlight.php](https://github.com/scrivo/highlight.php). It also adds a few additional features:
 
-Currently, our theme only supports this code language label (though it hides it visually for simplicity). In the future we may also add support for highlighted lines and line numbers.
+- A code language description for accessibility. (We hide this visually.)
+- An option to highlight one or more lines.
+- Line numbers.
+- Line wrapping.
+
+Our theme supports all of these features, but they require [plugin styles to be suppressed](https://github.com/westonruter/syntax-highlighting-code-block/wiki#suppress-all-plugin-styles) to function as intended.
 
 <Canvas>
   <Story

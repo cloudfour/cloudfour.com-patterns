@@ -51,6 +51,7 @@ export const shcbDemo = ({
   highlightedLines = '',
   showLineNumbers = false,
   wrapLines = false,
+  className = '',
 }) => {
   const sample = getSample(language);
   const hlLanguage = hljs.getLanguage(language);
@@ -59,16 +60,28 @@ export const shcbDemo = ({
     : hljs.highlightAuto(sample);
   const languageName = hlLanguage ? hlLanguage.name : language;
   const codeClasses = ['hljs', `language-${language}`];
+  const preAttr = [
+    'aria-describedby="shcb-language-example"',
+    `data-shcb-language-name="${languageName}"`,
+    `data-shcb-language-slug="${language}"`,
+  ];
   let content = highlighted.value;
+
+  if (className.trim().length > 0) {
+    preAttr.push(`class="${className}"`);
+  }
 
   if (highlightedLines || showLineNumbers) {
     codeClasses.push('shcb-code-table');
     const highlightedIndices = expandRange(highlightedLines).map((i) => i - 1);
     content = content
+      .trim()
       .split('\n')
       .map((line, i) => {
         const tagName = highlightedIndices.includes(i) ? 'mark' : 'span';
-        return `<${tagName} class="shcb-loc">${line}</${tagName}>`;
+        return `<${tagName} class="shcb-loc"><span>${
+          line.trim().length === 0 ? '\n' : line
+        }</span></${tagName}>`;
       })
       .join('\n');
   }
@@ -83,7 +96,7 @@ export const shcbDemo = ({
 
   const label = `<small class="shcb-language" id="shcb-language-example"><span class="shcb-language__label">Code language:</span> <span class="shcb-language__name">${languageName}</span> <span class="shcb-language__paren">(</span><span class="shcb-language__slug">${language}</span><span class="shcb-language__paren">)</span></small>`;
 
-  return `<pre aria-described-by="shcb-language-example" data-shcb-language-name="${languageName}" data-shcb-language-slug="${language}"><div><code class="${codeClasses.join(
+  return `<pre ${preAttr.join(' ')}><div><code class="${codeClasses.join(
     ' '
   )}">${content}</code></div>${label}</pre>`;
 };

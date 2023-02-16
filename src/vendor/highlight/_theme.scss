@@ -1,6 +1,8 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/opacity';
 @use '../../mixins/a11y';
+@use '../../mixins/ms';
+@use '../../mixins/spacing';
 @use 'sass:color' as sasscolor;
 
 /// Cloud Four theme for Highlight syntax highlighting.
@@ -89,4 +91,63 @@
 ///
 .shcb-language {
   @include a11y.sr-only;
+}
+
+.shcb-wrap-lines {
+  white-space: pre-wrap;
+}
+
+.shcb-code-table {
+  margin-inline: ms.step(1) * -1;
+
+  &,
+  .wp-block-code &,
+  .wp-block-jetpack-markdown &,
+  .legacy-post & {
+    display: grid;
+  }
+
+  .wp-block-code &,
+  .wp-block-jetpack-markdown &,
+  .legacy-post & {
+    @include spacing.fluid-margin-inline-negative;
+  }
+}
+
+.shcb-line-numbers {
+  counter-reset: line;
+}
+
+.shcb-loc {
+  color: inherit;
+  display: block;
+  padding-inline: ms.step(1);
+
+  .wp-block-code &,
+  .wp-block-jetpack-markdown &,
+  .legacy-post & {
+    @include spacing.fluid-padding-inline;
+  }
+
+  .shcb-line-numbers & {
+    counter-increment: line;
+    display: flex;
+    gap: 2ch;
+
+    &::before {
+      content: counter(line);
+      min-width: 2ch;
+      opacity: opacity.$muted;
+      text-align: end;
+    }
+
+    & > * {
+      flex: none;
+    }
+  }
+}
+
+mark.shcb-loc {
+  background: color.$brand-primary-darker;
+  filter: contrast(95%) brightness(150%) saturate(133%) hue-rotate(30deg);
 }

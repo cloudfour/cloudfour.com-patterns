@@ -48,12 +48,18 @@ Currently, our theme only supports this code language label (though it hides it 
 <Canvas>
   <Story
     name="SHCB"
-    args={{ language: 'html', highlightedLines: '1, 4-6' }}
+    args={{
+      language: 'html',
+      highlightedLines: '1, 4-6',
+      showLineNumbers: true,
+      wrapLines: true,
+    }}
     argTypes={{
       ...argTypes,
       highlightedLines: { type: 'string' },
       showLineNumbers: { type: 'boolean' },
       wrapLines: { type: 'boolean' },
+      className: { type: 'string' },
     }}
   >
     {shcbDemo.bind({})}

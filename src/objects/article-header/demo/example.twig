@@ -1,0 +1,46 @@
+{% embed '@cloudfour/objects/article-header/article-header.twig' only %}
+  {% block title %}
+    {% include '@cloudfour/components/heading/heading.twig' with {
+      "level": -1,
+      "content": "A Rather Long Headline So We Don’t Forget About Line Breaks"
+    } only %}
+  {% endblock %}
+  {% block meta %}
+    {% include '@cloudfour/components/author/author.twig' with {
+      "authors": [
+        {
+          "name": "Buster Boo",
+          "avatar": "/media/avatar-buster-b.jpg",
+          "link": "#"
+        }
+      ],
+      "date": "2022-03-28T12:00:00.000Z"
+    } only %}
+  {% endblock %}
+  {% block eyebrow %}
+    <h2 class="u-hidden-visually">Categories</h2>
+    <ul class="o-list o-list--inline">
+      <li>
+        {% include '@cloudfour/components/badge/badge.twig' with {
+          "label": "CSS",
+          "href": "#",
+          "rel": "category"
+        } only %}
+      </li>
+      <li>
+        {% include '@cloudfour/components/badge/badge.twig' with {
+          "label": "HTML",
+          "href": "#",
+          "rel": "category"
+        } only %}
+      </li>
+      <li>
+        {% include '@cloudfour/components/badge/badge.twig' with {
+          "label": "Responsive Design",
+          "href": "#",
+          "rel": "category"
+        } only %}
+      </li>
+    </ul>
+  {% endblock %}
+{% endembed %}

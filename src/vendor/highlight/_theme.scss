@@ -22,7 +22,7 @@
 
 .hljs-name,
 .hljs-built_in,
-.hljs-title,
+.hljs-variable.language_,
 .language-scss .hljs-variable {
   color: color.$base-fuchsia-lighter;
 }
@@ -68,6 +68,7 @@
 .hljs-attribute,
 .hljs-regexp,
 .hljs-template-tag,
+.hljs-title,
 .hljs-variable {
   color: color.$base-blue-lighter;
 }

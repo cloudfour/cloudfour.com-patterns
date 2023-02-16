@@ -96,7 +96,12 @@
 
 /// Allow lines to wrap when that option is selected
 .shcb-wrap-lines {
-  white-space: pre-wrap;
+  &,
+  .wp-block-code &,
+  .wp-block-jetpack-markdown &,
+  .legacy-post & {
+    white-space: pre-wrap;
+  }
 }
 
 /// This class is used by SHCB in conjunction with `shcb-loc` to highlight

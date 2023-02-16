@@ -133,6 +133,7 @@
 .shcb-loc {
   /// Insures that default `mark` styles don't override highlighting.
   color: inherit;
+
   /// Re-applies the default `pre` padding.
   padding-inline: ms.step(1);
 
@@ -158,7 +159,7 @@
     &::before {
       content: counter(line);
       flex: none;
-      min-width: 2ch;
+      min-inline-size: 2ch;
       opacity: opacity.$muted;
       text-align: end;
     }

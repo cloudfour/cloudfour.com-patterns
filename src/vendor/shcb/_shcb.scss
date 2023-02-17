@@ -1,0 +1,104 @@
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/opacity';
+@use '../../mixins/a11y';
+@use '../../mixins/ms';
+@use '../../mixins/spacing';
+
+/// Syntax-Highlighted Code Block Plugin Customizations
+
+///
+/// The plugin adds some content showing the language the code is written in.
+/// This is helpful info, and we explored an interesting visual display,
+/// but in practice, there were a lot of bugs to resolve.
+///
+/// For now, we hide it visually and expose it to screen readers.
+///
+.shcb-language {
+  @include a11y.sr-only;
+}
+
+/// Allow lines to wrap when that option is selected
+.shcb-wrap-lines {
+
+  &,
+  .wp-block-code &,
+  .wp-block-jetpack-markdown &,
+  .legacy-post & {
+    white-space: pre-wrap;
+  }
+}
+
+/// This class is used by SHCB in conjunction with `shcb-loc` to highlight
+/// individual lines of a code block. The plugin uses table styles, but those
+/// don't work very well if we want the highlighted lines to "bleed" out to the
+/// margins.
+.shcb-code-table {
+  /// Negate the default `pre` padding
+  margin-inline: ms.step(1) * -1;
+
+  /// Display contents as a grid. We apply this to a few WordPress containing
+  /// elements as well: Otherwise, it is overridden.
+  &,
+  .wp-block-code &,
+  .wp-block-jetpack-markdown &,
+  .legacy-post & {
+    display: grid;
+  }
+
+  /// When this is in a WordPress block context, we negate the margin by a
+  /// responsive amount corresponding to the default container inline padding.
+  .wp-block-code &,
+  .wp-block-jetpack-markdown &,
+  .legacy-post & {
+    @include spacing.fluid-margin-inline-negative;
+  }
+}
+
+/// When line numbers are applied, reset a counter per code block.
+.shcb-line-numbers {
+  counter-reset: line;
+}
+
+/// This wraps individual lines of code when we are in a "code table."
+.shcb-loc {
+  /// Insures that default `mark` styles don't override highlighting.
+  color: inherit;
+
+  /// Re-applies the default `pre` padding.
+  padding-inline: ms.step(1);
+
+  /// If we're in a container that applies responsive margins, apply the
+  /// responsive padding instead.
+  .wp-block-code &,
+  .wp-block-jetpack-markdown &,
+  .legacy-post & {
+    @include spacing.fluid-padding-inline;
+  }
+
+  /// If line numbers are shown, increment the counter in this element, and
+  /// apply a flex display so those elements will be side by side.
+  .shcb-line-numbers & {
+    counter-increment: line;
+    display: flex;
+    gap: 2ch;
+
+    /// Output the current line number. We assume this will rarely exceed three
+    /// digits. In the future this might be simplified using `subgrid`, but
+    /// experiments to do so selectively at this time resulted in some odd
+    /// behavior when mixed with `pre` white space.
+    &::before {
+      content: counter(line);
+      flex: none;
+      min-inline-size: 2ch;
+      opacity: opacity.$muted;
+      text-align: end;
+    }
+  }
+}
+
+/// For highlighted lines, we set the `background-color` to that of a default
+/// `pre` element, then use filters to differentiate it visually.
+mark.shcb-loc {
+  background: color.$brand-primary-darker;
+  filter: contrast(95%) brightness(150%) saturate(133%) hue-rotate(30deg);
+}

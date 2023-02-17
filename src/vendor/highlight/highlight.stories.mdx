@@ -1,15 +1,5 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
-import { availableSamples, highlightDemo, shcbDemo } from './demo/demo.ts';
-import legacyDemo from './demo/legacy.twig';
-const argTypes = {
-  language: {
-    options: availableSamples,
-    type: 'string',
-    control: {
-      type: 'select',
-    },
-  },
-};
+import { availableSamples, highlightDemo } from './demo/demo.ts';
 
 <Meta
   title="Vendor/Highlight"
@@ -19,7 +9,15 @@ const argTypes = {
     },
     layout: 'fullscreen',
   }}
-  argTypes={argTypes}
+  argTypes={{
+    language: {
+      options: availableSamples,
+      type: 'string',
+      control: {
+        type: 'select',
+      },
+    },
+  }}
 />
 
 # Highlight
@@ -29,8 +27,8 @@ Our CSS includes a [Highlight.js](https://highlightjs.org/) theme for syntax hig
 For performance, it's strongly recommended to apply syntax highlighting on the server:
 
 - [Highlight.js Basic Usage: Node.js on the Server](https://highlightjs.readthedocs.io/en/latest/readme.html#node-js-on-the-server)
-- [highlight.php](https://github.com/scrivo/highlight.php)
-- [WordPress Plugins: Syntax-highlighting Code Block](https://wordpress.org/plugins/syntax-highlighting-code-block/)
+- [Highlight.php](https://github.com/scrivo/highlight.php)
+- [Syntax-Highlighting Code Block](/?path=/docs/vendor-syntax-highlighting-code-block--basic)
 
 <Canvas>
   <Story name="Theme" args={{ language: 'html' }}>
@@ -39,47 +37,3 @@ For performance, it's strongly recommended to apply syntax highlighting on the s
 </Canvas>
 
 <ArgsTable story="Theme" />
-
-## Backwards Compatibility
-
-As of this writing, [highlight.php is two major versions behind Highlight.js](https://github.com/scrivo/highlight.php/issues/73). As a result, syntax highlighting may differ between platforms.
-
-Here is an example of JavaScript highlighted using highlight.php version 9.8.1.10.
-
-<Canvas>
-  <Story name="PHP Sample">{legacyDemo.bind()}</Story>
-</Canvas>
-
-## Syntax-highlighting Code Block
-
-The [Syntax-highlighting Code Block plugin for WordPress](https://wordpress.org/plugins/syntax-highlighting-code-block/) enhances the core code block with [highlight.php](https://github.com/scrivo/highlight.php). It also adds a few additional features:
-
-- A code language description for accessibility. (We hide this visually.)
-- An option to highlight one or more lines.
-- Line numbers.
-- Line wrapping.
-
-Our theme supports all of these features, but they require [plugin styles to be suppressed](https://github.com/westonruter/syntax-highlighting-code-block/wiki#suppress-all-plugin-styles) to function as intended.
-
-<Canvas>
-  <Story
-    name="SHCB"
-    args={{
-      language: 'html',
-      highlightedLines: '1, 4-6',
-      showLineNumbers: true,
-      wrapLines: true,
-    }}
-    argTypes={{
-      ...argTypes,
-      highlightedLines: { type: 'string' },
-      showLineNumbers: { type: 'boolean' },
-      wrapLines: { type: 'boolean' },
-      className: { type: 'string' },
-    }}
-  >
-    {shcbDemo.bind({})}
-  </Story>
-</Canvas>
-
-<ArgsTable story="SHCB" />

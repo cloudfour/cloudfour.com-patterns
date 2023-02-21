@@ -2,6 +2,7 @@
 @use '../compiled/tokens/scss/color';
 @use '../compiled/tokens/scss/ease';
 @use '../compiled/tokens/scss/font-weight';
+@use '../compiled/tokens/scss/scale';
 @use '../compiled/tokens/scss/size';
 @use '../compiled/tokens/scss/transition';
 @use './focus';
@@ -76,7 +77,8 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: filter transition.$slow ease.$out;
+  transition: filter transition.$slow ease.$out,
+    transform transition.$quick ease.$out;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -92,10 +94,12 @@
 
   &:hover {
     filter: brightness(brightness.$control-brighten);
+    transform: scale(scale.$effect-grow);
   }
 
   &:active {
     filter: brightness(brightness.$control-dim);
+    transform: scale(scale.$effect-shrink);
   }
 
   &:disabled,
@@ -103,6 +107,7 @@
     cursor: not-allowed;
     filter: grayscale(60%);
     opacity: 0.85;
+    transform: none;
   }
 
   /**

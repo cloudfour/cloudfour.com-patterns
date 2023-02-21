@@ -5,6 +5,14 @@
 }
 
 /**
+ * Modifier: Primary
+ */
+
+.c-button--primary {
+  @include button.primary;
+}
+
+/**
  * Modifier: Secondary
  */
 

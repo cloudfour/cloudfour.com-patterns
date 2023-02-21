@@ -16,18 +16,26 @@
 
 @include theme.props {
   --theme-color-background-button-default: #{color.$brand-primary};
-  --theme-color-background-button-secondary: transparent;
+  --theme-color-background-button-primary: #{color.$base-purple};
+  --theme-color-background-button-secondary: var(--theme-color-background-base);
   --theme-color-border-button-default: #{color.$brand-primary-dark};
+  --theme-color-border-button-primary: #{color.$base-purple-dark};
   --theme-color-border-button-secondary: #{color.$brand-primary-light};
+  --theme-color-text-button-default: #{color.$text-light-emphasis};
+  --theme-color-text-button-primary: #{color.$text-light-emphasis};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
   --theme-color-text-button-tertiary: var(--theme-color-text-action);
 }
 
 @include theme.props(dark) {
   --theme-color-background-button-default: #{color.$brand-primary-dark};
-  --theme-color-background-button-secondary: transparent;
+  --theme-color-background-button-primary: #{color.$base-white};
+  --theme-color-background-button-secondary: var(--theme-color-background-base);
   --theme-color-border-button-default: #{color.$brand-primary-darker};
-  --theme-color-border-button-secondary: #{color.$brand-primary-dark};
+  --theme-color-border-button-primary: #{color.$brand-primary-darker};
+  --theme-color-border-button-secondary: #{color.$brand-primary-darker};
+  --theme-color-text-button-default: #{color.$text-light-emphasis};
+  --theme-color-text-button-primary: #{color.$brand-primary};
   --theme-color-text-button-secondary: var(--theme-color-text-action);
   --theme-color-text-button-tertiary: var(--theme-color-text-action);
 }
@@ -57,6 +65,7 @@
   border-style: solid;
   border-width: size.$edge-control;
   color: color.$text-light-emphasis;
+  color: var(--theme-color-text-button-default);
   cursor: pointer; /* 2 */
   display: inline-flex;
   font: inherit; /* 3 */
@@ -141,6 +150,16 @@
       opacity: 0;
     }
   }
+}
+
+/**
+ * Modifier: Primary
+ */
+
+@mixin primary {
+  background-color: var(--theme-color-background-button-primary);
+  border-color: var(--theme-color-border-button-primary);
+  color: var(--theme-color-text-button-primary);
 }
 
 /**

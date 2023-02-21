@@ -1,0 +1,71 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import baseDemo from './demo/base.twig';
+import codeTableDemo from './demo/code-table.twig';
+const argTypes = {
+  class: {
+    type: 'string',
+    description: 'CSS class(es) to append to the root element.',
+  },
+  wrapLines: {
+    type: 'boolean',
+    description: 'Allow lines to wrap',
+  },
+};
+
+<Meta
+  title="Vendor/Syntax-Highlighting Code Block"
+  argTypes={argTypes}
+  parameters={{
+    docs: {
+      transformSource: (src) => src,
+    },
+    layout: 'fullscreen',
+  }}
+  decorators={[
+    (story) => {
+      const result = story();
+      if (result.includes('wp-block-code')) {
+        return `<div class="o-container o-container--pad o-container--prose"><div class="o-container__content">${result}</div></div>`;
+      }
+      return result;
+    },
+  ]}
+/>
+
+# Syntax-Highlighting Code Block
+
+The [Syntax-Highlighting Code Block](https://wordpress.org/plugins/syntax-highlighting-code-block/) is a plugin for WordPress that enhances the native code block with some additional functions. It uses [highlight.php](https://github.com/scrivo/highlight.php) to apply syntax highlighting on the server instead of the client.
+
+This leverages the same styles [as our Highlight.js theme](/?path=/docs/vendor-highlight--theme). But as of this writing, [Highlight.php is two major versions behind Highlight.js](https://github.com/scrivo/highlight.php/issues/73). As a result, syntax highlighting may differ between platforms.
+
+## Basic Output
+
+Without any options selected, the plugin applies highlighting and appends a description of the code language for assistive devices (hidden visually).
+
+<Canvas>
+  <Story name="Basic">{(args) => baseDemo(args)}</Story>
+</Canvas>
+
+<ArgsTable story="Basic" />
+
+## More Features
+
+The plugin also supports line wrapping, highlighted lines and line numbering. Our theme requires [default plugin styles to be suppressed](https://github.com/westonruter/syntax-highlighting-code-block/wiki#suppress-all-plugin-styles) so it won't conflict with these styles.
+
+<Canvas>
+  <Story
+    name="More Features"
+    argTypes={{
+      ...argTypes,
+      lineNumbers: {
+        type: 'boolean',
+        description: 'Show numbers per line',
+      },
+    }}
+    args={{ lineNumbers: true, wrapLines: true }}
+  >
+    {(args) => codeTableDemo(args)}
+  </Story>
+</Canvas>
+
+<ArgsTable story="More Features" />

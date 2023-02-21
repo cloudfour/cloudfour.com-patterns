@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 13.2.0
+
+### Minor Changes
+
+- [#2138](https://github.com/cloudfour/cloudfour.com-patterns/pull/2138) [`e332d714`](https://github.com/cloudfour/cloudfour.com-patterns/commit/e332d714769ff3b42d84bb6f800f46f4f34f555a) Thanks [@tylersticka](https://github.com/tylersticka)! - Adds support for Syntax-highlighting Code Block's highlighted lines, line number and line wrap features
+
 ## 13.1.0
 
 ### Minor Changes

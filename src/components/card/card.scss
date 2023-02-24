@@ -11,6 +11,7 @@
 @use '../../mixins/headings';
 @use '../../mixins/media-query';
 @use '../../mixins/ms';
+@use '../../mixins/spacing';
 @use '../../mixins/theme';
 
 /// We can't use `grid-gap` exclusively due to some containers only being
@@ -38,6 +39,20 @@ $_cover-gap: ms.step(1, 1rem);
 /// @access private
 
 $_focus-overflow: (size.$edge-large * -1);
+
+/// The cloudy modifier adds clouds to the bottom right corner and also applies
+/// some fluid padding to accommodate. The clouds feel best when they are sized
+/// just a _tad_ larger than this fluid padding.
+///
+/// @type Number
+/// @access private
+
+$_cloud-height: fluid.fluid-clamp(
+  size.$padding-container-vertical-min * 1.33,
+  size.$padding-container-vertical-max * 1.33,
+  breakpoint.$s,
+  breakpoint.$m
+);
 
 /**
  * The main card container
@@ -125,6 +140,57 @@ $_focus-overflow: (size.$edge-large * -1);
       text-align: start;
     }
   }
+}
+
+/**
+ * Cloudy modifier
+ *
+ * Chrome and Safari often introduce little subpixel artifacts between the edge
+ * of a bottom-right image or positioned element that is sized responsively. To
+ * minimize this, we assume that this modifier will be shown on a default/light
+ * background, and we use a pseudo element for the cloud of the same color so
+ * we can offset it slightly (which overlays any artifacting).
+ *
+ * 1. On the element itself we can include the "background" clouds. These are
+ *    lower contrast so the artifacting is less noticeable, and they do not
+ *    match light backgrounds so we can't offset them.
+ * 2. We include more generous spacing to account for the clouds. It is still
+ *    theoretically possible for content to overlap the clouds, so this modifier
+ *    should be used carefully.
+ */
+
+.c-card--cloudy {
+  @include spacing.fluid-padding-block; /* 2 */
+  @include spacing.fluid-padding-inline; /* 2 */
+  background-image: svg-load('clouds/background.svg'); /* 1 */
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: auto $_cloud-height;
+}
+
+/**
+ * Pseudo element used to position the cloud matching the container background,
+ * offset to obscure rounding artifacts.
+ *
+ * 1. Fluid sizing based on asset's natural dimensions, since we don't have an
+ *    `auto` width in this context.
+ * 2. Offsetting to obscure artifacts.
+ * 3. Prevent pointer events so that cloud can never block interactions (clicks,
+ *    text selection, etc.)
+ */
+
+.c-card--cloudy::before {
+  aspect-ratio: 580 / 220; /* 1 */
+  background-image: svg-load('clouds/foreground.svg');
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  block-size: $_cloud-height; /* 1 */
+  content: '';
+  inset-block-end: -1px; /* 2 */
+  inset-inline-end: -1px; /* 2 */
+  pointer-events: none; /* 3 */
+  position: absolute;
 }
 
 /**

@@ -13,6 +13,9 @@ const singleDemoProps = (args = {}, storyId) => {
   if (args.contained) {
     modifiers.push('contained');
   }
+  if (args.cloudy) {
+    modifiers.push('cloudy');
+  }
   if (modifiers.length > 0) {
     classNames.push(...modifiers.map((modifier) => `c-card--${modifier}`));
   }
@@ -86,6 +89,7 @@ const singleDemoTransformSource = (_src, storyContext) => {
       control: { type: 'inline-radio' },
     },
     contained: { type: { name: 'boolean' } },
+    cloudy: { type: { name: 'boolean' } },
     theme: {
       options: ['none', 'light', 'dark'],
       type: { name: 'string' },
@@ -189,6 +193,24 @@ When the card is a focal point and more contrast is desired, you may also attach
     name="Themed"
     args={{ href: '#', horizontal: '@m', contained: true, theme: 'light' }}
     parameters={{ theme: 't-dark' }}
+  >
+    {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
+## Cloudy
+
+The `c-card--cloudy` modifier is meant to pair with `c-card--contained` and `t-dark`. It should only be used for very specific promotional content within light containers (so the white cloud blends into the background). Additional fluid white space is added to account for the clouds.
+
+<Canvas>
+  <Story
+    name="Cloudy"
+    args={{
+      show: ['heading', 'content', 'footer'],
+      contained: true,
+      cloudy: true,
+      theme: 'dark',
+    }}
   >
     {singleDemoStory.bind({})}
   </Story>

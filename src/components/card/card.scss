@@ -132,9 +132,14 @@ $_focus-overflow: (size.$edge-large * -1);
  *
  * This exists separately from the heading to encourage the use of the `header`
  * element within an `article`.
+ *
+ * 1. This display type and gap exist in case an `eyebrow` block is included.
+ *    We use the larger cover gap in case the eyebrow contents are an image.
  */
 
 .c-card__header {
+  display: grid; /* 1 */
+  gap: $_cover-gap; /* 1 */
   grid-area: header;
 
   /**
@@ -155,6 +160,14 @@ $_focus-overflow: (size.$edge-large * -1);
 
 .c-card__heading {
   @include headings.level(2);
+}
+
+/**
+ * The eyebrow should precede the heading visually.
+ */
+
+.c-card__eyebrow {
+  order: -1;
 }
 
 /**

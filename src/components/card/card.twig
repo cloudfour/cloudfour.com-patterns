@@ -13,6 +13,7 @@
 {% set _heading_level = heading_level|default(2) %}
 
 {% set _heading_block %}{% block heading %}{% endblock %}{% endset %}
+{% set _eyebrow_block %}{% block eyebrow %}{% endblock %}{% endset %}
 {% set _cover_block %}{% block cover %}{% endblock %}{% endset %}
 {% set _content_block %}{% block content %}{% endblock %}{% endset %}
 {% set _footer_block %}{% block footer %}{% endblock %}{% endset %}
@@ -34,6 +35,11 @@
           {{ _heading_block }}
         {% endif %}
       </h{{ _heading_level }}>
+      {% if _eyebrow_block is not empty %}
+        <div class="c-card__eyebrow">
+          {{_eyebrow_block}}
+        </div>
+      {% endif %}
     </{{ _header_tag_name }}>
   {% endif %}
 

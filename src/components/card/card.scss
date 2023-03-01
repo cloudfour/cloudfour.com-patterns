@@ -31,6 +31,14 @@ $_content-gap: ms.step(-1, 1rem);
 
 $_cover-gap: ms.step(1, 1rem);
 
+/// We add more space between the eyebrow and heading so they won't feel as
+/// crowded if the eyebrow contains visual elements.
+///
+/// @type Number
+/// @access private
+
+$_eyebrow-gap: ms.step(1, 1rem);
+
 /// The focus outline feels a little snug directly on the outer edge, but we
 /// don't want to extend _too_ far out for fear of colliding with adjacent
 /// content. Doubling the size of the focus edge felt like a nice compromise.
@@ -198,9 +206,13 @@ $_cloud-height: fluid.fluid-clamp(
  *
  * This exists separately from the heading to encourage the use of the `header`
  * element within an `article`.
+ *
+ * 1. This display type and gap exist in case an `eyebrow` block is included.
  */
 
 .c-card__header {
+  display: grid; /* 1 */
+  gap: $_eyebrow-gap; /* 1 */
   grid-area: header;
 
   /**
@@ -221,6 +233,14 @@ $_cloud-height: fluid.fluid-clamp(
 
 .c-card__heading {
   @include headings.level(2);
+}
+
+/**
+ * The eyebrow should precede the heading visually.
+ */
+
+.c-card__eyebrow {
+  order: -1;
 }
 
 /**

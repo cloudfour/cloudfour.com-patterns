@@ -5,6 +5,11 @@
       Lorem ipsum dolor sit amet
     {%- endif -%}
   {% endblock %}
+  {% block eyebrow %}
+    {%- if show_eyebrow -%}
+      <img src="/media/logos/pleasantest.svg" alt="Pleasantest" width="180" height="58">
+    {%- endif -%}
+  {% endblock %}
   {% block cover %}
     {%- if show_cover -%}
       <img src="/media/feature-ozzie-wide.jpg" alt="">

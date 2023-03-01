@@ -1,5 +1,16 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import singleDemo from './demo/single.twig';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we
+// are okay with the following Webpack-specific raw loader syntax. It's better
+// to leave the ESLint rule enabled globally, and only thoughtfully disable as
+// needed (e.g. within a Storybook docs page and not within an actual
+// component). This can be revisited in the future if Storybook no longer relies
+// on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import cloudyDemoSource from '!!raw-loader!./demo/cloudy.twig';
+import cloudyDemo from './demo/cloudy.twig';
 const singleDemoProps = (args = {}, storyId) => {
   const props = {
     heading_id: args.heading_id || `${storyId}-heading`,
@@ -191,6 +202,25 @@ When the card is a focal point and more contrast is desired, you may also attach
     parameters={{ theme: 't-dark' }}
   >
     {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
+## Cloudy
+
+The `c-card--cloudy` modifier is meant to pair with `c-card--contained` and `t-dark`. It should only be used for very specific promotional content within light containers (so the white cloud blends into the background). Additional fluid white space is added to account for the clouds.
+
+<Canvas>
+  <Story
+    name="Cloudy"
+    parameters={{
+      docs: {
+        source: {
+          code: cloudyDemoSource,
+        },
+      },
+    }}
+  >
+    {cloudyDemo.bind({})}
   </Story>
 </Canvas>
 

@@ -1,0 +1,26 @@
+{% embed '@cloudfour/components/card/card.twig' with {
+  tag_name: 'aside',
+  class: 'c-card--contained c-card--cloudy t-dark'
+} only %}
+  {% block content %}
+    <div class="o-rhythm o-rhythm--compact has-big-font-size">
+      {% include '@cloudfour/components/heading/heading.twig' with {
+        content: 'We’re Cloud Four',
+        level: 0,
+        weight: 'light'
+      } only %}
+      <p>
+        We’ve solved complex responsive web design and web development
+        challenges for ecommerce, healthcare, fashion, B2B, SAAS and non-profit
+        organizations.
+      </p>
+    </div>
+  {% endblock %}
+  {% block footer %}
+    {% include '@cloudfour/components/button/button.twig' with {
+      label: 'Hire our team',
+      href: 'https://cloudfour.com/and-you/',
+      class: 'c-button--primary'
+    } only %}
+  {% endblock %}
+{% endembed %}

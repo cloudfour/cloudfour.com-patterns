@@ -1,5 +1,17 @@
 # @cloudfour/patterns
 
+## 13.3.0
+
+### Minor Changes
+
+- [#2145](https://github.com/cloudfour/cloudfour.com-patterns/pull/2145) [`81990228`](https://github.com/cloudfour/cloudfour.com-patterns/commit/819902282b20a3d91f866d6e94d5cdd74e9d3a82) Thanks [@tylersticka](https://github.com/tylersticka)! - Use primary button style for Ground Nav action so it will appear more prominent visually
+
+- [#2140](https://github.com/cloudfour/cloudfour.com-patterns/pull/2140) [`98db5874`](https://github.com/cloudfour/cloudfour.com-patterns/commit/98db58749d3fec559b21b142263dd4a50afedbb4) Thanks [@tylersticka](https://github.com/tylersticka)! - Added a new `primary` modifier for buttons when particular visual emphasis is desired.
+
+- [#2143](https://github.com/cloudfour/cloudfour.com-patterns/pull/2143) [`687d737e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/687d737e3c8fb8754f66d83fe640447b9c7c525d) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `c-card--cloudy` modifier for branded promotions
+
+- [#2144](https://github.com/cloudfour/cloudfour.com-patterns/pull/2144) [`c095d4dc`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c095d4dcb234c5561e1064a585f912820090ebbd) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `eyebrow` block for including branding elements in card component headers
+
 ## 13.2.0
 
 ### Minor Changes

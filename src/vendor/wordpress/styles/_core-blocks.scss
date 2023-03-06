@@ -140,29 +140,49 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
     @include ratio-box.enhanced-styles;
   }
 
-  // WordPress has no UI for setting the aspect ratio, but it can be set via
-  // class name, so we predict a few common aspect ratios ahead of time.
-  &.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
-    --aspect-ratio: 16/9;
+  /// Supporting all aspect ratios that WordPress supports at the time of
+  /// writing.
+  /// @see {https://github.com/WordPress/gutenberg/blob/208e3e2/packages/block-library/src/embed/constants.js}
+
+  &.wp-embed-aspect-21-9 .wp-block-embed__wrapper {
+    --aspect-ratio: 21/9;
   }
 
-  &.wp-embed-aspect-2-1 .wp-block-embed__wrapper {
+  &.wp-embed-aspect-18-9 .wp-block-embed__wrapper {
     --aspect-ratio: 2;
+  }
+
+  &.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
+    --aspect-ratio: 16/9;
   }
 
   &.wp-embed-aspect-4-3 .wp-block-embed__wrapper {
     --aspect-ratio: 4/3;
   }
 
-  // Apply consistent margin styles to embeds
-  &:not(.alignwide):not(.alignfull):not(.aligncenter) {
-    @include spacing.fluid-margin-inline-negative;
+  &.wp-embed-aspect-1-1 .wp-block-embed__wrapper {
+    --aspect-ratio: 1;
   }
 
-  // Prevent figcaption contents from hitting the viewport edge
-  &:not(.aligncenter) {
-    figcaption {
-      @include spacing.fluid-padding-inline;
+  &.wp-embed-aspect-9-16 .wp-block-embed__wrapper {
+    --aspect-ratio: 9/16;
+  }
+
+  &.wp-embed-aspect-1-2 .wp-block-embed__wrapper {
+    --aspect-ratio: 1/2;
+  }
+
+  // Apply consistent margin styles to video embeds.
+  &.is-type-video {
+    &:not(.alignwide):not(.alignfull):not(.aligncenter) {
+      @include spacing.fluid-margin-inline-negative;
+    }
+
+    // Prevent figcaption contents from hitting the viewport edge
+    &:not(.aligncenter) {
+      figcaption {
+        @include spacing.fluid-padding-inline;
+      }
     }
   }
 }

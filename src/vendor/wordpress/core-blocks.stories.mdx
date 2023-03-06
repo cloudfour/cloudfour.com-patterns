@@ -1,9 +1,38 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import blockImageDemo from './demo/image.twig';
 import blockCodeDemo from './demo/code.twig';
-import blockEmbedDemo from './demo/embed.twig';
+import blockEmbedSpeakerDeckDemo from './demo/embed/speakerdeck.twig';
+import blockEmbedYouTubeDemo from './demo/embed/youtube.twig';
 import blockGroupDemo from './demo/group.twig';
 import blockTableDemo from './demo/table.twig';
+const blockEmbedDemoArgTypes = {
+  alignment: {
+    options: {
+      None: '',
+      Left: 'alignleft',
+      Center: 'aligncenter',
+      Right: 'alignright',
+      Full: 'alignfull',
+      Wide: 'alignwide',
+    },
+    control: { type: 'select' },
+  },
+  ratio: {
+    options: {
+      '21:9': '21-9',
+      '18:9': '18-9',
+      '16:9': '16-9',
+      '4:3': '4-3',
+      '1:1': '1-1',
+      '9:16': '9-16',
+      '1:2': '1-2',
+    },
+    control: { type: 'select' },
+  },
+  caption: {
+    control: { type: 'text' },
+  },
+};
 
 <Meta title="Vendor/WordPress/Core Blocks" />
 
@@ -205,42 +234,35 @@ content and adding `is-type-embedType-embed`, `wp-block-embed-embedType` and
 Adding a caption in the editor includes a `figcaption` element before the closing
 `figure` tag.
 
-<Canvas>
+Video embeds will attempt to fill the inline margins of the containing element
+by default. This can be overridden by selecting "center" alignment.
+
+<Canvas isColumn>
   <Story
-    name="Embed"
+    name="Embed (YouTube)"
     parameters={{ layout: 'fullscreen' }}
-    argTypes={{
-      alignment: {
-        options: {
-          None: '',
-          Left: 'alignleft',
-          Center: 'aligncenter',
-          Right: 'alignright',
-          Full: 'alignfull',
-          Wide: 'alignwide',
-        },
-        control: { type: 'select' },
-      },
-      ratio: {
-        options: {
-          '16:9': '16-9',
-          '4:3': '4-3',
-          '2:1': '2-1',
-        },
-        control: { type: 'select' },
-      },
-      caption: {
-        control: { type: 'text' },
-      },
-    }}
+    argTypes={blockEmbedDemoArgTypes}
     args={{
       alignment: '',
       ratio: '16-9',
       caption:
-        'Jason Grigsby’s talk, “Fluid Design Tools for a Responsive Design System World”',
+        'Jason Grigsby’s talk, “Imagining a Fluid Future for Design Tools”',
     }}
   >
-    {(args) => blockEmbedDemo(args)}
+    {(args) => blockEmbedYouTubeDemo(args)}
+  </Story>
+  <Story
+    name="Embed (Speaker Deck)"
+    parameters={{ layout: 'fullscreen' }}
+    argTypes={blockEmbedDemoArgTypes}
+    args={{
+      alignment: '',
+      ratio: '16-9',
+      caption:
+        'Slides for Jason Grigsby’s talk, “Imagining a Fluid Future for Design Tools”',
+    }}
+  >
+    {(args) => blockEmbedSpeakerDeckDemo(args)}
   </Story>
 </Canvas>
 

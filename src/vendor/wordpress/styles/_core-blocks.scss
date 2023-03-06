@@ -7,6 +7,7 @@
 @use '../../../mixins/button';
 @use '../../../mixins/emdash';
 @use '../../../mixins/ms';
+@use '../../../mixins/ratio-box';
 @use '../../../mixins/spacing';
 @use '../../../mixins/table';
 @use '../../../mixins/theme';
@@ -128,6 +129,42 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
 .c-comment pre {
   margin-inline: 0;
   padding-inline: ms.step(1); // restoring default padding
+}
+
+/// Gutenberg block: Embed
+
+.wp-block-embed {
+  // If the embed type has an aspect ratio, apply the same ratio-box styles as
+  // our embed component.
+  &.wp-has-aspect-ratio .wp-block-embed__wrapper {
+    @include ratio-box.enhanced-styles;
+  }
+
+  // WordPress has no UI for setting the aspect ratio, but it can be set via
+  // class name, so we predict a few common aspect ratios ahead of time.
+  &.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
+    --aspect-ratio: 16/9;
+  }
+
+  &.wp-embed-aspect-2-1 .wp-block-embed__wrapper {
+    --aspect-ratio: 2;
+  }
+
+  &.wp-embed-aspect-4-3 .wp-block-embed__wrapper {
+    --aspect-ratio: 4/3;
+  }
+
+  // Apply consistent margin styles to embeds
+  &:not(.alignwide):not(.alignfull):not(.aligncenter) {
+    @include spacing.fluid-margin-inline-negative;
+  }
+
+  // Prevent figcaption contents from hitting the viewport edge
+  &:not(.aligncenter) {
+    figcaption {
+      @include spacing.fluid-padding-inline;
+    }
+  }
 }
 
 /// Gutenberg block: Image

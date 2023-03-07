@@ -1,8 +1,38 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import blockImageDemo from './demo/image.twig';
 import blockCodeDemo from './demo/code.twig';
+import blockEmbedSpeakerDeckDemo from './demo/embed/speakerdeck.twig';
+import blockEmbedYouTubeDemo from './demo/embed/youtube.twig';
 import blockGroupDemo from './demo/group.twig';
 import blockTableDemo from './demo/table.twig';
+const blockEmbedDemoArgTypes = {
+  alignment: {
+    options: {
+      None: '',
+      Left: 'alignleft',
+      Center: 'aligncenter',
+      Right: 'alignright',
+      Full: 'alignfull',
+      Wide: 'alignwide',
+    },
+    control: { type: 'select' },
+  },
+  ratio: {
+    options: {
+      '21:9': '21-9',
+      '18:9': '18-9',
+      '16:9': '16-9',
+      '4:3': '4-3',
+      '1:1': '1-1',
+      '9:16': '9-16',
+      '1:2': '1-2',
+    },
+    control: { type: 'select' },
+  },
+  caption: {
+    control: { type: 'text' },
+  },
+};
 
 <Meta title="Vendor/WordPress/Core Blocks" />
 
@@ -204,39 +234,35 @@ content and adding `is-type-embedType-embed`, `wp-block-embed-embedType` and
 Adding a caption in the editor includes a `figcaption` element before the closing
 `figure` tag.
 
-<Canvas>
-  <Story name="Embed">
-    {`<figure
-        class="wp-block-embed-wordpress wp-block-embed is-type-wp-embed is-provider-wp-themes-com"
-      >
-        <div class="wp-block-embed__wrapper">
-          <blockquote
-            class="wp-embedded-content"
-            data-secret="AbCd1234"
-            style="display: none;"
-          >
-            <a href="https://wp-themes.com/twentytwenty/?p=36"
-              >Elements</a
-            >
-          </blockquote>
-          <iframe
-            title="Elements — wp-themes.com"
-            class="wp-embedded-content"
-            sandbox="allow-scripts"
-            security="restricted"
-            src="https://wp-themes.com/twentytwenty/?p=36/embed/#?secret=AbCd1234"
-            data-secret="AbCd1234"
-            width="580"
-            height="257"
-            frameborder="0"
-            marginwidth="0"
-            marginheight="0"
-            scrolling="no"
-            data-origwidth="580"
-            data-origheight="327"
-          ></iframe>
-        </div>
-      </figure>`}
+Video embeds will attempt to fill the inline margins of the containing element
+by default. This can be overridden by selecting "center" alignment.
+
+<Canvas isColumn>
+  <Story
+    name="Embed (YouTube)"
+    parameters={{ layout: 'fullscreen' }}
+    argTypes={blockEmbedDemoArgTypes}
+    args={{
+      alignment: '',
+      ratio: '16-9',
+      caption:
+        'Jason Grigsby’s talk, “Imagining a Fluid Future for Design Tools”',
+    }}
+  >
+    {(args) => blockEmbedYouTubeDemo(args)}
+  </Story>
+  <Story
+    name="Embed (Speaker Deck)"
+    parameters={{ layout: 'fullscreen' }}
+    argTypes={blockEmbedDemoArgTypes}
+    args={{
+      alignment: '',
+      ratio: '16-9',
+      caption:
+        'Slides for Jason Grigsby’s talk, “Imagining a Fluid Future for Design Tools”',
+    }}
+  >
+    {(args) => blockEmbedSpeakerDeckDemo(args)}
   </Story>
 </Canvas>
 
@@ -398,7 +424,6 @@ closing wrapper tag.
           Full: 'alignfull',
           Wide: 'alignwide',
         },
-        defaultValue: '',
         control: { type: 'select' },
       },
       style: {
@@ -406,9 +431,12 @@ closing wrapper tag.
           None: 'is-style-default',
           Outlined: 'is-style-outlined',
         },
-        defaultValue: 'is-style-default',
         control: { type: 'select' },
       },
+    }}
+    args={{
+      alignment: '',
+      style: 'is-style-default',
     }}
   >
     {(args) => blockImageDemo({ alignment: args.alignment, style: args.style })}

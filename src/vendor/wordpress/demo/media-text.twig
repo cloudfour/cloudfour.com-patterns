@@ -20,7 +20,15 @@
       {% if is_image_fill %}is-image-fill{% endif %}
       {% if vertical_alignment %}is-vertically-aligned-{{ vertical_alignment }}{% endif %}
       {% if has_background %}has-gray-lighter-background-color has-background{% endif %}"
-      {% if media_width and media_width != 50 %}style="grid-template-columns:{{media_width}}% auto"{% endif %}>
+      {% if media_width and media_width != 50 %}style="
+        grid-template-columns:
+          {%- if has_media_on_the_right -%}
+            auto {{media_width}}%
+          {%- else -%}
+            {{media_width}}% auto
+          {%- endif -%}
+        "
+      {%- endif %}>
       <figure class="wp-block-media-text__media"
         {% if is_image_fill %}style="background-image:url(/media/avatar-buster-b.jpg);background-position:50% 50%"{% endif %}>
         <img decoding="async" src="/media/avatar-buster-b.jpg" alt="" class="size-full">

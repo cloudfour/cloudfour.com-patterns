@@ -259,6 +259,27 @@ figure.wp-block-image {
   }
 }
 
+/// Gutenberg block: Media-Text
+.wp-block-media-text {
+  // I'm honestly not sure why the core WordPress block doesn't use `gap` at the
+  // time of this writing, but it solves a lot of spacing issues.
+  gap: size.$spacing-gap-inline-medium;
+
+  // When an image is set to fill the container, setting a `border-radius` makes
+  // the cropping feel more visually intentional (similar to card covers).
+  &.is-image-fill .wp-block-media-text__media {
+    border-radius: size.$border-radius-medium;
+  }
+
+  .wp-block-media-text__content {
+    // Maintain vertical rhythm between child elements.
+    @include spacing.vertical-rhythm;
+
+    // We remove the padding since `gap` is already applied to the parent.
+    padding: 0;
+  }
+}
+
 /// Gutenberg block: Video
 /// Styles for videos inserted via Gutenberg blocks.
 .wp-block-video {

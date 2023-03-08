@@ -1,9 +1,10 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
-import blockImageDemo from './demo/image.twig';
 import blockCodeDemo from './demo/code.twig';
 import blockEmbedSpeakerDeckDemo from './demo/embed/speakerdeck.twig';
 import blockEmbedYouTubeDemo from './demo/embed/youtube.twig';
+import blockImageDemo from './demo/image.twig';
 import blockGroupDemo from './demo/group.twig';
+import blockMediaTextDemo from './demo/media-text.twig';
 import blockTableDemo from './demo/table.twig';
 const blockEmbedDemoArgTypes = {
   alignment: {
@@ -31,6 +32,42 @@ const blockEmbedDemoArgTypes = {
   },
   caption: {
     control: { type: 'text' },
+  },
+};
+const blockMediaTextDemoArgTypes = {
+  alignment: {
+    options: {
+      None: '',
+      Left: 'alignleft',
+      Center: 'aligncenter',
+      Right: 'alignright',
+      Full: 'alignfull',
+      Wide: 'alignwide',
+    },
+    control: { type: 'select' },
+  },
+  vertical_alignment: {
+    options: {
+      Top: 'top',
+      Center: 'center',
+      Bottom: 'bottom',
+    },
+    control: { type: 'select' },
+  },
+  has_media_on_the_right: {
+    control: { type: 'boolean' },
+  },
+  is_stacked_on_mobile: {
+    control: { type: 'boolean' },
+  },
+  has_background: {
+    control: { type: 'boolean' },
+  },
+  is_image_fill: {
+    control: { type: 'boolean' },
+  },
+  media_width: {
+    control: { type: 'range', min: 15, max: 85, step: 1 },
   },
 };
 
@@ -461,16 +498,16 @@ padding) class.
 Another control toggles the class `is-stacked-on-mobile`.
 
 <Canvas>
-  <Story name="Media-Text">
-    {`<div class="wp-block-media-text alignwide is-stacked-on-mobile has-media-on-the-right is-vertically-aligned-center has-background has-subtle-background-background-color">
-        <figure class="wp-block-media-text__media">
-          <img src="/media/Biologia_Centrali-Americana_-_Cantorchilus_semibadius_1902.jpg" alt="" />
-        </figure>
-        <div class="wp-block-media-text__content">
-          <p>The wren<br>Earns his living<br>Noiselessly.</p>
-          <p>— Kobayashi Issa (一茶)</p>
-        </div>
-      </div>`}
+  <Story
+    name="Media-Text"
+    parameters={{ layout: 'fullscreen' }}
+    argTypes={blockMediaTextDemoArgTypes}
+    args={{
+      is_stacked_on_mobile: true,
+      media_width: 33,
+    }}
+  >
+    {(args) => blockMediaTextDemo(args)}
   </Story>
 </Canvas>
 

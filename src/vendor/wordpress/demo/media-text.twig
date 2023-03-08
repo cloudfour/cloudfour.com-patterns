@@ -1,0 +1,37 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose o-container--pad-inline u-pad-block-1',
+  content_class: 'o-rhythm',
+  alignment: alignment,
+  has_background: has_background,
+  vertical_alignment: vertical_alignment,
+  media_width: media_width,
+  is_image_fill: is_image_fill,
+  is_stacked_on_mobile: is_stacked_on_mobile,
+  has_media_on_the_right: has_media_on_the_right
+} only %}
+  {% block content %}
+
+    <p>Let’s start with some text before the block even starts.</p>
+
+    <div class="wp-block-media-text
+      {% if alignment %}{{alignment}}{% endif %}
+      {% if has_media_on_the_right %}has-media-on-the-right{% endif %}
+      {% if is_stacked_on_mobile %}is-stacked-on-mobile{% endif %}
+      {% if is_image_fill %}is-image-fill{% endif %}
+      {% if vertical_alignment %}is-vertically-aligned-{{ vertical_alignment }}{% endif %}
+      {% if has_background %}has-gray-lighter-background-color has-background{% endif %}"
+      {% if media_width and media_width != 50 %}style="grid-template-columns:{{media_width}}% auto"{% endif %}>
+      <figure class="wp-block-media-text__media"
+        {% if is_image_fill %}style="background-image:url(/media/avatar-buster-b.jpg);background-position:50% 50%"{% endif %}>
+        <img decoding="async" src="/media/avatar-buster-b.jpg" alt="" class="size-full">
+      </figure>
+      <div class="wp-block-media-text__content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Suspendisse a est et ex consectetur pulvinar at in tortor. Maecenas id mauris magna.</p>
+      </div>
+    </div>
+
+    <p>Here is some text that follows this block.</p>
+
+  {% endblock %}
+{% endembed %}

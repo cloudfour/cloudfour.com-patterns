@@ -48,7 +48,8 @@
 /// 2. …but if the alignment is not center, we use fluid inline padding instead
 ///    so that the inner content will align with its siblings.
 p,
-.wp-block-group {
+.wp-block-group,
+.wp-block-media-text {
   &.has-background {
     padding: size.$rhythm-default; // 1
 

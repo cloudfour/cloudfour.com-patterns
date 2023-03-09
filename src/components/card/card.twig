@@ -13,10 +13,19 @@
 {% set _heading_level = heading_level|default(2) %}
 
 {% set _heading_block %}{% block heading %}{% endblock %}{% endset %}
-{% set _eyebrow_block %}{% block eyebrow %}{% endblock %}{% endset %}
 {% set _cover_block %}{% block cover %}{% endblock %}{% endset %}
 {% set _content_block %}{% block content %}{% endblock %}{% endset %}
 {% set _footer_block %}{% block footer %}{% endblock %}{% endset %}
+
+{% set _eyebrow_block -%}
+  {%- block eyebrow -%}
+    {%- if logo -%}
+      <img class="c-card__logo" src="{{logo.url}}" alt="{{logo.alt}}"
+        {%- if logo.width %} width="{{logo.width}}"{% endif -%}
+        {%- if logo.height %} height="{{logo.height}}"{% endif %}>
+    {%- endif -%}
+  {%- endblock -%}
+{%- endset %}
 
 <{{ _tag_name }} class="
   c-card

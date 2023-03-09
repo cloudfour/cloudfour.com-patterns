@@ -1,0 +1,19 @@
+
+
+{% embed '@cloudfour/objects/deck/deck.twig' with {
+  logos: logos
+} only %}
+  {% block content %}
+    {% for logo in logos %}
+      {% embed '@cloudfour/components/card/card.twig' with {
+        heading_id: "components-card--logo-#{loop.index}",
+        href: "#",
+        logo: logo
+      } only %}
+        {% block heading %}Lorem ipsum dolor sit amet, consectetur adipiscing elit.{% endblock %}
+        {% block cover %}<img src="/media/feature-ozzie-wide.jpg" alt="">{% endblock %}
+        {% block content %}<p>Sed a arcu iaculis, ultrices purus sed, ullamcorper enim. Fusce egestas fringilla tortor, at fringilla ipsum maximus ac. Vivamus ac venenatis sapien.</p>{% endblock %}
+      {% endembed %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

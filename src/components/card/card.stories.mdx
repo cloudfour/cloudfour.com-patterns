@@ -11,6 +11,10 @@ import singleDemo from './demo/single.twig';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import cloudyDemoSource from '!!raw-loader!./demo/cloudy.twig';
 import cloudyDemo from './demo/cloudy.twig';
+// See comment above about Webpack-specific syntax
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import logoDemoSource from '!!raw-loader!./demo/logo.twig';
+import logoDemo from './demo/logo.twig';
 const singleDemoProps = (args = {}, storyId) => {
   const props = {
     heading_id: args.heading_id || `${storyId}-heading`,
@@ -162,6 +166,55 @@ If a card includes a heading, you may want to include additional elements that p
     }}
   >
     {singleDemoStory.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Logos"
+    argTypes={{}}
+    parameters={{
+      docs: {
+        source: {
+          code: logoDemoSource,
+        },
+      },
+    }}
+  >
+    {() =>
+      logoDemo({
+        logos: [
+          {
+            url: '/media/logos/walmart.svg',
+            alt: 'Walmart',
+            width: 176,
+            height: 42,
+          },
+          {
+            url: '/media/logos/baptist.svg',
+            alt: 'Baptist Health',
+            width: 415,
+            height: 74,
+          },
+          {
+            url: '/media/logos/cpe.svg',
+            alt: 'Champion Power Equipment',
+            width: 190,
+            height: 80,
+          },
+          {
+            url: '/media/logos/pleasantest.svg',
+            alt: 'Pleasantest',
+          },
+          {
+            url: '/media/logos/ceasefire.svg',
+            alt: 'Ceasefire Oregon',
+            width: 201,
+            height: 34,
+          },
+        ],
+      })
+    }
   </Story>
 </Canvas>
 

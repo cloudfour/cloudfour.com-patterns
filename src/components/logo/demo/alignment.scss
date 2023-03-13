@@ -1,18 +1,26 @@
 @use '../../../compiled/tokens/scss/color';
+@use 'sass:math';
 
 $_line-color: color.$base-fuchsia-lighter;
+$_line-size: 1px;
 
 ._demo-c-logo-alignment {
-  display: grid;
+  background-image: linear-gradient(
+    to bottom,
+    transparent calc(50% - math.div($_line-size, 2)),
+    $_line-color calc(50% - math.div($_line-size, 2)),
+    $_line-color calc(50% + math.div($_line-size, 2)),
+    transparent calc(50% + math.div($_line-size, 2))
+  );
   border: 0 solid $_line-color;
-  border-width: 1px 0;
-  background-image: linear-gradient(to bottom, transparent calc(50% - 0.5px), $_line-color calc(50% - 0.5px), $_line-color calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  border-width: $_line-size 0;
+  display: grid;
   gap: 1em;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
 
   > * {
     border: inherit;
-    border-width: 0 1px;
+    border-width: 0 $_line-size;
   }
 }

@@ -235,14 +235,6 @@ $_cloud-height: fluid.fluid-clamp(
   order: -1;
 }
 
-.c-card__logo {
-  height: ms.step(3);
-  object-fit: contain;
-  object-position: left;
-  outline: pink;
-  width: auto;
-}
-
 /**
  * This is the primary link, presumed but not required to be within the heading.
  */

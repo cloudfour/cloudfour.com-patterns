@@ -1,0 +1,31 @@
+@use '../../compiled/tokens/scss/size';
+
+/// Logo component
+///
+/// 1. By default, we assume that we want to vertically center the logo. This is
+///    only really apparent if the asset is scaled.
+/// 2. Justification is inherited by default, so a centered flex container (such
+///    as a Logo Group) will automatically have centered logos.
+.c-logo {
+  align-items: var(--logo-align, center); // 1
+  block-size: size.$height-logo-default;
+  display: flex;
+  justify-content: var(--logo-justify, inherit); // 2
+}
+
+/// Logo content, presumably an `img` but possibly an `svg` or other element.
+///
+/// 1. Set the container size. We use `block-size` instead of `scale` so that it
+///    will impact the `inline-size`. This allows scale adjustments greater than
+///    1.0 without overflowing the container.
+/// 2. Respect the logo's natural width up to the container width.
+/// 3. The combination of `block-size` and `max-inline-size` can cause the logo
+///    to be squashed at smaller sizes. This prevents the image contents from
+///    being distorted or clipped.
+.c-logo > *,
+.c-logo > picture > img {
+  block-size: calc(100% * var(--logo-scale, 1)); // 1
+  inline-size: auto; // 2
+  max-inline-size: 100%; // 2
+  object-fit: contain; // 3
+}

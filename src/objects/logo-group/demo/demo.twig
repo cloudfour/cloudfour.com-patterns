@@ -3,7 +3,10 @@
     {% embed '@cloudfour/objects/logo-group/logo-group.twig' %}
       {% block content %}
         {% for item in items %}
-          <img src="{{ item.src }}" alt="{{ item.alt }}">
+          {% include '@cloudfour/components/logo/logo.twig' with {
+            src: item.src,
+            alt: item.alt
+          } only %}
         {% endfor %}
       {% endblock %}
     {% endembed %}

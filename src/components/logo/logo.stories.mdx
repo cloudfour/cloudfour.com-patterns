@@ -1,0 +1,85 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import logoTemplate from './logo.twig';
+import alignmentDemo from './demo/alignment.twig';
+import './demo/alignment.scss';
+const alignOptions = ['start', 'center', 'end'];
+
+<!--
+This component's options rely on CSS custom properties, which are currently
+broken in the library we use for inlining Storybook stories. Until that issue
+is resolved, we must fallback to iframes for these stories. 🙈️
+
+@see https://github.com/aknuds1/html-to-react/issues/144
+-->
+
+<Meta title="Components/Logo" parameters={{ docs: { inlineStories: false } }} />
+
+# Logo
+
+The logo component enforces a consistent height for logos, promoting alignment and consistency for content that summarizes branded projects, client work and case studies.
+
+To showcase several logos together, see [the Logo Group object](/docs/objects-logo-group--default-story).
+
+<Canvas>
+  <Story
+    name="Basic Options"
+    argTypes={{
+      src: { control: { type: 'text' } },
+      alt: { control: { type: 'text' } },
+      class: { control: { type: 'text' } },
+      width: { control: { type: 'number' } },
+      height: { control: { type: 'number' } },
+      scale: { control: { type: 'number' } },
+      align: {
+        options: alignOptions,
+        control: { type: 'inline-radio' },
+      },
+      justify: {
+        options: alignOptions,
+        control: { type: 'inline-radio' },
+      },
+    }}
+    args={{
+      src: '/media/logos/pleasantest.svg',
+      alt: 'Pleasantest',
+      width: 180,
+      height: 58,
+    }}
+  >
+    {(args) => logoTemplate(args)}
+  </Story>
+</Canvas>
+
+## Alignment
+
+Different brands are usually designed in isolation, so it's common for logos to feel inconsistently sized when displayed in a row or a grid. The logo component includes `scale`, `align` and `justify` options for fine-tuning the alignment of logos relative to others nearby.
+
+<Canvas isColumn>
+  <Story name="Before Alignment">{alignmentDemo.bind({})}</Story>
+  <Story name="After Alignment" args={{ align: true }}>
+    {alignmentDemo.bind({})}
+  </Story>
+</Canvas>
+
+## Template Options
+
+<!--
+Because `ArgsTable` doesn't work very well for non-inline stories, we have to
+manually document the options available to this template.
+-->
+
+- `align` (Default: `center`): Specify the block (vertical) alignment.
+- `alt`: A description of the image. For logos, this is typically the name of the brand.
+- `class`: Append additional class names to the element.
+- `content` (block): Specify the `img` or image-like element to display directly.
+- `height`: The height of the image in pixels.
+- `justify` (Default: `inherit`): Specify the inline (horizontal) alignment.
+- `scale`: Scale the logo up or down within its container.
+- `src`: The URL of the image to display.
+- `width`: The width of the image in pixels.
+
+## CSS Custom Properties
+
+- `--logo-align` (Default: `center`): Specify the block (vertical) alignment.
+- `--logo-justify` (Default: `inherit`): Specify the inline (horizontal) alignment.
+- `--logo-scale`: Scale the logo up or down within its container.

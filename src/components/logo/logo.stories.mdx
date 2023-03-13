@@ -54,6 +54,8 @@ To showcase several logos together, see [the Logo Group object](/docs/objects-lo
 
 Different brands are usually designed in isolation, so it's common for logos to feel inconsistently sized when displayed in a row or a grid. The logo component includes `scale`, `align` and `justify` options for fine-tuning the alignment of logos relative to others nearby.
 
+The following stories show three logos before and after alignment options are set. In the second example, the middle logo has a `scale` lower than `1`, whereas the rightmost logo has a `scale` higher than `1` and an `align` value of `end`.
+
 <Canvas isColumn>
   <Story name="Before Alignment">{alignmentDemo.bind({})}</Story>
   <Story name="After Alignment" args={{ align: true }}>

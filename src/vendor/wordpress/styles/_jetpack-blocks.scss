@@ -1,5 +1,27 @@
+@use '../../../mixins/input';
 @use '../../../mixins/spacing';
+@use '../../../compiled/tokens/scss/size';
+@use '../../../compiled/tokens/scss/font-weight';
 
+.wp-block-jetpack-contact-form,
 .wp-block-jetpack-markdown {
   @include spacing.vertical-rhythm;
+}
+
+.grunion-field {
+  &:not([type="checkbox"]):not([type="radio"]) {
+    @include input.default;
+  }
+}
+
+.grunion-field-wrap {
+  display: grid;
+  gap: #{size.$spacing-gap-form-group-default};
+}
+
+.grunion-field-label {
+  span {
+    color: var(--theme-color-text-muted);
+    margin-left: 1ch;
+  }
 }

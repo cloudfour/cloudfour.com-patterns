@@ -1,4 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import contactFormDemo from './demo/jetpack-contact-form.twig';
 
 <Meta title="Vendor/WordPress/Jetpack Blocks" />
 
@@ -25,5 +26,13 @@ See also: [Markdown Block documentation](https://jetpack.com/support/markdown/)
         fames ac turpis egestas.
       </p>
     </div>`}
+  </Story>
+</Canvas>
+
+## Contact Form
+
+<Canvas>
+  <Story name="Contact Form" inline={false}>
+    {contactFormDemo}
   </Story>
 </Canvas>

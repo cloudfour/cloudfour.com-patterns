@@ -1,12 +1,22 @@
+@use '../../../mixins/border-radius';
+@use '../../../mixins/headings';
 @use '../../../mixins/input';
 @use '../../../mixins/spacing';
+@use '../../../mixins/theme';
 @use '../../../mixins/toggle-input';
+@use '../../../compiled/tokens/scss/color';
 @use '../../../compiled/tokens/scss/size';
 @use '../../../compiled/tokens/scss/font-weight';
 
 .wp-block-jetpack-contact-form,
 .wp-block-jetpack-markdown {
   @include spacing.vertical-rhythm;
+}
+
+/// For some reason the Jetpack contact form adds `16px` of padding as an inline
+/// style with no mechanism for customization. This is a hack to remove it.
+.wp-block-jetpack-contact-form {
+  padding: 0 !important;
 }
 
 .grunion-field {
@@ -37,4 +47,63 @@
   display: grid;
   gap: 1ch;
   grid-template-columns: auto 1fr;
+}
+
+.grunion-field-consent-wrap {
+  background-color: var(--theme-color-background-secondary);
+  display: block;
+  padding: size.$rhythm-default;
+  @include border-radius.conditional;
+  @include spacing.fluid-margin-inline-negative;
+  @include spacing.fluid-padding-inline;
+}
+
+.wp-block-jetpack-contact-form-container .contact-form-submission {
+  .go-back-message .link {
+    align-items: center;
+    display: inline-flex;
+    font-weight: font-weight.$semibold;
+    gap: 1ch;
+    position: relative;
+    text-decoration: none;
+
+    &::before {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      block-size: 1em;
+      content: '';
+      inline-size: 1em;
+
+      @include theme.styles {
+        background-image: svg-load('icons/arrow-left.svg', stroke=color.$text-action);
+      }
+
+      @include theme.styles(dark) {
+        background-image: svg-load('icons/arrow-left.svg', stroke=color.$text-light);
+      }
+    }
+  }
+
+  h4 {
+    @include headings.level(2);
+  }
+
+  h4,
+  .field-name {
+    margin-top: var(--rhythm, #{size.$rhythm-default});
+  }
+
+  .field-name,
+  .field-value {
+    display: inline-block;
+  }
+
+  .field-name {
+    font-weight: font-weight.$medium;
+  }
+
+  .field-value {
+    color: var(--theme-color-text-muted);
+  }
 }

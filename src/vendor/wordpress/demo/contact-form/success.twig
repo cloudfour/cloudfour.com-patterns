@@ -1,0 +1,61 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--prose o-container--pad',
+} only %}
+  {% block content %}
+    <div data-test="contact-form" id="contact-form-submitted" class="wp-block-jetpack-contact-form-container " style="--jetpack--contact-form--primary-color: rgb(61, 132, 245); --jetpack--contact-form--background-color: rgb(255, 255, 255); --jetpack--contact-form--text-color: rgb(0, 0, 0); --jetpack--contact-form--border: 2px inset rgb(227, 227, 227); --jetpack--contact-form--border-color: rgb(227, 227, 227); --jetpack--contact-form--border-size: 2px; --jetpack--contact-form--border-style: inset; --jetpack--contact-form--border-radius: 0px; --jetpack--contact-form--input-background: rgb(255, 255, 255); --jetpack--contact-form--input-padding: 1px 2px; --jetpack--contact-form--input-padding-top: 1px; --jetpack--contact-form--input-padding-left: 2px; --jetpack--contact-form--font-size: 13.3333px; --jetpack--contact-form--font-family: -apple-system; --jetpack--contact-form--line-height: normal;">
+      <div class="contact-form-submission">
+        <p class="go-back-message"> <a class="link" href="/testing-contact-form/?contact-form-hash=1e8a8482643c3e1aebe03ae9a525986249524ab5">Go back</a> </p>
+        <h4 id="contact-form-success-header">Your message has been sent</h4>
+
+        <p></p>
+        <div class="field-name">Name:</div>
+        <div class="field-value">Test McTest</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Email:</div>
+        <div class="field-value">tyler@cloudfour.com</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Who is your favorite partner?:</div>
+        <div class="field-value">Some other guy, I can’t quite remember</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Which are you hungry for?:</div>
+        <div class="field-value">Pizza, Sandwiches, Chocolate</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Why are you writing today?:</div>
+        <div class="field-value">Sorry, my cat sat on my keyboard</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Text:</div>
+        <div class="field-value">This is text</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Date:</div>
+        <div class="field-value">Today</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Phone:</div>
+        <div class="field-value">5555555555</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Website:</div>
+        <div class="field-value">https://tylersticka.com</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Message:</div>
+        <div class="field-value">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum ultricies mi at iaculis. Aenean quis accumsan est. Duis auctor luctus dolor quis imperdiet. Duis efficitur molestie purus, a ullamcorper nulla egestas sed. Proin ut tortor ex. Nam consequat lectus feugiat, feugiat erat at, fringilla tortor.</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Example of a checkbox:</div>
+        <div class="field-value">Yes</div>
+        <p></p>
+        <p></p>
+        <div class="field-name">Consent:</div>
+        <div class="field-value">Yes</div>
+        <p></p>
+      </div>
+    </div>
+  {% endblock %}
+{% endembed %}

@@ -1,5 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import contactFormDemo from './demo/jetpack-contact-form.twig';
+import contactFormDemo from './demo/contact-form/form.twig';
+import contactFormSuccessDemo from './demo/contact-form/success.twig';
 
 <Meta title="Vendor/WordPress/Jetpack Blocks" />
 
@@ -32,7 +33,13 @@ See also: [Markdown Block documentation](https://jetpack.com/support/markdown/)
 ## Contact Form
 
 <Canvas>
-  <Story name="Contact Form" inline={false}>
+  <Story name="Contact Form" parameters={{ layout: 'fullscreen' }}>
     {contactFormDemo}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Contact Form Success" parameters={{ layout: 'fullscreen' }}>
+    {contactFormSuccessDemo}
   </Story>
 </Canvas>

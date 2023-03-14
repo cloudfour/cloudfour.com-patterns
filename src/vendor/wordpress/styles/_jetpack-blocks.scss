@@ -1,5 +1,6 @@
 @use '../../../mixins/input';
 @use '../../../mixins/spacing';
+@use '../../../mixins/toggle-input';
 @use '../../../compiled/tokens/scss/size';
 @use '../../../compiled/tokens/scss/font-weight';
 
@@ -12,16 +13,28 @@
   &:not([type="checkbox"]):not([type="radio"]) {
     @include input.default;
   }
+
+  &[type="checkbox"] {
+    @include toggle-input.checkbox;
+  }
 }
 
-.grunion-field-wrap {
+.grunion-field-wrap,
+.grunion-checkbox-multiple-options,
+.grunion-radio-options {
   display: grid;
   gap: #{size.$spacing-gap-form-group-default};
 }
 
-.grunion-field-label {
-  span {
-    color: var(--theme-color-text-muted);
-    margin-left: 1ch;
-  }
+.grunion-field-label > span {
+  color: var(--theme-color-text-muted);
+  margin-left: 1ch;
+}
+
+.grunion-field-label.checkbox,
+.grunion-checkbox-multiple-label,
+.grunion-radio-label {
+  display: grid;
+  gap: 1ch;
+  grid-template-columns: auto 1fr;
 }

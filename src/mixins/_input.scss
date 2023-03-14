@@ -95,7 +95,9 @@
 ///    Firefox's inner dotted outline looks gross when it runs into the outer
 ///    border, and existing hacks around this visibly degrade text rendering.
 /// 3. Prevents option text from overlapping icon.
-@mixin icon-affordance($icon-url: svg-load('icons/caret-down.svg', fill=color.$text-dark)) {
+@mixin icon-affordance(
+  $icon-url: svg-load('icons/caret-down.svg', fill=color.$text-dark)
+) {
   @if $icon-url {
     background-image: $icon-url;
   }
@@ -152,6 +154,8 @@
 @mixin default {
   @include base;
 
+  @include states;
+
   &[type='email'],
   &[type='text'] {
     @include single-line;
@@ -164,6 +168,4 @@
   @at-root select#{&} {
     @include icon-affordance;
   }
-
-  @include states;
 }

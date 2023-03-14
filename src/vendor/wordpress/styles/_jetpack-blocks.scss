@@ -23,12 +23,12 @@
 /// Apply our existing form component styles to Jetpack form fields.
 .grunion-field {
   /// Test-based inputs
-  &:not([type="checkbox"]):not([type="radio"]) {
+  &:not([type='checkbox']):not([type='radio']) {
     @include input.default;
   }
 
   /// Checkboxes
-  &[type="checkbox"] {
+  &[type='checkbox'] {
     @include toggle-input.checkbox;
   }
 }
@@ -44,7 +44,7 @@
 /// Style the "(required)" text that follows required field labels.
 .grunion-field-label > span {
   color: var(--theme-color-text-muted);
-  margin-left: 1ch;
+  margin-inline-start: 1ch;
 }
 
 /// Arrange the label and input for checkboxes and radio buttons side-by-side.
@@ -59,19 +59,18 @@
 /// Style consent messaging fields in a visually distinct way, similar to a card
 /// or contained WordPress block with a background.
 .grunion-field-consent-wrap {
-  background-color: var(--theme-color-background-secondary);
-  display: block;
-  padding: size.$rhythm-default;
   @include border-radius.conditional;
   @include spacing.fluid-margin-inline-negative;
   @include spacing.fluid-padding-inline;
+  background-color: var(--theme-color-background-secondary);
+  display: block;
+  padding-block: size.$rhythm-default;
 }
 
 /// The submission message markup seems _ancient_. It apppears to be using
 /// empty paragraphs to create spacing between elements. Luckily we're able to
 /// style things adequately in spite of this.
 .wp-block-jetpack-contact-form-container .contact-form-submission {
-
   /// The back link should appear a bit like our tertiary buttons, though we
   /// don't use those component styles directly to keep the styles manageable.
   ///
@@ -93,11 +92,17 @@
       inline-size: 1em;
 
       @include theme.styles {
-        background-image: svg-load('icons/arrow-left.svg', stroke=color.$text-action);
+        background-image: svg-load(
+          'icons/arrow-left.svg',
+          stroke=color.$text-action
+        );
       }
 
       @include theme.styles(dark) {
-        background-image: svg-load('icons/arrow-left.svg', stroke=color.$text-light);
+        background-image: svg-load(
+          'icons/arrow-left.svg',
+          stroke=color.$text-light
+        );
       }
     }
   }
@@ -111,7 +116,7 @@
   /// Use the heading and field name elements to continue the vertical rhythm.
   h4,
   .field-name {
-    margin-top: var(--rhythm, #{size.$rhythm-default});
+    margin-block-start: var(--rhythm, #{size.$rhythm-default});
   }
 
   /// Allow shorter name/value combinations to align themselves side-by-side as

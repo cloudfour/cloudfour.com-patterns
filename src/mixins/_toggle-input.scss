@@ -6,7 +6,9 @@
 @use './theme';
 
 @include theme.props {
-  --theme-color-text-checkbox-checked-hover: var(--theme-color-text-checkbox-hover);
+  --theme-color-text-checkbox-checked-hover: var(
+    --theme-color-text-checkbox-hover
+  );
   --theme-color-text-checkbox-disabled: #{color.$base-gray-dark};
   --theme-color-text-checkbox-hover: #{color.$brand-primary};
 }
@@ -29,7 +31,9 @@
 /// 4. Without this, checkboxes appear too small unless hard-pixel sizes are
 ///    used (ew).
 @mixin checkbox {
-  @supports (-moz-appearance: none) or (-webkit-appearance: none) or (appearance: none) { // 1
+  @supports (-moz-appearance: none) or (-webkit-appearance: none) or
+    (appearance: none) {
+    // 1
     // stylelint-disable-next-line property-no-vendor-prefix
     -moz-appearance: none;
     // stylelint-disable-next-line property-no-vendor-prefix
@@ -67,8 +71,10 @@
     ///    appears much more balanced!
     /// 2. Starting state of animation.
     &::after {
-      background-image: svg-load('icons/check.svg',
-          stroke=color.$text-light-emphasis );
+      background-image: svg-load(
+        'icons/check.svg',
+        stroke=color.$text-light-emphasis
+      );
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -119,13 +125,17 @@
         /// Inline SVGs aren't aware of custom properties, so we have to do a
         /// bit of theming trickery here
         @include theme.styles {
-          background-image: svg-load('icons/check.svg',
-              stroke=color.$base-gray-dark );
+          background-image: svg-load(
+            'icons/check.svg',
+            stroke=color.$base-gray-dark
+          );
         }
 
         @include theme.styles(dark) {
-          background-image: svg-load('icons/check.svg',
-              stroke=color.$text-light );
+          background-image: svg-load(
+            'icons/check.svg',
+            stroke=color.$text-light
+          );
         }
       }
 

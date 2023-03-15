@@ -6,7 +6,14 @@
   {% endblock %}
   {% block eyebrow %}
     {%- if show_eyebrow -%}
-      <img src="/media/logos/pleasantest.svg" alt="Pleasantest" width="180" height="58">
+      {% include '@cloudfour/components/logo/logo.twig' with {
+        src: '/media/logos/pleasantest.svg',
+        alt: 'Pleasantest',
+        width: 180,
+        height: 58,
+        scale: 1.25,
+        align: 'end'
+      } only %}
     {%- endif -%}
   {% endblock %}
   {% block cover %}

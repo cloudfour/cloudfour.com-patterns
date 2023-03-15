@@ -7,6 +7,13 @@ module.exports = {
         default: { value: modularEm(4) },
         multiline: { value: modularEm(6) },
       },
+      logo: {
+        default: {
+          value: modularEm(3),
+          comment:
+            'Default height for the logo component, used to display client and project logos relative to case studies.',
+        },
+      },
     },
     icon: {
       default: {

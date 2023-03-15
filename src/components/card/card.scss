@@ -31,14 +31,6 @@ $_content-gap: ms.step(-1, 1rem);
 
 $_cover-gap: ms.step(1, 1rem);
 
-/// We add more space between the eyebrow and heading so they won't feel as
-/// crowded if the eyebrow contains visual elements.
-///
-/// @type Number
-/// @access private
-
-$_eyebrow-gap: ms.step(1, 1rem);
-
 /// The focus outline feels a little snug directly on the outer edge, but we
 /// don't want to extend _too_ far out for fear of colliding with adjacent
 /// content. Doubling the size of the focus edge felt like a nice compromise.
@@ -212,7 +204,7 @@ $_cloud-height: fluid.fluid-clamp(
 
 .c-card__header {
   display: grid; /* 1 */
-  gap: $_eyebrow-gap; /* 1 */
+  gap: $_content-gap; /* 1 */
   grid-area: header;
 
   /**

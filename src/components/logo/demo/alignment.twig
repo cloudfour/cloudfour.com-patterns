@@ -1,0 +1,28 @@
+<figure>
+  <div class="_demo-c-logo-alignment">
+    {% include '@cloudfour/components/logo/logo.twig' with {
+      src: '/media/logos/walmart.svg',
+      alt: 'Walmart',
+      width: 176,
+      height: 42
+    } only %}
+    {% include '@cloudfour/components/logo/logo.twig' with {
+      src: '/media/logos/obama.svg',
+      alt: 'Obama ’08',
+      width: 171,
+      height: 30,
+      scale: align ? 0.8
+    } only %}
+    {% include '@cloudfour/components/logo/logo.twig' with {
+      src: '/media/logos/pleasantest.svg',
+      alt: 'Pleasantest',
+      width: 180,
+      height: 58,
+      scale: align ? 1.25,
+      align: align ? 'end'
+    } only %}
+  </div>
+  <figcaption>
+    Logos with {% if not align %}no{% endif %} alignment options set.
+  </figcaption>
+</figure>

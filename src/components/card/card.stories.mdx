@@ -49,7 +49,7 @@ const singleDemoStory = (args) => {
 };
 const singleDemoBlockExamples = {
   heading: 'Lorem ipsum dolor sit amet',
-  eyebrow: `<img src="/media/logos/pleasantest.svg" alt="Pleasantest" width="180" height="58">`,
+  eyebrow: `{% include '@cloudfour/components/logo/logo.twig' with { } only %}`,
   cover: `<img src="/media/feature-ozzie-wide.jpg" alt="">`,
   content: `<p>Consectetur adipiscing elit...</p>`,
   footer: `<p>{{'now'|date('M j, Y')}}</p>`,
@@ -151,14 +151,15 @@ An optional `cover` block may be provided containing an image or other visual ob
 
 ## With eyebrow
 
-If a card includes a heading, you may want to include additional elements that precede the heading visually without disrupting the element's outline. For example, a customer's logo in a card that links to a case study. Similar to [the Article Header object](/?path=/docs/objects-article-header--example), the contents of the `eyebrow` block will render below the heading in the DOM, but display above the heading visually.
+If a card includes a heading, you may want to include additional elements that precede the heading visually without disrupting the element's outline. For example, a [Logo component](/docs/components-logo--basic-options) in a card that links to a case study. Similar to [the Article Header object](/?path=/docs/objects-article-header--example), the contents of the `eyebrow` block will render below the heading in the DOM, but display above the heading visually.
 
 <Canvas>
   <Story
     name="Eyebrow"
     args={{
       href: '#',
-      show: ['heading', 'eyebrow', 'content'],
+      horizontal: '@m',
+      show: ['heading', 'eyebrow', 'cover', 'content'],
     }}
   >
     {singleDemoStory.bind({})}

@@ -1,0 +1,20 @@
+{% set _style -%}
+  {%- if align -%}
+    --logo-align: {{align}};
+  {%- endif -%}
+  {%- if justify -%}
+    --logo-justify: {{justify}};
+  {%- endif -%}
+  {%- if scale -%}
+    --logo-scale: {{scale}};
+  {%- endif -%}
+{%- endset %}
+
+<div class="c-logo{% if class %} {{class}}{% endif %}"
+  {%- if _style %} style="{{_style}}"{% endif %}>
+  {% block content %}
+    <img src="{{src}}" alt="{{alt}}"
+      {%- if width %} width="{{width}}"{% endif -%}
+      {%- if height %} height="{{height}}"{% endif -%}>
+  {% endblock %}
+</div>

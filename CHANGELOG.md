@@ -1,5 +1,21 @@
 # @cloudfour/patterns
 
+## 13.4.0
+
+### Minor Changes
+
+- [#2153](https://github.com/cloudfour/cloudfour.com-patterns/pull/2153) [`4e5b12b9`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4e5b12b920128975624f21a08e7b49eaf747917d) Thanks [@tylersticka](https://github.com/tylersticka)! - Add support for Jetpack Form Block
+
+- [#2149](https://github.com/cloudfour/cloudfour.com-patterns/pull/2149) [`833b7e38`](https://github.com/cloudfour/cloudfour.com-patterns/commit/833b7e383b7b7ac85ad7ce7b726e1a799c5fde02) Thanks [@tylersticka](https://github.com/tylersticka)! - Add styles in support of the WordPress embed block
+
+- [#2151](https://github.com/cloudfour/cloudfour.com-patterns/pull/2151) [`6bf8f7b0`](https://github.com/cloudfour/cloudfour.com-patterns/commit/6bf8f7b08560904af18f90096fa2c9e87d6fc800) Thanks [@tylersticka](https://github.com/tylersticka)! - Add styles for the "Media-Text" WordPress block
+
+- [#2152](https://github.com/cloudfour/cloudfour.com-patterns/pull/2152) [`39176b57`](https://github.com/cloudfour/cloudfour.com-patterns/commit/39176b5745198030efd014c27d1c7f53e4118f68) Thanks [@tylersticka](https://github.com/tylersticka)! - Add Logo component for consistent project logo sizing and alignment
+
+### Patch Changes
+
+- [#2152](https://github.com/cloudfour/cloudfour.com-patterns/pull/2152) [`39176b57`](https://github.com/cloudfour/cloudfour.com-patterns/commit/39176b5745198030efd014c27d1c7f53e4118f68) Thanks [@tylersticka](https://github.com/tylersticka)! - Adjust space between Card component heading and eyebrow
+
 ## 13.3.0
 
 ### Minor Changes

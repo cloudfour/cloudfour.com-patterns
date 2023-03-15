@@ -1,5 +1,172 @@
+@use '../../../mixins/border-radius';
+@use '../../../mixins/headings';
+@use '../../../mixins/input';
 @use '../../../mixins/spacing';
+@use '../../../mixins/theme';
+@use '../../../mixins/toggle-input';
+@use '../../../mixins/unit';
+@use '../../../compiled/tokens/scss/color';
+@use '../../../compiled/tokens/scss/size';
+@use '../../../compiled/tokens/scss/font-weight';
 
+/// Apply consistent vertical rhythm to Jetpack blocks.
+.wp-block-jetpack-contact-form,
 .wp-block-jetpack-markdown {
   @include spacing.vertical-rhythm;
+}
+
+/// For some reason the Jetpack contact form adds `16px` of padding as an inline
+/// style with no mechanism for customization. This is a hack to remove it.
+.wp-block-jetpack-contact-form {
+  padding: 0 !important;
+}
+
+/// Apply our existing form component styles to Jetpack form fields.
+.grunion-field {
+  /// Test-based inputs
+  &:not([type='checkbox']):not([type='radio']) {
+    @include input.default;
+  }
+
+  /// Checkboxes
+  &[type='checkbox'] {
+    @include toggle-input.checkbox;
+  }
+}
+
+/// Apply the same spacing to fields and labels as in our Form Group object.
+.grunion-field-wrap,
+.grunion-checkbox-multiple-options,
+.grunion-radio-options {
+  display: grid;
+  gap: #{size.$spacing-gap-form-group-default};
+}
+
+/// Style the "(required)" text that follows required field labels.
+.grunion-field-label > span {
+  color: var(--theme-color-text-muted);
+  margin-inline-start: 1ch;
+}
+
+/// Arrange the label and input for checkboxes and radio buttons side-by-side.
+.grunion-field-label.checkbox,
+.grunion-checkbox-multiple-label,
+.grunion-radio-label {
+  display: grid;
+  gap: 1ch;
+  grid-template-columns: auto 1fr;
+}
+
+/// Style consent messaging fields in a visually distinct way, similar to a card
+/// or contained WordPress block with a background.
+.grunion-field-consent-wrap {
+  @include border-radius.conditional;
+  @include spacing.fluid-margin-inline-negative;
+  @include spacing.fluid-padding-inline;
+  background-color: var(--theme-color-background-secondary);
+  display: block;
+  padding-block: size.$rhythm-default;
+}
+
+/// The submission message markup seems _ancient_. It appears to be using
+/// empty paragraphs to create spacing between elements. Luckily we're able to
+/// style things adequately in spite of this.
+///
+/// 1. Prevent floats from breaking the layout.
+.wp-block-jetpack-contact-form-container .contact-form-submission {
+  contain: layout; // 1
+
+  /// The back link should appear a bit like our tertiary buttons, though we
+  /// don't use those component styles directly to keep the styles manageable.
+  ///
+  /// We include a left arrow icon via a pseudo element.
+  .go-back-message .link {
+    align-items: center;
+    display: inline-flex;
+    font-weight: font-weight.$semibold;
+    gap: 1ch;
+    position: relative;
+    text-decoration: none;
+
+    &::before {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      block-size: 1em;
+      content: '';
+      inline-size: 1em;
+
+      @include theme.styles {
+        background-image: svg-load(
+          'icons/arrow-left.svg',
+          stroke=color.$text-action
+        );
+      }
+
+      @include theme.styles(dark) {
+        background-image: svg-load(
+          'icons/arrow-left.svg',
+          stroke=color.$text-light
+        );
+      }
+    }
+  }
+
+  /// Success message heading. There's no means of customizing its heading level
+  /// so we take our best guess at the appropriate visual hierarchy.
+  ///
+  /// 1. Use existing vertical rhythm to create spacing between the heading and
+  ///    "back" link.
+  /// 2. Add space afterwards. We need to use bottom margin because the field
+  ///    names and values float. We swap the default rhythm for `rem` so it will
+  ///    not be unexpectedly large.
+  h4 {
+    @include headings.level(2);
+    margin-block-start: var(--rhythm, #{size.$rhythm-default}); // 1
+
+    &:not(:last-child) {
+      margin-block-end: unit.swap(size.$rhythm-default, rem); // 2
+    }
+  }
+
+  /// Remove empty paragraphs to streamline traversal of the document using
+  /// accessibility tools.
+  p:empty {
+    display: none;
+  }
+
+  /// Allow shorter name/value combinations to align themselves side-by-side as
+  /// space allows, breaking onto new lines when necessary. We can't use flexbox
+  /// or inline-block because there aren't mechanisms for breaking onto a new
+  /// line, and we can't use grid because the names and values vary in length
+  /// too much to enforce consistent columns.
+  .field-name,
+  .field-value {
+    float: left;
+  }
+
+  /// 1. Break onto a new line with each field name.
+  /// 2. Field names are a slightly heavier weight. This is more necessary here
+  ///    than in the form itself since there aren't any outlines or other
+  ///    affordances to make the values distinct.
+  /// 3. Add a bit of space between names and values.
+  .field-name {
+    clear: left; // 1
+    font-weight: font-weight.$medium; // 2
+    margin-inline-end: 1ch; // 3
+  }
+
+  /// 1. Field values appear slightly muted.
+  /// 2. Because values may break onto new lines, we need to use bottom margin
+  ///    to continue vertical rhythm. We only apply this when the field value is
+  ///    the last of its type: We can't use `:last-child` because it is often
+  ///    followed by an empty paragraph. (This can be simplified once
+  ///    `margin-trim` is widely supported!)
+  .field-value {
+    color: var(--theme-color-text-muted); // 1
+
+    &:not(:last-of-type) {
+      margin-block-end: var(--rhythm, #{size.$rhythm-default}); // 2
+    }
+  }
 }

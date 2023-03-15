@@ -4,6 +4,7 @@
 @use '../../../mixins/spacing';
 @use '../../../mixins/theme';
 @use '../../../mixins/toggle-input';
+@use '../../../mixins/unit';
 @use '../../../compiled/tokens/scss/color';
 @use '../../../compiled/tokens/scss/size';
 @use '../../../compiled/tokens/scss/font-weight';
@@ -67,10 +68,14 @@
   padding-block: size.$rhythm-default;
 }
 
-/// The submission message markup seems _ancient_. It apppears to be using
+/// The submission message markup seems _ancient_. It appears to be using
 /// empty paragraphs to create spacing between elements. Luckily we're able to
 /// style things adequately in spite of this.
+///
+/// 1. Prevent floats from breaking the layout.
 .wp-block-jetpack-contact-form-container .contact-form-submission {
+  contain: layout; // 1
+
   /// The back link should appear a bit like our tertiary buttons, though we
   /// don't use those component styles directly to keep the styles manageable.
   ///
@@ -109,31 +114,59 @@
 
   /// Success message heading. There's no means of customizing its heading level
   /// so we take our best guess at the appropriate visual hierarchy.
+  ///
+  /// 1. Use existing vertical rhythm to create spacing between the heading and
+  ///    "back" link.
+  /// 2. Add space afterwards. We need to use bottom margin because the field
+  ///    names and values float. We swap the default rhythm for `rem` so it will
+  ///    not be unexpectedly large.
   h4 {
     @include headings.level(2);
+    margin-block-start: var(--rhythm, #{size.$rhythm-default}); // 1
+
+    &:not(:last-child) {
+      margin-block-end: unit.swap(size.$rhythm-default, rem); // 2
+    }
   }
 
-  /// Use the heading and field name elements to continue the vertical rhythm.
-  h4,
-  .field-name {
-    margin-block-start: var(--rhythm, #{size.$rhythm-default});
+  /// Remove empty paragraphs to streamline traversal of the document using
+  /// accessibility tools.
+  p:empty {
+    display: none;
   }
 
   /// Allow shorter name/value combinations to align themselves side-by-side as
-  /// space allows, breaking onto new lines when necessary. Old-school!
+  /// space allows, breaking onto new lines when necessary. We can't use flexbox
+  /// or inline-block because there aren't mechanisms for breaking onto a new
+  /// line, and we can't use grid because the names and values vary in length
+  /// too much to enforce consistent columns.
   .field-name,
   .field-value {
-    display: inline-block;
+    float: left;
   }
 
-  /// Differentiate the field names from the values using weight and color. This
-  /// is more necessary here than in the form itself since there aren't any
-  /// outlines or other affordances to make the values distinct.
+  /// 1. Break onto a new line with each field name.
+  /// 2. Field names are a slightly heavier weight. This is more necessary here
+  ///    than in the form itself since there aren't any outlines or other
+  ///    affordances to make the values distinct.
+  /// 3. Add a bit of space between names and values.
   .field-name {
-    font-weight: font-weight.$medium;
+    clear: left; // 1
+    font-weight: font-weight.$medium; // 2
+    margin-inline-end: 1ch; // 3
   }
 
+  /// 1. Field values appear slightly muted.
+  /// 2. Because values may break onto new lines, we need to use bottom margin
+  ///    to continue vertical rhythm. We only apply this when the field value is
+  ///    the last of its type: We can't use `:last-child` because it is often
+  ///    followed by an empty paragraph. (This can be simplified once
+  ///    `margin-trim` is widely supported!)
   .field-value {
-    color: var(--theme-color-text-muted);
+    color: var(--theme-color-text-muted); // 1
+
+    &:not(:last-of-type) {
+      margin-block-end: var(--rhythm, #{size.$rhythm-default}); // 2
+    }
   }
 }

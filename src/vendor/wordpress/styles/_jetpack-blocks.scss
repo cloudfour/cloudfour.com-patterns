@@ -154,19 +154,37 @@
     clear: left; // 1
     font-weight: font-weight.$medium; // 2
     margin-inline-end: 1ch; // 3
+
+    /// If there is no field value, don't bother displaying the field name.
+    &:has(+ .field-value:empty) {
+      display: none;
+    }
   }
 
-  /// 1. Field values appear slightly muted.
-  /// 2. Because values may break onto new lines, we need to use bottom margin
-  ///    to continue vertical rhythm. We only apply this when the field value is
-  ///    the last of its type: We can't use `:last-child` because it is often
-  ///    followed by an empty paragraph. (This can be simplified once
-  ///    `margin-trim` is widely supported!)
-  .field-value {
-    color: var(--theme-color-text-muted); // 1
+  /// Field values appear slightly muted.
 
+  .field-value {
+    color: var(--theme-color-text-muted);
+
+    /// Empty field values need to clear floats to maintain margin.
+    &:empty {
+      clear: left;
+      float: none;
+
+      /// If the browser supports `:has()`, we can hide the field value entirely
+      /// since the field name will be hidden as well.
+      @supports selector(:has(+ :empty)) {
+        display: none;
+      }
+    }
+
+    /// Because values may break onto new lines, we need to use bottom margin
+    /// to continue vertical rhythm. We only apply this when the field value is
+    /// the last of its type: We can't use `:last-child` because it is often
+    /// followed by an empty paragraph. (This can be simplified once
+    /// `margin-trim` is widely supported!)
     &:not(:last-of-type) {
-      margin-block-end: var(--rhythm, #{size.$rhythm-default}); // 2
+      margin-block-end: var(--rhythm, #{size.$rhythm-default});
     }
   }
 }

@@ -86,15 +86,12 @@
 
 /// Types that disclose additional options should have an icon
 ///
-/// 1. Setting the background size to `100%` avoids a strange background shift
-///    bug on hover in Chrome but has no visible effect in other browsers as
-///    long as the image is an SVG that does not preserve its aspect ratio.
-/// 2. Firefox misaligns inner options when padding is applied, but all modern
+/// 1. Firefox misaligns inner options when padding is applied, but all modern
 ///    browsers seem to align selects predictably even when there is no
 ///    vertical padding. We still keep a small amount of padding because
 ///    Firefox's inner dotted outline looks gross when it runs into the outer
 ///    border, and existing hacks around this visibly degrade text rendering.
-/// 3. Prevents option text from overlapping icon.
+/// 2. Prevents option text from overlapping icon.
 @mixin icon-affordance(
   $icon-url: svg-load('icons/caret-down.svg', fill=color.$text-dark)
 ) {
@@ -104,9 +101,10 @@
 
   background-position: right size.$spacing-control-icon-inset center;
   background-repeat: no-repeat;
-  background-size: size.$square-control-icon 100%; // 1
-  padding-block: math.div(size.$padding-control-vertical, 2); // 2
-  padding-inline-end: size.$spacing-control-icon-inset size.$square-control-icon; // 3
+  background-size: size.$square-control-icon;
+  padding-block: math.div(size.$padding-control-vertical, 2); // 1
+  padding-inline-end: size.$spacing-control-icon-inset +
+    size.$square-control-icon; // 2
 }
 
 /// Various input and interaction states

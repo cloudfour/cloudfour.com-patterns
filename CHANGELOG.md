@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 13.4.1
+
+### Patch Changes
+
+- [#2154](https://github.com/cloudfour/cloudfour.com-patterns/pull/2154) [`27960db5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/27960db59c9712c17352cf9fb79d2cdf70e95f86) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix display of empty field values in Jetpack form success messaging
+
+- [#2154](https://github.com/cloudfour/cloudfour.com-patterns/pull/2154) [`27960db5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/27960db59c9712c17352cf9fb79d2cdf70e95f86) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix stretched `select` caret icon bug in Firefox by removing old Chrome hack that no longer seems necessary
+
+- [#2154](https://github.com/cloudfour/cloudfour.com-patterns/pull/2154) [`27960db5`](https://github.com/cloudfour/cloudfour.com-patterns/commit/27960db59c9712c17352cf9fb79d2cdf70e95f86) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix right padding in `select.c-input` elements (was missing a math operator)
+
 ## 13.4.0
 
 ### Minor Changes

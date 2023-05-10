@@ -1,0 +1,116 @@
+@use '../../../compiled/tokens/scss/breakpoint';
+@use '../../../compiled/tokens/scss/color';
+@use '../../../compiled/tokens/scss/font-weight';
+@use '../../../compiled/tokens/scss/line-height';
+@use '../../../compiled/tokens/scss/size';
+@use '../../../mixins/ms';
+@use '../../../mixins/spacing';
+
+#_landing-ecom-r1 {
+  ._ecom-section {
+    clear: both;
+    position: relative;
+  }
+
+  ._ecom-section__visual {
+    aspect-ratio: 2 / 1;
+    background: color.$base-gray-dark;
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    @media (width < breakpoint.$m) {
+      margin-block-start: ms.step(1);
+      @include spacing.fluid-margin-inline-negative;
+    }
+
+    @media (width >= breakpoint.$m) {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      // float: right;
+      margin: auto;
+      position: absolute;
+      inset-block: 0;
+      inset-inline-end: 0;
+      transform: scale(1.25);
+      transform-origin: left;
+      width: calc(100% / 3);
+      z-index: 3;
+    }
+
+    @media (width >= breakpoint.$l) {
+      transform: scale(1);
+    }
+
+    &::before,
+    &::after {
+      background: color.$base-gray;
+      content: '';
+      height: 1px;
+      inset: 0;
+      margin: auto;
+      position: absolute;
+      width: 100%;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .t-alternate ._ecom-section__visual {
+    @media (width >= breakpoint.$m) {
+      inset-inline-start: 0;
+      inset-inline-end: auto;
+      transform-origin: right;
+    }
+  }
+
+  ._ecom-section__heading,
+  ._ecom-section__content {
+    @media (width >= breakpoint.$m) {
+      margin-inline-end: calc((100% / 3) + spacing.$fluid-gap);
+    }
+  }
+
+  .t-alternate ._ecom-section__heading,
+  .t-alternate ._ecom-section__content {
+    @media (width >= breakpoint.$m) {
+      margin-inline-start: calc((100% / 3) + spacing.$fluid-gap);
+      margin-inline-end: 0;
+    }
+  }
+
+  ._ecom-section__heading {
+    max-inline-size: size.$max-width-prose;
+  }
+
+  ._ecom-section__content {
+    margin-block-start: ms.step(1);
+    max-inline-size: size.$max-width-prose;
+  }
+
+  ._o-media--link {
+    color: var(--theme-color-text-action);
+    display: inline-grid;
+    grid-template-columns: minmax(0, auto) 1fr minmax(0, auto);
+    max-width: 45ch;
+    line-height: line-height.$tight;
+
+    a {
+      font-weight: font-weight.$medium;
+    }
+
+    a:not(:focus, :hover) {
+      text-decoration: none;
+    }
+  }
+
+  ._u-small {
+    font-size: max(ms.step(-1), 16px);
+  }
+}

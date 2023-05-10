@@ -1,0 +1,175 @@
+<div id="_landing-ecom-r1">
+
+  {% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
+    {% block heading %}
+      {% embed '@cloudfour/components/heading/heading.twig' with {
+        level: -2,
+      } only %}
+        {% block content %}
+          Shopping should be fast and easy
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+    {% block content %}
+      <p>
+        How Cloud Four’s design and development approach creates exceptional ecommerce experiences.
+      </p>
+    {% endblock %}
+  {% endembed %}
+
+  {# <div class="_customer-splash">
+    <div class="_customer-splash__visual">
+      <img src="https://cloudfour.com/wp-content/uploads/2021/10/priority-c-01-opt.svg" alt="" width="800" height="450">
+    </div>
+    <div class="_customer-splash__content">
+      <div class="o-rhythm o-rhythm--condensed">
+        <h2 class="c-heading c-heading--level-0">Customer-centered design</h2>
+        <p>
+          Ecommerce is not one size fits all: The journey to buying a bunch of bananas is different than the journey to buying a new pair of shoes.
+          Our decisions adhere to a <a href="#">priority of constituencies</a> from discovery through execution so that customer’s needs, expectations and desires are considered in every interaction.
+        </p>
+      </div>
+    </div>
+  </div> #}
+
+  <div class="o-container o-container--pad">
+    <div class="o-container__content">
+      <div class="_ecom-section">
+        <div class="_ecom-section__heading">
+          <h2 class="c-heading c-heading--level-0">Customer-centered design</h2>
+        </div>
+        <div class="_ecom-section__visual"></div>
+        <div class="_ecom-section__content o-rhythm">
+          <p>
+            Ecommerce is not one size fits all: The journey to buying a bunch of bananas is different than buying a new pair of shoes.
+            Our decisions adhere to a <a href="#">priority of constituencies</a> from discovery through execution so that customer’s needs, expectations and desires are considered in every interaction.
+            And our <a href="#">consistently collaborative</a> in-browser design process reduces the distance between our aspirations and the end user’s reality.
+          </p>
+          <div class="o-media _o-media--link">
+            <div class="o-media__object">
+              {% include '@cloudfour/components/avatar/avatar.twig' with {
+                "src": "/media/landing/wm-grocery-icon.png",
+              } only %}
+              {# <img class="u-rounded" src="/media/landing/wm-grocery-icon.png" alt="" width="44" height="44"> #}
+            </div>
+            <div class="o-media__content">
+              <a class="_u-small" href="#">
+                Walmart chose Cloud Four to make their checkout and grocery delivery responsive
+              </a>
+            </div>
+            <div class="_o-media__icon">
+              {% include '@cloudfour/components/icon/icon.twig' with {
+                name: 'arrow-right',
+                inline: true
+              } %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t-alternate o-container o-container--pad">
+    <div class="o-container__content">
+      <div class="_ecom-section">
+        <div class="_ecom-section__heading">
+          <h2 class="c-heading c-heading--level-0">Mobile (and beyond)</h2>
+        </div>
+        <div class="_ecom-section__visual"></div>
+        <div class="_ecom-section__content o-rhythm">
+          <p>
+            We helped popularize <a href="#">mobile-first responsive design</a> and wrote the book on <a href="#">Progressive Web&nbsp;Apps</a>.
+            Effective content prioritization, touch-friendly interfaces and design breakpoints are just the beginning:
+            Your audience deserves a fantastic shopping experience that blurs the line between “web site” and “app,” whether they're using a mouse, keyboard, touchscreen or <span style="display: inline-block">assistive device</span>.
+          </p>
+          <div>(<b>todo:</b> book link or other case study)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="o-container o-container--pad">
+    <div class="o-container__content">
+      <div class="_ecom-section">
+        <div class="_ecom-section__heading">
+          <h2 class="c-heading c-heading--level-0">Forms, evolved</h2>
+        </div>
+        <div class="_ecom-section__visual"></div>
+        <div class="_ecom-section__content o-rhythm">
+          <p>
+            We’ve all struggled with broken or finicky forms disrupting our purchase process, but it doesn't have to be this way.
+            We have years of experience crafting smooth and reliable payment and shipping forms for some of the world’s largest online retailers.
+            Our continuous exploration of the latest web standards for autofill, autocomplete and validation (to name a few) empowers us to design forms that aren’t just modern… <a style="display: inline-block;" href="#">they’re magic!</a>
+          </p>
+          <div>(<b>todo:</b> link to jason's forms talk)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t-alternate o-container o-container--pad">
+    <div class="o-container__content">
+      <div class="_ecom-section">
+        <div class="_ecom-section__heading">
+          <h2 class="c-heading c-heading--level-0">Performance optimization</h2>
+        </div>
+        <div class="_ecom-section__visual"></div>
+        <div class="_ecom-section__content o-rhythm">
+          <p>
+            It’s a fact: Slow-loading pages lead to reduced search engine rankings, higher bounce rates, lost sales and frustrated customers.
+            We optimize site speed by minimizing page weight, reducing requests, leveraging caching techniques, and avoiding or adapting tools and techniques to identify and overcome performance pitfalls.
+            We’ve even built <a href="#">tools that help test site&shy;wide performance</a>.
+          </p>
+          <div>(<b>todo:</b> link to relevant article)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="o-container o-container--pad">
+    <div class="o-container__content">
+      <div class="_ecom-section">
+        <div class="_ecom-section__heading">
+          <h2 class="c-heading c-heading--level-0">Platform integration</h2>
+        </div>
+        <div class="_ecom-section__visual"></div>
+        <div class="_ecom-section__content o-rhythm">
+          <p>
+            We craft amazing experiences using Shopify, WordPress/WooCommerce, and a long list of hybrid and home-grown solutions.
+            Our deep knowledge of the web and well of experience allow our team to adapt to your organization's unique mix of platform, payment processing, <abbr title="customer relationship management">CRM</abbr> and analytics requirements.
+          </p>
+          <div>(<b>todo:</b> customer quote or partner platform logos)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t-alternate o-container o-container--pad">
+    <div class="o-container__content">
+      <div class="_ecom-section">
+        <div class="_ecom-section__heading">
+          <h2 class="c-heading c-heading--level-0">Accessible to everyone</h2>
+        </div>
+        <div class="_ecom-section__visual"></div>
+        <div class="_ecom-section__content o-rhythm">
+          <p>
+            Our team cares deeply about accessibility, and so do your customers. The design and technical considerations that make experiences accessible to people with disabilities are of benefit to your entire audience, leading to increased revenue and customer loyalty.
+            We regularly audit our work against the Web Content Accessibility Guidelines (WCAG) and have experience working with <abbr title="Americans with Disabilities Act">ADA</abbr> compliance requirements.
+          </p>
+          <div>(<b>todo:</b> link to relevant article or pleasantest)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="o-container o-container--pad">
+    <div class="o-container__content o-rhythm">
+      <h2 class="c-heading c-heading--light c-heading--level-0">
+        Have a project?
+        <b style="display: inline-block;">Let’s talk!</b>
+      </h2>
+      <p>(<b>todo:</b> contact form, maybe quotes or case studies in sidebar?)</p>
+    </div>
+  </div>
+
+</div>

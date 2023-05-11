@@ -243,27 +243,37 @@
         <div class="_form-and-quote__quote">
           <blockquote>
             <p>
-              Cloud Four redefined my expectations for what an ecommerce design and development juggernaut could even possible be conceived of concordantly vis a vis indubitably true that fam.
+              Cloud Four is hands down the best agency I have ever worked with on any web project ever in my 25+ web career.
             </p>
             <footer>
-              <cite>Jane Basketweaver, CEO, <a style="display: inline-block;" href="#">Basketweaver Basketry</a></cite>
+              <cite>Daniel Divens, Cloudinary</cite>
             </footer>
           </blockquote>
         </div>
         <div class="_form-and-quote__form o-rhythm">
-          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Label TBD' } only %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Name' } only %}
             {% block control %}
-              {% include '@cloudfour/components/input/input.twig' with { type: 'text' } only %}
+              {% include '@cloudfour/components/input/input.twig' with { type: 'text', required: true } only %}
             {% endblock %}
           {% endembed %}
-          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Label TBD' } only %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Email' } only %}
             {% block control %}
-              {% include '@cloudfour/components/input/input.twig' with { type: 'text' } only %}
+              {% include '@cloudfour/components/input/input.twig' with { type: 'email', required: true } only %}
             {% endblock %}
           {% endembed %}
-          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Label TBD' } only %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Phone' } only %}
             {% block control %}
-              {% include '@cloudfour/components/input/input.twig' with { type: 'textarea' } only %}
+              {% include '@cloudfour/components/input/input.twig' with { type: 'tel' } only %}
+            {% endblock %}
+          {% endembed %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Website' } only %}
+            {% block control %}
+              {% include '@cloudfour/components/input/input.twig' with { type: 'url' } only %}
+            {% endblock %}
+          {% endembed %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'How can we help you?' } only %}
+            {% block control %}
+              {% include '@cloudfour/components/input/input.twig' with { type: 'textarea', required: true } only %}
             {% endblock %}
           {% endembed %}
           {% include '@cloudfour/components/button/button.twig' with {

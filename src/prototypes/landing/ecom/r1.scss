@@ -7,6 +7,14 @@
 @use '../../../mixins/spacing';
 
 #_landing-ecom-r1 {
+  .c-avatar > img {
+    object-fit: cover;
+  }
+
+  ._c-avatar--icon {
+    border-radius: size.$border-radius-medium;
+  }
+
   ._ecom-section {
     clear: both;
     position: relative;
@@ -39,7 +47,7 @@
     }
 
     @media (width >= breakpoint.$l) {
-      transform: scale(1);
+      transform: scale(1.05);
     }
 
     &::before,
@@ -112,5 +120,29 @@
 
   ._u-small {
     font-size: max(ms.step(-1), 16px);
+  }
+
+  ._form-and-quote {
+    display: grid;
+    gap: ms.step(1);
+
+    @media (width >= breakpoint.$l) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: spacing.$fluid-gap;
+    }
+  }
+
+  ._form-and-quote__form {
+    @media (width >= breakpoint.$l) {
+      grid-column: 1 / span 2;
+      grid-row: 1;
+    }
+  }
+
+  ._form-and-quote__quote {
+    @media (width >= breakpoint.$l) {
+      grid-column: 3 / span 1;
+      grid-row: 1;
+    }
   }
 }

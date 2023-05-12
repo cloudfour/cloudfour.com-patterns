@@ -251,34 +251,77 @@
             </footer>
           </blockquote>
         </div>
-        <div class="_form-and-quote__form o-rhythm">
-          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Name' } only %}
+        <div class="_form-and-quote__form _the_form">
+          {% embed '@cloudfour/objects/form-group/form-group.twig' only %}
+            {% block label %}
+              <div class="_badged-label">
+                Name
+                {% include '@cloudfour/components/badge/badge.twig' with {
+                  "label": "Required"
+                } only %}
+              </div>
+            {% endblock %}
             {% block control %}
-              {% include '@cloudfour/components/input/input.twig' with { type: 'text', required: true } only %}
+              {% include '@cloudfour/components/input/input.twig' with {
+                type: 'text',
+                required: true
+              } only %}
             {% endblock %}
           {% endembed %}
-          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Email' } only %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' only %}
+            {% block label %}
+              <div class="_badged-label">
+                Email
+                {% include '@cloudfour/components/badge/badge.twig' with {
+                  "label": "Required"
+                } only %}
+              </div>
+            {% endblock %}
             {% block control %}
-              {% include '@cloudfour/components/input/input.twig' with { type: 'email', required: true } only %}
+              {% include '@cloudfour/components/input/input.twig' with {
+                type: 'email',
+                required: true
+              } only %}
             {% endblock %}
           {% endembed %}
-          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Phone' } only %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' with {
+            label: 'Phone',
+          } only %}
             {% block control %}
-              {% include '@cloudfour/components/input/input.twig' with { type: 'tel' } only %}
+              {% include '@cloudfour/components/input/input.twig' with {
+                type: 'tel',
+              } only %}
             {% endblock %}
           {% endembed %}
-          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Website' } only %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' with {
+            label: 'Website',
+          } only %}
             {% block control %}
-              {% include '@cloudfour/components/input/input.twig' with { type: 'url' } only %}
+              {% include '@cloudfour/components/input/input.twig' with {
+                type: 'url',
+              } only %}
             {% endblock %}
           {% endembed %}
-          {% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'How can we help you?' } only %}
+          {% embed '@cloudfour/objects/form-group/form-group.twig' only %}
+            {% block label %}
+              <div class="_badged-label">
+                How can we help?
+                {% include '@cloudfour/components/badge/badge.twig' with {
+                  "label": "Required"
+                } only %}
+              </div>
+            {% endblock %}
             {% block control %}
-              {% include '@cloudfour/components/input/input.twig' with { type: 'textarea', required: true } only %}
+              {% include '@cloudfour/components/input/input.twig' with {
+                class: 'js-elastic-textarea',
+                type: 'textarea',
+                rows: 3,
+                required: true
+              } only %}
             {% endblock %}
           {% endembed %}
           {% include '@cloudfour/components/button/button.twig' with {
-            "label": "Send",
+            "label": "Send message",
           } only %}
         </div>
       </div>

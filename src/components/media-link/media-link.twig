@@ -1,0 +1,72 @@
+{#
+This component builds on the Media object, so we set some properties ahead of
+time to extend that functionality.
+#}
+
+{% set _icon = icon ?? 'arrow-right' %}
+
+{%- set _class -%}
+  c-media-link
+  {{class}}
+{%- endset -%}
+
+{%- set _content_class -%}
+  c-media-link__content
+  {{content_class}}
+{%- endset -%}
+
+{%- set _icon_class -%}
+  c-media-link__icon
+  {{icon_class}}
+{%- endset -%}
+
+{#
+For ease of use, we also want to reuse the same block names. So we set those
+ahead of time so we can pass it to the Media template.
+#}
+
+{%- set _object -%}
+  {%- block object -%}
+    {%- if avatar -%}
+      {%- include '@cloudfour/components/avatar/avatar.twig' with {
+        src: avatar,
+        alt: avatar_alt,
+        width: avatar_width,
+        height: avatar_height,
+        srcset: avatar_srcset,
+        sizes: avatar_sizes,
+        size: avatar_size,
+        shape: avatar_shape,
+      } only -%}
+    {%- endif -%}
+  {%- endblock -%}
+{%- endset -%}
+
+{%- set _content -%}
+  {% block content %}{{label}}{% endblock %}
+{%- endset -%}
+
+{#
+We embed the Media object and pass in the properties we've set above. Notice
+that we aren't using the `only` keyword on the top embed, which means we can
+support all the same properties as that template.
+#}
+
+{% embed '@cloudfour/objects/media/media.twig' with {
+  class: _class,
+  content_class: _content_class,
+} %}
+  {% block object %}{{_object}}{% endblock %}
+  {% block content %}
+    <a class="c-media-link__action {{action_class}}"
+      href="{{href|default('#')}}">
+      {{_content}}
+    </a>
+    {% if _icon %}
+      {% include '@cloudfour/components/icon/icon.twig' with {
+        class: _icon_class,
+        name: _icon
+      } only %}
+    {% endif %}
+  {% endblock %}
+{% endembed %}

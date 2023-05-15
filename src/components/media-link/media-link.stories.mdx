@@ -1,0 +1,17 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import template from './media-link.twig';
+
+<Meta title="Components/Media Link"/>
+
+# Media Link
+
+<Canvas>
+  <Story name="Basic" args={{
+    href: 'https://cloudfour.com/thinks/performance-is-an-issue-of-equity/',
+    label: 'Cloud Four partner Megan Notarte explains why performance is an issue of equity',
+    avatar: '/media/megan.png',
+    icon: 'arrow-right',
+  }}>{
+    (args) => template(args)
+  }</Story>
+</Canvas>

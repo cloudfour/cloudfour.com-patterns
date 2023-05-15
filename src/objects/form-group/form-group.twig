@@ -1,6 +1,8 @@
 <label class="o-form-group{% if class %} {{ class }}{% endif %}">
-  {% block label %}
-    <div>{{ label | default('Label') }}</div>
-  {% endblock %}
+  <div class="o-form-group__label">
+    {% block label %}
+      {{ label | default('Label') }}
+    {% endblock %}
+  </div>
   {% block control %}{% endblock %}
 </label>

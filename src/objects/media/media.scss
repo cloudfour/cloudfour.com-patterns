@@ -12,7 +12,7 @@
   align-items: center; /* 1 */
   display: grid;
   grid-gap: size.$spacing-media-gap;
-  grid-template-columns: minmax(0, auto) 1fr;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
 }
 
 /**

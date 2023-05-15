@@ -20,6 +20,7 @@ const badgeStory = (args) => {
         type: 'select',
       },
     },
+    parenthetical: { type: { name: 'boolean' } },
   }}
 />
 
@@ -63,11 +64,12 @@ Avoid using badges for critical links: Their appearance is too subtle to rely on
 - `class` (string)
 - `href` (string, optional): A URL for the badge to link to.
 - `icon` (string, optional): The name of one of [our icons](/docs/design-icons--page) to display.
-- `message` (string, default `'Label'`)
+- `label` (string, default `'Label'`)
 - `rel` (string, optional): Specify the relationship of the linked URL.
+- `parenthetical` (boolean, optional): If `true`, the badge `label` will be wrapped by visually hidden parentheses.
 - `tag_name` (string, default `'span'` or `'a'` depending on presence of `href`)
 
 ## Template Blocks
 
-- `content`: The main label content, typically the value of `message`.
+- `content`: The main label content, typically the value of `label`.
 - `extra`: A visual extra preceding the content, typically populated by an icon if `icon` is set.

@@ -22,8 +22,14 @@
     </span>
   {% endif %}
   <span class="c-badge__content">
-    {% block content %}
+    {%- if parenthetical -%}
+      <span class="u-hidden-visually">(</span>
+    {%- endif -%}
+    {%- block content -%}
       {{label|default('Label')}}
-    {% endblock %}
+    {%- endblock -%}
+    {%- if parenthetical -%}
+      <span class="u-hidden-visually">)</span>
+    {%- endif -%}
   </span>
 </{{_tag_name}}>

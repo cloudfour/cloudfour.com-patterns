@@ -1,0 +1,16 @@
+{% embed '@cloudfour/objects/form-group/form-group.twig' only %}
+  {% block label %}
+    Email
+    {% include '@cloudfour/components/badge/badge.twig' with {
+      label: 'Required',
+      icon: 'asterisk',
+      parenthetical: true,
+    } only %}
+  {% endblock %}
+  {% block control %}
+    {% include '@cloudfour/components/input/input.twig' with {
+      type: 'email',
+      required: true,
+    } only %}
+  {% endblock %}
+{% endembed %}

@@ -1,5 +1,18 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import demo from './demo/input.twig';
+import basicDemo from './demo/input.twig';
+import badgeDemo from './demo/badge.twig';
+// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
+// See: https://github.com/webpack-contrib/raw-loader#examples
+// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we
+// are okay with the following Webpack-specific raw loader syntax. It's better
+// to leave the ESLint rule enabled globally, and only thoughtfully disable as
+// needed (e.g. within a Storybook docs page and not within an actual
+// component). This can be revisited in the future if Storybook no longer relies
+// on Webpack.
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import basicDemoSource from '!!raw-loader!./demo/input.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import badgeDemoSource from '!!raw-loader!./demo/badge.twig';
 
 <Meta title="Objects/Form Group" />
 
@@ -7,29 +20,31 @@ import demo from './demo/input.twig';
 
 The Form Group layout object groups a label and its corresponding control.
 
-## Default
+<Canvas>
+  <Story
+    name="Basic"
+    parameters={{ docs: { source: { code: basicDemoSource } } }}
+  >
+    {() => basicDemo()}
+  </Story>
+</Canvas>
+
+## With more label content
+
+The `label` content may be set as a template property or a content block. In this example, we use the block to append [a Badge component](/?path=/docs/components-badge--basic) noting that this is a required field.
 
 <Canvas>
   <Story
-    name="Default"
-    parameters={{
-      docs: {
-        source: {
-          code: `{% embed '@cloudfour/objects/form-group/form-group.twig' with { label: 'Email' } only %}
-  {% block control %}
-    {% include '@cloudfour/components/input/input.twig' with { type: 'email' } only %}
-  {% endblock %}
-{% endembed %}`,
-        },
-      },
-    }}
+    name="With badge"
+    parameters={{ docs: { source: { code: badgeDemoSource } } }}
   >
-    {() => demo()}
+    {() => badgeDemo()}
   </Story>
 </Canvas>
 
 ## Template Properties
 
 - `class`: Append a class to the root element.
-- `label`: Label text (can be either a block or a variable)
+- `label`: Label text.
+- `label` (block): Label content.
 - `control` (block): Block to add controls/inputs.

@@ -11,9 +11,9 @@
 /// 2. This allows the link to position a pseudo element relative to this
 ///    container for the largest possible click area.
 .c-media-link {
-  max-width: 100%; // 1
+  inline-size: max-content; // 1
+  max-inline-size: 100%; // 1
   position: relative; // 2
-  width: max-content; // 1
 }
 
 /// The content container arranges the link and (optional) icon. We use flex
@@ -38,7 +38,7 @@
   /// Normally hiding text decoration is a bad idea, but in this case the
   /// component has color, weight, iconographic and image affordances, so it
   /// feels safe in this case.
-  &:not(:hover, :focus) {
+  &:not(:hover):not(:focus) {
     text-decoration: none;
   }
 

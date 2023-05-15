@@ -10,8 +10,7 @@ export const mediaArgTypes = {
   },
   inner_tag_name: {
     type: { name: 'string' },
-    description:
-      'The tag for both the media content and media object elements',
+    description: 'The tag for both the media content and media object elements',
     table: {
       defaultValue: {
         summary: 'div',

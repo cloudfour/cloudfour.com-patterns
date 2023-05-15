@@ -52,3 +52,30 @@
 .c-avatar--full {
   inline-size: size.$square-avatar-full;
 }
+
+/**
+ * Shape modifiers
+ */
+
+// Round the corners of the square and squircle shapes by default
+.c-avatar--square,
+.c-avatar--squircle {
+  border-radius: size.$border-radius-medium;
+}
+
+// Relatively lean squircle/superellipse, drawn with the help of this tool:
+// https://svercle.netlify.app/
+$_squircle: svg-load('masks/squircle.svg');
+
+// Where masks are supported, use a true squircle/superellipse shape
+.c-avatar--squircle {
+  @supports (-webkit-mask: url('example.svg')) or (mask: url('example.svg')) {
+    border-radius: 0;
+
+    // Chromium still has issues with the non-prefixed mask property when using
+    // inline SVG, but it works fine with the prefixed version.
+    // stylelint-disable-next-line
+    -webkit-mask: $_squircle;
+    mask: $_squircle;
+  }
+}

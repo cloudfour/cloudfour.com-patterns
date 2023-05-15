@@ -1,13 +1,29 @@
 @use '../../compiled/tokens/scss/color';
+@use '../../mixins/fluid';
+@use '../../mixins/font-size';
+
+/// Layout
+
+.u-text-center {
+  text-align: center !important;
+}
 
 .u-text-no-wrap {
   white-space: nowrap !important;
 }
 
+/// Color
+
 .u-text-action {
   color: var(--theme-color-text-action) !important;
 }
 
-.u-text-center {
-  text-align: center !important;
+/// Size
+
+.u-text-big {
+  @include font-size.big;
+}
+
+.u-text-small {
+  @include font-size.small;
 }

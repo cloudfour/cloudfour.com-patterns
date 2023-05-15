@@ -1,10 +1,10 @@
 @use 'sass:math';
 @use 'sass:meta';
-@use '../../../compiled/tokens/scss/breakpoint';
 @use '../../../compiled/tokens/scss/color-base';
 @use '../../../compiled/tokens/scss/size';
 @use '../../../mixins/border-radius';
 @use '../../../mixins/fluid';
+@use '../../../mixins/font-size';
 @use '../../../mixins/headings';
 @use '../../../mixins/ms';
 @use '../../../mixins/spacing';
@@ -77,20 +77,12 @@ $color-map: meta.module-variables('color-base');
 /// Utilities for Block Font Sizes
 /// @link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-font-sizes
 
-/// Since this is often used for paragraph content that can be overwhelming if
-/// it is always substantially larger than surrounding content, we responsively
-/// apply the font size (similar to Cloud Cover content).
 .has-big-font-size {
-  font-size: fluid.fluid-clamp(
-    1em,
-    size.$font-big,
-    breakpoint.$xs,
-    breakpoint.$l
-  );
+  @include font-size.big;
 }
 
 .has-small-font-size {
-  font-size: size.$font-small;
+  @include font-size.small;
 }
 
 @for $level from -2 through 3 {

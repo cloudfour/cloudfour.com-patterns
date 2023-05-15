@@ -1,9 +1,15 @@
 @use '../../compiled/tokens/scss/size';
 
-/**
- * Form Group layout object
- */
+/// Form Group layout object
 .o-form-group {
   display: grid;
   gap: #{size.$spacing-gap-form-group-default};
+}
+
+/// Nicely align label content, such as label text and adjacent badges or icons.
+.o-form-group__label {
+  align-items: center;
+  column-gap: 1ch;
+  display: flex;
+  flex-wrap: wrap;
 }

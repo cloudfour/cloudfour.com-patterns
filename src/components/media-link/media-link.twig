@@ -3,8 +3,6 @@ This component builds on the Media object, so we set some properties ahead of
 time to extend that functionality.
 #}
 
-{% set _icon = icon ?? 'arrow-right' %}
-
 {%- set _class -%}
   c-media-link
   {{class}}
@@ -62,10 +60,10 @@ support all the same properties as that template.
       href="{{href|default('#')}}">
       {{_content}}
     </a>
-    {% if _icon %}
+    {% if icon %}
       {% include '@cloudfour/components/icon/icon.twig' with {
         class: _icon_class,
-        name: _icon
+        name: icon
       } only %}
     {% endif %}
   {% endblock %}

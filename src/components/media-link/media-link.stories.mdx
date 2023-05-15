@@ -1,17 +1,75 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { mediaArgTypes } from '../../objects/media/demo/arg-types.js';
+import { avatarArgTypes } from '../avatar/demo/arg-types.js';
 import template from './media-link.twig';
+const mediaLinkArgTypes = {
+  ...mediaArgTypes,
+  label: {
+    type: { name: 'string' },
+    description: 'The text content for the Media Link.',
+  },
+  href: {
+    type: { name: 'string' },
+    description: 'The destination URL for the Media Link.',
+    table: {
+      defaultValue: {
+        summary: '#',
+      },
+    },
+  },
+  icon: {
+    type: { name: 'string' },
+    description: 'A key corresponding to one of our compact icons.',
+  },
+  icon_class: {
+    type: { name: 'string' },
+    description: 'Optional class name(s) to append to the icon. Useful for adjusting size or color.',
+  },
+  action_class: {
+    type: { name: 'string' },
+    description: 'Optional class name(s) to append to the action element (the link itself). Useful for applying typographic adjustments.',
+  },
+  avatar: {
+    ...avatarArgTypes.src,
+    description: 'The `src` path for an Avatar component to use as the media object.',
+  },
+  avatar_alt: avatarArgTypes.alt,
+  avatar_width: avatarArgTypes.width,
+  avatar_height: avatarArgTypes.height,
+  avatar_srcset: avatarArgTypes.srcset,
+  avatar_sizes: avatarArgTypes.sizes,
+  avatar_size: avatarArgTypes.size,
+  avatar_shape: avatarArgTypes.shape,
+};
 
-<Meta title="Components/Media Link"/>
+<Meta title="Components/Media Link" argTypes={mediaLinkArgTypes}/>
 
 # Media Link
+
+The Media Link component extends [the Media object](/?path=/docs/objects-media--image) to present a small link with an accompanying image and (optionally) an iconographic affordance. It's useful for capping off a section of content with a link to a related resource: For example, a marketing blurb that links to a case study.
+
+The visual object should reduce well while representing the content source: For example, an author image or app icon.
+
+If you need more text or more complex visual objects, consider using a [Media Summary](/?path=/docs/components-media-summary--event) or [Card](/?path=/docs/components-card--content-blocks) instead.
 
 <Canvas>
   <Story name="Basic" args={{
     href: 'https://cloudfour.com/thinks/performance-is-an-issue-of-equity/',
     label: 'Cloud Four partner Megan Notarte explains why performance is an issue of equity',
     avatar: '/media/megan.png',
+    avatar_width: 88,
+    avatar_height: 88,
     icon: 'arrow-right',
   }}>{
     (args) => template(args)
   }</Story>
 </Canvas>
+
+<ArgsTable story="Basic" />
+
+## Template Blocks
+
+In addition to the template properties listed above, you may specify the following blocks:
+
+- `content`: The content of the link. If not specified, the `label` property will be used.
+- `object`: The visual object. If not specified, the `avatar` property will be passed to [the Avatar component](/?path=/docs/components-avatar--empty) (along with other `avatar_*` properties).

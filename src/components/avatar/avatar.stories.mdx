@@ -13,6 +13,10 @@ const avatarStory = (args) => {
   if (args.size === 'medium') {
     delete args.size;
   }
+  // Same for the shape option
+  if (args.shape === 'circle') {
+    delete args.shape;
+  }
   return template(args);
 };
 
@@ -24,6 +28,11 @@ const avatarStory = (args) => {
   argTypes={{
     size: {
       options: ['medium', 'full'],
+      type: { name: 'string' },
+      control: { type: 'select' },
+    },
+    shape: {
+      options: ['circle', 'square', 'squircle'],
       type: { name: 'string' },
       control: { type: 'select' },
     },
@@ -96,6 +105,21 @@ The `c-avatar--full` modifier sizes the component to `100%` of its container wid
   </Story>
 </Canvas>
 
+## Shapes
+
+Avatars are circular by default, but `square` and `squircle` shapes are also available. These are good choices when the avatar represents a website or application using an icon that wasn't optimized for a circular container. These may be applied using `c-avatar--{shape}` modifier classes or the `shape` template property.
+
+The `squircle` shape (also known as a "superellipse") relies on [CSS masks](https://caniuse.com/css-masks). Where unsupported, it will fall back to the same appearance as `square`.
+
+<Canvas>
+  <Story name="Square" args={{ shape: 'square' }}>
+    {avatarStory.bind({})}
+  </Story>
+  <Story name="Squircle" args={{ shape: 'squircle' }}>
+    {avatarStory.bind({})}
+  </Story>
+</Canvas>
+
 ## Template Properties
 
 - `alt`: Value for the inner `img` element's `alt` attribute.
@@ -103,6 +127,7 @@ The `c-avatar--full` modifier sizes the component to `100%` of its container wid
 - `content` (block): Directly specify content for the element. Useful for adding a `picture` or `svg` element directly.
 - `height`: Value for the inner `img` element's `height` attribute. Will default to `width` if specified.
 - `loading`: Value for the inner `img` element's `loading` attribute. Defaults to `lazy`.
+- `shape`: Shorthand for appending a shape modifier class, for example `square` or `squircle`.
 - `size`: Shorthand for appending a size modifier class, for example `full`.
 - `sizes`: Value for the inner `img` element's `sizes` attribute.
 - `src`: Value for the inner `img` element's `src` attribute. If omitted, no `img` will be output.

@@ -1,3 +1,5 @@
-<div class="o-logo-group">
+<div class="o-logo-group
+  {% if justify %}o-logo-group--justify-{{justify}}{% endif %}
+  {% if pad %}o-logo-group--pad{% endif %}">
   {% block content %}{% endblock %}
 </div>

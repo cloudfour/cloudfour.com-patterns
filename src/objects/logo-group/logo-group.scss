@@ -1,21 +1,41 @@
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/ms';
 
+/// The Logo Group container is where most of the magic happens. We use flex
+/// instead of grid because we want to support centered justification later (if
+/// we used grid, the bottom row would always be left/start justified).
 .o-logo-group {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  gap: size.$spacing-gap-logo-group;
+}
+
+/// The initial use case for this pattern called for white space to surround the
+/// logos, but this makes the pattern more difficult to work with when left-
+/// justified or used in a more condensed layout, so we've moved this to a
+/// modifier class instead.
+.o-logo-group--pad {
+  padding: size.$spacing-gap-logo-group;
+}
+
+/// These modifiers set the horizontal alignment of the logos. Historically we
+/// would have used the term "align" for this, but because Flex and Grid both
+/// use "align" to refer to vertical alignment (at least in Western languages
+/// and writing modes), we're continuing the "justify" usage set in the Logo
+/// component.
+
+.o-logo-group--justify-center {
   justify-content: center;
 }
 
-/**
- * 1. Because there is generous spacing between the logos, we added a lot of
- *    white space around Logo Group to help balance the pattern visually.
- *    Including the spacing as part of the pattern means we don't need to rely
- *    on utilities.
- */
+.o-logo-group--justify-end {
+  justify-content: end;
+}
 
+/// Because Flex doesn't let you set column sizes, we have to apply a width to
+/// child elements intead. Without this, the logos will appear misaligned row-
+/// to-row as they differ in size.
 .o-logo-group > * {
   inline-size: size.$width-logo-group-item-width;
-  margin: size.$spacing-gap-logo-group; /* 1 */
 }

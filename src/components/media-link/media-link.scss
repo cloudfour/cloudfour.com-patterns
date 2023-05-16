@@ -32,7 +32,6 @@
 ///    nice! Apologies to our future selves if we have to modify or rip out.
 .c-media-link__action {
   font-weight: font-weight.$medium;
-  line-height: line-height.$tight;
   text-wrap: balance; // 1
 
   /// Normally hiding text decoration is a bad idea, but in this case the

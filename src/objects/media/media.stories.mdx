@@ -1,4 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { mediaArgTypes } from './demo/arg-types.js';
 // The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
 // See: https://github.com/webpack-contrib/raw-loader#examples
 // For now, it seems likely Storybook is pretty tied to Webpack, therefore, we
@@ -46,49 +47,9 @@ const imageDemoTransformSource = (_src, storyContext) => {
     reverse: false,
   }}
   argTypes={{
+    ...mediaArgTypes,
     imgSrc: { type: { name: 'string', required: true } },
-    tag_name: {
-      type: { name: 'string' },
-      description: 'The root tag for the component',
-      table: {
-        defaultValue: {
-          summary: 'div',
-        },
-      },
-    },
-    inner_tag_name: {
-      type: { name: 'string' },
-      description:
-        'The tag for both the media content and media object elements',
-      table: {
-        defaultValue: {
-          summary: 'div',
-        },
-      },
-    },
-    content_tag_name: {
-      type: { name: 'string' },
-      description: 'The tag for the media content element',
-      table: {
-        defaultValue: {
-          summary: '`inner_tag_name`',
-        },
-      },
-    },
-    object_tag_name: {
-      type: { name: 'string' },
-      description: 'The tag for the media object element',
-      table: {
-        defaultValue: {
-          summary: '`inner_tag_name`',
-        },
-      },
-    },
     text: { type: { name: 'string' } },
-    class: { type: { name: 'string' } },
-    content_class: { type: { name: 'string' } },
-    object_class: { type: { name: 'string' } },
-    reverse: { type: { name: 'boolean' } },
   }}
 />
 

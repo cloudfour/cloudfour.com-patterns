@@ -1,4 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { avatarArgTypes } from './demo/arg-types.js';
 import template from './avatar.twig';
 import demoImageSmall from './demo/tyler-64.png';
 import demoImageMedium from './demo/tyler-335.png';
@@ -25,24 +26,7 @@ const avatarStory = (args) => {
   args={{
     size: 'medium',
   }}
-  argTypes={{
-    size: {
-      options: ['medium', 'full'],
-      type: { name: 'string' },
-      control: { type: 'select' },
-    },
-    shape: {
-      options: ['circle', 'square', 'squircle'],
-      type: { name: 'string' },
-      control: { type: 'select' },
-    },
-    src: { type: { name: 'string' } },
-    srcset: { type: { name: 'string' } },
-    sizes: { type: { name: 'string' } },
-    alt: { type: { name: 'string' } },
-    width: { type: { name: 'number' } },
-    height: { type: { name: 'number' } },
-  }}
+  argTypes={avatarArgTypes}
 />
 
 # Avatar

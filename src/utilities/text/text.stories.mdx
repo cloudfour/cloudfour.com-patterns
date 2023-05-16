@@ -12,9 +12,12 @@ import noWrapDemoSource from '!!raw-loader!./demo/nowrap.twig';
 import colorDemoSource from '!!raw-loader!./demo/color.twig';
 // eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
 import textAlignDemoSource from '!!raw-loader!./demo/text-align.twig';
+// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
+import sizeDemoSource from '!!raw-loader!./demo/size.twig';
 import noWrapDemo from './demo/nowrap.twig';
 import colorDemo from './demo/color.twig';
 import textAlignDemo from './demo/text-align.twig';
+import sizeDemo from './demo/size.twig';
 
 <Meta title="Utilities/Text" />
 
@@ -66,5 +69,21 @@ Utility that sets `text-align` to `center`
     parameters={{ docs: { source: { code: textAlignDemoSource } } }}
   >
     {(args) => textAlignDemo(args)}
+  </Story>
+</Canvas>
+
+## Size
+
+- `u-text-big`
+- `u-text-small`
+
+These utility classes provide some opinionated size adjustments to bump an element's font size up or down a notch. At narrower viewports, the difference is little to none: Paragraphs of "big" text could easily overwhelm the visible area, and paragraphs of "small" text would cause eye strain and poor accessibility. As the viewport and base font size increase, the difference becomes more noticeable.
+
+<Canvas>
+  <Story
+    name="Big and small"
+    parameters={{ docs: { source: { code: sizeDemoSource } } }}
+  >
+    {(args) => sizeDemo(args)}
   </Story>
 </Canvas>

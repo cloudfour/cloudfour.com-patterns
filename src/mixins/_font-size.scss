@@ -1,0 +1,22 @@
+@use '../compiled/tokens/scss/breakpoint';
+@use '../compiled/tokens/scss/size';
+@use './fluid';
+
+/// Since this is often used for paragraph content that can be overwhelming if
+/// it is always substantially larger than surrounding content, we responsively
+/// apply the font size (similar to Cloud Cover content).
+@mixin big {
+  font-size: fluid.fluid-clamp(
+    1em,
+    size.$font-big,
+    breakpoint.$xs,
+    breakpoint.$l
+  );
+}
+
+/// To prevent small text from impairing readability (most importantly) and our
+/// Core Web Vitals (secondarily), we only apply the small font size if it isn't
+/// smaller than 16 pixels.
+@mixin small {
+  font-size: max(16px, size.$font-small);
+}

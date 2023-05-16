@@ -7,14 +7,6 @@
 @use '../../../mixins/spacing';
 
 #_landing-ecom-r1 {
-  .c-avatar > img {
-    object-fit: cover;
-  }
-
-  ._c-avatar--icon {
-    border-radius: size.$border-radius-medium;
-  }
-
   ._ecom-section {
     clear: both;
     position: relative;
@@ -103,26 +95,6 @@
     max-inline-size: size.$max-width-prose;
   }
 
-  ._o-media--link {
-    color: var(--theme-color-text-action);
-    display: inline-grid;
-    grid-template-columns: minmax(0, auto) 1fr minmax(0, auto);
-    max-width: 45ch;
-    line-height: line-height.$tight;
-
-    a {
-      font-weight: font-weight.$medium;
-    }
-
-    a:not(:focus, :hover) {
-      text-decoration: none;
-    }
-  }
-
-  ._u-small {
-    font-size: max(ms.step(-1), 16px);
-  }
-
   ._form-and-quote {
     display: grid;
     gap: ms.step(1);
@@ -146,28 +118,5 @@
       grid-column: 3 / span 1;
       grid-row: 1;
     }
-  }
-
-  ._the_form {
-    display: grid;
-    gap: var(--rhythm, ms.step(1));
-
-    // @media (width >= breakpoint.$m) {
-    //   grid-template-columns: repeat(2, 1fr);
-
-    //   > .o-form-group:not(:nth-child(3), :nth-child(4)) {
-    //     grid-column: span 2;
-    //   }
-    // }
-
-    .c-button {
-      justify-self: start;
-    }
-  }
-
-  ._badged-label {
-    align-items: center;
-    display: flex;
-    gap: 1ch;
   }
 }

@@ -1,0 +1,152 @@
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/spacing';
+
+.o-hype-group {
+  contain: layout;
+
+  @media (width >= breakpoint.$m) {
+    column-gap: spacing.$fluid-gap;
+    display: grid;
+    grid-template-areas: '. . stage'
+      'intro intro stage'
+      'content content stage'
+      '. . stage';
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(0, 1fr) repeat(2, minmax(0, auto)) minmax(0, 1fr);
+  }
+}
+
+.o-hype-group--reverse {
+  @media (width >= breakpoint.$m) {
+    grid-template-areas: 'stage . .'
+      'stage intro intro'
+      'stage content content'
+      'stage . .';
+  }
+}
+
+.o-hype-group__intro {
+  grid-area: intro;
+}
+
+.o-hype-group__stage {
+  grid-area: stage;
+  position: relative;
+
+  @media (width < breakpoint.$m) {
+    aspect-ratio: 2/3;
+    float: right;
+    margin: size.$spacing-gap-inline-small;
+    margin-inline-end: 0;
+    shape-outside: circle(58% at 66% 50%);
+    width: calc(50% - #{size.$spacing-gap-inline-small});
+
+    @media (width >= breakpoint.$s) {
+      aspect-ratio: 4/5;
+      shape-outside: circle(65% at 80% 50%);
+      width: calc(100% / 3 - #{size.$spacing-gap-inline-small});
+    }
+  }
+
+  @media (width >= breakpoint.$l) {
+    margin-block: spacing.$fluid-spacing-block-negative-overlap-partial;
+  }
+
+  @media (width >= breakpoint.$xl) {
+    margin-block: spacing.$fluid-spacing-block-negative-overlap;
+  }
+}
+
+.o-hype-group__object {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  width: auto;
+
+  > img,
+  > picture > img {
+    object-fit: cover;
+  }
+
+  @media (width >= breakpoint.$m) {
+    .o-hype-group--reverse & {
+      inset-inline-end: 0;
+    }
+  }
+}
+
+.o-hype-group__content {
+  grid-area: content;
+  margin-block-start: var(--rhythm, #{size.$rhythm-default});
+  max-inline-size: size.$max-width-prose;
+}
+
+// .o-hype-group {
+//   @media (width >= breakpoint.$l) {
+//     column-gap: spacing.$fluid-gap;
+//     display: grid;
+//     grid-template-areas: '. float'
+//       'intro float'
+//       'content float'
+//       '. float';
+//     grid-template-columns: repeat(2, minmax(0, 1fr));
+//     grid-template-rows: minmax(0, 1fr) repeat(2, minmax(0, auto)) minmax(0, 1fr);
+//   }
+
+//   @media (width >= breakpoint.$xxl) {
+//     grid-template-areas: '. . float'
+//       'intro intro float'
+//       'content content float'
+//       '. . float';
+//     grid-template-columns: repeat(3, minmax(0, 1fr));
+//   }
+// }
+
+// .o-hype-group__intro {
+//   grid-area: intro;
+// }
+
+// .o-hype-group__float {
+//   grid-area: float;
+//   position: relative;
+//   shape-outside: circle(50%);
+
+//   @media (width < breakpoint.$l) {
+//     aspect-ratio: 3/4;
+//     float: right;
+//     margin: size.$spacing-gap-inline-small;
+//     width: calc(100% / 3 - #{size.$spacing-gap-inline-small});
+//   }
+
+//   @media (width < breakpoint.$m) {
+//     aspect-ratio: 2/3;
+//     // width: calc(100% / 5 * 2 - #{size.$spacing-gap-inline-small});
+//   }
+
+//   @media (width >= breakpoint.$l) {
+//     margin-block: spacing.$fluid-spacing-block-negative-2x;
+//   }
+// }
+
+// .o-hype-group__object {
+//   aspect-ratio: 1;
+//   border-radius: 50%;
+//   display: flex;
+//   height: 100%;
+//   overflow: hidden;
+
+//   > img,
+//   > picture > img {
+//     object-fit: cover;
+//   }
+// }
+
+// .o-hype-group__content {
+//   grid-area: content;
+//   margin-block-start: var(--rhythm, #{size.$rhythm-default});
+//   max-inline-size: size.$max-width-prose;
+// }

@@ -1,0 +1,27 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import singleDemo from './demo/single.twig';
+import multipleDemo from './demo/multiple.twig';
+
+<Meta
+  title="Objects/Hype Group"
+  parameters={{
+    layout: 'fullscreen',
+    docs: { inlineStories: false }
+  }}
+/>
+
+# Hype Group
+
+TODO
+
+<Canvas>
+  <Story name="Single" height="300px">
+    {(args) => singleDemo(args)}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Multiple" height="300px">
+    {(args) => multipleDemo(args)}
+  </Story>
+</Canvas>

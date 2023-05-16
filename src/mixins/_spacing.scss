@@ -17,6 +17,24 @@ $fluid-spacing-block: fluid.fluid-clamp(
   $fluid-spacing-breakpoint-min,
   $fluid-spacing-breakpoint-max
 );
+$fluid-spacing-block-negative: fluid.fluid-clamp(
+  $fluid-spacing-block-min * -1,
+  $fluid-spacing-block-max * -1,
+  $fluid-spacing-breakpoint-min,
+  $fluid-spacing-breakpoint-max
+);
+$fluid-spacing-block-negative-overlap: fluid.fluid-clamp(
+  $fluid-spacing-block-min * -1.25,
+  $fluid-spacing-block-max * -1.25,
+  $fluid-spacing-breakpoint-min,
+  $fluid-spacing-breakpoint-max
+);
+$fluid-spacing-block-negative-overlap-partial: fluid.fluid-clamp(
+  $fluid-spacing-block-min * -0.5,
+  $fluid-spacing-block-max * -0.5,
+  $fluid-spacing-breakpoint-min,
+  $fluid-spacing-breakpoint-max
+);
 $fluid-spacing-inline: fluid.fluid-clamp(
   $fluid-spacing-inline-min,
   $fluid-spacing-inline-max,

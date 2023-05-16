@@ -6,13 +6,24 @@
 /**
  * 1. Middle-align child elements. This will take effect when the content is
  *    shorter than the object.
+ * 2. It's important to include `minmax` even for the content column, because
+ *    if not, a flex or grid container within could break outside the bounds
+ *    of the content.
  */
 
 .o-media {
   align-items: center; /* 1 */
   display: grid;
   grid-gap: size.$spacing-media-gap;
-  grid-template-columns: minmax(0, auto) 1fr;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr); /* 2 */
+}
+
+/**
+ * Reverse column layout for the `reverse` modifier.
+ */
+
+.o-media--reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto);
 }
 
 /**

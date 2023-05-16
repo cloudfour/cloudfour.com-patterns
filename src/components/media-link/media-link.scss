@@ -1,0 +1,62 @@
+@use '../../compiled/tokens/scss/font-weight';
+@use '../../compiled/tokens/scss/line-height';
+@use '../../compiled/tokens/scss/size';
+
+/// The Media Link component extends the Media object.
+///
+/// 1. Using `max-content` for the width prevents this element from taking up
+///    the full content width without overriding its display. Since it has no
+///    visible boundaries, this helps prevent the click area from being much
+///    larger than we intended.
+/// 2. This allows the link to position a pseudo element relative to this
+///    container for the largest possible click area.
+.c-media-link {
+  inline-size: max-content; // 1
+  max-inline-size: 100%; // 1
+  position: relative; // 2
+}
+
+/// The content container arranges the link and (optional) icon. We use flex
+/// instead of grid because we want the icon to be a fixed size but allow the
+/// link to expand (without always pushing the icon to the right).
+.c-media-link__content {
+  align-items: center;
+  display: flex;
+  gap: size.$spacing-gap-inline-small;
+}
+
+/// The action is a link, but we're calling it "action" because
+/// `c-media-link__link` sounds a little silly. 😄️
+///
+/// 1. This is only in Chrome Canary as of this writing, but its impact is so
+///    nice! Apologies to our future selves if we have to modify or rip out.
+.c-media-link__action {
+  font-weight: font-weight.$medium;
+  line-height: line-height.$tight;
+  text-wrap: balance; // 1
+
+  /// Normally hiding text decoration is a bad idea, but in this case the
+  /// component has color, weight, iconographic and image affordances, so it
+  /// feels safe in this case.
+  &:not(:hover):not(:focus) {
+    text-decoration: none;
+  }
+
+  /// The aforementioned pseudo element for expanding the clickable area. Same
+  /// basic technique as the Card and Media Summary components.
+  &::after {
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+/// We wouldn't need to set the `color` if we put this in the link itself, but
+/// then the default focus outline feels a little worse. Since this component
+/// is intended for links specifically, it feels like a reasonable assumption
+/// to apply the current action text color.
+.c-media-link__icon {
+  color: var(--theme-color-text-action);
+  flex: none;
+}

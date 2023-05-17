@@ -57,14 +57,17 @@ $_column_gap: spacing.$fluid-gap;
  * The topmost containing element for this component. We keep most layout logic
  * off of this so it can be used with `o-container`.
  *
- * 1. This is only required to prevent Safari from showing subpixel artifacts
+ * 1. Allows elements after this to overlap the clouds without having to use
+ *    increasingly larger `z-index` values.
+ * 2. This is only required to prevent Safari from showing subpixel artifacts
  *    at the bottom of bottom-aligned imagery (specifically the clouds).
- * 2. Allows us to position clouds absolutely relative to this container.
+ * 3. Allows us to position clouds absolutely relative to this container.
  */
 
 .c-cloud-cover {
-  overflow: hidden; /* 1 */
-  position: relative; /* 2 */
+  contain: layout; /* 1 */
+  overflow: hidden; /* 2 */
+  position: relative; /* 3 */
 }
 
 /**

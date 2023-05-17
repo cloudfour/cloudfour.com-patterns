@@ -1,3 +1,19 @@
+{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
+  {% block heading %}
+    {% include '@cloudfour/components/heading/heading.twig' with {
+      level: -2,
+      content: 'Our Team'
+    } only %}
+  {% endblock %}
+  {% block content %}
+    <p>
+      We are a small, versatile team who care passionately about the web.
+      We’re full of what our industry considers unicorns. Our designers
+      code. Our developers went to art school.
+    </p>
+  {% endblock %}
+{% endembed %}
+
 
 {% embed '@cloudfour/objects/container/container.twig' with {
   class: 'o-container--pad',
@@ -31,6 +47,8 @@
     {% embed '@cloudfour/components/hype-section/hype-section.twig' with {
       content_class: 'o-rhythm',
       reverse: true,
+      object_shape: 'circle',
+      object_outline: true,
     } only %}
       {% block intro %}
         {% include '@cloudfour/components/heading/heading.twig' with {
@@ -56,6 +74,7 @@
   {% block content %}
     {% embed '@cloudfour/components/hype-section/hype-section.twig' with {
       content_class: 'o-rhythm',
+      object_outline: true,
     } only %}
       {% block intro %}
         {% include '@cloudfour/components/heading/heading.twig' with {

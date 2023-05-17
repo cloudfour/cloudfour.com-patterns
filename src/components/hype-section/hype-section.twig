@@ -1,5 +1,7 @@
 <div class="c-hype-section
-  {% if reverse %}c-hype-section--reverse{% endif %}">
+  {% if reverse %}c-hype-section--reverse{% endif %}
+  {% if object_shape %}c-hype-section--{{object_shape}}-object{% endif %}
+  {% if object_outline %}c-hype-section--outline-object{% endif %}">
   <div class="c-hype-section__intro">
     {% block intro %}{% endblock %}
   </div>

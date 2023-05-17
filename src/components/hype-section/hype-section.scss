@@ -1,9 +1,12 @@
 @use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/spacing';
 
 .c-hype-section {
   contain: layout;
+  // position: relative;
+  // z-index: 2;
 
   @media (width >= breakpoint.$m) {
     column-gap: spacing.$fluid-gap;
@@ -55,18 +58,23 @@
     float: right;
     margin: size.$spacing-gap-inline-small;
     margin-inline-end: 0;
-    shape-outside: circle(58% at 66% 50%);
     width: calc(50% - #{size.$spacing-gap-inline-small});
+
+    .c-hype-section--circle-object & {
+      shape-outside: circle(58% at 66% 50%);
+    }
 
     @media (width >= breakpoint.$s) {
       aspect-ratio: 4/5;
-      shape-outside: circle(65% at 80% 50%);
       width: calc(100% / 3 - #{size.$spacing-gap-inline-small});
+
+      .c-hype-section--circle-object & {
+        shape-outside: circle(65% at 80% 50%);
+      }
     }
   }
 
   @media (width >= breakpoint.$l) {
-    // aspect-ratio: 1;
     margin-block: spacing.$fluid-spacing-block-negative-overlap-partial;
   }
 
@@ -77,16 +85,17 @@
 
 .c-hype-section__object {
   aspect-ratio: 1;
-  border-radius: 50%;
+  background: color.$base-gray;
+  border-radius: size.$border-radius-large;
   display: flex;
   height: 100%;
   height: 100cqmax;
   overflow: hidden;
+  position: relative;
   width: auto;
 
-  > img,
-  > picture > img {
-    object-fit: cover;
+  .c-hype-section--circle-object & {
+    border-radius: size.$border-radius-full;
   }
 
   @media (width >= breakpoint.$m) {
@@ -97,6 +106,21 @@
     .c-hype-section--reverse & {
       inset-inline-end: 0;
     }
+  }
+
+  .c-hype-section--outline-object &::after {
+    border: size.$edge-medium solid color.$base-blue-darker;
+    border-radius: inherit;
+    content: '';
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  > img,
+  > picture > img {
+    object-fit: cover;
   }
 }
 

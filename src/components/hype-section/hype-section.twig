@@ -1,0 +1,14 @@
+<div class="c-hype-section
+  {% if reverse %}c-hype-section--reverse{% endif %}">
+  <div class="c-hype-section__intro">
+    {% block intro %}{% endblock %}
+  </div>
+  <div class="c-hype-section__stage">
+    <div class="c-hype-section__object">
+      {% block object %}{% endblock %}
+    </div>
+  </div>
+  <div class="c-hype-section__content {{content_class}}">
+    {% block content %}{% endblock %}
+  </div>
+</div>

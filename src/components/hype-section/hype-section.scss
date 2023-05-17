@@ -2,7 +2,7 @@
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/spacing';
 
-.o-hype-group {
+.c-hype-section {
   contain: layout;
 
   @media (width >= breakpoint.$m) {
@@ -25,7 +25,7 @@
   }
 }
 
-.o-hype-group--reverse {
+.c-hype-section--reverse {
   @media (width >= breakpoint.$m) {
     grid-template-areas: 'stage .'
       'stage intro'
@@ -41,11 +41,11 @@
   }
 }
 
-.o-hype-group__intro {
+.c-hype-section__intro {
   grid-area: intro;
 }
 
-.o-hype-group__stage {
+.c-hype-section__stage {
   container-type: size;
   grid-area: stage;
   position: relative;
@@ -75,7 +75,7 @@
   }
 }
 
-.o-hype-group__object {
+.c-hype-section__object {
   aspect-ratio: 1;
   border-radius: 50%;
   display: flex;
@@ -94,19 +94,19 @@
     position: absolute;
     transform: translateY(-50%);
 
-    .o-hype-group--reverse & {
+    .c-hype-section--reverse & {
       inset-inline-end: 0;
     }
   }
 }
 
-.o-hype-group__content {
+.c-hype-section__content {
   grid-area: content;
   margin-block-start: var(--rhythm, #{size.$rhythm-default});
   max-inline-size: size.$max-width-prose;
 }
 
-// .o-hype-group {
+// .c-hype-section {
 //   @media (width >= breakpoint.$l) {
 //     column-gap: spacing.$fluid-gap;
 //     display: grid;
@@ -127,11 +127,11 @@
 //   }
 // }
 
-// .o-hype-group__intro {
+// .c-hype-section__intro {
 //   grid-area: intro;
 // }
 
-// .o-hype-group__float {
+// .c-hype-section__float {
 //   grid-area: float;
 //   position: relative;
 //   shape-outside: circle(50%);
@@ -153,7 +153,7 @@
 //   }
 // }
 
-// .o-hype-group__object {
+// .c-hype-section__object {
 //   aspect-ratio: 1;
 //   border-radius: 50%;
 //   display: flex;
@@ -166,7 +166,7 @@
 //   }
 // }
 
-// .o-hype-group__content {
+// .c-hype-section__content {
 //   grid-area: content;
 //   margin-block-start: var(--rhythm, #{size.$rhythm-default});
 //   max-inline-size: size.$max-width-prose;

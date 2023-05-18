@@ -9,12 +9,18 @@
  * Themed properties
  */
 
- @include theme.props {
-  --theme-color-border-hype-group-object: #{sasscolor.change(color.$brand-primary-darker, $alpha: 0.1)};
+@include theme.props {
+  --theme-color-border-hype-group-object: #{sasscolor.change(
+      color.$brand-primary-darker,
+      $alpha: 0.1
+    )};
 }
 
 @include theme.props(dark) {
-  --theme-color-border-hype-group-object: #{sasscolor.change(color.$text-light-emphasis, $alpha: 0.1)};
+  --theme-color-border-hype-group-object: #{sasscolor.change(
+      color.$text-light-emphasis,
+      $alpha: 0.1
+    )};
 }
 
 .o-hype-group {
@@ -23,7 +29,8 @@
   @media (width >= breakpoint.$m) {
     column-gap: spacing.$fluid-gap;
     display: grid;
-    grid-template-areas: '. stage'
+    grid-template-areas:
+      '. stage'
       'intro stage'
       'content stage'
       '. stage';
@@ -32,7 +39,8 @@
   }
 
   @media (width >= breakpoint.$l) {
-    grid-template-areas: '. . stage'
+    grid-template-areas:
+      '. . stage'
       'intro intro stage'
       'content content stage'
       '. . stage';
@@ -42,14 +50,16 @@
 
 .o-hype-group--reverse {
   @media (width >= breakpoint.$m) {
-    grid-template-areas: 'stage .'
+    grid-template-areas:
+      'stage .'
       'stage intro'
       'stage content'
       'stage .';
   }
 
   @media (width >= breakpoint.$l) {
-    grid-template-areas: 'stage . .'
+    grid-template-areas:
+      'stage . .'
       'stage intro intro'
       'stage content content'
       'stage . .';
@@ -68,9 +78,9 @@
   @media (width < breakpoint.$m) {
     aspect-ratio: 2/3;
     float: right;
+    inline-size: calc(50% - #{size.$spacing-gap-inline-small});
     margin: size.$spacing-gap-inline-small;
     margin-inline-end: 0;
-    width: calc(50% - #{size.$spacing-gap-inline-small});
 
     .o-hype-group--circle-object & {
       shape-outside: circle(58% at 66% 50%);
@@ -78,7 +88,7 @@
 
     @media (width >= breakpoint.$s) {
       aspect-ratio: 4/5;
-      width: calc(100% / 3 - #{size.$spacing-gap-inline-small});
+      inline-size: calc(100% / 3 - #{size.$spacing-gap-inline-small});
 
       .o-hype-group--circle-object & {
         shape-outside: circle(65% at 80% 50%);
@@ -97,13 +107,13 @@
 
 .o-hype-group__object-inner {
   aspect-ratio: 1;
+  block-size: 100%;
   border-radius: size.$border-radius-large;
   display: flex;
-  height: 100%;
   height: 100cqmax;
+  inline-size: auto;
   overflow: hidden;
   position: relative;
-  width: auto;
 
   .o-hype-group--circle-object & {
     border-radius: size.$border-radius-full;

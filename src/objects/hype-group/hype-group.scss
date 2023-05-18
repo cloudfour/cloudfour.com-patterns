@@ -1,10 +1,23 @@
 @use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/color';
-@use '../../compiled/tokens/scss/opacity';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/spacing';
+@use '../../mixins/theme';
+@use 'sass:color' as sasscolor;
 
-.c-hype-section {
+/**
+ * Themed properties
+ */
+
+ @include theme.props {
+  --theme-color-border-hype-group-object: #{sasscolor.change(color.$brand-primary-darker, $alpha: 0.1)};
+}
+
+@include theme.props(dark) {
+  --theme-color-border-hype-group-object: #{sasscolor.change(color.$text-light-emphasis, $alpha: 0.1)};
+}
+
+.o-hype-group {
   contain: layout;
 
   @media (width >= breakpoint.$m) {
@@ -27,7 +40,7 @@
   }
 }
 
-.c-hype-section--reverse {
+.o-hype-group--reverse {
   @media (width >= breakpoint.$m) {
     grid-template-areas: 'stage .'
       'stage intro'
@@ -43,11 +56,11 @@
   }
 }
 
-.c-hype-section__intro {
+.o-hype-group__intro {
   grid-area: intro;
 }
 
-.c-hype-section__object {
+.o-hype-group__object {
   container-type: size;
   grid-area: stage;
   position: relative;
@@ -59,7 +72,7 @@
     margin-inline-end: 0;
     width: calc(50% - #{size.$spacing-gap-inline-small});
 
-    .c-hype-section--circle-object & {
+    .o-hype-group--circle-object & {
       shape-outside: circle(58% at 66% 50%);
     }
 
@@ -67,7 +80,7 @@
       aspect-ratio: 4/5;
       width: calc(100% / 3 - #{size.$spacing-gap-inline-small});
 
-      .c-hype-section--circle-object & {
+      .o-hype-group--circle-object & {
         shape-outside: circle(65% at 80% 50%);
       }
     }
@@ -82,7 +95,7 @@
   }
 }
 
-.c-hype-section__object-inner {
+.o-hype-group__object-inner {
   aspect-ratio: 1;
   border-radius: size.$border-radius-large;
   display: flex;
@@ -92,7 +105,7 @@
   position: relative;
   width: auto;
 
-  .c-hype-section--circle-object & {
+  .o-hype-group--circle-object & {
     border-radius: size.$border-radius-full;
   }
 
@@ -101,17 +114,16 @@
     position: absolute;
     transform: translateY(-50%);
 
-    .c-hype-section--reverse & {
+    .o-hype-group--reverse & {
       inset-inline-end: 0;
     }
   }
 
-  .c-hype-section--outline-object &::after {
-    border: size.$edge-medium solid var(--theme-color-border-base);
+  .o-hype-group--outline-object &::after {
+    border: size.$edge-medium solid var(--theme-color-border-hype-group-object);
     border-radius: inherit;
     content: '';
     inset: 0;
-    opacity: opacity.$shadow-inner;
     pointer-events: none;
     position: absolute;
   }
@@ -122,7 +134,7 @@
   }
 }
 
-.c-hype-section__content {
+.o-hype-group__content {
   grid-area: content;
   margin-block-start: var(--rhythm, #{size.$rhythm-default});
   max-inline-size: size.$max-width-prose;

@@ -5,9 +5,9 @@
 @use '../../mixins/theme';
 @use 'sass:color' as sasscolor;
 
-/**
- * Themed properties
- */
+/// Vary image outline colors based on theme. This is the only real style that
+/// IMO stretches the definition of "object" a bit, but it's a nice way to
+/// support different sorts of image content.
 
 @include theme.props {
   --theme-color-border-hype-group-object: #{sasscolor.change(
@@ -23,64 +23,104 @@
     )};
 }
 
+/// Hype Group container. This assumes quite a bit of padding: For best results,
+/// include this within a padded Container object!
+///
+/// 1. Clear any floats without hiding overflowing content (which we need for
+///    the image effect).
+
 .o-hype-group {
-  contain: layout;
+  contain: layout; // 1
+
+  /// Above a certain breakpoint, we switch to using Grid for layout. We can't
+  /// do this from the beginning since the smallest layouts use floats.
 
   @media (width >= breakpoint.$m) {
     column-gap: spacing.$fluid-gap;
     display: grid;
     grid-template-areas:
-      '. stage'
-      'intro stage'
-      'content stage'
-      '. stage';
+      '. object'
+      'intro object'
+      'content object'
+      '. object';
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: minmax(0, 1fr) repeat(2, minmax(0, auto)) minmax(0, 1fr);
   }
 
   @media (width >= breakpoint.$l) {
     grid-template-areas:
-      '. . stage'
-      'intro intro stage'
-      'content content stage'
-      '. . stage';
+      '. . object'
+      'intro intro object'
+      'content content object'
+      '. . object';
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/// To display the visual object on the opposite side, we re-use the "reverse"
+/// term from the Media Object and derivative patterns. Though this is a bit of
+/// a misnomer since the change only applies to larger breakpoints: Floating
+/// the object left at smaller viewports would greatly disrupt the reading line.
+
 .o-hype-group--reverse {
   @media (width >= breakpoint.$m) {
     grid-template-areas:
-      'stage .'
-      'stage intro'
-      'stage content'
-      'stage .';
+      'object .'
+      'object intro'
+      'object content'
+      'object .';
   }
 
   @media (width >= breakpoint.$l) {
     grid-template-areas:
-      'stage . .'
-      'stage intro intro'
-      'stage content content'
-      'stage . .';
+      'object . .'
+      'object intro intro'
+      'object content content'
+      'object . .';
   }
 }
+
+/// Intro container (heading, etc.)
 
 .o-hype-group__intro {
   grid-area: intro;
 }
 
+/// The first of two containers for the visual object. The first reserves the
+/// space for the object within the container, the second allows the object to
+/// break out of that space for a more dynamic layout.
+///
+/// 1. Where supported, we are going to use container query units for some
+///    sizing, so we need to set that up here.
+/// 2. We will need to use absolute positioning to control exactly how the
+///    inner element is positioned. This style makes sure that will be relative
+///    to this element.
+
 .o-hype-group__object {
-  container-type: size;
-  grid-area: stage;
-  position: relative;
+  container-type: size; // 1
+  grid-area: object;
+  position: relative; // 2
+
+  /// At smaller breakpoints, we float the object, which breaks out of its
+  /// container off the right edge.
+  ///
+  /// 1. The aspect ratio defines how much taller this element is than its
+  ///    width. The taller the ratio, the more the inner object will break out
+  ///    of its container.
+  /// 2. We subtract a bit of gap space so the visual object does not appear to
+  ///    be taking up _more_ space than the content (they should appear equal).
 
   @media (width < breakpoint.$m) {
-    aspect-ratio: 2/3;
+    aspect-ratio: 2/3; // 1
     float: right;
-    inline-size: calc(50% - #{size.$spacing-gap-inline-small});
+    inline-size: calc(50% - #{size.$spacing-gap-inline-small}); // 2
     margin: size.$spacing-gap-inline-small;
     margin-inline-end: 0;
+
+    /// Defining a circular shape allows content to flow around the circle
+    /// instead of the outer box, which is more visually pleasing. We have to
+    /// size and position the circle a little oddly since we're mapping it to
+    /// the inner element, _not_ this container (which is narrower).
 
     .o-hype-group--circle-object & {
       shape-outside: circle(58% at 66% 50%);
@@ -96,6 +136,10 @@
     }
   }
 
+  /// At larger breakpoints, we use negative margins to allow the object to
+  /// break outside of the outer margins... first just a little bit, but
+  /// eventually by quite a lot.
+
   @media (width >= breakpoint.$l) {
     margin-block: spacing.$fluid-spacing-block-negative-overlap-partial;
   }
@@ -105,12 +149,27 @@
   }
 }
 
+/// This inner object defines the visual shape of the object. There's some
+/// overlap with our Embed object, but because there's so much to coordinate
+/// between this and other elements, it seemed cleaner to embrace a bit of
+/// repetition to avoid a lot of complex restrictions on the Embed object in
+/// this particular context.
+///
+/// 1. Keeps the image a square, regardless of its container size. Really
+///    important for the effect!
+/// 2. By default, we fill the available height, which allows this element to
+///    fill its container and overflow the horizontal axis on small screens or
+///    the negative margin on large screens…
+/// 3. …but if the container is very short, `100%` will be too small. So where
+///    supported, we can use `cqmax` to size based on the largest container
+///    axis instead.
+
 .o-hype-group__object-inner {
-  aspect-ratio: 1;
-  block-size: 100%;
+  aspect-ratio: 1; // 1
+  block-size: 100%; // 2
+  block-size: 100cqmax; // 3
   border-radius: size.$border-radius-large;
   display: flex;
-  height: 100cqmax;
   inline-size: auto;
   overflow: hidden;
   position: relative;
@@ -118,6 +177,11 @@
   .o-hype-group--circle-object & {
     border-radius: size.$border-radius-full;
   }
+
+  /// At larger breakpoints, we need to use absolute positioning to make sure
+  /// the object is centered on both axes. Without this, it might overflow over
+  /// the wrong edges depending on the `--reverse` modifier and the length of
+  /// adjacent content.
 
   @media (width >= breakpoint.$m) {
     inset-block-start: 50%;
@@ -129,20 +193,38 @@
     }
   }
 
+  /// Here is where the optional object outline is applied, allowing this
+  /// element to showcase content like interface screenshots where the
+  /// background could unintentionally bleed into the background. (Again, this
+  /// is the one touch that really stretches this being an "Object," but the
+  /// fact that the pattern is, by default, devoid of any content, pushed me
+  /// into categorizing it as such.)
+  ///
+  /// 1. Just in case the end user wants to copy the image URL or view the
+  ///    image properties or something, this prevents this overlay from
+  ///    interrupting that.
+
   .o-hype-group--outline-object &::after {
     border: size.$edge-medium solid var(--theme-color-border-hype-group-object);
     border-radius: inherit;
     content: '';
     inset: 0;
-    pointer-events: none;
+    pointer-events: none; // 1
     position: absolute;
   }
+
+  /// Prevents non-square images from stretching to fit the square container.
 
   > img,
   > picture > img {
     object-fit: cover;
   }
 }
+
+/// We use margin instead of gap on the content container because we don't want
+/// extra space above and below the intro and content (where there are empty
+/// "fill" rows for the purposes of centering those elements at larger
+/// viewports).
 
 .o-hype-group__content {
   grid-area: content;

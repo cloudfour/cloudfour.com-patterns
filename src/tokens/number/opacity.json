@@ -3,6 +3,9 @@
     "opacity": {
       "muted": {
         "value": "0.65"
+      },
+      "shadow_inner": {
+        "value": "0.1"
       }
     }
   }

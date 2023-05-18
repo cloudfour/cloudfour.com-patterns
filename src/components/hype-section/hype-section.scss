@@ -1,5 +1,6 @@
 @use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/opacity';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/spacing';
 
@@ -83,7 +84,6 @@
 
 .c-hype-section__object-inner {
   aspect-ratio: 1;
-  background: color.$base-gray;
   border-radius: size.$border-radius-large;
   display: flex;
   height: 100%;
@@ -107,11 +107,11 @@
   }
 
   .c-hype-section--outline-object &::after {
-    border: size.$edge-medium solid color.$base-blue-darker;
+    border: size.$edge-medium solid var(--theme-color-border-base);
     border-radius: inherit;
     content: '';
     inset: 0;
-    opacity: 0.1;
+    opacity: opacity.$shadow-inner;
     pointer-events: none;
     position: absolute;
   }

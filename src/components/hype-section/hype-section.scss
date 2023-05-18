@@ -5,8 +5,6 @@
 
 .c-hype-section {
   contain: layout;
-  // position: relative;
-  // z-index: 2;
 
   @media (width >= breakpoint.$m) {
     column-gap: spacing.$fluid-gap;
@@ -48,7 +46,7 @@
   grid-area: intro;
 }
 
-.c-hype-section__stage {
+.c-hype-section__object {
   container-type: size;
   grid-area: stage;
   position: relative;
@@ -83,7 +81,7 @@
   }
 }
 
-.c-hype-section__object {
+.c-hype-section__object-inner {
   aspect-ratio: 1;
   background: color.$base-gray;
   border-radius: size.$border-radius-large;
@@ -129,69 +127,3 @@
   margin-block-start: var(--rhythm, #{size.$rhythm-default});
   max-inline-size: size.$max-width-prose;
 }
-
-// .c-hype-section {
-//   @media (width >= breakpoint.$l) {
-//     column-gap: spacing.$fluid-gap;
-//     display: grid;
-//     grid-template-areas: '. float'
-//       'intro float'
-//       'content float'
-//       '. float';
-//     grid-template-columns: repeat(2, minmax(0, 1fr));
-//     grid-template-rows: minmax(0, 1fr) repeat(2, minmax(0, auto)) minmax(0, 1fr);
-//   }
-
-//   @media (width >= breakpoint.$xxl) {
-//     grid-template-areas: '. . float'
-//       'intro intro float'
-//       'content content float'
-//       '. . float';
-//     grid-template-columns: repeat(3, minmax(0, 1fr));
-//   }
-// }
-
-// .c-hype-section__intro {
-//   grid-area: intro;
-// }
-
-// .c-hype-section__float {
-//   grid-area: float;
-//   position: relative;
-//   shape-outside: circle(50%);
-
-//   @media (width < breakpoint.$l) {
-//     aspect-ratio: 3/4;
-//     float: right;
-//     margin: size.$spacing-gap-inline-small;
-//     width: calc(100% / 3 - #{size.$spacing-gap-inline-small});
-//   }
-
-//   @media (width < breakpoint.$m) {
-//     aspect-ratio: 2/3;
-//     // width: calc(100% / 5 * 2 - #{size.$spacing-gap-inline-small});
-//   }
-
-//   @media (width >= breakpoint.$l) {
-//     margin-block: spacing.$fluid-spacing-block-negative-2x;
-//   }
-// }
-
-// .c-hype-section__object {
-//   aspect-ratio: 1;
-//   border-radius: 50%;
-//   display: flex;
-//   height: 100%;
-//   overflow: hidden;
-
-//   > img,
-//   > picture > img {
-//     object-fit: cover;
-//   }
-// }
-
-// .c-hype-section__content {
-//   grid-area: content;
-//   margin-block-start: var(--rhythm, #{size.$rhythm-default});
-//   max-inline-size: size.$max-width-prose;
-// }

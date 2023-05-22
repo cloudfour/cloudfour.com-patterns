@@ -1,0 +1,6 @@
+{% for i in 0..2 %}
+  {% include '@cloudfour/objects/hype-group/demo/single.twig' with {
+    container_class: cycle(['o-container--pad', 'o-container--pad t-alternate'], loop.index0),
+    reverse: cycle([reverse, not reverse], loop.index0),
+  } %}
+{% endfor %}

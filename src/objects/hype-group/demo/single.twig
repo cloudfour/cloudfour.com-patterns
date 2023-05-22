@@ -1,0 +1,32 @@
+{% set _hype_group %}
+  {% embed '@cloudfour/objects/hype-group/hype-group.twig' %}
+    {% block intro %}
+      {% include '@cloudfour/components/heading/heading.twig' with {
+        content: "Let’s get hyped for this content!",
+        level: 0,
+        tag_name: 'h2',
+      } only %}
+    {% endblock %}
+    {% block object %}
+      <img src="{{example_object_img_src}}" alt="Example object image" width="960" height="960">
+    {% endblock %}
+    {% block content %}
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla nulla, vestibulum vel pharetra ut, suscipit sit amet orci. Aliquam interdum tristique tincidunt.</p>
+      {% if example_paragraphs > 1 %}
+        <p>Nunc pellentesque eu purus vel aliquet. Vestibulum sed nulla tellus. Sed sed ante varius, facilisis dui in, lacinia dui. Sed convallis aliquam dolor, sit amet pretium nibh dignissim quis.</p>
+      {% endif %}
+      {% if example_paragraphs > 2 %}
+        <p>Donec sit amet odio eget eros cursus pellentesque et in justo. Aliquam vel tristique diam. Donec vehicula dolor vitae turpis condimentum fermentum sit amet et est.</p>
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+{% endset %}
+
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: container_class|default('o-container--pad'),
+  _hype_group: _hype_group,
+} only %}
+  {% block content %}
+    {{_hype_group}}
+  {% endblock %}
+{% endembed %}

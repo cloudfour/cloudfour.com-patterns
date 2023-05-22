@@ -1,0 +1,17 @@
+<div class="o-hype-group
+  {% if reverse %}o-hype-group--reverse{% endif %}
+  {% if object_shape %}o-hype-group--{{object_shape}}-object{% endif %}
+  {% if object_outline %}o-hype-group--outline-object{% endif %}
+  {{class}}">
+  <div class="o-hype-group__intro {{intro_class}}">
+    {% block intro %}{% endblock %}
+  </div>
+  <div class="o-hype-group__object">
+    <div class="o-hype-group__object-inner">
+      {% block object %}{% endblock %}
+    </div>
+  </div>
+  <div class="o-hype-group__content {{content_class}}">
+    {% block content %}{% endblock %}
+  </div>
+</div>

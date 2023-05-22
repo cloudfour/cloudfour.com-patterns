@@ -159,15 +159,11 @@
 ///    important for the effect!
 /// 2. By default, we fill the available height, which allows this element to
 ///    fill its container and overflow the horizontal axis on small screens or
-///    the negative margin on large screens…
-/// 3. …but if the container is very short, `100%` will be too small. So where
-///    supported, we can use `cqmax` to size based on the largest container
-///    axis instead.
+///    the negative margin on large screens.
 
 .o-hype-group__object-inner {
   aspect-ratio: 1; // 1
   block-size: 100%; // 2
-  block-size: 100cqmax; // 3
   border-radius: size.$border-radius-large;
   display: flex;
   inline-size: auto;
@@ -178,15 +174,19 @@
     border-radius: size.$border-radius-full;
   }
 
-  /// At larger breakpoints, we need to use absolute positioning to make sure
-  /// the object is centered on both axes. Without this, it might overflow over
-  /// the wrong edges depending on the `--reverse` modifier and the length of
-  /// adjacent content.
+  /// 1. If the container is very short, `100%` height will be too small. So
+  ///    where supported, we can use `cqmax` to size based on the largest
+  ///    container axis instead.
+  /// 2. At larger breakpoints, we need to use absolute positioning to make sure
+  ///    the object is centered on both axes. Without this, it might overflow
+  ///    over the wrong edges depending on the `--reverse` modifier and the
+  ///    length of adjacent content.
 
   @media (width >= breakpoint.$m) {
-    inset-block-start: 50%;
-    position: absolute;
-    transform: translateY(-50%);
+    block-size: 100cqmax; // 1
+    inset-block-start: 50%; // 2
+    position: absolute; // 2
+    transform: translateY(-50%); // 2
 
     .o-hype-group--reverse & {
       inset-inline-end: 0;

@@ -1,5 +1,35 @@
 # @cloudfour/patterns
 
+## 14.0.0
+
+### Major Changes
+
+- [#2168](https://github.com/cloudfour/cloudfour.com-patterns/pull/2168) [`5924120e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5924120ec17597e1663fb5f5b7a64b5ef7aa40de) Thanks [@tylersticka](https://github.com/tylersticka)! - The Logo Group previously included padding and center-aligned its contents horizontally. Now, the padding and horizontal justification may be set via a template property or modifier class, which makes the pattern more flexible. To retain the previous appearance, opt into padding and use center justification.
+
+### Minor Changes
+
+- [#2165](https://github.com/cloudfour/cloudfour.com-patterns/pull/2165) [`ed7cfe66`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ed7cfe662ae5655aaa412aaa8a95d776553ede76) Thanks [@tylersticka](https://github.com/tylersticka)! - Improve alignment of complex Form Group label content
+
+- [#2163](https://github.com/cloudfour/cloudfour.com-patterns/pull/2163) [`3027fa3d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3027fa3d80721be8c2c63700e9e00d0ca65938eb) Thanks [@tylersticka](https://github.com/tylersticka)! - Add new square and squircle shape modifiers to Avatar component when representing a website or application
+
+- [#2162](https://github.com/cloudfour/cloudfour.com-patterns/pull/2162) [`2ff5c616`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2ff5c61679f791b6f232764331f1320a8f6ed8b1) Thanks [@tylersticka](https://github.com/tylersticka)! - Add new icon: `asterisk`
+
+- [#2166](https://github.com/cloudfour/cloudfour.com-patterns/pull/2166) [`3d61f2ca`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3d61f2ca84fc46a6af8e23e9b4e1adadaf019419) Thanks [@tylersticka](https://github.com/tylersticka)! - Add new Media Link component to link to resources from marketing-related content sections
+
+- [#2167](https://github.com/cloudfour/cloudfour.com-patterns/pull/2167) [`2c25b270`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2c25b27027d8dec70ac3ce297cb33ff9b5c340dc) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `u-text-big` and `u-text-small` utilities to bump `font-size` up or down a notch
+
+- [#2165](https://github.com/cloudfour/cloudfour.com-patterns/pull/2165) [`ed7cfe66`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ed7cfe662ae5655aaa412aaa8a95d776553ede76) Thanks [@tylersticka](https://github.com/tylersticka)! - Add new `parenthetical` template property for badges to wrap content in visually hidden parentheses
+
+- [#2170](https://github.com/cloudfour/cloudfour.com-patterns/pull/2170) [`956ebf84`](https://github.com/cloudfour/cloudfour.com-patterns/commit/956ebf84b218c9997558622baf4b588e0c28e57d) Thanks [@tylersticka](https://github.com/tylersticka)! - Add new Hype Group layout object for sections of promotional or marketing content
+
+### Patch Changes
+
+- [#2170](https://github.com/cloudfour/cloudfour.com-patterns/pull/2170) [`956ebf84`](https://github.com/cloudfour/cloudfour.com-patterns/commit/956ebf84b218c9997558622baf4b588e0c28e57d) Thanks [@tylersticka](https://github.com/tylersticka)! - Constrain Cloud Cover cloud z-indices to their component to avoid unintended overlap
+
+- [#2167](https://github.com/cloudfour/cloudfour.com-patterns/pull/2167) [`2c25b270`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2c25b27027d8dec70ac3ce297cb33ff9b5c340dc) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent the WordPress `has-small-font-size` utility class from reducing text below 16 pixels for consistency with `u-text-small`
+
+- [#2166](https://github.com/cloudfour/cloudfour.com-patterns/pull/2166) [`3d61f2ca`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3d61f2ca84fc46a6af8e23e9b4e1adadaf019419) Thanks [@tylersticka](https://github.com/tylersticka)! - Fixed an issue where Media object content could overflow its container if it included flex or grid elements
+
 ## 13.4.1
 
 ### Patch Changes

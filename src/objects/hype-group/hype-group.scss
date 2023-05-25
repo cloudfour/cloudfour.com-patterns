@@ -213,7 +213,17 @@
     position: absolute;
   }
 
+  /// Make sure child elements fill the container (even if they're smaller)
+
+  > *,
+  > picture > img {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
   /// Prevents non-square images from stretching to fit the square container.
+  /// This is limited to `img` because `object-fit` can have some weird effects
+  /// on `video` or `iframe` elements.
 
   > img,
   > picture > img {

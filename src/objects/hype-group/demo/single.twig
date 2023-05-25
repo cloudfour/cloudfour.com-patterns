@@ -8,7 +8,10 @@
       } only %}
     {% endblock %}
     {% block object %}
-      <img src="{{example_object_img_src}}" alt="Example object image" width="960" height="960">
+      <img src="{{example_object_img_src}}"
+        alt="Example object image"
+        width="{{example_object_img_size}}"
+        height="{{example_object_img_size}}">
     {% endblock %}
     {% block content %}
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla nulla, vestibulum vel pharetra ut, suscipit sit amet orci. Aliquam interdum tristique tincidunt.</p>

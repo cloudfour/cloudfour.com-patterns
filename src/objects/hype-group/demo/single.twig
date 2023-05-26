@@ -8,15 +8,26 @@
       } only %}
     {% endblock %}
     {% block object %}
-      <img src="{{example_object_img_src}}" alt="Example object image" width="960" height="960">
+      <img src="{{example_object_img_src}}"
+        alt="Example object image"
+        width="{{example_object_img_size}}"
+        height="{{example_object_img_size}}">
     {% endblock %}
     {% block content %}
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla nulla, vestibulum vel pharetra ut, suscipit sit amet orci. Aliquam interdum tristique tincidunt.</p>
-      {% if example_paragraphs > 1 %}
+      {% if example_paragraphs > 2 %}
         <p>Nunc pellentesque eu purus vel aliquet. Vestibulum sed nulla tellus. Sed sed ante varius, facilisis dui in, lacinia dui. Sed convallis aliquam dolor, sit amet pretium nibh dignissim quis.</p>
       {% endif %}
-      {% if example_paragraphs > 2 %}
-        <p>Donec sit amet odio eget eros cursus pellentesque et in justo. Aliquam vel tristique diam. Donec vehicula dolor vitae turpis condimentum fermentum sit amet et est.</p>
+      {% if example_paragraphs > 1 %}
+        {% include '@cloudfour/components/media-link/media-link.twig' with {
+          "href": "https://cloudfour.com/thinks/performance-is-an-issue-of-equity/",
+          "label": "Cloud Four partner Megan Notarte explains why performance is an issue of equity",
+          "action_class": "u-text-small",
+          "avatar": "/media/megan.png",
+          "avatar_width": 88,
+          "avatar_height": 88,
+          "icon": "arrow-right"
+        } only %}
       {% endif %}
     {% endblock %}
   {% endembed %}

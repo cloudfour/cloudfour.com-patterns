@@ -11,8 +11,8 @@
 /// 2. This allows the link to position a pseudo element relative to this
 ///    container for the largest possible click area.
 .c-media-link {
-  inline-size: max-content; // 1
-  max-inline-size: 100%; // 1
+  inline-size: 100%; // 1
+  max-inline-size: max-content; // 1
   position: relative; // 2
 }
 

@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 14.0.1
+
+### Patch Changes
+
+- [#2171](https://github.com/cloudfour/cloudfour.com-patterns/pull/2171) [`cb4d4712`](https://github.com/cloudfour/cloudfour.com-patterns/commit/cb4d47127bfd75b1878049cc3cae452004177347) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent Media Links from breaking out of Grid or Flex containers
+
+- [#2171](https://github.com/cloudfour/cloudfour.com-patterns/pull/2171) [`cb4d4712`](https://github.com/cloudfour/cloudfour.com-patterns/commit/cb4d47127bfd75b1878049cc3cae452004177347) Thanks [@tylersticka](https://github.com/tylersticka)! - Hype Group object images with smaller dimensions than their container will no longer appear awkwardly cropped
+
 ## 14.0.0
 
 ### Major Changes

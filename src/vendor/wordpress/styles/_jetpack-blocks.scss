@@ -21,6 +21,13 @@
   padding: 0 !important;
 }
 
+/// For some reason the Jetpack contact form sometimes applies the same class
+/// to an immediate child element, which is an issue when that element includes
+/// an inline script that can trigger our vertical rhythm.
+.wp-block-jetpack-contact-form > .wp-block-jetpack-contact-form {
+  margin-block-start: 0;
+}
+
 /// Apply our existing form component styles to Jetpack form fields.
 .grunion-field {
   /// Test-based inputs

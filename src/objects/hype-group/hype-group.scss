@@ -5,6 +5,10 @@
 @use '../../mixins/theme';
 @use 'sass:color' as sasscolor;
 
+/// There's one breakpoint that's just a bit off from what we need for the
+/// typical amount of content we have.
+$breakpoint-wide: breakpoint.$m + 5em;
+
 /// Vary image outline colors based on theme. This is the only real style that
 /// IMO stretches the definition of "object" a bit, but it's a nice way to
 /// support different sorts of image content.
@@ -35,7 +39,7 @@
   /// Above a certain breakpoint, we switch to using Grid for layout. We can't
   /// do this from the beginning since the smallest layouts use floats.
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= $breakpoint-wide) {
     column-gap: spacing.$fluid-gap;
     display: grid;
     grid-template-areas:
@@ -63,7 +67,7 @@
 /// the object left at smaller viewports would greatly disrupt the reading line.
 
 .o-hype-group--reverse {
-  @media (width >= breakpoint.$m) {
+  @media (width >= $breakpoint-wide) {
     grid-template-areas:
       'object .'
       'object intro'
@@ -110,7 +114,7 @@
   /// 2. We subtract a bit of gap space so the visual object does not appear to
   ///    be taking up _more_ space than the content (they should appear equal).
 
-  @media (width < breakpoint.$m) {
+  @media (width < $breakpoint-wide) {
     aspect-ratio: 2/3; // 1
     float: right;
     inline-size: calc(50% - #{size.$spacing-gap-inline-small}); // 2
@@ -182,7 +186,7 @@
   ///    over the wrong edges depending on the `--reverse` modifier and the
   ///    length of adjacent content.
 
-  @media (width >= breakpoint.$m) {
+  @media (width >= $breakpoint-wide) {
     block-size: 100cqmax; // 1
     inset-block-start: 50%; // 2
     position: absolute; // 2

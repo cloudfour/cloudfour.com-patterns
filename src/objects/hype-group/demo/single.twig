@@ -18,6 +18,9 @@
       {% if example_paragraphs > 2 %}
         <p>Nunc pellentesque eu purus vel aliquet. Vestibulum sed nulla tellus. Sed sed ante varius, facilisis dui in, lacinia dui. Sed convallis aliquam dolor, sit amet pretium nibh dignissim quis.</p>
       {% endif %}
+      {% if example_paragraphs > 3 %}
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris turpis justo, condimentum pharetra urna aliquet, vehicula mattis neque.</p>
+      {% endif %}
       {% if example_paragraphs > 1 %}
         {% include '@cloudfour/components/media-link/media-link.twig' with {
           "href": "https://cloudfour.com/thinks/performance-is-an-issue-of-equity/",

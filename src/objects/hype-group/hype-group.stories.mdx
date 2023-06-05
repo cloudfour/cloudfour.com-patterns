@@ -1,7 +1,15 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import singleDemo from './demo/single.twig';
 import multipleDemo from './demo/multiple.twig';
+const defaultArgs = {
+  content_class: 'o-rhythm',
+  object_shape: 'circle',
+  example_paragraphs: 3,
+  example_object_img_src: '/media/feature-ozzie-wide.jpg',
+  example_object_img_size: 480,
+};
 const demoStory = (args, multiple) => {
+  args = { ...defaultArgs, ...args };
   if (args.object_shape === 'square') {
     delete args.object_shape;
   }
@@ -33,13 +41,6 @@ const singleTransformSource = (_src, storyContext) => {
   {% endblock %}
 {% endembed %}`;
 };
-const defaultArgs = {
-  content_class: 'o-rhythm',
-  object_shape: 'circle',
-  example_paragraphs: 2,
-  example_object_img_src: '/media/feature-ozzie-wide.jpg',
-  example_object_img_size: 480,
-};
 
 <Meta
   title="Objects/Hype Group"
@@ -61,7 +62,7 @@ const defaultArgs = {
       control: {
         type: 'range',
         min: 1,
-        max: 3,
+        max: 4,
         step: 1,
       },
     },

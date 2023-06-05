@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 14.0.2
+
+### Patch Changes
+
+- [#2174](https://github.com/cloudfour/cloudfour.com-patterns/pull/2174) [`c2f34bf8`](https://github.com/cloudfour/cloudfour.com-patterns/commit/c2f34bf8d54429c4a73138d43cb885c0c7b74152) Thanks [@tylersticka](https://github.com/tylersticka)! - Fix issue where Jetpack contact forms could have extra spacing
+
+- [#2173](https://github.com/cloudfour/cloudfour.com-patterns/pull/2173) [`af0d5777`](https://github.com/cloudfour/cloudfour.com-patterns/commit/af0d5777cc68a20ed96dbfc02e987807642ab1f4) Thanks [@tylersticka](https://github.com/tylersticka)! - Slight change to Hype Group breakpoints to better support the intended amount of content
+
 ## 14.0.1
 
 ### Patch Changes

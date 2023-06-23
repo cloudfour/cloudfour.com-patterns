@@ -2,7 +2,9 @@
 @use '../compiled/tokens/scss/color';
 @use '../compiled/tokens/scss/size';
 @use '../mixins/border-radius';
+@use '../mixins/emdash';
 @use '../mixins/ms';
+@use '../mixins/spacing';
 @use '../mixins/theme';
 
 /**
@@ -235,15 +237,25 @@ blockquote {
   padding-inline-start: size.$spacing-type-block-indent;
 }
 
-/**
- * Adjacent children of blockquotes should include some default vertical rhythm.
- * We use the same design token as the `o-rhythm` pattern for consistency.
- *
- * @see https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
- */
+blockquote {
+  @include spacing.vertical-rhythm;
+  border-inline-start: size.$border-width-blockquote solid
+    var(--theme-color-border-text-group);
+  color: var(--theme-color-text-muted);
+}
 
-blockquote > * + * {
-  margin-block-start: size.$rhythm-default;
+blockquote > cite,
+blockquote > footer > cite {
+  display: block;
+  font-style: inherit;
+  padding-inline-start: size.$spacing-type-block-indent;
+  position: relative;
+
+  &::before {
+    @include emdash.content;
+    inset-inline-start: 0;
+    position: absolute;
+  }
 }
 
 /**

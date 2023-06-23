@@ -2,7 +2,6 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/size';
-@use '../../mixins/emdash';
 @use '../../mixins/headings';
 @use '../../mixins/theme';
 
@@ -76,24 +75,6 @@
   grid-area: content;
   margin-block-start: math.div(size.$rhythm-condensed, -4); // 1
   min-inline-size: 0; // 2
-}
-
-// We added default styles to the blockquote element using the `wp-block-quote`
-// class. We're applying those same styles here, so comment blockquotes look
-// the similar.
-
-.c-comment__content blockquote {
-  border-inline-start: size.$border-width-blockquote solid
-    var(--theme-color-border-kbd);
-  color: var(--theme-color-text-muted);
-}
-
-.c-comment__content blockquote cite {
-  font-style: normal;
-}
-
-.c-comment__content blockquote cite::before {
-  @include emdash.content;
 }
 
 .c-comment__footer {

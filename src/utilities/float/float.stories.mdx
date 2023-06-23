@@ -1,0 +1,53 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import floatDemo from './demo/float.twig';
+
+<Meta
+  title="Utilities/Float"
+  argTypes={{
+    float: {
+      options: ['inline-start', 'inline-end', 'none'],
+      control: {
+        type: 'select',
+      },
+    },
+    breakpoint: {
+      options: ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+      control: {
+        type: 'inline-radio',
+      },
+    },
+  }}
+/>
+
+# Float
+
+Utilities for controlling the float of an element. Useful for responsively arranging imagery or other content adjacent to medium-to-long sections of text.
+
+## Flow-Relative Properties
+
+These utilities use flow-relative values instead of specific directions [in supported browsers](https://caniuse.com/mdn-css_properties_float_flow_relative_values) to simplify potential localization projects.
+
+The following table maps the traditional directional property for `direction: ltr` and `writing-mode: horizontal-tb` to its equivalent flow-relative property:
+
+| Directional Property | Flow-relative Property |
+| -------------------- | ---------------------- |
+| `left`               | `inline-start`         |
+| `right`              | `inline-end`           |
+
+## Float Direction
+
+The following float utilities are available:
+
+- `u-float-inline-start`
+- `u-float-inline-end`
+- `u-float-none`
+
+Appending `@{breakpoint}` to the end of these class names (example: `u-float-inline-end@m`) will apply the float utility at the specified breakpoint and above.
+
+<Canvas>
+  <Story name="Direction" args={{ float: 'inline-end' }}>
+    {(args) => floatDemo(args)}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Direction" />

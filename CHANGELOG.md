@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 15.0.1
+
+### Patch Changes
+
+- [#2179](https://github.com/cloudfour/cloudfour.com-patterns/pull/2179) [`f450a002`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f450a0025777f237aab1744089fc627d377d917e) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent WordPress's default pullquote block styles from starting out too large
+
 ## 15.0.0
 
 ### Major Changes

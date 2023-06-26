@@ -1,0 +1,31 @@
+@use '../../mixins/media-query';
+
+// Set the float styles in a mixin. The suffix will let us easily append
+// breakpoint suffixes.
+@mixin _float-utilities($suffix: '') {
+  .u-float-inline-start#{$suffix} {
+    float: left;
+    float: inline-start;
+  }
+
+  .u-float-inline-end#{$suffix} {
+    float: right;
+    float: inline-end;
+  }
+
+  .u-float-none#{$suffix} {
+    float: none;
+  }
+}
+
+// Include the default versions (no media queries)
+@include _float-utilities;
+
+// Include responsive versions. This would be simpler if we could use the
+// `breakpoint-classes` mixin instead, but in this case we want all of the
+// responsive versions to be grouped by breakpoint so larger breakpoints will
+// naturally override smaller ones.
+@include media-query.breakpoint-loop using ($key) {
+  $suffix: \@#{$key};
+  @include _float-utilities($suffix);
+}

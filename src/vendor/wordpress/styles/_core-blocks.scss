@@ -415,6 +415,15 @@ figure.wp-block-image {
 /// Pullquote Block Styles
 
 .wp-block-pullquote {
+  /// We have to reset the default text color and font size because Gutenberg
+  /// makes it really difficult to adjust the defaults without a complete switch
+  /// to using `theme.json`. These defaults are only exposed via inline styles
+  /// rather than the core block CSS, which makes them extra difficult to
+  /// troublehoot as well.
+  color: var(--theme-color-text-muted);
+  font-size: inherit;
+  line-height: inherit;
+
   /// We use generous margins to differentiate the pull quote from adjacent
   /// content. The core pattern uses padding for this, but we use margin so the
   /// margin of adjacent elements won't needlessly stack.

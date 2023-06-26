@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 15.0.0
+
+### Major Changes
+
+- [#2176](https://github.com/cloudfour/cloudfour.com-patterns/pull/2176) [`f27b66e2`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f27b66e28463eec9edb9802517dacbffad4e42cd) Thanks [@tylersticka](https://github.com/tylersticka)! - Revised `blockquote` and WordPress Quote and Pullquote block styles to address issues of consistency and improve feature support. Content that relied on previous quote styles may need to be reviewed or updated.
+
+### Minor Changes
+
+- [#2177](https://github.com/cloudfour/cloudfour.com-patterns/pull/2177) [`cd60b080`](https://github.com/cloudfour/cloudfour.com-patterns/commit/cd60b080868b06f4de5243b954568446d1190704) Thanks [@tylersticka](https://github.com/tylersticka)! - Add float utilities
+
 ## 14.0.2
 
 ### Patch Changes

@@ -6,6 +6,7 @@
 @use '../../../mixins/border-radius';
 @use '../../../mixins/button';
 @use '../../../mixins/emdash';
+@use '../../../mixins/headings';
 @use '../../../mixins/ms';
 @use '../../../mixins/ratio-box';
 @use '../../../mixins/spacing';
@@ -370,119 +371,124 @@ figure.wp-block-image {
   }
 }
 
-/**
- * Quote and Pull-quote
- * Styles for quotes and pull-quotes
- *
- * Note the `:not(.wp-block-pullquote) > blockquote` selectors are to
- * target vanilla `blockquote` elements in Markdown and HTML blocks.
- * We need to ensure they're not in a Pull Quote block so the standard
- * blockquote styles don't collide with the Pull Quote styles.
- */
+/// Quote and Pullquote shared block styles
 
-.wp-block-pullquote,
 .wp-block-quote,
-:not(.wp-block-pullquote) > blockquote {
-  color: var(--theme-color-text-muted);
+.wp-block-pullquote {
+  /// When the quote has text alignment other than left, we right-align the
+  /// citation styles so they don't disrupt the reading line.
+  &.has-text-align-center,
+  &.has-text-align-right {
+    cite {
+      text-align: end;
+
+      &::before {
+        margin-inline-end: 1ch;
+        position: static;
+      }
+    }
+  }
 }
 
-/**
- * 1. Reset bottom margin
- * 2. Reset padding
- * 3. Reset text alignment
- */
+/// Quote Block Styles
+
+.wp-block-quote {
+  /// We reset the left border and padding when the style is plain or when text
+  /// alignment or background color will differentiate the content on its own.
+  &.is-style-plain,
+  &.has-background,
+  &.has-text-align-center,
+  &.has-text-align-right {
+    border-inline-start-width: 0;
+    padding-inline-start: 0;
+  }
+
+  /// We reset the text color when the blockquote is plain
+
+  /// The plain style tries to make the blockquote appear more or less unstyled,
+  /// so we reset all of the defaults.
+  &.is-style-plain {
+    color: inherit;
+  }
+}
+
+/// Pullquote Block Styles
 
 .wp-block-pullquote {
-  @include border-radius.conditional;
-  background-color: var(--theme-color-background-secondary);
-  margin-block-end: 0; /* 1 */
-  padding: 0; /* 2 */
-  text-align: start; /* 3 */
-}
+  /// We use generous margins to differentiate the pull quote from adjacent
+  /// content. The core pattern uses padding for this, but we use margin so the
+  /// margin of adjacent elements won't needlessly stack.
+  margin: size.$rhythm-generous 0;
+  padding: 0;
 
-/**
- * Our default styles for the blockquote element include `padding-left`.
- * Pullquotes get padding on every side.
- */
-
-.wp-block-pullquote blockquote {
-  padding: ms.step(1);
-}
-
-/**
- * 1. Adjacent children of blockquotes have vertical spacing. Making `cite`
- *    a block level element so that it has the same spacing.
- */
-
-.wp-block-pullquote cite,
-.wp-block-quote cite,
-:not(.wp-block-pullquote) > blockquote cite {
-  display: block; /* 1 */
-  font-style: normal;
-}
-
-/**
- * Add an em dash before the citation.
- */
-
-.wp-block-pullquote cite::before,
-.wp-block-quote cite::before,
-:not(.wp-block-pullquote) > blockquote cite::before {
-  @include emdash.content;
-}
-
-/**
- * Makes the line-height more consistent with existing typographic styles.
- */
-
-.wp-block-pullquote,
-.wp-block-quote.is-large,
-.wp-block-quote.is-style-large {
-  p {
-    line-height: line-height.$tight;
+  /// Inherit parent element text by default instead of centering
+  &:not([class*='has-text-align']) {
+    text-align: inherit;
   }
-}
 
-/**
- * Reset the max-width so the text spans the width of the container.
- */
+  /// For alignments that exceed the content container, apply fluid padding
+  /// to maintain a consistent reading line.
+  &.alignwide,
+  &.alignfull {
+    @include spacing.fluid-padding-inline;
+  }
 
-.wp-block-pullquote.is-style-solid-color {
-  blockquote {
+  /// For alignment styles that cause the element to float, don't adjust the
+  /// element's appearance until a specific breakpoint.
+  &.alignleft,
+  &.alignright {
     max-inline-size: 100%;
-  }
-}
 
-.wp-block-pullquote,
-.wp-block-pullquote.is-style-solid-color blockquote {
+    /// At that breakpoint, omit the border, apply default margins to encourage
+    /// alignment with adjacent elements, and set a maximum width to prevent
+    /// this element from overwhelming its siblings.
+    @media (width >= breakpoint.$m) {
+      border-inline-start-width: 0;
+      margin: var(--rhythm, size.$rhythm-default) 0;
+      max-inline-size: 50%;
+    }
+  }
+
+  &.alignleft {
+    @media (width >= breakpoint.$m) {
+      float: left;
+      margin-inline-end: size.$rhythm-generous;
+    }
+  }
+
+  &.alignright {
+    @media (width >= breakpoint.$m) {
+      float: right;
+      margin-inline-start: size.$rhythm-generous;
+    }
+  }
+
+  /// We omit the typical blockquote border and padding because the text size,
+  /// margin and various alignment options will differentiate the element from
+  /// its siblings without. This also simplifies having to turn the border on
+  /// and off for the aforementioned alignment options.
+  blockquote {
+    border-inline-start-width: 0;
+    padding: 0;
+  }
+
+  /// Increase the typical font size for pull quotes
   p {
-    font-size: ms.step(1);
-  }
-}
-
-.wp-block-quote,
-:not(.wp-block-pullquote) > blockquote {
-  border-inline-start: size.$border-width-blockquote solid
-    var(--theme-color-border-text-group);
-}
-
-/**
-* 1. Reset margins and padding
-* 2. The quote itself defaults to being italic, this straightens out the quote
-*/
-.wp-block-quote.is-style-large,
-.wp-block-quote.is-large {
-  margin: 0; /* 1 */
-  padding-inline: ms.step(1) 0; /* 1 */
-
-  p {
-    font-size: ms.step(0);
-    font-style: normal; /* 2 */
+    @include headings.level(1, false);
   }
 
-  cite {
-    font-size: ms.step(0);
-    text-align: start;
+  /// Use a smaller font size when the pull quote is floating.
+  /// We're ignoring this selector because Stylelint thinks it's duplicating
+  /// the parent styles because it isn't seeing the nested selector.
+
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  &.alignleft,
+  &.alignright {
+    p {
+      @media (width >= breakpoint.$m) {
+        @include headings.level(3, false);
+      }
+    }
   }
 }
 

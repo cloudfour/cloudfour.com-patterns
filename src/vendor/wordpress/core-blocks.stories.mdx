@@ -5,6 +5,8 @@ import blockEmbedYouTubeDemo from './demo/embed/youtube.twig';
 import blockImageDemo from './demo/image.twig';
 import blockGroupDemo from './demo/group.twig';
 import blockMediaTextDemo from './demo/media-text.twig';
+import blockQuoteDemo from './demo/quote.twig';
+import blockPullQuoteDemo from './demo/pullquote.twig';
 import blockTableDemo from './demo/table.twig';
 const blockEmbedDemoArgTypes = {
   alignment: {
@@ -531,38 +533,69 @@ class.
   </Story>
 </Canvas>
 
+## Quote
+
+The quote block adds a class of `wp-block-quote` directly to a `blockquote` element. It supports background and text colors as well as text alignment, but not general alignment options. It may or may not include a citation.
+
+<Canvas>
+  <Story
+    name="Quote"
+    args={{
+      show_citation: true,
+      has_background: false,
+    }}
+    argTypes={{
+      show_citation: {
+        control: { type: 'boolean' },
+      },
+      style: {
+        options: ['default', 'plain'],
+        control: { type: 'select' },
+      },
+      has_background: {
+        control: { type: 'boolean' },
+      },
+      text_align: {
+        options: ['left', 'center', 'right'],
+        control: { type: 'select' },
+      },
+    }}
+  >
+    {(args) => blockQuoteDemo(args)}
+  </Story>
+</Canvas>
+
 ## Pullquote
 
 The pullquote block wraps a `blockquote` element in a `figure` element with the class
 `wp-block-pullquote`.
 
-[Color controls](#color-settings) allow the setting of pre-defined or custom `background-color` and
-text `color`. A styles control adds one of two wrapper classes, `is-style-default` or
-`is-style-solid-color`. By default, any user-selected `background-color` will be
-applied only if the solid color background is toggled on.
+Its visual appearance is more opinionated than the quote block, and it supports more alignment options (such as floating or breaking out of the containing element).
 
 <Canvas>
-  <Story name="Pullquote">
-    {`<figure class="wp-block-pullquote has-background is-style-solid-color">
-        <blockquote class="has-text-color has-accent-color">
-          <p>One of the hardest things to do in technology is disrupt yourself.</p>
-          <cite>Matt Mullenweg</cite>
-        </blockquote>
-      </figure>`}
-  </Story>
-</Canvas>
-
-## Quote
-
-The quote block adds class of `wp-block-quote` directly to a `blockquote` element.
-It has a control to add an optional `is-style-large` class.
-
-<Canvas>
-  <Story name="Quote">
-    {`<blockquote class="wp-block-quote is-style-large">
-        <p>In quoting others, we cite ourselves.</p>
-        <cite>Julio Cortázar</cite>
-      </blockquote>`}
+  <Story
+    name="Pullquote"
+    parameters={{
+      layout: 'fullscreen',
+    }}
+    args={{
+      show_citation: true,
+    }}
+    argTypes={{
+      show_citation: {
+        control: { type: 'boolean' },
+      },
+      align: {
+        options: ['left', 'right', 'wide', 'full'],
+        control: { type: 'select' },
+      },
+      text_align: {
+        options: ['left', 'center', 'right'],
+        control: { type: 'select' },
+      },
+    }}
+  >
+    {(args) => blockPullQuoteDemo(args)}
   </Story>
 </Canvas>
 

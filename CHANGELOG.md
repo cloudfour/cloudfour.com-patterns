@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 15.0.2
+
+### Patch Changes
+
+- [#2183](https://github.com/cloudfour/cloudfour.com-patterns/pull/2183) [`9f47287d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/9f47287d9b3067cbad7caba2391f27bd61628f2f) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent WordPress from overriding the "small" font size utility styles.
+
+- [#2182](https://github.com/cloudfour/cloudfour.com-patterns/pull/2182) [`b9b210b2`](https://github.com/cloudfour/cloudfour.com-patterns/commit/b9b210b279f3da2b8781de69630172468373068b) Thanks [@tylersticka](https://github.com/tylersticka)! - Inline code elements inside of lighter gray containers now have improved contrast.
+
 ## 15.0.1
 
 ### Patch Changes

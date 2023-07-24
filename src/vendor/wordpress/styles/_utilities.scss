@@ -82,8 +82,15 @@ $color-map: meta.module-variables('color-base');
   @include font-size.big;
 }
 
+/// We need to use `!important` because otherwise WordPress will override this
+/// size as of version 5.9. We could get around this by setting the font size
+/// via `theme.json`, but that would make this an outlier among our other sizes,
+/// so for now we'll just use `!important`.
+///
+/// @link https://make.wordpress.org/core/2022/01/08/updates-for-settings-styles-and-theme-json/
+
 .has-small-font-size {
-  @include font-size.small;
+  @include font-size.small($important: true);
 }
 
 @for $level from -2 through 3 {

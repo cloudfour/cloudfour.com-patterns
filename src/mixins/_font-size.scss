@@ -17,6 +17,14 @@
 /// To prevent small text from impairing readability (most importantly) and our
 /// Core Web Vitals (secondarily), we only apply the small font size if it isn't
 /// smaller than 16 pixels.
-@mixin small {
-  font-size: max(16px, size.$font-small);
+///
+/// @param {Boolean} $important - Whether or not to output the rule with an
+/// `!important` flag. Added to satisfy WordPress 5.9+.
+/// @link https://make.wordpress.org/core/2022/01/08/updates-for-settings-styles-and-theme-json/
+@mixin small($important: false) {
+  @if $important {
+    font-size: max(16px, size.$font-small) !important;
+  } @else {
+    font-size: max(16px, size.$font-small);
+  }
 }

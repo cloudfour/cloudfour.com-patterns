@@ -20,6 +20,10 @@
       "action": {
         "value": "{color.base.blue.value}",
         "comment": "Accessible on white and lighter-gray."
+      },
+      "code": {
+        "value": "hsla(322, 98%, 40%, 0.94)",
+        "comment": "Similar to the base fuchsia, but accessible on white and lighter-gray."
       }
     }
   }

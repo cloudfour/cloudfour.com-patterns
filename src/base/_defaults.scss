@@ -309,6 +309,14 @@ address {
 }
 
 /**
+ * Labels
+ */
+
+label {
+  color: var(--theme-color-text-label);
+}
+
+/**
  * Horizontal rules
  *
  * We use border styles and `currentColor` for greater compatibility with

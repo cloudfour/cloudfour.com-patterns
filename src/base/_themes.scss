@@ -23,6 +23,7 @@
   --theme-color-text-base: #{color.$text-dark};
   --theme-color-text-code: #{color.$text-code};
   --theme-color-text-emphasis: var(--theme-color-text-base);
+  --theme-color-text-label: inherit;
   --theme-color-text-muted: #{color.$text-dark-muted};
   --theme-opacity-del: #{opacity.$muted};
 }
@@ -42,6 +43,7 @@
   --theme-color-text-base: #{color.$text-light};
   --theme-color-text-code: var(--theme-color-text-emphasis);
   --theme-color-text-emphasis: #{color.$text-light-emphasis};
+  --theme-color-text-label: var(--theme-color-text-emphasis);
   --theme-color-text-muted: #{color.$text-light};
   --theme-opacity-del: 1;
 }

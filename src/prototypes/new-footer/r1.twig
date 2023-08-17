@@ -1,0 +1,235 @@
+<div class="_new-footer">
+  <div class="_new-footer__primary t-dark">
+    <div class="_new-footer__cta t-alternate">
+      <div class="o-container o-container--pad">
+        <div class="o-container__content">
+          <div class="o-rhythm o-rhythm--condensed">
+            <div class="o-rhythm o-rhythm--compact">
+              {% embed '@cloudfour/components/heading/heading.twig' with {
+                "tag_name": "h2",
+                "level": 1,
+                "weight": "light"
+              } only %}
+                {% block content %}
+                  Nice to meet you
+                {% endblock %}
+              {% endembed %}
+              <p>
+                Cloud Four helps organizations solve complex responsive web design and development challenges every day.
+                Let's connect so we can tailor a solution to fit your needs.
+              </p>
+            </div>
+            {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
+              {% block content %}
+                {% include '@cloudfour/components/button/button.twig' with {
+                  label: 'See our work',
+                  class: 'c-button--secondary'
+                } only %}
+                {% include '@cloudfour/components/button/button.twig' with {
+                  label: 'Get in touch',
+                  class: 'c-button--secondary'
+                } only %}
+              {% endblock %}
+            {% endembed %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="_new-footer__newsletter">
+      <div class="o-container o-container--pad">
+        <div class="o-container__content">
+          <form class="o-rhythm o-rhythm--condensed" action="#">
+            <div class="o-rhythm o-rhythm--compact">
+              {% embed '@cloudfour/components/heading/heading.twig' with {
+                "tag_name": "h2",
+                "level": 1,
+                "weight": "light"
+              } only %}
+                {% block content %}
+                  Cloud Four, in your inbox
+                {% endblock %}
+              {% endembed %}
+              <p>Our latest articles, updates, quick tips and insights in one convenient, occassional newsletter.</p>
+            </div>
+            {% embed '@cloudfour/objects/input-group/input-group.twig' only %}
+              {% block content %}
+                {% include '@cloudfour/components/input/input.twig' with {
+                  placeholder: 'Your Email',
+                  type: 'email',
+                } only %}
+                {% include '@cloudfour/components/button/button.twig' with {
+                  label: 'Sign up'
+                } only %}
+              {% endblock %}
+            {% endembed %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="_new-footer__secondary t-alternate">
+    <div class="o-container o-container--pad">
+      <div class="o-container__content">
+        {% include '@cloudfour/assets/illustrations/portland.svg.twig' with {
+          class: '_new-footer__portland'
+        } %}
+        <div class="_new-footer__nav">
+          <h2 class="_new-footer__heading">
+            Explore
+          </h2>
+          <ul class="o-list">
+            <li><a href="#">What We Do</a></li>
+            <li><a href="#">Our Approach</a></li>
+            <li><a href="#">Our Work</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Speaking</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Hire Us</a></li>
+          </ul>
+        </div>
+        <div class="_new-footer__articles">
+          <h2 class="_new-footer__heading">
+            Topics
+          </h2>
+          <ul class="o-list">
+            <li><a href="#">Responsive Web Design</a></li>
+            <li><a href="#">Performance</a></li>
+            <li><a href="#">Images</a></li>
+            <li><a href="#">Accessibility</a></li>
+            <li><a href="#">Ecommerce</a></li>
+            <li><a href="#">Progressive Web Apps</a></li>
+            <li><a href="#">Cloud Four Spotlight</a></li>
+          </ul>
+        </div>
+        <div class="_new-footer__contact">
+          <address>
+            <a style="font-weight: 500;" href="https://cloudfour.com">
+              Cloud Four, Inc.
+            </a><br>
+            510 SW 3rd Ave, Suite 420<br>
+            Portland, Oregon 97204 USA<br>
+            <div class="u-space-block-start-2">
+              <a href="mailto:info@cloudfour.com">info@cloudfour.com</a><br>
+              <a href="tel:+1-503-290-1090">+1 (503) 290-1090</a>
+            </div>
+          </address>
+        </div>
+        <div class="_new-footer__social">
+          <ul class="o-list o-list--inline">
+            <li>
+              <a href="#">
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  "name": "brands/linkedin",
+                  "inline": false
+                } only %}
+                <span class="u-hidden-visually">LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg class="c-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="m23.02,6.46c-.26-.99-1.04-1.77-2.03-2.03-1.79-.48-8.99-.48-8.99-.48,0,0-7.19,0-8.99.48-.99.26-1.77,1.04-2.03,2.03-.48,1.79-.48,5.54-.48,5.54,0,0,0,3.74.48,5.54.26.99,1.04,1.77,2.03,2.03,1.79.48,8.99.48,8.99.48,0,0,7.19,0,8.99-.48.99-.26,1.77-1.04,2.03-2.03.48-1.79.48-5.54.48-5.54,0,0,0-3.74-.48-5.54Zm-13.32,8.99v-6.9l5.98,3.45-5.98,3.45Z" stroke-width="0"/>
+                </svg>
+                <span class="u-hidden-visually">YouTube</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  "name": "brands/instagram",
+                  "inline": false
+                } only %}
+                <span class="u-hidden-visually">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  "name": "brands/mastodon",
+                  "inline": false
+                } only %}
+                <span class="u-hidden-visually">Mastodon</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  "name": "feed",
+                  "inline": false
+                } only %}
+                <span class="u-hidden-visually">RSS</span>
+              </a>
+            </li>
+          </ul>
+          {# <h2 class="_new-footer__heading">
+            Connect
+          </h2>
+          <ul class="o-list">
+            <li>
+              <a href="#">
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  "name": "brands/linkedin",
+                  "inline": false
+                } only %}
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg class="c-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="m23.02,6.46c-.26-.99-1.04-1.77-2.03-2.03-1.79-.48-8.99-.48-8.99-.48,0,0-7.19,0-8.99.48-.99.26-1.77,1.04-2.03,2.03-.48,1.79-.48,5.54-.48,5.54,0,0,0,3.74.48,5.54.26.99,1.04,1.77,2.03,2.03,1.79.48,8.99.48,8.99.48,0,0,7.19,0,8.99-.48.99-.26,1.77-1.04,2.03-2.03.48-1.79.48-5.54.48-5.54,0,0,0-3.74-.48-5.54Zm-13.32,8.99v-6.9l5.98,3.45-5.98,3.45Z" stroke-width="0"/>
+                </svg>
+                YouTube
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  "name": "brands/instagram",
+                  "inline": false
+                } only %}
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  "name": "feed",
+                  "inline": false
+                } only %}
+                RSS
+              </a>
+            </li>
+          </ul> #}
+        </div>
+        {# <div class="_new-footer__search">
+          <h2 class="_new-footer__heading">
+            Search
+          </h2>
+          <form action="#">
+            {% embed '@cloudfour/objects/input-group/input-group.twig' only %}
+              {% block content %}
+                {% include '@cloudfour/components/input/input.twig' with {
+                  placeholder: 'Keywords, topics, etc.',
+                } only %}
+                {% embed '@cloudfour/components/button/button.twig' with {
+                } only %}
+                  {% block content %}
+                    {% include '@cloudfour/components/icon/icon.twig' with {
+                      "name": "magnifying-glass",
+                      "size": "medium",
+                      "inline": true
+                    } only %}
+                  {% endblock %}
+                {% endembed %}
+              {% endblock %}
+            {% endembed %}
+          </form>
+        </div> #}
+        <div class="_new-footer__byline">
+          &copy; 2007&ndash;{{ "now"|date("Y") }} Cloud Four, Inc.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 15.1.0
+
+### Minor Changes
+
+- [#2185](https://github.com/cloudfour/cloudfour.com-patterns/pull/2185) [`96dbffa4`](https://github.com/cloudfour/cloudfour.com-patterns/commit/96dbffa4e8d554cf4d994a1b195d6bb899583a76) Thanks [@tylersticka](https://github.com/tylersticka)! - Increases contrast of `label` element text inside of dark theme containers.
+
+- [#2187](https://github.com/cloudfour/cloudfour.com-patterns/pull/2187) [`0443bf82`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0443bf82e6434c984598ad3a3a50e490392e8ae3) Thanks [@tylersticka](https://github.com/tylersticka)! - Add styles for Mailchimp signup forms.
+
 ## 15.0.2
 
 ### Patch Changes

@@ -1,0 +1,49 @@
+@use '../../mixins/button';
+@use '../../mixins/input';
+@use '../../mixins/ms';
+@use '../../mixins/spacing';
+@use '../../compiled/tokens/scss/size';
+
+/// Mailchimp form customizations
+///
+/// These assume Mailchimp's CSS is not included.
+///
+/// @link https://mailchimp.com/help/css-hooks-for-customizing-forms/
+/// @link https://mailchimp.com/help/customize-embedded-signup-form/
+
+#mc_embed_signup_scroll {
+  @include spacing.vertical-rhythm;
+}
+
+#mc_embed_shell {
+  .indicates-required {
+    color: var(--theme-color-text-muted);
+    font-size: ms.step(-1);
+    text-align: end;
+
+    + * {
+      margin-block-start: 0;
+    }
+  }
+
+  .mc-field-group {
+    display: grid;
+    gap: #{size.$spacing-gap-form-group-default};
+  }
+
+  input {
+    &:not([type='checkbox']):not([type='radio']):not([type='submit']):not(
+        [type='hidden']
+      ) {
+      @include input.default;
+    }
+  }
+
+  .button {
+    @include button.default;
+  }
+
+  .asterisk {
+    color: var(--theme-color-icon-error);
+  }
+}

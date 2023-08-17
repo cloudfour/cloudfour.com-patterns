@@ -1,0 +1,17 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import signupDemo from './demo/signup.twig';
+
+<Meta
+  title="Vendor/Mailchimp"
+  parameters={{
+    layout: 'fullscreen',
+  }}
+/>
+
+# Mailchimp
+
+For convenience, we apply some default styles to Mailchimp signup forms. These assume that the "Remove CSS styles" option has been checked when [building the form](https://mailchimp.com/help/customize-embedded-signup-form/#Customize_your_embedded_form).
+
+<Canvas>
+  <Story name="Signup Form">{signupDemo.bind(this)}</Story>
+</Canvas>

@@ -5,159 +5,162 @@
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/size';
 
-._o-container--pad-block-start {
-  padding-block-start: spacing.$fluid-spacing-block;
-}
+#_new-footer-r2 {
 
-._c-heading--medium {
-  font-weight: font-weight.$medium;
-}
-
-._c-ground-nav {
-  display: grid;
-  grid-template-rows: repeat(3, minmax(0, auto));
-}
-
-._c-ground-nav::before {
-  background: var(--theme-color-background-secondary);
-  content: '';
-  grid-column: 1;
-  grid-row: 2 / span 2;
-}
-
-._c-ground-nav__features {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-}
-
-._c-ground-nav__features-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-
-  @media (width >= breakpoint.$l) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  ._o-container--pad-block-start {
+    padding-block-start: spacing.$fluid-spacing-block;
   }
-}
 
-._c-ground-nav__feature {
-  @include border-radius.conditional;
-  @include spacing.fluid-padding-block;
-  width: 100%;
+  ._c-heading--medium {
+    font-weight: font-weight.$medium;
+  }
 
-  &:only-child {
-    margin-inline: auto;
-    max-width: size.$max-width-prose;
+  ._c-ground-nav {
+    display: grid;
+    grid-template-rows: repeat(3, minmax(0, auto));
+  }
+
+  ._c-ground-nav::before {
+    background: var(--theme-color-background-secondary);
+    content: '';
+    grid-column: 1;
+    grid-row: 2 / span 2;
+  }
+
+  ._c-ground-nav__features {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  ._c-ground-nav__features-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
 
     @media (width >= breakpoint.$l) {
-      grid-column: span 2;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (width < breakpoint.$l) {
-    &:not(:last-child) {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+  ._c-ground-nav__feature {
+    @include border-radius.conditional;
+    @include spacing.fluid-padding-block;
+    width: 100%;
+
+    &:only-child {
+      margin-inline: auto;
+      max-width: size.$max-width-prose;
+
+      @media (width >= breakpoint.$l) {
+        grid-column: span 2;
+      }
     }
 
-    &:not(:first-child) {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+    @media (width < breakpoint.$l) {
+      &:not(:last-child) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    @media (width >= breakpoint.$l) {
+      &:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
     }
   }
 
-  @media (width >= breakpoint.$l) {
-    &:not(:last-child) {
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
+  ._c-ground-nav__inner {
+    grid-column: 1;
+    grid-row: 3;
+    position: relative;
+  }
+
+  ._c-ground-nav__content {
+    color: var(--theme-color-text-muted);
+    column-gap: spacing.$fluid-gap;
+    display: grid;
+    grid-template-areas: "address"
+      "social"
+      "primary-nav"
+      "secondary-nav"
+      "colophon"
+      "scene";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(5, minmax(0, auto)) ms.step(6);
+    row-gap: ms.step(2);
+
+    @media (width >= breakpoint.$s) {
+      grid-template-areas: "address address"
+        "social social"
+        "primary-nav secondary-nav"
+        ". scene"
+        "colophon scene"
+        ". scene";
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+      grid-template-rows: repeat(6, minmax(0, auto));
     }
 
-    &:not(:first-child) {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
+    @media (width >= breakpoint.$m) {
+      grid-template-areas: "address primary-nav secondary-nav"
+        ". primary-nav secondary-nav"
+        "social primary-nav secondary-nav"
+        ". . scene"
+        "colophon colophon scene"
+        ". . scene";
+      grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
+    }
+
+    @media (width >= breakpoint.$xl) {
+      grid-template-areas: "address primary-nav secondary-nav . social"
+        "address primary-nav secondary-nav scene scene"
+        "colophon primary-nav secondary-nav scene scene"
+        ". . . scene scene";
+      grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr) minmax(0, auto);
+      grid-template-rows: repeat(3, minmax(0, auto)) spacing.$fluid-spacing-block;
     }
   }
-}
 
-._c-ground-nav__inner {
-  grid-column: 1;
-  grid-row: 3;
-  position: relative;
-}
-
-._c-ground-nav__content {
-  color: var(--theme-color-text-muted);
-  column-gap: spacing.$fluid-gap;
-  display: grid;
-  grid-template-areas: "address"
-    "social"
-    "primary-nav"
-    "secondary-nav"
-    "colophon"
-    "scene";
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: repeat(5, minmax(0, auto)) ms.step(6);
-  row-gap: ms.step(2);
-
-  @media (width >= breakpoint.$s) {
-    grid-template-areas: "address address"
-      "social social"
-      "primary-nav secondary-nav"
-      ". scene"
-      "colophon scene"
-      ". scene";
-    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-    grid-template-rows: repeat(6, minmax(0, auto));
+  ._c-ground-nav__address {
+    grid-area: address;
   }
 
-  @media (width >= breakpoint.$m) {
-    grid-template-areas: "address primary-nav secondary-nav"
-      ". primary-nav secondary-nav"
-      "social primary-nav secondary-nav"
-      ". . scene"
-      "colophon colophon scene"
-      ". . scene";
-    grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
+  ._c-ground-nav__social {
+    grid-area: social;
   }
 
-  @media (width >= breakpoint.$xl) {
-    grid-template-areas: "address primary-nav secondary-nav . social"
-      "address primary-nav secondary-nav scene scene"
-      "colophon primary-nav secondary-nav scene scene"
-      ". . . scene scene";
-    grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr) minmax(0, auto);
-    grid-template-rows: repeat(3, minmax(0, auto)) spacing.$fluid-spacing-block;
+  ._c-ground-nav__primary-nav {
+    grid-area: primary-nav;
   }
-}
 
-._c-ground-nav__address {
-  grid-area: address;
-}
-
-._c-ground-nav__social {
-  grid-area: social;
-}
-
-._c-ground-nav__primary-nav {
-  grid-area: primary-nav;
-}
-
-._c-ground-nav__secondary-nav {
-  grid-area: secondary-nav;
-}
-
-._c-ground-nav__colophon {
-  grid-area: colophon;
-
-  @media (width >=breakpoint.$xl) {
-    align-self: end;
+  ._c-ground-nav__secondary-nav {
+    grid-area: secondary-nav;
   }
-}
 
-._c-ground-nav__scene {
-  block-size: 100%;
-  max-block-size: ms.step(10);
-  grid-area: scene;
-  inline-size: 100%;
-  mix-blend-mode: multiply;
-  place-self: end;
+  ._c-ground-nav__colophon {
+    grid-area: colophon;
+
+    @media (width >=breakpoint.$xl) {
+      align-self: end;
+    }
+  }
+
+  ._c-ground-nav__scene {
+    block-size: 100%;
+    max-block-size: ms.step(10);
+    grid-area: scene;
+    inline-size: 100%;
+    mix-blend-mode: multiply;
+    place-self: end;
+  }
 }

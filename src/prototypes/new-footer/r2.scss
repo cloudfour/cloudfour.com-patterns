@@ -57,12 +57,6 @@
       ". scene";
     grid-template-columns: minmax(0, auto) minmax(0, 1fr);
     grid-template-rows: repeat(6, minmax(0, auto));
-    // grid-template-areas: "address address"
-    //   "social social"
-    //   "primary-nav secondary-nav"
-    //   "colophon scene"
-    //   " . scene";
-    // grid-template-columns: minmax(0, auto) minmax(0, 1fr);
   }
 
   @media (width >= breakpoint.$m) {
@@ -73,11 +67,6 @@
       "colophon colophon scene"
       ". . scene";
     grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
-    // grid-template-areas: "address primary-nav secondary-nav"
-    //     "social primary-nav secondary-nav"
-    //     "colophon colophon scene"
-    //     ". . scene";
-    // grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
   }
 
   @media (width >= breakpoint.$xl) {
@@ -87,9 +76,6 @@
       ". . . scene scene";
     grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr) minmax(0, auto);
     grid-template-rows: repeat(3, minmax(0, auto)) spacing.$fluid-spacing-block;
-    // grid-template-areas: "address primary-nav secondary-nav social"
-    //     "colophon primary-nav secondary-nav scene";
-    // grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr);
   }
 }
 
@@ -99,14 +85,6 @@
 
 ._c-ground-nav__social {
   grid-area: social;
-
-  // @media (width < breakpoint.$xl) {
-  //   align-self: end;
-  // }
-
-  // @media (width >= breakpoint.$xl) {
-  //   justify-self: end;
-  // }
 }
 
 ._c-ground-nav__primary-nav {
@@ -123,19 +101,9 @@
   @media (width >=breakpoint.$xl) {
     align-self: end;
   }
-
-  // @media (width < breakpoint.$l) {
-    // align-self: end;
-  // }
 }
 
 ._c-ground-nav__scene {
-  // align-self: end;
-  // margin-block-end: spacing.$fluid-spacing-block-negative;
-  // margin-inline-start: auto;
-  // justify-self: end;
-  // max-height: ms.step(8);
-
   block-size: 100%;
   max-block-size: ms.step(10);
   grid-area: scene;

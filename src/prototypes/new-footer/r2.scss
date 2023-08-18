@@ -3,6 +3,10 @@
 @use '../../compiled/tokens/scss/breakpoint';
 @use '../../compiled/tokens/scss/font-weight';
 
+._o-container--pad-block-start {
+  padding-block-start: spacing.$fluid-spacing-block;
+}
+
 ._c-heading--medium {
   font-weight: font-weight.$medium;
 }
@@ -34,44 +38,59 @@
   color: var(--theme-color-text-muted);
   column-gap: spacing.$fluid-gap;
   display: grid;
-  grid-template-areas: "address address address"
-      "social social social"
-      "primary-nav primary-nav primary-nav"
-      "secondary-nav secondary-nav secondary-nav"
-      "colophon colophon colophon"
-      ". scene scene";
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas: "address"
+    "social"
+    "primary-nav"
+    "secondary-nav"
+    "colophon"
+    "scene";
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: repeat(5, minmax(0, auto)) ms.step(6);
   row-gap: ms.step(2);
 
   @media (width >= breakpoint.$s) {
     grid-template-areas: "address address"
       "social social"
       "primary-nav secondary-nav"
-      "colophon scene";
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+      ". scene"
+      "colophon scene"
+      ". scene";
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    grid-template-rows: repeat(6, minmax(0, auto));
+    // grid-template-areas: "address address"
+    //   "social social"
+    //   "primary-nav secondary-nav"
+    //   "colophon scene"
+    //   " . scene";
+    // grid-template-columns: minmax(0, auto) minmax(0, 1fr);
   }
 
   @media (width >= breakpoint.$m) {
     grid-template-areas: "address primary-nav secondary-nav"
-        "social primary-nav secondary-nav"
-        "colophon colophon scene";
+      ". primary-nav secondary-nav"
+      "social primary-nav secondary-nav"
+      ". . scene"
+      "colophon colophon scene"
+      ". . scene";
     grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
+    // grid-template-areas: "address primary-nav secondary-nav"
+    //     "social primary-nav secondary-nav"
+    //     "colophon colophon scene"
+    //     ". . scene";
+    // grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
   }
 
   @media (width >= breakpoint.$xl) {
-    grid-template-areas: "address primary-nav secondary-nav social"
-        "colophon primary-nav secondary-nav scene";
-    grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr);
+    grid-template-areas: "address primary-nav secondary-nav . social"
+      "address primary-nav secondary-nav scene scene"
+      "colophon primary-nav secondary-nav scene scene"
+      ". . . scene scene";
+    grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr) minmax(0, auto);
+    grid-template-rows: repeat(3, minmax(0, auto)) spacing.$fluid-spacing-block;
+    // grid-template-areas: "address primary-nav secondary-nav social"
+    //     "colophon primary-nav secondary-nav scene";
+    // grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr);
   }
-}
-
-._c-ground-nav__scene {
-  align-self: end;
-  grid-area: scene;
-  margin-block-end: spacing.$fluid-spacing-block-negative;
-  margin-inline-start: auto;
-  max-height: ms.step(8);
-  mix-blend-mode: multiply;
 }
 
 ._c-ground-nav__address {
@@ -81,13 +100,13 @@
 ._c-ground-nav__social {
   grid-area: social;
 
-  @media (width < breakpoint.$xl) {
-    align-self: end;
-  }
+  // @media (width < breakpoint.$xl) {
+  //   align-self: end;
+  // }
 
-  @media (width >= breakpoint.$xl) {
-    justify-self: end;
-  }
+  // @media (width >= breakpoint.$xl) {
+  //   justify-self: end;
+  // }
 }
 
 ._c-ground-nav__primary-nav {
@@ -101,7 +120,26 @@
 ._c-ground-nav__colophon {
   grid-area: colophon;
 
-  // @media (width < breakpoint.$l) {
+  @media (width >=breakpoint.$xl) {
     align-self: end;
+  }
+
+  // @media (width < breakpoint.$l) {
+    // align-self: end;
   // }
+}
+
+._c-ground-nav__scene {
+  // align-self: end;
+  // margin-block-end: spacing.$fluid-spacing-block-negative;
+  // margin-inline-start: auto;
+  // justify-self: end;
+  // max-height: ms.step(8);
+
+  block-size: 100%;
+  max-block-size: ms.step(10);
+  grid-area: scene;
+  inline-size: 100%;
+  mix-blend-mode: multiply;
+  place-self: end;
 }

@@ -52,7 +52,6 @@
                 <a href="#">
                   {% include '@cloudfour/components/icon/icon.twig' with {
                     "name": item.icon,
-                    "size": "medium"
                   } only %}
                 </a>
               </li>
@@ -65,88 +64,4 @@
       </div>
     </div>
   </footer>
-  {# <footer class="_c-ground-nav">
-    <div class="_c-ground-nav__features">
-      <div class="o-container o-container--pad-inline">
-        <div class="o-container__content">
-          <div class="o-container__fill _c-ground-nav__features-inner">
-            <div class="_c-ground-nav__feature t-dark t-alternate o-container__pad">
-              (Feature)
-            </div>
-            <div class="_c-ground-nav__feature t-dark o-container__pad">
-              (Feature)
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="_c-ground-nav__inner">
-      <div class="o-container o-container--pad-inline _o-container--pad-block-start">
-        <div class="o-container__content _c-ground-nav__content">
-          <address class="_c-ground-nav__address">
-            <a class="c-heading _c-heading--medium" href="{{organization.url}}">
-              {{organization.name}}
-            </a><br>
-            {{organization.address1}}<br>
-            {{organization.address2}}<br>
-            <a href="mailto:{{ organization.email }}">{{ organization.email }}</a><br>
-            <a href="tel:{{ organization.phone|replace({
-              '.': '-',
-              '(': '-',
-              ')': '-',
-              ' ': ''
-            }) }}">{{ organization.phone }}</a>
-          </address>
-
-          <div class="_c-ground-nav__social">
-            <ul class="o-list o-list--inline">
-              {% for item in social %}
-                <li>
-                  <a href="#">
-                    {% include '@cloudfour/components/icon/icon.twig' with {
-                      "name": item.icon,
-                      "size": "medium"
-                    } only %}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-
-          <nav class="_c-ground-nav__primary-nav">
-            <h2 class="c-heading _c-heading--medium">Explore</h2>
-            <ul class="o-list">
-              {% for item in nav %}
-                <li>
-                  <a href="{{item.href|default('#')}}">
-                    {{item.title}}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </nav>
-          <nav class="_c-ground-nav__secondary-nav">
-            <h2 class="c-heading _c-heading--medium">Topics</h2>
-            <ul class="o-list">
-              {% for item in topics %}
-                <li>
-                  <a href="{{item.href|default('#')}}">
-                    {{item.title}}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </nav>
-
-          <p class="_c-ground-nav__colophon">
-            &copy; 2007&ndash;{{ "now"|date("Y") }} {{organization.name}}
-          </p>
-
-          {% include '@cloudfour/assets/illustrations/portland.svg.twig' with {
-            class: '_c-ground-nav__scene',
-          } %}
-        </div>
-      </div>
-    </div>
-  </footer> #}
 </div>

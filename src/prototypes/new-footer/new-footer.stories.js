@@ -150,9 +150,9 @@ export const r3 = () =>
       {
         icon: 'brands/linkedin',
       },
-      {
-        icon: 'brands/mastodon',
-      },
+      // {
+      //   icon: 'brands/mastodon',
+      // },
       {
         icon: 'brands/youtube',
       },

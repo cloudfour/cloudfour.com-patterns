@@ -50,9 +50,12 @@
     grid-column: 1;
     grid-row: 3;
 
+    @media (width >= breakpoint.$xxl) {
+      background-size: auto ms.step(10);
+    }
+
     @media (width >= breakpoint.$xxxl) {
       background-position: right calc(50vw - #{math.div(size.$max-width-spread, 2)} - #{spacing.$fluid-spacing-inline-max}) bottom;
-      // background-size: auto ms.step(10);
     }
   }
 

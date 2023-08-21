@@ -13,6 +13,19 @@
 
 #mc_embed_signup_scroll {
   @include spacing.vertical-rhythm;
+
+  /// If the form is not the first item in a rhythm container and its first
+  /// child is not `1em` in font size, it can cause the form contents to look
+  /// inconsistent with surrounding content in terms of spacing. (Luckily, this
+  /// and the parent margin should collapse so there's no need to override the
+  /// container margin.)
+  #mc_embed_shell:not(:first-child) & > :first-child {
+    margin-block-start: var(--rhythm);
+
+    &:where(h1, h2, h3, h4, h5, h6, [class*='heading']) {
+      margin-block-start: var(--rhythm-headings, var(--rhythm));
+    }
+  }
 }
 
 #mc_embed_shell {

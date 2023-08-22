@@ -119,8 +119,8 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
  * Divides the menu into 2 columns.
  */
 .c-ground-nav__menu-items {
-  column-gap: $_ground-nav-space;
-  columns: 2;
+  // column-gap: $_ground-nav-space;
+  // columns: 2;
 }
 
 .c-ground-nav__kudos,

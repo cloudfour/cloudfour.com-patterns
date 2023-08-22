@@ -1,84 +1,10 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import skyNavMenu from '../sky-nav/demo/menu.json';
-import groundNavMenu from './demo/menu.json';
-import organization from './demo/organization.json';
-import social from './demo/social.json';
+import {
+  defaultArgTypes,
+  defaultArgs,
+  generateGroundNavProps,
+} from './ground-nav-args.js';
 import template from './ground-nav.twig';
-// The '!!raw-loader!' syntax is a non-standard, Webpack-specific, syntax.
-// See: https://github.com/webpack-contrib/raw-loader#examples
-// For now, it seems likely Storybook is pretty tied to Webpack, therefore, we are
-// okay with the following Webpack-specific raw loader syntax. It's better to leave
-// the ESLint rule enabled globally, and only thoughtfully disable as needed (e.g.
-// within a Storybook docs page and not within an actual component).
-// This can be revisited in the future if Storybook no longer relies on Webpack.
-// eslint-disable-next-line @cloudfour/import/no-webpack-loader-syntax
-import pwaStatsDemoSource from '!!raw-loader!./demo/pwa-stats.twig';
-import pwaStatsDemo from './demo/pwa-stats.twig';
-const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
-const defaultArgTypes = {
-  buttonLeadIn: { type: { name: 'string', required: false } },
-  buttonTitle: { type: { name: 'string', required: false } },
-  buttonLink: { type: { name: 'string', required: false } },
-  buttonIcon: { type: { name: 'string', required: false } },
-  organizationName: { type: { name: 'string' } },
-  organizationStreetAddress: { type: { name: 'string' } },
-  organizationAddressLocality: { type: { name: 'string' } },
-  organizationAddressRegion: { type: { name: 'string' } },
-  organizationPostalCode: { type: { name: 'string' } },
-  organizationAddressCountry: { type: { name: 'string' } },
-  organizationEmail: { type: { name: 'string' } },
-  organizationTelephone: { type: { name: 'string' } },
-  organizationUrl: { type: { name: 'string' } },
-  organizationFoundingDate: { type: { name: 'string' } },
-};
-const defaultArgs = {
-  buttonLeadIn: 'Let’s discuss your project!',
-  buttonTitle: 'Email us',
-  buttonLink: 'mailto:info@cloudfour.com',
-  buttonIcon: 'envelope',
-  organizationName: organization.name,
-  organizationStreetAddress: organization.address.street_address,
-  organizationAddressLocality: organization.address.address_locality,
-  organizationAddressRegion: organization.address.address_region,
-  organizationPostalCode: organization.address.postal_code,
-  organizationAddressCountry: organization.address.address_country,
-  organizationEmail: organization.email,
-  organizationTelephone: organization.telephone,
-  organizationUrl: organization.url,
-  organizationFoundingDate: organization.founding_date,
-};
-/**
- * Generate Ground Nav Args
- * Takes the flat args object and structures it as the template expects.
- * @param {object} args
- */
-const generateGroundNavProps = (args) => ({
-  menu,
-  social,
-  action:
-    args.buttonLeadIn && args.buttonTitle && args.buttonLink && args.buttonIcon
-      ? {
-          lead_in: args.buttonLeadIn,
-          title: args.buttonTitle,
-          link: args.buttonLink,
-          icon: args.buttonIcon,
-        }
-      : null,
-  organization: {
-    name: args.organizationName,
-    address: {
-      street_address: args.organizationStreetAddress,
-      address_locality: args.organizationAddressLocality,
-      address_region: args.organizationAddressRegion,
-      postal_code: args.organizationPostalCode,
-      address_country: args.organizationAddressCountry,
-    },
-    email: args.organizationEmail,
-    telephone: args.organizationTelephone,
-    url: args.organizationUrl,
-    founding_date: args.organizationFoundingDate,
-  },
-});
 
 <!--
 Inline stories disabled so media queries will behave as expected within
@@ -92,18 +18,12 @@ embedded examples.
 
 # Ground Nav
 
-**Note:** This component is currently a work in progress.
-
 The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits at the bottom of all our pages. It includes a call to action, contact information, an expanded navigation menu for lost users and any legal copy.
 
 <Canvas>
   <Story
     name="Cloud Four"
     height="500px"
-    // Currently storybook doesn't have support for nested or grouped args
-    // So for now we are just making them all top-level
-    // https://github.com/storybookjs/storybook/issues/11525
-    // https://github.com/storybookjs/storybook/issues/10979
     args={defaultArgs}
     argTypes={defaultArgTypes}
     parameters={{
@@ -111,34 +31,6 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
     }}
   >
     {(args) => template(generateGroundNavProps(args))}
-  </Story>
-</Canvas>
-
-The menu’s contents may differ between projects. This example is based on the footer of our [PWA Stats](https://www.pwastats.com/) resource.
-
-<Canvas>
-  <Story
-    name="PWA Stats"
-    height="550px"
-    argTypes={defaultArgTypes}
-    args={{
-      ...defaultArgs,
-      buttonLeadIn: 'Help us build this resource!',
-      buttonTitle: 'Contribute a story',
-      buttonLink:
-        'https://github.com/cloudfour/pwastats/issues/new?title=Submission:+New+Story',
-      buttonIcon: 'brands/github',
-    }}
-    parameters={{
-      layout: 'fullscreen',
-      docs: {
-        source: {
-          code: pwaStatsDemoSource,
-        },
-      },
-    }}
-  >
-    {(args) => pwaStatsDemo(generateGroundNavProps(args))}
   </Story>
 </Canvas>
 
@@ -164,10 +56,6 @@ To render a Ground Nav with no call to action, do not pass the `action` property
   </Story>
 </Canvas>
 
-## Accessibility
-
-Stay tuned!
-
 ## Template Properties
 
 - `action`: Object containing settings for the "call to action" section.
@@ -188,4 +76,6 @@ Stay tuned!
   - `url`
   - `founding_date`: Used for start date of default legal content.
 - `menu`: An object containing navigation menu `items` to iterate over in the same structure as that expected by [Timber menus](https://timber.github.io/docs/guides/menus/).
+- `topics`: The same structure as `menu` but for content topics.
 - `social`: The same structure as `menu` but for social links. Each item must also contain an `icon` property corresponding to a key from [our icon library](/docs/design-icons--page).
+- `legal`: Optional HTML content to display in the legal section. If not provided, a copyright statement will be displayed by default.

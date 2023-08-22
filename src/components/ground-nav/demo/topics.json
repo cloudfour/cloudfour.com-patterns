@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "link": "/topics/rwd", "title": "Responsive Web Design" },
+    { "link": "/topics/ecommerce", "title": "Ecommerce" },
+    { "link": "/topics/performance", "title": "Performance" },
+    { "link": "/topics/images", "title": "Images" },
+    { "link": "/topics/accessibility", "title": "Accessibility" },
+    { "link": "/topics/spotlight", "title": "Cloud Four Spotlight" },
+    { "link": "/topics/css", "title": "CSS" },
+    { "link": "/topics/essentials", "title": "Essentials" }
+  ]
+}

@@ -33,13 +33,17 @@ html {
  *    considered when calculating `min-content` intrinsic sizes, which means
  *    layout remains broken in any CSS Grid layout.
  *    @see https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap#values
- * 2. Prevent size adjustments on orientation change.
+ * 2. Prevent size adjustments on orientation change. The `-webkit-` prefix is
+ *    still required for iOS Safari.
  */
 
 body {
   font-family: font-family.$sans-fallback;
   line-height: line-height.$loose;
   overflow-wrap: anywhere; /* 1 */
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-text-size-adjust: none; /* 2 */
   text-size-adjust: none; /* 2 */
 
   @supports (font-variation-settings: normal) {

@@ -83,11 +83,11 @@ test(
               link "Speaking"
                 text "Speaking"
             listitem
-              link "Labs"
-                text "Labs"
-            listitem
               link "Team"
                 text "Team"
+            listitem
+              link "Hire Us"
+                text "Hire Us"
     `);
   })
 );
@@ -131,11 +131,11 @@ test(
               link "Speaking"
                 text "Speaking"
             listitem
-              link "Labs"
-                text "Labs"
-            listitem
               link "Team"
                 text "Team"
+            listitem
+              link "Hire Us"
+                text "Hire Us"
     `);
   })
 );

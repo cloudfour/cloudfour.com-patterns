@@ -45,14 +45,14 @@
   }
 
   input {
-    &:not([type='checkbox']):not([type='radio']):not([type='submit']):not(
-        [type='hidden']
-      ) {
+    &:not(.c-input):not([type='checkbox']):not([type='radio']):not(
+        [type='submit']
+      ):not([type='hidden']) {
       @include input.default;
     }
   }
 
-  .button {
+  .button:not(.c-button) {
     @include button.default;
   }
 

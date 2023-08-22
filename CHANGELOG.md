@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 15.2.0
+
+### Minor Changes
+
+- [#2188](https://github.com/cloudfour/cloudfour.com-patterns/pull/2188) [`dac73bb0`](https://github.com/cloudfour/cloudfour.com-patterns/commit/dac73bb0d65937781674ac4c724728cd16bb599f) Thanks [@tylersticka](https://github.com/tylersticka)! - New brand icons: `google-drive`, `threads` and `youtube`
+
+### Patch Changes
+
+- [#2191](https://github.com/cloudfour/cloudfour.com-patterns/pull/2191) [`0436266e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0436266eafe598fcc4cae9f7a076f3d165ec635a) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent Mailchimp styles from overriding our Input and Button components.
+
+- [#2193](https://github.com/cloudfour/cloudfour.com-patterns/pull/2193) [`a5ad0c4a`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a5ad0c4a2ce19529f5018a107f514baf73c57228) Thanks [@tylersticka](https://github.com/tylersticka)! - Fixes issue where some code snippets had very large text in iOS Safari.
+
+- [#2190](https://github.com/cloudfour/cloudfour.com-patterns/pull/2190) [`5cdfe487`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5cdfe487de137fc44e316b4152df481d6efaff29) Thanks [@tylersticka](https://github.com/tylersticka)! - Fixes Mailchimp forms appearing inconsistently spaced with adjacent content.
+
 ## 15.1.0
 
 ### Minor Changes

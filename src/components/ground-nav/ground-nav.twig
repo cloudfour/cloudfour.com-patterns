@@ -1,12 +1,89 @@
 {% set legal %}
   {% block legal %}
     <p class="c-ground-nav__legal">
-      © {{ organization.founding_date|date('Y') }}–{{ 'now'|date('Y') }} {{ organization.name }}
+      © {{ organization.founding_date|date('Y') }}–{{ 'now'|date('Y') }}
+      {{ organization.name }}
     </p>
   {% endblock %}
 {% endset %}
 
+{% set feature_one %}
+  <div class="o-rhythm o-rhythm--condensed">
+    <div class="o-rhythm o-rhythm--compact">
+      {% embed '@cloudfour/components/heading/heading.twig' with {
+        "tag_name": "h2",
+        "level": 1,
+        "weight": "light"
+      } only %}
+        {% block content %}
+          Nice to meet you
+        {% endblock %}
+      {% endembed %}
+      <p>
+        Cloud Four helps organizations solve complex responsive web
+        design and development challenges every day.
+        Let's connect so we can tailor a solution to fit your needs.
+      </p>
+    </div>
+    {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
+      {% block content %}
+        {% include '@cloudfour/components/button/button.twig' with {
+          label: 'See our work',
+          class: 'c-button--secondary'
+        } only %}
+        {% include '@cloudfour/components/button/button.twig' with {
+          label: 'Get in touch',
+          class: 'c-button--secondary'
+        } only %}
+      {% endblock %}
+    {% endembed %}
+  </div>
+{% endset %}
+
+{% set feature_two %}
+  <form class="o-rhythm o-rhythm--condensed" action="#">
+    <div class="o-rhythm o-rhythm--compact">
+      {% embed '@cloudfour/components/heading/heading.twig' with {
+        "tag_name": "h2",
+        "level": 1,
+        "weight": "light"
+      } only %}
+        {% block content %}
+          Cloud Four, in your inbox
+        {% endblock %}
+      {% endembed %}
+      <p>Our latest articles, updates, quick tips and insights in one convenient, occassional newsletter.</p>
+    </div>
+    {% embed '@cloudfour/objects/input-group/input-group.twig' only %}
+      {% block content %}
+        {% include '@cloudfour/components/input/input.twig' with {
+          placeholder: 'Your Email',
+          type: 'email',
+        } only %}
+        {% include '@cloudfour/components/button/button.twig' with {
+          label: 'Sign up'
+        } only %}
+      {% endblock %}
+    {% endembed %}
+  </form>
+{% endset %}
+
 <footer class="c-ground-nav">
+  {% if features %}
+    <div class="c-ground-nav__features o-container o-container--pad-inline">
+      <div class="o-container__content">
+        <div class="c-ground-nav__features-inner o-container__fill">
+          <div class="_c-ground-nav__feature t-dark t-alternate o-container__pad">
+            {{ feature_one }}
+          </div>
+          <div class="_c-ground-nav__feature t-dark o-container__pad">
+            {{ feature_two }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
   {% if action %}
     {% with action|default({}) %}
       <div class="c-ground-nav__action o-container o-container--pad-inline">
@@ -52,26 +129,33 @@
     <div class="c-ground-nav__content-inner o-container__content">
 
       {% with organization|default({}) %}
-        <h2 class="u-hidden-visually">Contact info</h2>
-        <address class="c-ground-nav__organization">{# 1 #}
-          <a href="{{ url }}" class="c-ground-nav__organization-name">
-            {{ name }}
-          </a><br>
-          {% with address|default({}) %}
-            {{ street_address }}<br>
-            {{ address_locality }},
-            {{ address_region }}
-            {{ postal_code }}
-            {{ address_country }}<br>
-          {% endwith %}
-          <a class="c-ground-nav__section" href="mailto:{{ email }}">{{ email }}</a><br>
-          <a href="tel:{{ telephone|replace({
-            '.': '-',
-            '(': '-',
-            ')': '-',
-            ' ': ''
-          }) }}">{{ telephone }}</a>{# 2 #}
-        </address>
+        <div class="c-ground-nav__contact">
+          <h2 class="u-hidden-visually">
+            Contact info
+          </h2>
+          <address class="c-ground-nav__address">{# 1 #}
+            <a href="{{ url }}" class="c-heading c-heading--medium">
+              {{ name }}
+            </a><br>
+            {% with address|default({}) %}
+              {{ street_address }}<br>
+              {{ address_locality }},
+              {{ address_region }}
+              {{ postal_code }}
+              {{ address_country }}<br>
+            {% endwith %}
+            <a
+              class="c-ground-nav__address-section"
+              href="mailto:{{ email }}"
+            >{{ email }}</a><br>
+            <a href="tel:{{ telephone|replace({
+              '.': '-',
+              '(': '-',
+              ')': '-',
+              ' ': ''
+            }) }}">{{ telephone }}</a>{# 2 #}
+          </address>
+        </div>
       {% endwith %}
 
       <nav class="c-ground-nav__menu" aria-labelledby="explore-menu-label">{# 3 #}
@@ -94,8 +178,10 @@
         </ul>
       </nav>
 
-      <nav class="c-ground-nav__menu" aria-labelledby="topics-menu-label">
-        <h2 id="topics-menu-label" class="c-heading c-heading--medium">Topics</h2>
+      <nav class="c-ground-nav__topics" aria-labelledby="topics-menu-label">{# 3 #}
+        <h2 id="topics-menu-label" class="c-heading c-heading--medium">
+          Topics
+        </h2>
         <ul class="c-ground-nav__menu-items o-list" role="list">{# 5 #}
           {% for item in topics.items %}
             <li class="c-ground-nav__menu-item">
@@ -112,8 +198,10 @@
       </nav>
 
       <div class="c-ground-nav__social">
-        <h2 class="u-hidden-visually">Social</h2>
-        <ul class="c-ground-nav__social-list o-list o-list--inline" role="list">{# 4 #}
+        <h2 class="u-hidden-visually">
+          Social
+        </h2>
+        <ul class="c-ground-nav__social-list o-list o-list--inline" role="list">{# 5 #}
           {% for item in social.items %}
             <li class="c-ground-nav__social-item">
               <a class="c-ground-nav__social-action" href="{{ item.link }}">

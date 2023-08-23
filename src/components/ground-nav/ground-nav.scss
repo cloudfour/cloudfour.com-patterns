@@ -3,7 +3,16 @@
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/size';
 @use '../../mixins/ms';
+@use '../../mixins/theme';
 @use '../../mixins/unit';
+
+@include theme.props {
+  --theme-blend-mode-background: multiply;
+}
+
+@include theme.props(dark) {
+  --theme-blend-mode-background: hard-light;
+}
 
 // Whitespace used for gaps, padding and margin
 // (It uses `rem` so space will be consistent throughout the component)
@@ -95,12 +104,8 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
  * 1. Removes `margin-top` so the organization information is
  *    aligned with the other footer elements
  */
-.c-ground-nav__organization {
+.c-ground-nav__address {
   margin-block-start: 0; /* 1 */
-}
-
-.c-ground-nav__organization-name {
-  font-weight: font-weight.$bold;
 }
 
 .c-ground-nav__social-icon {
@@ -166,7 +171,7 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
    * semantic order. We explicitly define where content should
    * be placed within the grid.
    */
-  .c-ground-nav__organization {
+  .c-ground-nav__address {
     @media (min-width: breakpoint.$m) {
       grid-column: 1/2;
       grid-row: 1/3;

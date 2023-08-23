@@ -61,6 +61,7 @@ export const generateGroundNavProps = (args) => ({
   menu,
   social,
   topics,
+  features: true,
   action:
     args.buttonLeadIn && args.buttonTitle && args.buttonLink && args.buttonIcon
       ? {

@@ -138,6 +138,16 @@ By default, headings use the value of our `font-weight.$bold` token so they'll s
     {(args) => demo(args)}
   </Story>
   <Story
+    name="Medium weight"
+    args={{
+      level: 1,
+      weight: 'medium',
+      content: 'Medium weight with <b>bold</b> word',
+    }}
+  >
+    {(args) => demo(args)}
+  </Story>
+  <Story
     name="Light weight"
     args={{
       level: 1,

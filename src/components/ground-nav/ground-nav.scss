@@ -22,7 +22,7 @@
   display: grid;
   grid-template-rows: repeat(3, minmax(0, auto));
 
-  // Extends the background color behind the features a bit
+  // Pseudo-element positioned to look like page background extends behind features
   &::before {
     background-color: var(--theme-color-background-secondary);
     content: '';
@@ -32,60 +32,114 @@
 }
 
 /**
- * Feature
+ * Features
+ *
+ * 1. Keep contents from overflowing border-radius
  */
 .c-ground-nav__features {
-  @include border-radius.conditional;
   grid-column: 1;
   grid-row: 1 / span 2;
-  overflow: hidden; // Prevents content from overflowing the border radius
+}
+
+.c-ground-nav__features-inner {
+  @include border-radius.conditional;
+  contain: paint; // 1
+
+  @media (width >= breakpoint.$l) {
+    display: flex;
+  }
 }
 
 /**
- * Feature
+ * 1. If there's only on feature, center it and use prose width
+ * 2. Flex layout to keep feature's inner content full height
+ * 3. Features should take up an equal amount of the layout
  */
 .c-ground-nav__feature {
+  // @include border-radius.conditional;
   @include spacing.fluid-padding-block;
-  inline-size: 100%;
+
+  &:only-child {
+    margin-inline: auto; // 1
+    max-inline-size: size.$max-width-prose; // 1
+  }
+
+  @media (width >= breakpoint.$l) {
+    display: flex; // 2
+    flex: 1; // 3
+  }
+
+  // @media (width < breakpoint.$l) {
+  //   &:not(:last-child) {
+  //     border-bottom-left-radius: 0;
+  //     border-bottom-right-radius: 0;
+  //   }
+
+  //   &:not(:first-child) {
+  //     border-top-left-radius: 0;
+  //     border-top-right-radius: 0;
+  //   }
+  // }
+
+  // @media (width >= breakpoint.$l) {
+  //   &:not(:last-child) {
+  //     border-bottom-right-radius: 0;
+  //     border-top-right-radius: 0;
+  //   }
+
+  //   &:not(:first-child) {
+  //     border-bottom-left-radius: 0;
+  //     border-top-left-radius: 0;
+  //   }
+  // }
+}
+
+/**
+ * 1. Apply grid layout to keep feature actions aligned to the bottom
+ */
+.c-ground-nav__feature-inner {
+  display: grid; // 1
+  grid-template-rows: minmax(0, 1fr) minmax(0, auto); // 1
 }
 
 /**
  * Content
+ *
+ * 1. Background blend mode is to keep the illustration working on all colors
+ * 2. Illustration size scales on small screens, up to a max width
+ * 3. Align illustration to the right edge of the container or viewport
  */
 .c-ground-nav__content {
   --theme-color-text-emphasis: var(--theme-color-text-muted);
-  background-blend-mode: var(--theme-blend-mode-background);
+  background-blend-mode: var(--theme-blend-mode-background); // 1
   background-color: var(--theme-color-background-secondary);
   background-image: svg-load('illustrations/portland.svg');
   background-position: right bottom;
   background-repeat: no-repeat;
-  background-size: auto clamp(ms.step(6), 15vw, ms.step(9));
+  background-size: auto clamp(ms.step(6), 15vw, ms.step(9)); // 2
   color: var(--theme-color-text-muted);
   grid-column: 1;
   grid-row: 3;
 
   @media (width >= breakpoint.$xxl) {
-    background-size: auto ms.step(10);
+    background-size: auto ms.step(10); // 2
   }
 
-  /**
-   * Align image to the right edge of the container or viewport
-   */
   @media (width >= breakpoint.$xxxl) {
     $size-half-spread: math.div(size.$max-width-spread, 2);
     $size-inline-spacing: spacing.$fluid-spacing-inline-max;
     $right-container: calc(
       50vw - #{$size-half-spread} - #{$size-inline-spacing}
     );
-    background-position: right #{$right-container} bottom;
+    background-position: right #{$right-container} bottom; // 3
   }
 }
 
 /**
- * Creates vertical space between elements when grid isn't supported.
+ * 1. Creates vertical space between elements when grid isn't supported.
  */
 .c-ground-nav__content-inner > * + * {
-  margin-block-start: ms.step(2);
+  margin-block-start: ms.step(2); // 1
 }
 
 .c-ground-nav__social-icon {
@@ -122,12 +176,12 @@
     grid-template-columns: minmax(0, 1fr);
     row-gap: ms.step(2);
 
-    // Reserve a bit of space for the illustration
+    // XS Only: Reserve a bit of space for the illustration
     @media (width < breakpoint.$s) {
       padding-block-end: ms.step(6);
     }
 
-    // Pop the menus side by side
+    // S: Pop the menus side by side
     @media (width >= breakpoint.$s) {
       grid-template-areas:
         'address address'
@@ -137,7 +191,7 @@
       grid-template-columns: minmax(0, auto) minmax(0, 1fr);
     }
 
-    // Switch to a horizontal layout
+    // M: Switch to a horizontal layout
     @media (width >= breakpoint.$m) {
       grid-template-areas:
         'address menu topics'
@@ -146,7 +200,7 @@
       grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
     }
 
-    // Now we have space to pop the social icons to the right
+    // XL: Now we have space to pop the social icons to the right
     @media (width >= breakpoint.$xl) {
       grid-template-areas:
         'address menu topics social'
@@ -154,13 +208,13 @@
       grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr);
     }
 
-    // Add a bit more breathing room between items
+    // XXL: Add a bit more breathing room between items
     @media (width >= breakpoint.$xxl) {
       // prettier-ignore
       grid-template-columns: minmax(0, 1fr) repeat(2, minmax(0, auto)) minmax(0, 1fr);
     }
 
-    // Allow generous breathing room between items
+    // XXXL: Allow generous breathing room between items
     @media (width >= breakpoint.$xxxl) {
       // prettier-ignore
       grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)) minmax(0, 2fr);
@@ -168,21 +222,24 @@
   }
 
   /**
-   * Removes the margin used by our fallback design. Grid allows us to
-   * use `grid-gap` to create consistent space between elements.
+   * 1. Removes the margin used by our fallback design.
+   *    Grid allows us to use `gap` to create consistent space between elements.
    */
   .c-ground-nav__content-inner > * + * {
-    margin: 0;
+    margin: 0; // 1
   }
 
   .c-ground-nav__address {
     grid-area: address;
   }
 
+  /**
+   * 1. Add a bit of space between street address and email
+   */
   .c-ground-nav__address-section {
     @media (width >= breakpoint.$m) {
-      display: inline-block;
-      margin-block-start: ms.step(2);
+      display: inline-block; // 1
+      margin-block-start: ms.step(2); // 1
     }
   }
 
@@ -194,23 +251,30 @@
     grid-area: topics;
   }
 
+  /**
+   * 1. Bottom-align to align with last menu items
+   * 2. Reposition in top-right corner
+   */
   .c-ground-nav__social {
-    align-self: end;
+    align-self: end; // 1
     grid-area: social;
 
     @media (width >= breakpoint.$xl) {
-      align-self: start;
-      justify-self: end;
+      align-self: start; // 2
+      justify-self: end; // 2
     }
   }
 
+  /**
+   * 1. Bottom-align to align with last menu items
+   * 2. Gives a little breathing room to the illustration
+   */
   .c-ground-nav__legal {
-    align-self: end;
+    align-self: end; // 1
     grid-area: legal;
 
-    // Gives a little breathing room to the illustration
     @media (breakpoint.$xl > width >= breakpoint.$m) {
-      margin-block-start: ms.step(2);
+      margin-block-start: ms.step(2); // 2
     }
   }
 }

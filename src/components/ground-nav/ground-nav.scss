@@ -17,23 +17,28 @@
   --theme-blend-mode-background: hard-light;
 }
 
-// Whitespace used for gaps, padding and margin
-// (It uses `rem` so space will be consistent throughout the component)
-$_ground-nav-space: ms.step(3, 1rem);
+.c-ground-nav {
+  background-color: var(--theme-color-background-base);
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, auto));
 
-// Negative value used to reduce the space around elements as well as position elements.
-$_ground-nav-negative-space: ($_ground-nav-space * -1);
-$_ground-nav-border-width: size.$edge-medium;
-$_ground-nav-border-style: solid;
-$_ground-nav-border-color: var(--theme-color-border-base);
-$_ground-nav-border-color-fallback: color.$base-gray-light;
+  // Extends the background color behind the features a bit
+  &::before {
+    background-color: var(--theme-color-background-secondary);
+    content: '';
+    grid-column: 1;
+    grid-row: 2 / span 2;
+  }
+}
 
 /**
  * Feature
  */
 .c-ground-nav__features {
   @include border-radius.conditional;
-  overflow: hidden;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  overflow: hidden; // Prevents content from overflowing the border radius
 }
 
 /**
@@ -45,73 +50,8 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
 }
 
 /**
- * 1. We establish vertical whitespace for the action to simplify alignment of
- *    the illustration, but other whitespace is assumed to be handled by the
- *    container object to promote alignment with adjacent sections.
- * 2. Allow illustration to be positioned relative to this container.
+ * Content
  */
-
-.c-ground-nav__action {
-  padding-block: $_ground-nav-space; /* 1 */
-  position: relative; /* 2 */
-}
-
-.c-ground-nav__action-inner {
-  /**
-   * Starting at this viewport, we want to position the illustration relative to
-   * the inner element (away from the nearest horizontal edge).
-   */
-
-  @media (min-width: breakpoint.$m) {
-    position: relative;
-  }
-
-  @media (min-width: breakpoint.$l) {
-    align-items: center;
-    display: flex;
-  }
-}
-
-/**
- * 1. Creates space between the action lead in and action title.
- * 2. Adds horizontal space when these elements are side by side.
- */
-.c-ground-nav__action-title {
-  margin-block-start: $_ground-nav-space; /* 1 */
-
-  @media (min-width: breakpoint.$l) {
-    margin: ms.step(4) $_ground-nav-space; /* 2 */
-  }
-}
-
-/**
- * The illustration is aligned with the footer content.
- * As the screen size increases, we decrease the size
- * of the illustration so that it doesn't get too large.
- */
-
-.c-ground-nav__action-illustration {
-  inline-size: 40%;
-  inset-block-end: 0;
-  inset-inline-end: 0;
-  position: absolute;
-
-  /**
-   * We position ourselves relative to a max-width container starting at this
-   * breakpoint, so we have to adjust the bottom position to account for the
-   * change in whitespace.
-   */
-
-  @media (min-width: breakpoint.$m) {
-    inline-size: calc(100% / 3);
-    inset-block-end: $_ground-nav-negative-space;
-  }
-
-  @media (min-width: breakpoint.$l) {
-    inline-size: 25%;
-  }
-}
-
 .c-ground-nav__content {
   --theme-color-text-emphasis: var(--theme-color-text-muted);
   background-blend-mode: var(--theme-blend-mode-background);
@@ -121,8 +61,8 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
   background-repeat: no-repeat;
   background-size: auto clamp(ms.step(6), 15vw, ms.step(9));
   color: var(--theme-color-text-muted);
-  // grid-column: 1;
-  // grid-row: 3;
+  grid-column: 1;
+  grid-row: 3;
 
   @media (width >= breakpoint.$xxl) {
     background-size: auto ms.step(10);
@@ -148,17 +88,12 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
   margin-block-start: ms.step(2);
 }
 
-.c-ground-nav__address {
-}
-
 .c-ground-nav__social-icon {
-  --icon-size: #{size.$icon-large};
-}
+  --icon-size: #{size.$icon-medium};
 
-.c-ground-nav__menu {
-}
-
-.c-ground-nav__menu-items {
+  @media (width >= breakpoint.$xl) {
+    --icon-size: #{size.$icon-large};
+  }
 }
 
 .c-ground-nav__legal {
@@ -240,11 +175,6 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
     margin: 0;
   }
 
-  /**
-   * The visual order of the footer content is different than the
-   * semantic order. We explicitly define where content should
-   * be placed within the grid.
-   */
   .c-ground-nav__address {
     grid-area: address;
   }
@@ -265,12 +195,10 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
   }
 
   .c-ground-nav__social {
-    --icon-size: #{size.$icon-medium};
     align-self: end;
     grid-area: social;
 
     @media (width >= breakpoint.$xl) {
-      --icon-size: #{size.$icon-large};
       align-self: start;
       justify-self: end;
     }
@@ -280,6 +208,7 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
     align-self: end;
     grid-area: legal;
 
+    // Gives a little breathing room to the illustration
     @media (breakpoint.$xl > width >= breakpoint.$m) {
       margin-block-start: ms.step(2);
     }

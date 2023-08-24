@@ -17,6 +17,8 @@
  * - [ ] Updated storybook args to control number of features
  * - [ ] Browser test
  * - [ ] Stretch goal: storybook args for feature content
+ * - [ ] Depending on Tyler's feedback, either pull all grid styles out
+ *       of `@supports` block or move them all inside.
  */
 
 @include theme.props {

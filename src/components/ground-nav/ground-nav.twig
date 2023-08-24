@@ -76,38 +76,15 @@
     <div class="c-ground-nav__features o-container o-container--pad-inline">
       <div class="o-container__content">
         <div class="c-ground-nav__features-inner o-container__fill">
-          <div class="_c-ground-nav__feature t-dark t-alternate o-container__pad">
+          <div class="c-ground-nav__feature t-dark t-alternate o-container__pad">
             {{ feature_one }}
           </div>
-          <div class="_c-ground-nav__feature t-dark o-container__pad">
+          <div class="c-ground-nav__feature t-dark o-container__pad">
             {{ feature_two }}
           </div>
         </div>
       </div>
     </div>
-  {% endif %}
-
-  {% if action %}
-    {% with action|default({}) %}
-      <div class="c-ground-nav__action o-container o-container--pad-inline">
-        <div class="o-container__content c-ground-nav__action-inner">
-          <h2 class="c-ground-nav__action-lead-in">
-            {{ lead_in }}
-          </h2>
-          <p class="c-ground-nav__action-title">
-            {% include '@cloudfour/components/button/button.twig' with {
-              class: 'c-button--primary',
-              href: link,
-              label: title,
-              content_start_icon: icon ?? 'link'
-            } only %}
-          </p>
-          {% include '@cloudfour/assets/illustrations/portland.svg.twig' with {
-            class: 'c-ground-nav__action-illustration'
-          } %}
-        </div>
-      </div>
-    {% endwith %}
   {% endif %}
 
   {#
@@ -132,11 +109,11 @@
     <div class="c-ground-nav__content-inner o-container__content">
 
       {% with organization|default({}) %}
-        <div class="c-ground-nav__contact">
+        <div class="c-ground-nav__address">
           <h2 class="u-hidden-visually">
             Contact info
           </h2>
-          <address class="c-ground-nav__address">{# 1 #}
+          <address>{# 1 #}
             <a href="{{ url }}" class="c-heading c-heading--medium">
               {{ name }}
             </a><br>

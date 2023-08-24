@@ -2,9 +2,12 @@
 @use '../../compiled/tokens/scss/color';
 @use '../../compiled/tokens/scss/font-weight';
 @use '../../compiled/tokens/scss/size';
+@use '../../mixins/border-radius';
 @use '../../mixins/ms';
+@use '../../mixins/spacing';
 @use '../../mixins/theme';
 @use '../../mixins/unit';
+@use 'sass:math';
 
 @include theme.props {
   --theme-blend-mode-background: multiply;
@@ -24,6 +27,22 @@ $_ground-nav-border-width: size.$edge-medium;
 $_ground-nav-border-style: solid;
 $_ground-nav-border-color: var(--theme-color-border-base);
 $_ground-nav-border-color-fallback: color.$base-gray-light;
+
+/**
+ * Feature
+ */
+.c-ground-nav__features {
+  @include border-radius.conditional;
+  overflow: hidden;
+}
+
+/**
+ * Feature
+ */
+.c-ground-nav__feature {
+  @include spacing.fluid-padding-block;
+  inline-size: 100%;
+}
 
 /**
  * 1. We establish vertical whitespace for the action to simplify alignment of
@@ -93,19 +112,43 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
   }
 }
 
+.c-ground-nav__content {
+  --theme-color-text-emphasis: var(--theme-color-text-muted);
+  background-blend-mode: var(--theme-blend-mode-background);
+  background-color: var(--theme-color-background-secondary);
+  background-image: svg-load('illustrations/portland.svg');
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: auto clamp(ms.step(6), 15vw, ms.step(9));
+  color: var(--theme-color-text-muted);
+  // grid-column: 1;
+  // grid-row: 3;
+
+  @media (width >= breakpoint.$xxl) {
+    background-size: auto ms.step(10);
+  }
+
+  /**
+   * Align image to the right edge of the container or viewport
+   */
+  @media (width >= breakpoint.$xxxl) {
+    $size-half-spread: math.div(size.$max-width-spread, 2);
+    $size-inline-spacing: spacing.$fluid-spacing-inline-max;
+    $right-container: calc(
+      50vw - #{$size-half-spread} - #{$size-inline-spacing}
+    );
+    background-position: right #{$right-container} bottom;
+  }
+}
+
 /**
  * Creates vertical space between elements when grid isn't supported.
  */
 .c-ground-nav__content-inner > * + * {
-  margin-block-start: $_ground-nav-space;
+  margin-block-start: ms.step(2);
 }
 
-/**
- * 1. Removes `margin-top` so the organization information is
- *    aligned with the other footer elements
- */
 .c-ground-nav__address {
-  margin-block-start: 0; /* 1 */
 }
 
 .c-ground-nav__social-icon {
@@ -113,48 +156,79 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
 }
 
 .c-ground-nav__menu {
-  border-color: $_ground-nav-border-color-fallback;
-  border-color: $_ground-nav-border-color;
-  border-style: $_ground-nav-border-style;
-  border-width: $_ground-nav-border-width 0;
-  padding: $_ground-nav-space 0;
 }
 
-/**
- * Divides the menu into 2 columns.
- */
 .c-ground-nav__menu-items {
-  // column-gap: $_ground-nav-space;
-  // columns: 2;
 }
 
-.c-ground-nav__kudos,
 .c-ground-nav__legal {
   font-size: size.$font-small;
 }
 
 /**
  * We use CSS grid when supported by the browser.
+ *
+ * As the screen size increases, the number of columns increases.
+ * Instead of making all the columns the same size, we use `minmax`
+ * for some of the columns to make sure the content in these sections
+ * don't have any line breaks, but can still grow as horizontal
+ * space allows.
  */
 @supports (display: grid) {
   .c-ground-nav__content-inner {
+    column-gap: spacing.$fluid-gap;
     display: grid;
-    grid-gap: $_ground-nav-space;
-    margin: 0 auto;
+    grid-template-areas:
+      'address'
+      'menu'
+      'topics'
+      'social'
+      'legal';
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: ms.step(2);
 
-    /**
-     * As the screen size increases, the number of columns increases.
-     * Instead of making all the columns the same size, we use `minmax`
-     * for one of the columns to make sure the content in this section
-     * doesn't have any line breaks, but can still grow as horizontal
-     * space allows.
-     */
-    @media (min-width: breakpoint.$m) {
-      grid-template-columns: 1fr minmax(max-content, 1fr);
+    // Reserve a bit of space for the illustration
+    @media (width < breakpoint.$s) {
+      padding-block-end: ms.step(6);
     }
 
-    @media (min-width: breakpoint.$l) {
-      grid-template-columns: 1fr minmax(max-content, 1fr) 1fr;
+    // Pop the menus side by side
+    @media (width >= breakpoint.$s) {
+      grid-template-areas:
+        'address address'
+        'menu topics'
+        'social social'
+        'legal legal';
+      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    }
+
+    // Switch to a horizontal layout
+    @media (width >= breakpoint.$m) {
+      grid-template-areas:
+        'address menu topics'
+        'social menu topics'
+        'legal legal legal';
+      grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
+    }
+
+    // Now we have space to pop the social icons to the right
+    @media (width >= breakpoint.$xl) {
+      grid-template-areas:
+        'address menu topics social'
+        'legal menu topics .';
+      grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr);
+    }
+
+    // Add a bit more breathing room between items
+    @media (width >= breakpoint.$xxl) {
+      // prettier-ignore
+      grid-template-columns: minmax(0, 1fr) repeat(2, minmax(0, auto)) minmax(0, 1fr);
+    }
+
+    // Allow generous breathing room between items
+    @media (width >= breakpoint.$xxxl) {
+      // prettier-ignore
+      grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)) minmax(0, 2fr);
     }
   }
 
@@ -172,50 +246,42 @@ $_ground-nav-border-color-fallback: color.$base-gray-light;
    * be placed within the grid.
    */
   .c-ground-nav__address {
-    @media (min-width: breakpoint.$m) {
-      grid-column: 1/2;
-      grid-row: 1/3;
+    grid-area: address;
+  }
+
+  .c-ground-nav__address-section {
+    @media (width >= breakpoint.$m) {
+      display: inline-block;
+      margin-block-start: ms.step(2);
     }
   }
 
   .c-ground-nav__menu {
-    @media (min-width: breakpoint.$m) {
-      border: none;
-      grid-column: 2/3;
-      grid-row: 1/3;
-      padding: 0;
-    }
+    grid-area: menu;
+  }
+
+  .c-ground-nav__topics {
+    grid-area: topics;
   }
 
   .c-ground-nav__social {
-    border: 0 $_ground-nav-border-style $_ground-nav-border-color-fallback;
-    border-color: $_ground-nav-border-color;
+    --icon-size: #{size.$icon-medium};
+    align-self: end;
+    grid-area: social;
 
-    @media (min-width: breakpoint.$m) {
-      border-block-end-width: $_ground-nav-border-width;
-      grid-column: 1/3;
-      padding-block-end: $_ground-nav-space;
-    }
-
-    @media (min-width: breakpoint.$l) {
-      border-block-end-width: 0;
-      grid-column: 3/4;
-      grid-row: 1/2;
+    @media (width >= breakpoint.$xl) {
+      --icon-size: #{size.$icon-large};
+      align-self: start;
       justify-self: end;
-      padding-block-end: 0;
-    }
-  }
-
-  .c-ground-nav__kudos {
-    @media (min-width: breakpoint.$m) {
-      grid-column: 1/3;
     }
   }
 
   .c-ground-nav__legal {
-    @media (min-width: breakpoint.$l) {
-      align-self: end;
-      justify-self: end;
+    align-self: end;
+    grid-area: legal;
+
+    @media (breakpoint.$xl > width >= breakpoint.$m) {
+      margin-block-start: ms.step(2);
     }
   }
 }

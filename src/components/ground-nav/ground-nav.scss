@@ -9,6 +9,16 @@
 @use '../../mixins/unit';
 @use 'sass:math';
 
+/**
+ * REMAINING TODO
+ * - [ ] Fix rounded corners on features
+ * - [ ] Fix button colors in feature one
+ * - [ ] Update storybook docs
+ * - [ ] Updated storybook args to control number of features
+ * - [ ] Browser test
+ * - [ ] Stretch goal: storybook args for feature content
+ */
+
 @include theme.props {
   --theme-blend-mode-background: multiply;
 }

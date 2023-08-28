@@ -38,6 +38,7 @@
   color: color.$base-orange-lighter;
 }
 
+.hljs-deletion,
 .hljs-literal,
 .hljs-selector-tag,
 .hljs-symbol,
@@ -58,6 +59,7 @@
   );
 }
 
+.hljs-addition,
 .hljs-string {
   color: color.$base-green-lighter;
 }

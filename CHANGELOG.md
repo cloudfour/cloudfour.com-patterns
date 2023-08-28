@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 15.3.0
+
+### Minor Changes
+
+- [#2195](https://github.com/cloudfour/cloudfour.com-patterns/pull/2195) [`2f4c4149`](https://github.com/cloudfour/cloudfour.com-patterns/commit/2f4c41496ea15f3ee038b53954c62629c24ca765) Thanks [@tylersticka](https://github.com/tylersticka)! - Improves support for the "diff" language in our custom Highlight theme.
+
 ## 15.2.0
 
 ### Minor Changes

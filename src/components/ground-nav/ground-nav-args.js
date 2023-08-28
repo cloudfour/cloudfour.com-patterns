@@ -14,10 +14,7 @@ const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
  * @see https://github.com/storybookjs/storybook/issues/10979
  */
 export const defaultArgs = {
-  buttonLeadIn: 'Let’s discuss your project!',
-  buttonTitle: 'Email us',
-  buttonLink: 'mailto:info@cloudfour.com',
-  buttonIcon: 'envelope',
+  features: 2,
   organizationName: organization.name,
   organizationStreetAddress: organization.address.street_address,
   organizationAddressLocality: organization.address.address_locality,
@@ -34,10 +31,7 @@ export const defaultArgs = {
  * Storybook arg types for the defaultArgs
  */
 export const defaultArgTypes = {
-  buttonLeadIn: { type: { name: 'string', required: false } },
-  buttonTitle: { type: { name: 'string', required: false } },
-  buttonLink: { type: { name: 'string', required: false } },
-  buttonIcon: { type: { name: 'string', required: false } },
+  features: { control: { type: 'number', min: 0, max: 2 } },
   organizationName: { type: { name: 'string' } },
   organizationStreetAddress: { type: { name: 'string' } },
   organizationAddressLocality: { type: { name: 'string' } },
@@ -61,16 +55,7 @@ export const generateGroundNavProps = (args) => ({
   menu,
   social,
   topics,
-  features: true,
-  action:
-    args.buttonLeadIn && args.buttonTitle && args.buttonLink && args.buttonIcon
-      ? {
-          lead_in: args.buttonLeadIn,
-          title: args.buttonTitle,
-          link: args.buttonLink,
-          icon: args.buttonIcon,
-        }
-      : null,
+  features: args.features,
   organization: {
     name: args.organizationName,
     address: {

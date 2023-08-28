@@ -23,7 +23,7 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
 <Canvas>
   <Story
     name="Cloud Four"
-    height="500px"
+    height="815px"
     args={defaultArgs}
     argTypes={defaultArgTypes}
     parameters={{
@@ -34,18 +34,34 @@ The yin to [Sky Nav](/docs/components-sky-nav--dark)'s yang, the Ground Nav sits
   </Story>
 </Canvas>
 
-To render a Ground Nav with no call to action, do not pass the `action` property.
+If you only define a single feature block, it will be centered.
 
 <Canvas>
   <Story
-    name="No Action"
-    height="275px"
+    name="One Feature"
+    height="815px"
     args={{
       ...defaultArgs,
-      buttonLeadIn: null,
-      buttonTitle: null,
-      buttonLink: null,
-      buttonIcon: null,
+      features: 1,
+    }}
+    argTypes={defaultArgTypes}
+    parameters={{
+      layout: 'fullscreen',
+    }}
+  >
+    {(args) => template(generateGroundNavProps(args))}
+  </Story>
+</Canvas>
+
+If you don't define any feature blocks, the layout will collapse appropriately.
+
+<Canvas>
+  <Story
+    name="No Features"
+    height="475px"
+    args={{
+      ...defaultArgs,
+      features: 0,
     }}
     argTypes={defaultArgTypes}
     parameters={{
@@ -58,11 +74,7 @@ To render a Ground Nav with no call to action, do not pass the `action` property
 
 ## Template Properties
 
-- `action`: Object containing settings for the "call to action" section.
-  - `lead_in`: The heading text that precedes the button.
-  - `title`: The title of the action link. Named `title` for consistency with menus.
-  - `link`: The URL for the action link. Named `link` for consistency with menus.
-  - `icon`: Optional key to one of [our icons](/docs/design-icons--page) for display in the link.
+- `features`: The number of feature blocks to display. Defaults to 2.
 - `organization`: Object containing Cloud Four details for contact information and copyright. Structure and property names are based on the [the Organization schema](https://schema.org/Organization).
   - `name`
   - `address`

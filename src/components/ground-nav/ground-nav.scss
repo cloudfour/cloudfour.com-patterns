@@ -9,17 +9,6 @@
 @use '../../mixins/unit';
 @use 'sass:math';
 
-/**
- * REMAINING TODO
- * - [ ] Fix rounded corners on features
- * - [ ] Fix button colors in feature one
- * - [ ] Update storybook docs
- * - [ ] Updated storybook args to control number of features
- * - [ ] Browser test
- * - [ ] Stretch goal: storybook args for feature content
- * - [x] Pull all grid styles out of `@supports` block
- */
-
 @include theme.props {
   --theme-blend-mode-background: multiply;
 }
@@ -28,46 +17,59 @@
   --theme-blend-mode-background: hard-light;
 }
 
+/**
+ * 1. This grid layout creates 3 rows. The content takes up the last row,
+ *    and the features span the first two rows.
+ * 2. A pseudo-element is positioned behind the features covering the first row
+ * 3. To give the illustion that the page bg color extends behind the features.
+ */
 .c-ground-nav {
   background-color: var(--theme-color-background-base);
-  display: grid;
-  grid-template-rows: repeat(3, minmax(0, auto));
+  display: grid; // 1
+  grid-template-rows: repeat(3, minmax(0, auto)); // 1
 
-  // Pseudo-element positioned to look like page background extends behind features
   &::before {
-    background-color: var(--theme-color-background-secondary);
+    background-color: var(--theme-color-background-secondary); // 3
     content: '';
-    grid-column: 1;
-    grid-row: 2 / span 2;
+    grid-column: 1; // 2
+    grid-row: 2 / span 2; // 2
   }
 }
 
-/**
- * Features
- *
- * 1. Keep contents from overflowing border-radius
- */
 .c-ground-nav__features {
   grid-column: 1;
   grid-row: 1 / span 2;
 }
 
+/**
+ * 1. Used to center `features-inner` when there's only one feature.
+ *    We can't put `margin:auto` on `features-inner` because it has negative
+ *    margins from `o-container__fill`.
+ */
+.c-ground-nav__features-layout {
+  display: flex; // 1
+  justify-content: center; // 1
+}
+
+/**
+ * 1. Keep contents from overflowing border-radius
+ * 2. Used to position the features side-by-side on large screens
+ */
 .c-ground-nav__features-inner {
   @include border-radius.conditional;
   contain: paint; // 1
 
   @media (width >= breakpoint.$l) {
-    display: flex;
+    display: flex; // 2
   }
 }
 
 /**
  * 1. If there's only on feature, center it and use prose width
- * 2. Flex layout to keep feature's inner content full height
+ * 2. Flex layout to keep both features' form elements vertically aligned
  * 3. Features should take up an equal amount of the layout
  */
 .c-ground-nav__feature {
-  // @include border-radius.conditional;
   @include spacing.fluid-padding-block;
 
   &:only-child {
@@ -79,30 +81,6 @@
     display: flex; // 2
     flex: 1; // 3
   }
-
-  // @media (width < breakpoint.$l) {
-  //   &:not(:last-child) {
-  //     border-bottom-left-radius: 0;
-  //     border-bottom-right-radius: 0;
-  //   }
-
-  //   &:not(:first-child) {
-  //     border-top-left-radius: 0;
-  //     border-top-right-radius: 0;
-  //   }
-  // }
-
-  // @media (width >= breakpoint.$l) {
-  //   &:not(:last-child) {
-  //     border-bottom-right-radius: 0;
-  //     border-top-right-radius: 0;
-  //   }
-
-  //   &:not(:first-child) {
-  //     border-bottom-left-radius: 0;
-  //     border-top-left-radius: 0;
-  //   }
-  // }
 }
 
 /**
@@ -114,8 +92,6 @@
 }
 
 /**
- * Content
- *
  * 1. Background blend mode is to keep the illustration working on all colors
  * 2. Illustration size scales on small screens, up to a max width
  * 3. Align illustration to the right edge of the container or viewport

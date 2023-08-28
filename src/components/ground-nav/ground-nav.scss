@@ -17,8 +17,7 @@
  * - [ ] Updated storybook args to control number of features
  * - [ ] Browser test
  * - [ ] Stretch goal: storybook args for feature content
- * - [ ] Depending on Tyler's feedback, either pull all grid styles out
- *       of `@supports` block or move them all inside.
+ * - [x] Pull all grid styles out of `@supports` block
  */
 
 @include theme.props {
@@ -147,11 +146,97 @@
   }
 }
 
+.c-ground-nav__content-inner {
+  column-gap: spacing.$fluid-gap;
+  display: grid;
+  grid-template-areas:
+    'address'
+    'menu'
+    'topics'
+    'social'
+    'legal';
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: ms.step(2);
+
+  // XS Only: Reserve a bit of space for the illustration
+  @media (width < breakpoint.$s) {
+    padding-block-end: ms.step(6);
+  }
+
+  // S: Pop the menus side by side
+  @media (width >= breakpoint.$s) {
+    grid-template-areas:
+      'address address'
+      'menu topics'
+      'social social'
+      'legal legal';
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  }
+
+  // M: Switch to a horizontal layout
+  @media (width >= breakpoint.$m) {
+    grid-template-areas:
+      'address menu topics'
+      'social menu topics'
+      'legal legal legal';
+    grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
+  }
+
+  // XL: Now we have space to pop the social icons to the right
+  @media (width >= breakpoint.$xl) {
+    grid-template-areas:
+      'address menu topics social'
+      'legal menu topics .';
+    grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr);
+  }
+
+  // XXL: Add a bit more breathing room between items
+  @media (width >= breakpoint.$xxl) {
+    // prettier-ignore
+    grid-template-columns: minmax(0, 1fr) repeat(2, minmax(0, auto)) minmax(0, 1fr);
+  }
+
+  // XXXL: Allow generous breathing room between items
+  @media (width >= breakpoint.$xxxl) {
+    // prettier-ignore
+    grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)) minmax(0, 2fr);
+  }
+}
+
+.c-ground-nav__address {
+  grid-area: address;
+}
+
 /**
- * 1. Creates vertical space between elements when grid isn't supported.
+ * 1. Add a bit of space between street address and email
  */
-.c-ground-nav__content-inner > * + * {
-  margin-block-start: ms.step(2); // 1
+.c-ground-nav__address-section {
+  @media (width >= breakpoint.$m) {
+    display: inline-block; // 1
+    margin-block-start: ms.step(2); // 1
+  }
+}
+
+.c-ground-nav__menu {
+  grid-area: menu;
+}
+
+.c-ground-nav__topics {
+  grid-area: topics;
+}
+
+/**
+ * 1. Bottom-align to align with last menu items
+ * 2. Reposition in top-right corner
+ */
+.c-ground-nav__social {
+  align-self: end; // 1
+  grid-area: social;
+
+  @media (width >= breakpoint.$xl) {
+    align-self: start; // 2
+    justify-self: end; // 2
+  }
 }
 
 .c-ground-nav__social-icon {
@@ -162,131 +247,16 @@
   }
 }
 
-.c-ground-nav__legal {
-  font-size: size.$font-small;
-}
-
 /**
- * We use CSS grid when supported by the browser.
- *
- * As the screen size increases, the number of columns increases.
- * Instead of making all the columns the same size, we use `minmax`
- * for some of the columns to make sure the content in these sections
- * don't have any line breaks, but can still grow as horizontal
- * space allows.
+ * 1. Bottom-align to align with last menu items
+ * 2. Gives a little breathing room to the illustration
  */
-@supports (display: grid) {
-  .c-ground-nav__content-inner {
-    column-gap: spacing.$fluid-gap;
-    display: grid;
-    grid-template-areas:
-      'address'
-      'menu'
-      'topics'
-      'social'
-      'legal';
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: ms.step(2);
+.c-ground-nav__legal {
+  align-self: end; // 1
+  font-size: size.$font-small;
+  grid-area: legal;
 
-    // XS Only: Reserve a bit of space for the illustration
-    @media (width < breakpoint.$s) {
-      padding-block-end: ms.step(6);
-    }
-
-    // S: Pop the menus side by side
-    @media (width >= breakpoint.$s) {
-      grid-template-areas:
-        'address address'
-        'menu topics'
-        'social social'
-        'legal legal';
-      grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-    }
-
-    // M: Switch to a horizontal layout
-    @media (width >= breakpoint.$m) {
-      grid-template-areas:
-        'address menu topics'
-        'social menu topics'
-        'legal legal legal';
-      grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr);
-    }
-
-    // XL: Now we have space to pop the social icons to the right
-    @media (width >= breakpoint.$xl) {
-      grid-template-areas:
-        'address menu topics social'
-        'legal menu topics .';
-      grid-template-columns: repeat(3, minmax(0, auto)) minmax(0, 1fr);
-    }
-
-    // XXL: Add a bit more breathing room between items
-    @media (width >= breakpoint.$xxl) {
-      // prettier-ignore
-      grid-template-columns: minmax(0, 1fr) repeat(2, minmax(0, auto)) minmax(0, 1fr);
-    }
-
-    // XXXL: Allow generous breathing room between items
-    @media (width >= breakpoint.$xxxl) {
-      // prettier-ignore
-      grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)) minmax(0, 2fr);
-    }
-  }
-
-  /**
-   * 1. Removes the margin used by our fallback design.
-   *    Grid allows us to use `gap` to create consistent space between elements.
-   */
-  .c-ground-nav__content-inner > * + * {
-    margin: 0; // 1
-  }
-
-  .c-ground-nav__address {
-    grid-area: address;
-  }
-
-  /**
-   * 1. Add a bit of space between street address and email
-   */
-  .c-ground-nav__address-section {
-    @media (width >= breakpoint.$m) {
-      display: inline-block; // 1
-      margin-block-start: ms.step(2); // 1
-    }
-  }
-
-  .c-ground-nav__menu {
-    grid-area: menu;
-  }
-
-  .c-ground-nav__topics {
-    grid-area: topics;
-  }
-
-  /**
-   * 1. Bottom-align to align with last menu items
-   * 2. Reposition in top-right corner
-   */
-  .c-ground-nav__social {
-    align-self: end; // 1
-    grid-area: social;
-
-    @media (width >= breakpoint.$xl) {
-      align-self: start; // 2
-      justify-self: end; // 2
-    }
-  }
-
-  /**
-   * 1. Bottom-align to align with last menu items
-   * 2. Gives a little breathing room to the illustration
-   */
-  .c-ground-nav__legal {
-    align-self: end; // 1
-    grid-area: legal;
-
-    @media (breakpoint.$xl > width >= breakpoint.$m) {
-      margin-block-start: ms.step(2); // 2
-    }
+  @media (breakpoint.$xl > width >= breakpoint.$m) {
+    margin-block-start: ms.step(2); // 2
   }
 }

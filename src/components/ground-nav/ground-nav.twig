@@ -71,7 +71,7 @@
   {% endblock %}
 {% endset %}
 
-<footer class="c-ground-nav">
+<footer class="c-ground-nav {% if alternate %}c-ground-nav--alternate{% endif %}">
   {% if features > 0 %}
     <div class="c-ground-nav__features o-container o-container--pad-inline">
       <div class="c-ground-nav__features-layout o-container__content">
@@ -108,7 +108,7 @@
       @see https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-are-decorative
   #}
 
-  <div class="c-ground-nav__content o-container o-container--pad t-alternate">
+  <div class="c-ground-nav__content o-container o-container--pad">
     <div class="c-ground-nav__content-inner o-container__content">
 
       {% with organization|default({}) %}

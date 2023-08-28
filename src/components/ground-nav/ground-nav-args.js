@@ -14,6 +14,7 @@ const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
  * @see https://github.com/storybookjs/storybook/issues/10979
  */
 export const defaultArgs = {
+  alternate: false,
   features: 2,
   organizationName: organization.name,
   organizationStreetAddress: organization.address.street_address,
@@ -31,6 +32,7 @@ export const defaultArgs = {
  * Storybook arg types for the defaultArgs
  */
 export const defaultArgTypes = {
+  alternate: { control: { type: 'boolean' } },
   features: { control: { type: 'number', min: 0, max: 2 } },
   organizationName: { type: { name: 'string' } },
   organizationStreetAddress: { type: { name: 'string' } },
@@ -55,6 +57,7 @@ export const generateGroundNavProps = (args) => ({
   menu,
   social,
   topics,
+  alternate: args.alternate,
   features: args.features,
   organization: {
     name: args.organizationName,

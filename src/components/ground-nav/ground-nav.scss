@@ -34,6 +34,26 @@
     grid-column: 1; // 2
     grid-row: 2 / span 2; // 2
   }
+
+  .c-ground-nav__content {
+    background-color: var(--theme-color-background-secondary);
+  }
+}
+
+/**
+ * Alternate modifier uses background-secondary for use cases where
+ * the previous block uses background-base.
+ */
+.c-ground-nav--alternate {
+  background-color: var(--theme-color-background-secondary);
+
+  &::before {
+    background-color: var(--theme-color-background-base);
+  }
+
+  .c-ground-nav__content {
+    background-color: var(--theme-color-background-base);
+  }
 }
 
 .c-ground-nav__features {
@@ -99,7 +119,6 @@
 .c-ground-nav__content {
   --theme-color-text-emphasis: var(--theme-color-text-muted);
   background-blend-mode: var(--theme-blend-mode-background); // 1
-  background-color: var(--theme-color-background-secondary);
   background-image: svg-load('illustrations/portland.svg');
   background-position: right bottom;
   background-repeat: no-repeat;

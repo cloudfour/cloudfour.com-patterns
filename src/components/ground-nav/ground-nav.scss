@@ -248,7 +248,6 @@
  */
 .c-ground-nav__legal {
   align-self: end; // 1
-  font-size: size.$font-small;
   grid-area: legal;
 
   @media (breakpoint.$xl > width >= breakpoint.$m) {

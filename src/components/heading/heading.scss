@@ -61,8 +61,8 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
 /// maintain the importance of headings without drowning out other content.
 ///
 /// 1. Restore default font weight for bold/emphasis elements nested within
-///    light and medium headings. Without this, `b` and `strong` elements will only be one
-///    step up in weight.
+///    light and medium headings. Without this, `b` and `strong` elements will
+///    only be one step up in weight.
 
 .c-heading--light {
   font-weight: font-weight.$light;

@@ -113,10 +113,10 @@
 
       {% with organization|default({}) %}
         <div class="c-ground-nav__address">
-          <h2 class="u-hidden-visually">
+          <h2 id="contact-info-label" hidden>
             Contact info
           </h2>
-          <address>{# 1 #}
+          <address aria-labelledby="contact-info-label">{# 1, 3 #}
             <a href="{{ url }}" class="c-heading c-heading--medium">
               {{ name }}
             </a><br>
@@ -181,10 +181,13 @@
       </nav>
 
       <div class="c-ground-nav__social">
-        <h2 class="u-hidden-visually">
-          Social
+        <h2 id="social-links-label" hidden>
+          Social Links
         </h2>
-        <ul class="c-ground-nav__social-list o-list o-list--inline" role="list">{# 5 #}
+        <ul
+          aria-labelledby="social-links-label"
+          class="c-ground-nav__social-list o-list o-list--inline"
+          role="list">{# 5 #}
           {% for item in social.items %}
             <li class="c-ground-nav__social-item">
               <a class="c-ground-nav__social-action" href="{{ item.link }}">

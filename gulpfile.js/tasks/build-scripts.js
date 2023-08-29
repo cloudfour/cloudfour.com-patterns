@@ -2,6 +2,7 @@ const fs = require('node:fs').promises;
 const path = require('node:path');
 
 const { getBabelInputPlugin } = require('@rollup/plugin-babel');
+const json = require('@rollup/plugin-json');
 const nodeResolve = require('@rollup/plugin-node-resolve').default;
 const rollup = require('rollup');
 const dts = require('rollup-plugin-dts').default;
@@ -67,6 +68,7 @@ const buildJS = async () => {
       virtualRootPlugin(),
       getBabelInputPlugin({ extensions, babelHelpers: 'bundled' }),
       nodeResolve({ extensions }),
+      json(),
     ],
   });
   await Promise.all([

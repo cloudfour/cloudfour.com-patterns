@@ -1,91 +1,152 @@
-{% set kudos %}
-  {% block kudos %}{% endblock %}
+{% set feature_one %}
+  <div class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed">
+    <div class="o-rhythm o-rhythm--compact">
+      {% embed '@cloudfour/components/heading/heading.twig' with {
+        "tag_name": "h2",
+        "level": 1,
+        "weight": "light"
+      } only %}
+        {% block content %}
+          Nice to meet you
+        {% endblock %}
+      {% endembed %}
+      <p>
+        Cloud Four helps organizations solve complex responsive web
+        design and development challenges every day.
+        Let's connect so we can tailor a solution to fit your needs.
+      </p>
+    </div>
+    {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
+      {% block content %}
+        {% include '@cloudfour/components/button/button.twig' with {
+          label: 'See our work',
+          class: 'c-button--secondary'
+        } only %}
+        {% include '@cloudfour/components/button/button.twig' with {
+          label: 'Get in touch',
+          class: 'c-button--secondary'
+        } only %}
+      {% endblock %}
+    {% endembed %}
+  </div>
+{% endset %}
+
+{% set feature_two %}
+  <form class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed" action="#">
+    <div class="o-rhythm o-rhythm--compact">
+      {% embed '@cloudfour/components/heading/heading.twig' with {
+        "tag_name": "h2",
+        "level": 1,
+        "weight": "light"
+      } only %}
+        {% block content %}
+          Cloud Four, in your inbox
+        {% endblock %}
+      {% endembed %}
+      <p>
+        Our latest articles, updates, quick tips and insights in one
+        convenient, occasional newsletter.
+      </p>
+    </div>
+    {% embed '@cloudfour/objects/input-group/input-group.twig' only %}
+      {% block content %}
+        {% include '@cloudfour/components/input/input.twig' with {
+          placeholder: 'Your Email',
+          type: 'email',
+        } only %}
+        {% include '@cloudfour/components/button/button.twig' with {
+          label: 'Sign up'
+        } only %}
+      {% endblock %}
+    {% endembed %}
+  </form>
 {% endset %}
 
 {% set legal %}
   {% block legal %}
     <p class="c-ground-nav__legal">
-      © {{ organization.founding_date|date('Y') }}–{{ 'now'|date('Y') }} {{ organization.name }}
+      © {{ organization.founding_date|date('Y') }}–{{ 'now'|date('Y') }}
+      {{ organization.name }}
     </p>
   {% endblock %}
 {% endset %}
 
-<footer class="c-ground-nav">
-  {% if action %}
-    {% with action|default({}) %}
-      <div class="c-ground-nav__action o-container o-container--pad-inline">
-        <div class="o-container__content c-ground-nav__action-inner">
-          <h2 class="c-ground-nav__action-lead-in">
-            {{ lead_in }}
-          </h2>
-          <p class="c-ground-nav__action-title">
-            {% include '@cloudfour/components/button/button.twig' with {
-              class: 'c-button--primary',
-              href: link,
-              label: title,
-              content_start_icon: icon ?? 'link'
-            } only %}
-          </p>
-          {% include '@cloudfour/assets/illustrations/portland.svg.twig' with {
-            class: 'c-ground-nav__action-illustration'
-          } %}
+<footer class="c-ground-nav {% if alternate %}c-ground-nav--alternate{% endif %}">
+  {% if features > 0 %}
+    <div class="c-ground-nav__features o-container o-container--pad-inline">
+      <div class="c-ground-nav__features-layout o-container__content">
+        <div class="c-ground-nav__features-inner t-dark o-container__fill">
+          <div class="c-ground-nav__feature o-container__pad
+                      {% if features > 1 %}t-alternate{% endif %}">
+            {{ feature_one }}
+          </div>
+          {% if features > 1 %}
+            <div class="c-ground-nav__feature o-container__pad">
+              {{ feature_two }}
+            </div>
+          {% endif %}
         </div>
       </div>
-    {% endwith %}
+    </div>
   {% endif %}
 
-  <div class="c-ground-nav__content o-container o-container--pad t-alternate">
-    <div class="c-ground-nav__content-inner o-container__content">
-      <h2 class="u-hidden-visually">
-        Contact info
-      </h2>
-      {# https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address #}
-      {% with organization|default({}) %}
-        <address class="c-ground-nav__organization">
-          <a href="{{ url }}" class="c-ground-nav__organization-name">
-            {{ name }}
-          </a><br>
-          {% with address|default({}) %}
-            {{ street_address }}<br>
-            {{ address_locality }}, {{ address_region }} {{ postal_code }} {{ address_country }}<br>
-          {% endwith %}
-          <a href="mailto:{{ email }}">{{ email }}</a><br>
-          {# https://developers.google.com/web/fundamentals/native-hardware/click-to-call/ #}
-          <a href="tel:{{ telephone|replace({
-            '.': '-',
-            '(': '-',
-            ')': '-',
-            ' ': ''
-          }) }}">{{ telephone }}</a>
-        </address>
-      {% endwith %}
-      {# https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html #}
-      <div class="c-ground-nav__social">
-        <ul class="c-ground-nav__social-list o-list o-list--inline" role="list">
-          {% for item in social.items %}
-            <li class="c-ground-nav__social-item">
-              <a class="c-ground-nav__social-action" href="{{ item.link }}">
-                {# https://heydonworks.com/article/aria-label-is-a-xenophobe/ #}
-                <span class="u-hidden-visually">{{ item.title }}</span>
-                {# http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4 #}
-                {% include '@cloudfour/components/icon/icon.twig' with {
-                  name: item.icon,
-                  fallback: 'link',
-                  focusable: 'false',
-                  class: 'c-ground-nav__social-icon'
-                } only %}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+  {#
+    Ground Nav Content:
+    1. Usage of the `address` element
+      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
+    2. Format phone numbers for click-to-call
+      @see https://web.dev/click-to-call/
+    3. Prefer `aria-labelledby` to `aria-label` for translation
+      @see https://heydonworks.com/article/aria-label-is-a-xenophobe/
+    4. We want different text for screenreaders than sighted users.
+      For sighted users "Explore" is a better label, but for screenreaders,
+      who may be navigating by roles or headings, indicating that this menu
+      contains the main menu contents plus some links is more meaningful.
+    5. Add `role="list"` to list elements to retain screenreader semantics
+      @see https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+    6. Add `focusable="false"` to SVGs to retain screenreader semantics
+      @see https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-are-decorative
+  #}
 
-      <nav class="c-ground-nav__menu" aria-labelledby="footer-menu-label">
-        <h2 id="footer-menu-label" class="u-hidden-visually">
-          Extended Menu
+  <div class="c-ground-nav__content o-container o-container--pad">
+    <div class="c-ground-nav__content-inner o-container__content">
+
+      {% with organization|default({}) %}
+        <div class="c-ground-nav__address">
+          <h2 id="contact-info-label" hidden>
+            Contact info
+          </h2>
+          <address aria-labelledby="contact-info-label">{# 1, 3 #}
+            <a href="{{ url }}" class="c-heading c-heading--medium">
+              {{ name }}
+            </a><br>
+            {% with address|default({}) %}
+              {{ street_address }}<br>
+              {{ address_locality }},
+              {{ address_region }}
+              {{ postal_code }}
+              {{ address_country }}<br>
+            {% endwith %}
+            <a
+              class="c-ground-nav__address-section"
+              href="mailto:{{ email }}"
+            >{{ email }}</a><br>
+            <a href="tel:{{ telephone|replace({
+              '.': '-',
+              '(': '-',
+              ')': '-',
+              ' ': ''
+            }) }}">{{ telephone }}</a>{# 2 #}
+          </address>
+        </div>
+      {% endwith %}
+
+      <nav class="c-ground-nav__menu" aria-labelledby="explore-menu-label">{# 3 #}
+        <h2 id="explore-menu-label" class="c-heading c-heading--medium">
+          <span aria-hidden="true">Explore</span>{# 4 #}
+          <span class="u-hidden-visually">Extended Menu</span>{# 4 #}
         </h2>
-        {# https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html #}
-        <ul class="c-ground-nav__menu-items o-list" role="list">
+        <ul class="c-ground-nav__menu-items o-list" role="list">{# 5 #}
           {% for item in menu.items %}
             <li class="c-ground-nav__menu-item">
               <a class="c-ground-nav__menu-action"
@@ -100,9 +161,48 @@
         </ul>
       </nav>
 
-      {% if kudos %}
-        {{ kudos }}
-      {% endif %}
+      <nav class="c-ground-nav__topics" aria-labelledby="topics-menu-label">{# 3 #}
+        <h2 id="topics-menu-label" class="c-heading c-heading--medium">
+          Topics
+        </h2>
+        <ul class="c-ground-nav__menu-items o-list" role="list">{# 5 #}
+          {% for item in topics.items %}
+            <li class="c-ground-nav__menu-item">
+              <a class="c-ground-nav__menu-action"
+                href="{{ item.link }}"
+                {% if item.current %}
+                  aria-current="page"
+                {% endif %}>
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="c-ground-nav__social">
+        <h2 id="social-links-label" hidden>
+          Social Links
+        </h2>
+        <ul
+          aria-labelledby="social-links-label"
+          class="c-ground-nav__social-list o-list o-list--inline"
+          role="list">{# 5 #}
+          {% for item in social.items %}
+            <li class="c-ground-nav__social-item">
+              <a class="c-ground-nav__social-action" href="{{ item.link }}">
+                <span class="u-hidden-visually">{{ item.title }}</span>
+                {% include '@cloudfour/components/icon/icon.twig' with {
+                  name: item.icon,
+                  fallback: 'link',
+                  focusable: 'false',
+                  class: 'c-ground-nav__social-icon'
+                } only %}{# 6 #}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
 
       {% if legal %}
         {{ legal }}

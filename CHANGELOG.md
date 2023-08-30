@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 16.0.0
+
+### Major Changes
+
+- [#2197](https://github.com/cloudfour/cloudfour.com-patterns/pull/2197) [`18602883`](https://github.com/cloudfour/cloudfour.com-patterns/commit/18602883305fd4fe6764d8d4760db9dca00ad2ac) Thanks [@spaceninja](https://github.com/spaceninja)! - Adding v2 of the Ground Nav component, with support for feature blocks.
+
+  Note that this is a breaking change because it removes the "kudos" section and breaks compatibility with the PWA Stats version.
+
 ## 15.3.0
 
 ### Minor Changes

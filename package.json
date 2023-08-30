@@ -57,7 +57,7 @@
     "@svgr/webpack": "5.5.0",
     "@types/jest": "28.1.8",
     "@types/lodash": "4.14.191",
-    "@whitespace/storybook-addon-html": "5.0.0",
+    "@whitespace/storybook-addon-html": "5.1.6",
     "@wordpress/block-library": "3.2.20",
     "babel-loader": "8.3.0",
     "browserify-transform-tools": "1.7.0",

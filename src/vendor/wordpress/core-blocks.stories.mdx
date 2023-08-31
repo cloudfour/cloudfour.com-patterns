@@ -1,5 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import blockCodeDemo from './demo/code.twig';
+import blockDetailsDemo from './demo/details.twig';
 import blockEmbedSpeakerDeckDemo from './demo/embed/speakerdeck.twig';
 import blockEmbedYouTubeDemo from './demo/embed/youtube.twig';
 import blockImageDemo from './demo/image.twig';
@@ -259,6 +260,27 @@ The text overlay inside the cover block its own `div` wrapper with a class of
           <p class="has-text-align-center has-large-font-size">Waterfall</p></p>
         </div>
       </div>`}
+  </Story>
+</Canvas>
+
+## Details
+
+A simple wrapper for the HTML `details` element.
+
+<Canvas>
+  <Story
+    name="Details"
+    parameters={{ layout: 'fullscreen' }}
+    argTypes={{
+      open: {
+        control: { type: 'boolean' },
+      },
+      background_color: {
+        control: { type: 'text' },
+      },
+    }}
+  >
+    {(args) => blockDetailsDemo(args)}
   </Story>
 </Canvas>
 

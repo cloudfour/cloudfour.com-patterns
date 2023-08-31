@@ -1,0 +1,16 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<Meta
+  title="Components/Radio"
+  argTypes={{
+    disabled: { type: { name: 'boolean' } },
+  }}
+/>
+
+# Radio
+
+`c-radio` may be applied to any `<input type="radio">` element. They are larger than native radio elements and more visually consistent with our [checkbox](/docs/components-checkbox--Enabled), [input](/docs/components-input--text-elements) and [button](/docs/components-button--elements) components.
+
+<Canvas>
+  <Story name="WIP">{`<div><input class="c-radio" name="what" type="radio" disabled checked></div><div><input class="c-radio" name="what" type="radio"></div><div><input class="c-radio" name="what" type="radio"></div><div><input class="c-radio" name="what" type="radio" disabled></div>`}</Story>
+</Canvas>

@@ -1,0 +1,5 @@
+@use '../../mixins/toggle-input';
+
+.c-radio {
+  @include toggle-input.radio;
+}

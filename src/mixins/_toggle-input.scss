@@ -6,144 +6,186 @@
 @use './theme';
 
 @include theme.props {
-  --theme-color-text-checkbox-checked-hover: var(
-    --theme-color-text-checkbox-hover
+  --theme-color-text-toggle-checked-hover: var(
+    --theme-color-text-toggle-hover
   );
-  --theme-color-text-checkbox-disabled: #{color.$base-gray-dark};
-  --theme-color-text-checkbox-hover: #{color.$brand-primary};
+  --theme-color-text-toggle-disabled: #{color.$base-gray-dark};
+  --theme-color-text-toggle-hover: #{color.$brand-primary};
 }
 
 @include theme.props(dark) {
-  --theme-color-text-checkbox-checked-hover: #{color.$brand-primary-darker};
-  --theme-color-text-checkbox-disabled: #{color.$text-light};
-  --theme-color-text-checkbox-hover: #{color.$text-dark};
+  --theme-color-text-toggle-checked-hover: #{color.$brand-primary-darker};
+  --theme-color-text-toggle-disabled: #{color.$text-light};
+  --theme-color-text-toggle-hover: #{color.$text-dark};
+}
+
+/// Styles that apply to both checkbox and radio inputs.
+///
+/// 1. Modern browsers let us apply wholly custom styles to certain elements,
+///    but only when `appearance` is set to `none`. Somewhat recent versions of
+///    Safari still requires a vendor prefix.
+/// 2. Some browsers will squish the input in flex containers, which we
+///    never, ever want.
+/// 3. Without this, inputs appear too small unless hard-pixel sizes are
+///    used (ew).
+@mixin base {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -webkit-appearance: none; // 1
+  appearance: none; // 1
+  background-color: color.$text-light;
+  block-size: size.$square-toggle-medium;
+  border: size.$edge-control solid currentColor;
+  color: color.$text-dark;
+  cursor: pointer;
+  flex: none; // 2
+  font: inherit; // 3
+  inline-size: size.$square-toggle-medium;
+  padding: 0;
+  position: relative;
+  transition-duration: transition.$quick;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease.$out;
+  vertical-align: middle;
+}
+
+/// State: Focus
+@mixin base-focus {
+  box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
+}
+
+/// State: Hover
+@mixin base-hover {
+  background-color: color.$text-light-emphasis;
+  color: var(--theme-color-text-toggle-hover);
+}
+
+/// State: Disabled
+///
+/// 1. We want the input to appear "read-only." A transparent background
+///    and dashed line help symbolize a lack of interactivity.
+/// 2. Same color used for disabled `c-input` borders.
+@mixin base-disabled {
+  background-color: transparent; // 1
+  border-style: dashed; // 1
+  color: var(--theme-color-text-toggle-disabled); // 2
+  cursor: not-allowed;
+}
+
+/// Shared styles for the inner toggle's "fill" that represents its `checked`
+/// state.
+@mixin base-inner-pseudo-default {
+  content: '';
+  inset: size.$edge-control;
+  opacity: 0;
+  position: absolute;
+  transform: scale(0);
+  transition-duration: transition.$quick;
+  transition-property: opacity, transform;
+  transition-timing-function: ease.$out;
+}
+
+@mixin base-inner-pseudo-checked {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /// Checkbox styles
-///
-/// 1. This `@supports` query prevents IE11 (and older browsers) from applying
-///    these styles, falling back to the native checkbox appearance.
-/// 2. Modern browsers let us apply wholly custom styles to certain elements,
-///    but only when `appearance` is set to `none`. Because this property is not
-///    a finalized standard, vendor prefixes are still required.
-/// 3. Some browsers will squish the checkbox in flex containers, which we
-///    never, ever want.
-/// 4. Without this, checkboxes appear too small unless hard-pixel sizes are
-///    used (ew).
 @mixin checkbox {
-  @supports (-moz-appearance: none) or (-webkit-appearance: none) or
-    (appearance: none) {
-    // 1
-    // stylelint-disable-next-line property-no-vendor-prefix
-    -moz-appearance: none;
-    // stylelint-disable-next-line property-no-vendor-prefix
-    -webkit-appearance: none;
-    appearance: none; // 2
-    background-color: color.$text-light;
-    block-size: size.$square-toggle-medium;
-    border: size.$edge-control solid currentColor;
-    border-radius: size.$border-radius-medium;
-    color: color.$text-dark;
-    cursor: pointer;
-    flex: none; // 3
-    font: inherit; // 4
-    inline-size: size.$square-toggle-medium;
-    padding: 0;
-    position: relative;
-    transition-duration: transition.$quick;
-    transition-property: background-color, border-color, color;
-    transition-timing-function: ease.$out;
-    vertical-align: middle;
+  @include base;
+  border-radius: size.$border-radius-medium;
 
-    /// State: Focused
-    ///
-    /// We use `focus-visible` here because checkboxes do not inherently require
-    /// keyboard interactions.
-    @include focus.focus-visible {
-      box-shadow: 0 0 0 size.$edge-large color.$brand-primary-lighter;
-    }
+  @include focus.focus-visible {
+    @include base-focus;
+  }
 
-    /// We add the check mark via a pseudo element so we can easily apply
-    /// transitions to it without requiring separate elements.
-    ///
-    /// 1. The icon looks kind of claustrophobic if it runs right up to the
-    ///    element edge, so we re-use the border size as an inset value. This
-    ///    appears much more balanced!
-    /// 2. Starting state of animation.
+  &:hover {
+    @include base-hover;
+  }
+
+  /// We add the check mark via a pseudo element so we can easily apply
+  /// transitions to it without requiring separate elements.
+  &::after {
+    @include base-inner-pseudo-default;
+    background-image: svg-load(
+      'icons/check.svg',
+      stroke=color.$text-light-emphasis
+    );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &:checked {
+    background-color: currentColor;
+
+    /// End state of animation
     &::after {
-      background-image: svg-load(
-        'icons/check.svg',
-        stroke=color.$text-light-emphasis
-      );
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      content: '';
-      inset: size.$edge-control; // 1
-      opacity: 0; // 2
-      position: absolute;
-      transform: scale(0); // 2
-      transition-duration: transition.$quick;
-      transition-property: opacity, transform;
-      transition-timing-function: ease.$out;
+      @include base-inner-pseudo-checked;
     }
 
-    /// State: Hover
     &:hover {
-      background-color: color.$text-light-emphasis;
-      color: var(--theme-color-text-checkbox-hover);
+      color: var(--theme-color-text-toggle-checked-hover);
+    }
+  }
+
+  &:disabled {
+    @include base-disabled;
+
+    &::after {
+      /// Inline SVGs aren't aware of custom properties, so we have to do a
+      /// bit of theming trickery here
+      @include theme.styles {
+        background-image: svg-load(
+          'icons/check.svg',
+          stroke=color.$base-gray-dark
+        );
+      }
+
+      @include theme.styles(dark) {
+        background-image: svg-load(
+          'icons/check.svg',
+          stroke=color.$text-light
+        );
+      }
     }
 
-    /// State: Checked
+    /// We can forego the border entirely for a disabled checkmark, as the hit
+    /// area is unimportant.
     &:checked {
-      background-color: currentColor;
-
-      /// End state of animation
-      &::after {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      &:hover {
-        color: var(--theme-color-text-checkbox-checked-hover);
-      }
+      border-color: transparent;
     }
+  }
+}
 
-    /// State: Disabled
-    ///
-    /// 1. We want the checkbox to appear "read-only." A transparent background
-    ///    and dashed line help symbolize a lack of interactivity.
-    /// 2. Same color used for disabled `c-input` borders.
+/// Radio styles
+@mixin radio {
+  @include base;
+  border-radius: size.$border-radius-full;
 
-    &:disabled {
-      background-color: transparent; // 1
-      border-style: dashed; // 1
-      color: var(--theme-color-text-checkbox-disabled); // 2
-      cursor: not-allowed;
+  @include focus.focus-visible {
+    @include base-focus;
+  }
 
-      &::after {
-        /// Inline SVGs aren't aware of custom properties, so we have to do a
-        /// bit of theming trickery here
-        @include theme.styles {
-          background-image: svg-load(
-            'icons/check.svg',
-            stroke=color.$base-gray-dark
-          );
-        }
+  &:hover {
+    @include base-hover;
+  }
 
-        @include theme.styles(dark) {
-          background-image: svg-load(
-            'icons/check.svg',
-            stroke=color.$text-light
-          );
-        }
-      }
+  &::after {
+    @include base-inner-pseudo-default;
+    background-color: currentColor;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: inherit;
+  }
 
-      /// We can forego the border entirely for a disabled checkmark, as the hit
-      /// area is unimportant.
-      &:checked {
-        border-color: transparent;
-      }
+  &:checked {
+    &::after {
+      @include base-inner-pseudo-checked;
     }
+  }
+
+  &:disabled {
+    @include base-disabled;
   }
 }

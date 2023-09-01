@@ -1,6 +1,10 @@
 @use 'sass:math';
 @use '../compiled/tokens/scss/color';
+@use '../compiled/tokens/scss/ease';
+@use '../compiled/tokens/scss/font-weight';
+@use '../compiled/tokens/scss/line-height';
 @use '../compiled/tokens/scss/size';
+@use '../compiled/tokens/scss/transition';
 @use '../mixins/border-radius';
 @use '../mixins/emdash';
 @use '../mixins/ms';
@@ -255,6 +259,80 @@ blockquote > footer > cite {
     @include emdash.content;
     inset-inline-start: 0;
     position: absolute;
+  }
+}
+
+/// Details/Summary
+///
+/// 1. Apply vertical rhythm between child elements, similar to `blockquote`
+
+details {
+  @include spacing.vertical-rhythm; // 1
+
+  /// 1. Offset the summary text a bit from its contents
+  /// 2. Use the same interaction affordance as buttons
+  /// 3. Set up our custom marker. Because Safari for `::marker` is poor, we
+  ///    have to use some hackery instead.
+  /// 4. Apply padding that is consistent with lists.
+  ///
+  > summary {
+    color: var(--theme-color-text-emphasis); // 1
+    cursor: pointer; // 2
+    font-weight: font-weight.$medium;
+    list-style: none; // 3
+    padding-inline-start: size.$spacing-type-block-indent; // 4
+    position: relative; // 3
+
+    /// Safari 16.6 demands more than `list-style: none`
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  /// Icon affordance for summary. We use a pseudo element so we can rotate it
+  /// without an additional asset.
+  ///
+  /// 1. Align nicely with adjacent text, using the default `line-height` as a
+  ///    fallback when line-height units aren't supported.
+  /// 2. Offset just a bit visually so the pointer aligns nicely with the
+  ///    content below. We use `translate` instead of `transform` so we can
+  ///    modify the rotation without repeating this style.
+  > summary::before {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    block-size: line-height.$loose * 1em; // 1
+    block-size: 1lh; // 1
+    content: '';
+    inline-size: 1em;
+    inset-inline-start: 0;
+    position: absolute;
+    translate: -33% 0; // 2
+
+    // Vary the icon color based on the theme.
+    @include theme.styles {
+      background-image: svg-load(
+        'icons/caret-right.svg',
+        fill=color.$text-dark
+      );
+    }
+
+    @include theme.styles(dark) {
+      background-image: svg-load(
+        'icons/caret-right.svg',
+        fill=color.$text-light-emphasis
+      );
+    }
+
+    // Animate the icon rotation if the user has no reduced motion preference.
+    @media (prefers-reduced-motion: no-preference) {
+      transition: rotate transition.$immediate ease.$out;
+    }
+  }
+
+  // Rotate the icon when the details element is open.
+  &[open] > summary::before {
+    rotate: 90deg;
   }
 }
 

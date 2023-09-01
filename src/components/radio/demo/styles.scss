@@ -1,0 +1,13 @@
+@use '../../../mixins/ms';
+
+.demo-radio-labels {
+  display: grid;
+  grid-gap: ms.step(1);
+}
+
+.demo-radio-label {
+  display: grid;
+  grid-gap: ms.step(-2);
+  grid-template-columns: auto 1fr;
+  user-select: none;
+}

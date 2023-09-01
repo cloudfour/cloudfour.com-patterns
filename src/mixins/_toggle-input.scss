@@ -75,18 +75,17 @@
 /// state.
 @mixin base-inner-pseudo-default {
   content: '';
-  inset: size.$edge-control;
   opacity: 0;
   position: absolute;
-  transform: scale(0);
+  scale: 0;
   transition-duration: transition.$quick;
-  transition-property: opacity, transform;
+  transition-property: opacity, scale;
   transition-timing-function: ease.$out;
 }
 
 @mixin base-inner-pseudo-checked {
   opacity: 1;
-  transform: scale(1);
+  scale: 1;
 }
 
 /// Checkbox styles
@@ -113,6 +112,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    inset: size.$edge-control;
   }
 
   &:checked {
@@ -173,10 +173,8 @@
   &::after {
     @include base-inner-pseudo-default;
     background-color: currentColor;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     border-radius: inherit;
+    inset: size.$edge-control * 2;
   }
 
   &:checked {

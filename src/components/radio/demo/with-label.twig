@@ -1,0 +1,11 @@
+<div class="demo-radio-labels">
+  {% for i in 1..3 %}
+    <label class="demo-radio-label">
+      {% include '@cloudfour/components/radio/radio.twig' with {
+        checked: loop.first,
+        name: disabled ? 'demo-radio-disabled' : 'demo-radio-enabled',
+      } %}
+      Option {{i}}
+    </label>
+  {% endfor %}
+</div>

@@ -6,9 +6,7 @@
 @use './theme';
 
 @include theme.props {
-  --theme-color-text-toggle-checked-hover: var(
-    --theme-color-text-toggle-hover
-  );
+  --theme-color-text-toggle-checked-hover: var(--theme-color-text-toggle-hover);
   --theme-color-text-toggle-disabled: #{color.$base-gray-dark};
   --theme-color-text-toggle-hover: #{color.$brand-primary};
 }
@@ -142,10 +140,7 @@
       }
 
       @include theme.styles(dark) {
-        background-image: svg-load(
-          'icons/check.svg',
-          stroke=color.$text-light
-        );
+        background-image: svg-load('icons/check.svg', stroke=color.$text-light);
       }
     }
 
@@ -170,11 +165,14 @@
     @include base-hover;
   }
 
+  /// 1. Our linter is getting confused by the Sass expression and trying to
+  ///    split this into multiple lines.
   &::after {
     @include base-inner-pseudo-default;
     background-color: currentColor;
     border-radius: inherit;
-    inset: size.$edge-control * 2;
+    // stylelint-disable-next-line liberty/use-logical-spec
+    inset: size.$edge-control * 2; // 1
   }
 
   &:checked {

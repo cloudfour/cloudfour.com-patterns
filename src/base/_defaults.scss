@@ -282,6 +282,11 @@ details {
     list-style: none; // 3
     padding-inline-start: size.$spacing-type-block-indent; // 4
     position: relative; // 3
+
+    /// Safari 16.6 demands more than `list-style: none`
+    &::-webkit-details-marker {
+      display: none;
+    }
   }
 
   /// Icon affordance for summary. We use a pseudo element so we can rotate it

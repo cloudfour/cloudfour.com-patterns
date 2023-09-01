@@ -39,6 +39,11 @@
   &[type='checkbox'] {
     @include toggle-input.checkbox;
   }
+
+  /// Radios
+  &[type='radio'] {
+    @include toggle-input.radio;
+  }
 }
 
 /// Apply the same spacing to fields and labels as in our Form Group object.

@@ -1,5 +1,19 @@
 # @cloudfour/patterns
 
+## 16.1.0
+
+### Minor Changes
+
+- [#2199](https://github.com/cloudfour/cloudfour.com-patterns/pull/2199) [`1c2d2297`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1c2d22976bd23282cafad72bdc01a4df35af2fbf) Thanks [@tylersticka](https://github.com/tylersticka)! - Add styles for WordPress core "Details" block.
+
+- [#2199](https://github.com/cloudfour/cloudfour.com-patterns/pull/2199) [`1c2d2297`](https://github.com/cloudfour/cloudfour.com-patterns/commit/1c2d22976bd23282cafad72bdc01a4df35af2fbf) Thanks [@tylersticka](https://github.com/tylersticka)! - Add default styles for `details` element.
+
+### Patch Changes
+
+- [#2202](https://github.com/cloudfour/cloudfour.com-patterns/pull/2202) [`f3bcd28d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f3bcd28d7ffd04b97fe59a5874981e9f7304b08b) Thanks [@spaceninja](https://github.com/spaceninja)! - Better Options for Ground Nav:
+  - renamed `features` to `feature_count`
+  - added blocks for each feature
+
 ## 16.0.0
 
 ### Major Changes

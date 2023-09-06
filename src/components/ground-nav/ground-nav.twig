@@ -1,65 +1,69 @@
 {% set feature_one %}
-  <div class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed">
-    <div class="o-rhythm o-rhythm--compact">
-      {% embed '@cloudfour/components/heading/heading.twig' with {
-        "tag_name": "h2",
-        "level": 1,
-        "weight": "light"
-      } only %}
+  {% block feature_one %}
+    <div class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed">
+      <div class="o-rhythm o-rhythm--compact">
+        {% embed '@cloudfour/components/heading/heading.twig' with {
+          "tag_name": "h2",
+          "level": 1,
+          "weight": "light"
+        } only %}
+          {% block content %}
+            Nice to meet you
+          {% endblock %}
+        {% endembed %}
+        <p>
+          Cloud Four helps organizations solve complex responsive web
+          design and development challenges every day.
+          Let's connect so we can tailor a solution to fit your needs.
+        </p>
+      </div>
+      {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
         {% block content %}
-          Nice to meet you
+          {% include '@cloudfour/components/button/button.twig' with {
+            label: 'See our work',
+            class: 'c-button--secondary'
+          } only %}
+          {% include '@cloudfour/components/button/button.twig' with {
+            label: 'Get in touch',
+            class: 'c-button--secondary'
+          } only %}
         {% endblock %}
       {% endembed %}
-      <p>
-        Cloud Four helps organizations solve complex responsive web
-        design and development challenges every day.
-        Let's connect so we can tailor a solution to fit your needs.
-      </p>
     </div>
-    {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
-      {% block content %}
-        {% include '@cloudfour/components/button/button.twig' with {
-          label: 'See our work',
-          class: 'c-button--secondary'
-        } only %}
-        {% include '@cloudfour/components/button/button.twig' with {
-          label: 'Get in touch',
-          class: 'c-button--secondary'
-        } only %}
-      {% endblock %}
-    {% endembed %}
-  </div>
+  {% endblock %}
 {% endset %}
 
 {% set feature_two %}
-  <form class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed" action="#">
-    <div class="o-rhythm o-rhythm--compact">
-      {% embed '@cloudfour/components/heading/heading.twig' with {
-        "tag_name": "h2",
-        "level": 1,
-        "weight": "light"
-      } only %}
+  {% block feature_two %}
+    <form class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed" action="#">
+      <div class="o-rhythm o-rhythm--compact">
+        {% embed '@cloudfour/components/heading/heading.twig' with {
+          "tag_name": "h2",
+          "level": 1,
+          "weight": "light"
+        } only %}
+          {% block content %}
+            Cloud Four, in your inbox
+          {% endblock %}
+        {% endembed %}
+        <p>
+          Our latest articles, updates, quick tips and insights in one
+          convenient, occasional newsletter.
+        </p>
+      </div>
+      {% embed '@cloudfour/objects/input-group/input-group.twig' only %}
         {% block content %}
-          Cloud Four, in your inbox
+          {% include '@cloudfour/components/input/input.twig' with {
+            placeholder: 'Your Email',
+            type: 'email',
+          } only %}
+          {% include '@cloudfour/components/button/button.twig' with {
+            label: 'Sign up'
+          } only %}
         {% endblock %}
       {% endembed %}
-      <p>
-        Our latest articles, updates, quick tips and insights in one
-        convenient, occasional newsletter.
-      </p>
-    </div>
-    {% embed '@cloudfour/objects/input-group/input-group.twig' only %}
-      {% block content %}
-        {% include '@cloudfour/components/input/input.twig' with {
-          placeholder: 'Your Email',
-          type: 'email',
-        } only %}
-        {% include '@cloudfour/components/button/button.twig' with {
-          label: 'Sign up'
-        } only %}
-      {% endblock %}
-    {% endembed %}
-  </form>
+    </form>
+  {% endblock %}
 {% endset %}
 
 {% set legal %}
@@ -72,15 +76,15 @@
 {% endset %}
 
 <footer class="c-ground-nav {% if alternate %}c-ground-nav--alternate{% endif %}">
-  {% if features > 0 %}
+  {% if feature_count > 0 %}
     <div class="c-ground-nav__features o-container o-container--pad-inline">
       <div class="c-ground-nav__features-layout o-container__content">
         <div class="c-ground-nav__features-inner t-dark o-container__fill">
           <div class="c-ground-nav__feature o-container__pad
-                      {% if features > 1 %}t-alternate{% endif %}">
+                      {% if feature_count > 1 %}t-alternate{% endif %}">
             {{ feature_one }}
           </div>
-          {% if features > 1 %}
+          {% if feature_count > 1 %}
             <div class="c-ground-nav__feature o-container__pad">
               {{ feature_two }}
             </div>

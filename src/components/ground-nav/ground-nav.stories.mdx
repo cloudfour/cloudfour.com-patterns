@@ -42,7 +42,7 @@ If you only define a single feature block, it will be centered.
     height="800px"
     args={{
       ...defaultArgs,
-      features: 1,
+      feature_count: 1,
     }}
     argTypes={defaultArgTypes}
     parameters={{
@@ -61,7 +61,7 @@ If you don't define any feature blocks, the layout will collapse appropriately.
     height="475px"
     args={{
       ...defaultArgs,
-      features: 0,
+      feature_count: 0,
     }}
     argTypes={defaultArgTypes}
     parameters={{
@@ -96,7 +96,7 @@ the background colors of the Ground Nav to match.
 
 ## Template Properties
 
-- `features`: The number of feature blocks to display. Defaults to 2.
+- `feature_count`: The number of feature blocks to display. Defaults to 2.
 - `organization`: Object containing Cloud Four details for contact information and copyright. Structure and property names are based on the [the Organization schema](https://schema.org/Organization).
   - `name`
   - `address`
@@ -112,4 +112,9 @@ the background colors of the Ground Nav to match.
 - `menu`: An object containing navigation menu `items` to iterate over in the same structure as that expected by [Timber menus](https://timber.github.io/docs/guides/menus/).
 - `topics`: The same structure as `menu` but for content topics.
 - `social`: The same structure as `menu` but for social links. Each item must also contain an `icon` property corresponding to a key from [our icon library](/docs/design-icons--page).
+
+## Template Blocks
+
 - `legal`: Optional HTML content to display in the legal section. If not provided, a copyright statement will be displayed by default.
+- `feature_one`: Optional HTML content to display in the first feature slot.
+- `feature_two`: Optional HTML content to display in the second feature slot.

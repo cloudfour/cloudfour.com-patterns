@@ -15,7 +15,7 @@ const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
  */
 export const defaultArgs = {
   alternate: false,
-  features: 2,
+  feature_count: 2,
   organizationName: organization.name,
   organizationStreetAddress: organization.address.street_address,
   organizationAddressLocality: organization.address.address_locality,
@@ -33,7 +33,7 @@ export const defaultArgs = {
  */
 export const defaultArgTypes = {
   alternate: { control: { type: 'boolean' } },
-  features: { control: { type: 'number', min: 0, max: 2 } },
+  feature_count: { control: { type: 'number', min: 0, max: 2 } },
   organizationName: { type: { name: 'string' } },
   organizationStreetAddress: { type: { name: 'string' } },
   organizationAddressLocality: { type: { name: 'string' } },
@@ -58,7 +58,7 @@ export const generateGroundNavProps = (args) => ({
   social,
   topics,
   alternate: args.alternate,
-  features: args.features,
+  feature_count: args.feature_count,
   organization: {
     name: args.organizationName,
     address: {

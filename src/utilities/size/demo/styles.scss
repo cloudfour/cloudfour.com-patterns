@@ -8,6 +8,12 @@
   }
 }
 
+.demo-u-size-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 .demo-u-size-responsive {
   display: flex;
   gap: 1em;

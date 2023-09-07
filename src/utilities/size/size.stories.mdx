@@ -1,5 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import inlineSizeDemo from './demo/inline-size.twig';
+import blockSizeDemo from './demo/block-size.twig';
 import responsiveDemo from './demo/responsive.twig';
 import './demo/styles.scss';
 
@@ -32,6 +33,17 @@ Utilities beginning with `u-size-inline-` specify the `inline-size` of an elemen
 
 <Canvas>
   <Story name="Inline size (Width)">{() => inlineSizeDemo()}</Story>
+</Canvas>
+
+## Block size
+
+Utilities beginning with `u-size-block-` specify the `block-size` of an element:
+
+- `u-size-inline-full` sets the `inline-size` to `100%` of the container.
+- `u-size-inline-auto` sets the `inline-size` to the natural value for the element.
+
+<Canvas>
+  <Story name="Block size (Height)">{() => blockSizeDemo()}</Story>
 </Canvas>
 
 ## Responsive

@@ -21,8 +21,21 @@
   }
 }
 
+// Set the block size styles in a mixin. The suffix will let us easily append
+// breakpoint suffixes.
+@mixin _block-size-utilities($suffix: '') {
+  .u-size-block-full#{$suffix} {
+    block-size: 100% !important;
+  }
+
+  .u-size-block-auto#{$suffix} {
+    block-size: auto !important;
+  }
+}
+
 // Include the default versions (no media queries)
 @include _inline-size-utilities;
+@include _block-size-utilities;
 
 // Include responsive versions. This would be simpler if we could use the
 // `breakpoint-classes` mixin instead, but in this case we want all of the
@@ -31,4 +44,5 @@
 @include media-query.breakpoint-loop using ($key) {
   $suffix: \@#{$key};
   @include _inline-size-utilities($suffix);
+  @include _block-size-utilities($suffix);
 }

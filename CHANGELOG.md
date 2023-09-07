@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 16.2.0
+
+### Minor Changes
+
+- [#2203](https://github.com/cloudfour/cloudfour.com-patterns/pull/2203) [`a0073eca`](https://github.com/cloudfour/cloudfour.com-patterns/commit/a0073eca862920a00cf8ba168e39ed52e55e4ad1) Thanks [@spaceninja](https://github.com/spaceninja)! - Add Block Size Utilities: Adds "full" and "auto" size utility classes for the `block` direction.
+
 ## 16.1.0
 
 ### Minor Changes

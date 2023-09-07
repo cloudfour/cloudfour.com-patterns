@@ -73,14 +73,17 @@
 
 /**
  * 1. Keep contents from overflowing border-radius
- * 2. Used to position the features side-by-side on large screens
+ * 2. Min width to keep promos with short content from shrinking
+ * 3. Used to position the features side-by-side on large screens
  */
 .c-ground-nav__features-inner {
   @include border-radius.conditional;
   contain: paint; // 1
+  min-inline-size: 100%; // 2
 
   @media (width >= breakpoint.$l) {
-    display: flex; // 2
+    display: flex; // 3
+    min-inline-size: size.$max-width-prose; // 2
   }
 }
 

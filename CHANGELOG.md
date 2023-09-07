@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 16.2.1
+
+### Patch Changes
+
+- [#2205](https://github.com/cloudfour/cloudfour.com-patterns/pull/2205) [`6b59e854`](https://github.com/cloudfour/cloudfour.com-patterns/commit/6b59e854dbea4b3b8f811e23b8e364549f6d34f3) Thanks [@spaceninja](https://github.com/spaceninja)! - Bugfix: This addresses an issue where when a single Ground Nav feature was set with very short content, the feature could appear too narrow.
+
 ## 16.2.0
 
 ### Minor Changes

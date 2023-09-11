@@ -1,0 +1,56 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import withLabelDemo from './demo/with-label.twig';
+import './demo/styles.scss';
+
+<Meta
+  title="Components/Radio"
+  argTypes={{
+    disabled: { type: { name: 'boolean' } },
+  }}
+/>
+
+# Radio
+
+`c-radio` may be applied to any `<input type="radio">` element. They are larger than native radio elements and more visually consistent with our [checkbox](/docs/components-checkbox--Enabled), [input](/docs/components-input--text-elements) and [button](/docs/components-button--elements) components.
+
+<Canvas>
+  <Story
+    name="Enabled"
+    parameters={{
+      docs: {
+        source: {
+          code: `{% include '@cloudfour/components/radio/radio.twig' with {
+  name: 'demo-radio-enabled',
+  value: 'example',
+  checked: true,
+} only %}`,
+        },
+      },
+    }}
+  >
+    {(args) => withLabelDemo(args)}
+  </Story>
+</Canvas>
+
+Radios appear more subtle and less actionable when the `disabled` attribute is set.
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{ disabled: true }}
+    parameters={{
+      docs: {
+        source: {
+          code: `{% include '@cloudfour/components/radio/radio.twig' with {
+  name: 'demo-radio-disabled',
+  value: 'example',
+  checked: true,
+  disabled: true,
+} only %}`,
+        },
+      },
+    }}
+  >
+    {(args) => withLabelDemo(args)}
+  </Story>
+</Canvas>

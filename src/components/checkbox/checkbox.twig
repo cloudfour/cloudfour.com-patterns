@@ -1,3 +1,11 @@
+{#
+This all might be a little overengineered? We're basically recreating all of
+the HTML attributes manually. See the radio component for another example.
+
+Leaving in for now since I'm not really interested in another breaking change
+so soon after our last one.
+#}
+
 {% set attributes %}
   type="checkbox"
   class="c-checkbox{% if class %} {{ class }}{% endif %}"

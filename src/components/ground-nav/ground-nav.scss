@@ -73,22 +73,28 @@
 
 /**
  * 1. Keep contents from overflowing border-radius
- * 2. Min width to keep promos with short content from shrinking
+ * 2. If we don't set min-width here, then the features container won't
+ *    use up the full width and won't match the content below. It needs
+ *    to be scoped to the `c-ground-nav--multiple-features` modifier
+ *    because we _don't_ want this width when there's only one feature.
  * 3. Used to position the features side-by-side on large screens
  */
 .c-ground-nav__features-inner {
   @include border-radius.conditional;
   contain: paint; // 1
-  min-inline-size: 100%; // 2
+
+  .c-ground-nav--multiple-features & {
+    min-inline-size: 100%; // 2
+  }
 
   @media (width >= breakpoint.$l) {
     display: flex; // 3
-    min-inline-size: size.$max-width-prose; // 2
   }
 }
 
 /**
- * 1. If there's only one feature, center it and use prose width
+ * 1. If there's only one feature, center it and match the width of
+ *    `fill-pad` containers in the prose width content above.
  * 2. Flex layout to keep both features' form elements vertically aligned
  * 3. Features should take up an equal amount of the layout
  */
@@ -97,7 +103,9 @@
 
   &:only-child {
     margin-inline: auto; // 1
-    max-inline-size: size.$max-width-prose; // 1
+    min-inline-size: calc(
+      #{size.$max-width-prose} + #{spacing.$fluid-spacing-inline} * 2
+    ); // 1
   }
 
   @media (width >= breakpoint.$l) {

@@ -1,0 +1,78 @@
+<div class="o-container o-container--pad o-container--prose">
+<div class="o-container__content o-rhythm o-rhythm--default o-rhythm--generous-headings">
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque purus semper.</p>
+
+<article class="c-card c-card--contained o-container__fill-pad">
+  <div class="c-card__content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque vitae tempus quam pellentesque nec nam aliquam sem et. Proin gravida hendrerit lectus a.</p>
+  </div>
+</article>
+
+</div>
+</div>
+
+{% embed '@cloudfour/components/ground-nav/ground-nav.twig' %}
+  {% block feature_one %}
+    <div class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed">
+      <div class="o-rhythm o-rhythm--compact">
+        {% embed '@cloudfour/components/heading/heading.twig' with {
+          "tag_name": "h2",
+          "level": 1,
+          "weight": "light",
+          "feature_one_title": feature_one_title,
+        } only %}
+          {% block content %}
+            {{ feature_one_title }}
+          {% endblock %}
+        {% endembed %}
+        <p>
+          {{ feature_one_content }}
+        </p>
+      </div>
+      {% embed '@cloudfour/objects/button-group/button-group.twig' with { "feature_count": feature_count } only %}
+        {% block content %}
+          {% set button_class = feature_count > 1 ? 'c-button--secondary' : null %}
+          {% include '@cloudfour/components/button/button.twig' with {
+            label: 'See our work',
+            class: button_class,
+          } only %}
+          {% include '@cloudfour/components/button/button.twig' with {
+            label: 'Get in touch',
+            class: button_class,
+          } only %}
+        {% endblock %}
+      {% endembed %}
+    </div>
+  {% endblock %}
+  {% block feature_two %}
+    <form class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed" action="#">
+      <div class="o-rhythm o-rhythm--compact">
+        {% embed '@cloudfour/components/heading/heading.twig' with {
+          "tag_name": "h2",
+          "level": 1,
+          "weight": "light",
+          "feature_two_title": feature_two_title,
+        } only %}
+          {% block content %}
+            {{ feature_two_title }}
+          {% endblock %}
+        {% endembed %}
+        <p>
+          {{ feature_two_content }}
+        </p>
+      </div>
+      {% embed '@cloudfour/objects/input-group/input-group.twig' only %}
+        {% block content %}
+          {% include '@cloudfour/components/input/input.twig' with {
+            placeholder: 'Your Email',
+            type: 'email',
+          } only %}
+          {% include '@cloudfour/components/button/button.twig' with {
+            label: 'Sign up'
+          } only %}
+        {% endblock %}
+      {% endembed %}
+    </form>
+  {% endblock %}
+{% endembed %}

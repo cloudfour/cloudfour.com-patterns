@@ -1,66 +1,10 @@
 {% set feature_one %}
   {% block feature_one %}
-    <div class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed">
-      <div class="o-rhythm o-rhythm--compact">
-        {% embed '@cloudfour/components/heading/heading.twig' with {
-          "tag_name": "h2",
-          "level": 1,
-          "weight": "light"
-        } only %}
-          {% block content %}
-            Nice to meet you
-          {% endblock %}
-        {% endembed %}
-        <p>
-          Cloud Four helps every day.
-        </p>
-      </div>
-      {% embed '@cloudfour/objects/button-group/button-group.twig' only %}
-        {% block content %}
-          {% include '@cloudfour/components/button/button.twig' with {
-            label: 'See our work',
-            class: 'c-button--secondary'
-          } only %}
-          {% include '@cloudfour/components/button/button.twig' with {
-            label: 'Get in touch',
-            class: 'c-button--secondary'
-          } only %}
-        {% endblock %}
-      {% endembed %}
-    </div>
   {% endblock %}
 {% endset %}
 
 {% set feature_two %}
   {% block feature_two %}
-    <form class="c-ground-nav__feature-inner o-rhythm o-rhythm--condensed" action="#">
-      <div class="o-rhythm o-rhythm--compact">
-        {% embed '@cloudfour/components/heading/heading.twig' with {
-          "tag_name": "h2",
-          "level": 1,
-          "weight": "light"
-        } only %}
-          {% block content %}
-            Cloud Four, in your inbox
-          {% endblock %}
-        {% endembed %}
-        <p>
-          Our latest articles, updates, quick tips and insights in one
-          convenient, occasional newsletter.
-        </p>
-      </div>
-      {% embed '@cloudfour/objects/input-group/input-group.twig' only %}
-        {% block content %}
-          {% include '@cloudfour/components/input/input.twig' with {
-            placeholder: 'Your Email',
-            type: 'email',
-          } only %}
-          {% include '@cloudfour/components/button/button.twig' with {
-            label: 'Sign up'
-          } only %}
-        {% endblock %}
-      {% endembed %}
-    </form>
   {% endblock %}
 {% endset %}
 
@@ -73,20 +17,36 @@
   {% endblock %}
 {% endset %}
 
-<footer class="c-ground-nav {% if alternate %}c-ground-nav--alternate{% endif %}">
+<footer
+  class="c-ground-nav
+         {% if alternate %}c-ground-nav--alternate{% endif %}
+         {% if feature_count == 1 %}c-ground-nav--single-feature{% endif %}"
+>
+
+  {#
+    A note to future devs:
+    Looking at this code, you may be tempted to simplify. You may think,
+    surely `c-ground-nav__features-inner` could move up a level to save a div,
+    or similar changes. Trust me, I've tried. The three outer containers are
+    needed to keep the layout in alignment with other containers on the page.
+    The features and their wrapper need to be nested inside so they can be
+    centered and behave appropriately when there's only one feature.
+    Modify at your own risk, and test thoroughly.
+  #}
   {% if feature_count > 0 %}
     <div class="c-ground-nav__features o-container o-container--pad-inline">
-      <div class="c-ground-nav__features-layout o-container__content">
-        <div class="c-ground-nav__features-inner t-dark o-container__fill">
-          <div class="c-ground-nav__feature o-container__pad
-                      {% if feature_count > 1 %}t-alternate{% endif %}">
-            {{ feature_one }}
-          </div>
-          {% if feature_count > 1 %}
-            <div class="c-ground-nav__feature o-container__pad">
-              {{ feature_two }}
+      <div class="o-container__content">
+        <div class="o-container__fill">
+          <div class="c-ground-nav__features-inner t-dark">
+            <div class="c-ground-nav__feature {% if feature_count > 1 %}t-alternate{% endif %}">
+              {{ feature_one }}
             </div>
-          {% endif %}
+            {% if feature_count > 1 %}
+              <div class="c-ground-nav__feature">
+                {{ feature_two }}
+              </div>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,9 @@
 @use '../../compiled/tokens/scss/size';
 
 .o-input-group {
+  // Prevent button effects from appearing disconnected from the input group
+  --scale-effect-grow: 1;
+  --scale-effect-shrink: 1;
   display: flex;
 
   // Keeps focus styles from being cut off by adjacent, un-focused elements

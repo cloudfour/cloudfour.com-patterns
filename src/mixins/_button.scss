@@ -90,16 +90,20 @@
   /**
    * Transform, opacity and filter changes are performant and will work across
    * many more stylistic modifiers than specific color shifts.
+   *
+   * We optionally support custom properties to allow the amount of scaling to
+   * be adjusted by other patterns. For example, an Input Group might disable
+   * the scaling so the button always appeared joined to adjacent elements.
    */
 
   &:hover {
     filter: brightness(brightness.$control-brighten);
-    transform: scale(scale.$effect-grow);
+    transform: scale(var(--scale-effect-grow, #{scale.$effect-grow}));
   }
 
   &:active {
     filter: brightness(brightness.$control-dim);
-    transform: scale(scale.$effect-shrink);
+    transform: scale(var(--scale-effect-shrink, #{scale.$effect-shrink}));
   }
 
   &:disabled,

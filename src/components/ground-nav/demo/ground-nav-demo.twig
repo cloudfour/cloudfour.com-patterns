@@ -19,14 +19,15 @@
         {% embed '@cloudfour/components/heading/heading.twig' with {
           "tag_name": "h2",
           "level": 1,
-          "weight": "light"
+          "weight": "light",
+          "feature_one_title": feature_one_title,
         } only %}
           {% block content %}
-            Nice to meet you
+            {{ feature_one_title }}
           {% endblock %}
         {% endembed %}
         <p>
-          Cloud Four helps every day.
+          {{ feature_one_content }}
         </p>
       </div>
       {% embed '@cloudfour/objects/button-group/button-group.twig' with { "feature_count": feature_count } only %}
@@ -50,15 +51,15 @@
         {% embed '@cloudfour/components/heading/heading.twig' with {
           "tag_name": "h2",
           "level": 1,
-          "weight": "light"
+          "weight": "light",
+          "feature_two_title": feature_two_title,
         } only %}
           {% block content %}
-            Cloud Four, in your inbox
+            {{ feature_two_title }}
           {% endblock %}
         {% endembed %}
         <p>
-          Our latest articles, updates, quick tips and insights in one
-          convenient, occasional newsletter.
+          {{ feature_two_content }}
         </p>
       </div>
       {% embed '@cloudfour/objects/input-group/input-group.twig' only %}

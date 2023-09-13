@@ -17,21 +17,36 @@
   {% endblock %}
 {% endset %}
 
-<footer class="c-ground-nav {% if alternate %}c-ground-nav--alternate{% endif %}">
+<footer
+  class="c-ground-nav
+         {% if alternate %}c-ground-nav--alternate{% endif %}
+         {% if feature_count == 1 %}c-ground-nav--single-feature{% endif %}"
+>
+
+  {#
+    A note to future devs:
+    Looking at this code, you may be tempted to simplify. You may think,
+    surely `c-ground-nav__features-inner` could move up a level to save a div,
+    or similar changes. Trust me, I've tried. The three outer containers are
+    needed to keep the layout in alignment with other containers on the page.
+    The features and their wrapper need to be nested inside so they can be
+    centered and behave appropriately when there's only one feature.
+    Modify at your own risk, and test thoroughly.
+  #}
   {% if feature_count > 0 %}
-    <div class="c-ground-nav__features o-container o-container--pad-inline
-                {% if feature_count > 1 %}c-ground-nav--multiple-features{% endif %}">
-      <div class="c-ground-nav__features-layout o-container__content">
-        <div class="c-ground-nav__features-inner t-dark o-container__fill">
-          <div class="c-ground-nav__feature o-container__pad
-                      {% if feature_count > 1 %}t-alternate{% endif %}">
-            {{ feature_one }}
-          </div>
-          {% if feature_count > 1 %}
-            <div class="c-ground-nav__feature o-container__pad">
-              {{ feature_two }}
+    <div class="c-ground-nav__features o-container o-container--pad-inline">
+      <div class="o-container__content">
+        <div class="o-container__fill">
+          <div class="c-ground-nav__features-inner t-dark">
+            <div class="c-ground-nav__feature {% if feature_count > 1 %}t-alternate{% endif %}">
+              {{ feature_one }}
             </div>
-          {% endif %}
+            {% if feature_count > 1 %}
+              <div class="c-ground-nav__feature">
+                {{ feature_two }}
+              </div>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>

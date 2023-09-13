@@ -16,6 +16,12 @@ const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
 export const defaultArgs = {
   alternate: false,
   feature_count: 2,
+  feature_one_title: 'Nice to meet you',
+  feature_one_content:
+    'Cloud Four helps organizations solve complex responsive web design and development challenges every day. Let’s connect so we can tailor a solution to fit your needs.',
+  feature_two_title: 'Cloud Four, in your inbox',
+  feature_two_content:
+    'Our latest articles, updates, quick tips and insights in one convenient, occassional newsletter.',
   organizationName: organization.name,
   organizationStreetAddress: organization.address.street_address,
   organizationAddressLocality: organization.address.address_locality,
@@ -34,6 +40,10 @@ export const defaultArgs = {
 export const defaultArgTypes = {
   alternate: { control: { type: 'boolean' } },
   feature_count: { control: { type: 'number', min: 0, max: 2 } },
+  feature_one_title: { type: { name: 'string' } },
+  feature_one_content: { type: { name: 'string' } },
+  feature_two_title: { type: { name: 'string' } },
+  feature_two_content: { type: { name: 'string' } },
   organizationName: { type: { name: 'string' } },
   organizationStreetAddress: { type: { name: 'string' } },
   organizationAddressLocality: { type: { name: 'string' } },
@@ -59,6 +69,10 @@ export const generateGroundNavProps = (args) => ({
   topics,
   alternate: args.alternate,
   feature_count: args.feature_count,
+  feature_one_title: args.feature_one_title,
+  feature_one_content: args.feature_one_content,
+  feature_two_title: args.feature_two_title,
+  feature_two_content: args.feature_two_content,
   organization: {
     name: args.organizationName,
     address: {

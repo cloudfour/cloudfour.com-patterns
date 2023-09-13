@@ -62,33 +62,27 @@
 }
 
 /**
- * 1. Used to center `features-inner` when there's only one feature.
- *    We can't put `margin:auto` on `features-inner` because it has negative
- *    margins from `o-container__fill`.
- */
-.c-ground-nav__features-layout {
-  display: flex; // 1
-  justify-content: center; // 1
-}
-
-/**
  * 1. Keep contents from overflowing border-radius
- * 2. If we don't set min-width here, then the features container won't
- *    use up the full width and won't match the content below. It needs
- *    to be scoped to the `c-ground-nav--multiple-features` modifier
- *    because we _don't_ want this width when there's only one feature.
- * 3. Used to position the features side-by-side on large screens
+ * 2. Constrain the width when there's only one feature
+ * 3. Positions multiple features side-by-side. `auto-fit` means this
+ *    works even when there's only one feature.
  */
 .c-ground-nav__features-inner {
   @include border-radius.conditional;
   contain: paint; // 1
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  inline-size: 100%;
+  margin-inline: auto;
 
-  .c-ground-nav--multiple-features & {
-    min-inline-size: 100%; // 2
+  .c-ground-nav--single-feature & {
+    max-inline-size: calc(
+      #{size.$max-width-prose} + #{spacing.$fluid-spacing-inline} * 2
+    ); // 2
   }
 
   @media (width >= breakpoint.$l) {
-    display: flex; // 3
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); // 3
   }
 }
 
@@ -100,12 +94,17 @@
  */
 .c-ground-nav__feature {
   @include spacing.fluid-padding-block;
+  @include spacing.fluid-padding-inline;
+  inline-size: 100%;
 
   &:only-child {
     margin-inline: auto; // 1
-    min-inline-size: calc(
-      #{size.$max-width-prose} + #{spacing.$fluid-spacing-inline} * 2
-    ); // 1
+
+    @media (width >= breakpoint.$l) {
+      min-inline-size: calc(
+        #{size.$max-width-prose} + #{spacing.$fluid-spacing-inline} * 2
+      ); // 1
+    }
   }
 
   @media (width >= breakpoint.$l) {

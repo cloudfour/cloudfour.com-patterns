@@ -119,6 +119,7 @@
 .c-ground-nav__feature-inner {
   display: grid; // 1
   grid-template-rows: minmax(0, 1fr) minmax(0, auto); // 1
+  inline-size: 100%;
 }
 
 /**

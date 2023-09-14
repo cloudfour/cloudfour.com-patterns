@@ -20,7 +20,7 @@ const buildSass = () =>
     .pipe(
       postcss([
         cssnano({
-          preset: ['cssnano-preset-default', { colormin: false }],
+          preset: ['cssnano-preset-default', { colormin: false, calc: false }],
         }),
       ])
     )

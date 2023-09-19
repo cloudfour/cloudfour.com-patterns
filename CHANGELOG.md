@@ -1,5 +1,13 @@
 # @cloudfour/patterns
 
+## 16.3.1
+
+### Patch Changes
+
+- [#2209](https://github.com/cloudfour/cloudfour.com-patterns/pull/2209) [`d02e6be6`](https://github.com/cloudfour/cloudfour.com-patterns/commit/d02e6be6fcade50df7d9de85e8d8526638bcdf30) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent Buttons from feeling disconnected from Input Groups when `:hover` or `:active` states are applied
+
+- [#2212](https://github.com/cloudfour/cloudfour.com-patterns/pull/2212) [`9dbe23a6`](https://github.com/cloudfour/cloudfour.com-patterns/commit/9dbe23a690b6c3d6bee768fc6dad01c01f850d3e) Thanks [@tylersticka](https://github.com/tylersticka)! - Disable calc optimization in minified stylesheet. This addresses a warning when `calc` included a `clamp` function, and very slightly reduces the size of the stylesheet when compressed.
+
 ## 16.3.0
 
 ### Minor Changes

@@ -49,8 +49,8 @@
   inline-size: 100%;
   inset-block-end: 0;
   justify-content: center;
-  pointer-events: none;
-  position: fixed; // 3
+  pointer-events: none; // 3
+  position: fixed;
   z-index: z-index.$alert;
 }
 

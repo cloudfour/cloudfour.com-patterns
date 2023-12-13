@@ -35,6 +35,9 @@
  * 1. Use a $factor of 0.5 to allow the alert to bleed more into the
  *    content margins instead of aligning with the content itself.
  * 2. Match the padding-inline for visual balance.
+ * 3. Prevent this container from blocking interactions with content beneath
+ *    its `z-index` layer in case the content within his hidden but not this
+ *    containing element.
  */
 
 .o-page__alert {
@@ -46,8 +49,17 @@
   inline-size: 100%;
   inset-block-end: 0;
   justify-content: center;
+  pointer-events: none; // 3
   position: fixed;
   z-index: z-index.$alert;
+}
+
+/**
+ * Restores pointer events for any page alert content.
+ */
+
+.o-page__alert > * {
+  pointer-events: initial;
 }
 
 .o-page__content {

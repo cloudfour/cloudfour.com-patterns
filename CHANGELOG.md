@@ -1,5 +1,17 @@
 # @cloudfour/patterns
 
+## 16.4.0
+
+### Minor Changes
+
+- [#2216](https://github.com/cloudfour/cloudfour.com-patterns/pull/2216) [`48dccda7`](https://github.com/cloudfour/cloudfour.com-patterns/commit/48dccda73c741474ec079ea8c419cdae13f96686) Thanks [@tylersticka](https://github.com/tylersticka)! - Add `cube` and `cube-alt` icons to represent three-dimensional elements.
+
+### Patch Changes
+
+- [#2217](https://github.com/cloudfour/cloudfour.com-patterns/pull/2217) [`08521357`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0852135710c116855ad1c34313e0c509ccb3c9ab) Thanks [@tylersticka](https://github.com/tylersticka)! - Fixes issue where a page's alert container with no visible content could block pointer events toward the bottom of the viewport.
+
+- [#2213](https://github.com/cloudfour/cloudfour.com-patterns/pull/2213) [`0f1a76bb`](https://github.com/cloudfour/cloudfour.com-patterns/commit/0f1a76bb0b3b74d76a9a47824b75cec865da1662) Thanks [@tylersticka](https://github.com/tylersticka)! - Update the `brands/facebook` icon.
+
 ## 16.3.1
 
 ### Patch Changes

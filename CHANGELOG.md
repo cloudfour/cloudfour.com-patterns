@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 16.5.0
+
+### Minor Changes
+
+- [#2218](https://github.com/cloudfour/cloudfour.com-patterns/pull/2218) [`f1190ac3`](https://github.com/cloudfour/cloudfour.com-patterns/commit/f1190ac34ed0b62fc5fe2d9058dc3b50fcef2bf1) Thanks [@tylersticka](https://github.com/tylersticka)! - Add brand icon for Bluesky
+
 ## 16.4.0
 
 ### Minor Changes

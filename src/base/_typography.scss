@@ -52,6 +52,16 @@ body {
 }
 
 /**
+ * Default text wrapping
+ */
+
+p,
+li,
+figcaption {
+  text-wrap: pretty;
+}
+
+/**
  * Headings
  */
 
@@ -59,6 +69,7 @@ body {
   h#{$i} {
     @include headings.level($i);
     color: var(--theme-color-text-emphasis);
+    text-wrap: balance;
   }
 }
 

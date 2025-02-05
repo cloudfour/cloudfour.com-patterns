@@ -12,7 +12,12 @@ concurrency:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    # Puppeteer stopped working on the latest ubuntu version
+    # We use Puppeteer for our tests in Pleasantest.
+    # For now we've downgraded to a version of Ubuntu that works.
+    # In the future we'll likely need to fix this in the Pleasantest repo or
+    # move to a different testing solution
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js 16

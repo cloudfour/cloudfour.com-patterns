@@ -328,6 +328,8 @@ figure.wp-block-image {
 .c-comment {
   table td,
   table th {
+    // At some point, WordPress started setting a default border on table cells
+    border-width: 0;
     @include table.t-container;
   }
 

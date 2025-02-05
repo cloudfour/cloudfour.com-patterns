@@ -329,6 +329,9 @@ figure.wp-block-image {
   table td,
   table th {
     @include table.t-container;
+
+    // At some point, WordPress started setting a default border on table cells
+    border-width: 0;
   }
 
   table th {

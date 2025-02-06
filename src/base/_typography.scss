@@ -59,6 +59,7 @@ body {
   h#{$i} {
     @include headings.level($i);
     color: var(--theme-color-text-emphasis);
+    text-wrap: balance;
   }
 }
 

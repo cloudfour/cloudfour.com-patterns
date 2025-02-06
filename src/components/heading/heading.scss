@@ -140,6 +140,7 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
   font-weight: font-weight.$medium;
   line-height: line-height.$tight;
   max-inline-size: 100%;
+  text-wrap: balance;
 
   .c-heading--light & {
     font-weight: font-weight.$normal;

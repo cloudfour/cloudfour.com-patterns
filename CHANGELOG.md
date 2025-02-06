@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 17.0.0
+
+### Major Changes
+
+- [#2225](https://github.com/cloudfour/cloudfour.com-patterns/pull/2225) [`7840dce9`](https://github.com/cloudfour/cloudfour.com-patterns/commit/7840dce96b5af99d89761c43375270c00ed2b00d) Thanks [@tylersticka](https://github.com/tylersticka)! - Improved text wrapping for headings and subheadings with `text-wrap`. Removes the `u-rescue-orphan` utility, which is now redundant.
+
+### Patch Changes
+
+- [#2222](https://github.com/cloudfour/cloudfour.com-patterns/pull/2222) [`9ebea662`](https://github.com/cloudfour/cloudfour.com-patterns/commit/9ebea662f956c158af35a69fbd22c66596daf71e) Thanks [@tylersticka](https://github.com/tylersticka)! - Fixed ugly default borders on WordPress table blocks
+
 ## 16.5.0
 
 ### Minor Changes

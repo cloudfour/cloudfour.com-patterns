@@ -1,7 +1,6 @@
 {
-  "extends": ["group:recommended", "group:monorepos", ":automergeMinor"],
-  "reviewers": ["team:dev"],
-  "rangeStrategy": "pin",
+  "extends": ["config:recommended", ":automergeMinor", ":pinVersions"],
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
       "packageNames": ["node"],
@@ -18,12 +17,7 @@
     {
       "packageNames": ["@wordpress/block-library"],
       "extends": ["schedule:monthly"],
-      "stabilityDays": 0
+      "minimumReleaseAge": 0
     }
-  ],
-  "prConcurrentLimit": 5,
-  "schedule": ["before 9am on monday"],
-  "stabilityDays": 3,
-  "prCreation": "not-pending",
-  "dependencyDashboard": true
+  ]
 }

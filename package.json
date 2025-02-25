@@ -112,11 +112,14 @@
     "val-loader": "2.1.2",
     "webpack": "4.46.0"
   },
+  "comments": {
+    "openssl-legacy-provider": "workaround for SSL changes in node 18 that are unsupported in webpack 4: https://github.com/storybookjs/react-native/issues/412#issuecomment-1352909850"
+  },
   "scripts": {
     "start": "npm run storybook",
     "storybook": "npm run preprocess && run-p watch start-storybook",
     "start-storybook": "start-storybook -p 6006",
-    "build-storybook": "npm run preprocess && build-storybook",
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider yarn storybook && npm run preprocess && build-storybook",
     "preprocess": "run-p preprocess:*",
     "preprocess:svg-to-twig": "gulp svgToTwig",
     "preprocess:tokens": "node .style-dictionary/build.js",

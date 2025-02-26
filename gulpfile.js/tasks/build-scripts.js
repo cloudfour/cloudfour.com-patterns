@@ -4,9 +4,9 @@ const path = require('node:path');
 const { getBabelInputPlugin } = require('@rollup/plugin-babel');
 const json = require('@rollup/plugin-json');
 const nodeResolve = require('@rollup/plugin-node-resolve').default;
+const terser = require('@rollup/plugin-terser');
 const rollup = require('rollup');
 const dts = require('rollup-plugin-dts').default;
-const { terser } = require('rollup-plugin-terser');
 const glob = require('tiny-glob');
 
 const outDir = 'dist';

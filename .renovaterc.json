@@ -17,7 +17,7 @@
     {
       "packageNames": ["@wordpress/block-library"],
       "extends": ["schedule:monthly"],
-      "minimumReleaseAge": 0
+      "minimumReleaseAge": "0"
     }
   ]
 }

@@ -7,15 +7,15 @@
       "rangeStrategy": "replace"
     },
     {
-      "matchPackagePatterns": ["storybook"],
       "automerge": false,
       "prBodyNotes": [
         ":warning: **Warning:** There are likely to be breaking changes, please closely review the pattern library preview."
       ],
-      "commitMessagePrefix": "[Review carefully]"
+      "commitMessagePrefix": "[Review carefully]",
+      "matchPackageNames": ["/storybook/"]
     },
     {
-      "packageNames": ["@wordpress/block-library"],
+      "matchPackageNames": ["@wordpress/block-library"],
       "extends": ["schedule:monthly"],
       "minimumReleaseAge": "0"
     }

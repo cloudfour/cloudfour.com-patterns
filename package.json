@@ -106,7 +106,7 @@
     "stylelint": "14.16.1",
     "stylelint-config-cloudfour": "6.1.0",
     "stylelint-config-prettier": "9.0.5",
-    "stylelint-scss": "4.3.0",
+    "stylelint-scss": "4.7.0",
     "stylelint-use-logical-spec": "4.1.0",
     "through2": "4.0.2",
     "tiny-glob": "0.2.9",

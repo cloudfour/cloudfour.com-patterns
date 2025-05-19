@@ -135,7 +135,9 @@ audio {
  * Code blocks
  *
  * 1. Don't allow code blocks to overflow willy-nilly.
- * 2. Set a shallower tab size to encourage accessible code samples without
+ * 2. Prevent absolute-positioned children (such as visually-hidden language
+ *    labels) from breaking horizontal scroll in Chrome.
+ * 3. Set a shallower tab size to encourage accessible code samples without
  *    compromising horizontal real estate.
  */
 
@@ -145,7 +147,8 @@ pre {
   color: color.$text-light;
   overflow: auto; /* 1 */
   padding: ms.step(1);
-  tab-size: 2; /* 2 */
+  position: relative; /* 2 */
+  tab-size: 2; /* 3 */
 }
 
 /**

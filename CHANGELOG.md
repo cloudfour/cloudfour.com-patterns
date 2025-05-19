@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 17.0.1
+
+### Patch Changes
+
+- [#2275](https://github.com/cloudfour/cloudfour.com-patterns/pull/2275) [`6c45f6e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/6c45f6eb1a8140156e94dd25d70ffb27cb6a206f) Thanks [@tylersticka](https://github.com/tylersticka)! - Prevent visually-hidden language labels from breaking width of overflowing code blocks
+
 ## 17.0.0
 
 ### Major Changes

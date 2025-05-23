@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 @mixin _non-variable-font-face($name, $path, $parameter) {
   @font-face {
     font-display: swap;
@@ -5,7 +7,7 @@
     src: url('../src/assets/fonts/#{$path}/#{$parameter}.woff2') format('woff2'),
       url('../src/assets/fonts/#{$path}/#{$parameter}.woff') format('woff');
 
-    @if type-of($parameter) == 'number' {
+    @if meta.type-of($parameter) == 'number' {
       font-weight: $parameter;
     } @else {
       font-style: $parameter;

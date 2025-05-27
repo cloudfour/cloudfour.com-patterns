@@ -45,7 +45,8 @@
 .hljs-type {
   color: sasscolor.change(
     sasscolor.mix(color.$base-fuchsia-lighter, color.$base-orange-light),
-    $saturation: sasscolor.saturation(color.$base-fuchsia-lighter)
+    $saturation:
+      sasscolor.channel(color.$base-fuchsia-lighter, 'saturation', $space: hsl)
   );
 }
 
@@ -55,7 +56,8 @@
 .hljs-selector-pseudo {
   color: sasscolor.change(
     sasscolor.mix(color.$base-green-lighter, color.$base-blue-lighter),
-    $saturation: sasscolor.saturation(color.$base-green-lighter)
+    $saturation:
+      sasscolor.channel(color.$base-green-lighter, 'saturation', $space: hsl)
   );
 }
 

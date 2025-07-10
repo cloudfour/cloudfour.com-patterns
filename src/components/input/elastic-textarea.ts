@@ -33,7 +33,7 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
       const newHeight = textarea.clientHeight;
 
       // If the height hasn't changed, break the loop
-      // This sanity check is to prevent an infinite loop in IE11
+      // This safety check is to prevent an infinite loop in IE11
       if (newHeight === previousHeight) break;
 
       // Store the updated height for the next comparison and proceed

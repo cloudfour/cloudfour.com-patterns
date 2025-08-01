@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 17.1.0
+
+### Minor Changes
+
+- [#2295](https://github.com/cloudfour/cloudfour.com-patterns/pull/2295) [`840838d`](https://github.com/cloudfour/cloudfour.com-patterns/commit/840838d493024428b0021057ec0c08ce40647438) Thanks [@tylersticka](https://github.com/tylersticka)! - Add helper class for styling fallback links in [`lite-youtube` web components](https://github.com/justinribeiro/lite-youtube)
+
 ## 17.0.1
 
 ### Patch Changes

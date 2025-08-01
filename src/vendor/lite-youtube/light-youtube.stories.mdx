@@ -1,0 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import fallbackDemo from './demo/fallback.twig';
+
+<Meta
+  title="Vendor/lite-youtube"
+  argTypes={{
+    aspect_ratio: {
+      type: { name: 'string' },
+      description:
+        'Value for `--lite-youtube-aspect-ratio` inline style property, sets the aspect ratio prior to component load and helps cut down on page shifts.',
+    },
+  }}
+/>
+
+# lite-youtube
+
+Our patterns include a `lite-youtube-fallback` class for use with [the `lite-youtube` web component](https://github.com/justinribeiro/lite-youtube).
+
+<Canvas>
+  <Story name="Default">{(args) => fallbackDemo(args)}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />

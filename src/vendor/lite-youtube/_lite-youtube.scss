@@ -1,0 +1,14 @@
+@use '../../compiled/tokens/scss/color';
+@use '../../compiled/tokens/scss/size';
+
+.lite-youtube-fallback {
+  aspect-ratio: var(--lite-youtube-aspect-ratio, 16 / 9);
+  background-color: color.$base-gray-darker;
+  color: color.$text-light;
+  display: flex;
+  padding: size.$padding-control-vertical size.$padding-control-horizontal;
+  place-content: center;
+  place-items: center;
+  text-align: center;
+  text-wrap: balance;
+}

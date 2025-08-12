@@ -83,7 +83,7 @@
     "mini-css-extract-plugin": "1.6.2",
     "npm-run-all2": "5.0.2",
     "pleasantest": "3.1.0",
-    "postcss": "8.5.3",
+    "postcss": "8.5.6",
     "postcss-inline-svg": "4.1.0",
     "postcss-loader": "4.3.0",
     "postcss-media-minmax": "5.0.0",

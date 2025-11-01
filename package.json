@@ -93,7 +93,7 @@
     "react-syntax-highlighter": "13.5.3",
     "remark-preset-lint-recommended": "5.0.0",
     "remark-preset-prettier": "0.5.1",
-    "resolve": "1.22.10",
+    "resolve": "1.22.11",
     "rollup": "2.79.2",
     "rollup-plugin-dts": "4.2.3",
     "@rollup/plugin-terser": "0.4.4",

@@ -45,7 +45,7 @@
     "@changesets/changelog-github": "0.5.2",
     "@changesets/cli": "2.29.7",
     "@cloudfour/eslint-plugin": "21.1.0",
-    "@etchteam/storybook-addon-status": "4.2.2",
+    "@etchteam/storybook-addon-status": "8.0.0",
     "@rollup/plugin-babel": "6.1.0",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "13.3.0",

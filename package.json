@@ -110,8 +110,8 @@
     "stylelint-use-logical-spec": "4.1.0",
     "through2": "4.0.2",
     "tiny-glob": "0.2.9",
-    "twing": "3.1.1",
-    "twing-loader": "3.0.1",
+    "twing": "7.2.2",
+    "twing-loader": "5.0.0-beta.3",
     "typescript": "4.9.5",
     "val-loader": "2.1.2",
     "webpack": "4.47.0"

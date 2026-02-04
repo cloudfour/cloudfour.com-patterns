@@ -65,7 +65,7 @@
     "cssnano": "5.1.15",
     "eliminate": "1.1.2",
     "eslint": "8.33.0",
-    "eslint-plugin-mdx": "1.17.1",
+    "eslint-plugin-mdx": "3.6.2",
     "eslint-plugin-react": "7.37.5",
     "gulp": "4.0.2",
     "gulp-postcss": "9.0.1",

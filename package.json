@@ -97,7 +97,7 @@
     "rollup": "2.79.2",
     "rollup-plugin-dts": "4.2.3",
     "@rollup/plugin-terser": "0.4.4",
-    "sass": "1.93.2",
+    "sass": "1.97.3",
     "sass-loader": "10.5.2",
     "storybook-addon-outline": "1.4.2",
     "storybook-mobile": "1.0.1",

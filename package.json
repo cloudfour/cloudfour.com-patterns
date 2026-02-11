@@ -81,7 +81,7 @@
     "lodash": "4.17.23",
     "ltx": "3.1.2",
     "mini-css-extract-plugin": "1.6.2",
-    "npm-run-all2": "5.0.2",
+    "npm-run-all2": "8.0.4",
     "pleasantest": "5.0.0",
     "postcss": "8.5.6",
     "postcss-inline-svg": "4.1.0",

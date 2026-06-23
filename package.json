@@ -53,7 +53,7 @@
     "@storybook/addon-docs": "6.5.9",
     "@storybook/addon-essentials": "6.5.9",
     "@storybook/addon-postcss": "2.0.0",
-    "@storybook/html": "6.5.9",
+    "@storybook/html": "10.3.3",
     "@svgr/webpack": "5.5.0",
     "@types/jest": "28.1.8",
     "@types/lodash": "4.17.23",
@@ -96,7 +96,7 @@
     "resolve": "1.22.11",
     "rollup": "2.80.0",
     "rollup-plugin-dts": "4.2.3",
-    "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-terser": "1.0.0",
     "sass": "1.97.3",
     "sass-loader": "10.5.2",
     "storybook-addon-outline": "1.4.2",
@@ -114,7 +114,7 @@
     "twing-loader": "3.0.1",
     "typescript": "4.9.5",
     "val-loader": "2.1.2",
-    "webpack": "4.47.0"
+    "webpack": "5.105.4"
   },
   "scripts": {
     "start": "npm run storybook",

@@ -1,0 +1,85 @@
+
+@use '../../compiled/tokens/scss/breakpoint';
+@use '../../compiled/tokens/scss/size';
+@use '../../mixins/border-radius';
+@use '../../mixins/spacing';
+@use '../../mixins/ms';
+
+._proto-asides-r1 {
+
+  ._c-aside {
+    position: relative;
+
+    @media (width < breakpoint.$xxl) {
+      @include spacing.fluid-margin-inline-negative;
+    }
+  }
+
+  ._c-aside__inner {
+    @media (width > breakpoint.$xxl) {
+      inline-size: calc((100vw - 100%) / 2);
+      inset-inline-start: 100%;
+      max-inline-size: 50%;
+      position: absolute;
+      @include spacing.fluid-padding-inline;
+    }
+  }
+
+  ._c-aside--align-start ._c-aside__inner {
+    @media (width > breakpoint.$xxl) {
+      inset-inline-start: auto;
+      inset-inline-end: 100%;
+    }
+  }
+
+  ._c-aside__content {
+    background-color: var(--theme-color-background-secondary);
+    font-size: max(16px, ms.step(-1)); // Smaller than text usually but not too small
+    padding: size.$rhythm-default;
+    position: relative;
+    @include border-radius.conditional;
+    @include spacing.vertical-rhythm(size.$rhythm-default);
+
+    @media (width < breakpoint.$xxl) {
+      @include spacing.fluid-padding-inline;
+    }
+
+    @media (width > breakpoint.$xxl) {
+      margin: size.$rhythm-default * -1;
+      margin-top: ms.step(0) * -1; // Better baseline alignment
+    }
+  }
+
+  ._c-aside:not(._c-aside--align-start) ._c-aside__content {
+    @media (width > breakpoint.$xxl) {
+      border-top-left-radius: 0;
+    }
+  }
+
+  ._c-aside--align-start ._c-aside__content {
+    @media (width > breakpoint.$xxl) {
+      border-top-right-radius: 0;
+    }
+  }
+
+  ._c-aside__content::before {
+    @media (width > breakpoint.$xxl) {
+      background-image: radial-gradient(circle at 0 100%, transparent ms.step(2), var(--theme-color-background-secondary) ms.step(2));
+      block-size: ms.step(2);
+      content: '';
+      inline-size: ms.step(2);
+      inset-block-start: 0;
+      inset-inline-end: 100%;
+      position: absolute;
+    }
+  }
+
+  ._c-aside--align-start ._c-aside__content::before {
+    @media (width > breakpoint.$xxl) {
+      inset-inline-end: auto;
+      inset-inline-start: 100%;
+      transform: scaleX(-1);
+    }
+  }
+
+}

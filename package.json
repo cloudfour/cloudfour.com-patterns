@@ -157,6 +157,9 @@
         "$1.js",
         "$1.ts"
       ]
-    }
+    },
+    "setupFiles": [
+      "./twing/node-util-shim.cjs"
+    ]
   }
 }

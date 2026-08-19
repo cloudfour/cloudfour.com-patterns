@@ -1,3 +1,7 @@
+// Must come first: twing-loader compiles templates in Node during the build, and
+// Twing 3 needs util predicates that Node 22+ removed. See the shim for details.
+require('../twing/node-util-shim.cjs');
+
 const { join } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {

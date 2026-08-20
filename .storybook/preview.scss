@@ -4,3 +4,18 @@
 body {
   background-color: inherit;
 }
+
+// Storybook's docs styles remove the top margin from the first heading of each
+// level (`h2:first-of-type`), meaning to tighten up the heading that opens a
+// page. Because it matches on type rather than position, it also fires on a
+// mid-page heading that happens to be the only one of its level -- so a section
+// heading loses its spacing and collides with whatever precedes it.
+//
+// Restoring the margin only where a heading is not genuinely first is enough:
+// adjacent sibling margins collapse, so pages where a `<Canvas>` already
+// supplies a larger bottom margin are unaffected. 20px matches the value
+// Storybook uses for headings, so this is a positional fix rather than a
+// restyle -- it is deliberately not a design token.
+.sbdocs-content > :is(h2, h3, h4, h5, h6):not(:first-child) {
+  margin-top: 20px;
+}

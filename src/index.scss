@@ -1,8 +1,78 @@
+///
+/// Entry point for the standalone CSS bundle.
+///
+/// Every stylesheet is listed explicitly. Sass does not support glob patterns in
+/// `@use`/`@forward` -- that is a deliberate omission -- so the globs this file used to
+/// contain only worked by way of a custom JS importer. Listing the files instead keeps
+/// this to plain Sass, and lets the load order be an intentional choice.
+///
+/// Adding a stylesheet? Add a line below. `@forward` rather than `@use` because these
+/// are pulled in for the CSS they emit, not for members other files reference.
+///
+
 @use './base';
 
-// The "as" is necessary because otherwise Sass tries to generate a namespace
-// from the glob pattern and fails
-@use './objects/*/*.scss' as objects;
-@use './components/*/*.scss' as components;
-@use './utilities/*/*.scss' as utilities;
-@use './vendor/*/*.scss' as vendor;
+// Objects
+@forward './objects/article-header/article-header';
+@forward './objects/bio/bio';
+@forward './objects/bunch/bunch';
+@forward './objects/button-group/button-group';
+@forward './objects/container/container';
+@forward './objects/deck/deck';
+@forward './objects/embed/embed';
+@forward './objects/feature-group/feature-group';
+@forward './objects/form-group/form-group';
+@forward './objects/hype-group/hype-group';
+@forward './objects/input-group/input-group';
+@forward './objects/list/list';
+@forward './objects/logo-group/logo-group';
+@forward './objects/media/media';
+@forward './objects/overview/overview';
+@forward './objects/page/page';
+@forward './objects/rhythm/rhythm';
+
+// Components
+@forward './components/alert/alert';
+@forward './components/author/author';
+@forward './components/avatar/avatar';
+@forward './components/badge/badge';
+@forward './components/button/button';
+@forward './components/calendar-date/calendar-date';
+@forward './components/card/card';
+@forward './components/checkbox/checkbox';
+@forward './components/cloud-cover/cloud-cover';
+@forward './components/comment/comment';
+@forward './components/comment-form/comment-form';
+@forward './components/dot-leader/dot-leader';
+@forward './components/event-log/event-log';
+@forward './components/footnote/footnote';
+@forward './components/footnote-group/footnote-group';
+@forward './components/footnote-link/footnote-link';
+@forward './components/ground-nav/ground-nav';
+@forward './components/heading/heading';
+@forward './components/icon/icon';
+@forward './components/input/input';
+@forward './components/logo/logo';
+@forward './components/media-link/media-link';
+@forward './components/media-summary/media-summary';
+@forward './components/pagination/pagination';
+@forward './components/radio/radio';
+@forward './components/sky-nav/sky-nav';
+@forward './components/subscribe/subscribe';
+@forward './components/table/table';
+
+// Utilities
+@forward './utilities/border/border';
+@forward './utilities/display/display';
+@forward './utilities/float/float';
+@forward './utilities/rounded/rounded';
+@forward './utilities/size/size';
+@forward './utilities/spacing/spacing';
+@forward './utilities/text/text';
+
+// Vendor
+@forward './vendor/highlight/theme';
+@forward './vendor/lite-youtube/lite-youtube';
+@forward './vendor/mailchimp/mailchimp';
+@forward './vendor/shcb/shcb';
+@forward './vendor/wordpress/wordpress';

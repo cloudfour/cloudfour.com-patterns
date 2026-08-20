@@ -1,0 +1,32 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as ButtonGroupStories from './button-group.stories.js';
+
+<Meta of={ButtonGroupStories} />
+
+# Button Group
+
+The Button Group layout object can be used for aligning a group of related buttons.
+
+## Default
+
+{/* The object demo is not particularly helpful if its source is imported directly,
+so we've provided it manually to the docs add-on via parameters. */}
+
+<Canvas of={ButtonGroupStories.Default} />
+
+## Grow modifer
+
+You can have the buttons grow to fill their horizontal space via
+the template `grow` boolean argument:
+
+{/* The object demo is not particularly helpful if its source is imported directly,
+so we've provided it manually to the docs add-on via parameters. */}
+
+<Canvas of={ButtonGroupStories.Grow} />
+
+## Template Properties
+
+- `class`: Append a class to the root element.
+- `content` (block): Block to add Button elements.
+- `grow` (boolean, default: `false`): Adds the `o-button-group--grow` CSS class modifier.

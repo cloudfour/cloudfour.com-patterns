@@ -1,0 +1,63 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as AlertStories from './alert.stories.js';
+
+<Meta of={AlertStories} />
+
+# Alert
+
+A simple container for displaying important messages to the user such as errors, changes in state or confirmation of actions taken.
+
+## Status
+
+This component is still a work in progress. The following features are not yet implemented:
+
+- The dismissal control does not actually dismiss the alert.
+
+## Basic usage
+
+<Canvas of={AlertStories.Basic} />
+
+<Controls of={AlertStories.Basic} />
+
+## Dismissable
+
+When `dismissable` is `true`, a close button will display to the right of the message.
+
+<Canvas of={AlertStories.Dismissable} />
+
+## Full width
+
+Alerts work well even when displayed at full width. Their contents will constrain to the `max-width` of [our `size.$max-width-spread` token](/docs/design-tokens-layout--page), and rounded corners will disappear when full-width.
+
+<Canvas of={AlertStories.FullWidth} />
+
+## Icon
+
+An option to add an icon to the alert. You can add any icon name from our library in the `icon` property. Right now, the color is hardcoded to orange to satisfy the current use case of our offline notification, but it would be nice to add more color options in the future.
+
+<Canvas of={AlertStories.Icon} />
+
+## Error
+
+The modifier class `c-alert--error` will override the orange default color and make the icon and background red.
+
+<Canvas of={AlertStories.Error} />
+
+## Floating
+
+By adding `floating: true`, a light border and shadow will be added to the alert for a floating effect. The background is white to improve the contrast between the border, shadow and background. In the future, we could make it a possibility to change the background color by itself.
+
+<Canvas of={AlertStories.Floating} />
+
+When more contrast is desired, you may also attach a theme class to the the floating variation. In this example, the card has a class of `t-light` within a `t-dark` container:
+
+<Canvas of={AlertStories.ThemedFloating} />
+
+## Template Blocks
+
+- `content`
+
+## Alert within a Page object
+
+The Page object has an `alert` block that was designed to accept an Alert component. See the [Page with Alert example](/?path=/docs/objects-page--example-with-alert) for more details.

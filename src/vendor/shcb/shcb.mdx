@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as ShcbStories from './shcb.stories.js';
+
+<Meta of={ShcbStories} />
+
+# Syntax-Highlighting Code Block
+
+The [Syntax-Highlighting Code Block](https://wordpress.org/plugins/syntax-highlighting-code-block/) is a plugin for WordPress that enhances the native code block with some additional functions. It uses [highlight.php](https://github.com/scrivo/highlight.php) to apply syntax highlighting on the server instead of the client.
+
+This leverages the same styles [as our Highlight.js theme](/?path=/docs/vendor-highlight--theme). But as of this writing, [Highlight.php is two major versions behind Highlight.js](https://github.com/scrivo/highlight.php/issues/73). As a result, syntax highlighting may differ between platforms.
+
+## Basic Output
+
+Without any options selected, the plugin applies highlighting and appends a description of the code language for assistive devices (hidden visually).
+
+<Canvas of={ShcbStories.Basic} />
+
+<Controls of={ShcbStories.Basic} />
+
+## More Features
+
+The plugin also supports line wrapping, highlighted lines and line numbering. Our theme requires [default plugin styles to be suppressed](https://github.com/westonruter/syntax-highlighting-code-block/wiki#suppress-all-plugin-styles) so it won't conflict with these styles.
+
+<Canvas of={ShcbStories.MoreFeatures} />
+
+<Controls of={ShcbStories.MoreFeatures} />

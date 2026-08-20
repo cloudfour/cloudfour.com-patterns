@@ -1,0 +1,24 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as FormGroupStories from './form-group.stories.js';
+
+<Meta of={FormGroupStories} />
+
+# Form Group
+
+The Form Group layout object groups a label and its corresponding control.
+
+<Canvas of={FormGroupStories.Basic} />
+
+## With more label content
+
+The `label` content may be set as a template property or a content block. In this example, we use the block to append [a Badge component](/?path=/docs/components-badge--basic) noting that this is a required field.
+
+<Canvas of={FormGroupStories.WithBadge} />
+
+## Template Properties
+
+- `class`: Append a class to the root element.
+- `label`: Label text.
+- `label` (block): Label content.
+- `control` (block): Block to add controls/inputs.

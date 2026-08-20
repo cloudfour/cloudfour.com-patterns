@@ -1,4 +1,5 @@
-{% spaceless %}
+{# Twig 3 (and so Twing 7) removed the `spaceless` tag in favour of the filter. #}
+{% apply spaceless %}
 <a
   class="c-footnote-link"
   href="#footnote-{{id|default(count)}}"
@@ -7,4 +8,4 @@
   <span class="u-hidden-visually">Footnote</span>
   {{count}}
 </a>
-{% endspaceless %}
+{% endapply %}

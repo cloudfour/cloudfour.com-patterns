@@ -1,0 +1,61 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as RhythmStories from './rhythm.stories.js';
+
+<Meta of={RhythmStories} />
+
+# Rhythm
+
+The `o-rhythm` class applies [consistent vertical spacing between child elements](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/).
+
+<Canvas of={RhythmStories.Example} />
+
+<Controls of={RhythmStories.Example} />
+
+## Amount
+
+The default amount of space works well for medium-to-long text content, but you can customize the amount of space for different situations by specifying the `amount` property or a class name of `o-rhythm--{amount}` with one of the following keywords:
+
+- `compact`: For short chunks of summary content, such as a heading, sentence and button.
+- `condensed`: For short lists of content that need a bit of space between.
+- `default`: Reset to the default amount of space, useful for nested rhythm objects.
+- `generous`: Apply enough space for each element to feel distinct from its siblings.
+- `lavish`: Apply the same amount of vertical space as padded [containers](/?path=/docs/objects-container--basic) have for consistent spacing across separate sections.
+
+<Canvas of={RhythmStories.Amount} />
+
+## Heading Amount
+
+It can be helpful to differentiate headings with more preceding space than normal flow content. In those cases, you can specify a `heading_amount` property or a class name of `o-rhythm--{heading_amount}-headings` with one of the following keywords:
+
+- `generous`
+- `lavish`
+
+<Canvas of={RhythmStories.HeadingAmount} />
+
+## Inheriting Rhythm
+
+The vertical spacing applied by the Rhythm object only applies to direct children. In some cases, you may want elements below to inherit rhythm. This can be accomplished in two main ways, by nesting Rhythm objects or via Sass.
+
+### Nesting Rhythm Objects
+
+Nested rhythm objects will inherit any spacing set via modifiers. In this example, the unordered list is also a Rhythm object. It inherits the parent object's spacing even though no modifier is set:
+
+<Canvas of={RhythmStories.Nesting} />
+
+### Via Sass
+
+Our project includes a `spacing.vertical-rhythm` mixin that will apply the basic object rules to any selector:
+
+```scss
+@use 'path/to/mixins/spacing';
+
+.unchangeable-vendor-selector {
+  @include spacing.vertical-rhythm();
+}
+```
+
+## Custom Properties
+
+- `--rhythm`: Amount of vertical space between adjacent elements. Defaults to our `$rhythm-default` [size token](/docs/design-tokens-size--page#rhythm).
+- `--rhythm-headings`: Extra space to precede headings that follow another element. Defaults to the value of `--rhythm`.

@@ -1,10 +1,22 @@
-import { basename, extname } from 'path';
-
+/// <reference types="vite/client" />
 import hljs from 'highlight.js';
 
-// Load samples from directory and retrieve keys once
-const samplesDir = require.context('!!raw-loader!./samples', false);
-const sampleKeys = samplesDir.keys();
+// Load every sample as a string once. Vite resolves import.meta.glob at build time,
+// which is why the pattern has to be a literal.
+const samples: Record<string, string> = import.meta.glob('./samples/*', {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+});
+
+const sampleKeys = Object.keys(samples);
+
+/** `./samples/example.html` -> `example` */
+const sampleName = (key: string) =>
+  key
+    .split('/')
+    .at(-1)
+    ?.replace(/\.[^.]+$/, '') ?? key;
 
 /**
  * Retrieve a code sample from the samples directory.
@@ -13,19 +25,18 @@ const sampleKeys = samplesDir.keys();
  * sample for.
  * @returns {string} The contents of the sample.
  */
-const getSample = (language = 'html') => {
+const getSample = (language = 'html'): string => {
   const key = sampleKeys.find(
     (key) => key.includes(`${language}.`) || key.endsWith(`.${language}`)
   );
-  return key && samplesDir(key).default;
+  // No sample for this language: highlight nothing rather than throwing.
+  return key ? samples[key] : '';
 };
 
 /**
  * A list of supported language slugs.
  */
-export const availableSamples = sampleKeys.map((key) =>
-  basename(key, extname(key))
-);
+export const availableSamples = sampleKeys.map(sampleName);
 
 /**
  * Syntax highlighting demo

@@ -31,8 +31,9 @@ const twing = createSynchronousEnvironment(loader);
  */
 export const loadTwigTemplate = (templatePath: string) => {
   const name = path.relative(process.cwd(), templatePath);
-  // Kept async so callers still await, even though Twing renders synchronously.
-  return async (data: any = {}) => twing.render(name, data);
+  // Returns a promise so existing callers can keep awaiting, even though Twing 7
+  // renders synchronously.
+  return (data: any = {}) => Promise.resolve(twing.render(name, data));
 };
 
 export const loadGlobalCSS = async (utils: PleasantestUtils) => {

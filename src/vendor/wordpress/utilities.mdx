@@ -1,0 +1,46 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as UtilitiesStories from './utilities.stories.js';
+
+<Meta of={UtilitiesStories} />
+
+# WordPress Block Editor Utilities
+
+The WordPress [Gutenberg editor](https://wordpress.org/gutenberg/) supports certain utility classes that may apply to blocks or to default markup.
+
+## Block Color Palettes
+
+We include `has-{color}-color` and `has-{color}-background-color` classes for each of our base [color tokens](/docs/design-tokens-color--page) to support [the `editor-color-palette` feature](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-color-palettes).
+
+Because WordPress does not differentiate between text and background colors as part of configuration, we don't restrict combinations within our CSS. It's critical that editors take note of WordPress's built-in warnings when inaccessible combinations are chosen.
+
+When a background color is chosen, rounded corners and padding may be added (depending on alignment) to more gracefully offset the container from its surrounding content.
+
+<Canvas of={UtilitiesStories.Color} />
+
+<Controls of={UtilitiesStories.Color} />
+
+## Font Size
+
+We include `has-{font-size}-font-size` classes for our `big`, `small` and heading level [size tokens](/docs/design-tokens-size--page) to support [the `editor-font-sizes` feature](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#block-font-sizes). Note that negative number class segments include an extra dash (`n-1` instead of `n1`) due to WordPress's kebab-case formatting of slugs.
+
+<Canvas of={UtilitiesStories.FontSize} />
+
+<Controls of={UtilitiesStories.FontSize} />
+
+## Alignment
+
+By default, blocks with backgrounds and image blocks will attempt to fill the available inline padding of [our containers](/docs/objects-container--basic). You can opt into different alignment options for certain blocks.
+
+| WordPress Class | Behavior                                  | Blocks                                            |
+| --------------- | ----------------------------------------- | ------------------------------------------------- |
+| (None)          | Fill available inline padding             | Code, Image, Video, blocks with background colors |
+| `aligncenter`   | Stay within the container (do not fill)   | Image, Video, blocks with background colors       |
+| `alignleft`     | Float left, constrain inline size         | Image                                             |
+| `alignright`    | Float right, constrain inline size        | Image                                             |
+| `alignfull`     | Fill viewport inline size                 | Blocks with alignment options                     |
+| `alignwide`     | Fill viewport inline size up to a maximum | Blocks with alignment options                     |
+
+<Canvas of={UtilitiesStories.Alignment} />
+
+(Note: Storybook's `ArgsTable` does not seem to work with iframe stories at the time of this writing. To try out the different alignment options, [view this story in "Canvas" mode](/story/vendor-wordpress-utilities--alignment).)

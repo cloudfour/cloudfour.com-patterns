@@ -14,3 +14,9 @@
 
 # Ignore changeset files (these are temporary)
 .changeset/*
+
+# Prettier 2's MDX parser predates MDX 2/3 and corrupts these files: it rewrites the
+# `{/* ... */}` comments MDX 3 requires into `{/_ ... _/}`, reading the asterisks as
+# markdown emphasis, and glues self-closing JSX onto the following markdown block.
+# Remove this once we are on Prettier 3.
+*.mdx

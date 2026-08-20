@@ -9,11 +9,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 
 export default {
   // We load the welcome story separately so it will be the first sidebar item.
-  stories: [
-    '../src/welcome.mdx',
-    '../src/**/*.stories.js',
-    '../src/**/*.mdx',
-  ],
+  stories: ['../src/welcome.mdx', '../src/**/*.stories.js', '../src/**/*.mdx'],
   staticDirs: ['../static', '../src/assets'],
   addons: [
     '@storybook/addon-docs',
@@ -47,7 +43,7 @@ export default {
       },
     };
 
-    // ts-dedent, a Storybook dependency, advertises a `module` entry that is actually
+    // Ts-dedent, a Storybook dependency, advertises a `module` entry that is actually
     // CommonJS. The production build tolerates it; the dev server needs it pre-bundled.
     config.optimizeDeps = {
       ...config.optimizeDeps,

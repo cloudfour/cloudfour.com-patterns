@@ -1,0 +1,19 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as HighlightStories from './highlight.stories.js';
+
+<Meta of={HighlightStories} />
+
+# Highlight
+
+Our CSS includes a [Highlight.js](https://highlightjs.org/) theme for syntax highlighting.
+
+For performance, it's strongly recommended to apply syntax highlighting on the server:
+
+- [Highlight.js Basic Usage: Node.js on the Server](https://highlightjs.readthedocs.io/en/latest/readme.html#node-js-on-the-server)
+- [Highlight.php](https://github.com/scrivo/highlight.php)
+- [Syntax-Highlighting Code Block](/?path=/docs/vendor-syntax-highlighting-code-block--basic)
+
+<Canvas of={HighlightStories.Theme} />
+
+<Controls of={HighlightStories.Theme} />

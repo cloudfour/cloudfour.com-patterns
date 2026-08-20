@@ -1,0 +1,89 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as MediaStories from './media.stories.js';
+
+<Meta of={MediaStories} />
+
+# Media
+
+Inspired by [the work of Nicole Sullivan](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/), the `o-media` pattern lets you compose media of a static size (user images, checkboxes, iconography, etc.) alongside content that may or may not wrap (labels, comment text, etc.).
+
+This pattern is composed of three elements:
+
+- `o-media` contains the pattern.
+- `o-media__object` for the static object (the image, checkbox, etc.). This element will be sized `auto`, so it should have a defined width.
+- `o-media__content` for the wrapping content (typically text). This content will appear middle-aligned with the object until it exceeds the object's height, at which point it will appear top-aligned.
+
+<Canvas of={MediaStories.Image} />
+
+## Generous Spacing
+
+To give your content a bit more room to breathe, you can add the `o-media--generous` modifier to increase the size of the gutter between the media object and content.
+
+<Canvas of={MediaStories.GenerousSpacing} />
+
+## Reverse Order
+
+The order of `o-media__object` and `o-media__content` will not affect this pattern's visual appearance. To display the object on the right, use the `o-media--reverse` modifier.
+
+<Canvas of={MediaStories.ImageReversed} />
+
+## Specifying Content Size
+
+`o-media__object` and `o-media__content` can be sized relative to each other using fractional units. This is useful when you want to align the content of a media object with other media objects.
+
+To do this, use the modifier class `o-media--1byX@Y`. The number `1` represents the width of `o-media__object` and `X` represents the relative size of `o-media__content` (from 1 to 4). Y can be used to specify the desired breakpoint (from `s` to `xl`).
+
+<Canvas of={MediaStories.RelativeSize} />
+
+## Checkbox Label
+
+In this example, `o-media` is applied to a `<label>` element, `o-media__object` to [a Checkbox component](/docs/components-checkbox--enabled), and `o-media__content` to a `<span>`.
+
+<Canvas of={MediaStories.CheckboxLabel} />
+
+## Event Summary
+
+In this example, the object is [a Calendar Date component](/docs/components-calendar-date--basic). Even though it's included _after_ the heading to promote a sensible document outline, it still visually precedes the content.
+
+<Canvas of={MediaStories.EventSummary} />
+
+## Jaunty
+
+By adding the `o-media--jaunty` class, the media object will have a fun little rotation applied to it.
+
+<Canvas of={MediaStories.Jaunty} />
+
+## Alignment
+
+By default, the Media object optimizes its alignment based on its content alone.
+This may result in inconsistent alignment when multiple Media objects with
+inconsistent content lengths are displayed side by side.
+
+You may add the `o-media--align-start` modifier to force consistent alignment
+between adjacent Media objects. This pairs nicely with [the Deck object modifier
+of the same name](/docs/objects-deck--block-alignment).
+
+<Canvas of={MediaStories.AlignDefault} />
+
+<Canvas of={MediaStories.AlignStart} />
+
+## Template Properties
+
+- `class` (string): Appends to the CSS class of the root element
+- `object_class` (string): Appends to the CSS class of the media object element
+- `content_class` (string): Appends to the CSS class of the media content element
+- `tag_name` (string, default `'div'`): The root tag for the component
+- `inner_tag_name` (string, default `'div'`): The tag for both the media content and media object elements
+- `object_tag_name` (string, default `inner_tag_name`): The tag for the media object element
+- `content_tag_name` (string, default `inner_tag_name`): The tag for the media content element
+- `align_start` (boolean, default `false`): Adds the `o-media--align-start` CSS class modifier
+- `jaunty` (boolean, default `false`): Adds the `o-media--jaunty` CSS class modifier
+- `generous` (boolean, default `false`): Adds the `o-media--generous` CSS class modifier
+- `reverse` (boolean, default `false`): Adds the `o-media--reverse` CSS class modifier
+- `reverse_markup` (boolean, default `false`): Flips the order of the object and content markup so that the content is first
+
+## Template Blocks
+
+- `object`: Block for the static object (the image, checkbox, etc.)
+- `content`: Block for the wrapping content (typically text)

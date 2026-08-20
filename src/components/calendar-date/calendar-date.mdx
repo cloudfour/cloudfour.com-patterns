@@ -1,0 +1,30 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as CalendarDateStories from './calendar-date.stories.js';
+
+<Meta of={CalendarDateStories} />
+
+# Calendar Date
+
+Formats a `<time>` element so that it looks like a calendar icon. Intended to accompany upcoming presentations and events.
+
+A short note may be included, for example the event length ("3-day event"), type ("teleconference") or sales status ("sold out").
+
+<Canvas of={CalendarDateStories.Basic} />
+
+<Canvas of={CalendarDateStories.WithNote} />
+
+## Seasons
+
+To add some fun and visual variety, each season has its own header color. These are applied using a modifier class based on the month, for example `c-calendar-date--january`.
+
+<Canvas of={CalendarDateStories.Seasons} />
+
+## Template Properties
+
+- `datetime` (string): The display date. (e.g. `'2020-04-01'`)
+- `class` (string): Append a class to the root element.
+
+## Template Blocks
+
+- `note`: A short note. (e.g. '3-day event')

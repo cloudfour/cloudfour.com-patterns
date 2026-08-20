@@ -25,7 +25,10 @@
 const VIRTUAL_ID = 'virtual:cloudfour-twig-environment';
 const RESOLVED_VIRTUAL_ID = `\0${VIRTUAL_ID}`;
 
-/** `/abs/path/src/components/badge/badge.twig` -> `@cloudfour/components/badge/badge.twig` */
+/**
+ * `/abs/path/src/components/badge/badge.twig` -> `@cloudfour/components/badge/badge.twig`
+ * @param id
+ */
 const templateName = (id) => `@cloudfour/${id.split('/src/').pop()}`;
 
 const environmentModule = /* js */ `

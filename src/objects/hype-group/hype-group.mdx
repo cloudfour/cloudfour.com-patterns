@@ -1,0 +1,41 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as HypeGroupStories from './hype-group.stories.js';
+
+<Meta of={HypeGroupStories} />
+
+# Hype Group
+
+The Hype Group layout object is used to display promotional or marketing content highlighting a specific feature or specialty. The visual object therein will float or overlap in a way that appears organic and spontaneous. It's an opinionated layout that works best with a square image or illustration and multiple, alternating content blocks of comparable length.
+
+For best results, Hype Groups should be contained inside of a standard-width [Container object](/docs/objects-container--basic).
+
+<Canvas of={HypeGroupStories.Single} />
+
+## Object options
+
+- The `object_shape` template property or `o-hype-group--{shape}-object` modifier class can be used to change the shape of an object. The default square shape is best for screenshots or interface details, while the `circle` is best for photographs or illustrations.
+- The `object_outline` template property or `o-hype-group--outline-object` modifier class will apply a subtle inset border to the object. This can be helpful for differentiating lighter backgrounds from the surrounding page.
+- The `reverse` template property or `o-hype-group--reverse` modifier class will arrange the visual object on the opposite side at larger viewport sizes. (It will remain the same at smaller sizes to preserve a consistent reading line for text content.)
+
+This example shows a square shaped object with an outline and reversed at larger viewport sizes:
+
+<Canvas of={HypeGroupStories.WithOptions} />
+
+## Multiple Hype Groups
+
+Hype Groups work best when there's more than one per page. This example shows multiple Hype Groups with the `reverse` property alternating. The containers also have alternating `t-alternate` classes applied (see [Themes](/docs/design-themes--light) for more info).
+
+<Canvas of={HypeGroupStories.Multiple} />
+
+## Template properties
+
+- `class` (string): A CSS class name to append to the main element's `class` attribute.
+- `content` (block): The main content, usually two or three short paragraphs of descriptive content.
+- `content_class` (string): An additional class to append to the content container, for example `o-rhythm`.
+- `intro` (block): The heading or other introductory content.
+- `intro_class` (string): An additional class to append to the intro container.
+- `object` (block): An image or similar visual element. Ideally square in aspect ratio.
+- `object_outline` (boolean): If `true`, the object will have an inner shadow. This is to help offset interface screenshots from the background.
+- `object_shape` (string): The shape of the object. If `circle`, the image will be displayed in a circle.
+- `reverse` (boolean): If `true`, the object will be displayed on the left/inline-start side of the content at larger viewport sizes.

@@ -1,0 +1,53 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as ContainerStories from './container.stories.js';
+
+<Meta of={ContainerStories} />
+
+# Containers
+
+Containers help maintain consistent reading line lengths and prevent fixed-width imagery from expanding to unwieldy sizes by establishing a maximum width. When the viewport exceeds that maximum width, the content is centered.
+
+The container's default width is generous, a good fit for content that can expand to fill multiple columns. For example, a grid of article summaries.
+
+{/*
+The object demo is not particularly helpful if its source is imported directly,
+so we've provided it manually to the docs add-on via parameters.
+*/}
+
+<Canvas of={ContainerStories.Basic} />
+
+## Prose
+
+The `--prose` modifier is intended to be used with content that mostly consists of text, like an article. It helps improve readability by limiting line length.
+
+{/*
+The object demo is not particularly helpful if its source is imported directly,
+so we've provided it manually to the docs add-on via parameters.
+*/}
+
+<Canvas of={ContainerStories.Prose} />
+
+## Padding
+
+By default, container does not apply any padding. This means the content will meet the edges of the viewport below the maximum size.
+
+Modifiers may be added to apply a consistent amount of responsive padding to containers:
+
+- `o-container--pad`: Adds padding on all sides.
+- `o-container--pad-block`: Adds vertical padding.
+- `o-container--pad-inline`: Adds horizontal padding.
+
+Custom padding amounts may be applied through the use of [padding utilities](/docs/utilities-spacing--padding).
+
+## Fill
+
+There are times when a child element should attempt to fill the container content width, including padding. This can highlight visual elements (images and embeds) and align content within containers.
+
+Two child element classes exist for this purpose:
+
+- `o-container__pad`: Adds the standard container padding to a child element.
+- `o-container__fill`: Negates any inline padding so the element will reach the edges of the content container's padding.
+- `o-container__fill-pad`: Also applies padding to the element so its content will align with that of the container.
+
+<Canvas of={ContainerStories.Fill} />

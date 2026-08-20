@@ -1,0 +1,78 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as AuthorStories from './author.stories.js';
+
+<Meta of={AuthorStories} />
+
+# Author
+
+Displays an author, or set of authors, with optional meta content.
+
+<Canvas of={AuthorStories.BasicUsage} />
+
+## With `link`
+
+If an author object contains the optional `link` property, then the author name will be linked.
+
+If you don't want a link, you can use the `unlink` property to remove it.
+
+<Canvas of={AuthorStories.WithLink} />
+
+<Canvas of={AuthorStories.RemoveLink} />
+
+## With `meta` content
+
+You can use the `meta` property to add meta content, for example, the author title.
+
+<Canvas of={AuthorStories.WithMetaContent} />
+
+## With `date` content
+
+If a date is desired for the meta content, use the `date` property with a
+date object value. The Author template has extra logic to create a more
+accessible user experience.
+
+If used in a space-constrained area, you may set the `date_format` property
+to "short" to display an abbreviated version. (e.g. `Mar 31, 2021` instead of `March 31st, 2021`)
+
+**Note:** The `meta` property will override the `date` if both are set.
+
+<Canvas of={AuthorStories.WithDateContent} />
+
+<Canvas of={AuthorStories.ShortDateFormat} />
+
+## Multiple authors
+
+Multiple authors are also supported.
+
+<Canvas of={AuthorStories.MultipleAuthors} />
+
+## Template Properties
+
+`class` (string): CSS class(es) to append to the root element
+
+`authors` (array): Array of [author objects](https://timber.github.io/docs/reference/timber-user/#properties), each containing:
+
+- `name` (string): The author's name.
+- `avatar` (string): A URL for the author's avatar. For more complex customization, use the `avatars` block.
+- `link` (optional, string): An `href` for the author's name to link to, for example a bio page.
+
+`author_prefix` (optional, string, default "By"): Used to create a more
+accessible user experience by adding visually hidden text, prefixes the author name (e.g. "By Jane Doe")
+
+`meta` (optional, string): Extra information to be rendered below the author name(s)
+
+`date` (optional, date object): Represents a publication date
+
+`date_format` (optional, string): Set to `short` to use abbreviated date formatting. (e.g. `Mar 31, 2021` instead of `March 31st, 2021`)
+
+`date_prefix` (optional, string, default "Published on"): Used to create a more
+accessible user experience by adding visually hidden text, prefixes the date value (e.g. "Published on March 31st, 2021")
+
+`unlink` (optional, boolean): Used to remove the link from an author that contains a `link` property.
+
+## Template Blocks
+
+- `authors`: The author links to display.
+- `avatars`: The [Avatars](/?path=/docs/components-avatar--empty), which will be passed to a [Bunch](/?path=/docs/objects-bunch--of-avatars). Use this if you want to make deeper customizations to the avatars, for example adding `srcset` and `sizes`.
+- `meta_content`: The date or other additional content to display.

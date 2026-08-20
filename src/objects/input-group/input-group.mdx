@@ -1,0 +1,17 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as InputGroupStories from './input-group.stories.js';
+
+<Meta of={InputGroupStories} />
+
+# Input Group
+
+The Input Group object accepts controls like [Button](/story/components-button--button-element) and [Input](/story/components-input--text-elements), displaying them adjacent to one another with no whitespace between. This is useful for presenting minimal forms, such as search bars.
+
+Buttons and inputs can be put in whatever order you choose.
+
+<Canvas of={InputGroupStories.Example} />
+
+## Template Properties
+
+<Controls of={InputGroupStories.Example} />

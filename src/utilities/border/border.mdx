@@ -1,0 +1,31 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as BorderStories from './border.stories.js';
+
+<Meta of={BorderStories} />
+
+# Border
+
+These utilities apply borders. They may be used to visually offset content from its surroundings. For example, a screenshot in an article with a white background might blend in too much with the page without a border.
+
+## Sizes
+
+Available sizes are based on [our `size.$edge-` tokens](/?path=/docs/design-tokens-size--page#edge):
+
+- `u-border` or `u-border-small`
+- `u-border-medium`
+- `u-border-large`
+
+<Canvas of={BorderStories.SmallDefault} />
+
+<Canvas of={BorderStories.Medium} />
+
+<Canvas of={BorderStories.Large} />
+
+<Canvas of={BorderStories.None} />
+
+## Color and style
+
+If no `border-color` is set, these utilities will use the default border color of the current [theme](/?path=/docs/design-themes--light). If no `border-style` is set, the utility will use `solid`.
+
+We may add specific color and style utilities in the future as the need arises.

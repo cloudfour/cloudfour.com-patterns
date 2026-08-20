@@ -1,0 +1,65 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as DefaultsStories from './defaults.stories.js';
+
+<Meta of={DefaultsStories} />
+
+# Default element styles
+
+To keep our styles manageable and avoid conflicts of specificity, our default HTML elements are pretty modest. That said, it's important to have a solid foundation so our markup doesn't become a murky soup of utility classes and bespoke styles.
+
+## Headings
+
+More options are available via [the Heading component](/docs/components-heading--example).
+
+<Canvas of={DefaultsStories.HeadingLevel1} />
+
+<Canvas of={DefaultsStories.HeadingLevel2} />
+
+<Canvas of={DefaultsStories.HeadingLevel3} />
+
+<Canvas of={DefaultsStories.HeadingLevel4} />
+
+<Canvas of={DefaultsStories.HeadingLevel5} />
+
+<Canvas of={DefaultsStories.HeadingLevel6} />
+
+## Inline elements
+
+<Canvas of={DefaultsStories.InlineElements} />
+
+## Blockquote
+
+<Canvas of={DefaultsStories.Blockquote} />
+
+## Lists
+
+See [the List object](/docs/objects-list--default-story) for help styling custom or complex lists.
+
+<Canvas of={DefaultsStories.UnorderedList} />
+
+<Canvas of={DefaultsStories.OrderedList} />
+
+<Canvas of={DefaultsStories.DescriptionList} />
+
+## Figure
+
+<Canvas of={DefaultsStories.Figure} />
+
+## Code block
+
+For syntax highlighting, see [our Highlight theme](/docs/vendor-highlight--theme).
+
+<Canvas of={DefaultsStories.CodeBlock} />
+
+## Horizontal rule
+
+Only use `hr` elements to represent a "thematic break" in content, such as a change in topic within a section. For divisions that are purely presentational, use CSS instead.
+
+To add space between the `hr` and adjacent elements, consider wrapping the section of content in [a Rhythm object](/docs/objects-rhythm--default-story).
+
+<Canvas of={DefaultsStories.HorizontalRule} />
+
+## Details/Summary
+
+<Canvas of={DefaultsStories.DetailsSummary} />

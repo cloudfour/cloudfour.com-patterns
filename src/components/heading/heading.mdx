@@ -1,0 +1,87 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as HeadingStories from './heading.stories.js';
+
+<Meta of={HeadingStories} />
+
+# Heading
+
+It's important for accessibility and for search engines that page sections include helpful heading elements in a logical, descending order ([more info](https://dequeuniversity.com/assets/html/jquery-summit/html5/slides/headings.html)). But there are times when [our default `<h1>` through `<h6>` styles](/docs/design-defaults--heading-level-1#headings) may not be enough:
+
+- The most appropriate heading element may look too small or too large visually.
+- A unique situation may call for a heading with an alternate visual style (such as a lighter weight).
+- Longer pages may benefit from additional features added to headings, such as permalinks or subheadings.
+
+The Heading component addresses these scenarios by applying heading styles for the desired heading level, with a few bonus features not possible via heading elements alone.
+
+<Canvas of={HeadingStories.Example} />
+
+<Controls of={HeadingStories.Example} />
+
+Note that the `content` and `subheading` properties are also available as [blocks](https://twig.symfony.com/doc/3.x/tags/block.html), allowing you to include HTML or template logic where desired.
+
+## Levels
+
+The size of the heading is set by the `level` property. A `level` of `1` will be equal in size to a default `h1`, a `level` of `2` to a default `h2`, and so on. In addition to the six heading levels present in HTML, there are larger heading sizes available at even lower levels. These can help distinguish page-level banners and titles from the primary page content.
+
+| Level | HTML Heading | Modifier Class        |
+| ----- | ------------ | --------------------- |
+| -2    | –            | `c-heading--level-n2` |
+| -1    | –            | `c-heading--level-n1` |
+| 0     | –            | `c-heading--level-0`  |
+| 1     | `<h1>`       | `c-heading--level-1`  |
+| 2     | `<h2>`       | `c-heading--level-2`  |
+| 3     | `<h3>`       | `c-heading--level-3`  |
+| 4     | `<h4>`       | `c-heading--level-4`  |
+| 5     | `<h5>`       | `c-heading--level-5`  |
+| 6     | `<h6>`       | `c-heading--level-6`  |
+
+<Canvas of={HeadingStories.LevelMinus2} />
+
+<Canvas of={HeadingStories.LevelMinus1} />
+
+<Canvas of={HeadingStories.Level0} />
+
+<Canvas of={HeadingStories.Level1} />
+
+<Canvas of={HeadingStories.Level2} />
+
+<Canvas of={HeadingStories.Level3} />
+
+<Canvas of={HeadingStories.Level4} />
+
+<Canvas of={HeadingStories.Level5} />
+
+<Canvas of={HeadingStories.Level6} />
+
+## Weights
+
+By default, headings use the value of our `font-weight.$bold` token so they'll stand out from adjacent content. In some situations, a lighter weight may be helpful to differentiate larger headings from one another or to emphasize specific key words denoted via the `b` or `strong` elements.
+
+<Canvas of={HeadingStories.DefaultWeight} />
+
+<Canvas of={HeadingStories.MediumWeight} />
+
+<Canvas of={HeadingStories.LightWeight} />
+
+## Permalinks
+
+When the `permalink` property is `true`, we alter the markup of the heading based on [a technique from Marcy Sutton ](http://codepen.io/marcysutton/pen/rLKvgZ) that involves three elements:
+
+- `c-heading`: A container, ideally without any semantics (`<div>`).
+- `c-heading__content`: The actual semantic heading element (usually `<h1>` – `<h6>`), including the `id` referenced by `c-heading__permalink`.
+- `c-heading__permalink`: The `<a>` element that exposes the permalink to the user. This element is kept separate from the actual heading so it won't disrupt a user's ability to navigate via headings.
+
+You can specify an ID that will be used for the heading (and therefore the permalink hash) using the `id` property. (The `id` property can also be used without permalinking.)
+
+Note that the widescreen layout of this pattern is optimized for [our prose containers](/docs/objects-container--prose#prose) with generous horizontal whitespace.
+
+<Canvas of={HeadingStories.Permalink} />
+
+## Subheadings
+
+The context of some headings may be reenforced by some adjacent content. In those cases, we provide a `subheading` property (or block) for including this content. At larger sizes, it will attempt to display itself inline as the content allows.
+
+This option does not use `hgroup` due to [its absence from any shipping outline algorithms](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup#usage_notes). Instead, a humble `p` element is used as described [in this W3C "common idiom"](https://www.w3.org/TR/html52/common-idioms-without-dedicated-elements.html#common-idioms-without-dedicated-elements).
+
+<Canvas of={HeadingStories.Subheading} />

@@ -1,0 +1,11 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as MailchimpStories from './mailchimp.stories.js';
+
+<Meta of={MailchimpStories} />
+
+# Mailchimp
+
+For convenience, we apply some default styles to Mailchimp signup forms. These assume that the "Remove CSS styles" option has been checked when [building the form](https://mailchimp.com/help/customize-embedded-signup-form/#Customize_your_embedded_form).
+
+<Canvas of={MailchimpStories.SignupForm} />

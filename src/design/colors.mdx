@@ -1,0 +1,143 @@
+import { ColorItem, ColorPalette, Meta } from '@storybook/addon-docs/blocks';
+
+import tokens from '../compiled/tokens/js/tokens.js';
+export const colors = tokens.color;
+
+<Meta title="Design/Colors" />
+
+# Colors
+
+## Primary Colors
+
+These are our core colors. Blue is our primary brand color and is used by many elements like buttons, links, backgrounds, and illustrations.
+
+<ColorPalette>
+  <ColorItem title="$brand-primary" colors={[colors.brand.primary.value]} />
+  <ColorItem
+    title="$brand-primary-darker"
+    colors={[colors.brand.primary_darker.value]}
+  />
+  <ColorItem title="$gray-lighter" colors={[colors.base.gray_lighter.value]} />
+</ColorPalette>
+
+## Secondary Colors
+
+Our secondary palette consists of green, purple, fuchsia, and orange. These colors are meant to highlight and compliment our primary brand colors.
+
+<ColorPalette>
+  <ColorItem title="$green" colors={[colors.base.green.value]} />
+  <ColorItem title="$purple" colors={[colors.base.purple.value]} />
+  <ColorItem title="$fuchsia" colors={[colors.base.fuchsia.value]} />
+  <ColorItem title="$orange" colors={[colors.base.orange.value]} />
+</ColorPalette>
+
+## Extended Color Palette
+
+The extended palette is intended to be ever evolving, it offers an additional range of colors work with. The number of different values was determined by cataloging the current use of color throughout our site to create a sufficient number of variations. Usage of these colors will vary, but they should come in handy for illustrations and components.
+
+[See our Design Token documentation](/docs/design-tokens-colors--page) for a full list of variable names and accessibility details.
+
+<ColorPalette>
+  <ColorItem
+    title="$brand-primary-*"
+    colors={[
+      colors.brand.primary_lighter.value,
+      colors.brand.primary_light.value,
+      colors.brand.primary.value,
+      colors.brand.primary_dark.value,
+      colors.brand.primary_darker.value,
+    ]}
+  />
+  <ColorItem
+    title="$green-*"
+    colors={[
+      colors.base.green_lighter.value,
+      colors.base.green_light.value,
+      colors.base.green.value,
+      colors.base.green_dark.value,
+      colors.base.green_darker.value,
+    ]}
+  />
+  <ColorItem
+    title="$purple-*"
+    colors={[
+      colors.base.purple_lighter.value,
+      colors.base.purple_light.value,
+      colors.base.purple.value,
+      colors.base.purple_dark.value,
+      colors.base.purple_darker.value,
+    ]}
+  />
+  <ColorItem
+    title="$fuchsia-*"
+    colors={[
+      colors.base.fuchsia_lighter.value,
+      colors.base.fuchsia_light.value,
+      colors.base.fuchsia.value,
+      colors.base.fuchsia_dark.value,
+      colors.base.fuchsia_darker.value,
+    ]}
+  />
+  <ColorItem
+    title="$orange-*"
+    colors={[
+      colors.base.orange_lighter.value,
+      colors.base.orange_light.value,
+      colors.base.orange.value,
+      colors.base.orange_dark.value,
+      colors.base.orange_darker.value,
+    ]}
+  />
+  <ColorItem
+    title="$gray-*"
+    colors={[
+      colors.base.gray_lighter.value,
+      colors.base.gray_light.value,
+      colors.base.gray.value,
+      colors.base.gray_dark.value,
+      colors.base.gray_darker.value,
+    ]}
+  />
+</ColorPalette>
+
+## Text Colors
+
+We design and build with accessibility in mind. Color contrast for text should meet [WCAG standards](https://webaim.org/resources/contrastchecker/).
+
+<ColorPalette>
+  <ColorItem
+    title="$text-dark"
+    subtitle="Accessible on white and lightest gray."
+    colors={[colors.text.dark.value]}
+  />
+  <ColorItem
+    title="$text-light"
+    subtitle="Accessible on primary brand color."
+    colors={[colors.text.light.value]}
+  />
+  <ColorItem
+    title="$text-light-emphasis"
+    subtitle="Accessible on primary brand color, useful for buttons and headings."
+    colors={[colors.text.light_emphasis.value]}
+  />
+  <ColorItem
+    title="$text-action"
+    subtitle="Accessible on white and lighter-gray."
+    colors={[colors.text.action.value]}
+  />
+</ColorPalette>
+
+## Status Colors
+
+These colors help communicate the status of elements, for example an icon accompanying an error message.
+
+<ColorPalette>
+  <ColorItem
+    title="$status-error-dark"
+    colors={[colors.status.error_dark.value]}
+  />
+  <ColorItem
+    title="$status-error-light"
+    colors={[colors.status.error_light.value]}
+  />
+</ColorPalette>

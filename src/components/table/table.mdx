@@ -1,0 +1,47 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as TableStories from './table.stories.js';
+
+<Meta of={TableStories} />
+
+# Table
+
+The `c-table` class applies default styling to HTML `table` elements.
+A table can optionally have a header, a footer, and a caption.
+
+<Canvas of={TableStories.Basic} />
+
+## Ruled Table
+
+The `c-table--ruled` modifier adds horizontal rules in between table rows.
+
+<Canvas of={TableStories.Ruled} />
+
+## Striped Table
+
+The `c-table--striped` modifier adds alternating background colors to table rows.
+
+<Canvas of={TableStories.Striped} />
+
+## Numeric Data
+
+Tables with lots of numeric data use a couple of modifications to make them
+easier to read and understand.
+
+Numeric cells are right-aligned and use tabular figures to make it easier to
+compare cells across a column.
+
+These changes can be achieved by adding `c-table--numeric` to the table.
+
+<Canvas of={TableStories.NumericData} />
+
+## Template Properties
+
+- `table_class` (string): Append a class to the root `<table>` element.
+
+## Template Blocks
+
+- `caption` (optional): Block to add a table caption string.
+- `header` (optional): Block to add a `<tr>` for the table header.
+- `body`: Block to add table body `<tr>` elements.
+- `footer` (optional): Block to add a `<tr>` for the table footer.

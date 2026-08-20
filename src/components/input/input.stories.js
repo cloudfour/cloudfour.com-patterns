@@ -88,7 +88,7 @@ export const ElasticTextarea = {
     // @see https://github.com/storybookjs/storybook/issues/7786
     useEffect(() => {
       createElasticTextArea(document.querySelector('.js-elastic-textarea'));
-    }, []);
+    });
     return input(args);
   },
 };

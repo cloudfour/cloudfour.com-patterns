@@ -30,7 +30,7 @@ export default {
           destroyDraftEmail();
           destroyElasticTextArea();
         };
-      }, []);
+      });
       return story();
     },
   ],

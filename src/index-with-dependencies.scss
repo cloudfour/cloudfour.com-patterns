@@ -2,6 +2,16 @@
 /// This file is only for use in Storybook, where we need to manually add
 /// CSS dependencies that WordPress handles, such as the block library.
 ///
+
+/// Storybook's CSS is not emitted next to the `src/assets` directory the way the
+/// published `dist/standalone.css` is, so the relative font path that ships to
+/// consumers cannot resolve here. A root-absolute path lets Vite find the files and
+/// emit them as build assets. This has to come before anything else loads
+/// `base/fonts`, or the default would win.
+@use './base/fonts' with (
+  $dir: '/src/assets/fonts'
+);
+
 // stylelint-disable at-rule-disallowed-list
 @import '../node_modules/@wordpress/block-library/build-style/style';
 @import './index';

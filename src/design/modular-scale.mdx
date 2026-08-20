@@ -1,9 +1,15 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 
 import tokens from '../compiled/tokens/js/tokens.js';
-export const ratio = tokens.number.scale.modular.ratio.value;
-export const minimumStep = tokens.number.scale.modular.minimum_step.value;
-export const maximumStep = tokens.number.scale.modular.maximum_step.value;
+// Token values arrive as strings, so coerce before doing arithmetic on them --
+// `+` would otherwise concatenate rather than add.
+export const ratio = Number(tokens.number.scale.modular.ratio.value);
+export const minimumStep = Number(
+  tokens.number.scale.modular.minimum_step.value
+);
+export const maximumStep = Number(
+  tokens.number.scale.modular.maximum_step.value
+);
 export const sizeRows = Array.from(
   { length: maximumStep - minimumStep + 1 },
   (_unused, index) => {

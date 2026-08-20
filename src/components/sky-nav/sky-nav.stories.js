@@ -23,7 +23,7 @@ export default {
           document.querySelector('.js-sky-nav-menu-toggle')
         );
         return destroy;
-      }, []);
+      });
       return story();
     },
   ],

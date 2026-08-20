@@ -46,7 +46,7 @@ export const Default = {
         document.querySelector('.js-elastic-textarea')
       );
       return destroy;
-    }, []);
+    });
     return template({
       logged_in_user: isLoggedIn ? tyler : undefined,
       log_out_url: '/logout',
@@ -84,7 +84,7 @@ export const Reply = {
         document.querySelector('.js-elastic-textarea')
       );
       return destroy;
-    }, []);
+    });
     return template({
       logged_in_user: isLoggedIn ? tyler : undefined,
       log_out_url: '/logout',

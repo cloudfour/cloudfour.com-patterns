@@ -5,8 +5,8 @@ module.exports = {
     n: {
       allowModules: [
         '@storybook/addon-docs',
-        '@storybook/addon-knobs',
-        '@storybook/client-api',
+        '@storybook/addon-docs/blocks',
+        'storybook',
       ],
     },
   },
@@ -33,7 +33,7 @@ module.exports = {
       rules: {
         // Src files are bundled so they do not have to follow Node's resolution rules
         '@cloudfour/n/no-missing-import': 'off',
-        // Webpack (at least the version we're using) doesn't recognize node: imports
+        // These files are bundled for the browser, where node: imports have no meaning
         '@cloudfour/unicorn/prefer-node-protocol': 'off',
       },
     },
@@ -42,6 +42,16 @@ module.exports = {
       rules: {
         // The auto-fixer for this rule does not work with .mdx files.
         '@cloudfour/import/order': 'off',
+      },
+    },
+    {
+      // Stories and docs pages import Storybook through package export subpaths
+      // (`@storybook/addon-docs/blocks`, `storybook/preview-api`). This rule cannot
+      // tell a subpath from a file path, so it demands a `.js` that then breaks
+      // resolution -- its auto-fix actively introduces a bug here.
+      files: ['*.mdx', '*.stories.js', '.storybook/**'],
+      rules: {
+        '@cloudfour/n/file-extension-in-import': 'off',
       },
     },
   ],

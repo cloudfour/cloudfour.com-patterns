@@ -28,8 +28,10 @@ const createVirtualRootEntry = async () => {
   );
   return (
     files
-      // Don't include test files in the build
-      .filter((f) => !f.endsWith('.test.ts'))
+      // Don't include test files or stories in the build. Stories became `.js` when
+      // they moved off `.stories.mdx`, so without this they land in the published
+      // bundle -- and they import `.twig` and `.scss`, which Rollup cannot parse.
+      .filter((f) => !/\.(test|stories)\.[jt]sx?$/.test(f))
       .map((f) => {
         const absolutePathWithoutExtension = path
           .resolve(f)

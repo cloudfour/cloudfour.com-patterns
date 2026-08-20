@@ -1,0 +1,17 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as BioStories from './bio.stories.js';
+
+<Meta of={BioStories} />
+
+# Bio
+
+The Bio layout object can be used for extended biographical details that include an avatar, an extended text description and optional meta information.
+
+<Canvas of={BioStories.Default} />
+
+## Template Properties
+
+- `avatar` (block): Block to add a bio avatar.
+- `content` (block): Block to add the main bio content.
+- `meta` (block): Optional block to add meta information (e.g. bio links).

@@ -1,0 +1,27 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as ListStories from './list.stories.js';
+
+<Meta of={ListStories} />
+
+# List
+
+The `o-list` object presents list items in a straightforward and unopinionated manner. While it can be applied to any container, it was designed specifically for `<ul>` and `<ol>` elements.
+
+**Important:** Remember to include the `role="list"` attribute on `<ul>` elements using this pattern to avoid [an issue with unstyled lists and Safari/VoiceOver](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html).
+
+By default, `o-list` removes default spacing and list item decorators:
+
+<Canvas of={ListStories.Default} />
+
+## Inline List
+
+The `o-list--inline` modifier arranges items in a horizontal row, wrapping to new lines as needed. This is a good fit for lists of tags or related links:
+
+<Canvas of={ListStories.Inline} />
+
+## Columns
+
+Lists can be displayed in multiple columns using a modifier class. Use the format `o-list--X-column@Y`, where `X` is the desired column count (from 2 to 3) and `Y` is the desired [breakpoint](/docs/design-tokens-breakpoint--page) (from `s` to `xl`).
+
+<Canvas of={ListStories.Column} />

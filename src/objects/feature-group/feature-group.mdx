@@ -1,0 +1,17 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as FeatureGroupStories from './feature-group.stories.js';
+
+<Meta of={FeatureGroupStories} />
+
+# Feature Group
+
+The Feature Group layout object can be used by individual sections on a page to place content. It is helpful for highlighting a section by giving it a distinct layout. It includes an introduction, main content area, and an optional link.
+
+<Canvas of={FeatureGroupStories.Default} />
+
+## Template Properties
+
+- `intro` (block): Block to add introductory content, like a heading.
+- `content` (block): Block to add the main content.
+- `action` (block): Optional block to add a cta.

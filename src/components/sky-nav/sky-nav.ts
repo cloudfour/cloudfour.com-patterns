@@ -21,10 +21,16 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
     '(prefers-reduced-motion: reduce)'
   );
 
-  // The Sky Nav component has inline synchronous JS logic to add an `is-loading`
-  // state to remove the layout shift at smaller viewports. That state no longer
-  // applies at this point since the Sky Nav JS has loaded & is ready to take over.
-  navWrapper.classList.remove('is-loading');
+  // The Sky Nav component has inline synchronous JS logic to swap `no-js` for an
+  // `is-loading` state, which removes the layout shift at smaller viewports. Neither
+  // applies once we get here: this function running is itself proof that JS is
+  // available and ready to take over.
+  //
+  // `no-js` is cleared here rather than relying solely on that inline script because
+  // the script only runs when the markup is parsed by the browser. Anything that
+  // injects the template as a string -- Storybook re-rendering a story, for one --
+  // skips it, which would leave the menu permanently open with no toggle.
+  navWrapper.classList.remove('no-js', 'is-loading');
 
   /**
    * Update Menu Layout

@@ -1,4 +1,4 @@
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from 'storybook/preview-api';
 
 /**
  * Removes current theme classes on an element and applies a new theme class
@@ -12,11 +12,11 @@ const updateTheme = (element, theme) => {
   }
 
   const themes = [];
-  element.classList.forEach((className) => {
+  for (const className of element.classList) {
     if (className.startsWith('t-') && className !== theme) {
       themes.push(className);
     }
-  });
+  }
 
   if (themes.length > 0) {
     element.classList.remove(...themes);
@@ -36,9 +36,9 @@ const updateTheme = (element, theme) => {
  * {@link https://github.com/storybookjs/storybook/issues/14477|#14477} and
  * {@link https://github.com/storybookjs/storybook/issues/13444|#13444}.
  *
- * @param {function} story
+ * @param {() => void} story
  * @param {object} context
- * @returns {*} Result of story function.
+ * @returns {any} Result of story function.
  */
 export const withTheme = (story, context) => {
   const theme = context.parameters.theme || context.globals.theme;

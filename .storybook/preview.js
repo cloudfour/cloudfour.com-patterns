@@ -1,32 +1,35 @@
-import { Parser } from 'html-to-react';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import ReactSyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
 import twig from 'react-syntax-highlighter/dist/esm/languages/prism/twig';
-import { withTheme } from './theme-decorator';
-import { withTextFlow } from './text-flow-decorator';
-import tokens from '../src/compiled/tokens/js/tokens';
+import { SyntaxHighlighter } from 'storybook/internal/components';
+import { INITIAL_VIEWPORTS } from 'storybook/viewport';
+
+import { withTheme } from './theme-decorator.js';
+import { withTextFlow } from './text-flow-decorator.js';
+
+import tokens from '../src/compiled/tokens/js/tokens.js';
 import '../src/index-with-dependencies.scss';
 import './preview.scss';
-import { makeTwigInclude } from '../src/make-twig-include';
+import { makeTwigInclude } from '../src/make-twig-include.js';
 const breakpoints = tokens.size.breakpoint;
 
-// Extend the languages Storybook will highlight
-ReactSyntaxHighlighter.registerLanguage('twig', twig);
+// Storybook bundles Prism grammars for a handful of languages, and Twig is not one of
+// them -- without this the source previews render as a single untokenized block.
+SyntaxHighlighter.registerLanguage('twig', twig);
 
 // Create viewports using widths defined in design tokens
-const breakpointViewports = Object.keys(breakpoints).map((name) => {
-  return {
-    name: `$${breakpoints[name].name}`,
-    styles: {
-      width: breakpoints[name].value,
-      // Account for padding and border around viewport preview
-      height: 'calc(100% - 20px)',
+const breakpointViewports = Object.fromEntries(
+  Object.keys(breakpoints).map((name) => [
+    `breakpoint-${name}`,
+    {
+      name: `$${breakpoints[name].name}`,
+      styles: {
+        width: breakpoints[name].value,
+        // Account for padding and border around viewport preview
+        height: 'calc(100% - 20px)',
+      },
+      type: 'other',
     },
-    type: 'other',
-  };
-});
-
-const htmlToReactParser = new Parser();
+  ])
+);
 
 export const parameters = {
   options: {
@@ -49,35 +52,35 @@ export const parameters = {
     },
   },
   docs: {
-    // Docs support for inlining plain HTML stories
-    // https://github.com/storybookjs/storybook/blob/v6.0.21/addons/docs/docs/docspage.md#inline-stories-vs-iframe-stories
-    inlineStories: true,
     source: {
       language: 'twig',
-    },
-    prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
-    transformSource(src, storyContext) {
-      try {
-        const storyFunction = storyContext.originalStoryFn;
-        if (!storyFunction) return src;
-        const rendered = storyFunction(
-          storyContext.args || storyContext.initialArgs
-        );
-        // The twing/source-inputs-loader.js file makes it so that whenever twig templates are rendered,
-        // the arguments and input path are stored in the window.__twig_inputs__ variable.
-        // __twig_inputs__ is a map between the output HTML and and objects with the arguments and input paths
-        // Here, since we have the rendered HTML, we can look up what the arguments and path were
-        // that correspond to that output
-        const input = window.__twig_inputs__?.get(rendered);
-        if (!input) return src;
-        return makeTwigInclude(input.path, input.args);
-      } catch {
-        return src;
-      }
+      /**
+       * Show the Twig that produced a story rather than the HTML it rendered.
+       *
+       * The Vite Twig plugin records every render's template path and arguments,
+       * keyed by the HTML it produced, so re-running the story function here gives us
+       * the key to look up. Storybook 6 called this hook `docs.transformSource`.
+       * @param code
+       * @param storyContext
+       */
+      transform(code, storyContext) {
+        try {
+          const storyFunction = storyContext.originalStoryFn;
+          if (!storyFunction) return code;
+          const rendered = storyFunction(
+            storyContext.args || storyContext.initialArgs
+          );
+          const input = globalThis.__twig_inputs__?.get(rendered);
+          if (!input) return code;
+          return makeTwigInclude(input.path, input.args);
+        } catch {
+          return code;
+        }
+      },
     },
   },
   viewport: {
-    viewports: {
+    options: {
       ...breakpointViewports,
       ...INITIAL_VIEWPORTS,
     },
@@ -86,17 +89,13 @@ export const parameters = {
 
 const directions = ['ltr', 'rtl'];
 const writingModes = ['horizontal-tb', 'vertical-lr', 'vertical-rl'];
-const textFlowItems = directions
-  .map((direction) =>
-    writingModes.map((writingMode) => {
-      return {
-        value: JSON.stringify({ direction, writingMode }),
-        title: writingMode,
-        left: direction,
-      };
-    })
-  )
-  .flat();
+const textFlowItems = directions.flatMap((direction) =>
+  writingModes.map((writingMode) => ({
+    value: JSON.stringify({ direction, writingMode }),
+    title: writingMode,
+    left: direction,
+  }))
+);
 
 export const globalTypes = {
   theme: {

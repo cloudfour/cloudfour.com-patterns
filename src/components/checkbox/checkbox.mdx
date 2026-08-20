@@ -1,0 +1,15 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as CheckboxStories from './checkbox.stories.js';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+`c-checkbox` may be applied to any `<input type="checkbox">` element. They are larger than native checkboxes and more visually consistent with our [radio](/docs/components-radio--Enabled), [input](/docs/components-input--text-elements) and [button](/docs/components-button--elements) components.
+
+<Canvas of={CheckboxStories.Enabled} />
+
+Checkboxes appear more subtle and less actionable when the `disabled` attribute is set.
+
+<Canvas of={CheckboxStories.Disabled} />

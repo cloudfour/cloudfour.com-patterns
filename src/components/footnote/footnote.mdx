@@ -1,0 +1,24 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as FootnoteStories from './footnote.stories.js';
+
+<Meta of={FootnoteStories} />
+
+# Footnote
+
+Used for displaying the content of a footnote.
+
+Renders as a list item (`<li>`). Expected to be wrapped in a [Footnote Group](/docs/components-footnote-footnote-group--basic) and paired with a [Footnote Link](/docs/components-footnote-footnote-link--basic).
+
+## Basic usage
+
+<Canvas of={FootnoteStories.Basic} />
+
+## Template Properties
+
+`count` (number) the number of the current footnote we're on (e.g. this is the second footnote in the document)
+
+## Template Blocks
+
+- `content` The footnote contents
+- `id` (string) a unique ID for a footnote. Defaults to the `count` but can be customized if there are multiple sets of footnotes on one page

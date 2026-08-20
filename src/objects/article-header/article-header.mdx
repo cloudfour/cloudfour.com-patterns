@@ -1,0 +1,19 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as ArticleHeaderStories from './article-header.stories.js';
+
+<Meta of={ArticleHeaderStories} />
+
+# Article Header
+
+The Article Header layout object composes an article's title and meta information. The "eyebrow" block is visually oriented above the title, providing additional context up-front (such as the article's taxonomy).
+
+<Canvas of={ArticleHeaderStories.Example} />
+
+## Template Properties
+
+- `class` (string, optional): Additional CSS classes to append to `class` attribute of containing element.
+- `eyebrow` (block): Additional meta content, will display above `title` visually.
+- `meta` (block): Supporting content, such as the author and/or publication date.
+- `tag_name` (string, default: `header`): Tag to use for containing element.
+- `title` (block): The article heading.

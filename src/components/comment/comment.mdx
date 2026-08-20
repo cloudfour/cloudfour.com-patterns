@@ -1,0 +1,112 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as CommentStories from './comment.stories.js';
+
+<Meta of={CommentStories} />
+
+# Comment
+
+Displays a single comment in a comment thread, optionally with replies. Multiple comments can be displayed within [a Rhythm layout object](/docs/objects-rhythm--default-story).
+
+## Single
+
+At minimum, a single comment consists of:
+
+- Author name
+- Author avatar
+- Comment content (HTML)
+- Publication date
+- Permalink to the comment
+
+This information may be passed to the component as a `comment` object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/).
+
+<Canvas of={CommentStories.Single} />
+
+## Author Title
+
+You can use the `author_title` block to pass in a custom author name or title.
+
+It is helpful for context within a discussion to know when a commentor is the original post author or a Cloud Four team member. This can be achieved by passing in a name with [a Badge component](/docs/components-badge--basic) to the `author_title` block.
+
+<Canvas of={CommentStories.RoleAuthor} />
+
+<Canvas of={CommentStories.RoleCloudFour} />
+
+## Unapproved
+
+If `comment.approved` is not `true`, an [Alert](/docs/components-alert--basic) will indicate that the comment is not yet approved.
+
+<Canvas of={CommentStories.Unapproved} />
+
+## With source
+
+Additionally, a `source` object may be passed to the template consisting of a `url` and `name`. This is helpful if integrating [webmentions](https://indieweb.org/Webmention) into comment threads.
+
+<Canvas of={CommentStories.WithSource} />
+
+## With reply button
+
+You can set `allow_replies` to `true` in order to add a reply button that toggles a [Comment Form](/docs/components-comment-form--reply).
+
+If the user is logged in, you should pass in `logged_in_user` and `log_out_url` properties that match the [template properties of Comment Forms](/docs/components-comment-form--reply#template-properties).
+
+`allow_replies` should only be set to true for first-level comments, as we do not allow multiple levels of threading in comment chains.
+
+<Canvas of={CommentStories.WithReplyButton} />
+
+## With reply thread
+
+If a `comment` contains an array of `children`, they will be display in the footer of the original comment. A vertical line is used to visually associate the replies with the original comment. If the parent comment is contained within [a Rhythm layout object](/docs/objects-rhythm--default-story),the child comments will inherit that spacing.
+
+While it is theoretically possible to infinitely nest `children`, it's recommended to limit the depth to a single level. This is for two reasons:
+
+- Increasingly narrow comments will become difficult to read on narrow screens.
+- The heading levels for comment threads increment up to a maximum of six (since HTML only provides six heading levels). This means that levels beyond that will be harder to traverse for user agents navigating via the document outline.
+
+<Canvas of={CommentStories.WithReplyThread} />
+
+## Template Properties
+
+- `comment`: an object matching the structure of a [Timber comment](https://timber.github.io/docs/reference/timber-comment/)
+- `allow_replies`: A boolean property that controls whether to show a reply button and form
+- `logged_in_user`: [user object](https://timber.github.io/docs/reference/timber-user/#properties) of the type:
+  ```ts
+  {
+    name: string | () => string;
+    link: string | () => string;
+  }
+  ```
+- `log_out_url`: URL used for log out link.
+- `source`: An optional object containing a `url` and `name` for the comment source.
+- `reply_form_action`: A form action for the comment reply form
+- `reply_form_method`: A form method for the comment reply form
+
+## Template Blocks
+
+- `header_content`: Use to over-write the content of the comment header
+- `heading_content`: Use to over-write the content of the comment heading
+- `author_title`: Use to over-write a portion of the comment heading content. Will be followed by a visually hidden span reading either `replied` or `said`. (Valid values could be `John Doe` or `John Doe (Post Author)`.)
+- `replies`: Use to pass in your own replies markup. This is useful if you need to modify other blocks within replies.
+- `reply_form`: Can be used to replace the entire reply form
+- `reply_form_hidden_inputs`: Can be used to add hidden inputs to the comment reply form. This can be useful for integrating with systems like Wordpress which use these provide additional context during form submission.
+
+## JavaScript Instructions
+
+You can run `initCommentReplyForm` to initialize a comment's reply form. Comments with reply forms will have the `js-comment-with-reply-form` class which you can use to query and initialize them.
+
+(This is not necessary for pages with comments disabled, like older posts.)
+
+```js
+import { initCommentReplyForm } from 'path/to/comment.js';
+
+const comment = document.querySelector('.js-comment-with-reply-form');
+const replyformInstance = initCommentReplyForm(comment);
+```
+
+It also returns an object containing a `destroy()` method, if you need to remove the event listener.
+
+```js
+comment.destroy();
+```
+
+The Comment reply form also includes the [Elastic Textarea component](/docs/components-input--elastic-textarea). See the Elastic Textarea component for JavaScript setup details.

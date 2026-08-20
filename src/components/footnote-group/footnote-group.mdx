@@ -1,0 +1,36 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as FootnoteGroupStories from './footnote-group.stories.js';
+
+<Meta of={FootnoteGroupStories} />
+
+# Footnote Group
+
+Used for displaying one or more [Footnotes](/docs/components-footnote-footnote--basic).
+
+There are a couple things that are important to note when using Footnote Groups:
+
+- If you have more than one Footnote Group on a page, you'll need to pass in a `suffix_id` to the Footnote Groups to ensure they use unique IDs.
+- Footnote Groups include a [visually hidden](/docs/utilities-display--hidden-visually) heading. By default it is an `h2` saying "Footnotes". This can be customized with the `heading_tag` and `heading_text` properties.
+
+## Basic usage
+
+<Canvas of={FootnoteGroupStories.Basic} />
+
+## Compact
+
+The Compact attribute can be added to reduce the size and spacing of footnote groups, as well as remove their top border. This can be helpful when styling footnote groups in blog comments.
+
+<Canvas of={FootnoteGroupStories.Compact} />
+
+## Template Properties
+
+- `items`: An array of strings
+- `id_suffix` (string) should be used whenever there are multiple sets of footnotes on one page, to ensure the components use unique IDs.
+- `heading_tag` (string) the tag to use for the heading. Defaults to `h2`.
+- `heading_text` (string) the heading text. Defaults to `Footnotes`.
+- `compact` (boolean) make the footnote group smaller
+
+## Template Blocks
+
+- `content`: The footnote contents (overwrites anything placed in the items property)

@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import tokens from '../compiled/tokens/js/tokens.js';
+// Token values arrive as strings, so coerce before doing arithmetic on them --
+// `+` would otherwise concatenate rather than add.
+export const ratio = Number(tokens.number.scale.modular.ratio.value);
+export const minimumStep = Number(
+  tokens.number.scale.modular.minimum_step.value
+);
+export const maximumStep = Number(
+  tokens.number.scale.modular.maximum_step.value
+);
+export const sizeRows = Array.from(
+  { length: maximumStep - minimumStep + 1 },
+  (_unused, index) => {
+    const step = minimumStep + index;
+    // `toFixed` keeps the values from extending past two decimal points.
+    // The `Number` constructor prevents unnecessary decimals from displaying,
+    // for example `1.00` instead of `1`.
+    const size = `${Number((ratio ** step).toFixed(2))}em`;
+    return (
+      <tr key={step}>
+        <td>{step}</td>
+        <td>{size}</td>
+        <td>
+          <div
+            style={{
+              background: 'currentColor',
+              height: '1em',
+              opacity: 0.66,
+              width: size,
+            }}
+          ></div>
+        </td>
+      </tr>
+    );
+  }
+);
+
+<Meta title="Design/Modular Scale" />
+
+# Modular Scale
+
+Most typographic and whitespace measurements in our patterns are based on steps of [our modular scale](/docs/design-tokens-modular-scale--page). This has several benefits for text-heavy projects like ours:
+
+- Encourages designers to think in terms of relative proportion rather than hard-set sizes, which makes patterns more versatile in responsive designs.
+- Minimizes loss of text alignment in complex layouts.
+- Avoids the need to define every step of a scale individually.
+- Ensures the relationship between successive steps is predictable and clear.
+
+To learn more about modular scales, we recommend reading [More Meaningful Typography](https://alistapart.com/article/more-meaningful-typography/) by Tim Brown.
+
+## Sizes
+
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Size</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>{sizeRows}</tbody>
+</table>

@@ -1,0 +1,37 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as DeckStories from './deck.stories.js';
+
+<Meta of={DeckStories} />
+
+# Deck
+
+What do you call a group of multiple [Cards](/docs/components-card--content-blocks)?
+
+A “stack” of cards? Sure, but that may imply verticality…
+
+How about a “deck” of cards?
+
+By default, the `o-deck` class will use CSS Grid Layout to arrange child elements in a grid with generous whitespace. Additional columns will appear automatically as space allows.
+
+<Canvas of={DeckStories.Basic} />
+
+## Alignment
+
+The `o-deck--align-start` modifier can be used to top-align deck items. This modifier is helpful when the deck items have different alignment. For example, the `o-media` object can be middle or top aligned depending on the length of the content. The modifier forces all deck objects to have the same alignment.
+
+<Canvas of={DeckStories.Alignment} />
+
+## Specifying Columns
+
+While automatic columns are convenient, there are times when a specific column count is desired. For example, you may want to limit a design to three columns at larger breakpoints to align with adjacent elements.
+
+To do this, add a modifier class in the format of `o-deck--X-column@Y`, where `X` is the desired column count (from 1 to 6) and `Y` is the desired [breakpoint](/docs/design-tokens-breakpoint--page) (from `s` to `xl`). In this example, we force the grid to display three columns starting from the `m` breakpoint.
+
+<Canvas of={DeckStories.Columns} />
+
+## With Horizontal Cards
+
+[Horizontal cards](/docs/components-card--content-blocks#horizontal) will automatically span all available columns.
+
+<Canvas of={DeckStories.HorizontalCard} />

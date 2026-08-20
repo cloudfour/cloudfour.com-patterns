@@ -1,0 +1,40 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as BadgeStories from './badge.stories.js';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+Badges help provide just a smidge more context to repetitive or serialized content. For example, a badge can help the reader identify when [a comment on an article is by the author of that article](/docs/components-comment--role-author#role-badges).
+
+<Canvas of={BadgeStories.Basic} />
+
+## With icon
+
+An icon may be used to visually support the meaning of the badge.
+
+<Canvas of={BadgeStories.WithIcon} />
+
+## Linked
+
+Badges may link to other content. For example, a badge representing an article's category might link to a list of all articles in that category.
+
+Avoid using badges for critical links: Their appearance is too subtle to rely on for important calls to action.
+
+<Canvas of={BadgeStories.Linked} />
+
+## Template Properties
+
+- `class` (string)
+- `href` (string, optional): A URL for the badge to link to.
+- `icon` (string, optional): The name of one of [our icons](/docs/design-icons--page) to display.
+- `label` (string, default `'Label'`)
+- `rel` (string, optional): Specify the relationship of the linked URL.
+- `parenthetical` (boolean, optional): If `true`, the badge `label` will be wrapped by visually hidden parentheses.
+- `tag_name` (string, default `'span'` or `'a'` depending on presence of `href`)
+
+## Template Blocks
+
+- `content`: The main label content, typically the value of `label`.
+- `extra`: A visual extra preceding the content, typically populated by an icon if `icon` is set.

@@ -1,0 +1,42 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as EmbedStories from './embed.stories.js';
+
+<Meta of={EmbedStories} />
+
+# Embed
+
+Specifying aspect ratios for imagery and embedded media is important to prevent jarring page jumps as content loads. But specifying width and height may not work for all types of embedded media. The `o-embed` class [maintains aspect ratios responsively using padding](https://css-tricks.com/aspect-ratio-boxes/).
+
+Embed objects support two methods for specifying the desired aspect ratio:
+
+1. Via a modifier class. All of our [aspect ratio tokens](/docs/design-tokens-aspect-ratio--page) are supported. Example: `o-embed--wide`
+1. Via the `--aspect-ratio` custom property. This can be helpful for one-off images in articles or other content that do not conform to a typical size. Example: `--aspect-ratio: 320/480`
+
+## Basic Examples
+
+### Image
+
+<Canvas of={EmbedStories.Image} />
+
+### Picture
+
+<Canvas of={EmbedStories.Picture} />
+
+### Video
+
+<Canvas of={EmbedStories.Video} />
+
+## Rounded
+
+Embeds may be combined with [rounded corner utilities](/docs/utilities-rounded-corners--sizes). In this example, a square embed becomes circular thanks to `u-rounded-full`.
+
+<Canvas of={EmbedStories.Rounded} />
+
+## Responsive Usage
+
+An additional benefit of modifier classes is support for breakpoint-specific ratios. This can be helpful for interactive embeds (CodePen, etc.) or simply for art direction.
+
+In this example, the aspect ratio starts square but becomes wider with each successive breakpoint. All [breakpoint tokens](/docs/design-tokens-breakpoint--page) are supported.
+
+<Canvas of={EmbedStories.Responsive} />

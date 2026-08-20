@@ -1,0 +1,15 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as RadioStories from './radio.stories.js';
+
+<Meta of={RadioStories} />
+
+# Radio
+
+`c-radio` may be applied to any `<input type="radio">` element. They are larger than native radio elements and more visually consistent with our [checkbox](/docs/components-checkbox--Enabled), [input](/docs/components-input--text-elements) and [button](/docs/components-button--elements) components.
+
+<Canvas of={RadioStories.Enabled} />
+
+Radios appear more subtle and less actionable when the `disabled` attribute is set.
+
+<Canvas of={RadioStories.Disabled} />

@@ -1,0 +1,38 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as MediaSummaryStories from './media-summary.stories.js';
+
+<Meta of={MediaSummaryStories} />
+
+# Media Summary
+
+The Media Summary components extends [the Media object](/docs/objects-media--image) with functionality specific to linked content summaries.
+
+## Examples
+
+An event summary with [a Calendar Date component](/docs/components-calendar-date--basic) as its object:
+
+<Canvas of={MediaSummaryStories.Event} />
+
+A book summary that uses [Media object properties](/docs/objects-media--image) to adjust its layout:
+
+<Canvas of={MediaSummaryStories.Book} />
+
+## Template Properties
+
+All [Media object](/docs/objects-media--image) properties are supported, along with the following unique properties:
+
+- `heading` (string): Content for the heading. Also available as a block.
+- `heading_class` (string): Sets the `class` property of [the Heading component](/docs/components-heading--example).
+- `heading_id` (string): Sets the `id` property of [the Heading component](/docs/components-heading--example).
+- `heading_level` (string, default `3`): Sets the `level` property of [the Heading component](/docs/components-heading--example).
+- `heading_tag_name` (string): Sets the `tag_name` property of [the Heading component](/docs/components-heading--example).
+- `heading_weight` (string): Sets the `weight` property of [the Heading component](/docs/components-heading--example).
+- `href` (string): The URL to link to if the heading has content.
+- `rhythm` (string, default `"compact"`): Sets the amount of [vertical rhythm](/docs/objects-rhythm--example) for the heading and content.
+
+## Template Blocks
+
+All [Media object](/docs/objects-media--image) blocks are supported, along with the following unique blocks:
+
+- `heading`: Content for the heading. Also available as a property.

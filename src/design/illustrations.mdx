@@ -1,0 +1,39 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as IllustrationsStories from './illustrations.stories.js';
+
+<Meta of={IllustrationsStories} />
+
+# Illustrations
+
+## Fallback feature images
+
+Article summaries appear more interesting and cohesive when they have an image, but sometimes an article does not have an obvious image, and not every author is an illustrator. These fallback images can be used in place of an original illustration.
+
+Loosely inspired by classic television test patterns, the goal was to have them coexist with feature images without stealing too much attention, all while staying on brand.
+
+This design also leaves room to add more categories if desired. Ideally, the icons are two-toned, with a singular color for each design. The core colors are from our [color palette](/story/design-colors--page), but the entire range of each color can be used, including values that may not be visibly included on that page (the pinks in the gauge example are not shown on our color palette page, but are derivatives of that base pink color). The design includes a light icon on a dark background to keep the focus on the icon and category of that article.
+
+Images may represent more than one topic. For example, the `paintbrush` illustration could represent design, CSS or process; `gauge` might represent performance, measurement or analytics.
+
+<Canvas of={IllustrationsStories.FeatureImages} />
+
+## Responsive fallback image
+
+An SVG that's used as a fallback image when an image request fails for whatever reason.
+
+What's unique about this image is its responsiveness. Depending on the size of the broken image, portions of the image repeat or fix to the side to fit the aspect ratio of the image rather than squashing or stretching.
+
+<Canvas of={IllustrationsStories.ResponsiveFallbackImage} />
+
+## Avatars
+
+These assets may be used in place of a specific user avatar.
+
+The `default` avatar includes a background color, whereas `transparent` allows the parent element background color to show through.
+
+Both assets are available in SVG and PNG (default and `@2x`) formats.
+
+<Canvas of={IllustrationsStories.DefaultAvatar} />
+
+<Canvas of={IllustrationsStories.TransparentAvatar} />

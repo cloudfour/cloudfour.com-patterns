@@ -1,0 +1,32 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as ButtonSwapStories from './button-swap.stories.js';
+
+<Meta of={ButtonSwapStories} />
+
+# Button Swap
+
+The Button Swap component was built with the article Push Notifications use case in mind. It has two buttons that are swapped on click representing two visual states accompanied with visually hidden text for a more inclusive experience.
+
+<Canvas of={ButtonSwapStories.Default} />
+
+## Template Properties
+
+- `class` (string): Appends to the CSS class of the root element.
+- `button_class` (string): Appends to the CSS class of the button element.
+- `content_start_icon` (string, default `'bell'`): The button [icon](/docs/design-icons--page) (the same icon is applied to both buttons).
+- `initial_label` (string, default `'Unsubscribed from notifications'`): The first button visually hidden text.
+- `initial_visual_label` (string, default `'Get notifications'`): The first button label.
+- `swapped_label` (string, default `'Subscribed to notifications'`): The second button visually hidden text.
+- `swapped_visual_label` (string, default `'Turn off notifications'`): The second button label.
+
+## JavaScript
+
+This component does not come with built-in JavaScript for its functionality; you will need to write your own JS to use it.
+
+## Unsupported features
+
+The following features are not supported but can be in the future if the need arises. The decision was made to forego these features for now since a use case did not exist when developing this component.
+
+- No `content_end_icon` template property support
+- No `content_start`, `content`, or `content_end` block support

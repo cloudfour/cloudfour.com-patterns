@@ -1,4 +1,4 @@
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from 'storybook/preview-api';
 
 const setTextFlow = (element, { direction, writingMode } = {}) => {
   if (!element || !element.style) {
@@ -27,9 +27,9 @@ const setTextFlow = (element, { direction, writingMode } = {}) => {
  * {@link https://github.com/storybookjs/storybook/issues/14477|#14477} and
  * {@link https://github.com/storybookjs/storybook/issues/13444|#13444}.
  *
- * @param {function} story
+ * @param {() => void} story
  * @param {object} context
- * @returns {*} Result of story function.
+ * @returns {any} Result of story function.
  */
 export const withTextFlow = (story, context) => {
   let textFlow = context.parameters.textFlow ||

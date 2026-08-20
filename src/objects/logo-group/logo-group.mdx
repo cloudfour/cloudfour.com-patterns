@@ -1,0 +1,21 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+
+import * as LogoGroupStories from './logo-group.stories.js';
+
+<Meta of={LogoGroupStories} />
+
+# Logo Group
+
+The Logo Group presents multiple logos together with consistent spacing and alignment. It is useful for summarizing a list of projects or clients.
+
+To fine-tune the relative scale or layout of individual logos within, consider using [the Logo component](/docs/components-logo--basic-options).
+
+<Canvas of={LogoGroupStories.Default} />
+
+## Options
+
+The `justify` template property or `o-logo-group--justify-{alignment}` class sets the horizontal alignment of the logos within the group. The default is `start`, but `center` and `end` are also supported.
+
+To repeat the gap between logos around the whole container, set the `pad` template property to `true` or apply the `o-logo-group--pad` modifier class.
+
+<Canvas of={LogoGroupStories.CenteredWithPadding} />

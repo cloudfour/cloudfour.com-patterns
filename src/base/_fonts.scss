@@ -1,11 +1,19 @@
 @use 'sass:meta';
 
+/// Where the font files sit, relative to the compiled stylesheet.
+///
+/// The default is correct for the published package, where `dist/standalone.css` sits
+/// alongside the `src/assets` directory we ship. Storybook emits its CSS somewhere
+/// else entirely, so `src/index-with-dependencies.scss` configures this module with a
+/// root-absolute path instead.
+$dir: '../src/assets/fonts' !default;
+
 @mixin _non-variable-font-face($name, $path, $parameter) {
   @font-face {
     font-display: swap;
     font-family: $name;
-    src: url('../src/assets/fonts/#{$path}/#{$parameter}.woff2') format('woff2'),
-      url('../src/assets/fonts/#{$path}/#{$parameter}.woff') format('woff');
+    src: url('#{$dir}/#{$path}/#{$parameter}.woff2') format('woff2'),
+      url('#{$dir}/#{$path}/#{$parameter}.woff') format('woff');
 
     @if meta.type-of($parameter) == 'number' {
       font-weight: $parameter;
@@ -21,8 +29,8 @@
     font-family: 'Source Sans Pro Variable';
     font-style: $style;
     font-weight: 100 900;
-    src: url('../src/assets/fonts/#{$path}.woff2') format('woff2-variations'),
-      url('../src/assets/fonts/#{$path}.woff2') format('woff2');
+    src: url('#{$dir}/#{$path}.woff2') format('woff2-variations'),
+      url('#{$dir}/#{$path}.woff2') format('woff2');
   }
 }
 

@@ -1,0 +1,59 @@
+import { IconGallery, IconItem, Meta } from '@storybook/addon-docs/blocks';
+
+{/*
+Import a whole directory of icons at once. The `?react` query is what turns an SVG
+into a component, so the React transform stays confined to this page -- everywhere
+else an SVG import is just a URL.
+@see <https://vite.dev/guide/features#glob-import>
+@see <https://react-svgr.com/docs/vite/>
+*/}
+
+export const iconModules = import.meta.glob('../../assets/icons/*.svg', {
+  eager: true,
+  query: '?react',
+  import: 'default',
+});
+
+export const brandIconModules = import.meta.glob(
+  '../../assets/icons/brands/**/*.svg',
+  { eager: true, query: '?react', import: 'default' }
+);
+
+export const toIconItems = (modules, prefix = '') =>
+  Object.entries(modules)
+    .map(([filePath, Icon]) => ({
+      // Retains subdirectory if we want to organize with those in the future
+      name:
+        prefix +
+        filePath
+          .split('/')
+          .pop()
+          .replace(/\.svg$/, ''),
+      Icon,
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(({ name, Icon }) => (
+      <IconItem name={name} key={name}>
+        <Icon className="c-icon" />
+      </IconItem>
+    ));
+
+export const iconElements = toIconItems(iconModules);
+
+export const brandIconElements = toIconItems(brandIconModules, 'brands/');
+
+<Meta title="Design/Icons" />
+
+# Icons
+
+Our icons are designed to be compact yet friendly. They embrace bold shapes, rounded corners and circular caps. They work well adjacent to text, but should rarely be used on their own to convey meaning.
+
+For icon usage examples, see [the icon component](/docs/components-icon--basic).
+
+<IconGallery>{iconElements}</IconGallery>
+
+## Third-Party Brands
+
+Intended for outbound links to publications and social media profiles.
+
+<IconGallery>{brandIconElements}</IconGallery>

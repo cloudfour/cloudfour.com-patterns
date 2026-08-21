@@ -1,5 +1,12 @@
 multipass: true
 plugins:
-  - removeViewBox: false
-  - removeXMLNS: true
-  - removeUselessStrokeAndFill: false
+  - name: preset-default
+    params:
+      overrides:
+        # Our SVGs are templatized and included inline, and several are sized by
+        # CSS rather than by their own width/height, so stroke and fill have to
+        # survive optimisation.
+        removeUselessStrokeAndFill: false
+  # These files are only ever `{% include %}`d into HTML, where the namespace is
+  # implied. It is required only for standalone SVG documents.
+  - removeXMLNS

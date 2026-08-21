@@ -15,10 +15,10 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
   const menu = navButton.nextElementSibling as HTMLElement;
   const navWrapper = navButton.closest('.js-sky-nav') as HTMLElement;
   const largeScreenMediaQuery = window.matchMedia(
-    `(min-width: ${tokens.size.breakpoint.m.value})`
+    `(min-width: ${tokens.size.breakpoint.m.value})`,
   );
   const reducedMotionMediaQuery = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
+    '(prefers-reduced-motion: reduce)',
   );
 
   // The Sky Nav component has inline synchronous JS logic to swap `no-js` for an
@@ -74,7 +74,7 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       document.body.style.setProperty('transition', transition);
       document.body.style.setProperty(
         'transform',
-        `translateY(${-heightDiff}px)`
+        `translateY(${-heightDiff}px)`,
       );
 
       timeoutId = setTimeout(() => {
@@ -86,7 +86,7 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       // Opening menu: start the elements higher than their "resting position" and then slide them down
       document.body.style.setProperty(
         'transform',
-        `translateY(${-heightDiff}px)`
+        `translateY(${-heightDiff}px)`,
       );
 
       // Flush changes to the DOM

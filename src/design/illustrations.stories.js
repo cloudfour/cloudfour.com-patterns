@@ -12,7 +12,7 @@ const featureImages = import.meta.glob(
   {
     eager: true,
     import: 'default',
-  }
+  },
 );
 
 const featureImageData = Object.entries(featureImages)

@@ -28,7 +28,7 @@ const breakpointViewports = Object.fromEntries(
       },
       type: 'other',
     },
-  ])
+  ]),
 );
 
 export const parameters = {
@@ -68,7 +68,7 @@ export const parameters = {
           const storyFunction = storyContext.originalStoryFn;
           if (!storyFunction) return code;
           const rendered = storyFunction(
-            storyContext.args || storyContext.initialArgs
+            storyContext.args || storyContext.initialArgs,
           );
           const input = globalThis.__twig_inputs__?.get(rendered);
           if (!input) return code;
@@ -94,7 +94,7 @@ const textFlowItems = directions.flatMap((direction) =>
     value: JSON.stringify({ direction, writingMode }),
     title: writingMode,
     left: direction,
-  }))
+  })),
 );
 
 export const globalTypes = {

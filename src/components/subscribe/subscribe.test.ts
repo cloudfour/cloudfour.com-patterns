@@ -20,7 +20,7 @@ const componentMarkup = (args = {}) =>
 // Helper to load the demo Twig template file
 const demoMarkup = loadTwigTemplate(path.join(__dirname, './demo/demo.twig'));
 const demoDestroyInitMarkup = loadTwigTemplate(
-  path.join(__dirname, './demo/destroy-init.twig')
+  path.join(__dirname, './demo/destroy-init.twig'),
 );
 
 /**
@@ -29,7 +29,7 @@ const demoDestroyInitMarkup = loadTwigTemplate(
  * meaning the element is visually hidden.
  */
 const expectElementToBeVisuallyHidden = async (
-  element: ElementHandle<HTMLElement>
+  element: ElementHandle<HTMLElement>,
 ) => {
   const { elHeight, elWidth } = await element.evaluate((el) => ({
     elHeight: el.clientHeight,
@@ -45,7 +45,7 @@ const expectElementToBeVisuallyHidden = async (
  * meaning the element is not visually hidden.
  */
 const expectElementNotToBeVisuallyHidden = async (
-  form: ElementHandle<HTMLElement>
+  form: ElementHandle<HTMLElement>,
 ) => {
   const { elHeight, elWidth } = await form.evaluate((el) => ({
     elHeight: el.clientHeight,
@@ -76,7 +76,7 @@ describe('Subscription component', () => {
         await componentMarkup({
           weekly_digests_heading: 'Get Weekly Digests',
           subscribe_heading: 'Never miss an article!',
-        })
+        }),
       );
       await initJS(utils);
 
@@ -96,7 +96,7 @@ describe('Subscription component', () => {
             textbox "Email"
             button "Subscribe"
       `);
-    })
+    }),
   );
 
   test(
@@ -181,7 +181,7 @@ describe('Subscription component', () => {
         {
           timeout: 2000,
           interval: 1000,
-        }
+        },
       );
 
       // Navigate back into the form
@@ -200,7 +200,7 @@ describe('Subscription component', () => {
 
       // The focus should reset back to the "weekly digests" link
       await expect(weeklyDigestsBtn).toHaveFocus();
-    })
+    }),
   );
 
   test(
@@ -236,7 +236,7 @@ describe('Subscription component', () => {
           email_input_name: 'email-input-name',
           email_input_placeholder: 'Gimme email',
           submit_btn_label: 'Sign up',
-        })
+        }),
       );
 
       // Confirm custom headings
@@ -274,7 +274,7 @@ describe('Subscription component', () => {
       await screen.getByRole('button', {
         name: 'Sign up',
       });
-    })
+    }),
   );
 
   test(
@@ -295,10 +295,10 @@ describe('Subscription component', () => {
       `);
 
       const initSubscribe = makeCallableJSHandle(
-        await subscribeComponent.getProperty('init')
+        await subscribeComponent.getProperty('init'),
       );
       const destroySubscribe = makeCallableJSHandle(
-        await subscribeComponent.getProperty('destroy')
+        await subscribeComponent.getProperty('destroy'),
       );
 
       // The form should be active/visible when `destroy()` is called
@@ -352,7 +352,7 @@ describe('Subscription component', () => {
         {
           timeout: 2000,
           interval: 1000,
-        }
+        },
       );
 
       // Cover a race condition where the timeout and destroy get called quickly
@@ -373,6 +373,6 @@ describe('Subscription component', () => {
       });
       // The form should be visible
       await expectElementNotToBeVisuallyHidden(form);
-    })
+    }),
   );
 });

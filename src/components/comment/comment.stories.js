@@ -17,7 +17,7 @@ const tyler = {
 const initCommentReplyForms = () => {
   const textAreaEl = document.querySelector('.js-elastic-textarea');
   const commentReplyFormEl = document.querySelector(
-    '.js-comment-with-reply-form'
+    '.js-comment-with-reply-form',
   );
   if (textAreaEl && commentReplyFormEl) {
     const textareaInstance = createElasticTextArea(textAreaEl);

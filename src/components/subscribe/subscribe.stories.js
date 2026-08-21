@@ -9,7 +9,7 @@ const templateStory = (args) => {
   useEffect(() => {
     // Initialize the component
     const subscribeComponent = createSubscribe(
-      document.querySelector('.js-subscribe')
+      document.querySelector('.js-subscribe'),
     );
     subscribeComponent.init();
     // Set up the demo destroy button
@@ -210,7 +210,7 @@ export const Default = {
             form_id: 'example-demo',
             subscribe_heading: 'Never miss an article!',
             weekly_digests_heading: 'Get Weekly Digests',
-          }
+          },
         ),
       },
     },

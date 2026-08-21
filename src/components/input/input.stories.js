@@ -78,7 +78,7 @@ export const ElasticTextarea = {
       source: {
         code: makeTwigInclude(
           '@cloudfour/components/input/input.twig',
-          elasticTextAreaConfig
+          elasticTextAreaConfig,
         ),
       },
     },

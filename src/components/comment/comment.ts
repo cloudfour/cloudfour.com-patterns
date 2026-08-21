@@ -1,9 +1,9 @@
 export const initCommentReplyForm = (comment: HTMLElement) => {
   const replyButton = comment.querySelector<HTMLButtonElement>(
-    '.js-comment-reply-button'
+    '.js-comment-reply-button',
   );
   const replyForm = comment.querySelector<HTMLFormElement>(
-    '.js-comment-reply-form'
+    '.js-comment-reply-form',
   );
   // The cancel button is inside the Comment Form, so we need to reach inside
   // that component to grab the button. This feels a little awkward since

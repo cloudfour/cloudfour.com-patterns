@@ -24,7 +24,7 @@ const extensions = ['.js', '.ts', '.tsx'];
  */
 const createVirtualRootEntry = async () => {
   const files = await glob(
-    `src/{objects,components}/*/*{${extensions.join(',')}}`
+    `src/{objects,components}/*/*{${extensions.join(',')}}`,
   );
   return (
     files
@@ -38,7 +38,7 @@ const createVirtualRootEntry = async () => {
           .replace(path.extname(f), '');
         const relativePath = `./${path.relative(
           process.cwd(),
-          absolutePathWithoutExtension
+          absolutePathWithoutExtension,
         )}`;
         return `export * from ${JSON.stringify(relativePath)}`;
       })

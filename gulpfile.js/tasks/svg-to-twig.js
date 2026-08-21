@@ -39,10 +39,10 @@ function templatizeSvgString(src) {
 
   // Create blocks for SVG content, before and after
   const prepend = ltx.parse(
-    '<root>{% block before %}{% endblock %}{% block content %}</root>'
+    '<root>{% block before %}{% endblock %}{% block content %}</root>',
   );
   const append = ltx.parse(
-    '<root>{% endblock %}{% block after %}{% endblock %}</root>'
+    '<root>{% endblock %}{% block after %}{% endblock %}</root>',
   );
   svg.children = [...prepend.children, ...svg.children, ...append.children];
 
@@ -58,9 +58,8 @@ function templatizeSvgString(src) {
     // Dashes have meaning in Twig expressions, so we replace them with
     // underscores in property names.
     const twigProp = prop.replace(/-/g, '_');
-    svg.attrs[
-      prop
-    ] = `{% if ${twigProp} %}{{${twigProp}}}{% else %}${current}{% endif %}`;
+    svg.attrs[prop] =
+      `{% if ${twigProp} %}{{${twigProp}}}{% else %}${current}{% endif %}`;
   }
 
   // Grab the SVG source to this point
@@ -101,7 +100,7 @@ function svgToTwig() {
           }
 
           cb(null, file);
-        })
+        }),
       )
       // Append `.twig` to filenames
       .pipe(rename({ extname: '.svg.twig' }))

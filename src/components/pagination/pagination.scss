@@ -141,7 +141,8 @@ $indicator-width-current: $indicator-height-current;
   inset-block: 0;
   margin: auto;
   position: absolute;
-  transition: filter transition.$slow ease.$out,
+  transition:
+    filter transition.$slow ease.$out,
     transform transition.$quick ease.$out;
 }
 

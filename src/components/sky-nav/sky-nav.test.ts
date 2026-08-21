@@ -16,7 +16,7 @@ const initSkyNavJS = (utils: PleasantestUtils, navButton: ElementHandle) =>
     const [navButton] = import.meta.pleasantestArgs;
     initSkyNav(navButton)
     `,
-    [navButton]
+    [navButton],
   );
 
 test(
@@ -26,7 +26,7 @@ test(
       await skyNavMarkup({
         includeMainDemo: true,
         menu,
-      })
+      }),
     );
 
     await loadGlobalCSS(utils);
@@ -89,7 +89,7 @@ test(
               link "Hire Us"
                 text "Hire Us"
     `);
-  })
+  }),
 );
 
 test(
@@ -137,5 +137,5 @@ test(
               link "Hire Us"
                 text "Hire Us"
     `);
-  })
+  }),
 );

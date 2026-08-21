@@ -16,7 +16,7 @@ describe('Overview object', () => {
         await template({
           show_heading: true,
           show_footer: true,
-        })
+        }),
       );
 
       const body = await page.evaluateHandle(() => document.body);
@@ -27,7 +27,7 @@ describe('Overview object', () => {
           text "Actions"
           text "Content"
       `);
-    })
+    }),
   );
 
   test(
@@ -37,7 +37,7 @@ describe('Overview object', () => {
         await divTemplate({
           show_heading: true,
           show_footer: true,
-        })
+        }),
       );
 
       const body = await page.evaluateHandle(() => document.body);
@@ -46,6 +46,6 @@ describe('Overview object', () => {
         text "Actions"
         text "Content"
       `);
-    })
+    }),
   );
 });

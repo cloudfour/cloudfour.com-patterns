@@ -29,7 +29,7 @@ test(
           approved: true,
         },
         allow_replies: true,
-      })
+      }),
     );
 
     await loadGlobalCSS(utils);
@@ -85,5 +85,5 @@ test(
     await expect(form).not.toBeVisible();
     await expect(replyButton).toBeVisible();
     await expect(replyButton).toHaveFocus();
-  })
+  }),
 );

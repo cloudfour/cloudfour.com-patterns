@@ -19,15 +19,15 @@ export const createSubscribe = (containerEl: HTMLElement) => {
 
   // Query all the required elements
   const getWeeklyDigestsBtn = containerEl.querySelector(
-    '.js-subscribe__get-weekly-digests-btn'
+    '.js-subscribe__get-weekly-digests-btn',
   );
   const formEl = containerEl.querySelector('form');
   const formFocusableEls = containerEl.querySelectorAll('label, input, button');
   const controlEls = containerEl.querySelectorAll<HTMLElement>(
-    '.js-subscribe__control'
+    '.js-subscribe__control',
   );
   const controlsUiWrapper = containerEl.querySelector<HTMLElement>(
-    '.js-subscribe__controls-ui'
+    '.js-subscribe__controls-ui',
   );
 
   // Confirm we have what we need to proceed
@@ -82,7 +82,7 @@ export const createSubscribe = (containerEl: HTMLElement) => {
   const addEventListeners = () => {
     getWeeklyDigestsBtn.addEventListener('click', onGetWeeklyDigestsClick);
     cleanupCallbacks.push(() =>
-      getWeeklyDigestsBtn.removeEventListener('click', onGetWeeklyDigestsClick)
+      getWeeklyDigestsBtn.removeEventListener('click', onGetWeeklyDigestsClick),
     );
 
     for (const formFocusableEl of formFocusableEls) {
@@ -97,13 +97,13 @@ export const createSubscribe = (containerEl: HTMLElement) => {
     for (const controlEl of controlEls) {
       controlEl.addEventListener('focus', onControlFocus);
       cleanupCallbacks.push(() =>
-        controlEl.removeEventListener('focus', onControlFocus)
+        controlEl.removeEventListener('focus', onControlFocus),
       );
     }
 
     document.addEventListener('keydown', onKeydown);
     cleanupCallbacks.push(() =>
-      document.removeEventListener('keydown', onKeydown)
+      document.removeEventListener('keydown', onKeydown),
     );
   };
 

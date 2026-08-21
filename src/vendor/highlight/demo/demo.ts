@@ -27,7 +27,7 @@ const sampleName = (key: string) =>
  */
 const getSample = (language = 'html'): string => {
   const key = sampleKeys.find(
-    (key) => key.includes(`${language}.`) || key.endsWith(`.${language}`)
+    (key) => key.includes(`${language}.`) || key.endsWith(`.${language}`),
   );
   // No sample for this language: highlight nothing rather than throwing.
   return key ? samples[key] : '';

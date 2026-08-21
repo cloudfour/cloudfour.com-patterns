@@ -77,7 +77,8 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: filter transition.$slow ease.$out,
+  transition:
+    filter transition.$slow ease.$out,
     transform transition.$quick ease.$out;
   user-select: none;
   vertical-align: middle;

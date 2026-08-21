@@ -62,7 +62,8 @@
 // above the containers below. Floating has a white background for higher
 // contrast between the background and the shadow.
 .c-alert--floating {
-  box-shadow: 0 0 0 size.$edge-medium var(--theme-color-shadow-inner),
+  box-shadow:
+    0 0 0 size.$edge-medium var(--theme-color-shadow-inner),
     size.$edge-large size.$edge-large 0 size.$edge-medium
       var(--theme-color-shadow-outer);
   @include theme.styles {
@@ -147,7 +148,8 @@
 /// We apply the transition effects to the icon so the button itself won't break
 /// outside of the alert, which is particularly important when it's full-width.
 .c-alert__dismiss-icon {
-  transition: filter transition.$slow ease.$out,
+  transition:
+    filter transition.$slow ease.$out,
     transform transition.$quick ease.$out;
 
   .c-alert__dismiss:hover & {

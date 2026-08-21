@@ -35,7 +35,7 @@ export const Default = {
           {
             heading_id: 'leave-a-comment',
             help_text_id: 'leave-a-comment-help-text',
-          }
+          },
         ),
       },
     },
@@ -43,7 +43,7 @@ export const Default = {
   render: ({ isLoggedIn, isReply }) => {
     useEffect(() => {
       const { destroy } = createElasticTextArea(
-        document.querySelector('.js-elastic-textarea')
+        document.querySelector('.js-elastic-textarea'),
       );
       return destroy;
     });
@@ -73,7 +73,7 @@ export const Reply = {
             heading_text: 'Reply to John Doe',
             heading_class: 'u-hidden-visually',
             main_label: 'Reply',
-          }
+          },
         ),
       },
     },
@@ -81,7 +81,7 @@ export const Reply = {
   render: ({ isLoggedIn, isReply }) => {
     useEffect(() => {
       const { destroy } = createElasticTextArea(
-        document.querySelector('.js-elastic-textarea')
+        document.querySelector('.js-elastic-textarea'),
       );
       return destroy;
     });

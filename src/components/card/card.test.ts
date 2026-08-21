@@ -16,7 +16,7 @@ describe('Card component', () => {
         await template({
           show_heading: true,
           show_footer: true,
-        })
+        }),
       );
 
       const body = await page.evaluateHandle(() => document.body);
@@ -27,7 +27,7 @@ describe('Card component', () => {
               heading "Lorem ipsum dolor sit amet" (level=2)
             contentinfo
         `);
-    })
+    }),
   );
 
   test(
@@ -37,13 +37,13 @@ describe('Card component', () => {
         await divTemplate({
           show_heading: true,
           show_footer: true,
-        })
+        }),
       );
 
       const body = await page.evaluateHandle(() => document.body);
       expect(
-        await getAccessibilityTree(body, { includeText: false })
+        await getAccessibilityTree(body, { includeText: false }),
       ).toMatchInlineSnapshot(`heading "Lorem ipsum dolor sit amet" (level=2)`);
-    })
+    }),
   );
 });

@@ -20,7 +20,7 @@ StyleDictionary.registerTransform({
   type: 'name',
   transformer: function (prop, options) {
     return _.kebabCase(
-      [options.prefix].concat(prop.path.slice(1, prop.path.length)).join(' ')
+      [options.prefix].concat(prop.path.slice(1, prop.path.length)).join(' '),
     );
   },
 });
@@ -44,7 +44,7 @@ StyleDictionary.registerTransform({
   type: 'name',
   transformer: function (prop, options) {
     return _.kebabCase(
-      [options.prefix].concat(prop.path.slice(2, prop.path.length)).join(' ')
+      [options.prefix].concat(prop.path.slice(2, prop.path.length)).join(' '),
     );
   },
 });
@@ -135,7 +135,7 @@ StyleDictionary.registerFormat({
     return `export default ${JSON.stringify(
       dictionary.properties,
       null,
-      '  '
+      '  ',
     )}`;
   },
 });
@@ -144,7 +144,7 @@ StyleDictionary.registerFormat({
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
 const StyleDictionaryExtended = StyleDictionary.extend(
-  __dirname + '/config.js'
+  __dirname + '/config.js',
 );
 
 // BUILD ALL THE PLATFORMS

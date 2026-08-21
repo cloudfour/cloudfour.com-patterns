@@ -23,7 +23,7 @@ test(
         ],
         date: new Date('March 31, 2021'),
         date_prefix: 'Presented on',
-      })
+      }),
     );
 
     const body = await page.evaluateHandle(() => document.body);
@@ -33,7 +33,7 @@ test(
         text "Shakira Isabel Mebarak Ripoll"
       text "Presented on March 31st, 2021"
     `);
-  })
+  }),
 );
 
 test(
@@ -51,14 +51,14 @@ test(
         ],
         date: new Date('March 31, 2021'),
         date_format: 'short',
-      })
+      }),
     );
 
     // The short date formatting applies to the visible date text
     // (not our visually hidden screen reader text)
     const visibleDateText = await screen.getByText('Mar 31, 2021');
     await expect(visibleDateText).toHaveAttribute('aria-hidden', 'true');
-  })
+  }),
 );
 
 test(
@@ -77,7 +77,7 @@ test(
         ],
         date: new Date('March 31, 2021'),
         meta: 'Singer and songwriter',
-      })
+      }),
     );
 
     const body = await page.evaluateHandle(() => document.body);
@@ -89,7 +89,7 @@ test(
         text "Shakira Isabel Mebarak Ripoll"
       text "Singer and songwriter"
     `);
-  })
+  }),
 );
 
 test(
@@ -105,7 +105,7 @@ test(
             name: 'Shakira Isabel Mebarak Ripoll',
           },
         ],
-      })
+      }),
     );
 
     const body = await page.evaluateHandle(() => document.body);
@@ -115,7 +115,7 @@ test(
       text "By"
       text "Shakira Isabel Mebarak Ripoll"
     `);
-  })
+  }),
 );
 
 test(
@@ -133,7 +133,7 @@ test(
           },
         ],
         unlink: true,
-      })
+      }),
     );
 
     const body = await page.evaluateHandle(() => document.body);
@@ -143,5 +143,5 @@ test(
       text "By"
       text "Shakira Isabel Mebarak Ripoll"
     `);
-  })
+  }),
 );

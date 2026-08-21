@@ -175,7 +175,8 @@ $max-width-permalink-shift: math.div($min-width-permalink-shift * 16 - 1, 16);
   margin: auto;
   position: absolute;
   text-decoration: none;
-  transition: color transition.$quick ease.$out,
+  transition:
+    color transition.$quick ease.$out,
     opacity transition.$quick ease.$out;
 
   @include focus.focus-visible {

@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 24.19.0
       - name: Cache node modules
-        uses: actions/cache@v5.1.0
+        uses: actions/cache@v6.1.0
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: 24.19.0
       - name: Cache node modules
-        uses: actions/cache@v5.1.0
+        uses: actions/cache@v6.1.0
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -62,7 +62,7 @@ jobs:
         with:
           node-version: 24.19.0
       - name: Cache node modules
-        uses: actions/cache@v5.1.0
+        uses: actions/cache@v6.1.0
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -82,7 +82,7 @@ jobs:
         with:
           node-version: 24.19.0
       - name: Cache node modules
-        uses: actions/cache@v5.1.0
+        uses: actions/cache@v6.1.0
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -92,7 +92,7 @@ jobs:
       # Chromium is not in the npm install: Playwright downloads browsers
       # separately, into a cache keyed by Playwright version.
       - name: Cache Playwright browsers
-        uses: actions/cache@v5.1.0
+        uses: actions/cache@v6.1.0
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}

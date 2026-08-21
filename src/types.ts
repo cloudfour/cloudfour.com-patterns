@@ -1,5 +1,12 @@
+// `expect.element` and the browser-mode DOM matchers, used by `*.browser.test.ts`.
+/// <reference types="@vitest/browser/matchers" />
+// The same matchers for the jsdom tests, which get them from `vitest.setup.node.ts`.
+/// <reference types="@testing-library/jest-dom/vitest" />
+
 declare module '*.twig' {
-  function template(opts: Record<string, unknown>): string;
+  // The Vite plugin in `twing/vite-plugin-twig.mjs` defaults the context to `{}`,
+  // so templates that read no variables can be rendered with no arguments.
+  function template(opts?: Record<string, unknown>): string;
   export default template;
 }
 

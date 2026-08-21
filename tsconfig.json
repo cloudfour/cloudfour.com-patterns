@@ -5,10 +5,19 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "moduleResolution": "node",
+    // Vite resolves imports, so TypeScript should read `package.json` `exports` the
+    // same way it does. The legacy "node" mode cannot see subpaths like
+    // `vitest/browser`, which the browser tests import.
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "ts-dist",
+    // Without this, TypeScript infers the output layout from the common directory of
+    // whatever is in the program, so emitting to `ts-dist/src/...` depended on some
+    // file outside `src` being pulled in -- which `test-utils.ts` did, by being
+    // imported from the tests. `gulp buildTypes` looks for `ts-dist/src`, so pin it
+    // rather than let it move when the set of files changes.
+    "rootDir": ".",
     "emitDeclarationOnly": true,
     "allowJs": true,
     "checkJs": true,

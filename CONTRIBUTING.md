@@ -32,16 +32,17 @@ You can also run checks individually:
 cloudfour.com-patterns
 ├── .github               # GitHub workflows and templates
 ├── .storybook
-│   ├── main.js           # Settings for Storybook UI
+│   ├── main.mjs          # Settings for Storybook UI
 │   └── preview.js        # Settings for story previews
 ├── .style-dictionary
-│   ├── config.json       # Settings for design token processing
-│   └── build.js          # Design token build script
-├── gulpfile.js
-│   └── tasks/*.js        # Complex build tasks
+│   ├── config.mjs        # Settings for design token processing
+│   └── build.mjs         # Design token build script
+├── scripts
+│   └── *.mjs             # Build and preprocess scripts
 ├── src
 │   ├── **/*.scss         # Styles (Sass)
-│   ├── **/*.stories.mdx  # Documentation (Storybook Docs)
+│   ├── **/*.stories.js   # Stories (Storybook CSF)
+│   ├── **/*.mdx          # Documentation (Storybook Docs)
 │   ├── **/*.twig         # Templates (Twig)
 │   └── tokens/*          # Design tokens (Style Dictionary)
 ├── .editorconfig         # Low-level code consistency

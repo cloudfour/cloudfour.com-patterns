@@ -240,8 +240,7 @@
   grid-area: social;
 
   @media (width >= breakpoint.$xl) {
-    align-self: start; // 2
-    justify-self: end; // 2
+    place-self: start end; // 2
   }
 }
 

@@ -124,7 +124,7 @@
   @include _scale-utilities($property: margin, $base: -1em);
 }
 
-@include media-query.breakpoint-loop() using ($key) {
+@include media-query.breakpoint-loop using ($key) {
   $suffix: '\\@#{$key}';
 
   .u-pad {

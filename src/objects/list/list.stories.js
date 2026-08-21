@@ -28,7 +28,9 @@ export default {
   render: (args) => template(args),
 };
 
-export const Default = {};
+export const Default = {
+  parameters: { docs: { story: { iframeHeight: '200px' } } },
+};
 
 export const Inline = {
   args: { class: 'o-list--inline' },

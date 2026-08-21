@@ -34,6 +34,7 @@ export const Dark = {
     layout: 'fullscreen',
     themes: { disable: true },
     docs: {
+      story: { iframeHeight: '200px' },
       source: {
         code: makeTwigInclude('@cloudfour/components/sky-nav/sky-nav.twig', {
           class: 't-dark',
@@ -54,6 +55,7 @@ export const Light = {
     layout: 'fullscreen',
     themes: { disable: true },
     docs: {
+      story: { iframeHeight: '200px' },
       source: {
         code: makeTwigInclude(
           '@cloudfour/components/sky-nav/sky-nav.twig',

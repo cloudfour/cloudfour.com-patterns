@@ -24,7 +24,10 @@ export default {
 export const Example = {
   parameters: {
     layout: 'fullscreen',
-    docs: { source: { code: exampleDemoSource } },
+    docs: {
+      story: { iframeHeight: '400px' },
+      source: { code: exampleDemoSource },
+    },
   },
   render: () => exampleDemo(),
 };
@@ -33,7 +36,10 @@ export const ExampleWithAlert = {
   name: 'Example with Alert',
   parameters: {
     layout: 'fullscreen',
-    docs: { source: { code: exampleDemoWithAlertSource } },
+    docs: {
+      story: { iframeHeight: '400px' },
+      source: { code: exampleDemoWithAlertSource },
+    },
   },
   render: () => exampleDemoWithAlert(),
 };

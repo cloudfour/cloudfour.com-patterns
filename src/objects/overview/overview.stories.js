@@ -16,6 +16,7 @@ export default {
 export const Basic = {
   parameters: {
     docs: {
+      story: { iframeHeight: '300px' },
       source: {
         code: basicDemoSource,
       },
@@ -28,6 +29,7 @@ export const AdvancedUsage = {
   name: 'Advanced Usage',
   parameters: {
     docs: {
+      story: { iframeHeight: '300px' },
       source: {
         code: advancedDemoSource,
       },

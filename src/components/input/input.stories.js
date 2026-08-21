@@ -75,6 +75,7 @@ export const ElasticTextarea = {
   },
   parameters: {
     docs: {
+      story: { iframeHeight: '250px' },
       source: {
         code: makeTwigInclude(
           '@cloudfour/components/input/input.twig',

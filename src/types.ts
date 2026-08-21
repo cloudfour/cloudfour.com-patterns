@@ -15,7 +15,7 @@ declare module 'jabber' {
       themeWords?: string[],
       themeWordDensity?: number,
       extraVowels?: string,
-      extraConsonants?: string
+      extraConsonants?: string,
     );
 
     /** Create email */
@@ -31,7 +31,7 @@ declare module 'jabber' {
     createWord(
       length: number,
       capitalize?: boolean,
-      avoidThemeWords?: boolean
+      avoidThemeWords?: boolean,
     ): string;
   }
   export = jabber;

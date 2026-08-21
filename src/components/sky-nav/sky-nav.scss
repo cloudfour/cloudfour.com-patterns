@@ -193,7 +193,8 @@ $_masthead-height-sm: ms.step(7);
     breakpoint.$l
   );
   margin: (ms.step(-6) * -1); /* 2 */
-  transition: opacity transition.$slow ease.$out,
+  transition:
+    opacity transition.$slow ease.$out,
     transform transition.$quick ease.$out;
   @media (min-width: breakpoint.$l) {
     inline-size: ms.step(8);

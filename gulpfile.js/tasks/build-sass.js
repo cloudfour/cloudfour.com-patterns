@@ -17,7 +17,7 @@ const buildSass = () =>
         cssnano({
           preset: ['cssnano-preset-default', { colormin: false, calc: false }],
         }),
-      ])
+      ]),
     )
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(outDir));

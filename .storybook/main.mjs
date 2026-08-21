@@ -15,6 +15,7 @@ export default {
     '@storybook/addon-docs',
     '@storybook/addon-a11y',
     '@etchteam/storybook-addon-status',
+    '@whitespace/storybook-addon-html',
   ],
   framework: {
     name: '@storybook/html-vite',

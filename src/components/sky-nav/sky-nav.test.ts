@@ -1,7 +1,12 @@
 import path from 'path';
 
-import type { ElementHandle, PleasantestUtils } from 'pleasantest';
-import { devices, getAccessibilityTree, withBrowser } from 'pleasantest';
+import {
+  type ElementHandle,
+  type PleasantestUtils,
+  devices,
+  getAccessibilityTree,
+  withBrowser,
+} from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
 
@@ -16,7 +21,7 @@ const initSkyNavJS = (utils: PleasantestUtils, navButton: ElementHandle) =>
     const [navButton] = import.meta.pleasantestArgs;
     initSkyNav(navButton)
     `,
-    [navButton]
+    [navButton],
   );
 
 test(
@@ -26,7 +31,7 @@ test(
       await skyNavMarkup({
         includeMainDemo: true,
         menu,
-      })
+      }),
     );
 
     await loadGlobalCSS(utils);
@@ -89,7 +94,7 @@ test(
               link "Hire Us"
                 text "Hire Us"
     `);
-  })
+  }),
 );
 
 test(
@@ -137,5 +142,5 @@ test(
               link "Hire Us"
                 text "Hire Us"
     `);
-  })
+  }),
 );

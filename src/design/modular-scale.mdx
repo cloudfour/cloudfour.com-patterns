@@ -5,10 +5,10 @@ import tokens from '../compiled/tokens/js/tokens.js';
 // `+` would otherwise concatenate rather than add.
 export const ratio = Number(tokens.number.scale.modular.ratio.value);
 export const minimumStep = Number(
-  tokens.number.scale.modular.minimum_step.value
+  tokens.number.scale.modular.minimum_step.value,
 );
 export const maximumStep = Number(
-  tokens.number.scale.modular.maximum_step.value
+  tokens.number.scale.modular.maximum_step.value,
 );
 export const sizeRows = Array.from(
   { length: maximumStep - minimumStep + 1 },
@@ -34,7 +34,7 @@ export const sizeRows = Array.from(
         </td>
       </tr>
     );
-  }
+  },
 );
 
 <Meta title="Design/Modular Scale" />

@@ -1,5 +1,7 @@
-const StyleDictionary = require('style-dictionary');
+const path = require('node:path');
+
 const _ = require('lodash');
+const StyleDictionary = require('style-dictionary');
 
 /**
  * Custom Transform: Kebab-Case without Category
@@ -19,9 +21,7 @@ StyleDictionary.registerTransform({
   name: 'custom/name/ti/kebab',
   type: 'name',
   transformer: function (prop, options) {
-    return _.kebabCase(
-      [options.prefix].concat(prop.path.slice(1, prop.path.length)).join(' ')
-    );
+    return _.kebabCase([options.prefix, ...prop.path.slice(1)].join(' '));
   },
 });
 
@@ -43,9 +43,7 @@ StyleDictionary.registerTransform({
   name: 'custom/name/i/kebab',
   type: 'name',
   transformer: function (prop, options) {
-    return _.kebabCase(
-      [options.prefix].concat(prop.path.slice(2, prop.path.length)).join(' ')
-    );
+    return _.kebabCase([options.prefix, ...prop.path.slice(2)].join(' '));
   },
 });
 
@@ -59,7 +57,7 @@ StyleDictionary.registerTransform({
   name: 'custom/name/i/kebab-rejoin-n',
   type: 'name',
   transformer: function (prop) {
-    return prop.name.replace(/-n-(\d)/g, '-n$1');
+    return prop.name.replaceAll(/-n-(\d)/g, '-n$1');
   },
 });
 
@@ -118,9 +116,9 @@ StyleDictionary.registerFormat({
   name: 'custom/format/js/flat',
   formatter(dictionary) {
     const tokens = {};
-    dictionary.allProperties.forEach((prop) => {
+    for (const prop of dictionary.allProperties) {
       tokens[prop.name] = prop;
-    });
+    }
     return `export default ${JSON.stringify(tokens, null, '  ')}`;
   },
 });
@@ -135,7 +133,7 @@ StyleDictionary.registerFormat({
     return `export default ${JSON.stringify(
       dictionary.properties,
       null,
-      '  '
+      '  ',
     )}`;
   },
 });
@@ -144,7 +142,7 @@ StyleDictionary.registerFormat({
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
 const StyleDictionaryExtended = StyleDictionary.extend(
-  __dirname + '/config.js'
+  path.join(__dirname, 'config.js'),
 );
 
 // BUILD ALL THE PLATFORMS

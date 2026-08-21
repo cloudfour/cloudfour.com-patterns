@@ -1,7 +1,8 @@
 /**
  * Convert an object of story arguments into a Twig `with` string for use in
  * template source strings.
- * @param {any} args
+ *
+ * @param {Record<string, unknown>} args
  */
 export const makeArgsString = (args = {}) => {
   if (Object.keys(args).length > 0) {
@@ -14,8 +15,9 @@ export const makeArgsString = (args = {}) => {
 /**
  * Generate a twig source string of an include with args, i.e.
  * {% include '@cloudfour/components/button.twig' with { "type": "disabled" } only %}
+ *
  * @param {string} path
- * @param {any} args
+ * @param {Record<string, unknown>} args
  */
 export const makeTwigInclude = (path, args = {}) => {
   const argsString = makeArgsString(args);
@@ -27,13 +29,14 @@ export const makeTwigInclude = (path, args = {}) => {
  * names are included in args, their content will be included as a block within
  * the embed. If no blocks are found, an include string will be returned
  * instead.
+ *
  * @param {string} path
- * @param {any} args
+ * @param {Record<string, unknown>} args
  * @param {string[]} blockNames
  */
 export const makeTwigEmbed = (path, args = {}, blockNames = []) => {
   const blocks = [];
-  /** @type {Record<string, any>} */
+  /** @type {Record<string, unknown>} */
   const filteredArgs = {};
 
   for (const [key, value] of Object.entries(args)) {
@@ -60,7 +63,7 @@ export const makeTwigEmbed = (path, args = {}, blockNames = []) => {
 
 /**
  * @param {string} path
- * @param {any} args
+ * @param {Record<string, unknown>} args
  * @param {string[]} blockNames
  */
 export const makeTwigEmbedIfHtml = (path, args = {}, blockNames = []) => {

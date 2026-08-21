@@ -12,7 +12,8 @@ $dir: '../src/assets/fonts' !default;
   @font-face {
     font-display: swap;
     font-family: $name;
-    src: url('#{$dir}/#{$path}/#{$parameter}.woff2') format('woff2'),
+    src:
+      url('#{$dir}/#{$path}/#{$parameter}.woff2') format('woff2'),
       url('#{$dir}/#{$path}/#{$parameter}.woff') format('woff');
 
     @if meta.type-of($parameter) == 'number' {
@@ -29,7 +30,8 @@ $dir: '../src/assets/fonts' !default;
     font-family: 'Source Sans Pro Variable';
     font-style: $style;
     font-weight: 100 900;
-    src: url('#{$dir}/#{$path}.woff2') format('woff2-variations'),
+    src:
+      url('#{$dir}/#{$path}.woff2') format('woff2-variations'),
       url('#{$dir}/#{$path}.woff2') format('woff2');
   }
 }

@@ -35,7 +35,7 @@ export const Default = {
             initial_visual_label: 'Give me all the notifications!',
             swapped_label: 'Notifications have been turned on.',
             swapped_visual_label: 'Just kidding, stop notifications, please.',
-          }
+          },
         ),
       },
     },

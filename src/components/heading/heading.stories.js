@@ -58,7 +58,7 @@ export default {
           makeTwigEmbedIfHtml(
             '@cloudfour/components/heading/heading.twig',
             storyContext.args || storyContext.initialArgs || {},
-            ['content', 'subheading']
+            ['content', 'subheading'],
           ),
       },
     },

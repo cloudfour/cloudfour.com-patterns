@@ -107,7 +107,8 @@ $_column_gap: spacing.$fluid-gap;
  */
 
 .c-cloud-cover::before {
-  background-image: svg-load(
+  background-image:
+    svg-load(
       'clouds/medium.svg',
       fill=color.$brand-primary-lighter,
       width= '480',
@@ -121,7 +122,8 @@ $_column_gap: spacing.$fluid-gap;
       height= '140',
       viewBox= '0 0 580 140'
     );
-  background-size: auto (math.div(220, 300) * 100%),
+  background-size:
+    auto (math.div(220, 300) * 100%),
     auto (math.div(140, 300) * 100%); /* 1 */
 }
 

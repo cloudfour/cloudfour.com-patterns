@@ -25,7 +25,7 @@ export const generateTokenTable = (props, filterLevel) => {
           if (filterLevel === 'type') {
             namespace = _.kebabCase(prop.attributes.type);
             name = prop.name.slice(
-              prop.attributes.category.length + prop.attributes.type.length + 2
+              prop.attributes.category.length + prop.attributes.type.length + 2,
             );
           }
           return (
@@ -50,11 +50,11 @@ export const easeTable = generateTokenTable(tokens.ease, 'category');
 export const speedTable = generateTokenTable(tokens.time.transition, 'type');
 export const scaleTable = generateTokenTable(
   tokens.number.scale.effect,
-  'type'
+  'type',
 );
 export const brightnessTable = generateTokenTable(
   tokens.number.brightness.control,
-  'type'
+  'type',
 );
 
 <Meta title="Design/Tokens/Motion" />

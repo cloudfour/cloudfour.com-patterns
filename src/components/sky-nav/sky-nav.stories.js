@@ -20,7 +20,7 @@ export default {
     (story) => {
       useEffect(() => {
         const { destroy } = initSkyNav(
-          document.querySelector('.js-sky-nav-menu-toggle')
+          document.querySelector('.js-sky-nav-menu-toggle'),
         );
         return destroy;
       });
@@ -57,7 +57,7 @@ export const Light = {
       source: {
         code: makeTwigInclude(
           '@cloudfour/components/sky-nav/sky-nav.twig',
-          basicStoryArgs
+          basicStoryArgs,
         ),
       },
     },

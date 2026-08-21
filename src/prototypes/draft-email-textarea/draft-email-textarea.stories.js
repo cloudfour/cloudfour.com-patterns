@@ -24,7 +24,7 @@ export default {
       useEffect(() => {
         const { destroy: destroyDraftEmail } = runProposedInlineJS();
         const { destroy: destroyElasticTextArea } = createElasticTextArea(
-          document.querySelector('.js-elastic-textarea')
+          document.querySelector('.js-elastic-textarea'),
         );
         return () => {
           destroyDraftEmail();

@@ -12,7 +12,7 @@ const featureImages = import.meta.glob(
   {
     eager: true,
     import: 'default',
-  }
+  },
 );
 
 const featureImageData = Object.entries(featureImages)
@@ -23,7 +23,7 @@ const featureImageData = Object.entries(featureImages)
       .replace(/\.svg$/, ''),
     src,
   }))
-  .sort((a, b) => a.name.localeCompare(b.name));
+  .toSorted((a, b) => a.name.localeCompare(b.name));
 
 export default {
   title: 'Design/Illustrations',
@@ -55,7 +55,7 @@ export const TransparentAvatar = {
     docs: {
       // The checkerboard is only there to show the transparency, so keep it out of
       // the source snippet.
-      source: { transform: (code) => code.replace(/ style="([^"]+)"/g, '') },
+      source: { transform: (code) => code.replaceAll(/ style="([^"]+)"/g, '') },
     },
   },
   render: () =>

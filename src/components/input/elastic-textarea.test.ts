@@ -1,7 +1,10 @@
 import path from 'path';
 
-import type { ElementHandle, PleasantestUtils } from 'pleasantest';
-import { withBrowser } from 'pleasantest';
+import {
+  type ElementHandle,
+  type PleasantestUtils,
+  withBrowser,
+} from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
 
@@ -13,7 +16,7 @@ const initTextareaJS = (utils: PleasantestUtils, textarea: ElementHandle) =>
     const [textarea] = import.meta.pleasantestArgs
     createElasticTextArea(textarea);
     `,
-    [textarea]
+    [textarea],
   );
 
 test(
@@ -23,7 +26,7 @@ test(
       await textInputHTML({
         class: 'js-elastic-textarea',
         type: 'textarea',
-      })
+      }),
     );
     await loadGlobalCSS(utils);
     const textarea = await screen.getByRole('textbox');
@@ -37,7 +40,7 @@ test(
     // This wraps, so both lines should be full now
     await user.type(
       textarea,
-      'this is a very long sentence with a lot of words that make it wrap'
+      'this is a very long sentence with a lot of words that make it wrap',
     );
     await expect(textarea).toHaveAttribute('rows', '2');
 
@@ -48,7 +51,7 @@ test(
     // After emptying it out, it should have 2 rows, since that is the default
     await user.clear(textarea);
     await expect(textarea).toHaveAttribute('rows', '2');
-  })
+  }),
 );
 
 test(
@@ -59,7 +62,7 @@ test(
         class: 'js-elastic-textarea',
         type: 'textarea',
         rows: 1,
-      })
+      }),
     );
     const textarea = await screen.getByRole('textbox');
     await initTextareaJS(utils, textarea);
@@ -74,7 +77,7 @@ test(
     // After emptying it out, it should have 1 row, since that is what we initialized `rows` to
     await user.clear(textarea);
     await expect(textarea).toHaveAttribute('rows', '1');
-  })
+  }),
 );
 
 test(
@@ -87,7 +90,7 @@ test(
         type: 'textarea',
         value:
           'We are a small, versatile team who care passionately about the web. We’re full of what our industry considers unicorns. Our designers code. Our developers went to art school.',
-      })
+      }),
     );
     const textarea = await screen.getByRole('textbox');
     await initTextareaJS(utils, textarea);
@@ -117,5 +120,5 @@ test(
     await textarea.evaluate((el) => (el.style.width = '800px'));
     // Should go back to two lines of text
     await waitFor(() => expect(textarea).toHaveAttribute('rows', '2'));
-  })
+  }),
 );

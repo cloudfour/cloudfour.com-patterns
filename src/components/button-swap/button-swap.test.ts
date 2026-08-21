@@ -6,7 +6,7 @@ import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
 
 // Helper to load the Twig template file
 const componentMarkup = loadTwigTemplate(
-  path.join(__dirname, './button-swap.twig')
+  path.join(__dirname, './button-swap.twig'),
 );
 
 test(
@@ -37,7 +37,7 @@ test(
     firstBtn = await screen.queryByRole('button');
     await expect(firstBtn).toBeVisible();
     await expect(firstBtn).not.toHaveClass('is-slashed');
-  })
+  }),
 );
 
 test(
@@ -49,7 +49,7 @@ test(
         swapped_visual_label: 'Have a great day',
         initial_label: 'Unsubscribed',
         swapped_label: 'Subscribed',
-      })
+      }),
     );
     await loadGlobalCSS(utils);
 
@@ -59,5 +59,5 @@ test(
         text "Unsubscribed"
       button "Hello world"
     `);
-  })
+  }),
 );

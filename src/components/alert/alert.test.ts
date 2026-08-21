@@ -14,14 +14,14 @@ describe('Alert component', () => {
       await utils.injectHTML(
         await template({
           message: '¡Hola!',
-        })
+        }),
       );
 
       const body = await page.evaluateHandle(() => document.body);
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(
-        `text "¡Hola!"`
+        `text "¡Hola!"`,
       );
-    })
+    }),
   );
 
   test(
@@ -30,7 +30,7 @@ describe('Alert component', () => {
       await utils.injectHTML(
         await template({
           role: 'status',
-        })
+        }),
       );
 
       const body = await page.evaluateHandle(() => document.body);
@@ -38,7 +38,7 @@ describe('Alert component', () => {
         status
           text "Hello world!"
       `);
-    })
+    }),
   );
 
   test(
@@ -47,13 +47,13 @@ describe('Alert component', () => {
       await utils.injectHTML(
         await template({
           hidden: true,
-        })
+        }),
       );
 
       const body = await page.evaluateHandle(() => document.body);
       // Nothing to see if the `hidden` attribute is added to the alert
       expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(``);
-    })
+    }),
   );
 
   test(
@@ -63,11 +63,11 @@ describe('Alert component', () => {
         await template({
           id: 'my-id',
           role: 'status',
-        })
+        }),
       );
 
       const alert = await screen.getByRole('status');
       await expect(alert).toHaveAttribute('id', 'my-id');
-    })
+    }),
   );
 });

@@ -54,7 +54,7 @@ const singleDemoTransformSource = (_src, storyContext) => {
       : '';
   const blocks = (args.show || []).map(
     (blockName) =>
-      `{% block ${blockName} %}${singleDemoBlockExamples[blockName]}{% endblock %}`
+      `{% block ${blockName} %}${singleDemoBlockExamples[blockName]}{% endblock %}`,
   );
   return `{% embed '@cloudfour/components/card/card.twig'${propsString} only %}
   ${blocks.join('\n  ')}

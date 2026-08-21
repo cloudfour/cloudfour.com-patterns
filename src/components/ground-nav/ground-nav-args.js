@@ -1,4 +1,4 @@
-// eslint-disable-next-line @cloudfour/import/order
+// eslint-disable-next-line import/order
 import skyNavMenu from '../sky-nav/demo/menu.json';
 import groundNavMenu from './demo/menu.json';
 import organization from './demo/organization.json';
@@ -10,6 +10,7 @@ const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
  * Default args for Ground Nav stories
  *
  * Currently storybook doesn't have support for nested or grouped args.
+ *
  * @see https://github.com/storybookjs/storybook/issues/11525
  * @see https://github.com/storybookjs/storybook/issues/10979
  */

@@ -1,5 +1,4 @@
-module.exports = {
-  log: 'warn',
+export default {
   source: ['src/tokens/**/*.+(js|json)'],
   platforms: {
     // Export all the tokens in a single SCSS file.

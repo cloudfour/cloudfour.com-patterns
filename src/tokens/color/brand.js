@@ -7,22 +7,22 @@ module.exports = {
        * `$color-brand-primary` without the `-default`.
        */
       primary_lighter: {
-        value: '{color.base.blue_lighter.value}',
+        value: '{color.base.blue_lighter}',
         comment: 'Accessible on -darker colors.',
       },
       primary_light: {
-        value: '{color.base.blue_light.value}',
+        value: '{color.base.blue_light}',
       },
       primary: {
-        value: '{color.base.blue.value}',
+        value: '{color.base.blue}',
         comment: 'Accessible on white.',
       },
       primary_dark: {
-        value: '{color.base.blue_dark.value}',
+        value: '{color.base.blue_dark}',
         comment: 'Accessible on white.',
       },
       primary_darker: {
-        value: '{color.base.blue_darker.value}',
+        value: '{color.base.blue_darker}',
         comment: 'Accessible on white.',
       },
     },

@@ -81,7 +81,7 @@
     "postcss": "8.5.26",
     "postcss-inline-svg": "6.0.0",
     "postcss-media-minmax": "5.0.0",
-    "prettier": "2.8.8",
+    "prettier": "3.9.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-syntax-highlighter": "16.1.1",

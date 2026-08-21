@@ -5,7 +5,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "moduleResolution": "node",
+    // Vite resolves imports, so TypeScript should read `package.json` `exports` the
+    // same way it does. The legacy "node" mode cannot see subpaths like
+    // `vitest/browser`, which the browser tests import.
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "ts-dist",

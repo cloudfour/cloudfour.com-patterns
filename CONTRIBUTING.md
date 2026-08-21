@@ -19,9 +19,10 @@ You can run `npm run validate` to run all of the checks that will be run in CI (
 You can also run checks individually:
 
 - **Linters/formatters**: `npm run lint` (runs Prettier, ESLint, and Stylelint)
-- **Tests**: `npm run test` (runs Jest tests)
-  You can also run `npm run test:watch` to run Jest in watch mode
+- **Tests**: `npm run test` (runs Vitest tests)
+  You can also run `npm run test:watch` to run Vitest in watch mode
   Note that tests will fail if you have not built the project. If you see tests failing with errors like "file not found in `dist` folder", try running `npm run build` and then re-run the tests.
+  Browser tests need Chromium, which Playwright downloads separately from `npm install`: run `npx playwright install chromium` once.
 - **Typechecking** `npm run type` (runs TypeScript)
   You can also run `npm run type:watch` to run TypeScript in watch mode
 

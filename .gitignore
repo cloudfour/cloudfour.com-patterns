@@ -22,3 +22,7 @@ npm-debug.log
 
 # Cypress artifacts
 /cypress/screenshots
+
+# Screenshots and attachments Vitest browser mode writes when a test fails
+__screenshots__
+.vitest-attachments

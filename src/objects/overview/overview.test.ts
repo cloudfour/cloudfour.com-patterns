@@ -1,51 +1,32 @@
-import path from 'path';
+import { expect, test } from 'vitest';
 
-import { getAccessibilityTree, withBrowser } from 'pleasantest';
+import template from './demo/basic.twig';
+import divTemplate from './demo/div.twig';
 
-import { loadTwigTemplate } from '../../../test-utils.js';
+/**
+ * These assert the element the template chose for its header, which is what
+ * `overview.twig` documents: a `header` inside a `div` would announce a page-level
+ * banner landmark, so the template downgrades it to a `div` unless the overview is
+ * a sectioning element.
+ *
+ * See the note in `card.test.ts` for why this is a markup assertion rather than the
+ * accessibility tree snapshot it used to be. It applies doubly here: an unnamed
+ * `section` is not a `region` under the ARIA spec, so both variants serialised to
+ * the same three lines of text and the two tests could not fail independently.
+ */
+const structure = () => ({
+  overview: document.querySelector('.o-overview')?.tagName,
+  header: document.querySelector('.o-overview__header')?.tagName,
+});
 
-/** Helper to load the Twig template file */
-const template = loadTwigTemplate(path.join(__dirname, './demo/basic.twig'));
-const divTemplate = loadTwigTemplate(path.join(__dirname, './demo/div.twig'));
+test('should use header with section', () => {
+  document.body.innerHTML = template();
 
-describe('Overview object', () => {
-  test(
-    'should use header with section',
-    withBrowser(async ({ utils, page }) => {
-      await utils.injectHTML(
-        await template({
-          show_heading: true,
-          show_footer: true,
-        }),
-      );
+  expect(structure()).toEqual({ overview: 'SECTION', header: 'HEADER' });
+});
 
-      const body = await page.evaluateHandle(() => document.body);
-      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-        region
-          banner
-            text "Header"
-          text "Actions"
-          text "Content"
-      `);
-    }),
-  );
+test('should not use header with div', () => {
+  document.body.innerHTML = divTemplate();
 
-  test(
-    'should not use header with div',
-    withBrowser(async ({ utils, page }) => {
-      await utils.injectHTML(
-        await divTemplate({
-          show_heading: true,
-          show_footer: true,
-        }),
-      );
-
-      const body = await page.evaluateHandle(() => document.body);
-      expect(await getAccessibilityTree(body)).toMatchInlineSnapshot(`
-        text "Header"
-        text "Actions"
-        text "Content"
-      `);
-    }),
-  );
+  expect(structure()).toEqual({ overview: 'DIV', header: 'DIV' });
 });

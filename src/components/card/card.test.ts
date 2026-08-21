@@ -1,49 +1,56 @@
-import path from 'path';
+import { screen } from '@testing-library/dom';
+import { expect, test } from 'vitest';
 
-import { getAccessibilityTree, withBrowser } from 'pleasantest';
+import divTemplate from './demo/div.twig';
+import template from './demo/single.twig';
 
-import { loadTwigTemplate } from '../../../test-utils.js';
+/**
+ * These assert the element the template chose for its header and footer, which is
+ * what `card.twig` documents: a `header`/`footer` inside a `div` would announce a
+ * page-level banner/contentinfo landmark, so the template downgrades both to a
+ * `div` unless the card is a sectioning element.
+ *
+ * This used to be an accessibility tree snapshot, because the Chromium of the day
+ * exposed a scoped `header` as a `banner` too. Current engines follow the ARIA
+ * spec, where a `header` inside an `article` is neither a banner nor a landmark at
+ * all -- so an accessibility tree can no longer tell the two variants apart, and
+ * the snapshots for them came out identical. The markup is where the difference
+ * still lives.
+ */
+const structure = () => ({
+  card: document.querySelector('.c-card')?.tagName,
+  header: document.querySelector('.c-card__header')?.tagName,
+  footer: document.querySelector('.c-card__footer')?.tagName,
+});
 
-/** Helper to load the Twig template file */
-const template = loadTwigTemplate(path.join(__dirname, './demo/single.twig'));
-const divTemplate = loadTwigTemplate(path.join(__dirname, './demo/div.twig'));
+test('should use header/footer with article', () => {
+  document.body.innerHTML = template({
+    show_heading: true,
+    show_footer: true,
+  });
 
-describe('Card component', () => {
-  test(
-    'should use header/footer with article',
-    withBrowser(async ({ utils, page }) => {
-      await utils.injectHTML(
-        await template({
-          show_heading: true,
-          show_footer: true,
-        }),
-      );
-
-      const body = await page.evaluateHandle(() => document.body);
-      expect(await getAccessibilityTree(body, { includeText: false }))
-        .toMatchInlineSnapshot(`
-          article
-            banner
-              heading "Lorem ipsum dolor sit amet" (level=2)
-            contentinfo
-        `);
-    }),
+  expect(structure()).toEqual({
+    card: 'ARTICLE',
+    header: 'HEADER',
+    footer: 'FOOTER',
+  });
+  expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+    'Lorem ipsum dolor sit amet',
   );
+});
 
-  test(
-    'should not use header/footer with div',
-    withBrowser(async ({ utils, page }) => {
-      await utils.injectHTML(
-        await divTemplate({
-          show_heading: true,
-          show_footer: true,
-        }),
-      );
+test('should not use header/footer with div', () => {
+  document.body.innerHTML = divTemplate({
+    show_heading: true,
+    show_footer: true,
+  });
 
-      const body = await page.evaluateHandle(() => document.body);
-      expect(
-        await getAccessibilityTree(body, { includeText: false }),
-      ).toMatchInlineSnapshot(`heading "Lorem ipsum dolor sit amet" (level=2)`);
-    }),
+  expect(structure()).toEqual({
+    card: 'DIV',
+    header: 'DIV',
+    footer: 'DIV',
+  });
+  expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+    'Lorem ipsum dolor sit amet',
   );
 });

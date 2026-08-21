@@ -63,7 +63,7 @@
     "@whitespace/storybook-addon-html": "9.0.0",
     "@wordpress/block-library": "3.2.21",
     "browserify-transform-tools": "1.7.0",
-    "cssnano": "5.1.15",
+    "cssnano": "8.0.6",
     "eliminate": "1.1.2",
     "eslint": "9.39.5",
     "eslint-plugin-mdx": "3.8.1",

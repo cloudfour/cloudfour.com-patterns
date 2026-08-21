@@ -1,7 +1,7 @@
-const path = require('node:path');
+import _ from 'lodash';
+import StyleDictionary from 'style-dictionary';
 
-const _ = require('lodash');
-const StyleDictionary = require('style-dictionary');
+import config from './config.mjs';
 
 /**
  * Custom Transform: Kebab-Case without Category
@@ -20,8 +20,8 @@ const StyleDictionary = require('style-dictionary');
 StyleDictionary.registerTransform({
   name: 'custom/name/ti/kebab',
   type: 'name',
-  transformer: function (prop, options) {
-    return _.kebabCase([options.prefix, ...prop.path.slice(1)].join(' '));
+  transform(token, platform) {
+    return _.kebabCase([platform.prefix, ...token.path.slice(1)].join(' '));
   },
 });
 
@@ -42,8 +42,8 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'custom/name/i/kebab',
   type: 'name',
-  transformer: function (prop, options) {
-    return _.kebabCase([options.prefix, ...prop.path.slice(2)].join(' '));
+  transform(token, platform) {
+    return _.kebabCase([platform.prefix, ...token.path.slice(2)].join(' '));
   },
 });
 
@@ -56,9 +56,28 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'custom/name/i/kebab-rejoin-n',
   type: 'name',
-  transformer: function (prop) {
-    return prop.name.replaceAll(/-n-(\d)/g, '-n$1');
+  transform(token) {
+    return token.name.replaceAll(/-n-(\d)/g, '-n$1');
   },
+});
+
+/**
+ * Custom Transform: CSS Colors, matched by category
+ * Identical to the built-in `color/css` transform, but selected by our CTI
+ * category rather than by a `type: 'color'` property on the token.
+ *
+ * The built-in transform used to match on `attributes.category`, but as of
+ * Style Dictionary 4 its filter requires an explicit `type` on each token.
+ * Our tokens describe themselves through the CTI path instead, so the built-in
+ * filter never matches them and colors would pass through unnormalized —
+ * leaving `#3d84F5`, `#000` and `rgba(0, 0, 0, 0.60)` in the output exactly as
+ * authored. Re-filtering on the category keeps colors normalized the way they
+ * have always been, so authors can keep writing whichever form they like.
+ */
+StyleDictionary.registerTransform({
+  ...StyleDictionary.hooks.transforms['color/css'],
+  name: 'custom/value/color/css',
+  filter: (token) => token.attributes?.category === 'color',
 });
 
 /**
@@ -71,9 +90,9 @@ StyleDictionary.registerTransformGroup({
   name: 'custom/transform-group/css',
   transforms: [
     'attribute/cti',
-    'name/cti/kebab',
+    'name/kebab',
     'custom/name/i/kebab-rejoin-n',
-    'color/css',
+    'custom/value/color/css',
   ],
 });
 
@@ -88,7 +107,7 @@ StyleDictionary.registerTransformGroup({
     'attribute/cti',
     'custom/name/ti/kebab',
     'custom/name/i/kebab-rejoin-n',
-    'color/css',
+    'custom/value/color/css',
   ],
 });
 
@@ -103,7 +122,7 @@ StyleDictionary.registerTransformGroup({
     'attribute/cti',
     'custom/name/i/kebab',
     'custom/name/i/kebab-rejoin-n',
-    'color/css',
+    'custom/value/color/css',
   ],
 });
 
@@ -114,10 +133,10 @@ StyleDictionary.registerTransformGroup({
  */
 StyleDictionary.registerFormat({
   name: 'custom/format/js/flat',
-  formatter(dictionary) {
+  format({ dictionary }) {
     const tokens = {};
-    for (const prop of dictionary.allProperties) {
-      tokens[prop.name] = prop;
+    for (const token of dictionary.allTokens) {
+      tokens[token.name] = token;
     }
     return `export default ${JSON.stringify(tokens, null, '  ')}`;
   },
@@ -129,21 +148,15 @@ StyleDictionary.registerFormat({
  */
 StyleDictionary.registerFormat({
   name: 'custom/format/js/esm',
-  formatter(dictionary) {
-    return `export default ${JSON.stringify(
-      dictionary.properties,
-      null,
-      '  ',
-    )}`;
+  format({ dictionary }) {
+    return `export default ${JSON.stringify(dictionary.tokens, null, '  ')}`;
   },
 });
 
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
-const StyleDictionaryExtended = StyleDictionary.extend(
-  path.join(__dirname, 'config.js'),
-);
+const sd = new StyleDictionary(config);
 
 // BUILD ALL THE PLATFORMS
-StyleDictionaryExtended.buildAllPlatforms();
+await sd.buildAllPlatforms();

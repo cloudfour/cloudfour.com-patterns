@@ -60,15 +60,15 @@ module.exports = {
       },
       type: {
         block_indent: {
-          value: '{size.spacing.gap.inline.medium.value}',
+          value: '{size.spacing.gap.inline.medium}',
           comment: 'Shared indentation for lists, blockquotes, etc.',
         },
       },
       list: {
-        inline_gap: { value: '{size.spacing.gap.inline.medium.value}' },
+        inline_gap: { value: '{size.spacing.gap.inline.medium}' },
       },
       media: {
-        gap: { value: '{size.spacing.gap.inline.small.value}' },
+        gap: { value: '{size.spacing.gap.inline.small}' },
       },
     },
   },

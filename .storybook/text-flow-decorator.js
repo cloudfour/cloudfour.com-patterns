@@ -29,7 +29,7 @@ const setTextFlow = (element, { direction, writingMode } = {}) => {
  *
  * @param {() => void} story
  * @param {object} context
- * @returns {any} Result of story function.
+ * @returns {unknown} Result of story function.
  */
 export const withTextFlow = (story, context) => {
   let textFlow = context.parameters.textFlow ||

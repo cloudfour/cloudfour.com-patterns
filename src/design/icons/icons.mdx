@@ -31,7 +31,7 @@ export const toIconItems = (modules, prefix = '') =>
           .replace(/\.svg$/, ''),
       Icon,
     }))
-    .sort((a, b) => a.name.localeCompare(b.name))
+    .toSorted((a, b) => a.name.localeCompare(b.name))
     .map(({ name, Icon }) => (
       <IconItem name={name} key={name}>
         <Icon className="c-icon" />

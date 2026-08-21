@@ -2,13 +2,16 @@ import twig from 'react-syntax-highlighter/dist/esm/languages/prism/twig';
 import { SyntaxHighlighter } from 'storybook/internal/components';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 
-import { withTheme } from './theme-decorator.js';
-import { withTextFlow } from './text-flow-decorator.js';
-
 import tokens from '../src/compiled/tokens/js/tokens.js';
-import '../src/index-with-dependencies.scss';
-import './preview.scss';
 import { makeTwigInclude } from '../src/make-twig-include.js';
+// The library's styles must load before Storybook's own preview styles, which
+// are meant to override them.
+import '../src/index-with-dependencies.scss';
+
+import { withTextFlow } from './text-flow-decorator.js';
+import { withTheme } from './theme-decorator.js';
+import './preview.scss';
+
 const breakpoints = tokens.size.breakpoint;
 
 // Storybook bundles Prism grammars for a handful of languages, and Twig is not one of
@@ -60,8 +63,9 @@ export const parameters = {
        * The Vite Twig plugin records every render's template path and arguments,
        * keyed by the HTML it produced, so re-running the story function here gives us
        * the key to look up. Storybook 6 called this hook `docs.transformSource`.
-       * @param code
-       * @param storyContext
+       *
+       * @param {string} code
+       * @param {object} storyContext
        */
       transform(code, storyContext) {
         try {

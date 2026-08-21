@@ -1,7 +1,8 @@
 import path from 'path';
 
-import type { ElementHandle, PleasantestUtils } from 'pleasantest';
 import {
+  type ElementHandle,
+  type PleasantestUtils,
   getAccessibilityTree,
   makeCallableJSHandle,
   withBrowser,

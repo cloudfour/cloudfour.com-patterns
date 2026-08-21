@@ -21,7 +21,7 @@ const sampleName = (key: string) =>
 /**
  * Retrieve a code sample from the samples directory.
  *
- * @param {string} [language='html'] The slug of the language to retrieve a
+ * @param {string} [language] The slug of the language to retrieve a
  * sample for.
  * @returns {string} The contents of the sample.
  */
@@ -42,7 +42,7 @@ export const availableSamples = sampleKeys.map(sampleName);
  * Syntax highlighting demo
  *
  * @param {object} args Demo options
- * @param {string} [args.language='html'] The slug of the language sample to
+ * @param {string} [args.language] The slug of the language sample to
  * return a demo for.
  * @returns {string} A highlighted HTML snippet.
  */

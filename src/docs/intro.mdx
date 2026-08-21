@@ -11,7 +11,7 @@ import readme from '../../README.md?raw';
     )
     // Weird link path due to this issue:
     // https://github.com/storybookjs/storybook/issues/9005
-    .replace(
+    .replaceAll(
       /\[(.+)]\(CONTRIBUTING\.md\)/g,
       '<a href="../?path=/story/contributing--page">$1</a>',
     )}

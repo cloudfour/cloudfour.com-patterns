@@ -1,7 +1,10 @@
 import path from 'path';
 
-import type { PleasantestUtils } from 'pleasantest';
-import { getAccessibilityTree, withBrowser } from 'pleasantest';
+import {
+  type PleasantestUtils,
+  getAccessibilityTree,
+  withBrowser,
+} from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
 

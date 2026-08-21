@@ -57,7 +57,7 @@ function templatizeSvgString(src) {
     const current = svg.attrs[prop];
     // Dashes have meaning in Twig expressions, so we replace them with
     // underscores in property names.
-    const twigProp = prop.replace(/-/g, '_');
+    const twigProp = prop.replaceAll('-', '_');
     svg.attrs[prop] =
       `{% if ${twigProp} %}{{${twigProp}}}{% else %}${current}{% endif %}`;
   }
@@ -70,7 +70,7 @@ function templatizeSvgString(src) {
     // yet to be used for this asset.
     const unusedPropHtml = unusedProps
       .map((prop) => {
-        const twigProp = prop.replace(/-/g, '_');
+        const twigProp = prop.replaceAll('-', '_');
         return `{% if ${twigProp} %} ${prop}="{{${twigProp}}}"{% endif %}`;
       })
       .join('');

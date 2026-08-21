@@ -1,7 +1,10 @@
 import path from 'path';
 
-import type { ElementHandle, PleasantestUtils } from 'pleasantest';
-import { withBrowser } from 'pleasantest';
+import {
+  type ElementHandle,
+  type PleasantestUtils,
+  withBrowser,
+} from 'pleasantest';
 
 import { loadGlobalCSS, loadTwigTemplate } from '../../../test-utils.js';
 

@@ -3,6 +3,7 @@ import { useEffect } from 'storybook/preview-api';
 /**
  * Removes current theme classes on an element and applies a new theme class
  * if provided.
+ *
  * @param {HTMLElement} element - Element to add/remove theme classes from
  * @param {string} [theme] - New theme to apply.
  */
@@ -38,7 +39,7 @@ const updateTheme = (element, theme) => {
  *
  * @param {() => void} story
  * @param {object} context
- * @returns {any} Result of story function.
+ * @returns {unknown} Result of story function.
  */
 export const withTheme = (story, context) => {
   const theme = context.parameters.theme || context.globals.theme;

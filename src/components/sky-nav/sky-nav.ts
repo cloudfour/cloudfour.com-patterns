@@ -90,7 +90,7 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       );
 
       // Flush changes to the DOM
-      // eslint-disable-next-line @cloudfour/typescript-eslint/no-unused-expressions, mdx/no-unused-expressions
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       navWrapper.offsetWidth;
       document.body.style.setProperty('transition', transition);
       document.body.style.removeProperty('transform');

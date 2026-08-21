@@ -326,13 +326,13 @@ export const MediaText = {
 };
 
 export const Preformatted = {
-  render: () => `<pre class="wp-block-preformatted">
+  render: () => String.raw`<pre class="wp-block-preformatted">
        ___________________________
      < I'm an expert in my field. >
        ---------------------------
-           \\  ^__^
-            \\ (oo)\\_______
-              (__)\\       )\\/\\
+           \  ^__^
+            \ (oo)\_______
+              (__)\       )\/\
                   ||----w |
                   ||     ||
       </pre>`,

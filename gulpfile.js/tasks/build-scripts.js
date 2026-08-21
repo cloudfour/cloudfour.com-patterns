@@ -18,7 +18,8 @@ const extensions = ['.js', '.ts', '.tsx'];
 /**
  * Generates a root entry to be used by rollup and type generation
  * This allows us to create a single bundle that exports every export from every file
- * This is the same approach as @rollup/plugin-multi-entry takes
+ * This is the same approach as `@rollup/plugin-multi-entry` takes
+ *
  * @see https://github.com/rollup/plugins/tree/master/packages/multi-entry
  * Being used both for rollup and for the type generation
  */
@@ -104,12 +105,10 @@ const buildTypes = async () => {
     input: tsRootFile,
     plugins: [dts()],
   });
-  await Promise.all([
-    bundle.write({
-      format: 'esm',
-      file: path.join(outDir, `${pathName}.d.ts`),
-    }),
-  ]);
+  await bundle.write({
+    format: 'esm',
+    file: path.join(outDir, `${pathName}.d.ts`),
+  });
 };
 
 module.exports = { buildJS, buildTypes };

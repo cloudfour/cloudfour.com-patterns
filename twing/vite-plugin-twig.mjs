@@ -27,7 +27,8 @@ const RESOLVED_VIRTUAL_ID = `\0${VIRTUAL_ID}`;
 
 /**
  * `/abs/path/src/components/badge/badge.twig` -> `@cloudfour/components/badge/badge.twig`
- * @param id
+ *
+ * @param {string} id
  */
 const templateName = (id) => `@cloudfour/${id.split('/src/').pop()}`;
 

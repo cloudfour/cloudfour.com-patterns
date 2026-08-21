@@ -16,7 +16,7 @@ export const iconModules = import.meta.glob('../../assets/icons/*.svg', {
 
 export const brandIconModules = import.meta.glob(
   '../../assets/icons/brands/**/*.svg',
-  { eager: true, query: '?react', import: 'default' }
+  { eager: true, query: '?react', import: 'default' },
 );
 
 export const toIconItems = (modules, prefix = '') =>

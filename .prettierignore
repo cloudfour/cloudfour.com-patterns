@@ -15,8 +15,21 @@
 # Ignore changeset files (these are temporary)
 .changeset/*
 
-# Prettier 2's MDX parser predates MDX 2/3 and corrupts these files: it rewrites the
-# `{/* ... */}` comments MDX 3 requires into `{/_ ... _/}`, reading the asterisks as
-# markdown emphasis, and glues self-closing JSX onto the following markdown block.
-# Remove this once we are on Prettier 3.
+# Prettier corrupts multi-line `{/* ... */}` comments, which MDX requires for any
+# comment at all. It parses the comment body as markdown prose rather than as an
+# opaque JSX expression, so the `*` delimiters are rewritten to its `_` emphasis
+# marker -- producing `{/_ ... _/}`, which is not valid MDX. Storybook then fails
+# to index the file with "Could not parse expression with acorn".
+#
+# This is not the Prettier 2 limitation it was once assumed to be: Prettier 3 has
+# no MDX 3 support either, and the bug is still open upstream.
+# @see <https://github.com/prettier/prettier/issues/15163>
+# @see <https://github.com/prettier/prettier/issues/12209>
+#
+# There is no way to opt out per-file. `{/* prettier-ignore */}` is ignored by the
+# formatter, and `<!-- prettier-ignore -->` works but is not valid MDX 3 -- the only
+# syntax Prettier honours is the one MDX rejects.
+#
+# Single-line comments format correctly, so this only affects multi-line ones. These
+# files were formatted once by hand under Prettier 3 before being re-ignored.
 *.mdx

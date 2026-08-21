@@ -53,7 +53,7 @@ export const ignoreTypes = [
 export const filteredSizeTable = generateTokenTable(
   Object.keys(sizeTokens)
     .filter((key) => !ignoreTypes.includes(sizeTokens[key].attributes.type))
-    .map((key) => sizeTokens[key])
+    .map((key) => sizeTokens[key]),
 );
 export const radiusTable = generateTokenTable(filterTokensByType('border'));
 export const edgeTable = generateTokenTable(filterTokensByType('edge'));

@@ -88,10 +88,12 @@ export default {
 };
 
 export const Basic = {
+  parameters: { docs: { story: { iframeHeight: '400px' } } },
   render: articlesStory.bind({}),
 };
 
 export const Alignment = {
+  parameters: { docs: { story: { iframeHeight: '200px' } } },
   args: {
     columns: 3,
     columnsBreakpoint: '@m',
@@ -101,6 +103,7 @@ export const Alignment = {
 };
 
 export const Columns = {
+  parameters: { docs: { story: { iframeHeight: '400px' } } },
   args: {
     columns: 3,
     columnsBreakpoint: '@m',
@@ -109,6 +112,7 @@ export const Columns = {
 };
 
 export const HorizontalCard = {
+  parameters: { docs: { story: { iframeHeight: '500px' } } },
   name: 'Horizontal Card',
   args: {
     columns: 3,

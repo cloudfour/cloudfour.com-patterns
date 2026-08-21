@@ -19,6 +19,7 @@ export const CloudFour = {
   args: defaultArgs,
   argTypes: defaultArgTypes,
   parameters: {
+    docs: { story: { iframeHeight: '815px' } },
     layout: 'fullscreen',
   },
 };
@@ -31,6 +32,7 @@ export const OneFeature = {
   },
   argTypes: defaultArgTypes,
   parameters: {
+    docs: { story: { iframeHeight: '800px' } },
     layout: 'fullscreen',
   },
 };
@@ -43,6 +45,7 @@ export const NoFeatures = {
   },
   argTypes: defaultArgTypes,
   parameters: {
+    docs: { story: { iframeHeight: '475px' } },
     layout: 'fullscreen',
   },
 };
@@ -54,6 +57,7 @@ export const Alternate = {
   },
   argTypes: defaultArgTypes,
   parameters: {
+    docs: { story: { iframeHeight: '815px' } },
     layout: 'fullscreen',
   },
 };

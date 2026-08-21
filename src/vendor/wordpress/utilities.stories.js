@@ -76,7 +76,9 @@ export const Alignment = {
   },
   parameters: {
     layout: 'fullscreen',
-    docs: { story: { inline: false } },
+    docs: {
+      story: { inline: false, iframeHeight: '320px' },
+    },
   },
   render: (args) => alignmentDemo(args),
 };

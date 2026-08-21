@@ -44,6 +44,7 @@ export const Basic = {
   args: { prose: false, pad: padOptions },
   parameters: {
     docs: {
+      story: { iframeHeight: '300px' },
       source: {
         code: `{% embed '@cloudfour/objects/container/container.twig' with {
   class: 'o-container--pad'
@@ -62,6 +63,7 @@ export const Prose = {
   args: { prose: true, pad: padOptions },
   parameters: {
     docs: {
+      story: { iframeHeight: '300px' },
       source: {
         code: `{% embed '@cloudfour/objects/container/container.twig' with {
   class: 'o-container--prose o-container--pad'
@@ -78,6 +80,11 @@ export const Prose = {
 
 export const Fill = {
   argTypes: {},
-  parameters: { docs: { source: { code: fillDemoSource } } },
+  parameters: {
+    docs: {
+      story: { iframeHeight: '500px' },
+      source: { code: fillDemoSource },
+    },
+  },
   render: fillDemo.bind({}),
 };

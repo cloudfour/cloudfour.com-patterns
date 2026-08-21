@@ -10,6 +10,7 @@ export default {
 export const Default = {
   parameters: {
     docs: {
+      story: { iframeHeight: '300px' },
       source: {
         code: defaultDemoSource,
       },

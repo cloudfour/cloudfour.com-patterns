@@ -18,6 +18,7 @@ export default {
 export const Content = {
   parameters: {
     docs: {
+      story: { iframeHeight: '400px' },
       source: {
         code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
   {% block heading %}
@@ -43,6 +44,7 @@ export const Content = {
 export const Scene = {
   parameters: {
     docs: {
+      story: { iframeHeight: '400px' },
       source: {
         code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
   {% block heading %}
@@ -76,6 +78,7 @@ export const HorizonScene = {
   name: 'Horizon Scene',
   parameters: {
     docs: {
+      story: { iframeHeight: '400px' },
       source: {
         code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
   {% block heading %}
@@ -113,6 +116,7 @@ export const ExtraContent = {
   name: 'Extra Content',
   parameters: {
     docs: {
+      story: { iframeHeight: '400px' },
       source: {
         code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
   {% block heading %}
@@ -146,6 +150,7 @@ export const FullHeight = {
   name: 'Full Height',
   parameters: {
     docs: {
+      story: { iframeHeight: '600px' },
       source: {
         code: `{% embed '@cloudfour/components/cloud-cover/cloud-cover.twig' %}
   {% block heading %}

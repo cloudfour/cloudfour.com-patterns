@@ -36,7 +36,6 @@ export const FeatureImages = {
 
 export const ResponsiveFallbackImage = {
   name: 'Responsive fallback image',
-  parameters: { docs: { story: { height: '200px' } } },
   render: () =>
     responsiveImageDeck({
       ratios: ['1 / 1', '16 / 9', '9 / 16'],

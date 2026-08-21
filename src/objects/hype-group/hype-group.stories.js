@@ -70,7 +70,12 @@ export default {
 
 export const Single = {
   args: defaultArgs,
-  parameters: { docs: { source: { transform: singleTransformSource } } },
+  parameters: {
+    docs: {
+      story: { iframeHeight: '500px' },
+      source: { transform: singleTransformSource },
+    },
+  },
   render: (args) => demoStory(args),
 };
 
@@ -82,11 +87,17 @@ export const WithOptions = {
     object_outline: true,
     reverse: true,
   },
-  parameters: { docs: { source: { transform: singleTransformSource } } },
+  parameters: {
+    docs: {
+      story: { iframeHeight: '500px' },
+      source: { transform: singleTransformSource },
+    },
+  },
   render: (args) => demoStory(args),
 };
 
 export const Multiple = {
+  parameters: { docs: { story: { iframeHeight: '640px' } } },
   args: {
     ...defaultArgs,
     example_object_img_src: '/media/avatar-buster-a.jpg',

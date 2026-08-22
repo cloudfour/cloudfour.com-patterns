@@ -1,16 +1,16 @@
-const { readFileSync } = require('node:fs');
-const path = require('node:path');
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
-const { src, dest } = require('gulp');
-const rename = require('gulp-rename');
-const svgmin = require('gulp-svgmin');
-const yaml = require('js-yaml');
-const ltx = require('ltx');
-const { obj } = require('through2');
+import { load as parseYaml } from 'js-yaml';
+import { parse as parseXml } from 'ltx';
+import { optimize } from 'svgo';
+
+const srcDir = 'src/assets';
 
 // Load SVGO preferences from config file to keep things DRY
-const svgoPath = path.join(__dirname, '../../.svgo.yml');
-const svgoConfig = yaml.load(readFileSync(svgoPath, 'utf8'));
+const svgoConfig = parseYaml(
+  await fs.readFile(path.join(import.meta.dirname, '../.svgo.yml'), 'utf8'),
+);
 
 // Properties to make configurable via Twig templates
 const dynamicSvgProps = [
@@ -35,13 +35,13 @@ const dynamicSvgProps = [
  * @returns {string}
  */
 function templatizeSvgString(src) {
-  const svg = ltx.parse(src);
+  const svg = parseXml(src);
 
   // Create blocks for SVG content, before and after
-  const prepend = ltx.parse(
+  const prepend = parseXml(
     '<root>{% block before %}{% endblock %}{% block content %}</root>',
   );
-  const append = ltx.parse(
+  const append = parseXml(
     '<root>{% endblock %}{% block after %}{% endblock %}</root>',
   );
   svg.children = [...prepend.children, ...svg.children, ...append.children];
@@ -83,31 +83,17 @@ function templatizeSvgString(src) {
   return result;
 }
 
-/**
- * Gulp task for converting SVG files to Twig templates.
- */
-function svgToTwig() {
-  return (
-    src('src/assets/**/*.svg')
-      // Optimize assets with SVGO
-      .pipe(svgmin(svgoConfig))
-      // Pipe file contents through templatize function
-      .pipe(
-        obj((file, _, cb) => {
-          if (file.isBuffer()) {
-            const template = templatizeSvgString(file.contents.toString());
-            file.contents = Buffer.from(template);
-          }
+const files = [];
+for await (const file of fs.glob(`${srcDir}/**/*.svg`)) files.push(file);
 
-          cb(null, file);
-        }),
-      )
-      // Append `.twig` to filenames
-      .pipe(rename({ extname: '.svg.twig' }))
-      // Output to same directory to expose to Storybook
-      .pipe(dest('src/assets'))
-  );
-}
+await Promise.all(
+  files.toSorted().map(async (file) => {
+    const source = await fs.readFile(file, 'utf8');
+    const { data } = optimize(source, { ...svgoConfig, path: file });
+    // Output to the same directory to expose to Storybook
+    const destination = file.replace(/\.svg$/, '.svg.twig');
+    await fs.writeFile(destination, templatizeSvgString(data));
+  }),
+);
 
-// Expose to Gulp
-module.exports = svgToTwig;
+console.log(`Templatized ${files.length} SVG files`);

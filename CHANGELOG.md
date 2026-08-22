@@ -1,5 +1,29 @@
 # @cloudfour/patterns
 
+## 17.2.0
+
+### Minor Changes
+
+- [#2405](https://github.com/cloudfour/cloudfour.com-patterns/pull/2405) [`96fd86e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/96fd86e1cfaee5f166ec5c418696a2549d392ef3) Thanks [@spaceninja](https://github.com/spaceninja)! - Make the font directory configurable. `base/fonts` now exposes a `$dir` variable, so the location of the font files can be overridden with `@use '@cloudfour/patterns/src/base/fonts' with ($dir: '/my/path')`. The default is unchanged, and the font URLs in `dist/standalone.css` are byte-for-byte identical.
+
+### Patch Changes
+
+- [#2405](https://github.com/cloudfour/cloudfour.com-patterns/pull/2405) [`96fd86e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/96fd86e1cfaee5f166ec5c418696a2549d392ef3) Thanks [@spaceninja](https://github.com/spaceninja)! - Fix Sky Nav rendering permanently open with no toggle button when its markup is injected as a string rather than parsed by the browser. The `no-js` class is normally cleared by an inline `<script>`, which never runs in that case, so `initSkyNav` now clears it as well.
+
+- [#2422](https://github.com/cloudfour/cloudfour.com-patterns/pull/2422) [`3492198`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3492198391926da4259c5519711aa580c9a99d3e) Thanks [@spaceninja](https://github.com/spaceninja)! - Keep the `viewBox` on the SVGs inlined into `dist/standalone.min.css`. The minifier had been stripping it, so the minified bundle no longer matched the unminified one it is built from. Rendering is unchanged — compared pixel for pixel, the two differ only by antialiasing — but the bundle is now a faithful minification of its source, and around 227 bytes larger gzipped.
+
+  The generated token files also lose the build timestamp from their header comment, which makes them identical between builds, and each token in `src/compiled/tokens/js/` gains a `key` field. No token value changed.
+
+- [#2432](https://github.com/cloudfour/cloudfour.com-patterns/pull/2432) [`570de07`](https://github.com/cloudfour/cloudfour.com-patterns/commit/570de075ed8c9acd4a48bb456e531f09841010a0) Thanks [@spaceninja](https://github.com/spaceninja)! - Drop the `xmlns` attribute from the templatized SVG partials in `src/assets`. These files are only ever included inline into HTML, where the namespace is implied — it is required on standalone SVG documents. The optimizer had been configured to remove it for years, but in a format it silently ignored.
+
+  The same partials also pick up small coordinate rounding differences from a newer SVGO. Rendered and compared pixel for pixel, 55 of the 72 are unchanged and the largest difference in the rest is 0.53% of pixels at the edges of curves.
+
+- [#2405](https://github.com/cloudfour/cloudfour.com-patterns/pull/2405) [`96fd86e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/96fd86e1cfaee5f166ec5c418696a2549d392ef3) Thanks [@spaceninja](https://github.com/spaceninja)! - Fix Footnote Link failing to render under Twig 3, which removed the `spaceless` tag. The template now uses the `spaceless` filter, which Twig has supported since 2.9. Rendered output is unchanged.
+
+- [#2416](https://github.com/cloudfour/cloudfour.com-patterns/pull/2416) [`5232e5e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5232e5e8d6458daa5fdc49c3e39b21aca3bcdc89) Thanks [@spaceninja](https://github.com/spaceninja)! - Collapse the wide-viewport `align-self`/`justify-self` pair on Ground Nav's social area into the equivalent `place-self` shorthand. Computed styles are unchanged; only the two declarations in `dist/standalone.css` become one.
+
+- [#2406](https://github.com/cloudfour/cloudfour.com-patterns/pull/2406) [`eb1bb81`](https://github.com/cloudfour/cloudfour.com-patterns/commit/eb1bb81b03f91a1e78ff9cf9b24017587418448c) Thanks [@spaceninja](https://github.com/spaceninja)! - Shrink the UMD bundles. Rollup 4 tree-shakes the generated design-token module, which Sky Nav reads three values from, so `dist/cloudfour-patterns.js` drops from 116KB to 21KB and `dist/cloudfour-patterns.min.js` from 37KB to 7.8KB. The ESM bundle is byte-for-byte unchanged and the exports are identical in all three.
+
 ## 17.1.0
 
 ### Minor Changes

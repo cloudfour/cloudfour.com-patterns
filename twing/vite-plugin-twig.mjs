@@ -64,15 +64,22 @@ export const twigInputs =
 export const twigPlugin = () => ({
   name: 'cloudfour-twig',
 
+  /** @param {string} id */
   resolveId(id) {
     if (id === VIRTUAL_ID) return RESOLVED_VIRTUAL_ID;
   },
 
+  /** @param {string} id */
   load(id) {
     if (id === RESOLVED_VIRTUAL_ID) return environmentModule;
   },
 
-  transform(code, id) {
+  /**
+   * @param {string} _code The module source, which we never read: the transform
+   *   rewrites `.twig` imports into a render wrapper generated from the id alone.
+   * @param {string} id
+   */
+  transform(_code, id) {
     // Let `?raw` imports through untouched -- the environment module needs the source.
     if (!id.endsWith('.twig')) return;
 

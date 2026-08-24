@@ -1,6 +1,8 @@
-import { availableSamples, highlightDemo } from './demo/demo.ts';
+/** @import { Meta, StoryObj } from '@storybook/html' */
+import { availableSamples, highlightDemo } from './demo/demo';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Vendor/Highlight',
   argTypes: {
     language: {
@@ -13,13 +15,16 @@ export default {
   },
   parameters: {
     docs: {
-      source: { transform: (code) => code },
+      source: { transform: (/** @type {string} */ code) => code },
     },
     layout: 'fullscreen',
   },
   render: highlightDemo.bind({}),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Theme = {
   args: { language: 'html' },
 };

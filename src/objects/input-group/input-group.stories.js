@@ -1,7 +1,9 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import inputGroupDemo from './demo/input-group-demo.twig';
 import inputGroupDemoSource from './demo/input-group-demo.twig?raw';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Input Group',
   argTypes: {
     class: {
@@ -17,6 +19,9 @@ export default {
   render: (args) => inputGroupDemo(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Example = {
   parameters: {
     docs: {

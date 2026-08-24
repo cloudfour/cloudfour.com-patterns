@@ -1,6 +1,8 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import template from './alert.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Alert',
   argTypes: {
     class: {
@@ -18,7 +20,7 @@ export default {
       type: 'boolean',
       description: 'Adds a close button to the right of the message.',
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     icon: {
@@ -41,7 +43,7 @@ export default {
       type: 'boolean',
       description: 'Adds a light border and shadow for a floating effect.',
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     tag_name: {
@@ -59,7 +61,7 @@ export default {
       type: 'boolean',
       description: 'Adds a `hidden` attribute to the root element.',
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     role: {
@@ -70,10 +72,14 @@ export default {
   render: (args) => template(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {
   args: { message: 'Your comment is awaiting moderation.' },
 };
 
+/** @type {StoryObj} */
 export const Dismissable = {
   args: {
     message: 'Your action was completed successfully! 🎉',
@@ -81,6 +87,7 @@ export const Dismissable = {
   },
 };
 
+/** @type {StoryObj} */
 export const FullWidth = {
   name: 'Full width',
   args: {
@@ -92,6 +99,7 @@ export const FullWidth = {
   },
 };
 
+/** @type {StoryObj} */
 export const Icon = {
   args: {
     message: 'Your action was completed successfully! 🎉',
@@ -99,6 +107,7 @@ export const Icon = {
   },
 };
 
+/** @type {StoryObj} */
 export const Error = {
   args: {
     message: 'Oops! Something went wrong.',
@@ -108,6 +117,7 @@ export const Error = {
   },
 };
 
+/** @type {StoryObj} */
 export const Floating = {
   args: {
     message: 'You appear to be offline. 🤔',
@@ -117,6 +127,7 @@ export const Floating = {
   },
 };
 
+/** @type {StoryObj} */
 export const ThemedFloating = {
   name: 'Themed Floating',
   args: {

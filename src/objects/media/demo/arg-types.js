@@ -1,3 +1,5 @@
+/** @import { ArgTypes } from '@storybook/html' */
+/** @type {Partial<ArgTypes>} */
 export const mediaArgTypes = {
   tag_name: {
     type: { name: 'string' },

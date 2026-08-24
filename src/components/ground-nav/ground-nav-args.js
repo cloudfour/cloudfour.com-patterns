@@ -1,3 +1,4 @@
+/** @import { ArgTypes, Args } from '@storybook/html' */
 // eslint-disable-next-line import/order
 import skyNavMenu from '../sky-nav/demo/menu.json';
 import groundNavMenu from './demo/menu.json';
@@ -38,6 +39,7 @@ export const defaultArgs = {
 /**
  * Storybook arg types for the defaultArgs
  */
+/** @type {Partial<ArgTypes>} */
 export const defaultArgTypes = {
   alternate: { control: { type: 'boolean' } },
   feature_count: { control: { type: 'number', min: 0, max: 2 } },
@@ -62,7 +64,10 @@ export const defaultArgTypes = {
  *
  * Takes the flat args object and structures it as the template expects.
  *
- * @param {defaultArgs} args
+ * Storybook hands stories a loose args record rather than the exact shape of
+ * `defaultArgs`, so accept that and read the keys this builds from.
+ *
+ * @param {Args} args
  */
 export const generateGroundNavProps = (args) => ({
   menu,

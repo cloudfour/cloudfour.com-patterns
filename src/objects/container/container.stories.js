@@ -1,6 +1,8 @@
+/** @import { Args, Meta, StoryObj } from '@storybook/html' */
 import basicDemo from './demo/basic.twig';
 import fillDemo from './demo/fill.twig';
 import fillDemoSource from './demo/fill.twig?raw';
+/** @param {Args} args */
 const basicDemoStory = (args) => {
   const modifiers = [];
   if (args.prose) {
@@ -21,7 +23,8 @@ const padOptions = ['block', 'inline'];
 // Inline stories disabled so media queries will behave as expected within
 // embedded examples.
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Container',
   argTypes: {
     prose: {
@@ -40,6 +43,9 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {
   args: { prose: false, pad: padOptions },
   parameters: {
@@ -59,6 +65,7 @@ export const Basic = {
   render: basicDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Prose = {
   args: { prose: true, pad: padOptions },
   parameters: {
@@ -78,6 +85,7 @@ export const Prose = {
   render: basicDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Fill = {
   argTypes: {},
   parameters: {

@@ -1,12 +1,18 @@
+/** @import { ArgTypes, Meta, StoryContext, StoryObj } from '@storybook/html' */
 import demo from './demo/example.twig';
 import nestingDemo from './demo/nesting.twig';
 import nestingDemoSource from './demo/nesting.twig?raw';
+/** @param {StoryContext} storyContext */
 const argsStringFromStoryContext = (storyContext) => {
   const args = storyContext.args || storyContext.initialArgs || {};
   return Object.keys(args).length > 0
     ? ` with ${JSON.stringify(args, null, 2)}`
     : '';
 };
+/**
+ * @param {string} _src
+ * @param {StoryContext} storyContext
+ */
 const demoTransformSource = (_src, storyContext) => {
   const argsString = argsStringFromStoryContext(storyContext);
   return `{% embed '@cloudfour/objects/rhythm/rhythm.twig'${argsString} only %}
@@ -15,6 +21,10 @@ const demoTransformSource = (_src, storyContext) => {
   {% endblock %}
 {% endembed %}`;
 };
+/**
+ * @param {string} _src
+ * @param {StoryContext} storyContext
+ */
 const nestingDemoTransformSource = (_src, storyContext) => {
   const argsString = argsStringFromStoryContext(storyContext);
   return nestingDemoSource.replace(".twig' %}", `.twig'${argsString} only %}`);
@@ -27,17 +37,18 @@ const amountOptions = [
   'generous',
   'lavish',
 ];
+/** @type {Partial<ArgTypes>} */
 const argTypes = {
   amount: {
     options: amountOptions,
-    type: { name: 'enum' },
+    type: { name: 'enum', value: amountOptions },
     control: { type: 'select' },
     description:
       'Amount of vertical space to apply between adjacent elements as a keyword.',
   },
   heading_amount: {
     options: ['', 'generous', 'lavish'],
-    type: { name: 'enum' },
+    type: { name: 'enum', value: ['', 'generous', 'lavish'] },
     control: { type: 'select' },
     description:
       'Amount of vertical space to apply before headings as a keyword.',
@@ -57,7 +68,8 @@ const argTypes = {
   },
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Rhythm',
   argTypes,
   parameters: {
@@ -65,28 +77,34 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Example = {
   render: (args) => demo(args),
 };
 
+/** @type {StoryObj} */
 export const Amount = {
   args: { amount: 'condensed' },
   render: (args) => demo(args),
 };
 
+/** @type {StoryObj} */
 export const HeadingAmount = {
   name: 'Heading Amount',
   args: { amount: 'condensed', heading_amount: 'generous' },
   render: (args) => demo(args),
 };
 
+/** @type {StoryObj} */
 export const Nesting = {
   args: { amount: 'condensed' },
   argTypes: {
     ...argTypes,
     nested_amount: {
       options: amountOptions,
-      type: { name: 'enum' },
+      type: { name: 'enum', value: amountOptions },
       control: { type: 'select' },
     },
   },

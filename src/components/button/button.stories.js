@@ -1,3 +1,4 @@
+/** @import { ArgTypes, Args, Meta, StoryObj } from '@storybook/html' */
 import button from './button.twig';
 import iconButtonCustomDemo from './demo/icon-button-custom-demo.twig';
 import iconButtonCustomDemoSource from './demo/icon-button-custom-demo.twig?raw';
@@ -5,6 +6,7 @@ import slashedIconButtonCustomDemo from './demo/slashed-icon-button-custom-demo.
 import slashedIconButtonCustomDemoSource from './demo/slashed-icon-button-custom-demo.twig?raw';
 import stylesDemo from './demo/styles.twig';
 import stylesDemoSource from './demo/styles.twig?raw';
+/** @type {ArgTypes[string]} */
 const iconControlConfig = {
   options: [
     '',
@@ -20,6 +22,7 @@ const iconControlConfig = {
     type: 'select',
   },
 };
+/** @param {Args} args */
 const buttonStory = (args) => {
   // Don't bother with the inline options if they don't exist or are defaults
   if (args.content_start_icon === '') {
@@ -37,7 +40,8 @@ const buttonStory = (args) => {
   return button(args);
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Button',
   args: {
     type: 'button',
@@ -47,7 +51,7 @@ export default {
     href: { type: { name: 'string' } },
     type: {
       options: ['button', 'submit'],
-      type: { name: 'enum' },
+      type: { name: 'enum', value: ['button', 'submit'] },
       control: { type: 'inline-radio' },
     },
     disabled: { type: { name: 'boolean' } },
@@ -56,23 +60,29 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const ButtonElement = {
   name: 'Button Element',
   args: { label: 'Button', href: false },
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const LinkElement = {
   name: 'Link Element',
   args: { label: 'Link', tagName: 'a' },
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const Styles = {
   parameters: { docs: { source: { code: stylesDemoSource } } },
   render: (args) => stylesDemo(args),
 };
 
+/** @type {StoryObj} */
 export const StylesDark = {
   name: 'Styles (Dark)',
   parameters: {
@@ -82,6 +92,7 @@ export const StylesDark = {
   render: (args) => stylesDemo(args),
 };
 
+/** @type {StoryObj} */
 export const Icon = {
   args: {
     content_start_icon: 'bell',
@@ -90,6 +101,7 @@ export const Icon = {
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const CustomIcon = {
   name: 'Custom Icon',
   parameters: {
@@ -98,22 +110,26 @@ export const CustomIcon = {
   render: (args) => iconButtonCustomDemo(args),
 };
 
+/** @type {StoryObj} */
 export const Disabled = {
   args: { label: 'Disabled', disabled: true },
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const ARIADisabled = {
   name: 'ARIA Disabled',
   args: { label: 'ARIA Disabled', aria_disabled: 'true' },
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const Loading = {
   args: { label: 'Loading', class: 'is-loading' },
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const SlashedIcon = {
   name: 'Slashed Icon',
   args: {
@@ -122,6 +138,7 @@ export const SlashedIcon = {
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const SecondaryButtonWithSlashedIcon = {
   name: 'Secondary Button with Slashed Icon',
   args: {
@@ -130,6 +147,7 @@ export const SecondaryButtonWithSlashedIcon = {
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const TertiaryButtonWithSlashedIcon = {
   name: 'Tertiary Button with Slashed Icon',
   args: {
@@ -138,6 +156,7 @@ export const TertiaryButtonWithSlashedIcon = {
   render: (args) => buttonStory(args),
 };
 
+/** @type {StoryObj} */
 export const SlashedCustomIcon = {
   name: 'Slashed Custom Icon',
   parameters: {

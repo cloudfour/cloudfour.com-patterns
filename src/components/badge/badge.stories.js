@@ -1,4 +1,6 @@
+/** @import { Args, Meta, StoryObj } from '@storybook/html' */
 import template from './badge.twig';
+/** @param {Args} args */
 const badgeStory = (args) => {
   // Don't bother with the inline options if they don't exist or are defaults
   if (args.icon === '') {
@@ -7,7 +9,8 @@ const badgeStory = (args) => {
   return template(args);
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Badge',
   argTypes: {
     label: { type: { name: 'string' } },
@@ -24,15 +27,20 @@ export default {
   render: (args) => badgeStory(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {
   args: { label: 'Hello' },
 };
 
+/** @type {StoryObj} */
 export const WithIcon = {
   name: 'With icon',
   args: { icon: 'check', label: 'Verified' },
 };
 
+/** @type {StoryObj} */
 export const Linked = {
   args: { icon: 'paperclip', label: 'Attachment', href: '#', rel: 'tag' },
 };

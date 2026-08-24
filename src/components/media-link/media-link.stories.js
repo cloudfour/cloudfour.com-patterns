@@ -1,7 +1,9 @@
+/** @import { ArgTypes, Meta, StoryObj } from '@storybook/html' */
 import { mediaArgTypes } from '../../objects/media/demo/arg-types.js';
 import { avatarArgTypes } from '../avatar/demo/arg-types.js';
 
 import template from './media-link.twig';
+/** @type {Partial<ArgTypes>} */
 const mediaLinkArgTypes = {
   ...mediaArgTypes,
   label: {
@@ -45,12 +47,16 @@ const mediaLinkArgTypes = {
   avatar_shape: avatarArgTypes.shape,
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Media Link',
   argTypes: mediaLinkArgTypes,
   render: (args) => template(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {
   args: {
     href: 'https://cloudfour.com/thinks/performance-is-an-issue-of-equity/',

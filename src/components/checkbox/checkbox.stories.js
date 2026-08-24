@@ -1,7 +1,9 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import withLabelDemo from './demo/with-label.twig';
 import './demo/styles.scss';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Checkbox',
   argTypes: {
     disabled: { type: { name: 'boolean' } },
@@ -9,6 +11,9 @@ export default {
   render: (args) => withLabelDemo(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Enabled = {
   args: { disabled: false },
   parameters: {
@@ -27,6 +32,7 @@ export const Enabled = {
   },
 };
 
+/** @type {StoryObj} */
 export const Disabled = {
   args: { disabled: true },
   parameters: {

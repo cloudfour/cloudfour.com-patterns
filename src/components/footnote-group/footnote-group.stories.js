@@ -1,6 +1,8 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import template from './footnote-group.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Footnote/Footnote Group',
   argTypes: {
     compact: { type: { name: 'boolean' } },
@@ -13,8 +15,12 @@ export default {
     }),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {};
 
+/** @type {StoryObj} */
 export const Compact = {
   args: {
     compact: true,

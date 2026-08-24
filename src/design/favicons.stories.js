@@ -1,12 +1,17 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import faviconApps from './demo/favicon-apps.twig';
 import faviconTabs from './demo/favicon-tabs.twig';
 import './demo/favicon-apps.scss';
 import './demo/favicon-tabs.scss';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Design/Favicons',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Favicons = {
   parameters: {
     layout: 'fullscreen',
@@ -20,6 +25,7 @@ export const Favicons = {
   render: faviconTabs,
 };
 
+/** @type {StoryObj} */
 export const FaviconsDev = {
   name: 'Favicons (Dev)',
   parameters: {
@@ -34,6 +40,7 @@ export const FaviconsDev = {
   render: () => faviconTabs({ dev: true }),
 };
 
+/** @type {StoryObj} */
 export const Android = {
   parameters: {
     docs: {
@@ -60,6 +67,7 @@ export const Android = {
   render: faviconApps,
 };
 
+/** @type {StoryObj} */
 export const Apple = {
   parameters: {
     docs: {

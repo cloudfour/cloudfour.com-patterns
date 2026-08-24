@@ -1,7 +1,13 @@
+/** @import { Args, Meta, StoryContext, StoryObj } from '@storybook/html' */
 import cloudyDemo from './demo/cloudy.twig';
 import cloudyDemoSource from './demo/cloudy.twig?raw';
 import singleDemo from './demo/single.twig';
+/**
+ * @param {Args} args
+ * @param {string} [storyId]
+ */
 const singleDemoProps = (args = {}, storyId) => {
+  /** @type {Record<string, unknown>} */
   const props = {
     heading_id: args.heading_id || `${storyId}-heading`,
     href: args.href,
@@ -28,6 +34,7 @@ const singleDemoProps = (args = {}, storyId) => {
   }
   return props;
 };
+/** @param {Args} args */
 const singleDemoStory = (args) => {
   const props = singleDemoProps(args);
   if (args.show && args.show.length > 0) {
@@ -37,6 +44,7 @@ const singleDemoStory = (args) => {
   }
   return singleDemo(props);
 };
+/** @type {Record<string, string>} */
 const singleDemoBlockExamples = {
   heading: 'Lorem ipsum dolor sit amet',
   eyebrow: `{% include '@cloudfour/components/logo/logo.twig' with { } only %}`,
@@ -45,7 +53,12 @@ const singleDemoBlockExamples = {
   footer: `<p>{{'now'|date('M j, Y')}}</p>`,
 };
 // Custom function for generating story source from args given
+/**
+ * @param {string} _src
+ * @param {StoryContext} storyContext
+ */
 const singleDemoTransformSource = (_src, storyContext) => {
+  /** @type {Args} */
   const args = storyContext.args || storyContext.initialArgs;
   const props = singleDemoProps(args, storyContext.id);
   const propsString =
@@ -53,7 +66,7 @@ const singleDemoTransformSource = (_src, storyContext) => {
       ? ` with ${JSON.stringify(props, null, 2)}`
       : '';
   const blocks = (args.show || []).map(
-    (blockName) =>
+    (/** @type {string} */ blockName) =>
       `{% block ${blockName} %}${singleDemoBlockExamples[blockName]}{% endblock %}`,
   );
   return `{% embed '@cloudfour/components/card/card.twig'${propsString} only %}
@@ -61,7 +74,8 @@ const singleDemoTransformSource = (_src, storyContext) => {
 {% endembed %}`;
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Card',
   args: {
     show: ['heading', 'cover', 'content', 'footer'],
@@ -96,6 +110,9 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const ContentBlocks = {
   name: 'Content Blocks',
   args: {
@@ -104,6 +121,7 @@ export const ContentBlocks = {
   render: singleDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Link = {
   args: {
     href: '#',
@@ -112,12 +130,14 @@ export const Link = {
   render: singleDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const CoverImage = {
   name: 'Cover Image',
   args: { href: '#' },
   render: singleDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Eyebrow = {
   args: {
     href: '#',
@@ -127,28 +147,33 @@ export const Eyebrow = {
   render: singleDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Horizontal = {
   args: { href: '#', horizontal: '@m' },
   render: singleDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const CircularCoverImage = {
   name: 'Circular Cover Image',
   args: { class: 'c-card--circle-cover', href: '#', horizontal: '@m' },
   render: singleDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Contained = {
   args: { href: '#', horizontal: '@m', contained: true },
   render: singleDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Themed = {
   args: { href: '#', horizontal: '@m', contained: true, theme: 'light' },
   parameters: { theme: 't-dark' },
   render: singleDemoStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Cloudy = {
   parameters: {
     docs: {

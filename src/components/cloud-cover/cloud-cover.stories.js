@@ -1,3 +1,4 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import { useEffect } from 'storybook/preview-api';
 
 import contentDemo from './demo/content.twig';
@@ -6,7 +7,8 @@ import flagImage from './demo/flag.svg';
 import robotImage from './demo/robot.svg';
 import sceneDemo from './demo/scene.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Cloud Cover',
   parameters: {
     docs: { story: { inline: false } },
@@ -15,6 +17,9 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Content = {
   parameters: {
     docs: {
@@ -41,6 +46,7 @@ export const Content = {
   render: () => contentDemo(),
 };
 
+/** @type {StoryObj} */
 export const Scene = {
   parameters: {
     docs: {
@@ -74,6 +80,7 @@ export const Scene = {
   render: () => sceneDemo({ image: robotImage }),
 };
 
+/** @type {StoryObj} */
 export const HorizonScene = {
   name: 'Horizon Scene',
   parameters: {
@@ -112,6 +119,7 @@ export const HorizonScene = {
     }),
 };
 
+/** @type {StoryObj} */
 export const ExtraContent = {
   name: 'Extra Content',
   parameters: {
@@ -146,6 +154,7 @@ export const ExtraContent = {
   render: () => extraDemo(),
 };
 
+/** @type {StoryObj} */
 export const FullHeight = {
   name: 'Full Height',
   parameters: {
@@ -182,7 +191,10 @@ export const FullHeight = {
       // Set this story's `body` element to full-height
       document.body.style.height = '100%';
       // Prevent Storybook's container from affecting this layout
-      document.querySelector('#storybook-root').style.display = 'contents';
+      const root = /** @type {HTMLElement | null} */ (
+        document.querySelector('#storybook-root')
+      );
+      if (root) root.style.display = 'contents';
     });
     return sceneDemo({
       class: 'c-cloud-cover--full-height',

@@ -1,5 +1,7 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import basicDemo from './demo/basic.twig';
 import data from './demo/data.json';
+/** @param {string} [tableClass] */
 const basicTableCodeExample = (tableClass) => {
   const withArgs = tableClass ? ` with { table_class: '${tableClass}' }` : '';
   return `{% embed '@cloudfour/components/table/table.twig'${withArgs} only %}
@@ -23,7 +25,8 @@ const basicTableCodeExample = (tableClass) => {
 {% endembed %}`;
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Table',
   args: {
     hasHeader: true,
@@ -62,10 +65,14 @@ export default {
   render: (args) => basicDemo({ ...args, tableData: data }),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {
   parameters: { docs: { source: { code: basicTableCodeExample() } } },
 };
 
+/** @type {StoryObj} */
 export const Ruled = {
   args: { isRuled: true },
   parameters: {
@@ -73,6 +80,7 @@ export const Ruled = {
   },
 };
 
+/** @type {StoryObj} */
 export const Striped = {
   args: { isStriped: true },
   parameters: {
@@ -80,6 +88,7 @@ export const Striped = {
   },
 };
 
+/** @type {StoryObj} */
 export const NumericData = {
   name: 'Numeric Data',
   args: { numericData: true },

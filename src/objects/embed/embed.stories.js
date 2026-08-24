@@ -1,3 +1,4 @@
+/** @import { ArgTypes, Meta, StoryContext, StoryObj } from '@storybook/html' */
 import tokens from '../../compiled/tokens/js/tokens.js';
 
 import roundedDemoSrc from './demo/avatar.png';
@@ -13,6 +14,7 @@ const modifierClasses = [
   '',
   ...Object.keys(aspectRatioTokens).map((key) => `o-embed--${key}`),
 ];
+/** @type {Partial<ArgTypes>} */
 const defaultArgTypes = {
   class: {
     options: modifierClasses,
@@ -25,6 +27,10 @@ const defaultArgs = {
   class: 'o-embed--wide',
 };
 // Custom embed source function to preserve args in source code examples
+/**
+ * @param {string} _src
+ * @param {StoryContext} storyContext
+ */
 const embedTransformSource = (_src, storyContext) => {
   const args = storyContext.args || storyContext.initialArgs || {};
   const argsString =
@@ -38,17 +44,22 @@ const embedTransformSource = (_src, storyContext) => {
 {% endembed %}`;
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Embed',
   parameters: { docs: { source: { transform: embedTransformSource } } },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Image = {
   args: defaultArgs,
   argTypes: defaultArgTypes,
   render: (args) => imageDemo({ ...args, src: imageDemoImgSrc }),
 };
 
+/** @type {StoryObj} */
 export const Picture = {
   args: defaultArgs,
   argTypes: defaultArgTypes,
@@ -60,12 +71,14 @@ export const Picture = {
     }),
 };
 
+/** @type {StoryObj} */
 export const Video = {
   args: defaultArgs,
   argTypes: defaultArgTypes,
   render: (args) => videoDemo(args),
 };
 
+/** @type {StoryObj} */
 export const Rounded = {
   args: {
     class: 'u-rounded-full',
@@ -78,6 +91,7 @@ export const Rounded = {
     }),
 };
 
+/** @type {StoryObj} */
 export const Responsive = {
   args: {
     class: 'o-embed--full@s o-embed--wide@m o-embed--cinema@l',

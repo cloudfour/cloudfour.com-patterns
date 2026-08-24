@@ -1,6 +1,8 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import floatDemo from './demo/float.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Utilities/Float',
   argTypes: {
     float: {
@@ -19,6 +21,9 @@ export default {
   render: (args) => floatDemo(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Direction = {
   args: { float: 'inline-end' },
 };

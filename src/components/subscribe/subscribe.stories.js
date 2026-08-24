@@ -1,22 +1,29 @@
+/** @import { Args, Meta, StoryObj } from '@storybook/html' */
 import { useEffect } from 'storybook/preview-api';
 
 import { makeTwigInclude } from '../../make-twig-include.js';
 
 import template from './demo/storybook-demo.twig';
-import { createSubscribe } from './subscribe.ts';
+import { createSubscribe } from './subscribe';
 // Helper function to initialize toggling button JS
+/** @param {Args} args */
 const templateStory = (args) => {
   useEffect(() => {
-    // Initialize the component
-    const subscribeComponent = createSubscribe(
-      document.querySelector('.js-subscribe'),
+    const container = /** @type {HTMLElement | null} */ (
+      document.querySelector('.js-subscribe')
     );
-    subscribeComponent.init();
-    // Set up the demo destroy button
+    // Set up the demo destroy and init buttons
     const destroyBtn = document.querySelector('.js-destroy-button');
-    destroyBtn.addEventListener('click', subscribeComponent.destroy);
-    // Set up the demo init button
     const initBtn = document.querySelector('.js-init-button');
+    if (!container || !destroyBtn || !initBtn) return;
+
+    // Initialize the component. `createSubscribe` returns nothing if the markup it
+    // needs is not there, in which case there is no demo to wire up.
+    const subscribeComponent = createSubscribe(container);
+    if (!subscribeComponent) return;
+
+    subscribeComponent.init();
+    destroyBtn.addEventListener('click', subscribeComponent.destroy);
     initBtn.addEventListener('click', subscribeComponent.init);
     return () => {
       // Make sure to cleanup
@@ -28,7 +35,8 @@ const templateStory = (args) => {
   return template(args);
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Subscribe',
   argTypes: {
     form_id: {
@@ -68,7 +76,7 @@ export default {
       description:
         'Sets the heading level. If `heading_tag`, is specified, `heading_level` will override only visual styles.',
       table: {
-        defaultValue: { summary: 2 },
+        defaultValue: { summary: '2' },
       },
       control: {
         type: 'range',
@@ -195,6 +203,9 @@ export default {
   render: (args) => templateStory(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Default = {
   args: {
     form_id: 'example-demo',

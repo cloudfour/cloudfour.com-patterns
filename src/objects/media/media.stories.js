@@ -1,3 +1,4 @@
+/** @import { Meta, StoryContext, StoryObj } from '@storybook/html' */
 import { mediaArgTypes } from './demo/arg-types.js';
 import calendarDateDemo from './demo/calendar-date.twig';
 import calendarDateDemoSource from './demo/calendar-date.twig?raw';
@@ -9,6 +10,10 @@ const exampleText =
   'One of the things that is really clear to us (and that we hear often from our clients) is that the way we engage with our clients is unique. In fact, bringing clients in early and often to our process is one of our specialties at Cloud Four.';
 // We define a source transform for the image demo since it needs to
 // respond to args more dynamically than other demos.
+/**
+ * @param {string} _src
+ * @param {StoryContext} storyContext
+ */
 const imageDemoTransformSource = (_src, storyContext) => {
   const { args } = storyContext;
   const withStr = args?.reverse
@@ -28,7 +33,8 @@ const imageDemoTransformSource = (_src, storyContext) => {
 {% endembed %}`;
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Media',
   args: {
     imgSrc: meganProfileImage,
@@ -42,6 +48,9 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Image = {
   parameters: {
     docs: {
@@ -51,6 +60,7 @@ export const Image = {
   render: (args) => imageDemo(args),
 };
 
+/** @type {StoryObj} */
 export const GenerousSpacing = {
   name: 'Generous Spacing',
   args: { generous: true },
@@ -62,6 +72,7 @@ export const GenerousSpacing = {
   render: (args) => imageDemo(args),
 };
 
+/** @type {StoryObj} */
 export const ImageReversed = {
   name: 'Image Reversed',
   args: { reverse: true },
@@ -73,6 +84,7 @@ export const ImageReversed = {
   render: (args) => imageDemo(args),
 };
 
+/** @type {StoryObj} */
 export const RelativeSize = {
   name: 'Relative Size',
   args: { class: 'o-media--1-by-3' },
@@ -84,18 +96,21 @@ export const RelativeSize = {
   render: (args) => imageDemo(args),
 };
 
+/** @type {StoryObj} */
 export const CheckboxLabel = {
   name: 'Checkbox Label',
   parameters: { docs: { source: { code: checkboxDemoSource } } },
   render: checkboxDemo,
 };
 
+/** @type {StoryObj} */
 export const EventSummary = {
   name: 'Event Summary',
   parameters: { docs: { source: { code: calendarDateDemoSource } } },
   render: calendarDateDemo,
 };
 
+/** @type {StoryObj} */
 export const Jaunty = {
   args: { jaunty: true },
   parameters: {
@@ -106,6 +121,7 @@ export const Jaunty = {
   render: (args) => imageDemo(args),
 };
 
+/** @type {StoryObj} */
 export const AlignDefault = {
   name: 'Align Default',
   args: {
@@ -119,6 +135,7 @@ export const AlignDefault = {
   render: (args) => imageDemo(args),
 };
 
+/** @type {StoryObj} */
 export const AlignStart = {
   name: 'Align Start',
   args: {

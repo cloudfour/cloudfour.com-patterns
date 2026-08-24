@@ -1,3 +1,4 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import avatarDefaultSrc from '../assets/illustrations/avatar/default.svg';
 import avatarTransparentSrc from '../assets/illustrations/avatar/transparent.svg';
 import responsiveImage from '../assets/illustrations/responsive-fallback.svg';
@@ -17,23 +18,25 @@ const featureImages = import.meta.glob(
 
 const featureImageData = Object.entries(featureImages)
   .map(([filePath, src]) => ({
-    name: filePath
-      .split('/')
-      .pop()
-      .replace(/\.svg$/, ''),
+    name: (filePath.split('/').pop() ?? '').replace(/\.svg$/, ''),
     src,
   }))
   .toSorted((a, b) => a.name.localeCompare(b.name));
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Design/Illustrations',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const FeatureImages = {
   name: 'Feature images',
   render: () => imageDeck({ images: featureImageData }),
 };
 
+/** @type {StoryObj} */
 export const ResponsiveFallbackImage = {
   name: 'Responsive fallback image',
   render: () =>
@@ -43,18 +46,23 @@ export const ResponsiveFallbackImage = {
     }),
 };
 
+/** @type {StoryObj} */
 export const DefaultAvatar = {
   name: 'Default avatar',
   render: () => `<img src="${avatarDefaultSrc}" alt="Default avatar">`,
 };
 
+/** @type {StoryObj} */
 export const TransparentAvatar = {
   name: 'Transparent avatar',
   parameters: {
     docs: {
       // The checkerboard is only there to show the transparency, so keep it out of
       // the source snippet.
-      source: { transform: (code) => code.replaceAll(/ style="([^"]+)"/g, '') },
+      source: {
+        transform: (/** @type {string} */ code) =>
+          code.replaceAll(/ style="([^"]+)"/g, ''),
+      },
     },
   },
   render: () =>

@@ -1,39 +1,50 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import figureImage from './demo/tiny-web-stacks.png';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Design/Defaults',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const HeadingLevel1 = {
   name: 'Heading level 1',
   render: () => `<h1>Heading level 1</h1>`,
 };
 
+/** @type {StoryObj} */
 export const HeadingLevel2 = {
   name: 'Heading level 2',
   render: () => `<h2>Heading level 2</h2>`,
 };
 
+/** @type {StoryObj} */
 export const HeadingLevel3 = {
   name: 'Heading level 3',
   render: () => `<h3>Heading level 3</h3>`,
 };
 
+/** @type {StoryObj} */
 export const HeadingLevel4 = {
   name: 'Heading level 4',
   render: () => `<h4>Heading level 4</h4>`,
 };
 
+/** @type {StoryObj} */
 export const HeadingLevel5 = {
   name: 'Heading level 5',
   render: () => `<h5>Heading level 5</h5>`,
 };
 
+/** @type {StoryObj} */
 export const HeadingLevel6 = {
   name: 'Heading level 6',
   render: () => `<h6>Heading level 6</h6>`,
 };
 
+/** @type {StoryObj} */
 export const InlineElements = {
   name: 'Inline elements',
   render: () => `<p>
@@ -41,6 +52,7 @@ export const InlineElements = {
 </p>`,
 };
 
+/** @type {StoryObj} */
 export const Blockquote = {
   render: () => `<blockquote>
   <p><b>CSS Grid Layout</b> excels at dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives.</p>
@@ -51,6 +63,7 @@ export const Blockquote = {
 </blockquote>`,
 };
 
+/** @type {StoryObj} */
 export const UnorderedList = {
   name: 'Unordered list',
   render: () => `<ul>
@@ -66,6 +79,7 @@ export const UnorderedList = {
 </ul>`,
 };
 
+/** @type {StoryObj} */
 export const OrderedList = {
   name: 'Ordered list',
   render: () => `<ol>
@@ -81,6 +95,7 @@ export const OrderedList = {
 </ol>`,
 };
 
+/** @type {StoryObj} */
 export const DescriptionList = {
   name: 'Description list',
   render: () => `<dl>
@@ -93,6 +108,7 @@ export const DescriptionList = {
 </dl>`,
 };
 
+/** @type {StoryObj} */
 export const Figure = {
   render: () => `<figure>
   <img src="${figureImage}" width="800" height="450" alt="pancakes">
@@ -100,6 +116,7 @@ export const Figure = {
 </figure>`,
 };
 
+/** @type {StoryObj} */
 export const CodeBlock = {
   name: 'Code block',
   render: () => {
@@ -110,6 +127,7 @@ export const CodeBlock = {
   },
 };
 
+/** @type {StoryObj} */
 export const HorizontalRule = {
   name: 'Horizontal rule',
   render: () => `<p>…and so ends this topic.</p>
@@ -117,6 +135,7 @@ export const HorizontalRule = {
 <p>Shifting our focus to something else entirely…</p>`,
 };
 
+/** @type {StoryObj} */
 export const DetailsSummary = {
   name: 'Details/Summary',
   render: () => `<details open>

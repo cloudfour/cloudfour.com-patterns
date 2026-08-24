@@ -106,7 +106,7 @@
     "stylelint-use-logical-spec": "5.0.1",
     "svgo": "4.0.2",
     "twing": "7.3.1",
-    "typescript": "5.9.3",
+    "typescript": "7.0.2",
     "vite": "8.2.2",
     "vite-plugin-svgr": "5.2.0",
     "vitest": "4.1.11"

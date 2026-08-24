@@ -8,8 +8,7 @@ import { twigPlugin } from '../twing/vite-plugin-twig.mjs';
 const here = dirname(fileURLToPath(import.meta.url));
 
 export default {
-  // We load the welcome story separately so it will be the first sidebar item.
-  stories: ['../src/welcome.mdx', '../src/**/*.stories.js', '../src/**/*.mdx'],
+  stories: ['../src/**/*.stories.js', '../src/**/*.mdx'],
   staticDirs: ['../static', '../src/assets'],
   addons: [
     '@storybook/addon-docs',

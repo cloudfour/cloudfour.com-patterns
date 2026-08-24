@@ -59,6 +59,20 @@ $wp-button-gap: size.$spacing-gap-button-group-default;
   }
 
   /**
+   * WordPress shrinks the File block's text to `0.8em`. It used to set that on
+   * the button itself, where our button styles simply overrode it, but it now
+   * sets it on this container instead. Our button mixins take `font: inherit`
+   * and size their padding and height in `em`, so an inherited `0.8em` scales
+   * the whole button down by a fifth rather than just its text.
+   *
+   * The `:not()` is here only to match the specificity of the WordPress rule so
+   * that ours wins on source order, not because the state means anything to us.
+   */
+  &:not(.wp-element-button) {
+    font-size: inherit;
+  }
+
+  /**
    * The following three selectors target a class name _and_ a universal
    * selector (*). This is intentional because the Gutenberg file block can
    * generate two different elements, a file-link and a file-button and we

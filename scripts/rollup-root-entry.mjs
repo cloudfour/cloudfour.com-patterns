@@ -28,10 +28,11 @@ export const createVirtualRootEntry = async () => {
 
   return (
     matches
-      // Don't include test files or stories in the build. Stories became `.js` when
-      // they moved off `.stories.mdx`, so without this they land in the published
-      // bundle -- and they import `.twig` and `.scss`, which Rollup cannot parse.
-      .filter((f) => !/\.(test|stories)\.[jt]sx?$/.test(f))
+      // Don't include test files, stories, or the arg fixtures stories import in the
+      // build. Stories became `.js` when they moved off `.stories.mdx`, so without
+      // this they land in the published bundle -- and they import `.twig` and
+      // `.scss`, which Rollup cannot parse.
+      .filter((f) => !/(\.(test|stories)|-args)\.[jt]sx?$/.test(f))
       // The order of these exports reaches the published bundle and type
       // declarations, so sort rather than depending on the order the file system
       // happens to hand back.

@@ -4,16 +4,9 @@ import logoTemplate from './logo.twig';
 import './demo/alignment.scss';
 const alignOptions = ['start', 'center', 'end'];
 
-// This component's options rely on CSS custom properties, which are currently
-// broken in the library we use for inlining Storybook stories. Until that issue
-// is resolved, we must fallback to iframes for these stories. 🙈️
-//
-// @see https://github.com/aknuds1/html-to-react/issues/144
-
 /** @type {Meta} */
 const meta = {
   title: 'Components/Logo',
-  parameters: { docs: { story: { inline: false } } },
 };
 
 export default meta;

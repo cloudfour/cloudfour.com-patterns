@@ -2,12 +2,18 @@
   We enclose this demo in a standard container to accurately demonstrate the
   layout effects of blocks with background colors. When displaying this demo
   in Storybook, be sure to set its layout to `fullscreen`.
+
+  The `wp-block-heading` class is what the Gutenberg Heading block emits, and
+  WordPress scopes its heading styles to it -- including the padding that keeps
+  a heading's text off the edge of its background color. Without it this demo
+  renders a background with no padding, which is not what the CMS produces.
 #}
 {% embed '@cloudfour/objects/container/container.twig' with {
   class: 'o-container--prose o-container--pad'
 } %}
   {% block content %}
     <h2 class="
+      wp-block-heading
       {% if color %}
         has-{{color}}-color
         has-text-color

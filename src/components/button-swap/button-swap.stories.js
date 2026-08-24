@@ -32,6 +32,11 @@ export const Default = {
   },
   parameters: {
     docs: {
+      // This story rendered in its own frame before the CSF migration, which dropped
+      // the setting. No `iframeHeight` to go with it, matching the original: the
+      // component measures about 45px against Storybook's 100px default, so unlike
+      // the stories in #2420 there is nothing here to clip.
+      story: { inline: false },
       source: {
         code: makeTwigInclude(
           '@cloudfour/components/button-swap/button-swap.twig',

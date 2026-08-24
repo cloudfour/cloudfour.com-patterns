@@ -1,8 +1,10 @@
+/** @import { ArgTypes, Args, Meta, StoryObj } from '@storybook/html' */
 import a11yDemo from './demo/a11y.twig';
 import a11yDemoSource from './demo/a11y.twig?raw';
 import inlineDemo from './demo/inline.twig';
 import inlineDemoSource from './demo/inline.twig?raw';
 import template from './icon.twig';
+/** @param {Args} args */
 const iconStory = (args) => {
   // Don't bother with the inline option if it is the default
   if (args.inline === false) {
@@ -10,6 +12,7 @@ const iconStory = (args) => {
   }
   return template(args);
 };
+/** @type {Partial<ArgTypes>} */
 const defaultArgs = {
   name: { type: 'string' },
   fallback: { type: 'string' },
@@ -20,10 +23,14 @@ const defaultArgs = {
   size: { type: 'string' },
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Icon',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {
   args: {
     name: 'heart',
@@ -33,6 +40,7 @@ export const Basic = {
   render: (args) => iconStory(args),
 };
 
+/** @type {StoryObj} */
 export const Muted = {
   args: {
     name: 'heart',
@@ -43,6 +51,7 @@ export const Muted = {
   render: (args) => iconStory(args),
 };
 
+/** @type {StoryObj} */
 export const MediumSize = {
   name: 'Medium Size',
   args: {
@@ -53,6 +62,7 @@ export const MediumSize = {
   render: (args) => iconStory(args),
 };
 
+/** @type {StoryObj} */
 export const LargeSize = {
   name: 'Large Size',
   args: {
@@ -63,6 +73,7 @@ export const LargeSize = {
   render: (args) => iconStory(args),
 };
 
+/** @type {StoryObj} */
 export const XLargeSize = {
   name: 'X-Large Size',
   args: {
@@ -73,11 +84,13 @@ export const XLargeSize = {
   render: (args) => iconStory(args),
 };
 
+/** @type {StoryObj} */
 export const Accessibility = {
   parameters: { docs: { source: { code: a11yDemoSource } } },
   render: a11yDemo,
 };
 
+/** @type {StoryObj} */
 export const Inline = {
   parameters: { docs: { source: { code: inlineDemoSource } } },
   render: inlineDemo,

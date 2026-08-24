@@ -1,6 +1,11 @@
+/** @import { Args, Meta, StoryContext, StoryObj } from '@storybook/html' */
 import demo from './demo/demo.twig';
 import logos from './demo/logos.json';
 const justifyOptions = ['start', 'center', 'end'];
+/**
+ * @param {string} _src
+ * @param {StoryContext} storyContext
+ */
 const demoTemplateSource = (_src, storyContext) => {
   const args = storyContext.args || storyContext.initialArgs;
   const twigArgs =
@@ -13,9 +18,11 @@ const demoTemplateSource = (_src, storyContext) => {
   {% endblock %}
 {% endembed %}`;
 };
+/** @param {Args} args */
 const demoStory = (args) => demo({ ...args, logos });
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Logo Group',
   argTypes: {
     justify: {
@@ -34,8 +41,12 @@ export default {
   render: (args) => demoStory(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Default = {};
 
+/** @type {StoryObj} */
 export const CenteredWithPadding = {
   name: 'Centered with padding',
   args: {

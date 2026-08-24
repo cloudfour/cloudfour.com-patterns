@@ -1,3 +1,4 @@
+/** @import { ArgTypes, Meta, StoryObj } from '@storybook/html' */
 import blockCodeDemo from './demo/code.twig';
 import blockDetailsDemo from './demo/details.twig';
 import blockEmbedSpeakerDeckDemo from './demo/embed/speakerdeck.twig';
@@ -8,53 +9,81 @@ import blockMediaTextDemo from './demo/media-text.twig';
 import blockPullQuoteDemo from './demo/pullquote.twig';
 import blockQuoteDemo from './demo/quote.twig';
 import blockTableDemo from './demo/table.twig';
+/** @type {Partial<ArgTypes>} */
 const blockEmbedDemoArgTypes = {
   alignment: {
-    options: {
-      None: '',
-      Left: 'alignleft',
-      Center: 'aligncenter',
-      Right: 'alignright',
-      Full: 'alignfull',
-      Wide: 'alignwide',
+    options: [
+      '',
+      'alignleft',
+      'aligncenter',
+      'alignright',
+      'alignfull',
+      'alignwide',
+    ],
+    control: {
+      type: 'select',
+      labels: {
+        '': 'None',
+        alignleft: 'Left',
+        aligncenter: 'Center',
+        alignright: 'Right',
+        alignfull: 'Full',
+        alignwide: 'Wide',
+      },
     },
-    control: { type: 'select' },
   },
   ratio: {
-    options: {
-      '21:9': '21-9',
-      '18:9': '18-9',
-      '16:9': '16-9',
-      '4:3': '4-3',
-      '1:1': '1-1',
-      '9:16': '9-16',
-      '1:2': '1-2',
+    options: ['21-9', '18-9', '16-9', '4-3', '1-1', '9-16', '1-2'],
+    control: {
+      type: 'select',
+      labels: {
+        '21-9': '21:9',
+        '18-9': '18:9',
+        '16-9': '16:9',
+        '4-3': '4:3',
+        '1-1': '1:1',
+        '9-16': '9:16',
+        '1-2': '1:2',
+      },
     },
-    control: { type: 'select' },
   },
   caption: {
     control: { type: 'text' },
   },
 };
+/** @type {Partial<ArgTypes>} */
 const blockMediaTextDemoArgTypes = {
   alignment: {
-    options: {
-      None: '',
-      Left: 'alignleft',
-      Center: 'aligncenter',
-      Right: 'alignright',
-      Full: 'alignfull',
-      Wide: 'alignwide',
+    options: [
+      '',
+      'alignleft',
+      'aligncenter',
+      'alignright',
+      'alignfull',
+      'alignwide',
+    ],
+    control: {
+      type: 'select',
+      labels: {
+        '': 'None',
+        alignleft: 'Left',
+        aligncenter: 'Center',
+        alignright: 'Right',
+        alignfull: 'Full',
+        alignwide: 'Wide',
+      },
     },
-    control: { type: 'select' },
   },
   vertical_alignment: {
-    options: {
-      Top: 'top',
-      Center: 'center',
-      Bottom: 'bottom',
+    options: ['top', 'center', 'bottom'],
+    control: {
+      type: 'select',
+      labels: {
+        top: 'Top',
+        center: 'Center',
+        bottom: 'Bottom',
+      },
     },
-    control: { type: 'select' },
   },
   has_media_on_the_right: {
     control: { type: 'boolean' },
@@ -73,10 +102,14 @@ const blockMediaTextDemoArgTypes = {
   },
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Vendor/WordPress/Core Blocks',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Audio = {
   render: () => `
     <figure class="wp-block-audio type">
@@ -86,6 +119,7 @@ export const Audio = {
   `,
 };
 
+/** @type {StoryObj} */
 export const Button = {
   render: () => `<div class="wp-block-button is-style-fill">
         <a class="wp-block-button__link" href="#">
@@ -94,6 +128,7 @@ export const Button = {
       </div>`,
 };
 
+/** @type {StoryObj} */
 export const Buttons = {
   render: () => `<div class="wp-block-buttons">
         <div class="wp-block-button is-style-fill">
@@ -109,10 +144,12 @@ export const Buttons = {
     </div>`,
 };
 
+/** @type {StoryObj} */
 export const Code = {
   render: () => blockCodeDemo(),
 };
 
+/** @type {StoryObj} */
 export const Columns = {
   render: () => `<div class="wp-block-columns">
         <div class="wp-block-column" style="flex-basis: 66.66%">
@@ -139,6 +176,7 @@ export const Columns = {
       </div>`,
 };
 
+/** @type {StoryObj} */
 export const Cover = {
   render: () => `<div
         class="wp-block-cover has-background-dim-40 has-background-dim has-parallax"
@@ -152,6 +190,7 @@ export const Cover = {
       </div>`,
 };
 
+/** @type {StoryObj} */
 export const CoverVideo = {
   name: 'Cover (Video)',
   render: () => `<div class="wp-block-cover has-background-dim">
@@ -174,6 +213,7 @@ export const CoverVideo = {
       </div>`,
 };
 
+/** @type {StoryObj} */
 export const Details = {
   argTypes: {
     open: {
@@ -187,6 +227,7 @@ export const Details = {
   render: (args) => blockDetailsDemo(args),
 };
 
+/** @type {StoryObj} */
 export const EmbedYouTube = {
   name: 'Embed (YouTube)',
   args: {
@@ -200,6 +241,7 @@ export const EmbedYouTube = {
   render: (args) => blockEmbedYouTubeDemo(args),
 };
 
+/** @type {StoryObj} */
 export const EmbedSpeakerDeck = {
   name: 'Embed (Speaker Deck)',
   args: {
@@ -213,6 +255,7 @@ export const EmbedSpeakerDeck = {
   render: (args) => blockEmbedSpeakerDeckDemo(args),
 };
 
+/** @type {StoryObj} */
 export const File = {
   render: () => `<div class="wp-block-file">
         <a href="#" class="wp-block-file__button" download="">
@@ -240,6 +283,7 @@ export const File = {
       </div>`,
 };
 
+/** @type {StoryObj} */
 export const Gallery = {
   render: () => `<figure class="wp-block-gallery columns-2 is-cropped">
         <ul class="blocks-gallery-grid">
@@ -272,19 +316,24 @@ export const Gallery = {
       </figure>`,
 };
 
+/** @type {StoryObj} */
 export const Group = {
   argTypes: {
     background: {
-      options: {
-        None: '',
-        Gray: 'has-gray-lighter-background-color has-background',
+      options: ['', 'has-gray-lighter-background-color has-background'],
+      control: {
+        type: 'select',
+        labels: {
+          '': 'None',
+          'has-gray-lighter-background-color has-background': 'Gray',
+        },
       },
-      control: { type: 'select' },
     },
   },
   render: (args) => blockGroupDemo({ class: args.background }),
 };
 
+/** @type {StoryObj} */
 export const Image = {
   args: {
     alignment: '',
@@ -292,28 +341,42 @@ export const Image = {
   },
   argTypes: {
     alignment: {
-      options: {
-        None: '',
-        Left: 'alignleft',
-        Center: 'aligncenter',
-        Right: 'alignright',
-        Full: 'alignfull',
-        Wide: 'alignwide',
+      options: [
+        '',
+        'alignleft',
+        'aligncenter',
+        'alignright',
+        'alignfull',
+        'alignwide',
+      ],
+      control: {
+        type: 'select',
+        labels: {
+          '': 'None',
+          alignleft: 'Left',
+          aligncenter: 'Center',
+          alignright: 'Right',
+          alignfull: 'Full',
+          alignwide: 'Wide',
+        },
       },
-      control: { type: 'select' },
     },
     style: {
-      options: {
-        None: 'is-style-default',
-        Outlined: 'is-style-outlined',
+      options: ['is-style-default', 'is-style-outlined'],
+      control: {
+        type: 'select',
+        labels: {
+          'is-style-default': 'None',
+          'is-style-outlined': 'Outlined',
+        },
       },
-      control: { type: 'select' },
     },
   },
   render: (args) =>
     blockImageDemo({ alignment: args.alignment, style: args.style }),
 };
 
+/** @type {StoryObj} */
 export const MediaText = {
   name: 'Media-Text',
   args: {
@@ -325,6 +388,7 @@ export const MediaText = {
   render: (args) => blockMediaTextDemo(args),
 };
 
+/** @type {StoryObj} */
 export const Preformatted = {
   render: () => String.raw`<pre class="wp-block-preformatted">
        ___________________________
@@ -338,6 +402,7 @@ export const Preformatted = {
       </pre>`,
 };
 
+/** @type {StoryObj} */
 export const Quote = {
   args: {
     show_citation: true,
@@ -362,6 +427,7 @@ export const Quote = {
   render: (args) => blockQuoteDemo(args),
 };
 
+/** @type {StoryObj} */
 export const Pullquote = {
   args: {
     show_citation: true,
@@ -385,6 +451,7 @@ export const Pullquote = {
   render: (args) => blockPullQuoteDemo(args),
 };
 
+/** @type {StoryObj} */
 export const Separator = {
   args: { style: 'default' },
   argTypes: {
@@ -398,6 +465,7 @@ export const Separator = {
   render: (args) => `<hr class="wp-block-separator is-style-${args.style}">`,
 };
 
+/** @type {StoryObj} */
 export const Spacer = {
   render: () => `<p>Content before spacer.</p>
         <div
@@ -408,6 +476,7 @@ export const Spacer = {
       <p>Content after spacer.</p>`,
 };
 
+/** @type {StoryObj} */
 export const Table = {
   args: {
     show_header: true,
@@ -417,12 +486,12 @@ export const Table = {
   argTypes: {
     block_style: {
       options: ['', 'stripes', 'ruled', 'numeric'],
-      type: { name: 'enum' },
+      type: { name: 'enum', value: ['', 'stripes', 'ruled', 'numeric'] },
       control: { type: 'select' },
     },
     column_alignment: {
       options: ['', 'center', 'right'],
-      type: { name: 'enum' },
+      type: { name: 'enum', value: ['', 'center', 'right'] },
       control: { type: 'select' },
     },
     fixed_layout: {
@@ -441,6 +510,7 @@ export const Table = {
   render: (args) => blockTableDemo(args),
 };
 
+/** @type {StoryObj} */
 export const Verse = {
   render: () =>
     `<pre class="wp-block-verse">WHAT was he doing, the great god Pan,<br>    Down in the reeds by the river?<br>Spreading ruin and scattering ban,<br>Splashing and paddling with hoofs of a goat,<br>And breaking the golden lilies afloat<br>    With the dragon-fly on the river.</pre>`,

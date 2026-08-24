@@ -1,9 +1,10 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import { useEffect } from 'storybook/preview-api';
 
 import { makeTwigInclude } from '../../make-twig-include.js';
 
 import menu from './demo/menu.json';
-import { initSkyNav } from './sky-nav.ts';
+import { initSkyNav } from './sky-nav';
 import template from './sky-nav.twig';
 const basicStoryArgs = {
   include_main_demo: true,
@@ -13,15 +14,18 @@ const basicStoryArgs = {
 // Inline stories disabled so media queries will behave as expected within
 // embedded examples.
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Sky Nav',
   parameters: { docs: { story: { inline: false } } },
   decorators: [
     (story) => {
       useEffect(() => {
-        const { destroy } = initSkyNav(
-          document.querySelector('.js-sky-nav-menu-toggle'),
+        const toggle = /** @type {HTMLButtonElement | null} */ (
+          document.querySelector('.js-sky-nav-menu-toggle')
         );
+        if (!toggle) return;
+        const { destroy } = initSkyNav(toggle);
         return destroy;
       });
       return story();
@@ -29,6 +33,9 @@ export default {
   ],
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Dark = {
   parameters: {
     layout: 'fullscreen',
@@ -50,6 +57,7 @@ export const Dark = {
     }),
 };
 
+/** @type {StoryObj} */
 export const Light = {
   parameters: {
     layout: 'fullscreen',

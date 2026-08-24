@@ -1,8 +1,10 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import { makeTwigInclude } from '../../make-twig-include.js';
 
 import buttonSwap from './button-swap.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Button Swap',
   argTypes: {
     content_start_icon: {
@@ -18,6 +20,9 @@ export default {
   render: (args) => buttonSwap(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Default = {
   args: {
     initial_label: 'Notifications have been turned off.',

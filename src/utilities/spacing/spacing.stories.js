@@ -1,3 +1,4 @@
+/** @import { ArgTypes, Meta, StoryObj } from '@storybook/html' */
 import tokens from '../../compiled/tokens/js/tokens.js';
 
 import directionsDemo from './demo/directions.twig';
@@ -6,6 +7,7 @@ import './demo/styles.scss';
 
 const minimumStep = tokens.number.scale.modular.minimum_step.value;
 const maximumStep = tokens.number.scale.modular.maximum_step.value;
+/** @type {Partial<ArgTypes>} */
 const defaultArgTypes = {
   step: {
     type: { name: 'number' },
@@ -16,22 +18,28 @@ const defaultArgs = {
   step: 1,
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Utilities/Spacing',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Padding = {
   args: defaultArgs,
   argTypes: defaultArgTypes,
   render: (args) => directionsDemo({ name: 'pad', ...args }),
 };
 
+/** @type {StoryObj} */
 export const Margin = {
   args: defaultArgs,
   argTypes: defaultArgTypes,
   render: (args) => directionsDemo({ name: 'space', ...args }),
 };
 
+/** @type {StoryObj} */
 export const NegativeMargin = {
   name: 'Negative Margin',
   render: () =>
@@ -41,6 +49,7 @@ export const NegativeMargin = {
     }),
 };
 
+/** @type {StoryObj} */
 export const Responsive = {
   render: () => responsiveDemo(),
 };

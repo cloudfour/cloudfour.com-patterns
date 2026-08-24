@@ -1,3 +1,4 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import template from './demo/ground-nav-demo.twig';
 import {
   defaultArgTypes,
@@ -8,12 +9,16 @@ import {
 // Inline stories disabled so media queries will behave as expected within
 // embedded examples.
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Ground Nav',
   parameters: { docs: { story: { inline: false } }, layout: 'fullscreen' },
   render: (args) => template(generateGroundNavProps(args)),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const CloudFour = {
   name: 'Cloud Four',
   args: defaultArgs,
@@ -24,6 +29,7 @@ export const CloudFour = {
   },
 };
 
+/** @type {StoryObj} */
 export const OneFeature = {
   name: 'One Feature',
   args: {
@@ -37,6 +43,7 @@ export const OneFeature = {
   },
 };
 
+/** @type {StoryObj} */
 export const NoFeatures = {
   name: 'No Features',
   args: {
@@ -50,6 +57,7 @@ export const NoFeatures = {
   },
 };
 
+/** @type {StoryObj} */
 export const Alternate = {
   args: {
     ...defaultArgs,

@@ -1,6 +1,8 @@
+/** @import { ArgTypes, Meta, StoryObj } from '@storybook/html' */
 import template from './calendar-date.twig';
 import seasonsDemo from './demo/seasons.twig';
 import './demo/styles.scss';
+/** @type {Partial<ArgTypes>} */
 const argTypes = {
   datetime: {
     control: { type: 'date' },
@@ -8,10 +10,14 @@ const argTypes = {
   note: { type: { name: 'string' } },
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Calendar Date',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {
   args: { datetime: Date.now() },
   argTypes,
@@ -19,6 +25,7 @@ export const Basic = {
     template({ datetime: new Date(datetime), note }),
 };
 
+/** @type {StoryObj} */
 export const WithNote = {
   name: 'With Note',
   args: { datetime: Date.now(), note: '3-day event' },
@@ -27,6 +34,7 @@ export const WithNote = {
     template({ datetime: new Date(datetime), note }),
 };
 
+/** @type {StoryObj} */
 export const Seasons = {
   parameters: {
     docs: {

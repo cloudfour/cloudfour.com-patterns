@@ -1,3 +1,4 @@
+/** @import { ArgTypes, Meta, StoryObj } from '@storybook/html' */
 import { kebabCase } from 'lodash';
 
 import tokens from '../../compiled/tokens/js/tokens.js';
@@ -6,33 +7,39 @@ import alignmentDemo from './demo/alignment.twig';
 import colorDemo from './demo/color.twig';
 import fontSizeDemo from './demo/font-size.twig';
 const baseColorTokenKeys = Object.keys(tokens.color.base).map(kebabCase);
+/** @type {ArgTypes[string]} */
 const colorControlConfig = {
   options: ['', ...baseColorTokenKeys],
   type: { name: 'string' },
   control: { type: 'select' },
 };
+/** @type {ArgTypes[string]} */
 const fontSizeControlConfig = {
+  // `options` is a sibling of `control`, not a member of it -- matching
+  // `colorControlConfig` above. Storybook reads the option list off the arg type.
+  options: [
+    '',
+    'big',
+    'small',
+    'heading-n-2',
+    'heading-n-1',
+    'heading-0',
+    'heading-1',
+    'heading-2',
+    'heading-3',
+  ],
   type: { name: 'string' },
-  control: {
-    type: 'select',
-    options: [
-      '',
-      'big',
-      'small',
-      'heading-n-2',
-      'heading-n-1',
-      'heading-0',
-      'heading-1',
-      'heading-2',
-      'heading-3',
-    ],
-  },
+  control: { type: 'select' },
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Vendor/WordPress/Utilities',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Color = {
   args: {
     color: 'fuchsia-lighter',
@@ -48,6 +55,7 @@ export const Color = {
   render: (args) => colorDemo(args),
 };
 
+/** @type {StoryObj} */
 export const FontSize = {
   name: 'Font Size',
   args: {
@@ -59,6 +67,7 @@ export const FontSize = {
   render: (args) => fontSizeDemo(args),
 };
 
+/** @type {StoryObj} */
 export const Alignment = {
   args: { alignment: 'alignwide' },
   argTypes: {

@@ -1,13 +1,14 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import { useEffect } from 'storybook/preview-api';
 
 import { makeTwigInclude } from '../../make-twig-include.js';
-import { createElasticTextArea } from '../input/elastic-textarea.ts';
+import { createElasticTextArea } from '../input/elastic-textarea';
 
-import { initCommentReplyForm } from './comment.ts';
+import { initCommentReplyForm } from './comment';
 import template from './comment.twig';
 import authorDemo from './demo/author.twig';
 import authorDemoSource from './demo/author.twig?raw';
-import { makeComment } from './demo/data.ts';
+import { makeComment } from './demo/data';
 import memberDemo from './demo/member.twig';
 import memberDemoSource from './demo/member.twig?raw';
 const tyler = {
@@ -15,9 +16,11 @@ const tyler = {
   link: 'https://cloudfour.com/is/tyler',
 };
 const initCommentReplyForms = () => {
-  const textAreaEl = document.querySelector('.js-elastic-textarea');
-  const commentReplyFormEl = document.querySelector(
-    '.js-comment-with-reply-form',
+  const textAreaEl = /** @type {HTMLTextAreaElement | null} */ (
+    document.querySelector('.js-elastic-textarea')
+  );
+  const commentReplyFormEl = /** @type {HTMLElement | null} */ (
+    document.querySelector('.js-comment-with-reply-form')
   );
   if (textAreaEl && commentReplyFormEl) {
     const textareaInstance = createElasticTextArea(textAreaEl);
@@ -34,6 +37,7 @@ const initCommentReplyForms = () => {
 // The page would freeze up. Now, we create a random set of comments ahead of
 // time and just reference them in the stories.
 const totalRandomComments = 5;
+/** @type {ReturnType<typeof makeComment>[]} */
 const randomComments = [];
 for (let i = 0; i < totalRandomComments; i++) {
   randomComments.push(makeComment());
@@ -41,7 +45,8 @@ for (let i = 0; i < totalRandomComments; i++) {
 const randomCommentWithReply = makeComment({ replies: 2 });
 const randomNotApprovedComment = makeComment({ approved: false });
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Comment',
   args: {
     isLoggedIn: false,
@@ -57,6 +62,9 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Single = {
   parameters: {
     docs: {
@@ -78,6 +86,7 @@ export const Single = {
   },
 };
 
+/** @type {StoryObj} */
 export const RoleAuthor = {
   name: 'Role: Author',
   parameters: {
@@ -97,6 +106,7 @@ export const RoleAuthor = {
   },
 };
 
+/** @type {StoryObj} */
 export const RoleCloudFour = {
   name: 'Role: Cloud Four',
   parameters: {
@@ -118,6 +128,7 @@ export const RoleCloudFour = {
   },
 };
 
+/** @type {StoryObj} */
 export const Unapproved = {
   parameters: {
     docs: {
@@ -139,6 +150,7 @@ export const Unapproved = {
   },
 };
 
+/** @type {StoryObj} */
 export const WithSource = {
   name: 'With source',
   parameters: {
@@ -169,6 +181,7 @@ export const WithSource = {
   },
 };
 
+/** @type {StoryObj} */
 export const WithReplyButton = {
   name: 'With reply button',
   args: { allowReplies: true, isLoggedIn: true },
@@ -195,6 +208,7 @@ export const WithReplyButton = {
   },
 };
 
+/** @type {StoryObj} */
 export const WithReplyThread = {
   name: 'With reply thread',
   parameters: {

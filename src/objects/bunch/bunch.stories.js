@@ -1,3 +1,4 @@
+/** @import { Args, Meta, StoryObj } from '@storybook/html' */
 import { shuffle } from 'lodash';
 
 import avatarsDemo from './demo/avatars.twig';
@@ -6,6 +7,7 @@ const demoImages = import.meta.glob('./demo/*.png', {
   import: 'default',
 });
 const demoImageSrcs = Object.values(demoImages);
+/** @param {Args} args */
 const avatarsDemoStory = (args) => {
   const srcs = shuffle(demoImageSrcs).slice(0, args.count);
   return avatarsDemo({ srcs });
@@ -18,7 +20,8 @@ const avatarsDemoSrc = `{% embed '@cloudfour/objects/bunch/bunch.twig' only %}
   {% endblock %}
 {% endembed %}`;
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Bunch',
   args: {
     count: 3,
@@ -38,6 +41,9 @@ export default {
   render: avatarsDemoStory.bind({}),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const OfAvatars = {
   name: 'Of avatars',
   parameters: {

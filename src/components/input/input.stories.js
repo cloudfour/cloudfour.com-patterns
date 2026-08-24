@@ -1,3 +1,4 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import { useEffect } from 'storybook/preview-api';
 
 import { makeTwigInclude } from '../../make-twig-include.js';
@@ -5,7 +6,7 @@ import { makeTwigInclude } from '../../make-twig-include.js';
 import selectDemo from './demo/select.twig';
 import selectDemoSource from './demo/select.twig?raw';
 import './demo/styles.scss';
-import { createElasticTextArea } from './elastic-textarea.ts';
+import { createElasticTextArea } from './elastic-textarea';
 import input from './input.twig';
 
 const elasticTextAreaConfig = {
@@ -21,11 +22,15 @@ const elasticTextAreaConfig = {
 // Inline stories disabled because when the same input element is rendered with
 // different settings within the same file, React syncs all their properties.
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Input',
   parameters: { docs: { story: { inline: false } } },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const TextElements = {
   name: 'Text Elements',
   args: {
@@ -52,6 +57,7 @@ export const TextElements = {
   render: (args) => input(args),
 };
 
+/** @type {StoryObj} */
 export const SelectElement = {
   name: 'Select Element',
   args: {
@@ -66,6 +72,7 @@ export const SelectElement = {
   render: (args) => selectDemo(args),
 };
 
+/** @type {StoryObj} */
 export const ElasticTextarea = {
   name: 'Elastic Textarea',
   args: elasticTextAreaConfig,
@@ -88,7 +95,10 @@ export const ElasticTextarea = {
     // Use storybook hooks to trigger JS after story renders
     // @see https://github.com/storybookjs/storybook/issues/7786
     useEffect(() => {
-      createElasticTextArea(document.querySelector('.js-elastic-textarea'));
+      const textarea = /** @type {HTMLTextAreaElement | null} */ (
+        document.querySelector('.js-elastic-textarea')
+      );
+      if (textarea) createElasticTextArea(textarea);
     });
     return input(args);
   },

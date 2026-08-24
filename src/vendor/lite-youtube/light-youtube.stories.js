@@ -1,6 +1,8 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import fallbackDemo from './demo/fallback.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Vendor/lite-youtube',
   argTypes: {
     aspect_ratio: {
@@ -12,4 +14,7 @@ export default {
   render: (args) => fallbackDemo(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Default = {};

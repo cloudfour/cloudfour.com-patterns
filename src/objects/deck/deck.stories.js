@@ -1,10 +1,18 @@
+/** @import { Args, Meta, StoryContext, StoryObj } from '@storybook/html' */
 import alignmentDemo from './demo/alignment.twig';
 import articles from './demo/articles.json';
 import articlesDemo from './demo/articles.twig';
+/** @param {Args} args */
 const articlesStory = (args) => articlesDemo({ items: articles, ...args });
+/** @param {Args} args */
 const alignmentStory = (args) => alignmentDemo({ items: articles, ...args });
 // Custom function for generating story source from args given
+/**
+ * @param {string} _src
+ * @param {StoryContext} storyContext
+ */
 const articlesTemplateSource = (_src, storyContext) => {
+  /** @type {Args} */
   const args = storyContext.args || storyContext.initialArgs || {};
   let twigArgs = '';
   if (
@@ -23,13 +31,16 @@ const articlesTemplateSource = (_src, storyContext) => {
   {% endblock %}
 {% endembed %}`;
 };
-const alignmentClasses = {
-  None: '',
-  Full: 'alignfull',
-  Wide: 'alignwide',
+// Keyed by value rather than label: `options` is the list of values, and
+// `control.labels` maps each one to what the select shows.
+const alignmentLabels = {
+  '': 'None',
+  alignfull: 'Full',
+  alignwide: 'Wide',
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Deck',
   args: {
     columns: 3,
@@ -40,8 +51,8 @@ export default {
   argTypes: {
     class: { type: { name: 'string' } },
     alignment: {
-      options: alignmentClasses,
-      control: { type: 'select' },
+      options: Object.keys(alignmentLabels),
+      control: { type: 'select', labels: alignmentLabels },
     },
     columns: {
       control: {
@@ -87,11 +98,15 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Basic = {
   parameters: { docs: { story: { iframeHeight: '400px' } } },
   render: articlesStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Alignment = {
   parameters: { docs: { story: { iframeHeight: '200px' } } },
   args: {
@@ -102,6 +117,7 @@ export const Alignment = {
   render: alignmentStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const Columns = {
   parameters: { docs: { story: { iframeHeight: '400px' } } },
   args: {
@@ -111,6 +127,7 @@ export const Columns = {
   render: articlesStory.bind({}),
 };
 
+/** @type {StoryObj} */
 export const HorizontalCard = {
   parameters: { docs: { story: { iframeHeight: '500px' } } },
   name: 'Horizontal Card',

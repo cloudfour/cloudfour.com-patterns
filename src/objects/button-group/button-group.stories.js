@@ -1,6 +1,8 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import demo from './demo/demo.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Button Group',
   args: {
     grow: false,
@@ -25,6 +27,9 @@ export default {
   render: (args) => demo(args),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Default = {
   parameters: {
     docs: {
@@ -44,6 +49,7 @@ export const Default = {
   },
 };
 
+/** @type {StoryObj} */
 export const Grow = {
   args: { count: 5, grow: true },
   parameters: {

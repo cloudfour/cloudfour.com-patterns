@@ -1,3 +1,4 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import alignmentDemo from './demo/alignment.twig';
 import logoTemplate from './logo.twig';
 import './demo/alignment.scss';
@@ -9,11 +10,15 @@ const alignOptions = ['start', 'center', 'end'];
 //
 // @see https://github.com/aknuds1/html-to-react/issues/144
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Logo',
   parameters: { docs: { story: { inline: false } } },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const BasicOptions = {
   name: 'Basic Options',
   args: {
@@ -41,11 +46,13 @@ export const BasicOptions = {
   render: (args) => logoTemplate(args),
 };
 
+/** @type {StoryObj} */
 export const BeforeAlignment = {
   name: 'Before Alignment',
   render: alignmentDemo.bind({}),
 };
 
+/** @type {StoryObj} */
 export const AfterAlignment = {
   name: 'After Alignment',
   args: { align: true },

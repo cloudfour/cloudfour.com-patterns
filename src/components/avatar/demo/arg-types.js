@@ -1,3 +1,5 @@
+/** @import { ArgTypes } from '@storybook/html' */
+/** @type {Partial<ArgTypes>} */
 export const avatarArgTypes = {
   src: { type: { name: 'string' } },
   srcset: { type: { name: 'string' } },

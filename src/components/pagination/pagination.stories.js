@@ -1,11 +1,16 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import mockPaginationData from './demo/mock-pagination-data.js';
 import template from './pagination.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Pagination',
   render: (args) => template({ pagination: mockPaginationData(args) }),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Example = {
   args: {
     current: 2,

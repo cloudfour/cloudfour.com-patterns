@@ -1,3 +1,4 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import template from './author.twig';
 const allAuthors = [
   {
@@ -30,7 +31,8 @@ const authorsWithNoLink = (count = 1) =>
     }))
     .slice(0, count);
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Author',
   argTypes: {
     count: {
@@ -46,6 +48,9 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const BasicUsage = {
   name: 'Basic usage',
   args: { count: 1 },
@@ -55,6 +60,7 @@ export const BasicUsage = {
     }),
 };
 
+/** @type {StoryObj} */
 export const WithLink = {
   name: 'With link',
   args: { count: 1 },
@@ -65,6 +71,7 @@ export const WithLink = {
     }),
 };
 
+/** @type {StoryObj} */
 export const RemoveLink = {
   name: 'Remove link',
   args: { count: 1 },
@@ -75,6 +82,7 @@ export const RemoveLink = {
     }),
 };
 
+/** @type {StoryObj} */
 export const WithMetaContent = {
   name: 'With meta content',
   args: { count: 1 },
@@ -85,6 +93,7 @@ export const WithMetaContent = {
     }),
 };
 
+/** @type {StoryObj} */
 export const WithDateContent = {
   name: 'With date content',
   args: { count: 1 },
@@ -95,6 +104,7 @@ export const WithDateContent = {
     }),
 };
 
+/** @type {StoryObj} */
 export const ShortDateFormat = {
   name: 'Short date format',
   args: { count: 1 },
@@ -106,6 +116,7 @@ export const ShortDateFormat = {
     }),
 };
 
+/** @type {StoryObj} */
 export const MultipleAuthors = {
   name: 'Multiple authors',
   args: { count: 3 },

@@ -1,10 +1,15 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import contactFormDemo from './demo/contact-form/form.twig';
 import contactFormSuccessDemo from './demo/contact-form/success.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Vendor/WordPress/Jetpack Blocks',
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Markdown = {
   render: () => `<div class="wp-block-jetpack-markdown">
       <p>
@@ -19,12 +24,14 @@ export const Markdown = {
     </div>`,
 };
 
+/** @type {StoryObj} */
 export const ContactForm = {
   name: 'Contact Form',
   parameters: { layout: 'fullscreen' },
   render: contactFormDemo,
 };
 
+/** @type {StoryObj} */
 export const ContactFormSuccess = {
   name: 'Contact Form Success',
   parameters: { layout: 'fullscreen' },

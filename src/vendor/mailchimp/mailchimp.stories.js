@@ -1,6 +1,8 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import signupDemo from './demo/signup.twig';
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Vendor/Mailchimp',
   parameters: {
     layout: 'fullscreen',
@@ -8,6 +10,9 @@ export default {
   render: signupDemo.bind(this),
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const SignupForm = {
   name: 'Signup Form',
   argTypes: {

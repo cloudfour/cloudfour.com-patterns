@@ -1,7 +1,8 @@
+/** @import { Meta, StoryObj } from '@storybook/html' */
 import { useEffect } from 'storybook/preview-api';
 
 import { makeTwigInclude } from '../../make-twig-include.js';
-import { createElasticTextArea } from '../input/elastic-textarea.ts';
+import { createElasticTextArea } from '../input/elastic-textarea';
 
 import template from './comment-form.twig';
 const tyler = {
@@ -9,7 +10,8 @@ const tyler = {
   link: 'https://cloudfour.com/is/tyler',
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Components/Comment Form',
   args: {
     isLoggedIn: false,
@@ -25,6 +27,9 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Default = {
   args: { isReply: false },
   parameters: {
@@ -42,9 +47,11 @@ export const Default = {
   },
   render: ({ isLoggedIn, isReply }) => {
     useEffect(() => {
-      const { destroy } = createElasticTextArea(
-        document.querySelector('.js-elastic-textarea'),
+      const textarea = /** @type {HTMLTextAreaElement | null} */ (
+        document.querySelector('.js-elastic-textarea')
       );
+      if (!textarea) return;
+      const { destroy } = createElasticTextArea(textarea);
       return destroy;
     });
     return template({
@@ -57,6 +64,7 @@ export const Default = {
   },
 };
 
+/** @type {StoryObj} */
 export const Reply = {
   args: { isReply: true, isLoggedIn: true },
   parameters: {
@@ -80,9 +88,11 @@ export const Reply = {
   },
   render: ({ isLoggedIn, isReply }) => {
     useEffect(() => {
-      const { destroy } = createElasticTextArea(
-        document.querySelector('.js-elastic-textarea'),
+      const textarea = /** @type {HTMLTextAreaElement | null} */ (
+        document.querySelector('.js-elastic-textarea')
       );
+      if (!textarea) return;
+      const { destroy } = createElasticTextArea(textarea);
       return destroy;
     });
     return template({

@@ -1,3 +1,4 @@
+/** @import { Args, Meta, StoryContext, StoryObj } from '@storybook/html' */
 import multipleDemo from './demo/multiple.twig';
 import singleDemo from './demo/single.twig';
 const defaultArgs = {
@@ -7,6 +8,10 @@ const defaultArgs = {
   example_object_img_src: '/media/feature-ozzie-wide.jpg',
   example_object_img_size: 480,
 };
+/**
+ * @param {Args} args
+ * @param {boolean} [multiple]
+ */
 const demoStory = (args, multiple) => {
   args = { ...defaultArgs, ...args };
   if (args.object_shape === 'square') {
@@ -14,6 +19,10 @@ const demoStory = (args, multiple) => {
   }
   return multiple ? multipleDemo(args) : singleDemo(args);
 };
+/**
+ * @param {string} _src
+ * @param {StoryContext} storyContext
+ */
 const singleTransformSource = (_src, storyContext) => {
   const args = storyContext.args || storyContext.initialArgs || {};
   if (args.object_shape === 'square') {
@@ -41,11 +50,15 @@ const singleTransformSource = (_src, storyContext) => {
 {% endembed %}`;
 };
 
-export default {
+/** @type {Meta} */
+const meta = {
   title: 'Objects/Hype Group',
   argTypes: {
     reverse: { type: 'boolean' },
-    object_shape: { type: 'select', options: ['circle', 'square'] },
+    object_shape: {
+      options: ['circle', 'square'],
+      control: { type: 'select' },
+    },
     object_outline: { type: 'boolean' },
     class: { type: 'string' },
     intro_class: { type: 'string' },
@@ -68,6 +81,9 @@ export default {
   },
 };
 
+export default meta;
+
+/** @type {StoryObj} */
 export const Single = {
   args: defaultArgs,
   parameters: {
@@ -79,6 +95,7 @@ export const Single = {
   render: (args) => demoStory(args),
 };
 
+/** @type {StoryObj} */
 export const WithOptions = {
   name: 'With options',
   args: {
@@ -96,6 +113,7 @@ export const WithOptions = {
   render: (args) => demoStory(args),
 };
 
+/** @type {StoryObj} */
 export const Multiple = {
   parameters: { docs: { story: { iframeHeight: '640px' } } },
   args: {

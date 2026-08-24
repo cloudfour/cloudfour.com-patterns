@@ -3,10 +3,6 @@
   "minimumReleaseAge": "3 days",
   "packageRules": [
     {
-      "matchDepTypes": ["peerDependencies", "engines"],
-      "rangeStrategy": "replace"
-    },
-    {
       "automerge": false,
       "prBodyNotes": [
         ":warning: **Warning:** There are likely to be breaking changes, please closely review the pattern library preview."

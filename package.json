@@ -93,7 +93,7 @@
     "react-dom": "19.2.8",
     "react-syntax-highlighter": "16.1.1",
     "remark-preset-lint-recommended": "7.0.1",
-    "remark-preset-prettier": "0.5.1",
+    "remark-preset-prettier": "2.0.2",
     "resolve": "1.22.12",
     "rollup": "4.62.5",
     "rollup-plugin-dts": "6.5.1",

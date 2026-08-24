@@ -24,7 +24,18 @@
   "main": "./dist/cloudfour-patterns.js",
   "unpkg": "./dist/cloudfour-patterns.min.js",
   "module": "./dist/cloudfour-patterns.mjs",
-  "exports": "./dist/cloudfour-patterns.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/cloudfour-patterns.d.ts",
+      "default": "./dist/cloudfour-patterns.mjs"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*",
+    "./src/assets/*": "./src/assets/*",
+    "./src/compiled/tokens/*": "./src/compiled/tokens/*",
+    "./src/*.scss": "./src/*.scss",
+    "./src/*.twig": "./src/*.twig"
+  },
   "types": "./dist/cloudfour-patterns.d.ts",
   "files": [
     "/dist",

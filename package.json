@@ -34,7 +34,8 @@
     "!/src/**/demo/**/*.twig",
     "/src/assets",
     "!.gitignore",
-    "!src/index.scss"
+    "!src/index.scss",
+    "!src/index-with-dependencies.scss"
   ],
   "devDependencies": {
     "@babel/core": "7.29.7",

@@ -42,9 +42,10 @@ export default [
   {
     settings: {
       n: {
-        // Without this the `n/no-unsupported-features/*` rules fall back to
-        // `engines.node`, which describes what *consumers* of the published package
-        // need -- not what our build scripts, Storybook config and tests run on.
+        // Without this the `n/no-unsupported-features/*` rules guess, since we
+        // declare no `engines.node` -- and they should not read one if we ever do,
+        // because that field describes what *consumers* of the published package
+        // need, not what our build scripts, Storybook config and tests run on.
         // Those files are never published, so they should be checked against the
         // Node version we actually develop and run CI on (see .nvmrc).
         version: '>=24.19.0',

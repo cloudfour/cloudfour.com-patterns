@@ -19,13 +19,9 @@ const elasticTextAreaConfig = {
   class: 'js-elastic-textarea',
 };
 
-// Inline stories disabled because when the same input element is rendered with
-// different settings within the same file, React syncs all their properties.
-
 /** @type {Meta} */
 const meta = {
   title: 'Components/Input',
-  parameters: { docs: { story: { inline: false } } },
 };
 
 export default meta;
@@ -82,7 +78,6 @@ export const ElasticTextarea = {
   },
   parameters: {
     docs: {
-      story: { iframeHeight: '250px' },
       source: {
         code: makeTwigInclude(
           '@cloudfour/components/input/input.twig',

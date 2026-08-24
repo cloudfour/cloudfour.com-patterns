@@ -24,7 +24,14 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": ["src"],
+  // `src` is what ships. The root-level globs pick up the tooling that configures the
+  // build and tests around it: those files belong to no project otherwise, so the
+  // type-aware lint rules either fail to find them or fall back to an inferred
+  // project that ignores the strictness settings above. Globs rather than a list, so
+  // the next root-level TypeScript file is covered without anyone remembering to add
+  // it. Nothing outside `ts-dist/src` reaches `dist`, so this does not widen what we
+  // publish.
+  "include": ["src", "*.ts", "*.mts", "*.cts"],
   "exclude": [
     "src/prototypes",
     "src/vendor/highlight/demo/samples",

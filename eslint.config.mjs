@@ -28,13 +28,7 @@ export default [
     languageOptions: {
       parserOptions: {
         tsconfigRootDir: import.meta.dirname,
-        projectService: {
-          // Our tsconfig covers `src`, because that is what ships. These files
-          // configure the tooling around it and belong to no project, so the type
-          // aware rules read them through an inferred one instead of failing to
-          // find them at all.
-          allowDefaultProject: ['vitest.config.mts', 'vitest.setup.*.ts'],
-        },
+        projectService: true,
       },
     },
   },

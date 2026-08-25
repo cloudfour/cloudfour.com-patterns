@@ -10,21 +10,55 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+env:
+  NODE_VERSION: 24.19.0
+
 jobs:
+  # This job owns saving the npm cache. The other three restore only.
+  #
+  # Every job installs identical dependencies, so they all compute the same
+  # cache key. If they all tried to save, three would lose the reservation race
+  # and spend ~8s each compressing a tarball that gets discarded. Adding
+  # `github.job` to the key would avoid the race but store four copies of an
+  # identical cache; with Renovate changing the lockfile constantly, that would
+  # churn through the repository's 10 GB cache limit and evict useful entries.
+  #
+  # `build` is the designated saver because it is the shortest job, so it is the
+  # least likely to be mid-flight when `cancel-in-progress` aborts a run (post
+  # steps, and therefore the cache save, do not run on cancellation).
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Cache npm downloads
+        uses: actions/cache@v6.1.0
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-${{ runner.arch }}-npm-
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Build
+        run: npm run build
+
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - name: Use Node.js 24
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v7.0.0
         with:
-          node-version: 24.19.0
-      - name: Cache node modules
-        uses: actions/cache@v6.1.0
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Restore npm downloads
+        uses: actions/cache/restore@v6.1.0
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-${{ runner.arch }}-npm-
       - name: Install Dependencies
         run: npm ci
       - name: Run Preprocess
@@ -34,39 +68,20 @@ jobs:
       - name: Run Type Checker
         run: npm run type
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7.0.1
-      - name: Use Node.js 24
-        uses: actions/setup-node@v7.0.0
-        with:
-          node-version: 24.19.0
-      - name: Cache node modules
-        uses: actions/cache@v6.1.0
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-      - name: Install Dependencies
-        run: npm ci
-      - name: Run Build
-        run: npm run build
-
   build-storybook:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - name: Use Node.js 24
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v7.0.0
         with:
-          node-version: 24.19.0
-      - name: Cache node modules
-        uses: actions/cache@v6.1.0
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Restore npm downloads
+        uses: actions/cache/restore@v6.1.0
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-${{ runner.arch }}-npm-
       - name: Install Dependencies
         run: npm ci
       - name: Run Build
@@ -77,25 +92,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
-      - name: Use Node.js 24
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v7.0.0
         with:
-          node-version: 24.19.0
-      - name: Cache node modules
-        uses: actions/cache@v6.1.0
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Restore npm downloads
+        uses: actions/cache/restore@v6.1.0
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-${{ runner.arch }}-npm-
       - name: Install Dependencies
         run: npm ci
       # Chromium is not in the npm install: Playwright downloads browsers
-      # separately, into a cache keyed by Playwright version.
+      # separately, into a cache keyed by Playwright version. This job is the
+      # only one that uses this cache, so it saves without contention.
+      #
+      # Deliberately no restore-keys: a partial hit would restore browsers built
+      # for a different Playwright version, which is worse than a clean download.
       - name: Cache Playwright browsers
         uses: actions/cache@v6.1.0
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
       # Skips the download on a cache hit, but still installs the system
       # libraries Chromium needs, which are not cached.
       - name: Install Playwright Chromium

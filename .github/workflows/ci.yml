@@ -14,18 +14,6 @@ env:
   NODE_VERSION: 24.19.0
 
 jobs:
-  # This job owns saving the npm cache. The other three restore only.
-  #
-  # Every job installs identical dependencies, so they all compute the same
-  # cache key. If they all tried to save, three would lose the reservation race
-  # and spend ~8s each compressing a tarball that gets discarded. Adding
-  # `github.job` to the key would avoid the race but store four copies of an
-  # identical cache; with Renovate changing the lockfile constantly, that would
-  # churn through the repository's 10 GB cache limit and evict useful entries.
-  #
-  # `build` is the designated saver because it is the shortest job, so it is the
-  # least likely to be mid-flight when `cancel-in-progress` aborts a run (post
-  # steps, and therefore the cache save, do not run on cancellation).
   build:
     runs-on: ubuntu-latest
     steps:
@@ -34,12 +22,7 @@ jobs:
         uses: actions/setup-node@v7.0.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Cache npm downloads
-        uses: actions/cache@v6.1.0
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: ${{ runner.os }}-${{ runner.arch }}-npm-
+          cache: 'npm'
       - name: Install Dependencies
         run: npm ci
       - name: Run Build
@@ -53,12 +36,7 @@ jobs:
         uses: actions/setup-node@v7.0.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Restore npm downloads
-        uses: actions/cache/restore@v6.1.0
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: ${{ runner.os }}-${{ runner.arch }}-npm-
+          cache: 'npm'
       - name: Install Dependencies
         run: npm ci
       - name: Run Preprocess
@@ -76,12 +54,7 @@ jobs:
         uses: actions/setup-node@v7.0.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Restore npm downloads
-        uses: actions/cache/restore@v6.1.0
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: ${{ runner.os }}-${{ runner.arch }}-npm-
+          cache: 'npm'
       - name: Install Dependencies
         run: npm ci
       - name: Run Build
@@ -96,12 +69,7 @@ jobs:
         uses: actions/setup-node@v7.0.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Restore npm downloads
-        uses: actions/cache/restore@v6.1.0
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: ${{ runner.os }}-${{ runner.arch }}-npm-
+          cache: 'npm'
       - name: Install Dependencies
         run: npm ci
       # Chromium is not in the npm install: Playwright downloads browsers
@@ -109,8 +77,6 @@ jobs:
       # guidance (https://playwright.dev/docs/ci) — restoring the cache costs
       # about as much as downloading, and the system libraries Chromium needs
       # are not cacheable, so `--with-deps` still spends 12-18s on a cache hit.
-      # Caching bought ~15s here while consuming 3.68 GB of the repository's
-      # 10 GB allowance, which evicted the npm cache and cost more than it saved.
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Run Preprocess

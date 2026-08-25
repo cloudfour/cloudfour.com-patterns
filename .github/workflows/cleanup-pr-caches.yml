@@ -1,0 +1,33 @@
+name: Cleanup PR Caches
+
+# Actions caches are partitioned by git ref. A pull request's CI runs write
+# their caches under `refs/pull/<number>/merge`, and merging then writes
+# byte-identical copies under `refs/heads/main`. Once the pull request closes,
+# the `refs/pull/*` copies can never be read again, so they sit there consuming
+# the repository's 10 GB cache allowance until they are evicted — taking useful
+# entries with them. Renovate opens enough pull requests here that these
+# leftovers were about half of the total. Delete them as soon as they go stale.
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    # Pull requests from forks run with a read-only token, so they cannot write
+    # caches into this repository's scope and there is nothing to clean up.
+    # Skipping them avoids a guaranteed permission failure.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      # No checkout needed: `gh` is preinstalled on the runner and this only
+      # touches the Actions cache API.
+      - name: Delete caches for the closed pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_REF: refs/pull/${{ github.event.pull_request.number }}/merge
+        run: gh cache delete --all --ref "$PR_REF" --succeed-on-no-caches

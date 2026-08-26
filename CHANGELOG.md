@@ -1,5 +1,70 @@
 # @cloudfour/patterns
 
+## 17.2.0
+
+### Minor Changes
+
+- [#2405](https://github.com/cloudfour/cloudfour.com-patterns/pull/2405) [`96fd86e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/96fd86e1cfaee5f166ec5c418696a2549d392ef3) Thanks [@spaceninja](https://github.com/spaceninja)! - Make the font directory configurable. `base/fonts` now exposes a `$dir` variable, so the location of the font files can be overridden with `@use '@cloudfour/patterns/src/base/fonts' with ($dir: '/my/path')`. The default is unchanged, and the font URLs in `dist/standalone.css` are byte-for-byte identical.
+
+### Patch Changes
+
+- [#2439](https://github.com/cloudfour/cloudfour.com-patterns/pull/2439) [`27d3085`](https://github.com/cloudfour/cloudfour.com-patterns/commit/27d308563ccba7260d87b6e25f06079c502496c8) Thanks [@renovate](https://github.com/apps/renovate)! - Stop WordPress's File block font size from shrinking our file download buttons.
+
+  WordPress shrinks the File block's text to `0.8em`. It used to set that on
+  `.wp-block-file__button`, where our button styles overrode it outright, but it
+  now sets it on the `.wp-block-file` container instead. Our button mixins take
+  `font: inherit` and size their padding and block size in `em`, so the inherited
+  `0.8em` scaled the entire button down by a fifth rather than just its text.
+  Resetting `font-size` on the container restores the buttons to the same
+  dimensions they had before.
+
+  This only became visible with newer WordPress, so on older installs the new
+  declaration is a no-op.
+
+- [#2442](https://github.com/cloudfour/cloudfour.com-patterns/pull/2442) [`3d8554e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3d8554e4a5b23365fb02b69fdaadd22ac981a03d) Thanks [@spaceninja](https://github.com/spaceninja)! - Stop publishing three Storybook demo fixtures — `defaultArgs`, `defaultArgTypes` and `generateGroundNavProps`. They come from `ground-nav-args.js`, which only the Ground Nav stories import, and they reached the bundle because the build's entry glob excluded `.stories.` and `.test.` files but not `-args.` ones. They were never documented or intended as API, and nothing a consumer would want can be done with them.
+
+  The four real exports — `createElasticTextArea`, `createSubscribe`, `initCommentReplyForm` and `initSkyNav` — are byte-for-byte unchanged, and `dist/standalone.css` and `dist/standalone.min.css` are untouched. Dropping the fixtures takes `dist/cloudfour-patterns.min.js` from 7.8KB to 4.1KB (2.7KB to 1.5KB gzipped), the ESM bundle from 9.4KB to 5.9KB, the UMD bundle from 21KB to 15KB, and the type declarations from 8.0KB to 1.6KB.
+
+- [#2450](https://github.com/cloudfour/cloudfour.com-patterns/pull/2450) [`152ed19`](https://github.com/cloudfour/cloudfour.com-patterns/commit/152ed19950b34b3c8d0cc0b9984a2877d00d6218) Thanks [@spaceninja](https://github.com/spaceninja)! - Make every published file reachable through Node resolution. `exports` was a bare string pointing at the browser bundle, and defining `exports` at all encapsulates every other subpath — so of the 360 files in the tarball, exactly one could be resolved. Requiring the compiled design tokens failed with `ERR_PACKAGE_PATH_NOT_EXPORTED`, and so did reading our own `package.json`, which is something tooling routinely does to a dependency.
+
+  `files` and `exports` disagreed about what the public API is, and `files` is the field expressing the intent: we deliberately publish `/dist`, the compiled tokens, the Sass partials, the Twig templates and the assets. `exports` now mirrors that shape, so what we ship and what a consumer can reach are the same set.
+
+  The subpath patterns are written per extension rather than as a blanket `./src/*`, which keeps stories and tests encapsulated even for a consumer resolving against a working tree rather than an installed tarball. `files` remains the authority on the exact file list.
+
+  Widening `exports` cannot break an import that already worked, and the published file list is byte-for-byte unchanged — only reachability changes. Sass is unaffected in both directions: it compiles identically before and after via both `loadPaths` and the `pkg:` importer, because neither route enforces the export map for stylesheets.
+
+  Also adds a `types` condition to the main entry. Under `node16`/`nodenext`/`bundler` module resolution, TypeScript reads types through `exports` and ignores the top-level `types` field, so consumers on those settings were getting `any` — TypeScript reported "There are types at dist/cloudfour-patterns.d.ts, but this result could not be resolved when respecting package.json exports". This was already true before this change; it is fixed here because it is the same field and the same root cause. What the main entry resolves to at runtime is unchanged.
+
+- [#2405](https://github.com/cloudfour/cloudfour.com-patterns/pull/2405) [`96fd86e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/96fd86e1cfaee5f166ec5c418696a2549d392ef3) Thanks [@spaceninja](https://github.com/spaceninja)! - Fix Sky Nav rendering permanently open with no toggle button when its markup is injected as a string rather than parsed by the browser. The `no-js` class is normally cleared by an inline `<script>`, which never runs in that case, so `initSkyNav` now clears it as well.
+
+- [#2446](https://github.com/cloudfour/cloudfour.com-patterns/pull/2446) [`913c466`](https://github.com/cloudfour/cloudfour.com-patterns/commit/913c466c876ce163c31e519e810120857350bdd3) Thanks [@spaceninja](https://github.com/spaceninja)! - Stop publishing `src/index-with-dependencies.scss`. It is a Storybook-only entry point, and `files` already excludes its sibling `src/index.scss` for the same reason — this was the exclusion being one file short rather than a deliberate choice.
+
+  No consumer can have been using it. It loads `@wordpress/block-library` through `../node_modules/`, which resolves inside our own package directory, and that is a devDependency we never install for anyone else; it then loads `./index`, which `files` deliberately excludes; and it configures the font directory as `/src/assets/fonts`, a root-absolute path that only means anything while Vite is serving Storybook. Compiling it from an installed tarball fails on the first of those three.
+
+  The tarball goes from 361 files to 360, and nothing else changes. Storybook reads the file from the working tree, so it is unaffected.
+
+- [#2422](https://github.com/cloudfour/cloudfour.com-patterns/pull/2422) [`3492198`](https://github.com/cloudfour/cloudfour.com-patterns/commit/3492198391926da4259c5519711aa580c9a99d3e) Thanks [@spaceninja](https://github.com/spaceninja)! - Keep the `viewBox` on the SVGs inlined into `dist/standalone.min.css`. The minifier had been stripping it, so the minified bundle no longer matched the unminified one it is built from. Rendering is unchanged — compared pixel for pixel, the two differ only by antialiasing — but the bundle is now a faithful minification of its source, and around 227 bytes larger gzipped.
+
+  The generated token files also lose the build timestamp from their header comment, which makes them identical between builds, and each token in `src/compiled/tokens/js/` gains a `key` field. No token value changed.
+
+- [#2432](https://github.com/cloudfour/cloudfour.com-patterns/pull/2432) [`570de07`](https://github.com/cloudfour/cloudfour.com-patterns/commit/570de075ed8c9acd4a48bb456e531f09841010a0) Thanks [@spaceninja](https://github.com/spaceninja)! - Drop the `xmlns` attribute from the templatized SVG partials in `src/assets`. These files are only ever included inline into HTML, where the namespace is implied — it is required on standalone SVG documents. The optimizer had been configured to remove it for years, but in a format it silently ignored.
+
+  The same partials also pick up small coordinate rounding differences from a newer SVGO. Rendered and compared pixel for pixel, 55 of the 72 are unchanged and the largest difference in the rest is 0.53% of pixels at the edges of curves.
+
+- [#2405](https://github.com/cloudfour/cloudfour.com-patterns/pull/2405) [`96fd86e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/96fd86e1cfaee5f166ec5c418696a2549d392ef3) Thanks [@spaceninja](https://github.com/spaceninja)! - Fix Footnote Link failing to render under Twig 3, which removed the `spaceless` tag. The template now uses the `spaceless` filter, which Twig has supported since 2.9. Rendered output is unchanged.
+
+- [#2443](https://github.com/cloudfour/cloudfour.com-patterns/pull/2443) [`5a65202`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5a65202ed4cad0cd35ed7ec5859be0d84716ffa2) Thanks [@spaceninja](https://github.com/spaceninja)! - Drop the `engines.node` field, so installing the package no longer declares a Node requirement. Nothing in the published `files` runs on Node — the package ships CSS, Sass, Twig templates, assets and a browser bundle — so the field was only ever gating installation, and it was gating it on `>=12.16.3`, a floor nobody chose deliberately. Removing a restriction cannot break an install that worked before.
+
+  `.nvmrc` and the pinned Node version in CI are what actually control the development environment, and neither changes.
+
+- [#2416](https://github.com/cloudfour/cloudfour.com-patterns/pull/2416) [`5232e5e`](https://github.com/cloudfour/cloudfour.com-patterns/commit/5232e5e8d6458daa5fdc49c3e39b21aca3bcdc89) Thanks [@spaceninja](https://github.com/spaceninja)! - Collapse the wide-viewport `align-self`/`justify-self` pair on Ground Nav's social area into the equivalent `place-self` shorthand. Computed styles are unchanged; only the two declarations in `dist/standalone.css` become one.
+
+- [#2406](https://github.com/cloudfour/cloudfour.com-patterns/pull/2406) [`eb1bb81`](https://github.com/cloudfour/cloudfour.com-patterns/commit/eb1bb81b03f91a1e78ff9cf9b24017587418448c) Thanks [@spaceninja](https://github.com/spaceninja)! - Shrink the UMD bundles. Rollup 4 tree-shakes the generated design-token module, which Sky Nav reads three values from, so `dist/cloudfour-patterns.js` drops from 116KB to 21KB and `dist/cloudfour-patterns.min.js` from 37KB to 7.8KB. The ESM bundle is byte-for-byte unchanged and the exports are identical in all three.
+
+- [#2444](https://github.com/cloudfour/cloudfour.com-patterns/pull/2444) [`ad12466`](https://github.com/cloudfour/cloudfour.com-patterns/commit/ad12466f4b3b7444575018f5d2b7da0f286b0496) Thanks [@spaceninja](https://github.com/spaceninja)! - Load `src/index-with-dependencies.scss` with `@use` rather than `@import`, which Dart Sass 3 removes. This was the last `@import` in the repo.
+
+  Compiled output loses seven duplicate `@font-face` rules and nothing else. `@use` loads each stylesheet once, so the fonts configured at the top of the file are emitted a single time; under `@import` they came out twice, because `./index` loads `base/fonts` as well and an `@import` does not share the module graph with the file importing it. Every surviving rule is byte-for-byte one of the originals, in the same order, and all other CSS is byte-for-byte identical — 1,245 bytes smaller in the Storybook build.
+
 ## 17.1.0
 
 ### Minor Changes

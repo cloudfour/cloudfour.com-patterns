@@ -74,7 +74,7 @@
     "browserify-transform-tools": "1.7.0",
     "cssnano": "8.0.8",
     "eliminate": "1.1.2",
-    "eslint": "9.39.5",
+    "eslint": "10.9.1",
     "eslint-plugin-mdx": "3.8.1",
     "eslint-plugin-react": "7.37.5",
     "highlight.js": "11.12.0",

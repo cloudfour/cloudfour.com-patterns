@@ -1,16 +1,18 @@
 {
-  "extends": ["config:recommended", ":automergeMinor", ":pinVersions"],
-  "minimumReleaseAge": "3 days",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>cloudfour/renovate-config:library"],
   "packageRules": [
     {
+      "description": "A Storybook bump usually changes how the pattern library renders, which no automated check here catches. Block auto-merge and mark the PR so it is obvious in the list that someone has to open the preview and look.",
+      "matchPackageNames": ["/storybook/"],
       "automerge": false,
+      "commitMessagePrefix": "[Review carefully]",
       "prBodyNotes": [
         ":warning: **Warning:** There are likely to be breaking changes, please closely review the pattern library preview."
-      ],
-      "commitMessagePrefix": "[Review carefully]",
-      "matchPackageNames": ["/storybook/"]
+      ]
     },
     {
+      "description": "@wordpress/block-library releases far more often than the site needs, so updates are batched to once a month instead of arriving continuously. minimumReleaseAge drops to 0 because the monthly schedule already provides more soak time than the shared three-day cooldown would.",
       "matchPackageNames": ["@wordpress/block-library"],
       "extends": ["schedule:monthly"],
       "minimumReleaseAge": "0"

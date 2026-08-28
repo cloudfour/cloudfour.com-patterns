@@ -95,7 +95,7 @@
     "remark-preset-lint-recommended": "7.0.1",
     "remark-preset-prettier": "2.0.2",
     "resolve": "1.22.12",
-    "rollup": "4.62.5",
+    "rollup": "4.63.0",
     "rollup-plugin-dts": "6.5.1",
     "sass": "1.103.1",
     "storybook": "10.5.10",

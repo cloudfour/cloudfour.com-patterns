@@ -1,0 +1,34 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: '_proto-asides-r1 o-container--prose o-container--pad',
+  content_class: 'o-rhythm',
+  align: align,
+  summary: summary,
+  open: open
+} only %}
+  {% block content %}
+    <p>In the short run for those using a traditional web design process, we need to recognize that design doesn’t stop when something is handed off to developers. It continues until launch so designers can be involved in how the design is implemented in code.</p>
+
+    {% set aside_content -%}
+      <p>Or you could replace the traditional web design process with a process that incorporates in-browser mockups, but not every organization and designer can make that change. But if you’re interested in a process like that, stay tuned or… um… <a href="mailto:info@cloudfour.com">hire us</a>.</p>
+    {%- endset %}
+
+    <aside class="_c-aside {% if align %}_c-aside--align-{{align}}{% endif %}">
+      <div class="_c-aside__inner">
+        {% if summary %}
+          <details class="_c-aside__content"{% if open %} open{% endif %}>
+            <summary>{{summary}}</summary>
+            {{aside_content}}
+          </details>
+        {% else %}
+          <div class="_c-aside__content">
+            {{aside_content}}
+          </div>
+        {% endif %}
+      </div>
+    </aside>
+
+    <p>And in the same vein, there are development decisions happening before handoff. Developers should be involved throughout as well.</p>
+    <p>In the short run for those using a traditional web design process, we need to recognize that design doesn’t stop when something is handed off to developers. It continues until launch so designers can be involved in how the design is implemented in code.</p>
+    <p>In the short run for those using a traditional web design process, we need to recognize that design doesn’t stop when something is handed off to developers. It continues until launch so designers can be involved in how the design is implemented in code.</p>
+  {% endblock %}
+{% endembed %}

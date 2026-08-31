@@ -1,6 +1,5 @@
 import cloudFourConfig from '@cloudfour/eslint-config';
 import * as mdx from 'eslint-plugin-mdx';
-import react from 'eslint-plugin-react';
 
 export default [
   {
@@ -50,10 +49,8 @@ export default [
         ],
       },
     },
-    plugins: { react },
     rules: {
       'padding-line-between-statements': 'off',
-      'react/jsx-uses-vars': 'error',
     },
   },
 
@@ -94,6 +91,21 @@ export default [
     rules: {
       // The auto-fixer for this rule does not work with .mdx files.
       'import/order': 'off',
+      // Our docs pages import Storybook's doc components and their own stories
+      // module, then reference them only inside JSX:
+      //
+      //   import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+      //   import * as AlertStories from './alert.stories.js';
+      //   <Meta of={AlertStories} />
+      //
+      // `no-unused-vars` does not treat a JSX reference as a use, so it reports
+      // every one of those imports -- 171 of them across 83 files. We used to
+      // silence that with `react/jsx-uses-vars` from eslint-plugin-react, but
+      // that package supports ESLint 9 at most and was blocking our upgrade to
+      // 10, so it is gone. The trade-off is that a genuinely unused import in an
+      // .mdx file no longer gets reported. These are documentation pages, so
+      // that is a cheap price for dropping a dependency.
+      'no-unused-vars': 'off',
     },
   },
 

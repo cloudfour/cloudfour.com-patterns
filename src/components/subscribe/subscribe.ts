@@ -9,14 +9,6 @@
  * - The form can be hidden by pressing the `Escape` key
  */
 export const createSubscribe = (containerEl: HTMLElement) => {
-  const SHOW_FORM_CLASS = 'activate-form';
-  const BLUR_TIMEOUT = 1000; // Milliseconds
-
-  // Keeps track of active setTimeouts
-  let blurTimeoutId: number;
-  // Keeps the current state of the form
-  let isFormOpen = false;
-
   // Query all the required elements
   const getWeeklyDigestsBtn = containerEl.querySelector(
     '.js-subscribe__get-weekly-digests-btn',
@@ -34,6 +26,14 @@ export const createSubscribe = (containerEl: HTMLElement) => {
   if (!getWeeklyDigestsBtn || !formEl || !controlsUiWrapper) {
     return;
   }
+
+  const SHOW_FORM_CLASS = 'activate-form';
+  const BLUR_TIMEOUT = 1000; // Milliseconds
+
+  // Keeps track of active setTimeouts
+  let blurTimeoutId: number;
+  // Keeps the current state of the form
+  let isFormOpen = false;
 
   // Hide the form anytime a `js-subscribe__control` gets focus
   const onControlFocus = () => {
@@ -72,7 +72,7 @@ export const createSubscribe = (containerEl: HTMLElement) => {
   const onKeydown = (event: KeyboardEvent) => {
     // We need to hide the form and reset the focus, we can get both by setting
     // the focus back to the "Get Weekly Digests" link.
-    if (event.key === 'Escape' && isFormOpen) {
+    if (isFormOpen && event.key === 'Escape') {
       (getWeeklyDigestsBtn as HTMLElement).focus();
     }
   };
@@ -115,7 +115,9 @@ export const createSubscribe = (containerEl: HTMLElement) => {
     // Don't want this hanging around, it could end up in a confusing UI state
     clearTimeout(blurTimeoutId);
     // Remove all event listeners
-    for (const cleanup of cleanupCallbacks) cleanup();
+    for (const cleanup of cleanupCallbacks) {
+      cleanup();
+    }
     // Hide the UI buttons so we can show the form
     controlsUiWrapper.hidden = true;
     // Show the form

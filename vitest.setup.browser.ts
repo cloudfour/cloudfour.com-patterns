@@ -10,5 +10,5 @@ import { afterEach } from 'vitest';
  * with it.
  */
 afterEach(() => {
-  document.body.innerHTML = '';
+  document.body.replaceChildren();
 });

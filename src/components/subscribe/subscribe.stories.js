@@ -15,12 +15,16 @@ const templateStory = (args) => {
     // Set up the demo destroy and init buttons
     const destroyBtn = document.querySelector('.js-destroy-button');
     const initBtn = document.querySelector('.js-init-button');
-    if (!container || !destroyBtn || !initBtn) return;
+    if (!container || !destroyBtn || !initBtn) {
+      return;
+    }
 
     // Initialize the component. `createSubscribe` returns nothing if the markup it
     // needs is not there, in which case there is no demo to wire up.
     const subscribeComponent = createSubscribe(container);
-    if (!subscribeComponent) return;
+    if (!subscribeComponent) {
+      return;
+    }
 
     subscribeComponent.init();
     destroyBtn.addEventListener('click', subscribeComponent.destroy);

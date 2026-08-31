@@ -5,6 +5,7 @@ import { makeTwigInclude } from '../../make-twig-include.js';
 import { createElasticTextArea } from '../input/elastic-textarea';
 
 import template from './comment-form.twig';
+
 const tyler = {
   name: 'Tyler Sticka',
   link: 'https://cloudfour.com/is/tyler',
@@ -45,12 +46,14 @@ export const Default = {
       },
     },
   },
-  render: ({ isLoggedIn, isReply }) => {
+  render({ isLoggedIn, isReply }) {
     useEffect(() => {
       const textarea = /** @type {HTMLTextAreaElement | null} */ (
         document.querySelector('.js-elastic-textarea')
       );
-      if (!textarea) return;
+      if (!textarea) {
+        return;
+      }
       const { destroy } = createElasticTextArea(textarea);
       return destroy;
     });
@@ -86,12 +89,14 @@ export const Reply = {
       },
     },
   },
-  render: ({ isLoggedIn, isReply }) => {
+  render({ isLoggedIn, isReply }) {
     useEffect(() => {
       const textarea = /** @type {HTMLTextAreaElement | null} */ (
         document.querySelector('.js-elastic-textarea')
       );
-      if (!textarea) return;
+      if (!textarea) {
+        return;
+      }
       const { destroy } = createElasticTextArea(textarea);
       return destroy;
     });

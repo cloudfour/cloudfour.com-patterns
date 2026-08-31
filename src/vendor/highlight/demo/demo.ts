@@ -16,21 +16,21 @@ const sampleName = (key: string) =>
   key
     .split('/')
     .at(-1)
-    ?.replace(/\.[^.]+$/, '') ?? key;
+    ?.replace(/\.[^.]+$/v, '') ?? key;
 
 /**
  * Retrieve a code sample from the samples directory.
  *
- * @param {string} [language] The slug of the language to retrieve a
+ * @param [language] The slug of the language to retrieve a
  * sample for.
- * @returns {string} The contents of the sample.
+ * @returns The contents of the sample.
  */
 const getSample = (language = 'html'): string => {
   const key = sampleKeys.find(
     (key) => key.includes(`${language}.`) || key.endsWith(`.${language}`),
   );
   // No sample for this language: highlight nothing rather than throwing.
-  return key ? samples[key] : '';
+  return key === undefined ? '' : samples[key];
 };
 
 /**
@@ -41,10 +41,10 @@ export const availableSamples = sampleKeys.map(sampleName);
 /**
  * Syntax highlighting demo
  *
- * @param {object} args Demo options
- * @param {string} [args.language] The slug of the language sample to
+ * @param args Demo options
+ * @param [args.language] The slug of the language sample to
  * return a demo for.
- * @returns {string} A highlighted HTML snippet.
+ * @returns A highlighted HTML snippet.
  */
 export const highlightDemo = ({ language = 'html' }) => {
   const sample = getSample(language);

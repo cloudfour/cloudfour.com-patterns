@@ -2,6 +2,7 @@
 import alignmentDemo from './demo/alignment.twig';
 import logoTemplate from './logo.twig';
 import './demo/alignment.scss';
+
 const alignOptions = ['start', 'center', 'end'];
 
 /** @type {Meta} */

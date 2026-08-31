@@ -1,7 +1,7 @@
 import cloudFourConfig from '@cloudfour/eslint-config';
 import * as mdx from 'eslint-plugin-mdx';
 
-export default [
+const config = [
   {
     ignores: [
       'dist/',
@@ -90,7 +90,7 @@ export default [
     files: ['**/*.mdx'],
     rules: {
       // The auto-fixer for this rule does not work with .mdx files.
-      'import/order': 'off',
+      'import-x/order': 'off',
       // Our docs pages import Storybook's doc components and their own stories
       // module, then reference them only inside JSX:
       //
@@ -110,6 +110,107 @@ export default [
   },
 
   {
+    // `checkJs` is on, so JSDoc is how our .js files carry type information
+    // rather than a place we write prose. Blocks like
+    //
+    //   /** @param {Args} args */
+    //
+    // exist to type a parameter, and demanding a description above each one
+    // produces filler rather than documentation. The rules that check the types
+    // themselves stay on.
+    files: ['**/*.{js,mjs,cjs}'],
+    rules: {
+      'jsdoc/require-description': 'off',
+    },
+  },
+
+  {
+    // Every snake_case identifier these files declare belongs to someone else's
+    // naming scheme, so renaming them would break something:
+    //
+    // - Stories and arg files pass variables into Twig templates, where
+    //   snake_case is the convention and the names are the template's contract.
+    // - Design tokens become CSS custom properties and Sass variables via
+    //   style-dictionary, so a token key is part of our published output.
+    // - Demo and mock data mirror the shape of an external API, e.g. WordPress's
+    //   `paginate_links()`.
+    // - `scripts/build-js.mjs` sets terser options such as `join_vars`.
+    files: [
+      '**/*.stories.js',
+      '**/*-args.js',
+      '**/arg-types.js',
+      'src/tokens/**',
+      '**/demo/**',
+      'scripts/build-js.mjs',
+    ],
+    rules: {
+      camelcase: 'off',
+    },
+  },
+
+  {
+    files: ['**/*.{ts,tsx,mts,cts}'],
+    rules: {
+      // This and xo's `non-nullable-type-assertion-style` want opposite things.
+      // That rule rewrites `closest('.js-sky-nav') as HTMLElement` into
+      // `closest('.js-sky-nav')!`, which this rule then rejects. The elements
+      // are guaranteed by the templates that render these components, and
+      // adding null guards would change what happens when one is missing --
+      // from throwing to silently doing nothing -- which is a behaviour
+      // decision rather than lint cleanup.
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      // Ambient type packages -- `@vitest/browser/matchers`,
+      // `@testing-library/jest-dom/vitest`, `vite/client` -- are only loadable
+      // through a triple-slash reference. They export no value, so the `import`
+      // form the rule suggests does not pull their globals in.
+      '@typescript-eslint/triple-slash-reference': 'off',
+    },
+  },
+
+  {
+    files: ['**/*.browser.test.ts'],
+    rules: {
+      // Regexes handed to Vitest's browser locators, e.g.
+      // `getByRole('button', {name: /^reply$/i})`, are never executed as
+      // regexes. Vitest serialises them into a selector string, and its parser
+      // rejects the `v` flag outright:
+      //
+      //   Error while parsing selector `button[name=/^reply$/iv]`
+      //     - unexpected symbol "v"
+      //
+      // Adding the flag here turns passing tests into failing ones.
+      'require-unicode-regexp': 'off',
+    },
+  },
+
+  {
+    // Storybook's preview file and the Vitest setup files exist to run for
+    // their side effects: registering a syntax-highlighting language, pulling
+    // in matchers, loading global styles. There is nothing to assign.
+    files: ['.storybook/preview.js', 'vitest.setup.*.ts'],
+    rules: {
+      'import-x/no-unassigned-import': 'off',
+      'unicorn/no-top-level-side-effects': 'off',
+    },
+  },
+
+  {
+    files: ['package.json'],
+    rules: {
+      // The rule reads `preprocess` as a `pre` hook for a `process` script we
+      // do not have. It is its own script, named for what it does.
+      'package-json/no-orphan-script-hooks': 'off',
+      // Both of these describe what we publish, and getting either wrong breaks
+      // consumers quietly: an inaccurate `sideEffects` lets bundlers drop our
+      // styles, and the `.d.ts`/`.mjs` pairing the types rule objects to is
+      // decided by `scripts/build-types.mjs`. Worth doing, but as a deliberate
+      // look at packaging rather than inside an ESLint upgrade.
+      'package-json/prefer-side-effects-field': 'off',
+      'package-json/require-types-in-exports': 'off',
+    },
+  },
+
+  {
     // Stories and docs pages import Storybook through package export subpaths
     // (`@storybook/addon-docs/blocks`, `storybook/preview-api`). This rule cannot
     // tell a subpath from a file path, so it demands a `.js` that then breaks
@@ -120,3 +221,5 @@ export default [
     },
   },
 ];
+
+export default config;

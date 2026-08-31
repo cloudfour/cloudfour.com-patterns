@@ -2,6 +2,7 @@
 import { shuffle } from 'lodash';
 
 import avatarsDemo from './demo/avatars.twig';
+
 const demoImages = import.meta.glob('./demo/*.png', {
   eager: true,
   import: 'default',

@@ -2,7 +2,7 @@
  * Prepare mock data for a single page object.
  *
  * @param {number} [page=1] - The page number to mock data for.
- * @param {number} [current=1] -  The current page number. Used to determine if
+ * @param {number} [current=1] - The current page number. Used to determine if
  * `page` represents the current, previous or next page.
  * @returns {object} Mock data similar to what WordPress pagination functions
  * would return.

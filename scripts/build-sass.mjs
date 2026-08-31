@@ -25,7 +25,9 @@ const entry = 'src/index.scss';
  */
 const run = async (plugins, css, from, to) => {
   const result = await postcss(plugins).process(css, { from, to });
-  for (const warning of result.warnings()) console.warn(String(warning));
+  for (const warning of result.warnings()) {
+    console.warn(String(warning));
+  }
   return result.css;
 };
 

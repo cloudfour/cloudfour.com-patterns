@@ -1,6 +1,7 @@
 /** @import { Args, Meta, StoryContext, StoryObj } from '@storybook/html' */
 import demo from './demo/demo.twig';
 import logos from './demo/logos.json';
+
 const justifyOptions = ['start', 'center', 'end'];
 /**
  * @param {string} _src

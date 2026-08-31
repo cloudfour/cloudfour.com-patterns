@@ -1,5 +1,6 @@
 /** @import { Meta, StoryObj } from '@storybook/html' */
 import template from './list.twig';
+
 const defaultItems = [
   'Design Tokens',
   'Objects',

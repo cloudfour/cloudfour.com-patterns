@@ -14,7 +14,7 @@ const updateTheme = (element, theme) => {
 
   const themes = [];
   for (const className of element.classList) {
-    if (className.startsWith('t-') && className !== theme) {
+    if (className !== theme && className.startsWith('t-')) {
       themes.push(className);
     }
   }

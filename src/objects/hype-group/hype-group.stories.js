@@ -1,6 +1,7 @@
 /** @import { Args, Meta, StoryContext, StoryObj } from '@storybook/html' */
 import multipleDemo from './demo/multiple.twig';
 import singleDemo from './demo/single.twig';
+
 const defaultArgs = {
   content_class: 'o-rhythm',
   object_shape: 'circle',

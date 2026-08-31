@@ -4,6 +4,7 @@ import { avatarArgTypes } from './demo/arg-types.js';
 import demoImageMedium from './demo/tyler-335.png';
 import demoImageSmall from './demo/tyler-64.png';
 import demoImageLarge from './demo/tyler-768.png';
+
 const demoImageSrcset = [
   `${demoImageSmall} 64w`,
   `${demoImageMedium} 335w`,

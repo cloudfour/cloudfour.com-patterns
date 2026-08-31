@@ -13,7 +13,7 @@ import tokens from '../../compiled/tokens/js/tokens.js';
  */
 export const initSkyNav = (navButton: HTMLButtonElement) => {
   const menu = navButton.nextElementSibling as HTMLElement;
-  const navWrapper = navButton.closest('.js-sky-nav') as HTMLElement;
+  const navWrapper = navButton.closest<HTMLElement>('.js-sky-nav')!;
   const largeScreenMediaQuery = window.matchMedia(
     `(min-width: ${tokens.size.breakpoint.m.value})`,
   );
@@ -63,6 +63,9 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
       return;
     }
 
+    // `parseFloat` rather than `Number()`: the token value carries its CSS
+    // unit (e.g. "0.4s"), which `Number()` would turn into NaN.
+    // eslint-disable-next-line unicorn/prefer-number-coercion -- Needs to parse a leading number out of a CSS time value.
     const duration = Number.parseFloat(tokens.time.transition.slow.value);
     const transition = `transform ${duration}s ${tokens.ease.in_out.value}`;
     clearTimeout(timeoutId);

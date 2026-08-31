@@ -186,7 +186,7 @@ export const FullHeight = {
       },
     },
   },
-  render: () => {
+  render() {
     useEffect(() => {
       // Set this story's `body` element to full-height
       document.body.style.height = '100%';
@@ -194,7 +194,9 @@ export const FullHeight = {
       const root = /** @type {HTMLElement | null} */ (
         document.querySelector('#storybook-root')
       );
-      if (root) root.style.display = 'contents';
+      if (root) {
+        root.style.display = 'contents';
+      }
     });
     return sceneDemo({
       class: 'c-cloud-cover--full-height',

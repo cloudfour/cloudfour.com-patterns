@@ -11,6 +11,7 @@ import authorDemoSource from './demo/author.twig?raw';
 import { makeComment } from './demo/data';
 import memberDemo from './demo/member.twig';
 import memberDemoSource from './demo/member.twig?raw';
+
 const tyler = {
   name: 'Tyler Sticka',
   link: 'https://cloudfour.com/is/tyler',
@@ -75,7 +76,7 @@ export const Single = {
       },
     },
   },
-  render: (args) => {
+  render(args) {
     useEffect(() => initCommentReplyForms());
     return template({
       comment: randomComments[0],
@@ -94,7 +95,7 @@ export const RoleAuthor = {
       source: { code: authorDemoSource },
     },
   },
-  render: (args) => {
+  render(args) {
     useEffect(() => initCommentReplyForms());
     return authorDemo({
       comment: randomComments[1],
@@ -116,7 +117,7 @@ export const RoleCloudFour = {
       },
     },
   },
-  render: (args) => {
+  render(args) {
     useEffect(() => initCommentReplyForms());
     return memberDemo({
       comment: randomComments[2],
@@ -139,7 +140,7 @@ export const Unapproved = {
       },
     },
   },
-  render: (args) => {
+  render(args) {
     useEffect(() => initCommentReplyForms());
     return template({
       comment: randomNotApprovedComment,
@@ -166,7 +167,7 @@ export const WithSource = {
       },
     },
   },
-  render: (args) => {
+  render(args) {
     useEffect(() => initCommentReplyForms());
     return template({
       comment: randomComments[3],
@@ -197,7 +198,7 @@ export const WithReplyButton = {
       },
     },
   },
-  render: (args) => {
+  render(args) {
     useEffect(() => initCommentReplyForms());
     return template({
       comment: randomComments[4],
@@ -220,7 +221,7 @@ export const WithReplyThread = {
       },
     },
   },
-  render: (args) => {
+  render(args) {
     useEffect(() => initCommentReplyForms());
     return template({
       comment: randomCommentWithReply,

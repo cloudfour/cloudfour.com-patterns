@@ -1,4 +1,4 @@
-export default {
+const config = {
   source: ['src/tokens/**/*.+(js|json)'],
   platforms: {
     // Export all the tokens in a single SCSS file.
@@ -149,3 +149,5 @@ export default {
     },
   },
 };
+
+export default config;

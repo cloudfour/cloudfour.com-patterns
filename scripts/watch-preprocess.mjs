@@ -1,6 +1,7 @@
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import process from 'node:process';
 
 /**
  * Re-runs the preprocess steps when their sources change, for `npm start`.
@@ -19,7 +20,7 @@ const watches = [
   {
     label: 'tokens',
     dir: 'src/tokens',
-    matches: (file) => /\.(js|json)$/.test(file),
+    matches: (file) => /\.(?:js|json)$/v.test(file),
     script: '.style-dictionary/build.mjs',
   },
 ];
@@ -41,7 +42,9 @@ for (const { label, dir, matches, script } of watches) {
     const child = spawn(process.execPath, [script], { stdio: 'inherit' });
     child.on('close', (code) => {
       running = false;
-      if (code !== 0) console.error(`[${label}] exited with code ${code}`);
+      if (code !== 0) {
+        console.error(`[${label}] exited with code ${code}`);
+      }
       if (queued) {
         queued = false;
         run();
@@ -50,9 +53,13 @@ for (const { label, dir, matches, script } of watches) {
   };
 
   fs.watch(dir, { recursive: true }, (_event, filename) => {
-    if (!filename || !matches(filename)) return;
+    if (!filename || !matches(filename)) {
+      return;
+    }
     // Ignore the task's own output, which lands beside its input.
-    if (filename.endsWith('.svg.twig')) return;
+    if (filename.endsWith('.svg.twig')) {
+      return;
+    }
     clearTimeout(timer);
     timer = setTimeout(run, DEBOUNCE_MS);
   });

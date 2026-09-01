@@ -22,7 +22,7 @@ test('reply form can be opened and closed', async () => {
   });
 
   initCommentReplyForm(
-    document.querySelector('.js-comment-with-reply-form') as HTMLElement,
+    document.querySelector<HTMLElement>('.js-comment-with-reply-form')!,
   );
 
   await expect.element(body()).toMatchAriaInlineSnapshot(`

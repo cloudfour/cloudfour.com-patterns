@@ -1,5 +1,6 @@
 /** @import { Meta, StoryObj } from '@storybook/html' */
 import template from './author.twig';
+
 const allAuthors = [
   {
     name: 'Bubba B-Man',

@@ -29,7 +29,7 @@ const expectElementNotToBeVisuallyHidden = (element: HTMLElement) => {
 /** Creates the component instance and tears it down when the test ends. */
 const initSubscribe = () => {
   const subscribe = createSubscribe(
-    document.querySelector('.js-subscribe') as HTMLElement,
+    document.querySelector<HTMLElement>('.js-subscribe')!,
   );
 
   // `createSubscribe` returns nothing if the markup is missing any of the elements

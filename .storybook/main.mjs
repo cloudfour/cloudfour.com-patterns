@@ -1,4 +1,5 @@
 import { dirname, join } from 'node:path';
+import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import svgr from 'vite-plugin-svgr';
@@ -7,7 +8,7 @@ import { twigPlugin } from '../twing/vite-plugin-twig.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 
-export default {
+const storybookConfig = {
   stories: ['../src/**/*.stories.js', '../src/**/*.mdx'],
   staticDirs: ['../static', '../src/assets'],
   addons: [
@@ -20,13 +21,13 @@ export default {
     name: '@storybook/html-vite',
     options: {},
   },
-  managerHead: (head) => {
+  managerHead(head) {
     const iconSuffix = process.env.NODE_ENV === 'development' ? '-dev' : '';
     return `${head}
       <link rel="icon" href="favicons/favicon${iconSuffix}.ico" />
       <link rel="icon" href="favicons/icon${iconSuffix}.svg" type="image/svg+xml" />`;
   },
-  viteFinal: async (config) => {
+  async viteFinal(config) {
     config.plugins = [
       ...(config.plugins ?? []),
       twigPlugin(),
@@ -53,3 +54,5 @@ export default {
     return config;
   },
 };
+
+export default storybookConfig;

@@ -18,7 +18,7 @@ const featureImages = import.meta.glob(
 
 const featureImageData = Object.entries(featureImages)
   .map(([filePath, src]) => ({
-    name: (filePath.split('/').pop() ?? '').replace(/\.svg$/, ''),
+    name: (filePath.split('/').pop() ?? '').replace(/\.svg$/v, ''),
     src,
   }))
   .toSorted((a, b) => a.name.localeCompare(b.name));
@@ -61,7 +61,7 @@ export const TransparentAvatar = {
       // the source snippet.
       source: {
         transform: (/** @type {string} */ code) =>
-          code.replaceAll(/ style="([^"]+)"/g, ''),
+          code.replaceAll(/ style="[^"]+"/gv, ''),
       },
     },
   },

@@ -86,14 +86,16 @@ export const ElasticTextarea = {
       },
     },
   },
-  render: (args) => {
+  render(args) {
     // Use storybook hooks to trigger JS after story renders
     // @see https://github.com/storybookjs/storybook/issues/7786
     useEffect(() => {
       const textarea = /** @type {HTMLTextAreaElement | null} */ (
         document.querySelector('.js-elastic-textarea')
       );
-      if (textarea) createElasticTextArea(textarea);
+      if (textarea) {
+        createElasticTextArea(textarea);
+      }
     });
     return input(args);
   },

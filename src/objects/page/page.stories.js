@@ -19,7 +19,9 @@ const meta = {
         const root = /** @type {HTMLElement | null} */ (
           document.querySelector('#storybook-root')
         );
-        if (root) root.style.display = 'contents';
+        if (root) {
+          root.style.display = 'contents';
+        }
       });
       return story();
     },

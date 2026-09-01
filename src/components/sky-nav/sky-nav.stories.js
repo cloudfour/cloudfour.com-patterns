@@ -6,6 +6,7 @@ import { makeTwigInclude } from '../../make-twig-include.js';
 import menu from './demo/menu.json';
 import { initSkyNav } from './sky-nav';
 import template from './sky-nav.twig';
+
 const basicStoryArgs = {
   include_main_demo: true,
   menu,
@@ -24,7 +25,9 @@ const meta = {
         const toggle = /** @type {HTMLButtonElement | null} */ (
           document.querySelector('.js-sky-nav-menu-toggle')
         );
-        if (!toggle) return;
+        if (!toggle) {
+          return;
+        }
         const { destroy } = initSkyNav(toggle);
         return destroy;
       });

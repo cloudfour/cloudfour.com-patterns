@@ -9,6 +9,7 @@ import pictureDemo from './demo/picture.twig';
 import pictureDemoJpgSrc from './demo/twilight.jpg';
 import pictureDemoWebpSrc from './demo/twilight.webp';
 import videoDemo from './demo/video.twig';
+
 const aspectRatioTokens = tokens.number.aspect_ratio;
 const modifierClasses = [
   '',

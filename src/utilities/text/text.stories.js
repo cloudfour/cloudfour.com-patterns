@@ -16,7 +16,7 @@ const meta = {
 export default meta;
 
 /** @type {StoryObj} */
-export const WhiteSpaceNowrap = {
+export const WhitespaceNowrap = {
   name: 'White-space nowrap',
   parameters: { docs: { source: { code: noWrapDemoSource } } },
   render: (args) => noWrapDemo(args),

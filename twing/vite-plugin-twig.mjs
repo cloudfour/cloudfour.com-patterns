@@ -66,12 +66,16 @@ export const twigPlugin = () => ({
 
   /** @param {string} id */
   resolveId(id) {
-    if (id === VIRTUAL_ID) return RESOLVED_VIRTUAL_ID;
+    if (id === VIRTUAL_ID) {
+      return RESOLVED_VIRTUAL_ID;
+    }
   },
 
   /** @param {string} id */
   load(id) {
-    if (id === RESOLVED_VIRTUAL_ID) return environmentModule;
+    if (id === RESOLVED_VIRTUAL_ID) {
+      return environmentModule;
+    }
   },
 
   /**
@@ -81,7 +85,9 @@ export const twigPlugin = () => ({
    */
   transform(_code, id) {
     // Let `?raw` imports through untouched -- the environment module needs the source.
-    if (!id.endsWith('.twig')) return;
+    if (!id.endsWith('.twig')) {
+      return;
+    }
 
     return {
       code: /* js */ `

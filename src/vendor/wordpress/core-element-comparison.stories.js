@@ -1,8 +1,8 @@
 /** @import { Meta, StoryObj } from '@storybook/html' */
-import CommentDemo from './demo/compare-comment.twig';
-import GutenbergDemo from './demo/compare-gutenberg.twig';
-import HTMLDemo from './demo/compare-html.twig';
-import MarkdownDemo from './demo/compare-markdown.twig';
+import commentDemo from './demo/compare-comment.twig';
+import gutenbergDemo from './demo/compare-gutenberg.twig';
+import htmlDemo from './demo/compare-html.twig';
+import markdownDemo from './demo/compare-markdown.twig';
 
 /** @type {Meta} */
 const meta = {
@@ -13,20 +13,20 @@ export default meta;
 
 /** @type {StoryObj} */
 export const Markdown = {
-  render: () => MarkdownDemo(),
+  render: () => markdownDemo(),
 };
 
 /** @type {StoryObj} */
 export const HTML = {
-  render: () => HTMLDemo(),
+  render: () => htmlDemo(),
 };
 
 /** @type {StoryObj} */
 export const Gutenberg = {
-  render: () => GutenbergDemo(),
+  render: () => gutenbergDemo(),
 };
 
 /** @type {StoryObj} */
 export const Comments = {
-  render: () => CommentDemo(),
+  render: () => commentDemo(),
 };

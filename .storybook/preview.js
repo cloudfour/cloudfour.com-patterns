@@ -20,12 +20,12 @@ SyntaxHighlighter.registerLanguage('twig', twig);
 
 // Create viewports using widths defined in design tokens
 const breakpointViewports = Object.fromEntries(
-  Object.keys(breakpoints).map((name) => [
+  Object.entries(breakpoints).map(([name, value]) => [
     `breakpoint-${name}`,
     {
-      name: `$${breakpoints[name].name}`,
+      name: `$${value.name}`,
       styles: {
-        width: breakpoints[name].value,
+        width: value.value,
         // Account for padding and border around viewport preview
         height: 'calc(100% - 20px)',
       },
@@ -70,12 +70,16 @@ export const parameters = {
       transform(code, storyContext) {
         try {
           const storyFunction = storyContext.originalStoryFn;
-          if (!storyFunction) return code;
+          if (!storyFunction) {
+            return code;
+          }
           const rendered = storyFunction(
             storyContext.args || storyContext.initialArgs,
           );
           const input = globalThis.__twig_inputs__?.get(rendered);
-          if (!input) return code;
+          if (!input) {
+            return code;
+          }
           return makeTwigInclude(input.path, input.args);
         } catch {
           return code;

@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import process from 'node:process';
 
 export const outDir = 'dist';
 
@@ -19,12 +20,9 @@ export const extensions = ['.js', '.ts', '.tsx'];
  * @returns {Promise<string>}
  */
 export const createVirtualRootEntry = async () => {
-  const matches = [];
-  for await (const file of fs.glob(
-    `src/{objects,components}/*/*{${extensions.join(',')}}`,
-  )) {
-    matches.push(file);
-  }
+  const matches = await Array.fromAsync(
+    fs.glob(`src/{objects,components}/*/*{${extensions.join(',')}}`),
+  );
 
   return (
     matches
@@ -32,7 +30,7 @@ export const createVirtualRootEntry = async () => {
       // build. Stories became `.js` when they moved off `.stories.mdx`, so without
       // this they land in the published bundle -- and they import `.twig` and
       // `.scss`, which Rollup cannot parse.
-      .filter((f) => !/(\.(test|stories)|-args)\.[jt]sx?$/.test(f))
+      .filter((f) => !/(?:\.(?:test|stories)|-args)\.[jt]sx?$/v.test(f))
       // The order of these exports reaches the published bundle and type
       // declarations, so sort rather than depending on the order the file system
       // happens to hand back.

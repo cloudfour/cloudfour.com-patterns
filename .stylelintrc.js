@@ -36,9 +36,9 @@ module.exports = {
       true,
       {
         ignoreShorthands: [
-          /^grid-template/i, // 1
-          /gap$/i, // 2
-          /^(?:margin|padding)-(?:block|inline)$/i, // 3
+          /^grid-template/iv, // 1
+          /gap$/iv, // 2
+          /^(?:margin|padding)-(?:block|inline)$/iv, // 3
         ],
       },
     ],
@@ -66,9 +66,9 @@ module.exports = {
         except: [
           'clear', // 1
           'float', // 1
-          /^border-.+-radius$/i, // 1
-          /^margin$/i, // 2
-          /^padding$/i, // 2
+          /^border-.+-radius$/iv, // 1
+          /^margin$/iv, // 2
+          /^padding$/iv, // 2
         ],
       },
     ],

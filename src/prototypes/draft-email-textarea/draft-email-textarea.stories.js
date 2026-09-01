@@ -8,12 +8,13 @@ import {
   forDemoPurposesOnlyText,
   runProposedInlineJS,
 } from './js/draft-email-textarea.js';
+
 const prototypeData = {
   draftSubject: 'Discuss potential project',
   draftMessage: forDemoPurposesOnlyText,
 };
 
-export default {
+const meta = {
   title: 'Prototypes/Draft Email',
   parameters: {
     docs: { page: null },
@@ -36,6 +37,8 @@ export default {
   ],
   render: (args) => prototypeDemo(args),
 };
+
+export default meta;
 
 export const Demo = {
   args: prototypeData,

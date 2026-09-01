@@ -13,8 +13,11 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
   const JS_ENABLED_HOOK = 'is-elastic';
   textarea.classList.add(JS_ENABLED_HOOK);
 
-  const minRows = Number(textarea.getAttribute('rows')) || 2;
-  let rows = Number(textarea.getAttribute('rows')) || minRows;
+  const attributeRows = Number(textarea.getAttribute('rows'));
+  // `Number(null)` is 0 and an unparseable value is NaN; both mean unset.
+  const minRows =
+    attributeRows === 0 || Number.isNaN(attributeRows) ? 2 : attributeRows;
+  let rows = minRows;
   textarea.setAttribute('rows', String(rows));
 
   /** Check if the textarea is currently scrolling */
@@ -34,7 +37,9 @@ export const createElasticTextArea = (textarea: HTMLTextAreaElement) => {
 
       // If the height hasn't changed, break the loop
       // This safety check is to prevent an infinite loop in IE11
-      if (newHeight === previousHeight) break;
+      if (newHeight === previousHeight) {
+        break;
+      }
 
       // Store the updated height for the next comparison and proceed
       previousHeight = newHeight;

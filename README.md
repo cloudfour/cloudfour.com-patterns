@@ -17,7 +17,7 @@ The package includes both the compiled code and the source files. So you can eit
 
 You can add the pattern library package as a dependency to your JavaScript application using npm:
 
-```
+```sh
 npm install @cloudfour/patterns
 ```
 

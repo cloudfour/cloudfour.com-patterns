@@ -6,6 +6,7 @@ import checkboxDemo from './demo/checkbox.twig';
 import checkboxDemoSource from './demo/checkbox.twig?raw';
 import imageDemo from './demo/image.twig';
 import meganProfileImage from './demo/megan.png';
+
 const exampleText =
   'One of the things that is really clear to us (and that we hear often from our clients) is that the way we engage with our clients is unique. In fact, bringing clients in early and often to our process is one of our specialties at Cloud Four.';
 // We define a source transform for the image demo since it needs to

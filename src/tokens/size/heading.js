@@ -13,9 +13,9 @@ const headingTokens = {};
 // Generate heading tokens
 for (let level = minLevel; level <= maxLevel; level++) {
   // Replace `-` with `n` in token names to avoid awkward case across languages
-  const levelSuffix = `${level}`.replace('-', 'n');
+  const levelSuffix = String(level).replace('-', 'n');
   // Determine minimum size based on current level
-  const minStep = level * -1 + maxLevel;
+  const minStep = -level + maxLevel;
   // Determine maximum size based on minimum size
   const maxStep = minStep + fluidSteps;
   // Store `max` and `min` tokens

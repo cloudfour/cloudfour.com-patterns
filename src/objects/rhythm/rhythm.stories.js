@@ -27,7 +27,10 @@ const demoTransformSource = (_src, storyContext) => {
  */
 const nestingDemoTransformSource = (_src, storyContext) => {
   const argsString = argsStringFromStoryContext(storyContext);
-  return nestingDemoSource.replace(".twig' %}", `.twig'${argsString} only %}`);
+  return nestingDemoSource.replace(
+    ".twig' %}",
+    () => `.twig'${argsString} only %}`,
+  );
 };
 const amountOptions = [
   '',

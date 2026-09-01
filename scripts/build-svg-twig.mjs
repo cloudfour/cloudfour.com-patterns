@@ -47,7 +47,8 @@ function templatizeSvgString(src) {
   svg.children = [...prepend.children, ...svg.children, ...append.children];
 
   // Identify props already in use in the SVG versus those yet to be used
-  const usedProps = dynamicSvgProps.filter((prop) => Boolean(svg.attrs[prop]));
+  const usedProps = dynamicSvgProps.filter((prop) => svg.attrs[prop]);
+  // eslint-disable-next-line unicorn/no-computed-property-existence-check -- Complements the line above: both test for a truthy value, not for the property existing.
   const unusedProps = dynamicSvgProps.filter((prop) => !svg.attrs[prop]);
 
   // Properties already in use should have their value set to a conditional.
@@ -77,21 +78,20 @@ function templatizeSvgString(src) {
 
     // We tack this string onto the root SVG element, which we assume ends with
     // the first occurrence of `>`.
-    result = result.replace('>', `${unusedPropHtml}>`);
+    result = result.replace('>', () => `${unusedPropHtml}>`);
   }
 
   return result;
 }
 
-const files = [];
-for await (const file of fs.glob(`${srcDir}/**/*.svg`)) files.push(file);
+const files = await Array.fromAsync(fs.glob(`${srcDir}/**/*.svg`));
 
 await Promise.all(
   files.toSorted().map(async (file) => {
     const source = await fs.readFile(file, 'utf8');
     const { data } = optimize(source, { ...svgoConfig, path: file });
     // Output to the same directory to expose to Storybook
-    const destination = file.replace(/\.svg$/, '.svg.twig');
+    const destination = file.replace(/\.svg$/v, '.svg.twig');
     await fs.writeFile(destination, templatizeSvgString(data));
   }),
 );

@@ -28,7 +28,7 @@ You can also run checks individually:
 
 ## Project Structure
 
-```
+```text
 cloudfour.com-patterns
 ├── .github               # GitHub workflows and templates
 ├── .storybook

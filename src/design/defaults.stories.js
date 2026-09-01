@@ -119,7 +119,7 @@ export const Figure = {
 /** @type {StoryObj} */
 export const CodeBlock = {
   name: 'Code block',
-  render: () => {
+  render() {
     const example = `* {
 	box-sizing: border-box;
 }`;

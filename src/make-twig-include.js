@@ -73,7 +73,7 @@ export const makeTwigEmbedIfHtml = (path, args = {}, blockNames = []) => {
     const blockValue = args[blockName];
     if (
       typeof blockValue === 'string' &&
-      /<\/?[a-z][\S\s]*>/i.test(blockValue)
+      /<\/?[a-z][\s\S]*>/iv.test(blockValue)
     ) {
       filteredBlockNames.push(blockName);
     }

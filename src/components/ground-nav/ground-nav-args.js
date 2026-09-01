@@ -1,10 +1,12 @@
 /** @import { ArgTypes, Args } from '@storybook/html' */
-// eslint-disable-next-line import/order
+
 import skyNavMenu from '../sky-nav/demo/menu.json';
+
 import groundNavMenu from './demo/menu.json';
 import organization from './demo/organization.json';
 import social from './demo/social.json';
 import topics from './demo/topics.json';
+
 const menu = { items: [...skyNavMenu.items, ...groundNavMenu.items] };
 
 /**

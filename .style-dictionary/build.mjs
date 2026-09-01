@@ -57,7 +57,7 @@ StyleDictionary.registerTransform({
   name: 'custom/name/i/kebab-rejoin-n',
   type: 'name',
   transform(token) {
-    return token.name.replaceAll(/-n-(\d)/g, '-n$1');
+    return token.name.replaceAll(/-n-(?<digit>\d)/gv, '-n$<digit>');
   },
 });
 

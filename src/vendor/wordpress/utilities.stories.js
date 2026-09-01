@@ -6,6 +6,7 @@ import tokens from '../../compiled/tokens/js/tokens.js';
 import alignmentDemo from './demo/alignment.twig';
 import colorDemo from './demo/color.twig';
 import fontSizeDemo from './demo/font-size.twig';
+
 const baseColorTokenKeys = Object.keys(tokens.color.base).map(kebabCase);
 /** @type {ArgTypes[string]} */
 const colorControlConfig = {

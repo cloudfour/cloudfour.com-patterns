@@ -25,7 +25,7 @@ declare module 'jabber' {
       extraConsonants?: string,
     );
 
-    /** Create email */
+    /** Create a fake email address, optionally on the given domain. */
     createEmail(customDomain?: string): string;
 
     /** Create fake full name */

@@ -1,5 +1,15 @@
 # @cloudfour/patterns
 
+## 17.2.1
+
+### Patch Changes
+
+- [#2481](https://github.com/cloudfour/cloudfour.com-patterns/pull/2481) [`cad3e22`](https://github.com/cloudfour/cloudfour.com-patterns/commit/cad3e2284f656eae5aa0a22afd9be9bf3490ba9a) Thanks [@spaceninja](https://github.com/spaceninja)! - Publish releases via npm trusted publishing (OIDC) instead of a stored token.
+
+  There are no functional changes to the package. From this release onward,
+  published versions carry a provenance attestation linking the tarball to the
+  workflow run and commit that produced it.
+
 ## 17.2.0
 
 ### Minor Changes

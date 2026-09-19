@@ -83,7 +83,7 @@
     "@babel/preset-typescript": "7.29.7",
     "@changesets/changelog-github": "1.0.1",
     "@changesets/cli": "3.0.3",
-    "@cloudfour/eslint-config": "26.1.0",
+    "@cloudfour/eslint-config": "27.0.0",
     "@etchteam/storybook-addon-status": "8.1.0",
     "@rollup/plugin-babel": "7.1.0",
     "@rollup/plugin-json": "6.1.0",

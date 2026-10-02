@@ -15,13 +15,13 @@
 /// Releases a full-width child element from its limited-width container.
 /// @link https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#flipping-the-script
 .alignfull {
-  margin-inline: calc(-50vw + 50%);
+  margin-inline: calc(-50vi + 50%);
 }
 
 /// Wide alignment should max out at our default container width.
 .alignwide {
   margin-inline: max(
-    -50vw + 50%,
+    -50vi + 50%,
     math.div(size.$max-width-spread - size.$max-width-prose, -2)
   );
 }

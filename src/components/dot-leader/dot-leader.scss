@@ -21,7 +21,7 @@ $dot-content: '';
 
   @supports (display: grid) {
     display: grid;
-    grid-gap: 1ch;
+    gap: 1ch;
     grid-template-columns: min-content 1fr min-content;
   }
 }

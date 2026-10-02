@@ -10,15 +10,15 @@
 ///    margin based on this value, and we don't want the layout to break if the
 ///    wrong avatar size is set in the HTML.
 .c-comment {
+  column-gap: size.$spacing-gap-inline-medium;
   display: grid;
-  grid-column-gap: size.$spacing-gap-inline-medium;
-  grid-row-gap: size.$rhythm-condensed;
   grid-template-areas:
     'object header'
     'thread-line content'
     'thread-line footer';
   grid-template-columns: #{size.$square-avatar-small} 1fr; // 1
   grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
+  row-gap: size.$rhythm-condensed;
 }
 
 /// Display a vertical line if the comment contains a reply thread to connect

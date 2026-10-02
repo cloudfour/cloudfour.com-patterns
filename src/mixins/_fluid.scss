@@ -36,7 +36,7 @@
   $min-width-rem: unit.swap($min-width, rem);
 
   @return calc(
-    #{$min} + #{$delta} * ((100vw - #{$min-width-rem}) / #{$delta-width})
+    #{$min} + #{$delta} * ((100vi - #{$min-width-rem}) / #{$delta-width})
   );
 }
 

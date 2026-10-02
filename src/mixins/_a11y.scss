@@ -9,7 +9,6 @@
 $_sr-only-props: (
   block-size: 1px,
   border: 0,
-  clip: rect(0 0 0 0),
   clip-path: polygon(0 0, 0 0, 0 0),
   inline-size: 1px,
   margin: -1px,
@@ -23,7 +22,6 @@ $_sr-only-props: (
   @if $important {
     block-size: map.get($_sr-only-props, 'block-size') !important;
     border: map.get($_sr-only-props, 'border') !important;
-    clip: map.get($_sr-only-props, 'clip') !important;
     clip-path: map.get($_sr-only-props, 'clip-path') !important;
     inline-size: map.get($_sr-only-props, 'inline-size') !important;
     margin: map.get($_sr-only-props, 'margin') !important;
@@ -34,7 +32,6 @@ $_sr-only-props: (
   } @else {
     block-size: map.get($_sr-only-props, 'block-size');
     border: map.get($_sr-only-props, 'border');
-    clip: map.get($_sr-only-props, 'clip');
     clip-path: map.get($_sr-only-props, 'clip-path');
     inline-size: map.get($_sr-only-props, 'inline-size');
     margin: map.get($_sr-only-props, 'margin');

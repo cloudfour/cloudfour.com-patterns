@@ -1,5 +1,4 @@
 module.exports = {
-  plugins: ['stylelint-use-logical-spec'],
   extends: ['stylelint-config-cloudfour'],
   rules: {
     // Disable stylelint-scss rules that conflict with Prettier.
@@ -52,24 +51,20 @@ module.exports = {
       true,
       { ignoreMediaFeatureNames: ['breakpoint'] },
     ],
-    // We want to be able to set custom props in components (#617)
-    'suitcss/custom-property-no-outside-root': null,
-    // We want to be able to compose :root for theme selectors (#1056)
-    'suitcss/selector-root-no-composition': null,
-    'liberty/use-logical-spec': [
-      'always',
+    // Prefer flow-relative (logical) properties, units, and keywords.
+    'property-layout-mappings': [
+      'flow-relative',
       {
-        // 1. Until Safari 15 adoption is higher
-        // 3. Removing matches for `margin` and `padding` shorthand, which
-        //    stylelint-use-logical-spec wants to break into the longhand
-        //    `-block` and `-inline` properties.
-        except: [
-          'clear', // 1
-          'float', // 1
-          /^border-.+-radius$/iv, // 1
-          /^margin$/iv, // 2
-          /^padding$/iv, // 2
-        ],
+        // Until Safari 15 adoption is higher
+        ignoreProperties: [/^border-.+-radius$/v],
+      },
+    ],
+    'unit-layout-mappings': 'flow-relative',
+    'value-keyword-layout-mappings': [
+      'flow-relative',
+      {
+        // Until Safari 15 adoption is higher
+        ignoreProperties: ['clear', 'float'],
       },
     ],
   },

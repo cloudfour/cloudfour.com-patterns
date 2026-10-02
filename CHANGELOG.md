@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 17.2.2
+
+### Patch Changes
+
+- [#2522](https://github.com/cloudfour/cloudfour.com-patterns/pull/2522) [`4e00694`](https://github.com/cloudfour/cloudfour.com-patterns/commit/4e006941be4e7e5c31b20c87f78f297143ca256d) Thanks [@spaceninja](https://github.com/spaceninja)! - Use logical CSS where it was still physical: `overflow-inline` instead of `overflow-x`, and `vi`/`vb` instead of `vw`/`vh` for fluid sizing, viewport breakouts, conditional border radii and the Cloud Cover and Ground Nav illustrations. Replace deprecated `grid-gap`, `grid-row-gap` and `grid-column-gap` with `gap`, `row-gap` and `column-gap`, and remove the legacy `clip` fallback from the screen-reader-only styles.
+
 ## 17.2.1
 
 ### Patch Changes

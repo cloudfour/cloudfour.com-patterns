@@ -46,8 +46,8 @@
 /// padding nor control padding felt quite right. We may want to revisit that
 /// in the future.
 .c-alert__inner {
+  column-gap: ms.step(1);
   display: grid;
-  grid-column-gap: ms.step(1);
   grid-template-areas:
     'icon .       dismiss'
     'icon content dismiss'

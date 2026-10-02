@@ -133,7 +133,7 @@
   background-image: svg-load('illustrations/portland.svg');
   background-position: right bottom;
   background-repeat: no-repeat;
-  background-size: auto clamp(ms.step(6), 15vw, ms.step(9)); // 2
+  background-size: auto clamp(ms.step(6), 15vi, ms.step(9)); // 2
   color: var(--theme-color-text-muted);
   grid-column: 1;
   grid-row: 3;
@@ -146,7 +146,7 @@
     $size-half-spread: math.div(size.$max-width-spread, 2);
     $size-inline-spacing: spacing.$fluid-spacing-inline-max;
     $right-container: calc(
-      50vw - #{$size-half-spread} - #{$size-inline-spacing}
+      50vi - #{$size-half-spread} - #{$size-inline-spacing}
     );
     background-position: right #{$right-container} bottom; // 3
   }

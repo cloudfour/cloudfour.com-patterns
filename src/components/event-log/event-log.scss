@@ -32,8 +32,8 @@ $_breakpoint-wide: breakpoint.$m;
  */
 
 .c-event-log {
+  column-gap: size.$spacing-gap-inline-medium;
   display: grid;
-  grid-column-gap: size.$spacing-gap-inline-medium;
   grid-template-columns: auto 1fr; /* 1 */
 }
 

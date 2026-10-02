@@ -2,12 +2,12 @@
 
 .demo-checkbox-labels {
   display: grid;
-  grid-gap: ms.step(1);
+  gap: ms.step(1);
 }
 
 .demo-checkbox-label {
   display: grid;
-  grid-gap: ms.step(-2);
+  gap: ms.step(-2);
   grid-template-columns: auto 1fr;
   user-select: none;
 }

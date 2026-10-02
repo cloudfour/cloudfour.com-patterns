@@ -69,7 +69,7 @@ html {
 
 html,
 body {
-  overflow-x: hidden; // 1
+  overflow-inline: hidden; // 1
 }
 
 /**
@@ -108,6 +108,7 @@ svg,
 video {
   display: block; /* 1 */
   max-inline-size: 100%; /* 3 */
+  // stylelint-disable-next-line plugin/declaration-block-no-ignored-properties -- only applies if display is overridden to inline (2)
   vertical-align: middle; /* 2 */
 }
 
@@ -358,7 +359,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   inline-size: 100%;
-  overflow-x: auto;
+  overflow-inline: auto;
 }
 
 /*

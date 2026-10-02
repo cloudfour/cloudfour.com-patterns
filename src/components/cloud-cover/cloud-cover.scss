@@ -36,21 +36,21 @@ $_column_gap: spacing.$fluid-gap;
 /// instances of that value.
 ///
 /// This really wouldn't be necessary if Sass would play nice with a variable
-/// declaration for `(14vh + 4vw)` (without `calc`), but it always tries to
+/// declaration for `(14vb + 4vi)` (without `calc`), but it always tries to
 /// crunch those numbers together.
 ///
 /// @param {Number} $amount [1] - Optional multiplier for default space.
-/// @param {Number} $vh [12vh] - Amount of horizontal space in the result.
-/// @param {Number} $vw [3vw] - Amount of vertical space in the result.
+/// @param {Number} $vb [12vb] - Amount of block-axis (vertical) space in the result.
+/// @param {Number} $vi [3vi] - Amount of inline-axis (horizontal) space in the result.
 /// @return {Calc}
 /// @access private
 
-@function _cloud-space($amount: 1, $vh: 12vh, $vw: 3vw) {
+@function _cloud-space($amount: 1, $vb: 12vb, $vi: 3vi) {
   @if $amount == 1 {
-    @return calc(#{$vh} + #{$vw});
+    @return calc(#{$vb} + #{$vi});
   }
 
-  @return calc((#{$vh} + #{$vw}) * #{$amount});
+  @return calc((#{$vb} + #{$vi}) * #{$amount});
 }
 
 /**

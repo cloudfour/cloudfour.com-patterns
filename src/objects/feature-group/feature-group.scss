@@ -6,7 +6,7 @@
 
 .o-feature-group {
   display: grid;
-  grid-gap: fluid.fluid-clamp(
+  gap: fluid.fluid-clamp(
     size.$spacing-gap-fluid-min,
     size.$spacing-gap-fluid-max,
     breakpoint.$s,
@@ -20,13 +20,13 @@
 
   /// 1. keep intro from crowding action for short items
   @media (min-width: breakpoint.$l) {
-    grid-row-gap: ms.step(0); // 1
     grid-template-areas:
       'intro content content'
       'intro content content'
       'action content content';
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
+    row-gap: ms.step(0); // 1
   }
 }
 

@@ -66,13 +66,13 @@ $_cloud-height: fluid.fluid-clamp(
  */
 
 .c-card {
-  display: grid;
-  grid-column-gap: fluid.fluid-clamp(
+  column-gap: fluid.fluid-clamp(
     size.$spacing-gap-fluid-min,
     size.$spacing-gap-fluid-max,
     breakpoint.$s,
     breakpoint.$xl
   ); /* 1 */
+  display: grid;
   grid-template-areas:
     'cover'
     'header'

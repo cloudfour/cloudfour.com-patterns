@@ -11,8 +11,8 @@
 
 .o-deck {
   display: grid;
+  gap: spacing.$fluid-gap;
   grid-auto-flow: dense; /* 1 */
-  grid-gap: spacing.$fluid-gap;
 
   /**
    * We define a media query for our initial grid so child elements will flex

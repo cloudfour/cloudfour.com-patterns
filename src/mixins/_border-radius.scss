@@ -9,7 +9,7 @@
 @mixin conditional($amount: size.$border-radius-card-contained) {
   border-radius: clamp(
     0px,
-    ((100vw - #{math.div($amount, 2)}) - 100%) * 9999,
+    ((100vi - #{math.div($amount, 2)}) - 100%) * 9999,
     #{$amount}
   );
 }

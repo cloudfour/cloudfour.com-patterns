@@ -2,6 +2,7 @@ import { dirname, join } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
+import remarkGfm from 'remark-gfm';
 import svgr from 'vite-plugin-svgr';
 
 import { twigPlugin } from '../twing/vite-plugin-twig.mjs';
@@ -12,7 +13,18 @@ const storybookConfig = {
   stories: ['../src/**/*.stories.js', '../src/**/*.mdx'],
   staticDirs: ['../static', '../src/assets'],
   addons: [
-    '@storybook/addon-docs',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        // MDX 2+ dropped GitHub Flavored Markdown, so tables (and strikethrough,
+        // task lists, autolinks) need remark-gfm to render.
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
     '@storybook/addon-a11y',
     '@etchteam/storybook-addon-status',
     '@whitespace/storybook-addon-html',

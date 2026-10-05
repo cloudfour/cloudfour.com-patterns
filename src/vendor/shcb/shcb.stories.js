@@ -28,10 +28,9 @@ const meta = {
       const result = story();
       // A story can render to a DOM node rather than a string; only the string form
       // can be wrapped by concatenating markup around it.
-      if (typeof result === 'string' && result.includes('wp-block-code')) {
-        return `<div class="o-container o-container--pad o-container--prose"><div class="o-container__content">${result}</div></div>`;
-      }
-      return result;
+      return typeof result === 'string' && result.includes('wp-block-code')
+        ? `<div class="o-container o-container--pad o-container--prose"><div class="o-container__content">${result}</div></div>`
+        : result;
     },
   ],
 };

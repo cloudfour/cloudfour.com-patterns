@@ -77,10 +77,7 @@ export const parameters = {
             storyContext.args || storyContext.initialArgs,
           );
           const input = globalThis.__twig_inputs__?.get(rendered);
-          if (!input) {
-            return code;
-          }
-          return makeTwigInclude(input.path, input.args);
+          return input ? makeTwigInclude(input.path, input.args) : code;
         } catch {
           return code;
         }

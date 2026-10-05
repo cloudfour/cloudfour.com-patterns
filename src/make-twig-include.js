@@ -4,13 +4,8 @@
  *
  * @param {Record<string, unknown>} args
  */
-export const makeArgsString = (args = {}) => {
-  if (Object.keys(args).length > 0) {
-    return ` with ${JSON.stringify(args, null, 2)}`;
-  }
-
-  return '';
-};
+export const makeArgsString = (args = {}) =>
+  Object.keys(args).length > 0 ? ` with ${JSON.stringify(args, null, 2)}` : '';
 
 /**
  * Generate a twig source string of an include with args, i.e.

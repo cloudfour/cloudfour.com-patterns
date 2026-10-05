@@ -23,14 +23,15 @@ const initCommentReplyForms = () => {
   const commentReplyFormEl = /** @type {HTMLElement | null} */ (
     document.querySelector('.js-comment-with-reply-form')
   );
-  if (textAreaEl && commentReplyFormEl) {
-    const textareaInstance = createElasticTextArea(textAreaEl);
-    const commentReplyFormInstance = initCommentReplyForm(commentReplyFormEl);
-    return () => {
-      textareaInstance.destroy();
-      commentReplyFormInstance.destroy();
-    };
+  if (!textAreaEl || !commentReplyFormEl) {
+    return;
   }
+  const textareaInstance = createElasticTextArea(textAreaEl);
+  const commentReplyFormInstance = initCommentReplyForm(commentReplyFormEl);
+  return () => {
+    textareaInstance.destroy();
+    commentReplyFormInstance.destroy();
+  };
 };
 // Generate random comments for better performance.
 // Before, the makeComment() function was called inline inside each <Story> but

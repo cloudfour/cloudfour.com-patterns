@@ -119,7 +119,7 @@
     "prettier": "3.9.9",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "react-syntax-highlighter": "16.1.1",
+    "react-syntax-highlighter": "16.1.2",
     "remark-gfm": "4.0.1",
     "remark-preset-lint-recommended": "7.0.1",
     "remark-preset-prettier": "2.0.2",

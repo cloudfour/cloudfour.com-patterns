@@ -1,26 +1,6 @@
 module.exports = {
   extends: ['stylelint-config-cloudfour'],
   rules: {
-    // Disable stylelint-scss rules that conflict with Prettier.
-    //
-    // stylelint 15 deprecated its own stylistic rules and 16 removed them, which is
-    // why `stylelint-config-prettier` is gone -- it has nothing left to turn off and
-    // is unusable past stylelint 14. That retirement did not extend to stylelint-scss,
-    // which still ships and enables every one of these, so they still have to be
-    // disabled by hand.
-    'scss/at-else-closing-brace-newline-after': null,
-    'scss/at-else-closing-brace-space-after': null,
-    'scss/at-else-empty-line-before': null,
-    'scss/at-else-if-parentheses-space-before': null,
-    'scss/at-function-parentheses-space-before': null,
-    'scss/at-if-closing-brace-newline-after': null,
-    'scss/at-if-closing-brace-space-after': null,
-    'scss/at-mixin-parentheses-space-before': null,
-    'scss/dollar-variable-colon-space-after': null,
-    'scss/dollar-variable-colon-space-before': null,
-    'scss/operator-no-newline-after': null,
-    'scss/operator-no-newline-before': null,
-    'scss/operator-no-unspaced': null,
     /**
      * 1. separating grid-template-rows and grid-template-columns
      *    improves readability
@@ -51,20 +31,31 @@ module.exports = {
       true,
       { ignoreMediaFeatureNames: ['breakpoint'] },
     ],
-    // Prefer flow-relative (logical) properties, units, and keywords.
+    // The shared config enables these, but setting a rule replaces its
+    // options, so the shared config's ignored properties are repeated here.
     'property-layout-mappings': [
       'flow-relative',
       {
-        // Until Safari 15 adoption is higher
-        ignoreProperties: [/^border-.+-radius$/v],
+        ignoreProperties: [
+          // Until Safari 15 adoption is higher
+          /^border-.+-radius$/v,
+          // Shared config: overflow-inline and overflow-block need Safari 26
+          'overflow-x',
+          'overflow-y',
+        ],
       },
     ],
-    'unit-layout-mappings': 'flow-relative',
     'value-keyword-layout-mappings': [
       'flow-relative',
       {
-        // Until Safari 15 adoption is higher
-        ignoreProperties: ['clear', 'float'],
+        ignoreProperties: [
+          // Until Safari 15 adoption is higher
+          'clear',
+          'float',
+          // Shared config: browsers don't support logical keywords in these yet
+          'offset-anchor',
+          'offset-position',
+        ],
       },
     ],
   },

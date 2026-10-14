@@ -116,7 +116,7 @@ $breakpoint-wide: breakpoint.$m + 5em;
 
   @media (width < $breakpoint-wide) {
     aspect-ratio: 2/3; // 1
-    float: right;
+    float: inline-end;
     inline-size: calc(50% - #{size.$spacing-gap-inline-small}); // 2
     margin: size.$spacing-gap-inline-small;
     margin-inline-end: 0;

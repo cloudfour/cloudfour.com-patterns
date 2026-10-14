@@ -165,14 +165,11 @@
     @include base-hover;
   }
 
-  /// 1. Our linter is getting confused by the Sass expression and trying to
-  ///    split this into multiple lines.
   &::after {
     @include base-inner-pseudo-default;
     background-color: currentColor;
     border-radius: inherit;
-    // stylelint-disable-next-line liberty/use-logical-spec
-    inset: size.$edge-control * 2; // 1
+    inset: size.$edge-control * 2;
   }
 
   &:checked {

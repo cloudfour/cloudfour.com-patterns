@@ -477,14 +477,14 @@ figure.wp-block-image {
 
   &.alignleft {
     @media (width >= breakpoint.$m) {
-      float: left;
+      float: inline-start;
       margin-inline-end: size.$rhythm-generous;
     }
   }
 
   &.alignright {
     @media (width >= breakpoint.$m) {
-      float: right;
+      float: inline-end;
       margin-inline-start: size.$rhythm-generous;
     }
   }

@@ -154,7 +154,7 @@
   /// too much to enforce consistent columns.
   .field-name,
   .field-value {
-    float: left;
+    float: inline-start;
   }
 
   /// 1. Break onto a new line with each field name.
@@ -163,7 +163,7 @@
   ///    affordances to make the values distinct.
   /// 3. Add a bit of space between names and values.
   .field-name {
-    clear: left; // 1
+    clear: inline-start; // 1
     font-weight: font-weight.$medium; // 2
     margin-inline-end: 1ch; // 3
 
@@ -180,7 +180,7 @@
 
     /// Empty field values need to clear floats to maintain margin.
     &:empty {
-      clear: left;
+      clear: inline-start;
       float: none;
 
       /// If the browser supports `:has()`, we can hide the field value entirely

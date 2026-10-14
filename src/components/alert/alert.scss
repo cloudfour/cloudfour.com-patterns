@@ -96,8 +96,8 @@
   --icon-size: #{size.$icon-medium};
   align-items: center;
   background-color: var(--theme-color-background-icon);
-  border-bottom-left-radius: size.$border-radius-medium;
-  border-top-left-radius: size.$border-radius-medium;
+  border-end-start-radius: size.$border-radius-medium;
+  border-start-start-radius: size.$border-radius-medium;
   color: var(--theme-color-icon);
   display: flex;
   grid-area: icon;

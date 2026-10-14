@@ -1,5 +1,11 @@
 # @cloudfour/patterns
 
+## 17.2.3
+
+### Patch Changes
+
+- [#2548](https://github.com/cloudfour/cloudfour.com-patterns/pull/2548) [`70e78e0`](https://github.com/cloudfour/cloudfour.com-patterns/commit/70e78e03a0f345f6d4f0764b977a29bd35876251) Thanks [@renovate](https://github.com/apps/renovate)! - Use logical CSS for corner radii and floats: `border-start-start-radius` and friends instead of `border-top-left-radius` in the Alert, Calendar Date and Input Group patterns, and `float`/`clear` `inline-start`/`inline-end` instead of `left`/`right` in Hype Group and the WordPress image and Jetpack contact form styles. Remove the physical `float` fallbacks from the float utilities.
+
 ## 17.2.2
 
 ### Patch Changes

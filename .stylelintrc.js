@@ -31,32 +31,5 @@ module.exports = {
       true,
       { ignoreMediaFeatureNames: ['breakpoint'] },
     ],
-    // The shared config enables these, but setting a rule replaces its
-    // options, so the shared config's ignored properties are repeated here.
-    'property-layout-mappings': [
-      'flow-relative',
-      {
-        ignoreProperties: [
-          // Until Safari 15 adoption is higher
-          /^border-.+-radius$/v,
-          // Shared config: overflow-inline and overflow-block need Safari 26
-          'overflow-x',
-          'overflow-y',
-        ],
-      },
-    ],
-    'value-keyword-layout-mappings': [
-      'flow-relative',
-      {
-        ignoreProperties: [
-          // Until Safari 15 adoption is higher
-          'clear',
-          'float',
-          // Shared config: browsers don't support logical keywords in these yet
-          'offset-anchor',
-          'offset-position',
-        ],
-      },
-    ],
   },
 };

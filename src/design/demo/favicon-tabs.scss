@@ -18,8 +18,8 @@
   li {
     align-items: center;
     block-size: 36px;
-    border-top-left-radius: size.$border-radius-medium;
-    border-top-right-radius: size.$border-radius-medium;
+    border-start-end-radius: size.$border-radius-medium;
+    border-start-start-radius: size.$border-radius-medium;
     display: flex;
     flex: 1;
     max-inline-size: 220px;

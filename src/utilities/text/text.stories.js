@@ -1,6 +1,8 @@
 /** @import { Meta, StoryObj } from '@storybook/html' */
 import colorDemo from './demo/color.twig';
 import colorDemoSource from './demo/color.twig?raw';
+import lightDemo from './demo/light.twig';
+import lightDemoSource from './demo/light.twig?raw';
 import noWrapDemo from './demo/nowrap.twig';
 import noWrapDemoSource from './demo/nowrap.twig?raw';
 import sizeDemo from './demo/size.twig';
@@ -27,6 +29,13 @@ export const ActionText = {
   name: 'Action text',
   parameters: { docs: { source: { code: colorDemoSource } } },
   render: (args) => colorDemo(args),
+};
+
+/** @type {StoryObj} */
+export const LightText = {
+  name: 'Light text',
+  parameters: { docs: { source: { code: lightDemoSource } } },
+  render: (args) => lightDemo(args),
 };
 
 /** @type {StoryObj} */

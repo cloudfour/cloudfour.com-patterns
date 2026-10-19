@@ -1,0 +1,9 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad'
+} only %}
+  {% block content %}
+    <div class="u-bg-green u-pad-n1">
+      <p class="u-text-light">This is text that has the u-text-light utility class applied.</p>
+    </div>
+  {% endblock %}
+{% endembed %}

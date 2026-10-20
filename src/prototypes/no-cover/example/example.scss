@@ -48,23 +48,17 @@ $_content-gap: ms.step(-1, 1rem);
 
 /**
  * The heading is treated like a cover image.
- * 1. Default that can be overridden with a background color utility.
 **/
 
 .c-card:not(:has(.c-card__cover)) .c-card__heading {
   align-content: center;
   aspect-ratio: aspect-ratio.$wide;
-  background-color: color.$brand-primary-dark; /* 1 */
   grid-area: cover;
   padding: $_content-gap;
 }
 
-/**
- * 1. Default that can be overridden with a text color utility.
-**/
 
 .c-card:not(:has(.c-card__cover)) .c-card__link {
-  color: color.$base-white; /* 1 */
   transition: font-size transition.$prompt ease.$out;
 }
 

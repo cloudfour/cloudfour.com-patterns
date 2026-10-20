@@ -1,0 +1,12 @@
+{% embed '@cloudfour/objects/container/container.twig' with {
+  class: 'o-container--pad'
+} only %}
+  {% block content %}
+    <div class="u-bg-green u-pad-n1">
+      <p class="u-text-light">This is text that has the u-text-light utility class applied.</p>
+    </div>
+    <div class="u-text-light u-pad-n1">
+      <p class="u-text-dark">This is text that has the u-text-dark utility class applied, overriding the u-text-light class applied to the parent element.</p>
+    </div>
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,21 @@
+@use '../../compiled/tokens/scss/color';
+
+.u-bg-green {
+  background: color.$base-green !important;
+}
+
+.u-bg-purple {
+  background: color.$base-purple !important;
+}
+
+.u-bg-fuchsia {
+  background: color.$base-fuchsia !important;
+}
+
+.u-bg-orange {
+  background: color.$base-orange !important;
+}
+
+.u-bg-none {
+  background: transparent !important;
+}

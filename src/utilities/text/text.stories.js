@@ -33,7 +33,7 @@ export const ActionText = {
 
 /** @type {StoryObj} */
 export const LightText = {
-  name: 'Light text',
+  name: 'Light and dark text',
   parameters: { docs: { source: { code: lightDemoSource } } },
   render: (args) => lightDemo(args),
 };

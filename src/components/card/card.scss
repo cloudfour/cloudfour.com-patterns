@@ -47,6 +47,7 @@ $_focus-overflow: (size.$edge-large * -1);
 /// @access private
 
 $_scale_up: 1.025;
+$_scale_up_font_size: $_scale_up * 1em;
 
 /// The cloudy modifier adds clouds to the bottom right corner and also applies
 /// some fluid padding to accommodate. The clouds feel best when they are sized
@@ -446,5 +447,5 @@ $_cloud-height: fluid.fluid-clamp(
 **/
 
 .c-card:not(:has(.c-card__cover)):hover:not(:active) .c-card__link {
-  font-size: $_scale_up;
+  font-size: $_scale_up_font_size;
 }

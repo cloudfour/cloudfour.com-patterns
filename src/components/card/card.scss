@@ -436,15 +436,16 @@ $_cloud-height: fluid.fluid-clamp(
   padding: $_content-gap;
 }
 
-.c-card:not(:has(.c-card__cover)) .c-card__link {
-  color: color.$text-light;
-  transition: font-size transition.$prompt ease.$out;
-}
-
 /**
  * Scale would be preferable for performance, however scaling either the heading
  * or the link removes the effect of the entire card being a selectable target!
 **/
+
+.c-card:not(:has(.c-card__cover)) .c-card__link {
+  color: color.$text-light;
+  // stylelint-disable-next-line plugin/no-low-performance-animation-properties
+  transition: font-size transition.$prompt ease.$out;
+}
 
 .c-card:not(:has(.c-card__cover)):hover:not(:active) .c-card__link {
   font-size: $_scale_up_font_size;

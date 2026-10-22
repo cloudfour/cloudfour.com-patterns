@@ -40,6 +40,15 @@ $_cover-gap: ms.step(1, 1rem);
 
 $_focus-overflow: (size.$edge-large * -1);
 
+/// In cards with links, the heading or cover image (if present) scales up
+/// slightly on hover.
+///
+/// @type Number
+/// @access private
+
+$_scale_up: 1.025;
+$_scale_up_font_size: $_scale_up * 1em;
+
 /// The cloudy modifier adds clouds to the bottom right corner and also applies
 /// some fluid padding to accommodate. The clouds feel best when they are sized
 /// just a _tad_ larger than this fluid padding.
@@ -376,7 +385,7 @@ $_cloud-height: fluid.fluid-clamp(
   transition: transform transition.$prompt ease.$out;
 
   .c-card--with-link:hover:not(:active) & {
-    transform: scale(1.025);
+    transform: scale($_scale_up);
   }
 }
 
@@ -398,4 +407,46 @@ $_cloud-height: fluid.fluid-clamp(
 
 .c-card__footer {
   grid-area: footer;
+}
+
+/**
+ * If there is no cover image, treat the header more like a cover image's
+ * container, with a matching aspect ratio and larger block end margin.
+**/
+
+.c-card:not(:has(.c-card__cover)) .c-card__header {
+  border-radius: size.$border-radius-medium;
+  display: block;
+  gap: 0;
+  margin-block-end: $_cover-gap;
+  overflow: hidden;
+}
+
+/**
+ * The heading is treated like a cover image.
+ * 1. Default, may be overwitten with background color utilities for visual variety
+**/
+
+.c-card:not(:has(.c-card__cover)) .c-card__heading {
+  align-content: center;
+  aspect-ratio: aspect-ratio.$wide;
+  background: color.$brand-primary; /* 1 */
+  color: color.$text-light;
+  grid-area: cover;
+  padding: $_content-gap;
+}
+
+/**
+ * Scale would be preferable for performance, however scaling either the heading
+ * or the link removes the effect of the entire card being a selectable target!
+**/
+
+.c-card:not(:has(.c-card__cover)) .c-card__link {
+  color: color.$text-light;
+  // stylelint-disable-next-line plugin/no-low-performance-animation-properties
+  transition: font-size transition.$prompt ease.$out;
+}
+
+.c-card:not(:has(.c-card__cover)):hover:not(:active) .c-card__link {
+  font-size: $_scale_up_font_size;
 }

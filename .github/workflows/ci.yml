@@ -72,10 +72,14 @@ jobs:
       # Chromium is not in the npm install: Playwright downloads browsers
       # separately. We deliberately do NOT cache them, per Playwright's own CI
       # guidance (https://playwright.dev/docs/ci) — restoring the cache costs
-      # about as much as downloading, and the system libraries Chromium needs
-      # are not cacheable, so `--with-deps` still spends 12-18s on a cache hit.
+      # about as much as downloading.
+      #
+      # We skip `--with-deps`. The ubuntu-latest image ships Google Chrome, so
+      # the system libraries Chromium needs are already installed. The flag
+      # would add ~25 MB of fonts from Ubuntu's package mirror, which sometimes
+      # slows to a crawl and has stretched this step from seconds to 10+ minutes.
       - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
       - name: Run Preprocess
         run: npm run preprocess
       - name: Run Build (necessary for including css file in tests)

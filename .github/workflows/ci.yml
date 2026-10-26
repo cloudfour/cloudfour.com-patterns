@@ -10,6 +10,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+# Every job normally finishes in under two minutes. The timeout-minutes caps
+# stop a hung job, such as a stalled download, from running until GitHub's
+# six-hour default timeout.
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -62,13 +65,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    # Every job normally finishes in under two minutes. The caps stop a hung job
-    # from running until GitHub's six-hour default timeout, which has happened
-    # here when the Ubuntu package mirror that `playwright install --with-deps`
-    # downloads from stalled. This job's cap is higher than the others because
-    # a slow-but-working mirror can take around 10 minutes, and that should
-    # still pass rather than fail.
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1

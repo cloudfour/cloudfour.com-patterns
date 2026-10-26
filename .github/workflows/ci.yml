@@ -13,6 +13,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7.0.1
       - name: Use Node.js
@@ -27,6 +28,7 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7.0.1
       - name: Use Node.js
@@ -45,6 +47,7 @@ jobs:
 
   build-storybook:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7.0.1
       - name: Use Node.js
@@ -59,6 +62,13 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    # Every job normally finishes in under two minutes. The caps stop a hung job
+    # from running until GitHub's six-hour default timeout, which has happened
+    # here when the Ubuntu package mirror that `playwright install --with-deps`
+    # downloads from stalled. This job's cap is higher than the others because
+    # a slow-but-working mirror can take around 10 minutes, and that should
+    # still pass rather than fail.
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1

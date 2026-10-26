@@ -127,7 +127,7 @@
     "rollup": "4.65.0",
     "rollup-plugin-dts": "6.5.1",
     "sass": "1.106.1",
-    "storybook": "10.6.1",
+    "storybook": "10.6.2",
     "style-dictionary": "5.7.0",
     "stylelint": "17.16.0",
     "stylelint-config-cloudfour": "12.0.0",

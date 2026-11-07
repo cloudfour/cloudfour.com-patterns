@@ -78,7 +78,7 @@
     "typography"
   ],
   "devDependencies": {
-    "@babel/core": "7.29.7",
+    "@babel/core": "7.29.13",
     "@babel/preset-env": "7.29.7",
     "@babel/preset-typescript": "7.29.7",
     "@changesets/changelog-github": "1.0.1",

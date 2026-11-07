@@ -129,7 +129,7 @@
     "sass": "1.107.1",
     "storybook": "10.6.5",
     "style-dictionary": "5.8.0",
-    "stylelint": "17.16.0",
+    "stylelint": "18.0.0",
     "stylelint-config-cloudfour": "12.0.0",
     "stylelint-scss": "7.4.0",
     "svgo": "4.1.0",

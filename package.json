@@ -116,7 +116,7 @@
     "postcss": "8.5.32",
     "postcss-inline-svg": "6.0.0",
     "postcss-media-minmax": "5.0.0",
-    "prettier": "3.9.10",
+    "prettier": "3.10.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-syntax-highlighter": "16.1.2",
